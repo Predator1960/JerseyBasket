@@ -13,9 +13,9 @@
  * Built for Jersey, Channel Islands.
  * Contact: hello@jerseybasket.je
  *
- * Version:   v41
+ * Version:   v42
  * Updated:   1 June 2026
- * Changes:   Fix Share button on iPhone - replace ↗ arrow with 📤 emoji to prevent Safari native share button rendering
+ * Changes:   Remove Share button temporarily to fix iPhone header overflow
  *            in the header (e.g. for ethical/personal reasons). Hidden stores are
  *            removed from product cards, store pin chips, and basket comparisons.
  *            Setting persists for the session.
@@ -944,15 +944,7 @@ export default function JerseyGroceryApp() {
               </div>
             </div>
             <div style={{ display:"flex",gap:4,alignItems:"center",flexShrink:0 }}>
-              {/* Share icon button */}
-              <button onClick={()=>{
-                const shareData = { title:"JerseyBasket.je", text:"Compare grocery prices across all Jersey supermarkets! 🇯🇪", url:"https://jerseybasket.je" };
-                if (navigator.share) { navigator.share(shareData).catch(()=>{}); }
-                else { navigator.clipboard.writeText("https://jerseybasket.je").then(()=>showToast("🔗 Link copied!")); }
-              }} title="Share JerseyBasket"
-              style={{ WebkitAppearance:"none",appearance:"none",background:"rgba(255,255,255,.08)",border:"1px solid rgba(255,255,255,.1)",borderRadius:8,width:30,height:30,color:"#94a3b8",cursor:"pointer",fontSize:13,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,padding:0,boxSizing:"border-box" }}>
-                📤
-              </button>
+              {/* Share button removed temporarily */}
               {/* Report */}
               <button onClick={()=>setShowReport(true)} title="Report a problem"
               style={{ WebkitAppearance:"none",appearance:"none",background:"rgba(255,255,255,.08)",border:"1px solid rgba(255,255,255,.1)",borderRadius:8,width:30,height:30,color:"#94a3b8",cursor:"pointer",fontSize:14,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,padding:0 }}>
