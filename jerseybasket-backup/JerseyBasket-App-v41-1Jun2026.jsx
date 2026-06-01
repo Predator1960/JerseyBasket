@@ -13,12 +13,12 @@
  * Built for Jersey, Channel Islands.
  * Contact: hello@jerseybasket.je
  *
- * Version:   v29
- * Updated:   26 May 2026
- * Changes:   Morrisons UK prices applied from 998-product dataset
- *            (groceries.morrisons.com) — 26 May 2026.
- *            24 products updated: Bread, Dairy, Meat, Frozen,
- *            Pantry, Drinks, Health & Beauty.
+ * Version:   v41
+ * Updated:   1 June 2026
+ * Changes:   Fix Share button on iPhone - replace ↗ arrow with 📤 emoji to prevent Safari native share button rendering
+ *            in the header (e.g. for ethical/personal reasons). Hidden stores are
+ *            removed from product cards, store pin chips, and basket comparisons.
+ *            Setting persists for the session.
  * ============================================================
  */
 import React, { useState, useMemo, useRef, useEffect, useCallback } from "react";
@@ -223,7 +223,7 @@ const BASE_PRODUCTS = [
   {id:152,name:"Still Water (1.5L)",           cat:"🥤 Drinks",       icon:"💧", prices:sp(0.55,[0,0.08,0.3,0.22,0.04])},
   {id:153,name:"Sparkling Water (1.5L)",       cat:"🥤 Drinks",       icon:"💧", prices:sp(0.65,[0,0.08,0.3,0.22,0.04])},
   {id:154,name:"Coca-Cola (1.75L)",            cat:"🥤 Drinks",       icon:"🥤", prices:sp(2.20,[0,0.2,0.8,0.6,0.1])},
-  {id:155,name:"Pepsi Max (1.75L)",            cat:"🥤 Drinks",       icon:"🥤", prices:sp(2.10,[0,0.2,0.78,0.58,0.1])},
+  {id:155,name:"Pepsi Max (1.75L)",            cat:"🥤 Drinks",       icon:"🥤", prices:sp(2.10,[0,0.2,0.78,0.44,0.1])},
   {id:156,name:"Lemonade (2L)",                cat:"🥤 Drinks",       icon:"🥤", prices:sp(0.95,[0,0.1,0.38,0.28,0.05])},
   {id:157,name:"Fanta Orange (1.5L)",          cat:"🥤 Drinks",       icon:"🥤", prices:sp(1.65,[0,0.16,0.65,0.5,0.08])},
   {id:158,name:"Sprite (1.5L)",                cat:"🥤 Drinks",       icon:"🥤", prices:sp(1.65,[0,0.16,0.65,0.5,0.08])},
@@ -260,7 +260,7 @@ const BASE_PRODUCTS = [
   {id:187,name:"Tinned Chickpeas (400g)",      cat:"🍝 Pantry",       icon:"🫘", prices:sp(0.75,[0,0.08,0.38,0.28,0.04])},
   {id:188,name:"Tinned Kidney Beans (400g)",   cat:"🍝 Pantry",       icon:"🫘", prices:sp(0.70,[0,0.07,0.36,0.26,0.04])},
   {id:189,name:"Tinned Lentils (400g)",        cat:"🍝 Pantry",       icon:"🫘", prices:sp(0.80,[0,0.08,0.38,0.28,0.04])},
-  {id:190,name:"Tinned Baked Beans (415g)",    cat:"🍝 Pantry",       icon:"🫘", prices:sp(0.60,[0.05,0.06,0.35,0.25,0.03])},
+  {id:190,name:"Tinned Baked Beans (415g)",    cat:"🍝 Pantry",       icon:"🫘", prices:sp(0.70,[0,0.06,0.25,0.15,0.03])},
   {id:191,name:"Tinned Sweetcorn (340g)",      cat:"🍝 Pantry",       icon:"🌽", prices:sp(0.65,[0,0.08,0.32,0.24,0.04])},
   {id:192,name:"Tinned Coconut Milk (400ml)",  cat:"🍝 Pantry",       icon:"🥥", prices:sp(1.10,[0,0.1,0.45,0.34,0.05])},
   {id:193,name:"Olive Oil Extra Virgin (500ml)",cat:"🍝 Pantry",      icon:"🫒", prices:sp(3.80,[0,0.19,1.2,0.95,0.1])},
@@ -458,15 +458,94 @@ const BASE_PRODUCTS = [
   {id:371,name:"Jersey Elderflower Cordial",   cat:"🥔 Local Jersey", icon:"🌸",prices:sp(4.80,[0,0.44,1.3,1,0.22])},
   {id:372,name:"Local Free Range Eggs (6pk)",  cat:"🥔 Local Jersey", icon:"🥚",prices:sp(2.20,[0,0.2,0.65,0.5,0.1])},
   {id:373,name:"Jersey Woollen Jumper",        cat:"🥔 Local Jersey", icon:"🧶",prices:sp(45.0,[0,4,12,10,2])},
+  {id:374,name:"Halloumi (225g)",cat:"🥛 Dairy & Eggs",icon:"🧀",prices:sp(2.5,[0.35,-0.11,1.0,0.7,0.18])},
+  {id:375,name:"Clotted Cream (113g)",cat:"🥛 Dairy & Eggs",icon:"🍦",prices:sp(2.0,[0.35,0.4,1.0,0.8,0.14])},
+  {id:376,name:"Vine Tomatoes (220g)",cat:"🥦 Fruit & Veg",icon:"🍅",prices:sp(1.2,[0.25,0.95,1.3,1.0,0.08])},
+  {id:377,name:"Avocados (2pk)",cat:"🥦 Fruit & Veg",icon:"🥑",prices:sp(1.5,[0.25,1.1,1.3,1.1,0.11])},
+  {id:378,name:"Florette Salad (125g)",cat:"🥦 Fruit & Veg",icon:"🥗",prices:sp(1.2,[0.15,0.05,0.4,0.25,0.08])},
+  {id:379,name:"Fresh Coriander (30g)",cat:"🥦 Fruit & Veg",icon:"🌿",prices:sp(0.65,[0.1,-0.05,0.25,0.15,0.05])},
+  {id:380,name:"Fresh Basil (pot)",cat:"🥦 Fruit & Veg",icon:"🌿",prices:sp(1.5,[0.15,0.1,0.5,0.3,0.11])},
+  {id:381,name:"Cherries (500g)",cat:"🥦 Fruit & Veg",icon:"🍒",prices:sp(3.0,[0.35,0.5,1.2,0.8,0.21])},
+  {id:382,name:"Pears (4pk)",cat:"🥦 Fruit & Veg",icon:"🍐",prices:sp(1.5,[0.15,0.05,0.5,0.3,0.11])},
+  {id:383,name:"Strawberry Punnet (400g)",cat:"🥦 Fruit & Veg",icon:"🍓",prices:sp(2.5,[0.25,0.25,0.7,0.4,0.18])},
+  {id:384,name:"Seedless Grapes (500g)",cat:"🥦 Fruit & Veg",icon:"🍇",prices:sp(2.2,[0.25,-0.01,0.6,0.35,0.15])},
+  {id:385,name:"Burger Buns (4pk)",cat:"🍞 Bread & Bakery",icon:"🍔",prices:sp(1.2,[0.15,0.25,0.6,0.4,0.08])},
+  {id:386,name:"Pancakes (6pk)",cat:"🍞 Bread & Bakery",icon:"🥞",prices:sp(1.2,[0.15,0.3,0.6,0.45,0.08])},
+  {id:387,name:"Chicken Wings (750g)",cat:"🥩 Meat & Fish",icon:"🍗",prices:sp(3.0,[0.35,0.0,1.0,0.6,0.21])},
+  {id:388,name:"Beef Diced (350g)",cat:"🥩 Meat & Fish",icon:"🥩",prices:sp(4.0,[0.45,0.25,1.2,0.7,0.28])},
+  {id:389,name:"Beef Sirloin Steak (200g)",cat:"🥩 Meat & Fish",icon:"🥩",prices:sp(4.5,[0.5,-0.5,1.3,0.7,0.32])},
+  {id:390,name:"Smoked Haddock (240g)",cat:"🥩 Meat & Fish",icon:"🐟",prices:sp(4.0,[0.45,1.0,1.5,1.0,0.28])},
+  {id:391,name:"Cod Portions (240g)",cat:"🥩 Meat & Fish",icon:"🐟",prices:sp(4.0,[0.45,1.0,1.5,1.0,0.28])},
+  {id:392,name:"King Prawns (225g)",cat:"🥩 Meat & Fish",icon:"🦐",prices:sp(4.0,[0.45,0.25,1.2,0.7,0.28])},
+  {id:393,name:"Wafer Thin Ham (170g)",cat:"🥩 Meat & Fish",icon:"🥩",prices:sp(1.5,[0.15,-0.1,0.5,0.3,0.11])},
+  {id:394,name:"Chorizo Ring (200g)",cat:"🥩 Meat & Fish",icon:"🌭",prices:sp(2.8,[0.3,0.2,0.8,0.45,0.2])},
+  {id:395,name:"Frozen Berries (500g)",cat:"🧊 Frozen",icon:"🫐",prices:sp(2.5,[0.25,0.25,0.7,0.4,0.18])},
+  {id:396,name:"Frozen Hash Browns (700g)",cat:"🧊 Frozen",icon:"🥔",prices:sp(2.0,[0.25,0.2,0.6,0.35,0.14])},
+  {id:397,name:"Frozen Waffles (8pk)",cat:"🧊 Frozen",icon:"🧇",prices:sp(1.8,[0.2,-0.01,0.5,0.3,0.13])},
+  {id:398,name:"Chopped Tomatoes (4pk)",cat:"🍝 Pantry",icon:"🍅",prices:sp(2.4,[0.25,-0.52,0.6,0.3,0.17])},
+  {id:399,name:"Coconut Milk (400ml)",cat:"🍝 Pantry",icon:"🥥",prices:sp(1.2,[0.15,0.1,0.4,0.25,0.08])},
+  {id:400,name:"Gravy Granules (200g)",cat:"🍝 Pantry",icon:"🍖",prices:sp(1.5,[0.15,0.1,0.4,0.25,0.11])},
+  {id:401,name:"Custard (400g)",cat:"🍝 Pantry",icon:"🍮",prices:sp(1.3,[0.15,0.1,0.4,0.25,0.09])},
+  {id:402,name:"Breadcrumbs (400g)",cat:"🍝 Pantry",icon:"🍞",prices:sp(1.2,[0.15,0.05,0.4,0.25,0.08])},
+  {id:403,name:"Lemon Juice (250ml)",cat:"🍝 Pantry",icon:"🍋",prices:sp(0.9,[0.1,0.05,0.3,0.2,0.06])},
+  {id:404,name:"Tropicana Orange Juice (850ml)",cat:"🥤 Drinks",icon:"🍊",prices:sp(2.5,[0.25,0.0,0.7,0.4,0.18])},
+  {id:405,name:"Ribena Squash (850ml)",cat:"🥤 Drinks",icon:"🫐",prices:sp(2.0,[0.25,0.1,0.6,0.35,0.14])},
+  {id:406,name:"Coconut Water (1L)",cat:"🥤 Drinks",icon:"🥥",prices:sp(4.0,[0.45,0.0,1.0,0.5,0.28])},
+  {id:407,name:"Carex Hand Wash (250ml)",cat:"💊 Health & Beauty",icon:"🧴",prices:sp(1.5,[0.19,0.0,0.4,0.25,0.11])},
+  {id:408,name:"Radox Shower Gel (500ml)",cat:"💊 Health & Beauty",icon:"🚿",prices:sp(2.5,[0.25,0.5,0.7,0.4,0.18])},
+  {id:409,name:"Dove Body Wash (400ml)",cat:"💊 Health & Beauty",icon:"🚿",prices:sp(2.8,[0.3,0.2,0.8,0.45,0.2])},
+  {id:410,name:"Oral-B Toothbrush",cat:"💊 Health & Beauty",icon:"🪥",prices:sp(3.5,[0.35,0.25,1.0,0.6,0.25])},
+  {id:411,name:"Listerine Mouthwash (500ml)",cat:"💊 Health & Beauty",icon:"🦷",prices:sp(3.0,[0.15,0.33,0.8,0.45,0.21])},
+  {id:412,name:"Comfort Fabric Conditioner (1L)",cat:"🏠 Household",icon:"🧺",prices:sp(2.8,[0.3,0.19,0.8,0.45,0.2])},
+  {id:413,name:"Flash All Purpose Spray (500ml)",cat:"🏠 Household",icon:"🧹",prices:sp(1.8,[0.2,0.1,0.5,0.3,0.13])},
+  {id:414,name:"Domestos Bleach (750ml)",cat:"🏠 Household",icon:"🧴",prices:sp(1.2,[0.15,0.05,0.4,0.25,0.08])},
+  {id:415,name:"Sponge Scourers (5pk)",cat:"🏠 Household",icon:"🧽",prices:sp(1.2,[0.15,0.05,0.4,0.25,0.08])},
+  {id:416,name:"Bin Bags (20pk)",cat:"🏠 Household",icon:"🗑️",prices:sp(1.5,[0.15,0.1,0.4,0.25,0.11])},
+  {id:417,name:"Foil Roll (30m)",cat:"🏠 Household",icon:"✨",prices:sp(1.8,[0.2,0.1,0.5,0.3,0.13])},
+  {id:418,name:"Cling Film (30m)",cat:"🏠 Household",icon:"📦",prices:sp(1.5,[0.15,0.1,0.4,0.25,0.11])},
+  {id:419,name:"Baby Wipes (64pk)",cat:"👶 Baby & Toddler",icon:"🧻",prices:sp(2.0,[0.25,0.1,0.6,0.35,0.14])},
+  {id:420,name:"Sudocrem (125g)",cat:"👶 Baby & Toddler",icon:"🧴",prices:sp(3.5,[0.35,0.25,1.0,0.6,0.25])},
+  {id:421,name:"Felix Cat Food 12pk",cat:"🐾 Pet Care",icon:"🐱",prices:sp(5.0,[0.55,0.25,1.5,0.85,0.35])},
+  {id:422,name:"Pedigree Dog Food (1.5kg)",cat:"🐾 Pet Care",icon:"🐕",prices:sp(4.5,[0.5,0.25,1.3,0.7,0.32])},
+
+  /* ── NEW — verified Co-op Millennium Park receipt 28 May 2026 ─── */
+  {id:423,name:"Jersey Dairy Fresh Milk 1% (500ml)", cat:"🥔 Local Jersey", icon:"🥛",prices:sp(0.87,[0,-0.87,-0.87,-0.87,-0.87])},
+  {id:430,name:"Jersey Dairy Fresh Milk 1% (1L)",    cat:"🥔 Local Jersey", icon:"🥛",prices:sp(1.65,[-1.65,-1.65,-1.65,0,-1.65])},
+
+  /* ── NEW — verified Waitrose Red Houses receipt 31 May 2026 ─────────── */
+  {id:431,name:"Lurpak Salted Spread",               cat:"🧈 Dairy & Eggs", icon:"🧈",prices:sp(3.50,[-3.50,-3.50,-3.50,0,-3.50])},
+  {id:432,name:"Pepsi Cream Soda (8pk)",             cat:"🥤 Drinks",       icon:"🥤",prices:sp(5.12,[-5.12,-5.12,-5.12,0,-5.12])},
+  {id:433,name:"Ribena Blackcurrant (ready to drink)",cat:"🥤 Drinks",      icon:"🫐",prices:sp(2.44,[-2.44,-2.44,-2.44,0,-2.44])},
+  {id:434,name:"Waitrose Cauliflower Cheese",        cat:"🍝 Pantry",       icon:"🧀",prices:sp(4.06,[-4.06,-4.06,-4.06,0,-4.06])},
+  {id:435,name:"Waitrose Beef Lasagne",              cat:"🍝 Pantry",       icon:"🍝",prices:sp(4.76,[-4.76,-4.76,-4.76,0,-4.76])},
+  {id:436,name:"Waitrose Essential Cheese & Tomato Pizza",cat:"🍝 Pantry",  icon:"🍕",prices:sp(3.17,[-3.17,-3.17,-3.17,0,-3.17])},
+  {id:437,name:"Waitrose Essential Potato Salad",    cat:"🥦 Fruit & Veg",  icon:"🥔",prices:sp(1.51,[-1.51,-1.51,-1.51,0,-1.51])},
+  {id:438,name:"Waitrose Melton Mowbray Pork Pie",   cat:"🥩 Meat & Fish",  icon:"🥧",prices:sp(3.77,[-3.77,-3.77,-3.77,0,-3.77])},
+  {id:439,name:"Peas, Cabbage & Broccoli (frozen)",  cat:"🥦 Fruit & Veg",  icon:"🥦",prices:sp(2.85,[-2.85,-2.85,-2.85,0,-2.85])},
+  {id:440,name:"Waitrose Essential Mature Cheddar",  cat:"🧈 Dairy & Eggs", icon:"🧀",prices:sp(5.75,[-5.75,-5.75,-5.75,0,-5.75])},
+  {id:441,name:"Walkers Cheese & Onion Crisps",      cat:"🍿 Snacks",       icon:"🥔",prices:sp(2.40,[-2.40,-2.40,-2.40,0,-2.40])},
+  {id:442,name:"Walkers Ready Salted Crisps",        cat:"🍿 Snacks",       icon:"🥔",prices:sp(2.40,[-2.40,-2.40,-2.40,0,-2.40])},
+  {id:443,name:"Alpro Mango Protein Yogurt",         cat:"🧈 Dairy & Eggs", icon:"🥭",prices:sp(1.86,[-1.86,-1.86,-1.86,0,-1.86])},
+  {id:444,name:"Muller Corner Fruit Yogurt",         cat:"🧈 Dairy & Eggs", icon:"🍓",prices:sp(3.68,[-3.68,-3.68,-3.68,0,-3.68])},
+  {id:445,name:"Waitrose Essential Mineral Water",   cat:"💧 Drinks",       icon:"💧",prices:sp(1.69,[-1.69,-1.69,-1.69,0,-1.69])},
+  {id:446,name:"Waitrose Chocolate Raisins",         cat:"🍿 Snacks",       icon:"🍫",prices:sp(2.09,[-2.09,-2.09,-2.09,0,-2.09])},
+  {id:447,name:"Waitrose Wine Gums",                 cat:"🍿 Snacks",       icon:"🍬",prices:sp(1.34,[-1.34,-1.34,-1.34,0,-1.34])},
+  {id:448,name:"Waitrose No.1 Sea Salt Crisps",      cat:"🍿 Snacks",       icon:"🧂",prices:sp(1.64,[-1.64,-1.64,-1.64,0,-1.64])},
+  {id:424,name:"Jersey Dairy Fresh Milk 2.5% (500ml)",cat:"🥔 Local Jersey",icon:"🥛",prices:sp(0.87,[0,-0.87,-0.87,-0.87,-0.87])},
+  {id:425,name:"Cornish Pasty",                    cat:"🍝 Pantry",       icon:"🥟",prices:sp(2.80,[0,0,0,0,0])},
+  {id:426,name:"Chicken & Bacon Pasty",            cat:"🍝 Pantry",       icon:"🥟",prices:sp(2.80,[0,0,0,0,0])},
+  {id:427,name:"Dauphinoise Potatoes (400g)",      cat:"🍝 Pantry",       icon:"🥔",prices:sp(3.65,[0,0,0,0,0])},
+  {id:428,name:"Unsmoked Back Bacon (300g)",       cat:"🥩 Meat & Fish",  icon:"🥓",prices:sp(3.49,[0,0,0,0,0])},
+  {id:429,name:"Jacobs Twiglets (6x23g)",          cat:"🍿 Snacks",       icon:"🥨",prices:sp(2.55,[-2.55,-2.55,-2.55,0,-2.55])},
 ];
 
 /* ═══════════════════════════════════════════════════════════════════════════
    HELPERS
 ═══════════════════════════════════════════════════════════════════════════ */
-const getBestPrice   = p => Math.min(...Object.values(p.prices));
-const getWorstPrice  = p => Math.max(...Object.values(p.prices));
-const getBestStoreId = p => { const b=getBestPrice(p); return Object.entries(p.prices).find(([,v])=>v===b)?.[0]; };
-const getSortedPrices= p => Object.entries(p.prices).sort(([,a],[,b])=>a-b);
+const getBestPrice   = (p, disabled=new Set()) => { const vals=Object.entries(p.prices).filter(([k])=>!disabled.has(k)).map(([,v])=>v); return vals.length?Math.min(...vals):0; };
+const getWorstPrice  = (p, disabled=new Set()) => { const vals=Object.entries(p.prices).filter(([k])=>!disabled.has(k)).map(([,v])=>v); return vals.length?Math.max(...vals):0; };
+const getBestStoreId = (p, disabled=new Set()) => { const b=getBestPrice(p,disabled); return Object.entries(p.prices).find(([k,v])=>!disabled.has(k)&&v===b)?.[0]; };
+const getSortedPrices= (p, disabled=new Set()) => Object.entries(p.prices).filter(([k])=>!disabled.has(k)).sort(([,a],[,b])=>a-b);
 
 const ICON_OPTIONS = ["🛒","🥛","🥚","🧀","🧈","🍞","🥖","🥐","🍗","🥩","🥓","🐟","🍌","🍎","🥦","🥬","🫑","🥕","🍅","🥑","🍊","💧","☕","🍷","🍺","🍝","🍚","🫒","🧴","🧻","🪥","💊","🧹","🥔","🦀","🍦","🍯","🍕","🍟","🍨","🥨","🍫","🥜","🫧","🧼","💨","🍶","🌾","🫘","🌭","🥤","🍸","🧅","🧄","🥒","🍋","🍄","🍓","🫐","🍾","🥂","🍩","🦞","🍏","🍇","🌻","🐶","🐱","🦴","🍼","🩸","💊","🩹","🌸","🏷️","⚡","🥂","🥃","🌮","🥙","🍬","🍿","🥝","🍍","🥭","🌶️","🍠","🍈","🍆","🎃","🌽","🧇","🥞","🥯","🍳"];
 
@@ -565,26 +644,26 @@ function Tooltip({ text, children }) {
 }
 
 
-function ProductCard({ product, onAddToBasket, pinnedStore, isFavourite, onToggleFavourite }) {
+function ProductCard({ product, onAddToBasket, pinnedStore, isFavourite, onToggleFavourite, disabledStores=new Set() }) {
   const [open, setOpen]             = useState(false);
   // manualOverride tracks if the user explicitly picked a store via the dropdown
   const [manualOverride, setManualOverride] = useState(null);
 
-  const sorted     = getSortedPrices(product);
-  const bestPrice  = sorted[0][1];
-  const bestId     = sorted[0][0];
+  const sorted     = getSortedPrices(product, disabledStores);
+  const bestPrice  = sorted[0]?.[1] ?? 0;
+  const bestId     = sorted[0]?.[0];
 
   // Priority: manual override > global pin > cheapest
-  const effectiveStoreId = manualOverride
+  const effectiveStoreId = manualOverride && !disabledStores.has(manualOverride)
     ? manualOverride
-    : pinnedStore && product.prices[pinnedStore] !== undefined
+    : pinnedStore && product.prices[pinnedStore] !== undefined && !disabledStores.has(pinnedStore)
       ? pinnedStore
       : bestId;
 
   const chosenStoreId = effectiveStoreId;
-  const chosenPrice= product.prices[chosenStoreId];
+  const chosenPrice= product.prices[chosenStoreId] ?? 0;
   const chosenStore= STORES.find(s=>s.id===chosenStoreId);
-  const saving     = getWorstPrice(product)-bestPrice;
+  const saving     = getWorstPrice(product,disabledStores)-bestPrice;
   const overBest   = chosenPrice-bestPrice;
   const isOnBest   = chosenStoreId===bestId;
 
@@ -682,21 +761,55 @@ function ProductCard({ product, onAddToBasket, pinnedStore, isFavourite, onToggl
 const FORMSPREE_ID = "mvzyrgqj";
 
 /* ═══════════════════════════════════════════════════════════════════════════
+   JUNE COMPETITION — update LEADERBOARD entries below each week
+   Format: { name: "First L", count: 12 }   ← first name + last initial only
+   Set COMP_WINNER to "" while competition is live, or "First L" when decided.
+   Set COMP_ACTIVE to false after 30 June to hide the banner.
+═══════════════════════════════════════════════════════════════════════════ */
+const COMP_ACTIVE = true;
+const COMP_WINNER = ""; // e.g. "Sarah M" — leave blank while competition is live
+const LEADERBOARD = [
+  // ── TOP 5 — update these entries with real submissions ──────────────────
+  // { name: "Sarah M",  count: 24 },
+  // { name: "James O",  count: 18 },
+  // { name: "Claire B", count: 15 },
+  // { name: "Tom H",    count: 9  },
+  // { name: "Ruth K",   count: 7  },
+  // ── Remove the // at the start of each line above to activate ────────────
+];
+
+/* ═══════════════════════════════════════════════════════════════════════════
    MAIN APP
 ═══════════════════════════════════════════════════════════════════════════ */
 export default function JerseyGroceryApp() {
 
-  const [allProducts, setAllProducts]       = useState(BASE_PRODUCTS);
+  const [allProducts]                        = useState(BASE_PRODUCTS);
   const [activeCategory, setActiveCategory] = useState("All");
   const [searchQuery, setSearchQuery]       = useState("");
   const [basket, setBasket]                 = useState({});
   const [pinnedStore, setPinnedStore]       = useState(null);
   const [sortBy, setSortBy]                 = useState("bestPrice");
   const [view, setView]                     = useState("shop");
-  const [showEnquiry,  setShowEnquiry]  = useState(false);
-  const [showAddModal, setShowAddModal] = useState(false);
-  const [showHelp,     setShowHelp]     = useState(false);
-  const [showReport,   setShowReport]   = useState(false);
+  const [showEnquiry,    setShowEnquiry]    = useState(false);
+  const [showAddModal,   setShowAddModal]   = useState(false);
+  const [showHelp,       setShowHelp]       = useState(false);
+  const [showReport,     setShowReport]     = useState(false);
+  const [showSettings,   setShowSettings]   = useState(false);
+  const [disabledStores, setDisabledStores] = useState(new Set());
+  const [showCompetition,  setShowCompetition]  = useState(false);
+  const [showSubmitPrice,  setShowSubmitPrice]  = useState(false);
+
+
+  const toggleStore = (storeId) => {
+    setDisabledStores(prev => {
+      const next = new Set(prev);
+      if (next.has(storeId)) { next.delete(storeId); } else { next.add(storeId); }
+      if (next.has(storeId) && pinnedStore === storeId) setPinnedStore(null);
+      return next;
+    });
+  };
+
+  const activeStores = STORES.filter(s => !disabledStores.has(s.id));
 
   // Show welcome screen every time the app loads
   const [showWelcome, setShowWelcome] = useState(true);
@@ -707,8 +820,6 @@ export default function JerseyGroceryApp() {
   const [newItem, setNewItem]               = useState({ name:"", cat:"➕ Custom", icon:"🛒", prices:{coop:"",morrisons:"",ms:"",waitrose:"",iceland:""} });
   const [iconPickerOpen, setIconPickerOpen] = useState(false);
   const [addError, setAddError]             = useState("");
-  const nextId = useRef(1000);
-
   const [toast, setToast] = useState(null);
   const [favourites, setFavourites]         = useState(new Set());
   const [favBasket,  setFavBasket]          = useState({});
@@ -718,17 +829,17 @@ export default function JerseyGroceryApp() {
     setTimeout(()=>setToast(null), 3000);
   };
 
-  /* persist basket + favourites to sessionStorage */
+  /* persist basket + favourites to localStorage (survives app restart) */
   useEffect(()=>{
     try {
-      const b = sessionStorage.getItem("jb_basket");      if(b) setBasket(JSON.parse(b));
-      const f = sessionStorage.getItem("jb_favourites");  if(f) setFavourites(new Set(JSON.parse(f)));
-      const fb= sessionStorage.getItem("jb_fav_basket");  if(fb) setFavBasket(JSON.parse(fb));
+      const b = localStorage.getItem("jb_basket");      if(b) setBasket(JSON.parse(b));
+      const f = localStorage.getItem("jb_favourites");  if(f) setFavourites(new Set(JSON.parse(f)));
+      const fb= localStorage.getItem("jb_fav_basket");  if(fb) setFavBasket(JSON.parse(fb));
     } catch{}
   },[]);
-  useEffect(()=>{ try{sessionStorage.setItem("jb_basket",JSON.stringify(basket));}catch{} },[basket]);
-  useEffect(()=>{ try{sessionStorage.setItem("jb_favourites",JSON.stringify([...favourites]));}catch{} },[favourites]);
-  useEffect(()=>{ try{sessionStorage.setItem("jb_fav_basket",JSON.stringify(favBasket));}catch{} },[favBasket]);
+  useEffect(()=>{ try{localStorage.setItem("jb_basket",JSON.stringify(basket));}catch{} },[basket]);
+  useEffect(()=>{ try{localStorage.setItem("jb_favourites",JSON.stringify([...favourites]));}catch{} },[favourites]);
+  useEffect(()=>{ try{localStorage.setItem("jb_fav_basket",JSON.stringify(favBasket));}catch{} },[favBasket]);
 
   const toggleFavourite = useCallback((pid)=>{
     setFavourites(prev=>{
@@ -747,12 +858,12 @@ export default function JerseyGroceryApp() {
     if(activeCategory!=="All") list = list.filter(p=>p.cat===activeCategory);
     if(searchQuery) list = list.filter(p=>p.name.toLowerCase().includes(searchQuery.toLowerCase()));
     if(pinnedStore) list = list.filter(p=>p.prices[pinnedStore]!==undefined);
-    if(sortBy==="bestPrice") return [...list].sort((a,b)=>getBestPrice(a)-getBestPrice(b));
-    if(sortBy==="savings")   return [...list].sort((a,b)=>(getWorstPrice(b)-getBestPrice(b))-(getWorstPrice(a)-getBestPrice(a)));
+    if(sortBy==="bestPrice") return [...list].sort((a,b)=>getBestPrice(a,disabledStores)-getBestPrice(b,disabledStores));
+    if(sortBy==="savings")   return [...list].sort((a,b)=>(getWorstPrice(b,disabledStores)-getBestPrice(b,disabledStores))-(getWorstPrice(a,disabledStores)-getBestPrice(a,disabledStores)));
     if(sortBy==="az")        return [...list].sort((a,b)=>a.name.localeCompare(b.name));
     if(sortBy==="cat")       return [...list].sort((a,b)=>a.cat.localeCompare(b.cat)||a.name.localeCompare(b.name));
     return list;
-  },[allProducts,activeCategory,searchQuery,pinnedStore,sortBy]);
+  },[allProducts,activeCategory,searchQuery,pinnedStore,sortBy,disabledStores]);
 
   const addToBasket    = useCallback((pid,sid)=>setBasket(p=>{const k=`${pid}-${sid}`;return{...p,[k]:(p[k]||0)+1};}), []);
   const removeFromBasket   = useCallback(key=>setBasket(p=>{const n={...p};n[key]>1?n[key]--:delete n[key];return n;}), []);
@@ -769,7 +880,7 @@ export default function JerseyGroceryApp() {
   const basketCount    = Object.values(basket).reduce((a,b)=>a+b,0);
   const favCount       = favourites.size;
   const favBasketCount = Object.values(favBasket).reduce((a,b)=>a+b,0);
-  const optimalTotal   = basketItems.reduce((s,i)=>s+getBestPrice(i.product)*i.qty,0);
+  const optimalTotal   = basketItems.reduce((s,i)=>s+getBestPrice(i.product,disabledStores)*i.qty,0);
   const potentialSave  = basketTotal-optimalTotal;
 
   const storeBasketTotals = useMemo(()=>STORES.map(store=>({
@@ -819,72 +930,52 @@ export default function JerseyGroceryApp() {
       <div style={{ position:"fixed",inset:0,pointerEvents:"none",zIndex:0, background:"radial-gradient(ellipse 80% 60% at 15% 5%,rgba(0,180,100,.05) 0%,transparent 60%),radial-gradient(ellipse 60% 80% at 85% 95%,rgba(0,100,220,.06) 0%,transparent 60%)" }} />
 
       {/* ══ HEADER ══ */}
-      <header style={{ position:"sticky",top:0,zIndex:100, background:"rgba(5,13,26,.96)",backdropFilter:"blur(20px)", borderBottom:"1px solid rgba(255,255,255,.07)",padding:"0 16px" }}>
+      <header style={{ position:"sticky",top:0,zIndex:100, background:"rgba(5,13,26,.96)",backdropFilter:"blur(20px)", borderBottom:"1px solid rgba(255,255,255,.07)",padding:"0 12px" }}>
         <div style={{ maxWidth:1040,margin:"0 auto" }}>
-          <div style={{ display:"flex",alignItems:"center",justifyContent:"space-between",paddingTop:11,paddingBottom:8 }}>
-            <div>
-              <div style={{ display:"flex",alignItems:"center",gap:9 }}>
-                <span style={{ fontSize:22 }}>🛍️</span>
-                <div>
-                  <div style={{ fontSize:19,fontWeight:700,letterSpacing:"-0.5px",lineHeight:1.1 }}>
-                    Jersey<span style={{ color:"#22c55e" }}>Basket</span>
-                  </div>
-                  <div style={{ fontSize:9,color:"#475569",letterSpacing:".8px" }}>CHANNEL ISLANDS · {allProducts.length} PRODUCTS</div>
+          {/* ── ROW 1: logo + icon buttons ── */}
+          <div style={{ display:"flex",alignItems:"center",justifyContent:"space-between",paddingTop:10,paddingBottom:7,gap:6 }}>
+            <div style={{ display:"flex",alignItems:"center",gap:7,minWidth:0,flexShrink:1 }}>
+              <span style={{ fontSize:20,flexShrink:0 }}>🛍️</span>
+              <div style={{ minWidth:0 }}>
+                <div style={{ fontSize:14,fontWeight:700,letterSpacing:"-0.5px",lineHeight:1.1,whiteSpace:"nowrap" }}>
+                  Jersey<span style={{ color:"#22c55e" }}>Basket</span>
                 </div>
+                <div style={{ fontSize:8.5,color:"#475569",letterSpacing:".6px" }}>CHANNEL ISLANDS · {allProducts.length} PRODUCTS</div>
               </div>
             </div>
-            <div style={{ display:"flex",gap:7,alignItems:"center" }}>
-              {/* Share button */}
+            <div style={{ display:"flex",gap:4,alignItems:"center",flexShrink:0 }}>
+              {/* Share icon button */}
               <button onClick={()=>{
-                const shareData = {
-                  title: "JerseyBasket.je",
-                  text:  "Compare grocery prices across all Jersey supermarkets — cheapest price on every item, shopping basket, favourites and more! 🇯🇪",
-                  url:   "https://jerseybasket.je",
-                };
-                if (navigator.share) {
-                  navigator.share(shareData).catch(()=>{});
-                } else {
-                  navigator.clipboard.writeText("https://jerseybasket.je").then(()=>showToast("🔗 Link copied to clipboard!"));
-                }
-              }}
-              title="Share JerseyBasket"
-              style={{ background:"rgba(255,255,255,.08)",border:"1px solid rgba(255,255,255,.1)",borderRadius:9,padding:"6px 11px",color:"#94a3b8",cursor:"pointer",fontSize:14,display:"flex",alignItems:"center",gap:4,transition:"all .2s" }}
-              onMouseEnter={e=>{e.currentTarget.style.background="rgba(99,102,241,.2)";e.currentTarget.style.borderColor="rgba(99,102,241,.4)";e.currentTarget.style.color="#a5b4fc";}}
-              onMouseLeave={e=>{e.currentTarget.style.background="rgba(255,255,255,.08)";e.currentTarget.style.borderColor="rgba(255,255,255,.1)";e.currentTarget.style.color="#94a3b8";}}>
-                <span style={{ fontSize:13 }}>↗</span>
-                <span style={{ fontSize:11,fontWeight:600 }}>Share</span>
+                const shareData = { title:"JerseyBasket.je", text:"Compare grocery prices across all Jersey supermarkets! 🇯🇪", url:"https://jerseybasket.je" };
+                if (navigator.share) { navigator.share(shareData).catch(()=>{}); }
+                else { navigator.clipboard.writeText("https://jerseybasket.je").then(()=>showToast("🔗 Link copied!")); }
+              }} title="Share JerseyBasket"
+              style={{ WebkitAppearance:"none",appearance:"none",background:"rgba(255,255,255,.08)",border:"1px solid rgba(255,255,255,.1)",borderRadius:8,width:30,height:30,color:"#94a3b8",cursor:"pointer",fontSize:13,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,padding:0,boxSizing:"border-box" }}>
+                📤
               </button>
-              {/* Report a problem */}
-              <button onClick={()=>setShowReport(true)}
-              title="Report a problem"
-              style={{ background:"rgba(255,255,255,.08)",border:"1px solid rgba(255,255,255,.1)",borderRadius:9,width:30,height:30,color:"#94a3b8",cursor:"pointer",fontSize:14,display:"flex",alignItems:"center",justifyContent:"center",transition:"all .2s" }}
-              onMouseEnter={e=>{e.currentTarget.style.background="rgba(239,68,68,.15)";e.currentTarget.style.borderColor="rgba(239,68,68,.35)";e.currentTarget.style.color="#f87171";}}
-              onMouseLeave={e=>{e.currentTarget.style.background="rgba(255,255,255,.08)";e.currentTarget.style.borderColor="rgba(255,255,255,.1)";e.currentTarget.style.color="#94a3b8";}}>
+              {/* Report */}
+              <button onClick={()=>setShowReport(true)} title="Report a problem"
+              style={{ WebkitAppearance:"none",appearance:"none",background:"rgba(255,255,255,.08)",border:"1px solid rgba(255,255,255,.1)",borderRadius:8,width:30,height:30,color:"#94a3b8",cursor:"pointer",fontSize:14,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,padding:0 }}>
                 🚩
               </button>
-              {/* Help / features index */}
-              <button onClick={()=>setShowHelp(true)}
-              title="What can this app do?"
-              style={{ background:"rgba(255,255,255,.08)",border:"1px solid rgba(255,255,255,.1)",borderRadius:9,width:30,height:30,color:"#94a3b8",cursor:"pointer",fontSize:14,fontWeight:700,display:"flex",alignItems:"center",justifyContent:"center",transition:"all .2s" }}
-              onMouseEnter={e=>{e.currentTarget.style.background="rgba(34,197,94,.15)";e.currentTarget.style.borderColor="rgba(34,197,94,.35)";e.currentTarget.style.color="#22c55e";}}
-              onMouseLeave={e=>{e.currentTarget.style.background="rgba(255,255,255,.08)";e.currentTarget.style.borderColor="rgba(255,255,255,.1)";e.currentTarget.style.color="#94a3b8";}}>
+              {/* Help */}
+              <button onClick={()=>setShowHelp(true)} title="Help"
+              style={{ WebkitAppearance:"none",appearance:"none",background:"rgba(255,255,255,.08)",border:"1px solid rgba(255,255,255,.1)",borderRadius:8,width:30,height:30,color:"#94a3b8",cursor:"pointer",fontSize:14,fontWeight:700,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,padding:0 }}>
                 ?
               </button>
-              <button onClick={()=>{setShowAddModal(true);}} style={{ background:"rgba(34,197,94,.12)",border:"1px solid rgba(34,197,94,.3)",color:"#22c55e",borderRadius:9,padding:"6px 12px",cursor:"pointer",fontSize:12,fontWeight:700 }}>+ Add Item</button>
-              {/* favourites heart button */}
-              <button onClick={()=>setView("favourites")} style={{ background:view==="favourites"?"rgba(244,63,94,.2)":favCount>0?"rgba(244,63,94,.1)":"rgba(255,255,255,.08)",border:`1px solid ${view==="favourites"||favCount>0?"rgba(244,63,94,.4)":"rgba(255,255,255,.1)"}`,borderRadius:9,padding:"6px 11px",color:view==="favourites"?"#fb7185":favCount>0?"#f43f5e":"#64748b",cursor:"pointer",fontSize:13,fontWeight:600,display:"flex",alignItems:"center",gap:4,transition:"all .2s" }}>
-                {view==="favourites"?"♥":"♡"}
-                {favCount>0&&<span style={{ background:"#f43f5e",color:"#fff",borderRadius:"50%",width:17,height:17,display:"flex",alignItems:"center",justifyContent:"center",fontSize:9,fontWeight:700 }}>{favCount}</span>}
-              </button>
-              <button onClick={()=>setView(view==="basket"?"shop":"basket")} style={{ background:basketCount>0?"linear-gradient(135deg,#16a34a,#15803d)":"rgba(255,255,255,.08)",border:"none",borderRadius:9,padding:"6px 13px",color:"#fff",cursor:"pointer",fontSize:12,fontWeight:600,display:"flex",alignItems:"center",gap:5 }}>
-                🧺 {basketCount>0&&<span style={{ background:"#22c55e",color:"#fff",borderRadius:"50%",width:18,height:18,display:"flex",alignItems:"center",justifyContent:"center",fontSize:9,fontWeight:700 }}>{basketCount}</span>}
+              {/* Settings */}
+              <button onClick={()=>setShowSettings(true)} title="Settings"
+              style={{ WebkitAppearance:"none",appearance:"none",background:"rgba(255,255,255,.08)",border:"1px solid rgba(255,255,255,.1)",borderRadius:8,width:30,height:30,color:"#94a3b8",cursor:"pointer",fontSize:15,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,padding:0 }}>
+                ⚙️
               </button>
             </div>
           </div>
-          <div style={{ display:"flex",gap:3,paddingBottom:9 }}>
+          {/* ── ROW 2: nav tabs + add button ── */}
+          <div style={{ display:"flex",gap:3,paddingBottom:9,alignItems:"center" }}>
             {[["shop","🛒 Shop"],["basket","🧺 Basket"],["favourites",`♥ Saved${favCount>0?" ("+favCount+")":""}`],["compare","📊 Stores"]].map(([v,lbl])=>(
-              <button key={v} onClick={()=>setView(v)} style={{ background:view===v?(v==="favourites"?"rgba(244,63,94,.16)":"rgba(34,197,94,.16)"):"transparent", border:view===v?(v==="favourites"?"1px solid rgba(244,63,94,.38)":"1px solid rgba(34,197,94,.38)"):"1px solid transparent", color:view===v?(v==="favourites"?"#fb7185":"#22c55e"):"#64748b", borderRadius:7,padding:"4px 12px",cursor:"pointer",fontSize:11,fontWeight:700 }}>{lbl}</button>
+              <button key={v} onClick={()=>setView(v)} style={{ WebkitAppearance:"none",appearance:"none",background:view===v?(v==="favourites"?"rgba(244,63,94,.16)":"rgba(34,197,94,.16)"):"transparent", border:view===v?(v==="favourites"?"1px solid rgba(244,63,94,.38)":"1px solid rgba(34,197,94,.38)"):"1px solid transparent", color:view===v?(v==="favourites"?"#fb7185":"#22c55e"):"#64748b", borderRadius:7,padding:"4px 9px",cursor:"pointer",fontSize:11,fontWeight:700,flexShrink:0 }}>{lbl}</button>
             ))}
+            <button onClick={()=>setShowAddModal(true)} style={{ WebkitAppearance:"none",appearance:"none",marginLeft:"auto",background:"rgba(34,197,94,.12)",border:"1px solid rgba(34,197,94,.3)",color:"#22c55e",borderRadius:7,padding:"4px 10px",cursor:"pointer",fontSize:11,fontWeight:700,whiteSpace:"nowrap",flexShrink:0 }}>+ Add</button>
           </div>
         </div>
       </header>
@@ -948,9 +1039,10 @@ export default function JerseyGroceryApp() {
             {/* store filter */}
             <div style={{ display:"flex",gap:6,overflowX:"auto",paddingBottom:7,marginBottom:4 }}>
               <Chip active={!pinnedStore} onClick={()=>setPinnedStore(null)} color="#22c55e">🏷️ Best Price</Chip>
-              {STORES.map(s=>(
+              {activeStores.map(s=>(
                 <Chip key={s.id} active={pinnedStore===s.id} onClick={()=>setPinnedStore(pinnedStore===s.id?null:s.id)} color={s.color}>{s.emoji} {s.short}</Chip>
               ))}
+              {disabledStores.size>0&&<button onClick={()=>setShowSettings(true)} style={{ whiteSpace:"nowrap",padding:"4px 10px",borderRadius:18,fontSize:9.5,fontWeight:600,cursor:"pointer",background:"rgba(251,191,36,.1)",border:"1px solid rgba(251,191,36,.3)",color:"#fcd34d",flexShrink:0 }}>⚙️ {disabledStores.size} store{disabledStores.size>1?"s":""} hidden</button>}
             </div>
 
             {/* category pills */}
@@ -985,8 +1077,24 @@ export default function JerseyGroceryApp() {
               );
             })()}
 
+            {/* ── JUNE COMPETITION BANNER ── */}
+            {COMP_ACTIVE && (
+              <div onClick={()=>setShowCompetition(true)} style={{ marginBottom:12,background:"linear-gradient(135deg,#1a0a00 0%,#7c2d12 100%)",border:"1px solid rgba(251,146,60,.35)",borderRadius:12,padding:"11px 16px",display:"flex",alignItems:"center",justifyContent:"space-between",cursor:"pointer",gap:10 }}>
+                <div style={{ display:"flex",alignItems:"center",gap:10 }}>
+                  <span style={{ fontSize:22 }}>🏆</span>
+                  <div>
+                    <div style={{ fontSize:12,fontWeight:700,color:"#fed7aa" }}>June Price Hunt Competition!</div>
+                    <div style={{ fontSize:10,color:"#9a3412",marginTop:1 }}>Submit prices · Win a £10 gift voucher · Tap to see leaderboard</div>
+                  </div>
+                </div>
+                <button onClick={e=>{e.stopPropagation();setShowSubmitPrice(true);}} style={{ background:"linear-gradient(135deg,#ea580c,#c2410c)",border:"none",borderRadius:9,padding:"7px 12px",color:"#fff",fontSize:11,fontWeight:700,cursor:"pointer",whiteSpace:"nowrap",flexShrink:0 }}>
+                  Submit Price
+                </button>
+              </div>
+            )}
+
             <div style={{ display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(270px,1fr))",gap:11 }}>
-              {filteredProducts.map(p=><ProductCard key={p.id} product={p} onAddToBasket={addToBasket} pinnedStore={pinnedStore} isFavourite={favourites.has(p.id)} onToggleFavourite={toggleFavourite}/>)}
+              {filteredProducts.map(p=><ProductCard key={p.id} product={p} onAddToBasket={addToBasket} pinnedStore={pinnedStore} isFavourite={favourites.has(p.id)} onToggleFavourite={toggleFavourite} disabledStores={disabledStores}/>)}
             </div>
 
             {filteredProducts.length===0&&(
@@ -1061,7 +1169,7 @@ export default function JerseyGroceryApp() {
                 {/* line items */}
                 <div style={{ display:"flex",flexDirection:"column",gap:6,marginBottom:14 }}>
                   {basketItems.map(item=>{
-                    const overPay=item.price-getBestPrice(item.product);
+                    const overPay=item.price-getBestPrice(item.product,disabledStores);
                     return(
                       <BasketItem
                         key={item.key}
@@ -1110,7 +1218,7 @@ export default function JerseyGroceryApp() {
             return{key,product,store:STORES.find(s=>s.id===sId),qty,price:product.prices[sId]};
           }).filter(Boolean);
           const favBasketTotal = favBasketItems.reduce((s,i)=>s+i.price*i.qty,0);
-          const favOptimal     = favBasketItems.reduce((s,i)=>s+getBestPrice(i.product)*i.qty,0);
+          const favOptimal     = favBasketItems.reduce((s,i)=>s+getBestPrice(i.product,disabledStores)*i.qty,0);
 
           return (
             <div style={{ marginTop:18 }}>
@@ -1160,7 +1268,7 @@ export default function JerseyGroceryApp() {
                           <div>
                             <div style={{ fontSize:9,color:"#86efac",fontWeight:700 }}>🏆 BEST PRICE</div>
                             <div style={{ fontSize:11,color:"#d1fae5",fontWeight:600 }}>
-                              {STORES.find(s=>s.id===getBestStoreId(p))?.emoji} {STORES.find(s=>s.id===getBestStoreId(p))?.name}
+                              {STORES.find(s=>s.id===getBestStoreId(p,disabledStores))?.emoji} {STORES.find(s=>s.id===getBestStoreId(p,disabledStores))?.name}
                             </div>
                           </div>
                           <div style={{ fontSize:18,fontWeight:800,color:"#22c55e" }}>£{getBestPrice(p).toFixed(2)}</div>
@@ -1168,11 +1276,11 @@ export default function JerseyGroceryApp() {
 
                         {/* action buttons */}
                         <div style={{ display:"flex",gap:7 }}>
-                          <button onClick={()=>{ addToFavBasket(p.id,getBestStoreId(p)); showToast(`♥ Added to Favourites Basket`); }}
+                          <button onClick={()=>{ addToFavBasket(p.id,getBestStoreId(p,disabledStores)); showToast(`♥ Added to Favourites Basket`); }}
                             style={{ flex:1,padding:"6px 0",background:"linear-gradient(135deg,#f43f5e,#e11d48)",border:"none",borderRadius:8,color:"#fff",cursor:"pointer",fontSize:11,fontWeight:700 }}>
                             ♥ Add to Fav Basket
                           </button>
-                          <button onClick={()=>{ addToBasket(p.id,getBestStoreId(p)); showToast(`🧺 Added to Main Basket`); }}
+                          <button onClick={()=>{ addToBasket(p.id,getBestStoreId(p,disabledStores)); showToast(`🧺 Added to Main Basket`); }}
                             style={{ flex:1,padding:"6px 0",background:"rgba(34,197,94,.15)",border:"1px solid rgba(34,197,94,.3)",borderRadius:8,color:"#22c55e",cursor:"pointer",fontSize:11,fontWeight:700 }}>
                             🧺 Main Basket
                           </button>
@@ -1183,11 +1291,11 @@ export default function JerseyGroceryApp() {
 
                   {/* quick actions */}
                   <div style={{ display:"flex",gap:10,marginBottom:24,flexWrap:"wrap" }}>
-                    <button onClick={()=>{ favProducts.forEach(p=>addToFavBasket(p.id,getBestStoreId(p))); showToast(`♥ All ${favCount} items added to Favourites Basket`); }}
+                    <button onClick={()=>{ favProducts.forEach(p=>addToFavBasket(p.id,getBestStoreId(p,disabledStores))); showToast(`♥ All ${favCount} items added to Favourites Basket`); }}
                       style={{ padding:"9px 18px",background:"linear-gradient(135deg,#f43f5e,#e11d48)",border:"none",borderRadius:10,color:"#fff",cursor:"pointer",fontSize:12,fontWeight:700 }}>
                       ♥ Add All to Fav Basket
                     </button>
-                    <button onClick={()=>{ favProducts.forEach(p=>addToBasket(p.id,getBestStoreId(p))); showToast(`🧺 All ${favCount} items added to Main Basket`); }}
+                    <button onClick={()=>{ favProducts.forEach(p=>addToBasket(p.id,getBestStoreId(p,disabledStores))); showToast(`🧺 All ${favCount} items added to Main Basket`); }}
                       style={{ padding:"9px 18px",background:"rgba(34,197,94,.15)",border:"1px solid rgba(34,197,94,.3)",borderRadius:10,color:"#22c55e",cursor:"pointer",fontSize:12,fontWeight:700 }}>
                       🧺 Add All to Main Basket
                     </button>
@@ -1202,7 +1310,7 @@ export default function JerseyGroceryApp() {
                       </div>
                       <div style={{ display:"flex",flexDirection:"column",gap:6,marginBottom:14 }}>
                         {favBasketItems.map(item=>{
-                          const overPay=item.price-getBestPrice(item.product);
+                          const overPay=item.price-getBestPrice(item.product,disabledStores);
                           return(
                             <div key={item.key} style={{ display:"flex",alignItems:"center",justifyContent:"space-between",background:"rgba(244,63,94,.05)",borderRadius:12,padding:"9px 13px",border:"1px solid rgba(244,63,94,.15)",transition:"all .2s" }}>
                               <div style={{ display:"flex",alignItems:"center",gap:8,flex:1,minWidth:0 }}>
@@ -1461,7 +1569,7 @@ export default function JerseyGroceryApp() {
       </div>
 
       {/* ── WELCOME SCREEN — first visit only ── */}
-      {showWelcome && <WelcomeModal onDismiss={dismissWelcome} />}
+      {showWelcome && <WelcomeModal onDismiss={dismissWelcome} onSubmitPrice={()=>setShowSubmitPrice(true)} />}
 
       {/* ── REPORT MODAL ── */}
       {showReport && <ReportModal onClose={()=>setShowReport(false)} />}
@@ -1478,6 +1586,15 @@ export default function JerseyGroceryApp() {
         setShowHelp(false);
         setShowWelcome(true);
       }} />}
+
+      {/* ── SETTINGS MODAL ── */}
+      {showSettings && <SettingsModal disabledStores={disabledStores} onToggleStore={toggleStore} onClose={()=>setShowSettings(false)} />}
+
+      {/* ── COMPETITION MODAL ── */}
+      {showCompetition && <CompetitionModal onClose={()=>setShowCompetition(false)} onSubmit={()=>{setShowCompetition(false);setShowSubmitPrice(true);}} />}
+
+      {/* ── SUBMIT PRICE MODAL ── */}
+      {showSubmitPrice && <SubmitPriceModal onClose={()=>setShowSubmitPrice(false)} />}
 
       <AdBanner onEnquiry={()=>setShowEnquiry(true)} />
 
@@ -1499,7 +1616,7 @@ const AD_SLIDES = [
     headline: { before:"This could be ",   highlight:"your",  highlightColor:"#4ade80", after:" Business" },
     sub:      { text:"Reach every Jersey shopper — every day", color:"#86efac" },
     cta:      { label:"Advertise here",    labelColor:"#4ade80", url:"jerseybasket.je", urlColor:"#f0fdf4", arrowBg:"#4ade80",   arrowColor:"#052e16", boxBg:"rgba(74,222,128,0.15)", boxBorder:"#4ade80" },
-    stats:    [{ val:"1,500+", label:"monthly users" },{ val:"373",    label:"products" }],
+    stats:    [{ val:"730+", label:"weekly users" },{ val:"428",    label:"products" }],
     statColor:"#4ade80",
     accent:   "linear-gradient(90deg,transparent,#22c55e55,transparent)",
     deco: true,
@@ -1608,13 +1725,6 @@ function InstallSteps({ accent = "#22c55e", compact = false }) {
 
   const steps = tab === "iphone" ? iphoneSteps : androidSteps;
 
-  const handleOpenSafari = () => {
-    // Copy link and instruct - most reliable cross-browser approach
-    navigator.clipboard.writeText("https://jerseybasket.je")
-      .then(()=>alert("✅ Link copied!\n\nNow:\n1. Open Safari on your iPhone\n2. Tap the address bar\n3. Paste and go to jerseybasket.je"))
-      .catch(()=>alert("Open Safari and type: jerseybasket.je"));
-  };
-
   const handleCopyLink = () => {
     navigator.clipboard.writeText("https://jerseybasket.je")
       .then(()=>alert("✅ Link copied! Now open Safari and paste it in the address bar."))
@@ -1693,14 +1803,14 @@ function InstallSteps({ accent = "#22c55e", compact = false }) {
 /* ═══════════════════════════════════════════════════════════════════════════
    WELCOME SCREEN — shown once to first-time visitors
 ═══════════════════════════════════════════════════════════════════════════ */
-function WelcomeModal({ onDismiss }) {
+function WelcomeModal({ onDismiss, onSubmitPrice }) {
   const [step, setStep] = useState(0);
 
   const steps = [
     {
       emoji: "🛍️",
       title: "Welcome to JerseyBasket.je",
-      subtitle: "Jersey's first grocery price comparison app",
+      subtitle: "Join 730+ Jersey shoppers saving money every week",
       body: "Compare prices across all 5 Jersey supermarkets instantly. Find the cheapest price on every item — and build your shopping list before you leave the house.",
       bg: "linear-gradient(135deg,#052e16 0%,#14532d 50%,#16a34a 100%)",
       accent: "#22c55e",
@@ -1708,7 +1818,7 @@ function WelcomeModal({ onDismiss }) {
     {
       emoji: "🏆",
       title: "Always the Cheapest Price First",
-      subtitle: "373+ products across 5 stores",
+      subtitle: "428+ products across 5 stores",
       body: "Every product shows you the lowest price available in Jersey right now. Tap the store pill to compare all stores — or pin one store to see all their prices at once.",
       bg: "linear-gradient(135deg,#0c1445 0%,#1e3a8a 100%)",
       accent: "#93c5fd",
@@ -1738,6 +1848,15 @@ function WelcomeModal({ onDismiss }) {
       accent: "#22c55e",
       installSteps: true,
     },
+    {
+      emoji: "🏆",
+      title: "June Price Hunt!",
+      subtitle: "Win a £10 gift voucher",
+      body: "Help us verify prices across Jersey's 5 supermarkets — and win! Submit prices from your shopping receipts throughout June. The shopper who submits the most verified prices wins a £10 gift voucher. 🇯🇪",
+      bg: "linear-gradient(135deg,#1a0a00 0%,#7c2d12 60%,#c2410c 100%)",
+      accent: "#fb923c",
+      competition: true,
+    },
   ];
 
   const s = steps[step];
@@ -1745,10 +1864,10 @@ function WelcomeModal({ onDismiss }) {
 
   return (
     <div style={{ position:"fixed",inset:0,zIndex:1000,display:"flex",alignItems:"center",justifyContent:"center",background:"rgba(0,0,0,.85)",backdropFilter:"blur(10px)",padding:16 }}>
-      <div style={{ width:"100%",maxWidth:460,borderRadius:24,overflow:"hidden",boxShadow:"0 24px 80px rgba(0,0,0,.7)" }}>
+      <div style={{ width:"100%",maxWidth:460,borderRadius:24,overflow:"hidden",boxShadow:"0 24px 80px rgba(0,0,0,.7)",display:"flex",flexDirection:"column",maxHeight:"90vh" }}>
 
-        {/* slide */}
-        <div style={{ background:s.bg,padding:"40px 32px 32px",position:"relative",minHeight:320,display:"flex",flexDirection:"column",alignItems:"center",textAlign:"center" }}>
+        {/* slide — scrollable content area */}
+        <div style={{ background:s.bg,padding:"40px 32px 32px",position:"relative",flex:1,overflowY:"auto",display:"flex",flexDirection:"column",alignItems:"center",textAlign:"center" }}>
           {/* skip button */}
           <button onClick={onDismiss} style={{ position:"absolute",top:16,right:16,background:"rgba(255,255,255,.1)",border:"none",borderRadius:7,padding:"4px 10px",color:"rgba(255,255,255,.5)",cursor:"pointer",fontSize:11,fontWeight:600 }}>
             Skip
@@ -1772,15 +1891,48 @@ function WelcomeModal({ onDismiss }) {
             {s.body}
           </div>
 
-          {/* install steps — only on last slide */}
+          {/* install steps — only on install slide */}
           {s.installSteps && <InstallSteps accent={s.accent} />}
+
+          {/* competition leaderboard — only on competition slide */}
+          {s.competition && (
+            <div style={{ width:"100%",marginTop:16 }}>
+              {COMP_WINNER && (
+                <div style={{ background:"rgba(251,146,60,.2)",border:"1px solid rgba(251,146,60,.4)",borderRadius:10,padding:"10px 14px",marginBottom:12,textAlign:"center" }}>
+                  <div style={{ fontSize:11,color:"#fed7aa",fontWeight:700,letterSpacing:".05em",textTransform:"uppercase" }}>🎉 June Winner</div>
+                  <div style={{ fontSize:18,fontWeight:900,color:"#fff",marginTop:2 }}>{COMP_WINNER}</div>
+                </div>
+              )}
+              {LEADERBOARD.length > 0 ? (
+                <div style={{ background:"rgba(0,0,0,.3)",borderRadius:10,overflow:"hidden" }}>
+                  <div style={{ padding:"8px 14px",fontSize:10,fontWeight:700,color:"#9a3412",letterSpacing:".08em",textTransform:"uppercase",borderBottom:"1px solid rgba(255,255,255,.07)" }}>
+                    🏆 Top Shoppers — June 2026
+                  </div>
+                  {LEADERBOARD.slice(0,5).map((entry,i)=>(
+                    <div key={i} style={{ display:"flex",alignItems:"center",gap:10,padding:"8px 14px",borderBottom:i<LEADERBOARD.length-1?"1px solid rgba(255,255,255,.05)":"none",background:i===0?"rgba(251,146,60,.1)":"transparent" }}>
+                      <div style={{ fontSize:14,width:20,textAlign:"center" }}>{["🥇","🥈","🥉","4️⃣","5️⃣"][i]}</div>
+                      <div style={{ flex:1,fontSize:12,fontWeight:700,color:"#f0f4f8" }}>{entry.name}</div>
+                      <div style={{ fontSize:11,color:"#fb923c",fontWeight:700 }}>{entry.count} prices</div>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div style={{ background:"rgba(0,0,0,.3)",borderRadius:10,padding:"16px",textAlign:"center" }}>
+                  <div style={{ fontSize:12,color:"rgba(255,255,255,.5)",lineHeight:1.6 }}>Leaderboard opens 1 June 2026.<br/>Be the first to submit! 🚀</div>
+                </div>
+              )}
+              <div style={{ fontSize:10,color:"rgba(255,255,255,.35)",textAlign:"center",marginTop:10,lineHeight:1.6 }}>
+                Submit prices via receipt photo · 1–30 June midnight · Winner announced 1st July 12:00pm · £10 gift voucher
+              </div>
+            </div>
+          )}
 
           {/* decorative glow */}
           <div style={{ position:"absolute",bottom:-40,left:"50%",transform:"translateX(-50%)",width:200,height:200,borderRadius:"50%",background:`${s.accent}22`,pointerEvents:"none",filter:"blur(40px)" }} />
         </div>
 
-        {/* bottom controls */}
-        <div style={{ background:"#0a1a30",padding:"20px 24px 24px",display:"flex",flexDirection:"column",gap:16 }}>
+        {/* bottom controls — sticky so always visible */}
+        <div style={{ background:"#0a1a30",padding:"20px 24px 24px",display:"flex",flexDirection:"column",gap:16,flexShrink:0 }}>
           {/* dots */}
           <div style={{ display:"flex",justifyContent:"center",gap:6 }}>
             {steps.map((_,i)=>(
@@ -1796,9 +1948,9 @@ function WelcomeModal({ onDismiss }) {
               </button>
             )}
             <button
-              onClick={isLast ? onDismiss : ()=>setStep(s=>s+1)}
+              onClick={isLast ? (s.competition ? ()=>{onDismiss();onSubmitPrice&&onSubmitPrice();} : onDismiss) : ()=>setStep(s=>s+1)}
               style={{ flex:2,padding:"12px",background:`linear-gradient(135deg,${s.accent},${s.accent}cc)`,border:"none",borderRadius:12,color:step===0||isLast?"#052e16":"#fff",cursor:"pointer",fontSize:14,fontWeight:700,transition:"all .2s" }}>
-              {isLast ? "🛒 Start Saving Now →" : "Next →"}
+              {isLast ? (s.competition ? "🏆 Enter Competition →" : "🛒 Start Saving Now →") : "Next →"}
             </button>
           </div>
 
@@ -1838,7 +1990,7 @@ const FEATURES = [
   },
   {
     icon:"🔍", title:"Search & Sort",
-    desc:"Search across all 373+ products instantly. Sort by cheapest price, biggest saving, A–Z, or category."
+    desc:"Search across all 428+ products instantly. Sort by cheapest price, biggest saving, A–Z, or category."
   },
   {
     icon:"➕", title:"Add Your Own Items",
@@ -1888,7 +2040,7 @@ function HelpModal({ onClose, onShare, onReplay }) {
 
           {/* stats strip */}
           <div style={{ display:"flex",gap:6,margin:"14px 0 16px",flexWrap:"wrap" }}>
-            {[["373+","Products"],["5","Stores"],["15","Categories"],["🇯🇪","Jersey Only"]].map(([val,lbl])=>(
+            {[["428+","Products"],["5","Stores"],["15","Categories"],["🇯🇪","Jersey Only"]].map(([val,lbl])=>(
               <div key={lbl} style={{ background:"rgba(34,197,94,.09)",border:"1px solid rgba(34,197,94,.18)",borderRadius:8,padding:"5px 12px",display:"flex",alignItems:"center",gap:6 }}>
                 <span style={{ fontSize:13,fontWeight:700,color:"#22c55e" }}>{val}</span>
                 <span style={{ fontSize:10,color:"#64748b",textTransform:"uppercase",letterSpacing:".5px" }}>{lbl}</span>
@@ -2152,7 +2304,7 @@ function EnquiryModal({ onClose }) {
 
             {/* stats row */}
             <div style={{ display:"flex", gap:8, marginBottom:20 }}>
-              {[["373+","products listed"],["5","stores compared"],["Jersey","audience only"],["Daily","active users"]].map(([val,lbl])=>(
+              {[["428+","products listed"],["5","stores compared"],["Jersey","audience only"],["Daily","active users"]].map(([val,lbl])=>(
                 <div key={lbl} style={{ flex:1, background:"rgba(34,197,94,.08)", border:"1px solid rgba(34,197,94,.15)", borderRadius:9, padding:"7px 4px", textAlign:"center" }}>
                   <div style={{ fontSize:13, fontWeight:700, color:"#22c55e" }}>{val}</div>
                   <div style={{ fontSize:8, color:"#64748b", marginTop:1, textTransform:"uppercase", letterSpacing:".5px" }}>{lbl}</div>
@@ -2182,6 +2334,300 @@ function EnquiryModal({ onClose }) {
             <div style={{ textAlign:"center", fontSize:10, color:"#334155", marginTop:10 }}>
               Or email directly: <a href="mailto:hello@jerseybasket.je" style={{ color:"#22c55e" }}>hello@jerseybasket.je</a>
             </div>
+          </>
+        )}
+      </div>
+    </div>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SETTINGS MODAL — store on/off toggles
+═══════════════════════════════════════════════════════════════════════════ */
+function SettingsModal({ disabledStores, onToggleStore, onClose }) {
+  return (
+    <div style={{ position:"fixed",inset:0,zIndex:500,display:"flex",alignItems:"flex-end",justifyContent:"center",background:"rgba(0,0,0,.75)",backdropFilter:"blur(8px)" }}
+      onClick={e=>{ if(e.target===e.currentTarget) onClose(); }}>
+      <div style={{ width:"100%",maxWidth:520,background:"#0a1a30",border:"1px solid rgba(255,255,255,.12)",borderRadius:"20px 20px 0 0",padding:"24px 20px 32px",paddingBottom:"calc(10vh + 32px)" }}>
+
+        {/* header */}
+        <div style={{ display:"flex",justifyContent:"space-between",alignItems:"flex-start",marginBottom:20 }}>
+          <div>
+            <div style={{ fontSize:17,fontWeight:700,color:"#f0f4f8" }}>⚙️ Settings</div>
+            <div style={{ fontSize:11,color:"#64748b",marginTop:2 }}>Hide stores you don't want to see</div>
+          </div>
+          <button onClick={onClose} style={{ background:"rgba(255,255,255,.07)",border:"none",borderRadius:7,width:28,height:28,color:"#94a3b8",cursor:"pointer",fontSize:14 }}>✕</button>
+        </div>
+
+        {/* store toggles */}
+        <div style={{ fontSize:10,color:"#64748b",fontWeight:700,letterSpacing:".5px",marginBottom:10 }}>SHOW / HIDE STORES</div>
+        <div style={{ display:"flex",flexDirection:"column",gap:8,marginBottom:20 }}>
+          {STORES.map(store => {
+            const enabled = !disabledStores.has(store.id);
+            return (
+              <div key={store.id} onClick={()=>onToggleStore(store.id)}
+                style={{ display:"flex",alignItems:"center",justifyContent:"space-between",padding:"13px 16px",borderRadius:12,cursor:"pointer",
+                  background:enabled?`${store.color}12`:"rgba(255,255,255,.03)",
+                  border:`1px solid ${enabled?store.color+"40":"rgba(255,255,255,.07)"}`,
+                  opacity:enabled?1:0.5, transition:"all .2s" }}>
+                <div style={{ display:"flex",alignItems:"center",gap:10 }}>
+                  <span style={{ fontSize:20 }}>{store.emoji}</span>
+                  <div>
+                    <div style={{ fontSize:13,fontWeight:700,color:enabled?"#f0f4f8":"#64748b" }}>{store.name}</div>
+                    <div style={{ fontSize:10,color:"#475569",marginTop:1 }}>{store.note}</div>
+                  </div>
+                </div>
+                {/* toggle pill */}
+                <div style={{ width:44,height:24,borderRadius:12,background:enabled?store.color:"rgba(255,255,255,.1)",position:"relative",transition:"background .2s",flexShrink:0 }}>
+                  <div style={{ position:"absolute",top:3,left:enabled?22:3,width:18,height:18,borderRadius:"50%",background:"#fff",transition:"left .2s",boxShadow:"0 1px 4px rgba(0,0,0,.4)" }} />
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {disabledStores.size > 0 && (
+          <div style={{ background:"rgba(251,191,36,.07)",border:"1px solid rgba(251,191,36,.2)",borderRadius:10,padding:"10px 14px",marginBottom:16,fontSize:11,color:"#fcd34d",lineHeight:1.6 }}>
+            ⚠️ {disabledStores.size} store{disabledStores.size>1?"s":""} hidden. Prices from hidden stores won't appear in product cards or the basket.
+          </div>
+        )}
+
+        <button onClick={onClose} style={{ width:"100%",padding:"13px",background:"linear-gradient(135deg,#16a34a,#15803d)",border:"none",borderRadius:12,color:"#fff",cursor:"pointer",fontSize:14,fontWeight:700 }}>
+          Done
+        </button>
+      </div>
+    </div>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   COMPETITION MODAL — June Price Hunt leaderboard + info
+═══════════════════════════════════════════════════════════════════════════ */
+function CompetitionModal({ onClose, onSubmit }) {
+  return (
+    <div style={{ position:"fixed",inset:0,zIndex:500,display:"flex",alignItems:"flex-end",justifyContent:"center",background:"rgba(0,0,0,.8)",backdropFilter:"blur(8px)" }}
+      onClick={e=>{ if(e.target===e.currentTarget) onClose(); }}>
+      <div style={{ width:"100%",maxWidth:520,background:"#120800",border:"1px solid rgba(251,146,60,.25)",borderRadius:"20px 20px 0 0",padding:"24px 20px 32px",paddingBottom:"calc(10vh + 32px)",maxHeight:"85vh",overflowY:"auto" }}>
+
+        {/* header */}
+        <div style={{ display:"flex",justifyContent:"space-between",alignItems:"flex-start",marginBottom:20 }}>
+          <div>
+            <div style={{ fontSize:17,fontWeight:700,color:"#fed7aa" }}>🏆 June Price Hunt</div>
+            <div style={{ fontSize:11,color:"#9a3412",marginTop:2 }}>1st June – 30th June 2026 midnight · Winner announced 1st July 12:00pm</div>
+          </div>
+          <button onClick={onClose} style={{ background:"rgba(255,255,255,.07)",border:"none",borderRadius:7,width:28,height:28,color:"#94a3b8",cursor:"pointer",fontSize:14 }}>✕</button>
+        </div>
+
+        {/* winner banner */}
+        {COMP_WINNER && (
+          <div style={{ background:"linear-gradient(135deg,rgba(251,146,60,.2),rgba(234,88,12,.15))",border:"1px solid rgba(251,146,60,.4)",borderRadius:12,padding:"14px 18px",marginBottom:16,textAlign:"center" }}>
+            <div style={{ fontSize:11,color:"#fed7aa",fontWeight:700,letterSpacing:".08em",textTransform:"uppercase" }}>🎉 June 2026 Winner</div>
+            <div style={{ fontSize:24,fontWeight:900,color:"#fff",margin:"6px 0 2px" }}>{COMP_WINNER}</div>
+            <div style={{ fontSize:11,color:"#fb923c" }}>Congratulations! 🎊</div>
+          </div>
+        )}
+
+        {/* how it works */}
+        <div style={{ background:"rgba(255,255,255,.03)",border:"1px solid rgba(255,255,255,.07)",borderRadius:12,padding:"14px 16px",marginBottom:16 }}>
+          <div style={{ fontSize:10,color:"#9a3412",fontWeight:700,letterSpacing:".08em",textTransform:"uppercase",marginBottom:10 }}>HOW IT WORKS</div>
+          {[
+            ["📸","Take a photo of your receipt","From any of Jersey's 5 supermarkets"],
+            ["📤","Submit it via the form below","Include your name and which store"],
+            ["✅","We manually check every receipt","Store name, date & prices must be clearly visible — duplicates rejected"],
+            ["🏆","Top 5 shown on the leaderboard","Updated weekly throughout June"],
+            ["🎁","Win a £10 gift voucher","Announced 1st July 2026 at 12:00pm"],
+          ].map(([icon,title,sub],i)=>(
+            <div key={i} style={{ display:"flex",gap:12,marginBottom:i<4?10:0 }}>
+              <span style={{ fontSize:18,flexShrink:0 }}>{icon}</span>
+              <div>
+                <div style={{ fontSize:12,fontWeight:700,color:"#f0f4f8" }}>{title}</div>
+                <div style={{ fontSize:10,color:"#64748b",marginTop:1 }}>{sub}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* rules */}
+        <div style={{ background:"rgba(255,255,255,.02)",borderRadius:10,padding:"10px 14px",marginBottom:16,fontSize:10,color:"#64748b",lineHeight:1.8 }}>
+          <div style={{ fontWeight:700,color:"#475569",marginBottom:4 }}>Rules</div>
+          • Each receipt can only be submitted once<br/>
+          • Receipt must show the store name and date clearly<br/>
+          • All receipts are manually checked before prices are counted<br/>
+          • Only receipts dated within June 2026 are valid<br/>
+          • Prices must be from Jersey stores only<br/>
+          • Only new prices not already in the app count<br/>
+          • First name + last initial only shown on leaderboard<br/>
+          • Competition closes 30th June 2026 at midnight<br/>
+          • Winner announced 1st July 2026 at 12:00pm<br/>
+          • Winner contacted via the email or phone provided<br/>
+          • £10 prize — store of winner's choice<br/>
+          • JerseyBasket decision is final
+        </div>
+
+        {/* leaderboard */}
+        <div style={{ marginBottom:20 }}>
+          <div style={{ fontSize:10,color:"#9a3412",fontWeight:700,letterSpacing:".08em",textTransform:"uppercase",marginBottom:10 }}>TOP SHOPPERS — JUNE 2026</div>
+          {LEADERBOARD.length > 0 ? (
+            <div style={{ display:"flex",flexDirection:"column",gap:6 }}>
+              {LEADERBOARD.slice(0,5).map((entry,i)=>(
+                <div key={i} style={{ display:"flex",alignItems:"center",gap:10,padding:"11px 14px",borderRadius:10,background:i===0?"rgba(251,146,60,.15)":"rgba(255,255,255,.04)",border:`1px solid ${i===0?"rgba(251,146,60,.3)":"rgba(255,255,255,.06)"}` }}>
+                  <div style={{ fontSize:16,width:24,textAlign:"center" }}>{["🥇","🥈","🥉","4️⃣","5️⃣"][i]}</div>
+                  <div style={{ flex:1,fontSize:13,fontWeight:700,color:"#f0f4f8" }}>{entry.name}</div>
+                  <div style={{ fontSize:12,color:"#fb923c",fontWeight:700 }}>{entry.count} prices</div>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div style={{ background:"rgba(255,255,255,.03)",borderRadius:10,padding:"20px",textAlign:"center" }}>
+              <div style={{ fontSize:24,marginBottom:8 }}>🚀</div>
+              <div style={{ fontSize:12,color:"rgba(255,255,255,.4)",lineHeight:1.6 }}>Leaderboard opens 1 June 2026.<br/>Be the first to submit a price!</div>
+            </div>
+          )}
+        </div>
+
+        <button onClick={onSubmit} style={{ width:"100%",padding:"14px",background:"linear-gradient(135deg,#ea580c,#c2410c)",border:"none",borderRadius:12,color:"#fff",cursor:"pointer",fontSize:14,fontWeight:700,marginBottom:10 }}>
+          📸 Submit a Price Now →
+        </button>
+        <button onClick={onClose} style={{ width:"100%",padding:"12px",background:"rgba(255,255,255,.06)",border:"1px solid rgba(255,255,255,.1)",borderRadius:12,color:"#94a3b8",cursor:"pointer",fontSize:13,fontWeight:600 }}>
+          Back to App
+        </button>
+      </div>
+    </div>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SUBMIT PRICE MODAL — competition price submission via Formspree
+═══════════════════════════════════════════════════════════════════════════ */
+function SubmitPriceModal({ onClose }) {
+  const [form,   setForm]   = useState({ name:"", mobile:"", email:"", store:"coop", product:"", price:"", detail:"" });
+  const [status, setStatus] = useState("idle");
+
+  const handleSubmit = async () => {
+    if(!form.name.trim()||!form.mobile.trim()||!form.email.trim()||!form.product.trim()||!form.price.trim()){return;}
+    setStatus("sending");
+    const storeName = STORES.find(s=>s.id===form.store)?.name||form.store;
+    try {
+      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`,{
+        method:"POST",
+        headers:{"Content-Type":"application/json","Accept":"application/json"},
+        body: JSON.stringify({
+          _subject:`🏆 June Competition Entry — ${form.name}`,
+          name: form.name,
+          mobile: form.mobile,
+          email: form.email,
+          store: storeName,
+          product: form.product,
+          price: `£${form.price}`,
+          detail: form.detail||"No additional notes",
+          message:`JUNE COMPETITION ENTRY\n\nName: ${form.name}\nMobile: ${form.mobile}\nEmail: ${form.email}\nStore: ${storeName}\nProduct: ${form.product}\nPrice: £${form.price}\nNotes: ${form.detail||"None"}`,
+        })
+      });
+      if(res.ok){ setStatus("sent"); }
+      else { setStatus("error"); }
+    } catch { setStatus("error"); }
+  };
+
+  const required = !form.name.trim()||!form.mobile.trim()||!form.email.trim()||!form.product.trim()||!form.price.trim();
+
+  return (
+    <div style={{ position:"fixed",inset:0,zIndex:600,display:"flex",alignItems:"flex-end",justifyContent:"center",background:"rgba(0,0,0,.8)",backdropFilter:"blur(8px)" }}
+      onClick={e=>{ if(e.target===e.currentTarget) onClose(); }}>
+      <div style={{ width:"100%",maxWidth:520,background:"#120800",border:"1px solid rgba(251,146,60,.25)",borderRadius:"20px 20px 0 0",padding:"24px 20px 32px",paddingBottom:"calc(10vh + 32px)",maxHeight:"85vh",overflowY:"auto" }}>
+
+        {status==="sent" ? (
+          <div style={{ textAlign:"center",padding:"30px 0" }}>
+            <div style={{ fontSize:48,marginBottom:14 }}>🏆</div>
+            <div style={{ fontSize:18,fontWeight:700,color:"#fb923c",marginBottom:8 }}>Entry submitted!</div>
+            <div style={{ fontSize:12,color:"#94a3b8",lineHeight:1.8,marginBottom:24 }}>
+              Thanks {form.name.split(" ")[0]}! We'll verify the price and add it<br/>
+              to the leaderboard within 24 hours.<br/>
+              If you win, we'll contact you on <span style={{ color:"#fb923c" }}>{form.mobile}</span>.<br/>
+              Keep those receipts coming! 📸
+            </div>
+            <button onClick={onClose} style={{ padding:"11px 28px",background:"linear-gradient(135deg,#ea580c,#c2410c)",border:"none",borderRadius:11,color:"#fff",cursor:"pointer",fontSize:13,fontWeight:700 }}>
+              Back to App
+            </button>
+          </div>
+        ) : (
+          <>
+            <div style={{ display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:18 }}>
+              <div>
+                <div style={{ fontSize:17,fontWeight:700,color:"#fed7aa" }}>📸 Submit a Price</div>
+                <div style={{ fontSize:11,color:"#9a3412",marginTop:2 }}>June competition · Every price counts!</div>
+              </div>
+              <button onClick={onClose} style={{ background:"rgba(255,255,255,.07)",border:"none",borderRadius:7,width:28,height:28,color:"#94a3b8",cursor:"pointer",fontSize:14 }}>✕</button>
+            </div>
+
+            {/* name */}
+            <div style={{ marginBottom:12 }}>
+              <div style={{ fontSize:10,color:"#9a3412",fontWeight:700,letterSpacing:".5px",marginBottom:6 }}>YOUR NAME <span style={{ color:"#f43f5e" }}>*</span></div>
+              <input value={form.name} onChange={e=>setForm(p=>({...p,name:e.target.value}))} placeholder="First name + last initial e.g. Sarah M"
+                style={{ width:"100%",padding:"9px 12px",background:"rgba(255,255,255,.07)",border:"1px solid rgba(255,255,255,.11)",borderRadius:9,color:"#fff",fontSize:12,outline:"none",boxSizing:"border-box",fontFamily:"inherit" }} />
+              <div style={{ fontSize:10,color:"#475569",marginTop:4 }}>Only your first name + last initial will appear on the leaderboard</div>
+            </div>
+
+            {/* contact */}
+            <div style={{ marginBottom:12 }}>
+              <div style={{ fontSize:10,color:"#9a3412",fontWeight:700,letterSpacing:".5px",marginBottom:6 }}>MOBILE NUMBER <span style={{ color:"#f43f5e" }}>*</span></div>
+              <input value={form.mobile} onChange={e=>setForm(p=>({...p,mobile:e.target.value}))} placeholder="e.g. 07797 123456"
+                style={{ width:"100%",padding:"9px 12px",background:"rgba(255,255,255,.07)",border:"1px solid rgba(255,255,255,.11)",borderRadius:9,color:"#fff",fontSize:12,outline:"none",boxSizing:"border-box",fontFamily:"inherit" }} />
+            </div>
+            <div style={{ marginBottom:12 }}>
+              <div style={{ fontSize:10,color:"#9a3412",fontWeight:700,letterSpacing:".5px",marginBottom:6 }}>EMAIL ADDRESS <span style={{ color:"#f43f5e" }}>*</span></div>
+              <input value={form.email} onChange={e=>setForm(p=>({...p,email:e.target.value}))} placeholder="e.g. yourname@email.com"
+                style={{ width:"100%",padding:"9px 12px",background:"rgba(255,255,255,.07)",border:"1px solid rgba(255,255,255,.11)",borderRadius:9,color:"#fff",fontSize:12,outline:"none",boxSizing:"border-box",fontFamily:"inherit" }} />
+              <div style={{ fontSize:10,color:"#475569",marginTop:4 }}>Never shared publicly — only used to contact the winner</div>
+            </div>
+
+            {/* store */}
+            <div style={{ marginBottom:12 }}>
+              <div style={{ fontSize:10,color:"#9a3412",fontWeight:700,letterSpacing:".5px",marginBottom:6 }}>STORE <span style={{ color:"#f43f5e" }}>*</span></div>
+              <div style={{ display:"flex",gap:6,flexWrap:"wrap" }}>
+                {STORES.map(s=>(
+                  <button key={s.id} onClick={()=>setForm(p=>({...p,store:s.id}))}
+                    style={{ padding:"7px 12px",borderRadius:9,border:`1px solid ${form.store===s.id?s.color+"80":"rgba(255,255,255,.08)"}`,background:form.store===s.id?`${s.color}20`:"rgba(255,255,255,.04)",color:form.store===s.id?"#f0f4f8":"#64748b",cursor:"pointer",fontSize:11,fontWeight:form.store===s.id?700:400,transition:"all .15s" }}>
+                    {s.emoji} {s.name}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* product */}
+            <div style={{ marginBottom:12 }}>
+              <div style={{ fontSize:10,color:"#9a3412",fontWeight:700,letterSpacing:".5px",marginBottom:6 }}>PRODUCT NAME <span style={{ color:"#f43f5e" }}>*</span></div>
+              <input value={form.product} onChange={e=>setForm(p=>({...p,product:e.target.value}))} placeholder="e.g. Full Fat Milk 2L"
+                style={{ width:"100%",padding:"9px 12px",background:"rgba(255,255,255,.07)",border:"1px solid rgba(255,255,255,.11)",borderRadius:9,color:"#fff",fontSize:12,outline:"none",boxSizing:"border-box",fontFamily:"inherit" }} />
+            </div>
+
+            {/* price */}
+            <div style={{ marginBottom:12 }}>
+              <div style={{ fontSize:10,color:"#9a3412",fontWeight:700,letterSpacing:".5px",marginBottom:6 }}>PRICE <span style={{ color:"#f43f5e" }}>*</span></div>
+              <div style={{ position:"relative" }}>
+                <span style={{ position:"absolute",left:12,top:"50%",transform:"translateY(-50%)",color:"#64748b",fontSize:13,fontWeight:700 }}>£</span>
+                <input type="number" step="0.01" value={form.price} onChange={e=>setForm(p=>({...p,price:e.target.value}))} placeholder="0.00"
+                  style={{ width:"100%",padding:"9px 12px 9px 26px",background:"rgba(255,255,255,.07)",border:"1px solid rgba(255,255,255,.11)",borderRadius:9,color:"#fff",fontSize:12,outline:"none",boxSizing:"border-box",fontFamily:"inherit" }} />
+              </div>
+            </div>
+
+            {/* notes */}
+            <div style={{ marginBottom:16 }}>
+              <div style={{ fontSize:10,color:"#9a3412",fontWeight:700,letterSpacing:".5px",marginBottom:6 }}>NOTES <span style={{ color:"#334155",fontWeight:400 }}>(optional)</span></div>
+              <textarea value={form.detail} onChange={e=>setForm(p=>({...p,detail:e.target.value}))} rows={2}
+                placeholder="e.g. pack size, variant, on promotion, etc."
+                style={{ width:"100%",padding:"9px 12px",background:"rgba(255,255,255,.07)",border:"1px solid rgba(255,255,255,.11)",borderRadius:9,color:"#fff",fontSize:12,outline:"none",resize:"none",boxSizing:"border-box",fontFamily:"inherit",lineHeight:1.5 }} />
+            </div>
+
+            <div style={{ background:"rgba(251,146,60,.07)",border:"1px solid rgba(251,146,60,.2)",borderRadius:9,padding:"9px 13px",fontSize:10,color:"#9a3412",lineHeight:1.7,marginBottom:14 }}>
+              📸 <strong style={{ color:"#fed7aa" }}>Tip:</strong> A photo of your receipt is the quickest way to submit multiple prices at once — email it to <span style={{ color:"#fb923c" }}>hello@jerseybasket.je</span> with your name and we'll count them all! Make sure the <strong style={{ color:"#fed7aa" }}>store name, date, and prices are clearly visible</strong>. All receipts are manually verified before counting.
+            </div>
+
+            {status==="error"&&<div style={{ background:"rgba(239,68,68,.1)",border:"1px solid rgba(239,68,68,.28)",borderRadius:8,padding:"7px 12px",fontSize:11,color:"#fca5a5",marginBottom:12 }}>Something went wrong. Please email hello@jerseybasket.je</div>}
+
+            <button onClick={handleSubmit} disabled={required||status==="sending"}
+              style={{ width:"100%",padding:"13px",background:required||status==="sending"?"rgba(234,88,12,.3)":"linear-gradient(135deg,#ea580c,#c2410c)",border:"none",borderRadius:12,color:"#fff",cursor:required?"not-allowed":"pointer",fontSize:14,fontWeight:700 }}>
+              {status==="sending" ? "Submitting…" : "Submit Entry →"}
+            </button>
           </>
         )}
       </div>
@@ -2252,7 +2698,7 @@ function AdBanner({ onEnquiry }) {
       startTick();
       schedule();
     }, after);
-  }, [slideTo, startTick]);
+  }, [slideTo, startTick, COUNT]);
 
   // boot
   useEffect(() => {
@@ -2263,9 +2709,7 @@ function AdBanner({ onEnquiry }) {
       cancelAnimationFrame(rafRef.current);
       cancelAnimationFrame(animRef.current);
     };
-  }, []);
-
-  // ── reset when user returns to the page after clicking a banner link ────
+  }, [schedule, startTick]);
   useEffect(() => {
     const handleVisibility = () => {
       if (document.visibilityState === "visible") {
@@ -2539,7 +2983,7 @@ function BasketItem({ item, overPay, onRemove, onAdd, onDelete }) {
             border: ticked ? "none" : "1px solid rgba(255,255,255,.15)",
             color:"white", cursor:"pointer", fontSize:12, fontWeight:700,
             display:"flex", alignItems:"center", justifyContent:"center",
-            marginRight:8, transition:"all .2s", flexShrink:0,
+            marginRight:8, transition:"all .2s",
           }}>
           {ticked ? "✓" : ""}
         </button>
@@ -2598,3 +3042,4 @@ function Chip({ active, onClick, color, children }) {
     </button>
   );
 }
+
