@@ -13,9 +13,9 @@
  * Built for Jersey, Channel Islands.
  * Contact: hello@jerseybasket.je
  *
- * Version:   v40
+ * Version:   v41
  * Updated:   1 June 2026
- * Changes:   Fix header for iPhone - tighter icon buttons, proper flexShrink on all items
+ * Changes:   Fix Share button on iPhone - replace ↗ arrow with 📤 emoji to prevent Safari native share button rendering
  *            in the header (e.g. for ethical/personal reasons). Hidden stores are
  *            removed from product cards, store pin chips, and basket comparisons.
  *            Setting persists for the session.
@@ -950,8 +950,8 @@ export default function JerseyGroceryApp() {
                 if (navigator.share) { navigator.share(shareData).catch(()=>{}); }
                 else { navigator.clipboard.writeText("https://jerseybasket.je").then(()=>showToast("🔗 Link copied!")); }
               }} title="Share JerseyBasket"
-              style={{ WebkitAppearance:"none",appearance:"none",background:"rgba(255,255,255,.08)",border:"1px solid rgba(255,255,255,.1)",borderRadius:8,width:30,height:30,color:"#94a3b8",cursor:"pointer",fontSize:15,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,padding:0 }}>
-                ↗
+              style={{ WebkitAppearance:"none",appearance:"none",background:"rgba(255,255,255,.08)",border:"1px solid rgba(255,255,255,.1)",borderRadius:8,width:30,height:30,color:"#94a3b8",cursor:"pointer",fontSize:13,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,padding:0,boxSizing:"border-box" }}>
+                📤
               </button>
               {/* Report */}
               <button onClick={()=>setShowReport(true)} title="Report a problem"
