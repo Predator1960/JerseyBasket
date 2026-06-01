@@ -1,0 +1,7 @@
+Every time you start a new Claude conversation about JerseyBasket:
+
+Upload JerseyBasket-Project-Brief.md
+Upload your latest App.jsx
+Say "Continue JerseyBasket development — brief attached"
+
+Claude will have full context immediately and you won't lose a single thing.

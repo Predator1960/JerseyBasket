@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JerseyBasket.je — Logo Suite</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #0a0f1a;
+    font-family: 'DM Sans', sans-serif;
+    color: #f0f4f8;
+    min-height: 100vh;
+  }
+
+  .page {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+
+  .page-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #475569;
+    margin-bottom: 48px;
+  }
+
+  /* ── LOGO VARIANTS GRID ── */
+  .logo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-bottom: 2px;
+  }
+
+  .logo-cell {
+    padding: 48px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .logo-cell.dark  { background: #050d1a; }
+  .logo-cell.mid   { background: #0d1f38; }
+  .logo-cell.white { background: #ffffff; }
+  .logo-cell.green { background: #16a34a; }
+
+  .logo-cell-label {
+    position: absolute;
+    bottom: 14px;
+    left: 20px;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    opacity: 0.35;
+  }
+  .logo-cell.white .logo-cell-label { color: #0a0f1a; }
+
+  /* ── ROW 3: icon only variants ── */
+  .icon-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    margin-bottom: 2px;
+  }
+
+  .icon-cell {
+    padding: 36px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  .icon-cell.dark  { background: #050d1a; }
+  .icon-cell.mid   { background: #0d1f38; }
+  .icon-cell.white { background: #f8fafc; }
+  .icon-cell.green { background: #16a34a; }
+  .icon-cell.jersey { background: #cc0000; }
+
+  /* ── COLOUR SWATCHES ── */
+  .swatches {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 2px;
+    margin-bottom: 40px;
+  }
+
+  .swatch {
+    height: 64px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+  }
+  .swatch-name  { font-size: 10px; letter-spacing: 1px; text-transform: uppercase; font-weight: 600; }
+  .swatch-hex   { font-size: 9px; font-family: monospace; opacity: 0.6; }
+  .swatch.light .swatch-name, .swatch.light .swatch-hex { color: #0a0f1a; }
+
+  /* ── USAGE EXAMPLES ── */
+  .usage-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2px;
+  }
+
+  .usage-cell {
+    padding: 28px 24px;
+    background: #0d1f38;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .usage-label {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #475569;
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  .app-icon-mockup {
+    width: 60px;
+    height: 60px;
+    border-radius: 14px;
+    overflow: hidden;
+    flex-shrink: 0;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+  }
+
+  .app-icon-mockup svg {
+    width: 100%;
+    height: 100%;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="page-title">JerseyBasket.je — Brand Identity Suite</div>
+
+  <!-- ══════════════════════════════════════════════════════
+       PRIMARY LOGOS — 4 colourways
+  ═══════════════════════════════════════════════════════ -->
+  <div class="logo-grid">
+
+    <!-- Dark background: full colour logo -->
+    <div class="logo-cell dark">
+      <svg width="280" height="72" viewBox="0 0 280 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#22c55e"/>
+            <stop offset="100%" stop-color="#16a34a"/>
+          </linearGradient>
+          <linearGradient id="g1leaf" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#4ade80"/>
+            <stop offset="100%" stop-color="#16a34a"/>
+          </linearGradient>
+        </defs>
+
+        <!-- Basket mark -->
+        <g transform="translate(0, 4)">
+          <!-- Basket body -->
+          <path d="M8 30 Q8 26 12 26 L52 26 Q56 26 56 30 L53 50 Q52.5 54 48.5 54 L15.5 54 Q11.5 54 11 50 Z"
+                fill="url(#g1)" opacity="0.15"/>
+          <path d="M8 30 Q8 26 12 26 L52 26 Q56 26 56 30 L53 50 Q52.5 54 48.5 54 L15.5 54 Q11.5 54 11 50 Z"
+                fill="none" stroke="url(#g1)" stroke-width="2.5"/>
+
+          <!-- Basket weave lines horizontal -->
+          <line x1="10" y1="36" x2="54" y2="36" stroke="#22c55e" stroke-width="1.2" opacity="0.4"/>
+          <line x1="10" y1="43" x2="54" y2="43" stroke="#22c55e" stroke-width="1.2" opacity="0.4"/>
+
+          <!-- Basket weave lines vertical -->
+          <line x1="22" y1="26" x2="19" y2="54" stroke="#22c55e" stroke-width="1.2" opacity="0.3"/>
+          <line x1="32" y1="26" x2="32" y2="54" stroke="#22c55e" stroke-width="1.2" opacity="0.3"/>
+          <line x1="42" y1="26" x2="45" y2="54" stroke="#22c55e" stroke-width="1.2" opacity="0.3"/>
+
+          <!-- Handle arc -->
+          <path d="M20 26 Q20 10 32 10 Q44 10 44 26"
+                fill="none" stroke="url(#g1)" stroke-width="2.8" stroke-linecap="round"/>
+
+          <!-- Price tag on handle -->
+          <circle cx="44" cy="18" r="7" fill="#16a34a"/>
+          <text x="44" y="21.5" text-anchor="middle" font-family="DM Sans" font-size="7.5" font-weight="700" fill="white">£</text>
+
+          <!-- Jersey flag accent — small red cross inside basket -->
+          <rect x="29.5" y="37" width="5" height="1.5" rx="0.75" fill="#f87171" opacity="0.9"/>
+          <rect x="31.5" y="35" width="1.5" height="5.5" rx="0.75" fill="#f87171" opacity="0.9"/>
+        </g>
+
+        <!-- Wordmark -->
+        <text x="74" y="38" font-family="DM Serif Display, Georgia, serif" font-size="30" font-weight="400" fill="#f0f4f8" letter-spacing="-0.5">Jersey</text>
+        <text x="74" y="38" font-family="DM Serif Display, Georgia, serif" font-size="30" font-weight="400" fill="url(#g1)" letter-spacing="-0.5">
+          <tspan dx="94">Basket</tspan>
+        </text>
+        <!-- .je -->
+        <text x="260" y="38" font-family="DM Sans, Arial, sans-serif" font-size="13" font-weight="500" fill="#475569">.je</text>
+
+        <!-- Tagline -->
+        <text x="74" y="56" font-family="DM Sans, Arial, sans-serif" font-size="10.5" font-weight="400" fill="#64748b" letter-spacing="2">CHANNEL ISLANDS PRICE COMPARISON</text>
+      </svg>
+      <div class="logo-cell-label" style="color:#475569">Primary — Dark</div>
+    </div>
+
+    <!-- Mid navy: same logo -->
+    <div class="logo-cell mid">
+      <svg width="280" height="72" viewBox="0 0 280 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#22c55e"/>
+            <stop offset="100%" stop-color="#16a34a"/>
+          </linearGradient>
+        </defs>
+        <g transform="translate(0, 4)">
+          <path d="M8 30 Q8 26 12 26 L52 26 Q56 26 56 30 L53 50 Q52.5 54 48.5 54 L15.5 54 Q11.5 54 11 50 Z"
+                fill="url(#g2)" opacity="0.18"/>
+          <path d="M8 30 Q8 26 12 26 L52 26 Q56 26 56 30 L53 50 Q52.5 54 48.5 54 L15.5 54 Q11.5 54 11 50 Z"
+                fill="none" stroke="url(#g2)" stroke-width="2.5"/>
+          <line x1="10" y1="36" x2="54" y2="36" stroke="#22c55e" stroke-width="1.2" opacity="0.4"/>
+          <line x1="10" y1="43" x2="54" y2="43" stroke="#22c55e" stroke-width="1.2" opacity="0.4"/>
+          <line x1="22" y1="26" x2="19" y2="54" stroke="#22c55e" stroke-width="1.2" opacity="0.3"/>
+          <line x1="32" y1="26" x2="32" y2="54" stroke="#22c55e" stroke-width="1.2" opacity="0.3"/>
+          <line x1="42" y1="26" x2="45" y2="54" stroke="#22c55e" stroke-width="1.2" opacity="0.3"/>
+          <path d="M20 26 Q20 10 32 10 Q44 10 44 26"
+                fill="none" stroke="url(#g2)" stroke-width="2.8" stroke-linecap="round"/>
+          <circle cx="44" cy="18" r="7" fill="#16a34a"/>
+          <text x="44" y="21.5" text-anchor="middle" font-family="DM Sans" font-size="7.5" font-weight="700" fill="white">£</text>
+          <rect x="29.5" y="37" width="5" height="1.5" rx="0.75" fill="#f87171" opacity="0.9"/>
+          <rect x="31.5" y="35" width="1.5" height="5.5" rx="0.75" fill="#f87171" opacity="0.9"/>
+        </g>
+        <text x="74" y="38" font-family="DM Serif Display, Georgia, serif" font-size="30" fill="#f0f4f8" letter-spacing="-0.5">Jersey</text>
+        <text x="168" y="38" font-family="DM Serif Display, Georgia, serif" font-size="30" fill="url(#g2)" letter-spacing="-0.5">Basket</text>
+        <text x="260" y="38" font-family="DM Sans, Arial, sans-serif" font-size="13" font-weight="500" fill="#475569">.je</text>
+        <text x="74" y="56" font-family="DM Sans, Arial, sans-serif" font-size="10.5" fill="#64748b" letter-spacing="2">CHANNEL ISLANDS PRICE COMPARISON</text>
+      </svg>
+      <div class="logo-cell-label" style="color:#475569">Primary — Navy</div>
+    </div>
+
+    <!-- White background: dark version -->
+    <div class="logo-cell white">
+      <svg width="280" height="72" viewBox="0 0 280 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="g3" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#22c55e"/>
+            <stop offset="100%" stop-color="#15803d"/>
+          </linearGradient>
+        </defs>
+        <g transform="translate(0, 4)">
+          <path d="M8 30 Q8 26 12 26 L52 26 Q56 26 56 30 L53 50 Q52.5 54 48.5 54 L15.5 54 Q11.5 54 11 50 Z"
+                fill="url(#g3)" opacity="0.12"/>
+          <path d="M8 30 Q8 26 12 26 L52 26 Q56 26 56 30 L53 50 Q52.5 54 48.5 54 L15.5 54 Q11.5 54 11 50 Z"
+                fill="none" stroke="url(#g3)" stroke-width="2.5"/>
+          <line x1="10" y1="36" x2="54" y2="36" stroke="#16a34a" stroke-width="1.2" opacity="0.35"/>
+          <line x1="10" y1="43" x2="54" y2="43" stroke="#16a34a" stroke-width="1.2" opacity="0.35"/>
+          <line x1="22" y1="26" x2="19" y2="54" stroke="#16a34a" stroke-width="1.2" opacity="0.25"/>
+          <line x1="32" y1="26" x2="32" y2="54" stroke="#16a34a" stroke-width="1.2" opacity="0.25"/>
+          <line x1="42" y1="26" x2="45" y2="54" stroke="#16a34a" stroke-width="1.2" opacity="0.25"/>
+          <path d="M20 26 Q20 10 32 10 Q44 10 44 26"
+                fill="none" stroke="url(#g3)" stroke-width="2.8" stroke-linecap="round"/>
+          <circle cx="44" cy="18" r="7" fill="#16a34a"/>
+          <text x="44" y="21.5" text-anchor="middle" font-family="DM Sans" font-size="7.5" font-weight="700" fill="white">£</text>
+          <rect x="29.5" y="37" width="5" height="1.5" rx="0.75" fill="#dc2626" opacity="0.9"/>
+          <rect x="31.5" y="35" width="1.5" height="5.5" rx="0.75" fill="#dc2626" opacity="0.9"/>
+        </g>
+        <text x="74" y="38" font-family="DM Serif Display, Georgia, serif" font-size="30" fill="#0f172a" letter-spacing="-0.5">Jersey</text>
+        <text x="168" y="38" font-family="DM Serif Display, Georgia, serif" font-size="30" fill="url(#g3)" letter-spacing="-0.5">Basket</text>
+        <text x="260" y="38" font-family="DM Sans, Arial, sans-serif" font-size="13" font-weight="500" fill="#94a3b8">.je</text>
+        <text x="74" y="56" font-family="DM Sans, Arial, sans-serif" font-size="10.5" fill="#94a3b8" letter-spacing="2">CHANNEL ISLANDS PRICE COMPARISON</text>
+      </svg>
+      <div class="logo-cell-label" style="color:#94a3b8">Light — White BG</div>
+    </div>
+
+    <!-- Green background: reversed white -->
+    <div class="logo-cell green">
+      <svg width="280" height="72" viewBox="0 0 280 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(0, 4)">
+          <path d="M8 30 Q8 26 12 26 L52 26 Q56 26 56 30 L53 50 Q52.5 54 48.5 54 L15.5 54 Q11.5 54 11 50 Z"
+                fill="white" opacity="0.15"/>
+          <path d="M8 30 Q8 26 12 26 L52 26 Q56 26 56 30 L53 50 Q52.5 54 48.5 54 L15.5 54 Q11.5 54 11 50 Z"
+                fill="none" stroke="white" stroke-width="2.5"/>
+          <line x1="10" y1="36" x2="54" y2="36" stroke="white" stroke-width="1.2" opacity="0.4"/>
+          <line x1="10" y1="43" x2="54" y2="43" stroke="white" stroke-width="1.2" opacity="0.4"/>
+          <line x1="22" y1="26" x2="19" y2="54" stroke="white" stroke-width="1.2" opacity="0.3"/>
+          <line x1="32" y1="26" x2="32" y2="54" stroke="white" stroke-width="1.2" opacity="0.3"/>
+          <line x1="42" y1="26" x2="45" y2="54" stroke="white" stroke-width="1.2" opacity="0.3"/>
+          <path d="M20 26 Q20 10 32 10 Q44 10 44 26"
+                fill="none" stroke="white" stroke-width="2.8" stroke-linecap="round"/>
+          <circle cx="44" cy="18" r="7" fill="rgba(0,0,0,0.2)"/>
+          <text x="44" y="21.5" text-anchor="middle" font-family="DM Sans" font-size="7.5" font-weight="700" fill="white">£</text>
+          <rect x="29.5" y="37" width="5" height="1.5" rx="0.75" fill="#fca5a5"/>
+          <rect x="31.5" y="35" width="1.5" height="5.5" rx="0.75" fill="#fca5a5"/>
+        </g>
+        <text x="74" y="38" font-family="DM Serif Display, Georgia, serif" font-size="30" fill="white" letter-spacing="-0.5">Jersey</text>
+        <text x="168" y="38" font-family="DM Serif Display, Georgia, serif" font-size="30" fill="rgba(255,255,255,0.85)" letter-spacing="-0.5">Basket</text>
+        <text x="260" y="38" font-family="DM Sans, Arial, sans-serif" font-size="13" font-weight="500" fill="rgba(255,255,255,0.55)">.je</text>
+        <text x="74" y="56" font-family="DM Sans, Arial, sans-serif" font-size="10.5" fill="rgba(255,255,255,0.6)" letter-spacing="2">CHANNEL ISLANDS PRICE COMPARISON</text>
+      </svg>
+      <div class="logo-cell-label" style="color:rgba(255,255,255,0.4)">Reversed — Green BG</div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════
+       APP ICON VARIANTS (square format)
+  ═══════════════════════════════════════════════════════ -->
+  <div class="icon-row">
+
+    <!-- App icon: dark -->
+    <div class="icon-cell dark">
+      <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="100" height="100" rx="22" fill="#050d1a"/>
+        <defs>
+          <linearGradient id="ia1" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#22c55e"/>
+            <stop offset="100%" stop-color="#15803d"/>
+          </linearGradient>
+        </defs>
+        <!-- Basket body -->
+        <path d="M18 52 Q18 46 24 46 L76 46 Q82 46 82 52 L78 76 Q77 82 71 82 L29 82 Q23 82 22 76 Z"
+              fill="url(#ia1)" opacity="0.18"/>
+        <path d="M18 52 Q18 46 24 46 L76 46 Q82 46 82 52 L78 76 Q77 82 71 82 L29 82 Q23 82 22 76 Z"
+              fill="none" stroke="url(#ia1)" stroke-width="3.5"/>
+        <!-- Weave -->
+        <line x1="20" y1="61" x2="80" y2="61" stroke="#22c55e" stroke-width="1.8" opacity="0.35"/>
+        <line x1="20" y1="71" x2="80" y2="71" stroke="#22c55e" stroke-width="1.8" opacity="0.35"/>
+        <line x1="36" y1="46" x2="32" y2="82" stroke="#22c55e" stroke-width="1.6" opacity="0.25"/>
+        <line x1="50" y1="46" x2="50" y2="82" stroke="#22c55e" stroke-width="1.6" opacity="0.25"/>
+        <line x1="64" y1="46" x2="68" y2="82" stroke="#22c55e" stroke-width="1.6" opacity="0.25"/>
+        <!-- Handle -->
+        <path d="M34 46 Q34 18 50 18 Q66 18 66 46"
+              fill="none" stroke="url(#ia1)" stroke-width="4" stroke-linecap="round"/>
+        <!-- £ badge -->
+        <circle cx="66" cy="30" r="11" fill="#16a34a"/>
+        <circle cx="66" cy="30" r="11" fill="none" stroke="#22c55e" stroke-width="1.5" opacity="0.6"/>
+        <text x="66" y="34" text-anchor="middle" font-family="DM Sans,Arial" font-size="12" font-weight="700" fill="white">£</text>
+        <!-- Jersey cross -->
+        <rect x="46.5" y="63" width="7" height="2.5" rx="1.25" fill="#f87171" opacity="0.95"/>
+        <rect x="49" y="60.5" width="2.5" height="7" rx="1.25" fill="#f87171" opacity="0.95"/>
+      </svg>
+      <div class="logo-cell-label" style="color:#475569">Icon — Dark</div>
+    </div>
+
+    <!-- App icon: green gradient -->
+    <div class="icon-cell mid">
+      <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="ibg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#0f2d1a"/>
+            <stop offset="100%" stop-color="#16a34a"/>
+          </linearGradient>
+          <linearGradient id="ib1" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#4ade80"/>
+            <stop offset="100%" stop-color="#22c55e"/>
+          </linearGradient>
+        </defs>
+        <rect width="100" height="100" rx="22" fill="url(#ibg)"/>
+        <path d="M18 52 Q18 46 24 46 L76 46 Q82 46 82 52 L78 76 Q77 82 71 82 L29 82 Q23 82 22 76 Z"
+              fill="white" opacity="0.1"/>
+        <path d="M18 52 Q18 46 24 46 L76 46 Q82 46 82 52 L78 76 Q77 82 71 82 L29 82 Q23 82 22 76 Z"
+              fill="none" stroke="url(#ib1)" stroke-width="3.5"/>
+        <line x1="20" y1="61" x2="80" y2="61" stroke="#4ade80" stroke-width="1.8" opacity="0.35"/>
+        <line x1="20" y1="71" x2="80" y2="71" stroke="#4ade80" stroke-width="1.8" opacity="0.35"/>
+        <line x1="36" y1="46" x2="32" y2="82" stroke="#4ade80" stroke-width="1.6" opacity="0.25"/>
+        <line x1="50" y1="46" x2="50" y2="82" stroke="#4ade80" stroke-width="1.6" opacity="0.25"/>
+        <line x1="64" y1="46" x2="68" y2="82" stroke="#4ade80" stroke-width="1.6" opacity="0.25"/>
+        <path d="M34 46 Q34 18 50 18 Q66 18 66 46"
+              fill="none" stroke="url(#ib1)" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="66" cy="30" r="11" fill="#22c55e"/>
+        <text x="66" y="34" text-anchor="middle" font-family="DM Sans,Arial" font-size="12" font-weight="700" fill="white">£</text>
+        <rect x="46.5" y="63" width="7" height="2.5" rx="1.25" fill="#fca5a5" opacity="0.95"/>
+        <rect x="49" y="60.5" width="2.5" height="7" rx="1.25" fill="#fca5a5" opacity="0.95"/>
+      </svg>
+      <div class="logo-cell-label" style="color:#475569">Icon — Gradient</div>
+    </div>
+
+    <!-- App icon: white/light -->
+    <div class="icon-cell white">
+      <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="ic1" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#22c55e"/>
+            <stop offset="100%" stop-color="#15803d"/>
+          </linearGradient>
+        </defs>
+        <rect width="100" height="100" rx="22" fill="white"/>
+        <rect width="100" height="100" rx="22" fill="none" stroke="#e2e8f0" stroke-width="1"/>
+        <path d="M18 52 Q18 46 24 46 L76 46 Q82 46 82 52 L78 76 Q77 82 71 82 L29 82 Q23 82 22 76 Z"
+              fill="url(#ic1)" opacity="0.1"/>
+        <path d="M18 52 Q18 46 24 46 L76 46 Q82 46 82 52 L78 76 Q77 82 71 82 L29 82 Q23 82 22 76 Z"
+              fill="none" stroke="url(#ic1)" stroke-width="3.5"/>
+        <line x1="20" y1="61" x2="80" y2="61" stroke="#16a34a" stroke-width="1.8" opacity="0.3"/>
+        <line x1="20" y1="71" x2="80" y2="71" stroke="#16a34a" stroke-width="1.8" opacity="0.3"/>
+        <line x1="36" y1="46" x2="32" y2="82" stroke="#16a34a" stroke-width="1.6" opacity="0.2"/>
+        <line x1="50" y1="46" x2="50" y2="82" stroke="#16a34a" stroke-width="1.6" opacity="0.2"/>
+        <line x1="64" y1="46" x2="68" y2="82" stroke="#16a34a" stroke-width="1.6" opacity="0.2"/>
+        <path d="M34 46 Q34 18 50 18 Q66 18 66 46"
+              fill="none" stroke="url(#ic1)" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="66" cy="30" r="11" fill="#16a34a"/>
+        <text x="66" y="34" text-anchor="middle" font-family="DM Sans,Arial" font-size="12" font-weight="700" fill="white">£</text>
+        <rect x="46.5" y="63" width="7" height="2.5" rx="1.25" fill="#dc2626" opacity="0.85"/>
+        <rect x="49" y="60.5" width="2.5" height="7" rx="1.25" fill="#dc2626" opacity="0.85"/>
+      </svg>
+      <div class="logo-cell-label" style="color:#94a3b8">Icon — Light</div>
+    </div>
+
+    <!-- App icon: Jersey red -->
+    <div class="icon-cell jersey">
+      <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="100" height="100" rx="22" fill="#cc0000"/>
+        <path d="M18 52 Q18 46 24 46 L76 46 Q82 46 82 52 L78 76 Q77 82 71 82 L29 82 Q23 82 22 76 Z"
+              fill="white" opacity="0.12"/>
+        <path d="M18 52 Q18 46 24 46 L76 46 Q82 46 82 52 L78 76 Q77 82 71 82 L29 82 Q23 82 22 76 Z"
+              fill="none" stroke="white" stroke-width="3.5"/>
+        <line x1="20" y1="61" x2="80" y2="61" stroke="white" stroke-width="1.8" opacity="0.35"/>
+        <line x1="20" y1="71" x2="80" y2="71" stroke="white" stroke-width="1.8" opacity="0.35"/>
+        <line x1="36" y1="46" x2="32" y2="82" stroke="white" stroke-width="1.6" opacity="0.25"/>
+        <line x1="50" y1="46" x2="50" y2="82" stroke="white" stroke-width="1.6" opacity="0.25"/>
+        <line x1="64" y1="46" x2="68" y2="82" stroke="white" stroke-width="1.6" opacity="0.25"/>
+        <path d="M34 46 Q34 18 50 18 Q66 18 66 46"
+              fill="none" stroke="white" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="66" cy="30" r="11" fill="rgba(0,0,0,0.25)"/>
+        <text x="66" y="34" text-anchor="middle" font-family="DM Sans,Arial" font-size="12" font-weight="700" fill="white">£</text>
+        <rect x="46.5" y="63" width="7" height="2.5" rx="1.25" fill="white" opacity="0.9"/>
+        <rect x="49" y="60.5" width="2.5" height="7" rx="1.25" fill="white" opacity="0.9"/>
+      </svg>
+      <div class="logo-cell-label" style="color:rgba(255,255,255,0.4)">Icon — Jersey Red</div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════
+       STACKED / COMPACT VARIANTS
+  ═══════════════════════════════════════════════════════ -->
+  <div class="logo-grid" style="margin-bottom: 2px;">
+
+    <!-- Stacked logo — dark -->
+    <div class="logo-cell dark" style="padding: 40px;">
+      <svg width="200" height="100" viewBox="0 0 200 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="gs1" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#22c55e"/>
+            <stop offset="100%" stop-color="#15803d"/>
+          </linearGradient>
+        </defs>
+        <!-- centred icon -->
+        <g transform="translate(71, 0)">
+          <path d="M8 28 Q8 23 13 23 L45 23 Q50 23 50 28 L47.5 47 Q47 51 43 51 L15 51 Q11 51 10.5 47 Z"
+                fill="url(#gs1)" opacity="0.15"/>
+          <path d="M8 28 Q8 23 13 23 L45 23 Q50 23 50 28 L47.5 47 Q47 51 43 51 L15 51 Q11 51 10.5 47 Z"
+                fill="none" stroke="url(#gs1)" stroke-width="2.2"/>
+          <line x1="9.5" y1="33.5" x2="49" y2="33.5" stroke="#22c55e" stroke-width="1.1" opacity="0.35"/>
+          <line x1="9.5" y1="40" x2="49" y2="40" stroke="#22c55e" stroke-width="1.1" opacity="0.35"/>
+          <line x1="20" y1="23" x2="17.5" y2="51" stroke="#22c55e" stroke-width="1" opacity="0.25"/>
+          <line x1="29" y1="23" x2="29" y2="51" stroke="#22c55e" stroke-width="1" opacity="0.25"/>
+          <line x1="38" y1="23" x2="40.5" y2="51" stroke="#22c55e" stroke-width="1" opacity="0.25"/>
+          <path d="M18 23 Q18 9 29 9 Q40 9 40 23"
+                fill="none" stroke="url(#gs1)" stroke-width="2.5" stroke-linecap="round"/>
+          <circle cx="40" cy="15" r="6.5" fill="#16a34a"/>
+          <text x="40" y="18.5" text-anchor="middle" font-family="DM Sans,Arial" font-size="7" font-weight="700" fill="white">£</text>
+          <rect x="26.5" y="34.5" width="5" height="1.5" rx="0.75" fill="#f87171" opacity="0.9"/>
+          <rect x="28.5" y="32.5" width="1.5" height="5.5" rx="0.75" fill="#f87171" opacity="0.9"/>
+        </g>
+        <!-- Stacked text -->
+        <text x="100" y="72" text-anchor="middle" font-family="DM Serif Display,Georgia,serif" font-size="22" fill="#f0f4f8" letter-spacing="-0.3">Jersey<tspan fill="#22c55e">Basket</tspan></text>
+        <text x="100" y="86" text-anchor="middle" font-family="DM Sans,Arial,sans-serif" font-size="8.5" fill="#475569" letter-spacing="2">JERSEY · CHANNEL ISLANDS</text>
+      </svg>
+      <div class="logo-cell-label" style="color:#475569">Stacked — Dark</div>
+    </div>
+
+    <!-- Minimal wordmark — white bg -->
+    <div class="logo-cell white">
+      <svg width="240" height="52" viewBox="0 0 240 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="gm1" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#22c55e"/>
+            <stop offset="100%" stop-color="#15803d"/>
+          </linearGradient>
+        </defs>
+        <!-- Minimal basket icon -->
+        <g transform="translate(0, 6)">
+          <path d="M4 22 Q4 19 7 19 L35 19 Q38 19 38 22 L36 34 Q35.5 37 32.5 37 L9.5 37 Q6.5 37 6 34 Z"
+                fill="none" stroke="url(#gm1)" stroke-width="2"/>
+          <path d="M12 19 Q12 9 21 9 Q30 9 30 19"
+                fill="none" stroke="url(#gm1)" stroke-width="2.2" stroke-linecap="round"/>
+          <circle cx="30" cy="13" r="5" fill="#16a34a"/>
+          <text x="30" y="16" text-anchor="middle" font-family="DM Sans,Arial" font-size="5.5" font-weight="700" fill="white">£</text>
+        </g>
+        <!-- Wordmark -->
+        <text x="48" y="31" font-family="DM Serif Display,Georgia,serif" font-size="24" fill="#0f172a" letter-spacing="-0.3">Jersey</text>
+        <text x="116" y="31" font-family="DM Serif Display,Georgia,serif" font-size="24" fill="url(#gm1)" letter-spacing="-0.3">Basket</text>
+        <text x="200" y="31" font-family="DM Sans,Arial" font-size="11" font-weight="500" fill="#94a3b8">.je</text>
+        <line x1="48" y1="38" x2="218" y2="38" stroke="#e2e8f0" stroke-width="1"/>
+        <text x="48" y="48" font-family="DM Sans,Arial" font-size="8" fill="#94a3b8" letter-spacing="1.8">PRICE COMPARISON · CHANNEL ISLANDS</text>
+      </svg>
+      <div class="logo-cell-label" style="color:#94a3b8">Minimal — White BG</div>
+    </div>
+
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════
+       COLOUR PALETTE
+  ═══════════════════════════════════════════════════════ -->
+  <div style="height:2px; background:#0a0f1a; margin-bottom:2px;"></div>
+  <div class="swatches">
+    <div class="swatch" style="background:#22c55e">
+      <div class="swatch-name">Basket Green</div>
+      <div class="swatch-hex">#22c55e</div>
+    </div>
+    <div class="swatch" style="background:#16a34a">
+      <div class="swatch-name">Deep Green</div>
+      <div class="swatch-hex">#16a34a</div>
+    </div>
+    <div class="swatch" style="background:#050d1a">
+      <div class="swatch-name">Jersey Night</div>
+      <div class="swatch-hex">#050d1a</div>
+    </div>
+    <div class="swatch" style="background:#0d1f38">
+      <div class="swatch-name">Ocean Navy</div>
+      <div class="swatch-hex">#0d1f38</div>
+    </div>
+    <div class="swatch light" style="background:#f0f4f8">
+      <div class="swatch-name">Frost White</div>
+      <div class="swatch-hex">#f0f4f8</div>
+    </div>
+    <div class="swatch" style="background:#cc0000">
+      <div class="swatch-name">Jersey Red</div>
+      <div class="swatch-hex">#cc0000</div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════
+       USAGE EXAMPLES
+  ═══════════════════════════════════════════════════════ -->
+  <div class="usage-row">
+
+    <!-- App icon on phone -->
+    <div class="usage-cell" style="flex-direction: column; align-items: flex-start;">
+      <span class="usage-label">App Icon (Home Screen)</span>
+      <div style="display:flex; gap:16px; align-items:center;">
+        <div class="app-icon-mockup" style="border-radius:18px;">
+          <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="mob1" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#0f2d1a"/>
+                <stop offset="100%" stop-color="#16a34a"/>
+              </linearGradient>
+              <linearGradient id="mob2" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#4ade80"/>
+                <stop offset="100%" stop-color="#22c55e"/>
+              </linearGradient>
+            </defs>
+            <rect width="100" height="100" fill="url(#mob1)"/>
+            <path d="M18 52 Q18 46 24 46 L76 46 Q82 46 82 52 L78 76 Q77 82 71 82 L29 82 Q23 82 22 76 Z"
+                  fill="white" opacity="0.1"/>
+            <path d="M18 52 Q18 46 24 46 L76 46 Q82 46 82 52 L78 76 Q77 82 71 82 L29 82 Q23 82 22 76 Z"
+                  fill="none" stroke="url(#mob2)" stroke-width="3.5"/>
+            <line x1="20" y1="61" x2="80" y2="61" stroke="#4ade80" stroke-width="1.8" opacity="0.35"/>
+            <line x1="20" y1="71" x2="80" y2="71" stroke="#4ade80" stroke-width="1.8" opacity="0.35"/>
+            <line x1="36" y1="46" x2="32" y2="82" stroke="#4ade80" stroke-width="1.6" opacity="0.25"/>
+            <line x1="50" y1="46" x2="50" y2="82" stroke="#4ade80" stroke-width="1.6" opacity="0.25"/>
+            <line x1="64" y1="46" x2="68" y2="82" stroke="#4ade80" stroke-width="1.6" opacity="0.25"/>
+            <path d="M34 46 Q34 18 50 18 Q66 18 66 46"
+                  fill="none" stroke="url(#mob2)" stroke-width="4" stroke-linecap="round"/>
+            <circle cx="66" cy="30" r="11" fill="#22c55e"/>
+            <text x="66" y="34" text-anchor="middle" font-family="DM Sans,Arial" font-size="12" font-weight="700" fill="white">£</text>
+            <rect x="46.5" y="63" width="7" height="2.5" rx="1.25" fill="#fca5a5"/>
+            <rect x="49" y="60.5" width="2.5" height="7" rx="1.25" fill="#fca5a5"/>
+          </svg>
+        </div>
+        <div>
+          <div style="font-size:11px; color:#f0f4f8; font-weight:600;">JerseyBasket</div>
+          <div style="font-size:10px; color:#475569; margin-top:2px;">512×512px</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Favicon -->
+    <div class="usage-cell" style="flex-direction:column; align-items:flex-start;">
+      <span class="usage-label">Favicon (Browser Tab)</span>
+      <div style="display:flex; gap:12px; align-items:center; flex-wrap:wrap;">
+        <!-- 32px simulation -->
+        <div>
+          <div class="app-icon-mockup" style="width:32px; height:32px; border-radius:4px;">
+            <svg viewBox="0 0 100 100" fill="none">
+              <rect width="100" height="100" fill="#050d1a"/>
+              <path d="M18 52 Q18 46 24 46 L76 46 Q82 46 82 52 L78 76 Q77 82 71 82 L29 82 Q23 82 22 76 Z"
+                    fill="none" stroke="#22c55e" stroke-width="4"/>
+              <path d="M34 46 Q34 18 50 18 Q66 18 66 46" fill="none" stroke="#22c55e" stroke-width="4.5" stroke-linecap="round"/>
+              <circle cx="66" cy="30" r="12" fill="#16a34a"/>
+              <text x="66" y="35" text-anchor="middle" font-family="Arial" font-size="13" font-weight="700" fill="white">£</text>
+            </svg>
+          </div>
+          <div style="font-size:9px; color:#475569; margin-top:4px; text-align:center;">32px</div>
+        </div>
+        <!-- 16px simulation -->
+        <div>
+          <div class="app-icon-mockup" style="width:16px; height:16px; border-radius:2px;">
+            <svg viewBox="0 0 100 100" fill="none">
+              <rect width="100" height="100" fill="#050d1a"/>
+              <path d="M18 52 Q18 46 24 46 L76 46 Q82 46 82 52 L78 76 Q77 82 71 82 L29 82 Q23 82 22 76 Z"
+                    fill="none" stroke="#22c55e" stroke-width="5"/>
+              <path d="M34 46 Q34 18 50 18 Q66 18 66 46" fill="none" stroke="#22c55e" stroke-width="5" stroke-linecap="round"/>
+              <circle cx="66" cy="30" r="14" fill="#16a34a"/>
+            </svg>
+          </div>
+          <div style="font-size:9px; color:#475569; margin-top:4px; text-align:center;">16px</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Wordmark on dark -->
+    <div class="usage-cell" style="flex-direction:column; align-items:flex-start;">
+      <span class="usage-label">In-App Header</span>
+      <div style="background:#050d1a; padding:10px 14px; border-radius:8px; display:flex; align-items:center; gap:8px;">
+        <svg width="22" height="22" viewBox="0 0 100 100" fill="none">
+          <defs>
+            <linearGradient id="hd1" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#22c55e"/>
+              <stop offset="100%" stop-color="#15803d"/>
+            </linearGradient>
+          </defs>
+          <path d="M18 52 Q18 46 24 46 L76 46 Q82 46 82 52 L78 76 Q77 82 71 82 L29 82 Q23 82 22 76 Z"
+                fill="none" stroke="url(#hd1)" stroke-width="8"/>
+          <path d="M34 46 Q34 18 50 18 Q66 18 66 46" fill="none" stroke="url(#hd1)" stroke-width="8" stroke-linecap="round"/>
+          <circle cx="66" cy="30" r="14" fill="#16a34a"/>
+          <text x="66" y="36" text-anchor="middle" font-family="Arial" font-size="16" font-weight="700" fill="white">£</text>
+        </svg>
+        <span style="font-family:'DM Serif Display',Georgia,serif; font-size:18px; color:#f0f4f8;">Jersey<span style="color:#22c55e;">Basket</span></span>
+        <span style="font-family:'DM Sans',Arial,sans-serif; font-size:11px; color:#475569;">.je</span>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     ADVERTISING BANNER — fixed bottom, ~20vh, scrolling
+═══════════════════════════════════════════════════════ -->
+<div id="ad-banner">
+
+  <!-- Track holds all 4 slides side by side -->
+  <div id="ad-track">
+
+    <!-- ── BANNER 1: Bold green — editorial / magazine feel ── -->
+    <div class="ad-slide" style="background: linear-gradient(135deg, #052e16 0%, #14532d 40%, #16a34a 100%);">
+      <div class="ad-noise"></div>
+      <div class="ad-inner">
+        <div class="ad-left">
+          <div class="ad-eyebrow" style="color:#4ade80; border-color:#4ade80;">ADVERTISING</div>
+          <div class="ad-headline" style="color:#f0fdf4;">
+            This could be<br>
+            <em style="color:#4ade80; font-style:italic;">your</em> Business
+          </div>
+          <div class="ad-sub" style="color:#86efac;">Reach every Jersey shopper — every day</div>
+        </div>
+        <div class="ad-right">
+          <div class="ad-cta-box" style="background:rgba(74,222,128,0.15); border:1.5px solid #4ade80;">
+            <div class="ad-cta-label" style="color:#4ade80;">Advertise here</div>
+            <div class="ad-cta-url" style="color:#f0fdf4;">jerseybasket.je</div>
+            <div class="ad-cta-arrow" style="background:#4ade80; color:#052e16;">→</div>
+          </div>
+          <div class="ad-stat-row">
+            <div class="ad-stat" style="color:#4ade80;">1,500+<span>monthly users</span></div>
+            <div class="ad-stat-divider" style="background:#4ade80;"></div>
+            <div class="ad-stat" style="color:#4ade80;">373<span>products</span></div>
+          </div>
+        </div>
+      </div>
+      <!-- decorative circles -->
+      <div class="ad-deco" style="width:280px;height:280px;background:rgba(74,222,128,0.06);right:-60px;top:-80px;border-radius:50%;"></div>
+      <div class="ad-deco" style="width:160px;height:160px;background:rgba(74,222,128,0.06);right:80px;bottom:-50px;border-radius:50%;"></div>
+    </div>
+
+    <!-- ── BANNER 2: Dark luxury — premium feel ── -->
+    <div class="ad-slide" style="background: #050d1a;">
+      <div class="ad-inner">
+        <div class="ad-left">
+          <div class="ad-eyebrow" style="color:#f59e0b; border-color:#f59e0b;">PARTNER WITH US</div>
+          <div class="ad-headline" style="color:#f0f4f8;">
+            This could be<br>
+            <span style="
+              background: linear-gradient(90deg, #f59e0b, #fbbf24, #f59e0b);
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+              background-clip: text;
+            ">your</span> Business
+          </div>
+          <div class="ad-sub" style="color:#94a3b8;">Jersey's #1 price comparison platform</div>
+        </div>
+        <div class="ad-right">
+          <div class="ad-cta-box" style="background:rgba(245,158,11,0.1); border:1.5px solid rgba(245,158,11,0.5);">
+            <div class="ad-cta-label" style="color:#f59e0b;">Get featured</div>
+            <div class="ad-cta-url" style="color:#f0f4f8;">jerseybasket.je</div>
+            <div class="ad-cta-arrow" style="background:#f59e0b; color:#050d1a;">→</div>
+          </div>
+          <div class="ad-stat-row">
+            <div class="ad-stat" style="color:#f59e0b;">5<span>stores compared</span></div>
+            <div class="ad-stat-divider" style="background:#f59e0b;"></div>
+            <div class="ad-stat" style="color:#f59e0b;">Daily<span>active users</span></div>
+          </div>
+        </div>
+      </div>
+      <!-- gold accent line top -->
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,#f59e0b,#fbbf24,#f59e0b,transparent);"></div>
+      <!-- grid pattern -->
+      <div style="position:absolute;inset:0;opacity:0.04;background-image:linear-gradient(#f59e0b 1px,transparent 1px),linear-gradient(90deg,#f59e0b 1px,transparent 1px);background-size:40px 40px;pointer-events:none;"></div>
+    </div>
+
+    <!-- ── BANNER 3: Jersey red — bold & local ── -->
+    <div class="ad-slide" style="background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 50%, #b91c1c 100%);">
+      <div class="ad-inner">
+        <div class="ad-left">
+          <div class="ad-eyebrow" style="color:#fca5a5; border-color:#fca5a5;">🇯🇪 JERSEY LOCAL</div>
+          <div class="ad-headline" style="color:#fff;">
+            This could be<br>
+            <span style="color:#fca5a5; text-decoration:underline; text-underline-offset:4px; text-decoration-thickness:2px;">your</span> Business
+          </div>
+          <div class="ad-sub" style="color:rgba(255,255,255,0.7);">Built for Jersey. Used by Jersey.</div>
+        </div>
+        <div class="ad-right">
+          <div class="ad-cta-box" style="background:rgba(255,255,255,0.12); border:1.5px solid rgba(255,255,255,0.35);">
+            <div class="ad-cta-label" style="color:#fca5a5;">Book a spot</div>
+            <div class="ad-cta-url" style="color:white;">jerseybasket.je</div>
+            <div class="ad-cta-arrow" style="background:white; color:#b91c1c;">→</div>
+          </div>
+          <div class="ad-stat-row">
+            <div class="ad-stat" style="color:#fca5a5;">Local<span>audience only</span></div>
+            <div class="ad-stat-divider" style="background:rgba(255,255,255,0.3);"></div>
+            <div class="ad-stat" style="color:#fca5a5;">Zero<span>wasted reach</span></div>
+          </div>
+        </div>
+      </div>
+      <!-- jersey cross watermark -->
+      <div style="position:absolute;right:0;top:0;bottom:0;width:180px;opacity:0.07;display:flex;align-items:center;justify-content:center;pointer-events:none;">
+        <div style="position:relative;width:120px;height:120px;">
+          <div style="position:absolute;top:50%;left:0;right:0;height:36px;background:white;transform:translateY(-50%);border-radius:4px;"></div>
+          <div style="position:absolute;left:50%;top:0;bottom:0;width:36px;background:white;transform:translateX(-50%);border-radius:4px;"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── BANNER 4: Clean white — corporate / pitch ── -->
+    <div class="ad-slide" style="background: #f8fafc;">
+      <div class="ad-inner">
+        <div class="ad-left">
+          <div class="ad-eyebrow" style="color:#16a34a; border-color:#16a34a;">YOUR BRAND HERE</div>
+          <div class="ad-headline" style="color:#0f172a; font-style:normal;">
+            This could be<br>
+            <span style="
+              background: linear-gradient(135deg, #16a34a, #22c55e);
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+              background-clip: text;
+              font-style: italic;
+            ">your</span>
+            <span style="color:#0f172a;"> Business</span>
+          </div>
+          <div class="ad-sub" style="color:#64748b;">Sponsor Jersey's trusted grocery comparison app</div>
+        </div>
+        <div class="ad-right">
+          <div class="ad-cta-box" style="background:linear-gradient(135deg,#f0fdf4,#dcfce7); border:1.5px solid #16a34a;">
+            <div class="ad-cta-label" style="color:#15803d;">Enquire today</div>
+            <div class="ad-cta-url" style="color:#0f172a;">jerseybasket.je</div>
+            <div class="ad-cta-arrow" style="background:linear-gradient(135deg,#16a34a,#15803d); color:white;">→</div>
+          </div>
+          <div class="ad-stat-row">
+            <div class="ad-stat" style="color:#16a34a;">Targeted<span style="color:#64748b;">Jersey shoppers</span></div>
+            <div class="ad-stat-divider" style="background:#e2e8f0;"></div>
+            <div class="ad-stat" style="color:#16a34a;">Affordable<span style="color:#64748b;">rates</span></div>
+          </div>
+        </div>
+      </div>
+      <!-- subtle bottom border -->
+      <div style="position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#16a34a,#22c55e,#16a34a);"></div>
+    </div>
+
+  </div><!-- /ad-track -->
+</div><!-- /ad-banner -->
+
+<style>
+/* ── BANNER SHELL ─────────────────────────────────────────── */
+#ad-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 20vh;
+  min-height: 110px;
+  max-height: 200px;
+  overflow: hidden;
+  z-index: 1000;
+  box-shadow: 0 -4px 32px rgba(0,0,0,0.5);
+}
+
+/* ── TRACK: holds slides side by side ────────────────────── */
+#ad-track {
+  display: flex;
+  width: 400%;          /* 4 slides × 100% */
+  height: 100%;
+  /* JS drives transform; transition set by JS too */
+}
+
+/* ── INDIVIDUAL SLIDE ─────────────────────────────────────── */
+.ad-slide {
+  position: relative;
+  width: 25%;           /* 1/4 of track = 100% of viewport */
+  height: 100%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+/* noise texture overlay */
+.ad-noise {
+  position: absolute;
+  inset: 0;
+  opacity: 0.035;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+}
+
+/* decorative absolute circles */
+.ad-deco {
+  position: absolute;
+  pointer-events: none;
+}
+
+/* ── INNER LAYOUT ─────────────────────────────────────────── */
+.ad-inner {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 clamp(16px, 4vw, 48px);
+  gap: clamp(12px, 3vw, 40px);
+  max-width: 1100px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* ── LEFT COLUMN ──────────────────────────────────────────── */
+.ad-left {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2px, 0.8vh, 7px);
+  min-width: 0;
+}
+
+.ad-eyebrow {
+  font-family: 'DM Sans', Arial, sans-serif;
+  font-size: clamp(7px, 1.1vh, 11px);
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-left: 2px solid;
+  padding-left: 8px;
+  line-height: 1;
+}
+
+.ad-headline {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: clamp(16px, 3.5vh, 30px);
+  line-height: 1.15;
+  font-weight: 400;
+  letter-spacing: -0.5px;
+}
+
+.ad-sub {
+  font-family: 'DM Sans', Arial, sans-serif;
+  font-size: clamp(9px, 1.4vh, 13px);
+  font-weight: 400;
+  letter-spacing: 0.2px;
+  opacity: 0.85;
+}
+
+/* ── RIGHT COLUMN ─────────────────────────────────────────── */
+.ad-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: clamp(4px, 1vh, 10px);
+  flex-shrink: 0;
+}
+
+.ad-cta-box {
+  display: flex;
+  align-items: center;
+  gap: clamp(8px, 1.5vw, 18px);
+  border-radius: 10px;
+  padding: clamp(6px, 1.2vh, 11px) clamp(10px, 1.8vw, 18px);
+}
+
+.ad-cta-label {
+  font-family: 'DM Sans', Arial, sans-serif;
+  font-size: clamp(8px, 1.2vh, 11px);
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.ad-cta-url {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: clamp(11px, 2vh, 18px);
+  font-weight: 400;
+  letter-spacing: -0.2px;
+  white-space: nowrap;
+}
+
+.ad-cta-arrow {
+  width: clamp(24px, 3.5vh, 34px);
+  height: clamp(24px, 3.5vh, 34px);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(12px, 2vh, 18px);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.ad-stat-row {
+  display: flex;
+  align-items: center;
+  gap: clamp(8px, 1.5vw, 16px);
+}
+
+.ad-stat {
+  font-family: 'DM Sans', Arial, sans-serif;
+  font-size: clamp(10px, 1.8vh, 15px);
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  line-height: 1.1;
+}
+
+.ad-stat span {
+  font-size: clamp(7px, 1vh, 9px);
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  opacity: 0.7;
+  margin-top: 1px;
+}
+
+.ad-stat-divider {
+  width: 1px;
+  height: clamp(18px, 2.5vh, 28px);
+  opacity: 0.3;
+}
+
+/* ── PROGRESS BAR (bottom of banner) ─────────────────────── */
+#ad-progress-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background: rgba(255,255,255,0.35);
+  z-index: 10;
+  transition: none;
+}
+
+/* ── DOTS ─────────────────────────────────────────────────── */
+#ad-dots {
+  position: absolute;
+  bottom: 8px;
+  right: clamp(12px, 3vw, 24px);
+  display: flex;
+  gap: 5px;
+  z-index: 10;
+}
+
+.ad-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.3);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.ad-dot.active {
+  background: rgba(255,255,255,0.9);
+  width: 14px;
+  border-radius: 3px;
+}
+
+/* ── PAUSE INDICATOR ──────────────────────────────────────── */
+#ad-pause-icon {
+  position: absolute;
+  top: 8px;
+  right: clamp(12px, 3vw, 24px);
+  font-size: clamp(8px, 1.1vh, 10px);
+  font-family: 'DM Sans', Arial, sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* give the page enough bottom padding so banner doesn't cover content */
+body { padding-bottom: calc(20vh + 16px); }
+@media (max-width: 520px) {
+  .ad-stat-row { display: none; }
+  .ad-right    { gap: 4px; }
+}
+</style>
+
+<script>
+(function() {
+  const TOTAL       = 4;
+  const SCROLL_DURATION = 700;   // ms for slide transition
+  const PAUSE_DURATION  = 2000;  // ms pause on each slide
+
+  const track    = document.getElementById('ad-track');
+  const banner   = document.getElementById('ad-banner');
+
+  // Build progress bar
+  const progressBar = document.createElement('div');
+  progressBar.id = 'ad-progress-bar';
+  banner.appendChild(progressBar);
+
+  // Build dots
+  const dotsEl = document.createElement('div');
+  dotsEl.id = 'ad-dots';
+  for (let i = 0; i < TOTAL; i++) {
+    const d = document.createElement('div');
+    d.className = 'ad-dot' + (i === 0 ? ' active' : '');
+    d.addEventListener('click', () => goTo(i));
+    dotsEl.appendChild(d);
+  }
+  banner.appendChild(dotsEl);
+
+  // Build pause text
+  const pauseIcon = document.createElement('div');
+  pauseIcon.id = 'ad-pause-icon';
+  pauseIcon.textContent = '⏸ paused';
+  banner.appendChild(pauseIcon);
+
+  let current    = 0;
+  let timer      = null;
+  let progTimer  = null;
+  let isPaused   = false;
+  let progStart  = null;
+  let progElapsed= 0;
+
+  function setSlide(idx, animate) {
+    const pct = (idx / TOTAL) * 100;
+    if (animate) {
+      track.style.transition = `transform ${SCROLL_DURATION}ms cubic-bezier(0.77,0,0.18,1)`;
+    } else {
+      track.style.transition = 'none';
+    }
+    track.style.transform = `translateX(-${pct}%)`;
+
+    // Update dots
+    document.querySelectorAll('.ad-dot').forEach((d, i) => {
+      d.classList.toggle('active', i === idx);
+    });
+  }
+
+  function startProgress() {
+    progStart   = performance.now();
+    progElapsed = 0;
+    progressBar.style.transition = 'none';
+    progressBar.style.width = '0%';
+
+    function tick(now) {
+      if (isPaused) return;
+      progElapsed = now - progStart;
+      const frac = Math.min(progElapsed / PAUSE_DURATION, 1);
+      progressBar.style.width = (frac * 100) + '%';
+      if (frac < 1) {
+        progTimer = requestAnimationFrame(tick);
+      }
+    }
+    progTimer = requestAnimationFrame(tick);
+  }
+
+  function stopProgress() {
+    cancelAnimationFrame(progTimer);
+  }
+
+  function advance() {
+    current = (current + 1) % TOTAL;
+    setSlide(current, true);
+    startProgress();
+    timer = setTimeout(advance, PAUSE_DURATION + SCROLL_DURATION);
+  }
+
+  function goTo(idx) {
+    clearTimeout(timer);
+    stopProgress();
+    current = idx;
+    setSlide(current, true);
+    startProgress();
+    timer = setTimeout(advance, PAUSE_DURATION + SCROLL_DURATION);
+  }
+
+  // Pause on hover
+  banner.addEventListener('mouseenter', () => {
+    isPaused = true;
+    clearTimeout(timer);
+    stopProgress();
+    pauseIcon.style.opacity = '1';
+    // freeze progress bar width
+  });
+
+  banner.addEventListener('mouseleave', () => {
+    isPaused = false;
+    pauseIcon.style.opacity = '0';
+    // Restart from current elapsed
+    const remaining = Math.max(PAUSE_DURATION - progElapsed, 300);
+    startProgress();
+    timer = setTimeout(advance, remaining + SCROLL_DURATION);
+  });
+
+  // Touch swipe support
+  let touchStartX = 0;
+  banner.addEventListener('touchstart', e => {
+    touchStartX = e.touches[0].clientX;
+    clearTimeout(timer);
+    stopProgress();
+  }, { passive: true });
+
+  banner.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 40) {
+      goTo(dx < 0
+        ? (current + 1) % TOTAL
+        : (current - 1 + TOTAL) % TOTAL);
+    } else {
+      // tap — restart
+      startProgress();
+      timer = setTimeout(advance, PAUSE_DURATION + SCROLL_DURATION);
+    }
+  }, { passive: true });
+
+  // Kick off
+  setSlide(0, false);
+  startProgress();
+  timer = setTimeout(advance, PAUSE_DURATION + SCROLL_DURATION);
+
+})();
+</script>
+</body>
+</html>

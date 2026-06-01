@@ -1,0 +1,3 @@
+cd C:\Users\eamon_qw9m8iy\OneDrive\Desktop\jerseybasket
+vercel build --prod
+vercel --prod --yes --prebuilt

@@ -1,0 +1,77 @@
+{
+  "name": "JerseyBasket – CI Price Comparison",
+  "short_name": "JerseyBasket",
+  "description": "Compare grocery prices across Jersey, Channel Islands supermarkets. Find the cheapest price on every item instantly.",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#050d1a",
+  "theme_color": "#16a34a",
+  "categories": ["shopping", "food", "lifestyle"],
+  "lang": "en-GB",
+  "icons": [
+    {
+      "src": "/icons/icon-72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshots/shop.png",
+      "sizes": "390x844",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Shop and compare prices"
+    },
+    {
+      "src": "/screenshots/basket.png",
+      "sizes": "390x844",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Smart basket with savings tips"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "My Basket",
+      "short_name": "Basket",
+      "description": "View your current shopping basket",
+      "url": "/?view=basket",
+      "icons": [{ "src": "/icons/icon-96.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Compare Stores",
+      "short_name": "Compare",
+      "description": "Compare Jersey supermarket prices",
+      "url": "/?view=compare",
+      "icons": [{ "src": "/icons/icon-96.png", "sizes": "96x96" }]
+    }
+  ],
+  "prefer_related_applications": false
+}
