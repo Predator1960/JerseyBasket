@@ -13,9 +13,11 @@
  * Built for Jersey, Channel Islands.
  * Contact: hello@jerseybasket.je
  *
- * Version:   v44
- * Updated:   1 June 2026
- * Changes:   Add 5 verified Waitrose St Helier prices (ids 449-453). Total: 453 products. Next id: 454
+ * Version:   v45
+ * Updated:   2 June 2026
+ * Changes:   Fix £0.00 prices showing as cheapest (stores with no price excluded)
+ *            Fix modal X button hidden behind iPhone status bar on all modals
+ *            Fix header row 1 hidden behind iOS status bar (safe-area-inset-top)
  *            in the header (e.g. for ethical/personal reasons). Hidden stores are
  *            removed from product cards, store pin chips, and basket comparisons.
  *            Setting persists for the session.
@@ -549,10 +551,10 @@ const BASE_PRODUCTS = [
 /* ═══════════════════════════════════════════════════════════════════════════
    HELPERS
 ═══════════════════════════════════════════════════════════════════════════ */
-const getBestPrice   = (p, disabled=new Set()) => { const vals=Object.entries(p.prices).filter(([k])=>!disabled.has(k)).map(([,v])=>v); return vals.length?Math.min(...vals):0; };
-const getWorstPrice  = (p, disabled=new Set()) => { const vals=Object.entries(p.prices).filter(([k])=>!disabled.has(k)).map(([,v])=>v); return vals.length?Math.max(...vals):0; };
-const getBestStoreId = (p, disabled=new Set()) => { const b=getBestPrice(p,disabled); return Object.entries(p.prices).find(([k,v])=>!disabled.has(k)&&v===b)?.[0]; };
-const getSortedPrices= (p, disabled=new Set()) => Object.entries(p.prices).filter(([k])=>!disabled.has(k)).sort(([,a],[,b])=>a-b);
+const getBestPrice   = (p, disabled=new Set()) => { const vals=Object.entries(p.prices).filter(([k,v])=>!disabled.has(k)&&v>0).map(([,v])=>v); return vals.length?Math.min(...vals):0; };
+const getWorstPrice  = (p, disabled=new Set()) => { const vals=Object.entries(p.prices).filter(([k,v])=>!disabled.has(k)&&v>0).map(([,v])=>v); return vals.length?Math.max(...vals):0; };
+const getBestStoreId = (p, disabled=new Set()) => { const b=getBestPrice(p,disabled); return Object.entries(p.prices).find(([k,v])=>!disabled.has(k)&&v===b&&v>0)?.[0]; };
+const getSortedPrices= (p, disabled=new Set()) => Object.entries(p.prices).filter(([k,v])=>!disabled.has(k)&&v>0).sort(([,a],[,b])=>a-b);
 
 const ICON_OPTIONS = ["🛒","🥛","🥚","🧀","🧈","🍞","🥖","🥐","🍗","🥩","🥓","🐟","🍌","🍎","🥦","🥬","🫑","🥕","🍅","🥑","🍊","💧","☕","🍷","🍺","🍝","🍚","🫒","🧴","🧻","🪥","💊","🧹","🥔","🦀","🍦","🍯","🍕","🍟","🍨","🥨","🍫","🥜","🫧","🧼","💨","🍶","🌾","🫘","🌭","🥤","🍸","🧅","🧄","🥒","🍋","🍄","🍓","🫐","🍾","🥂","🍩","🦞","🍏","🍇","🌻","🐶","🐱","🦴","🍼","🩸","💊","🩹","🌸","🏷️","⚡","🥂","🥃","🌮","🥙","🍬","🍿","🥝","🍍","🥭","🌶️","🍠","🍈","🍆","🎃","🌽","🧇","🥞","🥯","🍳"];
 
@@ -937,7 +939,7 @@ export default function JerseyGroceryApp() {
       <div style={{ position:"fixed",inset:0,pointerEvents:"none",zIndex:0, background:"radial-gradient(ellipse 80% 60% at 15% 5%,rgba(0,180,100,.05) 0%,transparent 60%),radial-gradient(ellipse 60% 80% at 85% 95%,rgba(0,100,220,.06) 0%,transparent 60%)" }} />
 
       {/* ══ HEADER ══ */}
-      <header style={{ position:"sticky",top:0,zIndex:100, background:"rgba(5,13,26,.96)",backdropFilter:"blur(20px)", borderBottom:"1px solid rgba(255,255,255,.07)",padding:"0 12px" }}>
+      <header style={{ position:"sticky",top:0,zIndex:100, background:"rgba(5,13,26,.96)",backdropFilter:"blur(20px)", borderBottom:"1px solid rgba(255,255,255,.07)",padding:"0 12px",paddingTop:"env(safe-area-inset-top,0px)" }}>
         <div style={{ maxWidth:1040,margin:"0 auto" }}>
           {/* ── ROW 1: logo + icon buttons ── */}
           <div style={{ display:"flex",alignItems:"center",justifyContent:"space-between",paddingTop:10,paddingBottom:7,gap:6 }}>
@@ -1438,10 +1440,10 @@ export default function JerseyGroceryApp() {
 
       {/* ══ ADD ITEM MODAL ══ */}
       {showAddModal&&(
-        <div style={{ position:"fixed",inset:0,zIndex:200,display:"flex",alignItems:"flex-end",justifyContent:"center",background:"rgba(0,0,0,.72)",backdropFilter:"blur(8px)" }}
+        <div style={{ position:"fixed",inset:0,zIndex:200,display:"flex",alignItems:"flex-end",justifyContent:"center",paddingTop:60,background:"rgba(0,0,0,.72)",backdropFilter:"blur(8px)" }}
           onClick={e=>{if(e.target===e.currentTarget){setShowAddModal(false);setAddError("");}}}>
-          <div style={{ width:"100%",maxWidth:580,background:"#0a1a30",border:"1px solid rgba(255,255,255,.11)",borderRadius:"20px 20px 0 0",padding:"21px 20px 28px",maxHeight:"75vh",overflowY:"auto",paddingBottom:"calc(10vh + 32px)" }}>
-            <div style={{ display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:15 }}>
+          <div style={{ width:"100%",maxWidth:580,background:"#0a1a30",border:"1px solid rgba(255,255,255,.11)",borderRadius:"20px 20px 0 0",padding:"21px 20px 28px",maxHeight:"82vh",overflowY:"auto",paddingBottom:"calc(10vh + 32px)" }}>
+            <div style={{ display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:15,position:"sticky",top:0,background:"#0a1a30",paddingTop:4,paddingBottom:8,zIndex:10 }}>
               <div>
                 <div style={{ fontSize:16,fontWeight:700 }}>➕ Add Custom Item</div>
                 <div style={{ fontSize:10.5,color:"#64748b",marginTop:2 }}>Enter prices for the stores you know — leave others blank</div>
@@ -2146,9 +2148,9 @@ function ReportModal({ onClose }) {
   };
 
   return (
-    <div style={{ position:"fixed",inset:0,zIndex:500,display:"flex",alignItems:"flex-end",justifyContent:"center",background:"rgba(0,0,0,.75)",backdropFilter:"blur(8px)" }}
+    <div style={{ position:"fixed",inset:0,zIndex:500,display:"flex",alignItems:"flex-end",justifyContent:"center",paddingTop:60,background:"rgba(0,0,0,.75)",backdropFilter:"blur(8px)" }}
       onClick={e=>{ if(e.target===e.currentTarget) onClose(); }}>
-      <div style={{ width:"100%",maxWidth:520,background:"#0a1a30",border:"1px solid rgba(255,255,255,.12)",borderRadius:"20px 20px 0 0",padding:"22px 20px 30px",maxHeight:"75vh",overflowY:"auto",paddingBottom:"calc(10vh + 32px)" }}>
+      <div style={{ width:"100%",maxWidth:520,background:"#0a1a30",border:"1px solid rgba(255,255,255,.12)",borderRadius:"20px 20px 0 0",padding:"22px 20px 30px",maxHeight:"82vh",overflowY:"auto",paddingBottom:"calc(10vh + 32px)" }}>
 
         {status==="sent" ? (
           <div style={{ textAlign:"center",padding:"30px 0" }}>
@@ -2281,7 +2283,7 @@ function EnquiryModal({ onClose }) {
   return (
     <div style={{ position:"fixed", inset:0, zIndex:500, display:"flex", alignItems:"flex-end", justifyContent:"center", background:"rgba(0,0,0,.75)", backdropFilter:"blur(8px)" }}
       onClick={e=>{ if(e.target===e.currentTarget) onClose(); }}>
-      <div style={{ width:"100%", maxWidth:520, background:"#0a1a30", border:"1px solid rgba(255,255,255,.12)", borderRadius:"20px 20px 0 0", padding:"24px 20px 32px", maxHeight:"75vh", overflowY:"auto", paddingBottom:"calc(10vh + 32px)" }}>
+      <div style={{ width:"100%", maxWidth:520, background:"#0a1a30", border:"1px solid rgba(255,255,255,.12)", borderRadius:"20px 20px 0 0", padding:"24px 20px 32px", maxHeight:"82vh", overflowY:"auto", paddingBottom:"calc(10vh + 32px)" }}>
 
         {status === "sent" ? (
           <div style={{ textAlign:"center", padding:"30px 10px" }}>
@@ -2353,7 +2355,7 @@ function EnquiryModal({ onClose }) {
 ═══════════════════════════════════════════════════════════════════════════ */
 function SettingsModal({ disabledStores, onToggleStore, onClose }) {
   return (
-    <div style={{ position:"fixed",inset:0,zIndex:500,display:"flex",alignItems:"flex-end",justifyContent:"center",background:"rgba(0,0,0,.75)",backdropFilter:"blur(8px)" }}
+    <div style={{ position:"fixed",inset:0,zIndex:500,display:"flex",alignItems:"flex-end",justifyContent:"center",paddingTop:60,background:"rgba(0,0,0,.75)",backdropFilter:"blur(8px)" }}
       onClick={e=>{ if(e.target===e.currentTarget) onClose(); }}>
       <div style={{ width:"100%",maxWidth:520,background:"#0a1a30",border:"1px solid rgba(255,255,255,.12)",borderRadius:"20px 20px 0 0",padding:"24px 20px 32px",paddingBottom:"calc(10vh + 32px)" }}>
 
@@ -2412,9 +2414,9 @@ function SettingsModal({ disabledStores, onToggleStore, onClose }) {
 ═══════════════════════════════════════════════════════════════════════════ */
 function CompetitionModal({ onClose, onSubmit }) {
   return (
-    <div style={{ position:"fixed",inset:0,zIndex:500,display:"flex",alignItems:"flex-end",justifyContent:"center",background:"rgba(0,0,0,.8)",backdropFilter:"blur(8px)" }}
+    <div style={{ position:"fixed",inset:0,zIndex:500,display:"flex",alignItems:"flex-end",justifyContent:"center",paddingTop:60,background:"rgba(0,0,0,.8)",backdropFilter:"blur(8px)" }}
       onClick={e=>{ if(e.target===e.currentTarget) onClose(); }}>
-      <div style={{ width:"100%",maxWidth:520,background:"#120800",border:"1px solid rgba(251,146,60,.25)",borderRadius:"20px 20px 0 0",padding:"24px 20px 32px",paddingBottom:"calc(10vh + 32px)",maxHeight:"85vh",overflowY:"auto" }}>
+      <div style={{ width:"100%",maxWidth:520,background:"#120800",border:"1px solid rgba(251,146,60,.25)",borderRadius:"20px 20px 0 0",padding:"24px 20px 32px",paddingBottom:"calc(10vh + 32px)",maxHeight:"82vh",overflowY:"auto" }}>
 
         {/* header */}
         <div style={{ display:"flex",justifyContent:"space-between",alignItems:"flex-start",marginBottom:20 }}>
@@ -2538,9 +2540,9 @@ function SubmitPriceModal({ onClose }) {
   const required = !form.name.trim()||!form.mobile.trim()||!form.email.trim()||!form.product.trim()||!form.price.trim();
 
   return (
-    <div style={{ position:"fixed",inset:0,zIndex:600,display:"flex",alignItems:"flex-end",justifyContent:"center",background:"rgba(0,0,0,.8)",backdropFilter:"blur(8px)" }}
+    <div style={{ position:"fixed",inset:0,zIndex:600,display:"flex",alignItems:"flex-end",justifyContent:"center",paddingTop:60,background:"rgba(0,0,0,.8)",backdropFilter:"blur(8px)" }}
       onClick={e=>{ if(e.target===e.currentTarget) onClose(); }}>
-      <div style={{ width:"100%",maxWidth:520,background:"#120800",border:"1px solid rgba(251,146,60,.25)",borderRadius:"20px 20px 0 0",padding:"24px 20px 32px",paddingBottom:"calc(10vh + 32px)",maxHeight:"85vh",overflowY:"auto" }}>
+      <div style={{ width:"100%",maxWidth:520,background:"#120800",border:"1px solid rgba(251,146,60,.25)",borderRadius:"20px 20px 0 0",padding:"24px 20px 32px",paddingBottom:"calc(10vh + 32px)",maxHeight:"82vh",overflowY:"auto" }}>
 
         {status==="sent" ? (
           <div style={{ textAlign:"center",padding:"30px 0" }}>
