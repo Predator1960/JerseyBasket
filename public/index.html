@@ -1,20 +1,12 @@
 <!DOCTYPE html>
 <html lang="en-GB">
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-CGQ6PXHN9T"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-CGQ6PXHN9T');
-</script>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 
   <!-- Primary Meta -->
   <title>JerseyBasket – Jersey Grocery Price Comparison</title>
-  <meta name="description" content="Compare grocery prices across CI Co-op, Morrisons, M&S, Waitrose and Iceland in Jersey, Channel Islands. Find the cheapest price on 373+ products instantly." />
+  <meta name="description" content="Compare grocery prices across CI Co-op, Morrisons, M&S, Waitrose and Iceland in Jersey, Channel Islands. Find the cheapest price on 453+ products instantly." />
   <meta name="keywords" content="Jersey groceries, Channel Islands supermarket, CI Co-op prices, Morrisons Jersey, price comparison, JerseyBasket" />
   <meta name="author" content="JerseyBasket" />
   <meta name="robots" content="index, follow" />
@@ -41,7 +33,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://jerseybasket.je/" />
   <meta property="og:title" content="JerseyBasket – Jersey Grocery Price Comparison" />
-  <meta property="og:description" content="Compare grocery prices across all Jersey supermarkets. 373+ products, 5 stores, always showing the cheapest price first." />
+  <meta property="og:description" content="Compare grocery prices across all Jersey supermarkets. 453+ products, 5 stores, always showing the cheapest price first." />
   <meta property="og:image" content="/icons/icon-512.png" />
   <meta property="og:locale" content="en_GB" />
 
@@ -51,16 +43,18 @@
   <meta name="twitter:description" content="Find the cheapest groceries in Jersey, Channel Islands." />
   <meta name="twitter:image" content="/icons/icon-512.png" />
 
-  <!-- Preload critical fonts -->
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CGQ6PXHN9T"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-CGQ6PXHN9T');
+  </script>
+
+  <!-- Preconnect for fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-CGQ6PXHN9T"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-CGQ6PXHN9T');
-</script>
+
   <!-- Splash screen background matches app -->
   <style>
     html, body, #root {
@@ -68,13 +62,11 @@
       padding: 0;
       background: #050d1a;
       min-height: 100vh;
-      /* Safe area insets for iPhone notch / Dynamic Island */
       padding-top: env(safe-area-inset-top);
       padding-bottom: env(safe-area-inset-bottom);
       padding-left: env(safe-area-inset-left);
       padding-right: env(safe-area-inset-right);
     }
-    /* Loading splash */
     #splash {
       position: fixed;
       inset: 0;
@@ -115,7 +107,6 @@
   <!-- React mounts here -->
   <div id="root"></div>
 
-  <!-- Service Worker Registration -->
   <script>
     // Hide splash when React renders
     window.addEventListener('load', () => {
@@ -134,15 +125,12 @@
         navigator.serviceWorker.register('/service-worker.js')
           .then(reg => {
             console.log('[JerseyBasket] Service Worker registered:', reg.scope);
-            // Check for updates every hour
             setInterval(() => reg.update(), 60 * 60 * 1000);
           })
           .catch(err => console.warn('[JerseyBasket] SW registration failed:', err));
       });
     }
 
-    // iOS "Add to Home Screen" prompt helper
-    // (iOS doesn't support beforeinstallprompt, so we show a custom banner)
     function isIos() {
       return /iphone|ipad|ipod/.test(navigator.userAgent.toLowerCase());
     }
@@ -154,7 +142,6 @@
       window.__showIosInstallHint = true;
     }
 
-    // Android / Chrome install prompt — store for use in app
     window.addEventListener('beforeinstallprompt', e => {
       e.preventDefault();
       window.__installPrompt = e;
