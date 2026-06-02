@@ -13,9 +13,9 @@
  * Built for Jersey, Channel Islands.
  * Contact: hello@jerseybasket.je
  *
- * Version:   v50
+ * Version:   v51
  * Updated:   2 June 2026
- * Changes:   Remove photo upload (Formspree free tier limitation) — email tip restored
+ * Changes:   Add email receipt photo button — opens mail app pre-addressed to hello@jerseybasket.je
  *            in the header (e.g. for ethical/personal reasons). Hidden stores are
  *            removed from product cards, store pin chips, and basket comparisons.
  *            Setting persists for the session.
@@ -2644,9 +2644,13 @@ function SubmitPriceModal({ onClose }) {
                 style={{ width:"100%",padding:"9px 12px",background:"rgba(255,255,255,.07)",border:"1px solid rgba(255,255,255,.11)",borderRadius:9,color:"#fff",fontSize:12,outline:"none",resize:"none",boxSizing:"border-box",fontFamily:"inherit",lineHeight:1.5 }} />
             </div>
 
-            <div style={{ background:"rgba(251,146,60,.07)",border:"1px solid rgba(251,146,60,.2)",borderRadius:9,padding:"9px 13px",fontSize:10,color:"#9a3412",lineHeight:1.7,marginBottom:14 }}>
+            <div style={{ background:"rgba(251,146,60,.07)",border:"1px solid rgba(251,146,60,.2)",borderRadius:9,padding:"9px 13px",fontSize:10,color:"#9a3412",lineHeight:1.7,marginBottom:10 }}>
               📸 <strong style={{ color:"#fed7aa" }}>Got a receipt?</strong> Email a photo to <span style={{ color:"#fb923c" }}>hello@jerseybasket.je</span> with your name and we'll count all the prices on it! Make sure the <strong style={{ color:"#fed7aa" }}>store name, date, and prices are clearly visible</strong>.
             </div>
+            <a href={`mailto:hello@jerseybasket.je?subject=🏆 June Competition Receipt — ${form.name||"Entry"}&body=Hi Eamonn, please find my receipt photo attached.%0A%0AName: ${form.name||""}%0AMobile: ${form.mobile||""}%0AStore: ${STORES.find(s=>s.id===form.store)?.name||""}`}
+              style={{ display:"flex",alignItems:"center",justifyContent:"center",gap:8,width:"100%",padding:"11px",background:"rgba(251,146,60,.15)",border:"1px solid rgba(251,146,60,.35)",borderRadius:10,color:"#fed7aa",textDecoration:"none",fontSize:13,fontWeight:700,marginBottom:14,boxSizing:"border-box" }}>
+              📸 Email Receipt Photo
+            </a>
 
             {status==="error"&&<div style={{ background:"rgba(239,68,68,.1)",border:"1px solid rgba(239,68,68,.28)",borderRadius:8,padding:"7px 12px",fontSize:11,color:"#fca5a5",marginBottom:12 }}>Something went wrong. Please email hello@jerseybasket.je</div>}
 
