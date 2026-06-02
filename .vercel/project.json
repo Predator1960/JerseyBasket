@@ -1,0 +1,16 @@
+{
+  "projectId": "prj_GWKFmNlVl2PQMz8xSVaDEyO4KfBY",
+  "orgId": "team_htpOlyrFoIGrgGc40Luxgkm9",
+  "projectName": "jerseybasket",
+  "settings": {
+    "createdAt": 1779363346967,
+    "framework": null,
+    "devCommand": null,
+    "installCommand": null,
+    "buildCommand": null,
+    "outputDirectory": null,
+    "rootDirectory": null,
+    "directoryListing": false,
+    "nodeVersion": "24.x"
+  }
+}
