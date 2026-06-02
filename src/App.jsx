@@ -13,9 +13,9 @@
  * Built for Jersey, Channel Islands.
  * Contact: hello@jerseybasket.je
  *
- * Version:   v47
+ * Version:   v48
  * Updated:   2 June 2026
- * Changes:   Product name and price now optional if receipt photo is attached
+ * Changes:   Product name and price fully optional — only name, mobile, email required
  *            in the header (e.g. for ethical/personal reasons). Hidden stores are
  *            removed from product cards, store pin chips, and basket comparisons.
  *            Setting persists for the session.
@@ -2512,7 +2512,7 @@ function SubmitPriceModal({ onClose }) {
   const [status, setStatus] = useState("idle");
 
   const handleSubmit = async () => {
-    if(!form.name.trim()||!form.mobile.trim()||!form.email.trim()||(!photo&&(!form.product.trim()||!form.price.trim()))){return;}
+    if(!form.name.trim()||!form.mobile.trim()||!form.email.trim()){return;}
     setStatus("sending");
     const storeName = STORES.find(s=>s.id===form.store)?.name||form.store;
     try {
@@ -2537,7 +2537,7 @@ function SubmitPriceModal({ onClose }) {
     } catch { setStatus("error"); }
   };
 
-  const required = !form.name.trim()||!form.mobile.trim()||!form.email.trim()||(!photo&&(!form.product.trim()||!form.price.trim()));
+  const required = !form.name.trim()||!form.mobile.trim()||!form.email.trim();
 
   return (
     <div style={{ position:"fixed",inset:0,zIndex:600,display:"flex",alignItems:"flex-end",justifyContent:"center",paddingTop:60,background:"rgba(0,0,0,.8)",backdropFilter:"blur(8px)" }}
@@ -2604,14 +2604,14 @@ function SubmitPriceModal({ onClose }) {
 
             {/* product */}
             <div style={{ marginBottom:12 }}>
-              <div style={{ fontSize:10,color:"#9a3412",fontWeight:700,letterSpacing:".5px",marginBottom:6 }}>PRODUCT NAME <span style={{ color:photo?"#334155":"#f43f5e",fontWeight:400 }}>{photo?"(optional — you attached a photo)":"*"}</span></div>
+              <div style={{ fontSize:10,color:"#9a3412",fontWeight:700,letterSpacing:".5px",marginBottom:6 }}>PRODUCT NAME <span style={{ color:"#334155",fontWeight:400 }}>(optional if photo attached)</span></div>
               <input value={form.product} onChange={e=>setForm(p=>({...p,product:e.target.value}))} placeholder="e.g. Full Fat Milk 2L"
                 style={{ width:"100%",padding:"9px 12px",background:"rgba(255,255,255,.07)",border:"1px solid rgba(255,255,255,.11)",borderRadius:9,color:"#fff",fontSize:12,outline:"none",boxSizing:"border-box",fontFamily:"inherit" }} />
             </div>
 
             {/* price */}
             <div style={{ marginBottom:12 }}>
-              <div style={{ fontSize:10,color:"#9a3412",fontWeight:700,letterSpacing:".5px",marginBottom:6 }}>PRICE <span style={{ color:photo?"#334155":"#f43f5e",fontWeight:400 }}>{photo?"(optional — you attached a photo)":"*"}</span></div>
+              <div style={{ fontSize:10,color:"#9a3412",fontWeight:700,letterSpacing:".5px",marginBottom:6 }}>PRICE <span style={{ color:"#334155",fontWeight:400 }}>(optional if photo attached)</span></div>
               <div style={{ position:"relative" }}>
                 <span style={{ position:"absolute",left:12,top:"50%",transform:"translateY(-50%)",color:"#64748b",fontSize:13,fontWeight:700 }}>£</span>
                 <input type="number" step="0.01" value={form.price} onChange={e=>setForm(p=>({...p,price:e.target.value}))} placeholder="0.00"
