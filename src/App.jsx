@@ -13,12 +13,9 @@
  * Built for Jersey, Channel Islands.
  * Contact: hello@jerseybasket.je
  *
- * Version:   v58
+ * Version:   v59
  * Updated:   2 June 2026
- * Changes:   Full glossy UI overhaul — welcome modal, submit price form added — pills, buttons, cards, header, competition banner
- *            in the header (e.g. for ethical/personal reasons). Hidden stores are
- *            removed from product cards, store pin chips, and basket comparisons.
- *            Setting persists for the session.
+ * Changes:   Category sort — grouped headers with A-Z categories, fixed category data typos, category badge on each product card.
  * ============================================================
  */
 import React, { useState, useMemo, useRef, useEffect, useCallback } from "react";
