@@ -13,9 +13,9 @@
  * Built for Jersey, Channel Islands.
  * Contact: hello@jerseybasket.je
  *
- * Version:   v48
+ * Version:   v50
  * Updated:   2 June 2026
- * Changes:   Product name and price fully optional — only name, mobile, email required
+ * Changes:   Remove photo upload (Formspree free tier limitation) — email tip restored
  *            in the header (e.g. for ethical/personal reasons). Hidden stores are
  *            removed from product cards, store pin chips, and basket comparisons.
  *            Setting persists for the session.
@@ -775,6 +775,9 @@ const FORMSPREE_ID = "mvzyrgqj";
 ═══════════════════════════════════════════════════════════════════════════ */
 const COMP_ACTIVE = true;
 const COMP_WINNER = ""; // e.g. "Sarah M" — leave blank while competition is live
+
+/* ─── MAINTENANCE MODE — set to true to show "back shortly" screen ─── */
+const MAINTENANCE = false;
 const LEADERBOARD = [
   // ── TOP 5 — update these entries with real submissions ──────────────────
   // { name: "Sarah M",  count: 24 },
@@ -932,6 +935,22 @@ export default function JerseyGroceryApp() {
   };
 
   /* ── RENDER ─────────────────────────────────────────────────────── */
+  if (MAINTENANCE) return (
+    <div style={{ minHeight:"100vh", background:"linear-gradient(160deg,#050d1a 0%,#0b1c35 55%,#061220 100%)", fontFamily:"'Georgia',serif", color:"#f0f4f8", display:"flex", alignItems:"center", justifyContent:"center", padding:24 }}>
+      <div style={{ textAlign:"center", maxWidth:400 }}>
+        <div style={{ fontSize:64, marginBottom:20 }}>🛠️</div>
+        <div style={{ fontSize:24, fontWeight:700, color:"#22c55e", marginBottom:10 }}>Back Shortly!</div>
+        <div style={{ fontSize:15, color:"#94a3b8", lineHeight:1.7, marginBottom:24 }}>
+          JerseyBasket is currently being updated with new prices and features.
+          <br/>We'll be back in just a few minutes. 🇯🇪
+        </div>
+        <div style={{ fontSize:12, color:"#475569" }}>
+          Questions? Email <a href="mailto:hello@jerseybasket.je" style={{ color:"#22c55e" }}>hello@jerseybasket.je</a>
+        </div>
+      </div>
+    </div>
+  );
+
   return (
     <div style={{ minHeight:"100vh", background:"linear-gradient(160deg,#050d1a 0%,#0b1c35 55%,#061220 100%)", fontFamily:"'Georgia',serif", color:"#f0f4f8" }}>
       <div style={{ position:"fixed",inset:0,pointerEvents:"none",zIndex:0, background:"radial-gradient(ellipse 80% 60% at 15% 5%,rgba(0,180,100,.05) 0%,transparent 60%),radial-gradient(ellipse 60% 80% at 85% 95%,rgba(0,100,220,.06) 0%,transparent 60%)" }} />
@@ -2508,7 +2527,6 @@ function CompetitionModal({ onClose, onSubmit }) {
 ═══════════════════════════════════════════════════════════════════════════ */
 function SubmitPriceModal({ onClose }) {
   const [form,   setForm]   = useState({ name:"", mobile:"", email:"", store:"coop", product:"", price:"", detail:"" });
-  const [photo,  setPhoto]  = useState(null);
   const [status, setStatus] = useState("idle");
 
   const handleSubmit = async () => {
@@ -2516,21 +2534,20 @@ function SubmitPriceModal({ onClose }) {
     setStatus("sending");
     const storeName = STORES.find(s=>s.id===form.store)?.name||form.store;
     try {
-      const data = new FormData();
-      data.append("_subject", `🏆 June Competition Entry — ${form.name}`);
-      data.append("name",    form.name);
-      data.append("mobile",  form.mobile);
-      data.append("email",   form.email);
-      data.append("store",   storeName);
-      data.append("product", form.product);
-      data.append("price",   `£${form.price}`);
-      data.append("detail",  form.detail||"No additional notes");
-      data.append("message", `JUNE COMPETITION ENTRY\n\nName: ${form.name}\nMobile: ${form.mobile}\nEmail: ${form.email}\nStore: ${storeName}\nProduct: ${form.product}\nPrice: £${form.price}\nNotes: ${form.detail||"None"}`);
-      if(photo) data.append("receipt_photo", photo);
       const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`,{
         method:"POST",
-        headers:{"Accept":"application/json"},
-        body: data,
+        headers:{"Content-Type":"application/json","Accept":"application/json"},
+        body: JSON.stringify({
+          _subject:`🏆 June Competition Entry — ${form.name}`,
+          name: form.name,
+          mobile: form.mobile,
+          email: form.email,
+          store: storeName,
+          product: form.product||"Not specified",
+          price: form.price?`£${form.price}`:"Not specified",
+          detail: form.detail||"No additional notes",
+          message:`JUNE COMPETITION ENTRY\n\nName: ${form.name}\nMobile: ${form.mobile}\nEmail: ${form.email}\nStore: ${storeName}\nProduct: ${form.product||"Not specified"}\nPrice: ${form.price?`£${form.price}`:"Not specified"}\nNotes: ${form.detail||"None"}`,
+        })
       });
       if(res.ok){ setStatus("sent"); }
       else { setStatus("error"); }
@@ -2604,14 +2621,14 @@ function SubmitPriceModal({ onClose }) {
 
             {/* product */}
             <div style={{ marginBottom:12 }}>
-              <div style={{ fontSize:10,color:"#9a3412",fontWeight:700,letterSpacing:".5px",marginBottom:6 }}>PRODUCT NAME <span style={{ color:"#334155",fontWeight:400 }}>(optional if photo attached)</span></div>
+              <div style={{ fontSize:10,color:"#9a3412",fontWeight:700,letterSpacing:".5px",marginBottom:6 }}>PRODUCT NAME <span style={{ color:"#334155",fontWeight:400 }}>(optional)</span></div>
               <input value={form.product} onChange={e=>setForm(p=>({...p,product:e.target.value}))} placeholder="e.g. Full Fat Milk 2L"
                 style={{ width:"100%",padding:"9px 12px",background:"rgba(255,255,255,.07)",border:"1px solid rgba(255,255,255,.11)",borderRadius:9,color:"#fff",fontSize:12,outline:"none",boxSizing:"border-box",fontFamily:"inherit" }} />
             </div>
 
             {/* price */}
             <div style={{ marginBottom:12 }}>
-              <div style={{ fontSize:10,color:"#9a3412",fontWeight:700,letterSpacing:".5px",marginBottom:6 }}>PRICE <span style={{ color:"#334155",fontWeight:400 }}>(optional if photo attached)</span></div>
+              <div style={{ fontSize:10,color:"#9a3412",fontWeight:700,letterSpacing:".5px",marginBottom:6 }}>PRICE <span style={{ color:"#334155",fontWeight:400 }}>(optional)</span></div>
               <div style={{ position:"relative" }}>
                 <span style={{ position:"absolute",left:12,top:"50%",transform:"translateY(-50%)",color:"#64748b",fontSize:13,fontWeight:700 }}>£</span>
                 <input type="number" step="0.01" value={form.price} onChange={e=>setForm(p=>({...p,price:e.target.value}))} placeholder="0.00"
@@ -2627,28 +2644,8 @@ function SubmitPriceModal({ onClose }) {
                 style={{ width:"100%",padding:"9px 12px",background:"rgba(255,255,255,.07)",border:"1px solid rgba(255,255,255,.11)",borderRadius:9,color:"#fff",fontSize:12,outline:"none",resize:"none",boxSizing:"border-box",fontFamily:"inherit",lineHeight:1.5 }} />
             </div>
 
-            {/* receipt photo */}
-            <div style={{ marginBottom:14 }}>
-              <div style={{ fontSize:10,color:"#9a3412",fontWeight:700,letterSpacing:".5px",marginBottom:6 }}>📸 RECEIPT PHOTO <span style={{ color:"#334155",fontWeight:400 }}>(optional but recommended)</span></div>
-              <label style={{ display:"block",cursor:"pointer" }}>
-                <div style={{ background:photo?"rgba(34,197,94,.1)":"rgba(251,146,60,.07)",border:`2px dashed ${photo?"rgba(34,197,94,.4)":"rgba(251,146,60,.3)"}`,borderRadius:10,padding:"14px",textAlign:"center",transition:"all .2s" }}>
-                  {photo ? (
-                    <div>
-                      <div style={{ fontSize:22,marginBottom:4 }}>✅</div>
-                      <div style={{ fontSize:12,color:"#86efac",fontWeight:700 }}>{photo.name}</div>
-                      <div style={{ fontSize:10,color:"#475569",marginTop:3 }}>Tap to change photo</div>
-                    </div>
-                  ) : (
-                    <div>
-                      <div style={{ fontSize:28,marginBottom:6 }}>📸</div>
-                      <div style={{ fontSize:12,color:"#fed7aa",fontWeight:700 }}>Tap to attach your receipt</div>
-                      <div style={{ fontSize:10,color:"#9a3412",marginTop:4,lineHeight:1.5 }}>Take a photo or choose from your gallery<br/>Store name, date & prices must be visible</div>
-                    </div>
-                  )}
-                </div>
-                <input type="file" accept="image/*" capture="environment" onChange={e=>setPhoto(e.target.files?.[0]||null)}
-                  style={{ display:"none" }} />
-              </label>
+            <div style={{ background:"rgba(251,146,60,.07)",border:"1px solid rgba(251,146,60,.2)",borderRadius:9,padding:"9px 13px",fontSize:10,color:"#9a3412",lineHeight:1.7,marginBottom:14 }}>
+              📸 <strong style={{ color:"#fed7aa" }}>Got a receipt?</strong> Email a photo to <span style={{ color:"#fb923c" }}>hello@jerseybasket.je</span> with your name and we'll count all the prices on it! Make sure the <strong style={{ color:"#fed7aa" }}>store name, date, and prices are clearly visible</strong>.
             </div>
 
             {status==="error"&&<div style={{ background:"rgba(239,68,68,.1)",border:"1px solid rgba(239,68,68,.28)",borderRadius:8,padding:"7px 12px",fontSize:11,color:"#fca5a5",marginBottom:12 }}>Something went wrong. Please email hello@jerseybasket.je</div>}
