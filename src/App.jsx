@@ -13,9 +13,9 @@
  * Built for Jersey, Channel Islands.
  * Contact: hello@jerseybasket.je
  *
- * Version:   v51
+ * Version:   v53
  * Updated:   2 June 2026
- * Changes:   Add email receipt photo button — opens mail app pre-addressed to hello@jerseybasket.je
+ * Changes:   Full glossy UI overhaul — welcome modal, submit price form added — pills, buttons, cards, header, competition banner
  *            in the header (e.g. for ethical/personal reasons). Hidden stores are
  *            removed from product cards, store pin chips, and basket comparisons.
  *            Setting persists for the session.
@@ -681,14 +681,14 @@ function ProductCard({ product, onAddToBasket, pinnedStore, isFavourite, onToggl
   },[pinnedStore]);
 
   return (
-    <div style={{ background:"rgba(255,255,255,.045)", border:`1px solid ${product.custom?"rgba(34,197,94,.25)":"rgba(255,255,255,.09)"}`, borderRadius:16, overflow:"visible", transition:"box-shadow .15s" }}
-      onMouseEnter={e=>{e.currentTarget.style.boxShadow="0 6px 24px rgba(0,0,0,.4)";}}
-      onMouseLeave={e=>{e.currentTarget.style.boxShadow="none";}}>
+    <div style={{ background:"linear-gradient(180deg,rgba(255,255,255,.06) 0%,rgba(255,255,255,.03) 100%)", border:`1px solid ${product.custom?"rgba(34,197,94,.25)":"rgba(255,255,255,.1)"}`, borderRadius:16, overflow:"visible", transition:"box-shadow .15s", boxShadow:"0 4px 16px rgba(0,0,0,.3), inset 0 1px 0 rgba(255,255,255,.08)" }}
+      onMouseEnter={e=>{e.currentTarget.style.boxShadow="0 8px 28px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.1)";}}
+      onMouseLeave={e=>{e.currentTarget.style.boxShadow="0 4px 16px rgba(0,0,0,.3), inset 0 1px 0 rgba(255,255,255,.08)";}}>
 
       {/* main row */}
       <div style={{ padding:"12px 14px 0" }}>
         <div style={{ display:"flex", alignItems:"center", gap:10, marginBottom:9 }}>
-          <span style={{ fontSize:22, flexShrink:0 }}>{product.icon}</span>
+          <span style={{ fontSize:22, flexShrink:0, filter:"drop-shadow(0 1px 3px rgba(0,0,0,0.5))" }}>{product.icon}</span>
           <div style={{ flex:1, minWidth:0 }}>
             <Tooltip text={product.name}>
               <div style={{ fontSize:12.5, fontWeight:700, color:"#f0f4f8", lineHeight:1.3 }}>{product.name}</div>
@@ -704,7 +704,7 @@ function ProductCard({ product, onAddToBasket, pinnedStore, isFavourite, onToggl
             onMouseLeave={e=>{ e.currentTarget.style.transform="scale(1)";    e.currentTarget.style.color=isFavourite?"#f43f5e":"rgba(255,255,255,.2)"; }}
           >{isFavourite?"♥":"♡"}</button>
           <div style={{ textAlign:"right", flexShrink:0 }}>
-            <div style={{ fontSize:19, fontWeight:800, color:isOnBest?"#22c55e":"#f59e0b", lineHeight:1 }}>£{chosenPrice.toFixed(2)}</div>
+            <div style={{ fontSize:19, fontWeight:800, color:isOnBest?"#4ade80":"#fbbf24", lineHeight:1, textShadow:isOnBest?"0 0 10px rgba(74,222,128,0.4)":"0 0 10px rgba(251,191,36,0.4)" }}>£{chosenPrice.toFixed(2)}</div>
             {!isOnBest && <div style={{ fontSize:8.5, color:"#f87171", marginTop:1 }}>+£{overBest.toFixed(2)} vs best</div>}
             {isOnBest && saving>0.09 && <div style={{ fontSize:8.5, color:"#86efac", marginTop:1 }}>saves £{saving.toFixed(2)}</div>}
           </div>
@@ -712,15 +712,30 @@ function ProductCard({ product, onAddToBasket, pinnedStore, isFavourite, onToggl
 
         {/* store pill + add */}
         <div style={{ display:"flex", alignItems:"center", gap:8, paddingBottom:11 }}>
-          <button onClick={()=>setOpen(o=>!o)} style={{ flex:1, display:"flex", alignItems:"center", justifyContent:"space-between", background:isOnBest?"rgba(34,197,94,.1)":"rgba(251,191,36,.1)", border:`1px solid ${isOnBest?"rgba(34,197,94,.3)":"rgba(251,191,36,.3)"}`, borderRadius:9, padding:"6px 10px", cursor:"pointer", gap:5 }}>
+          <button onClick={()=>setOpen(o=>!o)} style={{
+            flex:1, display:"flex", alignItems:"center", justifyContent:"space-between",
+            background: isOnBest ? "linear-gradient(180deg,rgba(74,222,128,.18) 0%,rgba(21,128,61,.12) 100%)" : "linear-gradient(180deg,rgba(251,191,36,.15) 0%,rgba(180,83,9,.1) 100%)",
+            border: `1px solid ${isOnBest?"rgba(74,222,128,.35)":"rgba(251,191,36,.35)"}`,
+            borderRadius:9, padding:"7px 10px", cursor:"pointer", gap:5,
+            boxShadow:"inset 0 1px 0 rgba(255,255,255,.1)",
+          }}>
             <div style={{ display:"flex", alignItems:"center", gap:5 }}>
               <span style={{ fontSize:13 }}>{chosenStore?.emoji}</span>
               <span style={{ fontSize:10.5, fontWeight:700, color:isOnBest?"#86efac":"#fcd34d" }}>{chosenStore?.name}</span>
-              {isOnBest && <span style={{ fontSize:8, background:"rgba(34,197,94,.22)", color:"#22c55e", borderRadius:4, padding:"1px 5px", fontWeight:700 }}>BEST</span>}
+              {isOnBest && <span style={{ fontSize:8, background:"linear-gradient(180deg,rgba(74,222,128,.3) 0%,rgba(21,128,61,.2) 100%)", color:"#22c55e", borderRadius:4, padding:"1px 5px", fontWeight:700, border:"1px solid rgba(34,197,94,.3)" }}>BEST</span>}
             </div>
-            <span style={{ fontSize:9, color:"#64748b", display:"inline-block", transition:"transform .2s", transform:open?"rotate(180deg)":"none" }}>▾</span>
+            <span style={{ fontSize:16, color:isOnBest?"#4ade80":"#fbbf24", display:"inline-block", transition:"transform .2s", transform:open?"rotate(180deg)":"none", lineHeight:1 }}>▾</span>
           </button>
-          <button onClick={()=>onAddToBasket(product.id,chosenStoreId)} style={{ flexShrink:0, background:"linear-gradient(135deg,#16a34a,#15803d)", border:"none", borderRadius:9, padding:"6px 13px", color:"#fff", cursor:"pointer", fontSize:12.5, fontWeight:700, whiteSpace:"nowrap" }}>+ Add</button>
+          <button onClick={()=>onAddToBasket(product.id,chosenStoreId)} style={{
+            flexShrink:0, position:"relative", overflow:"hidden",
+            background:"linear-gradient(180deg,#4ade80 0%,#15803d 100%)",
+            border:"none", borderRadius:9, padding:"7px 14px",
+            color:"#052e16", cursor:"pointer", fontSize:12.5, fontWeight:700, whiteSpace:"nowrap",
+            boxShadow:"0 2px 8px rgba(34,197,94,.5), inset 0 1px 0 rgba(255,255,255,.3)",
+          }}>
+            <span style={{ position:"absolute", top:0, left:0, right:0, height:"52%", background:"linear-gradient(180deg,rgba(255,255,255,.28) 0%,rgba(255,255,255,.04) 100%)", borderRadius:"9px 9px 0 0", pointerEvents:"none" }} />
+            + Add
+          </button>
         </div>
       </div>
 
@@ -961,12 +976,17 @@ export default function JerseyGroceryApp() {
           {/* ── ROW 1: logo + icon buttons ── */}
           <div style={{ display:"flex",alignItems:"center",justifyContent:"space-between",paddingTop:10,paddingBottom:7,gap:6 }}>
             <div style={{ display:"flex",alignItems:"center",gap:7,minWidth:0,flexShrink:1 }}>
-              <span style={{ fontSize:20,flexShrink:0 }}>🛍️</span>
+              <span style={{ fontSize:20,flexShrink:0,filter:"drop-shadow(0 2px 4px rgba(34,197,94,0.4))" }}>🛍️</span>
               <div style={{ minWidth:0 }}>
                 <div style={{ fontSize:14,fontWeight:700,letterSpacing:"-0.5px",lineHeight:1.1,whiteSpace:"nowrap" }}>
-                  Jersey<span style={{ color:"#22c55e" }}>Basket</span>
+                  Jersey<span style={{ color:"#4ade80",textShadow:"0 0 12px rgba(74,222,128,0.6)" }}>Basket</span>
                 </div>
-                <div style={{ fontSize:8.5,color:"#475569",letterSpacing:".6px" }}>CHANNEL ISLANDS · {allProducts.length} PRODUCTS</div>
+                <div style={{ display:"flex",alignItems:"center",gap:5,marginTop:3 }}>
+                  <span style={{ fontSize:8.5,color:"#475569",letterSpacing:".8px" }}>CHANNEL ISLANDS</span>
+                  <span style={{ width:3,height:3,borderRadius:"50%",background:"#334155",display:"inline-block",flexShrink:0 }}/>
+                  <span style={{ fontSize:10,fontWeight:700,background:"linear-gradient(180deg,#4ade80 0%,#16a34a 100%)",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent",backgroundClip:"text" }}>{allProducts.length} products</span>
+                  <span style={{ fontSize:8.5,background:"linear-gradient(180deg,#60a5fa 0%,#1d4ed8 100%)",color:"#fff",borderRadius:5,padding:"1px 5px",fontWeight:700,boxShadow:"0 1px 4px rgba(37,99,235,0.5)",flexShrink:0 }}>LIVE</span>
+                </div>
               </div>
             </div>
             <div style={{ display:"flex",gap:4,alignItems:"center",flexShrink:0 }}>
@@ -976,32 +996,61 @@ export default function JerseyGroceryApp() {
                 if (navigator.share) { navigator.share(shareData).catch(()=>{}); }
                 else { navigator.clipboard.writeText("https://jerseybasket.je").then(()=>showToast("🔗 Link copied!")); }
               }} title="Share JerseyBasket"
-              style={{ WebkitAppearance:"none",appearance:"none",background:"rgba(255,255,255,.08)",border:"1px solid rgba(255,255,255,.1)",borderRadius:8,width:30,height:30,color:"#94a3b8",cursor:"pointer",fontSize:14,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,padding:0 }}>
+              style={{ WebkitAppearance:"none",appearance:"none",background:"linear-gradient(180deg,#1e3a5f 0%,#0f1f3d 100%)",border:"1px solid rgba(125,211,252,0.18)",borderRadius:9,width:32,height:32,color:"#7dd3fc",cursor:"pointer",fontSize:14,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,padding:0,boxShadow:"0 2px 6px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.1)",position:"relative",overflow:"hidden" }}>
+                <span style={{ position:"absolute",top:0,left:0,right:0,height:"52%",background:"linear-gradient(180deg,rgba(255,255,255,.12) 0%,rgba(255,255,255,.02) 100%)",borderRadius:"9px 9px 0 0",pointerEvents:"none" }}/>
                 🔗
               </button>
               {/* Report */}
               <button onClick={()=>setShowReport(true)} title="Report a problem"
-              style={{ WebkitAppearance:"none",appearance:"none",background:"rgba(255,255,255,.08)",border:"1px solid rgba(255,255,255,.1)",borderRadius:8,width:30,height:30,color:"#94a3b8",cursor:"pointer",fontSize:14,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,padding:0 }}>
+              style={{ WebkitAppearance:"none",appearance:"none",background:"linear-gradient(180deg,#1e3a5f 0%,#0f1f3d 100%)",border:"1px solid rgba(125,211,252,0.18)",borderRadius:9,width:32,height:32,color:"#7dd3fc",cursor:"pointer",fontSize:14,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,padding:0,boxShadow:"0 2px 6px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.1)",position:"relative",overflow:"hidden" }}>
+                <span style={{ position:"absolute",top:0,left:0,right:0,height:"52%",background:"linear-gradient(180deg,rgba(255,255,255,.12) 0%,rgba(255,255,255,.02) 100%)",borderRadius:"9px 9px 0 0",pointerEvents:"none" }}/>
                 🚩
               </button>
               {/* Help */}
               <button onClick={()=>setShowHelp(true)} title="Help"
-              style={{ WebkitAppearance:"none",appearance:"none",background:"rgba(255,255,255,.08)",border:"1px solid rgba(255,255,255,.1)",borderRadius:8,width:30,height:30,color:"#94a3b8",cursor:"pointer",fontSize:14,fontWeight:700,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,padding:0 }}>
+              style={{ WebkitAppearance:"none",appearance:"none",background:"linear-gradient(180deg,#1e3a5f 0%,#0f1f3d 100%)",border:"1px solid rgba(125,211,252,0.18)",borderRadius:9,width:32,height:32,color:"#7dd3fc",cursor:"pointer",fontSize:14,fontWeight:700,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,padding:0,boxShadow:"0 2px 6px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.1)",position:"relative",overflow:"hidden" }}>
+                <span style={{ position:"absolute",top:0,left:0,right:0,height:"52%",background:"linear-gradient(180deg,rgba(255,255,255,.12) 0%,rgba(255,255,255,.02) 100%)",borderRadius:"9px 9px 0 0",pointerEvents:"none" }}/>
                 ?
               </button>
               {/* Settings */}
               <button onClick={()=>setShowSettings(true)} title="Settings"
-              style={{ WebkitAppearance:"none",appearance:"none",background:"rgba(255,255,255,.08)",border:"1px solid rgba(255,255,255,.1)",borderRadius:8,width:30,height:30,color:"#94a3b8",cursor:"pointer",fontSize:15,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,padding:0 }}>
+              style={{ WebkitAppearance:"none",appearance:"none",background:"linear-gradient(180deg,#1e3a5f 0%,#0f1f3d 100%)",border:"1px solid rgba(125,211,252,0.18)",borderRadius:9,width:32,height:32,color:"#7dd3fc",cursor:"pointer",fontSize:15,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,padding:0,boxShadow:"0 2px 6px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.1)",position:"relative",overflow:"hidden" }}>
+                <span style={{ position:"absolute",top:0,left:0,right:0,height:"52%",background:"linear-gradient(180deg,rgba(255,255,255,.12) 0%,rgba(255,255,255,.02) 100%)",borderRadius:"9px 9px 0 0",pointerEvents:"none" }}/>
                 ⚙️
               </button>
             </div>
           </div>
           {/* ── ROW 2: nav tabs + add button ── */}
           <div style={{ display:"flex",gap:3,paddingBottom:9,alignItems:"center" }}>
-            {[["shop","🛒 Shop"],["basket","🧺 Basket"],["favourites",`♥ Saved${favCount>0?" ("+favCount+")":""}`],["compare","📊 Stores"]].map(([v,lbl])=>(
-              <button key={v} onClick={()=>setView(v)} style={{ WebkitAppearance:"none",appearance:"none",background:view===v?(v==="favourites"?"rgba(244,63,94,.16)":"rgba(34,197,94,.16)"):"transparent", border:view===v?(v==="favourites"?"1px solid rgba(244,63,94,.38)":"1px solid rgba(34,197,94,.38)"):"1px solid transparent", color:view===v?(v==="favourites"?"#fb7185":"#22c55e"):"#64748b", borderRadius:7,padding:"4px 9px",cursor:"pointer",fontSize:11,fontWeight:700,flexShrink:0 }}>{lbl}</button>
-            ))}
-            <button onClick={()=>setShowAddModal(true)} style={{ WebkitAppearance:"none",appearance:"none",marginLeft:"auto",background:"rgba(34,197,94,.12)",border:"1px solid rgba(34,197,94,.3)",color:"#22c55e",borderRadius:7,padding:"4px 10px",cursor:"pointer",fontSize:11,fontWeight:700,whiteSpace:"nowrap",flexShrink:0 }}>+ Add</button>
+            {[["shop","🛒 Shop"],["basket","🧺 Basket"],["favourites",`♥ Saved${favCount>0?" ("+favCount+")":""}`],["compare","📊 Stores"]].map(([v,lbl])=>{
+              const isActive = view===v;
+              const isFav = v==="favourites";
+              return (
+                <button key={v} onClick={()=>setView(v)} style={{
+                  WebkitAppearance:"none",appearance:"none",
+                  background: isActive ? (isFav?"linear-gradient(180deg,#fb7185 0%,#be123c 100%)":"linear-gradient(180deg,#4ade80 0%,#15803d 100%)") : "linear-gradient(180deg,#1e3a5f 0%,#0f1f3d 100%)",
+                  border: isActive ? (isFav?"1px solid rgba(251,113,133,.5)":"1px solid rgba(74,222,128,.5)") : "1px solid rgba(125,211,252,0.15)",
+                  color: isActive ? (isFav?"#fff":"#052e16") : "#7dd3fc",
+                  borderRadius:22, padding:"6px 11px", cursor:"pointer", fontSize:11, fontWeight:700,
+                  flexShrink:0, position:"relative", overflow:"hidden",
+                  boxShadow: isActive ? (isFav?"0 3px 10px rgba(190,18,60,.5),inset 0 1px 0 rgba(255,255,255,.25)":"0 3px 10px rgba(34,197,94,.5),inset 0 1px 0 rgba(255,255,255,.25)") : "0 2px 6px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.07)",
+                }}>
+                  <span style={{ position:"absolute",top:0,left:0,right:0,height:"52%",background:"linear-gradient(180deg,rgba(255,255,255,.28) 0%,rgba(255,255,255,.04) 100%)",borderRadius:"22px 22px 0 0",pointerEvents:"none" }}/>
+                  {lbl}
+                </button>
+              );
+            })}
+            <button onClick={()=>setShowAddModal(true)} style={{
+              WebkitAppearance:"none",appearance:"none",marginLeft:"auto",
+              background:"linear-gradient(180deg,#4ade80 0%,#15803d 100%)",
+              border:"none",borderRadius:9,padding:"6px 12px",
+              color:"#052e16",cursor:"pointer",fontSize:11,fontWeight:700,whiteSpace:"nowrap",flexShrink:0,
+              boxShadow:"0 3px 10px rgba(34,197,94,.5),inset 0 1px 0 rgba(255,255,255,.3)",
+              position:"relative",overflow:"hidden",
+            }}>
+              <span style={{ position:"absolute",top:0,left:0,right:0,height:"52%",background:"linear-gradient(180deg,rgba(255,255,255,.28) 0%,rgba(255,255,255,.04) 100%)",borderRadius:"9px 9px 0 0",pointerEvents:"none" }}/>
+              + Add
+            </button>
           </div>
         </div>
       </header>
@@ -1105,7 +1154,8 @@ export default function JerseyGroceryApp() {
 
             {/* ── JUNE COMPETITION BANNER ── */}
             {COMP_ACTIVE && (
-              <div onClick={()=>setShowCompetition(true)} style={{ marginBottom:12,background:"linear-gradient(135deg,#1a0a00 0%,#7c2d12 100%)",border:"1px solid rgba(251,146,60,.35)",borderRadius:12,padding:"11px 16px",display:"flex",alignItems:"center",justifyContent:"space-between",cursor:"pointer",gap:10 }}>
+              <div onClick={()=>setShowCompetition(true)} style={{ marginBottom:12,background:"linear-gradient(135deg,#1a0a00 0%,#7c2d12 100%)",border:"1px solid rgba(251,146,60,.4)",borderRadius:12,padding:"11px 16px",display:"flex",alignItems:"center",justifyContent:"space-between",cursor:"pointer",gap:10,boxShadow:"0 4px 16px rgba(194,65,12,.35),inset 0 1px 0 rgba(255,255,255,.08)",position:"relative",overflow:"hidden" }}>
+                <span style={{ position:"absolute",top:0,left:0,right:0,height:"40%",background:"linear-gradient(180deg,rgba(255,255,255,.07) 0%,rgba(255,255,255,0) 100%)",pointerEvents:"none" }}/>
                 <div style={{ display:"flex",alignItems:"center",gap:10 }}>
                   <span style={{ fontSize:22 }}>🏆</span>
                   <div>
@@ -1113,7 +1163,8 @@ export default function JerseyGroceryApp() {
                     <div style={{ fontSize:10,color:"#9a3412",marginTop:1 }}>Submit prices · Win a £10 gift voucher · Tap to see leaderboard</div>
                   </div>
                 </div>
-                <button onClick={e=>{e.stopPropagation();setShowSubmitPrice(true);}} style={{ background:"linear-gradient(135deg,#ea580c,#c2410c)",border:"none",borderRadius:9,padding:"7px 12px",color:"#fff",fontSize:11,fontWeight:700,cursor:"pointer",whiteSpace:"nowrap",flexShrink:0 }}>
+                <button onClick={e=>{e.stopPropagation();setShowSubmitPrice(true);}} style={{ background:"linear-gradient(180deg,#fb923c 0%,#b45309 100%)",border:"none",borderRadius:9,padding:"8px 13px",color:"#fff",fontSize:11,fontWeight:700,cursor:"pointer",whiteSpace:"nowrap",flexShrink:0,boxShadow:"0 3px 10px rgba(194,65,12,.6),inset 0 1px 0 rgba(255,255,255,.25)",position:"relative",overflow:"hidden" }}>
+                  <span style={{ position:"absolute",top:0,left:0,right:0,height:"52%",background:"linear-gradient(180deg,rgba(255,255,255,.25) 0%,rgba(255,255,255,.04) 100%)",borderRadius:"9px 9px 0 0",pointerEvents:"none" }}/>
                   Submit Price
                 </button>
               </div>
@@ -1962,20 +2013,22 @@ function WelcomeModal({ onDismiss, onSubmitPrice }) {
           {/* dots */}
           <div style={{ display:"flex",justifyContent:"center",gap:6 }}>
             {steps.map((_,i)=>(
-              <div key={i} onClick={()=>setStep(i)} style={{ width:i===step?20:6,height:6,borderRadius:3,background:i===step?s.accent:"rgba(255,255,255,.2)",cursor:"pointer",transition:"all .3s" }} />
+              <div key={i} onClick={()=>setStep(i)} style={{ width:i===step?20:6,height:6,borderRadius:3,background:i===step?s.accent:"rgba(255,255,255,.2)",cursor:"pointer",transition:"all .3s",boxShadow:i===step?`0 0 8px ${s.accent}88`:"none" }} />
             ))}
           </div>
 
           {/* buttons */}
           <div style={{ display:"flex",gap:10 }}>
             {step > 0 && (
-              <button onClick={()=>setStep(s=>s-1)} style={{ flex:1,padding:"12px",background:"rgba(255,255,255,.07)",border:"1px solid rgba(255,255,255,.12)",borderRadius:12,color:"#94a3b8",cursor:"pointer",fontSize:13,fontWeight:600 }}>
+              <button onClick={()=>setStep(s=>s-1)} style={{ flex:1,padding:"12px",background:"linear-gradient(180deg,#1e3a5f 0%,#0f1f3d 100%)",border:"1px solid rgba(125,211,252,0.2)",borderRadius:12,color:"#7dd3fc",cursor:"pointer",fontSize:13,fontWeight:700,position:"relative",overflow:"hidden",boxShadow:"0 2px 8px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.08)" }}>
+                <span style={{ position:"absolute",top:0,left:0,right:0,height:"52%",background:"linear-gradient(180deg,rgba(255,255,255,.12) 0%,rgba(255,255,255,.02) 100%)",borderRadius:"12px 12px 0 0",pointerEvents:"none" }}/>
                 ← Back
               </button>
             )}
             <button
               onClick={isLast ? (s.competition ? ()=>{onDismiss();onSubmitPrice&&onSubmitPrice();} : onDismiss) : ()=>setStep(s=>s+1)}
-              style={{ flex:2,padding:"12px",background:`linear-gradient(135deg,${s.accent},${s.accent}cc)`,border:"none",borderRadius:12,color:step===0||isLast?"#052e16":"#fff",cursor:"pointer",fontSize:14,fontWeight:700,transition:"all .2s" }}>
+              style={{ flex:2,padding:"12px",background:`linear-gradient(180deg,${s.accent} 0%,${s.accent}99 100%)`,border:"none",borderRadius:12,color:"#052e16",cursor:"pointer",fontSize:14,fontWeight:700,position:"relative",overflow:"hidden",boxShadow:`0 3px 12px ${s.accent}66, inset 0 1px 0 rgba(255,255,255,.3)` }}>
+              <span style={{ position:"absolute",top:0,left:0,right:0,height:"52%",background:"linear-gradient(180deg,rgba(255,255,255,.28) 0%,rgba(255,255,255,.04) 100%)",borderRadius:"12px 12px 0 0",pointerEvents:"none" }}/>
               {isLast ? (s.competition ? "🏆 Enter Competition →" : "🛒 Start Saving Now →") : "Next →"}
             </button>
           </div>
@@ -2612,7 +2665,13 @@ function SubmitPriceModal({ onClose }) {
               <div style={{ display:"flex",gap:6,flexWrap:"wrap" }}>
                 {STORES.map(s=>(
                   <button key={s.id} onClick={()=>setForm(p=>({...p,store:s.id}))}
-                    style={{ padding:"7px 12px",borderRadius:9,border:`1px solid ${form.store===s.id?s.color+"80":"rgba(255,255,255,.08)"}`,background:form.store===s.id?`${s.color}20`:"rgba(255,255,255,.04)",color:form.store===s.id?"#f0f4f8":"#64748b",cursor:"pointer",fontSize:11,fontWeight:form.store===s.id?700:400,transition:"all .15s" }}>
+                    style={{ padding:"7px 12px",borderRadius:22,border:`1px solid ${form.store===s.id?s.color+"80":"rgba(255,255,255,.08)"}`,
+                      background:form.store===s.id?`linear-gradient(180deg,${s.color}dd 0%,${s.color}88 100%)`:"linear-gradient(180deg,#1e3a5f 0%,#0f1f3d 100%)",
+                      color:form.store===s.id?"#fff":"#64748b",cursor:"pointer",fontSize:11,fontWeight:700,transition:"all .15s",
+                      boxShadow:form.store===s.id?`0 3px 10px ${s.color}55,inset 0 1px 0 rgba(255,255,255,.2)`:"0 2px 4px rgba(0,0,0,.3)",
+                      position:"relative",overflow:"hidden",
+                    }}>
+                    <span style={{ position:"absolute",top:0,left:0,right:0,height:"52%",background:"linear-gradient(180deg,rgba(255,255,255,.25) 0%,rgba(255,255,255,.04) 100%)",borderRadius:"22px 22px 0 0",pointerEvents:"none" }}/>
                     {s.emoji} {s.name}
                   </button>
                 ))}
@@ -2648,14 +2707,16 @@ function SubmitPriceModal({ onClose }) {
               📸 <strong style={{ color:"#fed7aa" }}>Got a receipt?</strong> Email a photo to <span style={{ color:"#fb923c" }}>hello@jerseybasket.je</span> with your name and we'll count all the prices on it! Make sure the <strong style={{ color:"#fed7aa" }}>store name, date, and prices are clearly visible</strong>.
             </div>
             <a href={`mailto:hello@jerseybasket.je?subject=🏆 June Competition Receipt — ${form.name||"Entry"}&body=Hi Eamonn, please find my receipt photo attached.%0A%0AName: ${form.name||""}%0AMobile: ${form.mobile||""}%0AStore: ${STORES.find(s=>s.id===form.store)?.name||""}`}
-              style={{ display:"flex",alignItems:"center",justifyContent:"center",gap:8,width:"100%",padding:"11px",background:"rgba(251,146,60,.15)",border:"1px solid rgba(251,146,60,.35)",borderRadius:10,color:"#fed7aa",textDecoration:"none",fontSize:13,fontWeight:700,marginBottom:14,boxSizing:"border-box" }}>
+              style={{ display:"flex",alignItems:"center",justifyContent:"center",gap:8,width:"100%",padding:"11px",background:"linear-gradient(180deg,#fbbf24 0%,#b45309 100%)",border:"none",borderRadius:10,color:"#fff",textDecoration:"none",fontSize:13,fontWeight:700,marginBottom:14,boxSizing:"border-box",boxShadow:"0 3px 10px rgba(180,83,9,.5),inset 0 1px 0 rgba(255,255,255,.25)",position:"relative",overflow:"hidden" }}>
+              <span style={{ position:"absolute",top:0,left:0,right:0,height:"52%",background:"linear-gradient(180deg,rgba(255,255,255,.25) 0%,rgba(255,255,255,.04) 100%)",borderRadius:"10px 10px 0 0",pointerEvents:"none" }}/>
               📸 Email Receipt Photo
             </a>
 
             {status==="error"&&<div style={{ background:"rgba(239,68,68,.1)",border:"1px solid rgba(239,68,68,.28)",borderRadius:8,padding:"7px 12px",fontSize:11,color:"#fca5a5",marginBottom:12 }}>Something went wrong. Please email hello@jerseybasket.je</div>}
 
             <button onClick={handleSubmit} disabled={required||status==="sending"}
-              style={{ width:"100%",padding:"13px",background:required||status==="sending"?"rgba(234,88,12,.3)":"linear-gradient(135deg,#ea580c,#c2410c)",border:"none",borderRadius:12,color:"#fff",cursor:required?"not-allowed":"pointer",fontSize:14,fontWeight:700 }}>
+              style={{ width:"100%",padding:"13px",background:required||status==="sending"?"rgba(234,88,12,.3)":"linear-gradient(180deg,#fb923c 0%,#b45309 100%)",border:"none",borderRadius:12,color:"#fff",cursor:required?"not-allowed":"pointer",fontSize:14,fontWeight:700,boxShadow:required||status==="sending"?"none":"0 3px 12px rgba(194,65,12,.6),inset 0 1px 0 rgba(255,255,255,.25)",position:"relative",overflow:"hidden" }}>
+              <span style={{ position:"absolute",top:0,left:0,right:0,height:"52%",background:"linear-gradient(180deg,rgba(255,255,255,.25) 0%,rgba(255,255,255,.04) 100%)",borderRadius:"12px 12px 0 0",pointerEvents:"none" }}/>
               {status==="sending" ? "Submitting…" : "Submit Entry →"}
             </button>
           </>
@@ -3067,7 +3128,16 @@ function BasketItem({ item, overPay, onRemove, onAdd, onDelete }) {
 
 function Chip({ active, onClick, color, children }) {
   return (
-    <button onClick={onClick} style={{ whiteSpace:"nowrap",padding:"4px 11px",borderRadius:18,fontSize:9.5,fontWeight:600,cursor:"pointer", background:active?`${color}22`:"rgba(255,255,255,.04)", border:active?`1px solid ${color}60`:"1px solid rgba(255,255,255,.07)", color:active?color:"#64748b" }}>
+    <button onClick={onClick} style={{
+      whiteSpace:"nowrap", padding:"6px 13px", borderRadius:22, fontSize:11, fontWeight:700, cursor:"pointer",
+      background: active ? `linear-gradient(180deg,${color}dd 0%,${color}88 100%)` : "linear-gradient(180deg,#1e3a5f 0%,#0f1f3d 100%)",
+      border: active ? `1px solid ${color}80` : "1px solid rgba(125,211,252,0.15)",
+      color: active ? "#fff" : "#7dd3fc",
+      boxShadow: active ? `0 3px 10px ${color}55, inset 0 1px 0 rgba(255,255,255,0.2)` : "0 2px 6px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.07)",
+      textShadow: active ? "0 1px 2px rgba(0,0,0,0.3)" : "none",
+      position:"relative", overflow:"hidden",
+    }}>
+      <span style={{ position:"absolute", top:0, left:0, right:0, height:"52%", background:"linear-gradient(180deg,rgba(255,255,255,0.28) 0%,rgba(255,255,255,0.04) 100%)", borderRadius:"22px 22px 0 0", pointerEvents:"none" }} />
       {children}
     </button>
   );
