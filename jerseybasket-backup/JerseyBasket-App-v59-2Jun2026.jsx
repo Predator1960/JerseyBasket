@@ -903,7 +903,7 @@ export default function JerseyGroceryApp() {
     if(sortBy==="bestPrice") return [...list].sort((a,b)=>getBestPrice(a,disabledStores)-getBestPrice(b,disabledStores));
     if(sortBy==="savings")   return [...list].sort((a,b)=>(getWorstPrice(b,disabledStores)-getBestPrice(b,disabledStores))-(getWorstPrice(a,disabledStores)-getBestPrice(a,disabledStores)));
     if(sortBy==="az")        return [...list].sort((a,b)=>a.name.localeCompare(b.name));
-    if(sortBy==="cat")       return [...list].sort((a,b)=>{const stripEmoji=s=>s.replace(/^\S+\s/,"");return stripEmoji(a.cat).localeCompare(stripEmoji(b.cat))||a.name.localeCompare(b.name);});
+    if(sortBy==="cat")       return [...list].sort((a,b)=>{const s=x=>x.replace(/^\S+\s/,"");return s(a.cat).localeCompare(s(b.cat))||a.name.localeCompare(b.name);});
     return list;
   },[allProducts,activeCategory,searchQuery,pinnedStore,sortBy,disabledStores]);
 
@@ -1188,20 +1188,17 @@ export default function JerseyGroceryApp() {
             )}
 
             {sortBy==="cat" ? (() => {
-              /* collect all items per category into a Map, then sort categories A-Z (strip emoji for sort) */
               const stripEmoji = s => s.replace(/^\S+\s/,"");
               const map = new Map();
               filteredProducts.forEach(p => {
                 if(!map.has(p.cat)) map.set(p.cat, []);
                 map.get(p.cat).push(p);
               });
-              /* sort each bucket A-Z by product name, then sort the categories A-Z */
               const groups = [...map.entries()]
                 .sort(([a],[b]) => stripEmoji(a).localeCompare(stripEmoji(b)))
                 .map(([cat, items]) => ({ cat, items: items.sort((a,b)=>a.name.localeCompare(b.name)) }));
               return groups.map(({cat,items})=>(
                 <div key={cat} style={{ marginBottom:18 }}>
-                  {/* Category header */}
                   <div style={{ display:"flex",alignItems:"center",gap:10,marginBottom:10,marginTop:4 }}>
                     <div style={{ fontSize:14,fontWeight:700,color:"#f0f4f8",letterSpacing:"-.3px" }}>{cat}</div>
                     <div style={{ flex:1,height:1,background:"rgba(255,255,255,.08)" }}/>
