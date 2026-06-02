@@ -15,7 +15,7 @@
  *
  * Version:   v59
  * Updated:   2 June 2026
- * Changes:   Category sort — grouped headers with A-Z categories, fixed category data typos, category badge on each product card.
+ * Changes:   Category sort — grouped headers A-Z, fixed category data typos, category badge on product cards
  * ============================================================
  */
 import React, { useState, useMemo, useRef, useEffect, useCallback } from "react";
