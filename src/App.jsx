@@ -13,9 +13,9 @@
  * Built for Jersey, Channel Islands.
  * Contact: hello@jerseybasket.je
  *
- * Version:   v43
+ * Version:   v44
  * Updated:   1 June 2026
- * Changes:   Restore Share button using 🔗 emoji (avoids Safari native share UI hijack)
+ * Changes:   Add 5 verified Waitrose St Helier prices (ids 449-453). Total: 453 products. Next id: 454
  *            in the header (e.g. for ethical/personal reasons). Hidden stores are
  *            removed from product cards, store pin chips, and basket comparisons.
  *            Setting persists for the session.
@@ -537,6 +537,13 @@ const BASE_PRODUCTS = [
   {id:427,name:"Dauphinoise Potatoes (400g)",      cat:"🍝 Pantry",       icon:"🥔",prices:sp(3.65,[0,0,0,0,0])},
   {id:428,name:"Unsmoked Back Bacon (300g)",       cat:"🥩 Meat & Fish",  icon:"🥓",prices:sp(3.49,[0,0,0,0,0])},
   {id:429,name:"Jacobs Twiglets (6x23g)",          cat:"🍿 Snacks",       icon:"🥨",prices:sp(2.55,[-2.55,-2.55,-2.55,0,-2.55])},
+
+  /* ── NEW — verified Waitrose St Helier receipt 30 May 2026 ─────────── */
+  {id:449,name:"7UP Zero (4pk)",                     cat:"🥤 Drinks",       icon:"🥤",prices:sp(4.23,[-4.23,-4.23,-4.23,0,-4.23])},
+  {id:450,name:"Waitrose Essential Double Cream",    cat:"🥛 Dairy & Eggs", icon:"🍦",prices:sp(1.51,[-1.51,-1.51,-1.51,0,-1.51])},
+  {id:451,name:"Waitrose Essential Back Bacon (10)", cat:"🥩 Meat & Fish",  icon:"🥓",prices:sp(3.19,[-3.19,-3.19,-3.19,0,-3.19])},
+  {id:452,name:"Waitrose Frozen Quarter Pounder",    cat:"🧊 Frozen",       icon:"🍔",prices:sp(4.60,[-4.60,-4.60,-4.60,0,-4.60])},
+  {id:453,name:"McCain Southern Fries",              cat:"🧊 Frozen",       icon:"🍟",prices:sp(2.90,[-2.90,-2.90,-2.90,0,-2.90])},
 ];
 
 /* ═══════════════════════════════════════════════════════════════════════════
