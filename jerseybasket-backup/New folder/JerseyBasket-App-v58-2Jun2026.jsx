@@ -13,9 +13,12 @@
  * Built for Jersey, Channel Islands.
  * Contact: hello@jerseybasket.je
  *
- * Version:   v59
+ * Version:   v58
  * Updated:   2 June 2026
- * Changes:   Category sort — grouped headers A-Z, fixed category data typos, category badge on product cards
+ * Changes:   Full glossy UI overhaul — welcome modal, submit price form added — pills, buttons, cards, header, competition banner
+ *            in the header (e.g. for ethical/personal reasons). Hidden stores are
+ *            removed from product cards, store pin chips, and basket comparisons.
+ *            Setting persists for the session.
  * ============================================================
  */
 import React, { useState, useMemo, useRef, useEffect, useCallback } from "react";
@@ -493,15 +496,15 @@ const BASE_PRODUCTS = [
   {id:409,name:"Dove Body Wash (400ml)",cat:"💊 Health & Beauty",icon:"🚿",prices:sp(2.8,[0.3,0.2,0.8,0.45,0.2])},
   {id:410,name:"Oral-B Toothbrush",cat:"💊 Health & Beauty",icon:"🪥",prices:sp(3.5,[0.35,0.25,1.0,0.6,0.25])},
   {id:411,name:"Listerine Mouthwash (500ml)",cat:"💊 Health & Beauty",icon:"🦷",prices:sp(3.0,[0.15,0.33,0.8,0.45,0.21])},
-  {id:412,name:"Comfort Fabric Conditioner (1L)",cat:"🧹 Household",icon:"🧺",prices:sp(2.8,[0.3,0.19,0.8,0.45,0.2])},
-  {id:413,name:"Flash All Purpose Spray (500ml)",cat:"🧹 Household",icon:"🧹",prices:sp(1.8,[0.2,0.1,0.5,0.3,0.13])},
-  {id:414,name:"Domestos Bleach (750ml)",cat:"🧹 Household",icon:"🧴",prices:sp(1.2,[0.15,0.05,0.4,0.25,0.08])},
-  {id:415,name:"Sponge Scourers (5pk)",cat:"🧹 Household",icon:"🧽",prices:sp(1.2,[0.15,0.05,0.4,0.25,0.08])},
-  {id:416,name:"Bin Bags (20pk)",cat:"🧹 Household",icon:"🗑️",prices:sp(1.5,[0.15,0.1,0.4,0.25,0.11])},
-  {id:417,name:"Foil Roll (30m)",cat:"🧹 Household",icon:"✨",prices:sp(1.8,[0.2,0.1,0.5,0.3,0.13])},
-  {id:418,name:"Cling Film (30m)",cat:"🧹 Household",icon:"📦",prices:sp(1.5,[0.15,0.1,0.4,0.25,0.11])},
-  {id:419,name:"Baby Wipes (64pk)",cat:"🍼 Baby & Child",icon:"🧻",prices:sp(2.0,[0.25,0.1,0.6,0.35,0.14])},
-  {id:420,name:"Sudocrem (125g)",cat:"🍼 Baby & Child",icon:"🧴",prices:sp(3.5,[0.35,0.25,1.0,0.6,0.25])},
+  {id:412,name:"Comfort Fabric Conditioner (1L)",cat:"🏠 Household",icon:"🧺",prices:sp(2.8,[0.3,0.19,0.8,0.45,0.2])},
+  {id:413,name:"Flash All Purpose Spray (500ml)",cat:"🏠 Household",icon:"🧹",prices:sp(1.8,[0.2,0.1,0.5,0.3,0.13])},
+  {id:414,name:"Domestos Bleach (750ml)",cat:"🏠 Household",icon:"🧴",prices:sp(1.2,[0.15,0.05,0.4,0.25,0.08])},
+  {id:415,name:"Sponge Scourers (5pk)",cat:"🏠 Household",icon:"🧽",prices:sp(1.2,[0.15,0.05,0.4,0.25,0.08])},
+  {id:416,name:"Bin Bags (20pk)",cat:"🏠 Household",icon:"🗑️",prices:sp(1.5,[0.15,0.1,0.4,0.25,0.11])},
+  {id:417,name:"Foil Roll (30m)",cat:"🏠 Household",icon:"✨",prices:sp(1.8,[0.2,0.1,0.5,0.3,0.13])},
+  {id:418,name:"Cling Film (30m)",cat:"🏠 Household",icon:"📦",prices:sp(1.5,[0.15,0.1,0.4,0.25,0.11])},
+  {id:419,name:"Baby Wipes (64pk)",cat:"👶 Baby & Toddler",icon:"🧻",prices:sp(2.0,[0.25,0.1,0.6,0.35,0.14])},
+  {id:420,name:"Sudocrem (125g)",cat:"👶 Baby & Toddler",icon:"🧴",prices:sp(3.5,[0.35,0.25,1.0,0.6,0.25])},
   {id:421,name:"Felix Cat Food 12pk",cat:"🐾 Pet Care",icon:"🐱",prices:sp(5.0,[0.55,0.25,1.5,0.85,0.35])},
   {id:422,name:"Pedigree Dog Food (1.5kg)",cat:"🐾 Pet Care",icon:"🐕",prices:sp(4.5,[0.5,0.25,1.3,0.7,0.32])},
 
@@ -510,7 +513,7 @@ const BASE_PRODUCTS = [
   {id:430,name:"Jersey Dairy Fresh Milk 1% (1L)",    cat:"🥔 Local Jersey", icon:"🥛",prices:sp(1.65,[-1.65,-1.65,-1.65,0,-1.65])},
 
   /* ── NEW — verified Waitrose Red Houses receipt 31 May 2026 ─────────── */
-  {id:431,name:"Lurpak Salted Spread",               cat:"🥛 Dairy & Eggs", icon:"🧈",prices:sp(3.50,[-3.50,-3.50,-3.50,0,-3.50])},
+  {id:431,name:"Lurpak Salted Spread",               cat:"🧈 Dairy & Eggs", icon:"🧈",prices:sp(3.50,[-3.50,-3.50,-3.50,0,-3.50])},
   {id:432,name:"Pepsi Cream Soda (8pk)",             cat:"🥤 Drinks",       icon:"🥤",prices:sp(5.12,[-5.12,-5.12,-5.12,0,-5.12])},
   {id:433,name:"Ribena Blackcurrant (ready to drink)",cat:"🥤 Drinks",      icon:"🫐",prices:sp(2.44,[-2.44,-2.44,-2.44,0,-2.44])},
   {id:434,name:"Waitrose Cauliflower Cheese",        cat:"🍝 Pantry",       icon:"🧀",prices:sp(4.06,[-4.06,-4.06,-4.06,0,-4.06])},
@@ -519,21 +522,21 @@ const BASE_PRODUCTS = [
   {id:437,name:"Waitrose Essential Potato Salad",    cat:"🥦 Fruit & Veg",  icon:"🥔",prices:sp(1.51,[-1.51,-1.51,-1.51,0,-1.51])},
   {id:438,name:"Waitrose Melton Mowbray Pork Pie",   cat:"🥩 Meat & Fish",  icon:"🥧",prices:sp(3.77,[-3.77,-3.77,-3.77,0,-3.77])},
   {id:439,name:"Peas, Cabbage & Broccoli (frozen)",  cat:"🥦 Fruit & Veg",  icon:"🥦",prices:sp(2.85,[-2.85,-2.85,-2.85,0,-2.85])},
-  {id:440,name:"Waitrose Essential Mature Cheddar",  cat:"🥛 Dairy & Eggs", icon:"🧀",prices:sp(5.75,[-5.75,-5.75,-5.75,0,-5.75])},
-  {id:441,name:"Walkers Cheese & Onion Crisps",      cat:"🥨 Snacks & Treats",       icon:"🥔",prices:sp(2.40,[-2.40,-2.40,-2.40,0,-2.40])},
-  {id:442,name:"Walkers Ready Salted Crisps",        cat:"🥨 Snacks & Treats",       icon:"🥔",prices:sp(2.40,[-2.40,-2.40,-2.40,0,-2.40])},
-  {id:443,name:"Alpro Mango Protein Yogurt",         cat:"🥛 Dairy & Eggs", icon:"🥭",prices:sp(1.86,[-1.86,-1.86,-1.86,0,-1.86])},
-  {id:444,name:"Muller Corner Fruit Yogurt",         cat:"🥛 Dairy & Eggs", icon:"🍓",prices:sp(3.68,[-3.68,-3.68,-3.68,0,-3.68])},
-  {id:445,name:"Waitrose Essential Mineral Water",   cat:"🥤 Drinks",       icon:"💧",prices:sp(1.69,[-1.69,-1.69,-1.69,0,-1.69])},
-  {id:446,name:"Waitrose Chocolate Raisins",         cat:"🥨 Snacks & Treats",       icon:"🍫",prices:sp(2.09,[-2.09,-2.09,-2.09,0,-2.09])},
-  {id:447,name:"Waitrose Wine Gums",                 cat:"🥨 Snacks & Treats",       icon:"🍬",prices:sp(1.34,[-1.34,-1.34,-1.34,0,-1.34])},
-  {id:448,name:"Waitrose No.1 Sea Salt Crisps",      cat:"🥨 Snacks & Treats",       icon:"🧂",prices:sp(1.64,[-1.64,-1.64,-1.64,0,-1.64])},
+  {id:440,name:"Waitrose Essential Mature Cheddar",  cat:"🧈 Dairy & Eggs", icon:"🧀",prices:sp(5.75,[-5.75,-5.75,-5.75,0,-5.75])},
+  {id:441,name:"Walkers Cheese & Onion Crisps",      cat:"🍿 Snacks",       icon:"🥔",prices:sp(2.40,[-2.40,-2.40,-2.40,0,-2.40])},
+  {id:442,name:"Walkers Ready Salted Crisps",        cat:"🍿 Snacks",       icon:"🥔",prices:sp(2.40,[-2.40,-2.40,-2.40,0,-2.40])},
+  {id:443,name:"Alpro Mango Protein Yogurt",         cat:"🧈 Dairy & Eggs", icon:"🥭",prices:sp(1.86,[-1.86,-1.86,-1.86,0,-1.86])},
+  {id:444,name:"Muller Corner Fruit Yogurt",         cat:"🧈 Dairy & Eggs", icon:"🍓",prices:sp(3.68,[-3.68,-3.68,-3.68,0,-3.68])},
+  {id:445,name:"Waitrose Essential Mineral Water",   cat:"💧 Drinks",       icon:"💧",prices:sp(1.69,[-1.69,-1.69,-1.69,0,-1.69])},
+  {id:446,name:"Waitrose Chocolate Raisins",         cat:"🍿 Snacks",       icon:"🍫",prices:sp(2.09,[-2.09,-2.09,-2.09,0,-2.09])},
+  {id:447,name:"Waitrose Wine Gums",                 cat:"🍿 Snacks",       icon:"🍬",prices:sp(1.34,[-1.34,-1.34,-1.34,0,-1.34])},
+  {id:448,name:"Waitrose No.1 Sea Salt Crisps",      cat:"🍿 Snacks",       icon:"🧂",prices:sp(1.64,[-1.64,-1.64,-1.64,0,-1.64])},
   {id:424,name:"Jersey Dairy Fresh Milk 2.5% (500ml)",cat:"🥔 Local Jersey",icon:"🥛",prices:sp(0.87,[0,-0.87,-0.87,-0.87,-0.87])},
   {id:425,name:"Cornish Pasty",                    cat:"🍝 Pantry",       icon:"🥟",prices:sp(2.80,[0,0,0,0,0])},
   {id:426,name:"Chicken & Bacon Pasty",            cat:"🍝 Pantry",       icon:"🥟",prices:sp(2.80,[0,0,0,0,0])},
   {id:427,name:"Dauphinoise Potatoes (400g)",      cat:"🍝 Pantry",       icon:"🥔",prices:sp(3.65,[0,0,0,0,0])},
   {id:428,name:"Unsmoked Back Bacon (300g)",       cat:"🥩 Meat & Fish",  icon:"🥓",prices:sp(3.49,[0,0,0,0,0])},
-  {id:429,name:"Jacobs Twiglets (6x23g)",          cat:"🥨 Snacks & Treats",       icon:"🥨",prices:sp(2.55,[-2.55,-2.55,-2.55,0,-2.55])},
+  {id:429,name:"Jacobs Twiglets (6x23g)",          cat:"🍿 Snacks",       icon:"🥨",prices:sp(2.55,[-2.55,-2.55,-2.55,0,-2.55])},
 
   /* ── NEW — verified Waitrose St Helier receipt 30 May 2026 ─────────── */
   {id:449,name:"7UP Zero (4pk)",                     cat:"🥤 Drinks",       icon:"🥤",prices:sp(4.23,[-4.23,-4.23,-4.23,0,-4.23])},
@@ -690,10 +693,7 @@ function ProductCard({ product, onAddToBasket, pinnedStore, isFavourite, onToggl
             <Tooltip text={product.name}>
               <div style={{ fontSize:12.5, fontWeight:700, color:"#f0f4f8", lineHeight:1.3 }}>{product.name}</div>
             </Tooltip>
-            <div style={{ marginTop:3, display:"flex", alignItems:"center", gap:4, flexWrap:"wrap" }}>
-              <span style={{ fontSize:9, fontWeight:600, color:"#64748b", background:"rgba(255,255,255,.06)", border:"1px solid rgba(255,255,255,.09)", borderRadius:5, padding:"1px 6px", letterSpacing:".3px" }}>{product.cat}</span>
-              {product.custom&&<span style={{ fontSize:9, color:"#4ade80", background:"rgba(34,197,94,.1)", border:"1px solid rgba(34,197,94,.2)", borderRadius:5, padding:"1px 6px" }}>custom</span>}
-            </div>
+            <div style={{ fontSize:9.5, color:"#475569", marginTop:1 }}>{product.cat.replace(/^[^\s]+\s/,"")}{product.custom?" · custom":""}</div>
           </div>
           {/* heart / favourite button */}
           <button
@@ -900,7 +900,7 @@ export default function JerseyGroceryApp() {
     if(sortBy==="bestPrice") return [...list].sort((a,b)=>getBestPrice(a,disabledStores)-getBestPrice(b,disabledStores));
     if(sortBy==="savings")   return [...list].sort((a,b)=>(getWorstPrice(b,disabledStores)-getBestPrice(b,disabledStores))-(getWorstPrice(a,disabledStores)-getBestPrice(a,disabledStores)));
     if(sortBy==="az")        return [...list].sort((a,b)=>a.name.localeCompare(b.name));
-    if(sortBy==="cat")       return [...list].sort((a,b)=>{const s=x=>x.replace(/^\S+\s/,"");return s(a.cat).localeCompare(s(b.cat))||a.name.localeCompare(b.name);});
+    if(sortBy==="cat")       return [...list].sort((a,b)=>a.cat.localeCompare(b.cat)||a.name.localeCompare(b.name));
     return list;
   },[allProducts,activeCategory,searchQuery,pinnedStore,sortBy,disabledStores]);
 
@@ -1184,33 +1184,9 @@ export default function JerseyGroceryApp() {
               </div>
             )}
 
-            {sortBy==="cat" ? (() => {
-              const stripEmoji = s => s.replace(/^\S+\s/,"");
-              const map = new Map();
-              filteredProducts.forEach(p => {
-                if(!map.has(p.cat)) map.set(p.cat, []);
-                map.get(p.cat).push(p);
-              });
-              const groups = [...map.entries()]
-                .sort(([a],[b]) => stripEmoji(a).localeCompare(stripEmoji(b)))
-                .map(([cat, items]) => ({ cat, items: items.sort((a,b)=>a.name.localeCompare(b.name)) }));
-              return groups.map(({cat,items})=>(
-                <div key={cat} style={{ marginBottom:18 }}>
-                  <div style={{ display:"flex",alignItems:"center",gap:10,marginBottom:10,marginTop:4 }}>
-                    <div style={{ fontSize:14,fontWeight:700,color:"#f0f4f8",letterSpacing:"-.3px" }}>{cat}</div>
-                    <div style={{ flex:1,height:1,background:"rgba(255,255,255,.08)" }}/>
-                    <div style={{ fontSize:10,color:"#475569",fontWeight:600 }}>{items.length} item{items.length!==1?"s":""}</div>
-                  </div>
-                  <div style={{ display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(270px,1fr))",gap:11 }}>
-                    {items.map(p=><ProductCard key={p.id} product={p} onAddToBasket={addToBasket} pinnedStore={pinnedStore} isFavourite={favourites.has(p.id)} onToggleFavourite={toggleFavourite} disabledStores={disabledStores}/>)}
-                  </div>
-                </div>
-              ));
-            })() : (
-              <div style={{ display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(270px,1fr))",gap:11 }}>
-                {filteredProducts.map(p=><ProductCard key={p.id} product={p} onAddToBasket={addToBasket} pinnedStore={pinnedStore} isFavourite={favourites.has(p.id)} onToggleFavourite={toggleFavourite} disabledStores={disabledStores}/>)}
-              </div>
-            )}
+            <div style={{ display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(270px,1fr))",gap:11 }}>
+              {filteredProducts.map(p=><ProductCard key={p.id} product={p} onAddToBasket={addToBasket} pinnedStore={pinnedStore} isFavourite={favourites.has(p.id)} onToggleFavourite={toggleFavourite} disabledStores={disabledStores}/>)}
+            </div>
 
             {filteredProducts.length===0&&(
               <div style={{ textAlign:"center",padding:"40px 20px",background:"rgba(255,255,255,.03)",borderRadius:18,border:"1px dashed rgba(255,255,255,.07)",marginTop:10 }}>
