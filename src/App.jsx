@@ -13,7 +13,7 @@
  * Built for Jersey, Channel Islands.
  * Contact: hello@jerseybasket.je
  *
- * Version:   v57
+ * Version:   v58
  * Updated:   2 June 2026
  * Changes:   Full glossy UI overhaul — welcome modal, submit price form added — pills, buttons, cards, header, competition banner
  *            in the header (e.g. for ethical/personal reasons). Hidden stores are
@@ -712,20 +712,26 @@ function ProductCard({ product, onAddToBasket, pinnedStore, isFavourite, onToggl
 
         {/* store pill + add */}
         <div style={{ display:"flex", alignItems:"center", gap:8, paddingBottom:11 }}>
-          <button onClick={()=>setOpen(o=>!o)} style={{
-            flex:1, display:"flex", alignItems:"center", justifyContent:"space-between",
-            background: isOnBest ? "linear-gradient(180deg,rgba(74,222,128,.18) 0%,rgba(21,128,61,.12) 100%)" : "linear-gradient(180deg,rgba(251,191,36,.15) 0%,rgba(180,83,9,.1) 100%)",
-            border: `1px solid ${isOnBest?"rgba(74,222,128,.35)":"rgba(251,191,36,.35)"}`,
-            borderRadius:9, padding:"7px 10px", cursor:"pointer", gap:5,
-            boxShadow:"inset 0 1px 0 rgba(255,255,255,.1)",
-          }}>
-            <div style={{ display:"flex", alignItems:"center", gap:5 }}>
-              <span style={{ fontSize:13 }}>{chosenStore?.emoji}</span>
-              <span style={{ fontSize:10.5, fontWeight:700, color:isOnBest?"#86efac":"#fcd34d" }}>{chosenStore?.name}</span>
-              {isOnBest && <span style={{ fontSize:8, background:"linear-gradient(180deg,rgba(74,222,128,.3) 0%,rgba(21,128,61,.2) 100%)", color:"#22c55e", borderRadius:4, padding:"1px 5px", fontWeight:700, border:"1px solid rgba(34,197,94,.3)" }}>BEST</span>}
-            </div>
-            <span style={{ fontSize:16, color:isOnBest?"#4ade80":"#fbbf24", display:"inline-block", transition:"transform .2s", transform:open?"rotate(180deg)":"none", lineHeight:1 }}>▾</span>
-          </button>
+          {(() => {
+            const sc = chosenStore?.color || "#22c55e";
+            const r=parseInt(sc.slice(1,3),16), g=parseInt(sc.slice(3,5),16), b=parseInt(sc.slice(5,7),16);
+            return (
+              <button onClick={()=>setOpen(o=>!o)} style={{
+                flex:1, display:"flex", alignItems:"center", justifyContent:"space-between",
+                background: `linear-gradient(180deg,rgba(${r},${g},${b},0.18) 0%,rgba(${r},${g},${b},0.1) 100%)`,
+                border: `1px solid rgba(${r},${g},${b},0.4)`,
+                borderRadius:9, padding:"7px 10px", cursor:"pointer", gap:5,
+                boxShadow:`inset 0 1px 0 rgba(255,255,255,.1)`,
+              }}>
+                <div style={{ display:"flex", alignItems:"center", gap:5 }}>
+                  <span style={{ fontSize:13 }}>{chosenStore?.emoji}</span>
+                  <span style={{ fontSize:10.5, fontWeight:700, color:`rgb(${Math.min(255,r+80)},${Math.min(255,g+80)},${Math.min(255,b+80)})` }}>{chosenStore?.name}</span>
+                  {isOnBest && <span style={{ fontSize:8, background:`rgba(${r},${g},${b},0.3)`, color:sc, borderRadius:4, padding:"1px 5px", fontWeight:700, border:`1px solid rgba(${r},${g},${b},0.4)` }}>BEST</span>}
+                </div>
+                <span style={{ fontSize:16, color:sc, display:"inline-block", transition:"transform .2s", transform:open?"rotate(180deg)":"none", lineHeight:1 }}>▾</span>
+              </button>
+            );
+          })()}
           <button onClick={()=>onAddToBasket(product.id,chosenStoreId)} style={{
             flexShrink:0, position:"relative", overflow:"hidden",
             background:"linear-gradient(180deg,#4ade80 0%,#15803d 100%)",
