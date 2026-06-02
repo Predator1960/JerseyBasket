@@ -13,7 +13,7 @@
  * Built for Jersey, Channel Islands.
  * Contact: hello@jerseybasket.je
  *
- * Version:   v53
+ * Version:   v57
  * Updated:   2 June 2026
  * Changes:   Full glossy UI overhaul — welcome modal, submit price form added — pills, buttons, cards, header, competition banner
  *            in the header (e.g. for ethical/personal reasons). Hidden stores are
@@ -741,30 +741,38 @@ function ProductCard({ product, onAddToBasket, pinnedStore, isFavourite, onToggl
 
       {/* dropdown */}
       {open && (
-        <div style={{ borderTop:"1px solid rgba(255,255,255,.07)", background:"rgba(0,0,0,.28)", borderRadius:"0 0 16px 16px", overflow:"hidden" }}>
+        <div style={{ borderTop:"1px solid rgba(255,255,255,.07)", background:"rgba(0,0,0,.35)", borderRadius:"0 0 16px 16px", overflow:"hidden" }}>
           {sorted.map(([sid,price],idx)=>{
             const store    = STORES.find(s=>s.id===sid);
             const isBest   = idx===0;
             const isSel    = sid===chosenStoreId;
             const diff     = price-bestPrice;
             const pct      = Math.round((diff/bestPrice)*100);
+            const sc       = store?.color||"#22c55e";
             return (
-              <button key={sid} onClick={()=>{setManualOverride(sid);setOpen(false);}} style={{ width:"100%", display:"flex", alignItems:"center", justifyContent:"space-between", padding:"9px 14px", border:"none", cursor:"pointer", textAlign:"left", background:isSel?"rgba(34,197,94,.12)":idx%2===0?"rgba(255,255,255,.02)":"rgba(0,0,0,.1)", borderLeft:isSel?"3px solid #22c55e":"3px solid transparent", transition:"background .1s" }}>
+              <button key={sid} onClick={()=>{setManualOverride(sid);setOpen(false);}} style={{
+                width:"100%", display:"flex", alignItems:"center", justifyContent:"space-between",
+                padding:"9px 14px", border:"none", cursor:"pointer", textAlign:"left",
+                background: isSel ? `linear-gradient(90deg,${sc}22 0%,${sc}08 100%)` : idx%2===0?"rgba(255,255,255,.02)":"rgba(0,0,0,.1)",
+                borderLeft: `3px solid ${isSel?sc:"transparent"}`,
+                transition:"background .1s",
+                boxShadow: isSel ? `inset 0 1px 0 rgba(255,255,255,.05)` : "none",
+              }}>
                 <div style={{ display:"flex", alignItems:"center", gap:7 }}>
                   <span style={{ fontSize:15 }}>{store?.emoji}</span>
                   <div>
-                    <div style={{ fontSize:11, fontWeight:600, color:isSel?"#86efac":"#e2e8f0", display:"flex", alignItems:"center", gap:5, flexWrap:"wrap" }}>
+                    <div style={{ fontSize:11, fontWeight:600, color:isSel?sc:"#e2e8f0", display:"flex", alignItems:"center", gap:5, flexWrap:"wrap" }}>
                       {store?.name}
-                      {isBest && <span style={{ fontSize:8, background:"rgba(34,197,94,.2)", color:"#22c55e", borderRadius:4, padding:"1px 5px", fontWeight:700 }}>CHEAPEST</span>}
+                      {isBest && <span style={{ fontSize:8, background:`${sc}33`, color:sc, borderRadius:4, padding:"1px 5px", fontWeight:700, border:`1px solid ${sc}55` }}>CHEAPEST</span>}
                       {isSel && !isBest && <span style={{ fontSize:8, background:"rgba(251,191,36,.15)", color:"#fcd34d", borderRadius:4, padding:"1px 5px" }}>SELECTED</span>}
                     </div>
                     <div style={{ fontSize:8.5, color:"#475569", marginTop:1 }}>{store?.note}</div>
                   </div>
                 </div>
                 <div style={{ textAlign:"right", flexShrink:0 }}>
-                  <div style={{ fontSize:14, fontWeight:800, color:isBest?"#22c55e":isSel?"#fcd34d":"#cbd5e1" }}>£{price.toFixed(2)}</div>
+                  <div style={{ fontSize:14, fontWeight:800, color:isBest?sc:isSel?"#fcd34d":"#cbd5e1" }}>£{price.toFixed(2)}</div>
                   {pct>0 ? <div style={{ fontSize:8.5, color:"#f87171" }}>+{pct}% · +£{diff.toFixed(2)}</div>
-                         : <div style={{ fontSize:8.5, color:"#22c55e" }}>best price</div>}
+                         : <div style={{ fontSize:8.5, color:sc }}>best price</div>}
                 </div>
               </button>
             );
@@ -1112,12 +1120,12 @@ export default function JerseyGroceryApp() {
             </div>
 
             {/* store filter */}
-            <div style={{ display:"flex",gap:6,overflowX:"auto",paddingBottom:7,marginBottom:4 }}>
-              <Chip active={!pinnedStore} onClick={()=>setPinnedStore(null)} color="#22c55e">🏷️ Best Price</Chip>
+            <div style={{ display:"flex",gap:6,flexWrap:"wrap",paddingBottom:7,marginBottom:4 }}>
+              <Chip active={!pinnedStore} onClick={()=>setPinnedStore(null)} color="#3b82f6">🏷️ Best Price</Chip>
               {activeStores.map(s=>(
                 <Chip key={s.id} active={pinnedStore===s.id} onClick={()=>setPinnedStore(pinnedStore===s.id?null:s.id)} color={s.color}>{s.emoji} {s.short}</Chip>
               ))}
-              {disabledStores.size>0&&<button onClick={()=>setShowSettings(true)} style={{ whiteSpace:"nowrap",padding:"4px 10px",borderRadius:18,fontSize:9.5,fontWeight:600,cursor:"pointer",background:"rgba(251,191,36,.1)",border:"1px solid rgba(251,191,36,.3)",color:"#fcd34d",flexShrink:0 }}>⚙️ {disabledStores.size} store{disabledStores.size>1?"s":""} hidden</button>}
+              {disabledStores.size>0&&<button onClick={()=>setShowSettings(true)} style={{ whiteSpace:"nowrap",padding:"6px 13px",borderRadius:22,fontSize:11,fontWeight:700,cursor:"pointer",background:"linear-gradient(180deg,rgba(251,191,36,.2) 0%,rgba(180,83,9,.15) 100%)",border:"1px solid rgba(251,191,36,.4)",color:"#fcd34d",flexShrink:0 }}>⚙️ {disabledStores.size} store{disabledStores.size>1?"s":""} hidden</button>}
             </div>
 
             {/* category pills */}
@@ -1197,7 +1205,7 @@ export default function JerseyGroceryApp() {
                   <button onClick={()=>{ setSearchQuery(""); setActiveCategory("All"); setPinnedStore(null); }} style={{ padding:"8px 18px",background:"rgba(255,255,255,.07)",border:"1px solid rgba(255,255,255,.12)",borderRadius:9,color:"#94a3b8",cursor:"pointer",fontSize:12,fontWeight:600 }}>
                     Show all products
                   </button>
-                  <button onClick={()=>setShowAddModal(true)} style={{ padding:"8px 18px",background:"linear-gradient(135deg,#16a34a,#15803d)",border:"none",borderRadius:9,color:"#fff",cursor:"pointer",fontSize:12,fontWeight:600 }}>
+                  <button onClick={()=>setShowAddModal(true)} style={{ padding:"8px 18px",background:"linear-gradient(180deg,#4ade80 0%,#15803d 100%)",boxShadow:"0 3px 10px rgba(34,197,94,.5),inset 0 1px 0 rgba(255,255,255,.3)",border:"none",borderRadius:9,color:"#fff",cursor:"pointer",fontSize:12,fontWeight:600 }}>
                     + Add this item
                   </button>
                 </div>
@@ -1211,14 +1219,14 @@ export default function JerseyGroceryApp() {
           <div style={{ marginTop:18 }}>
             <div style={{ display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:14 }}>
               <h2 style={{ fontSize:18,fontWeight:700,margin:0 }}>🧺 Your Basket</h2>
-              {basketItems.length>0&&<button onClick={()=>setBasket({})} style={{ background:"rgba(239,68,68,.12)",border:"1px solid rgba(239,68,68,.28)",color:"#ef4444",borderRadius:7,padding:"4px 11px",cursor:"pointer",fontSize:10.5,fontWeight:600 }}>Clear All</button>}
+              {basketItems.length>0&&<button onClick={()=>setBasket({})} style={{ background:"linear-gradient(180deg,rgba(239,68,68,.25) 0%,rgba(185,28,28,.2) 100%)",border:"1px solid rgba(239,68,68,.4)",color:"#fca5a5",borderRadius:22,boxShadow:"0 2px 6px rgba(239,68,68,.25),inset 0 1px 0 rgba(255,255,255,.1)",padding:"4px 11px",cursor:"pointer",fontSize:10.5,fontWeight:600 }}>Clear All</button>}
             </div>
 
             {basketItems.length===0?(
               <div style={{ textAlign:"center",padding:"55px 20px",background:"rgba(255,255,255,.03)",borderRadius:18,border:"1px dashed rgba(255,255,255,.09)" }}>
                 <div style={{ fontSize:44,marginBottom:12 }}>🛒</div>
                 <div style={{ color:"#64748b" }}>Your basket is empty</div>
-                <button onClick={()=>setView("shop")} style={{ marginTop:16,padding:"9px 22px",background:"linear-gradient(135deg,#16a34a,#15803d)",border:"none",borderRadius:11,color:"#fff",cursor:"pointer",fontSize:13,fontWeight:600 }}>Start Shopping</button>
+                <button onClick={()=>setView("shop")} style={{ marginTop:16,padding:"9px 22px",background:"linear-gradient(180deg,#4ade80 0%,#15803d 100%)",boxShadow:"0 3px 10px rgba(34,197,94,.5),inset 0 1px 0 rgba(255,255,255,.3)",border:"none",borderRadius:11,color:"#fff",cursor:"pointer",fontSize:13,fontWeight:600 }}>Start Shopping</button>
               </div>
             ):(
               <div>
@@ -1305,7 +1313,7 @@ export default function JerseyGroceryApp() {
                   <span style={{ color:"#f43f5e" }}>♥</span> Saved Items
                   <span style={{ fontSize:12,fontWeight:400,color:"#64748b" }}>{favCount} item{favCount!==1?"s":""}</span>
                 </h2>
-                {favCount>0&&<button onClick={()=>setFavourites(new Set())} style={{ background:"rgba(244,63,94,.1)",border:"1px solid rgba(244,63,94,.25)",color:"#f43f5e",borderRadius:7,padding:"4px 10px",cursor:"pointer",fontSize:10.5,fontWeight:600 }}>Clear All ♡</button>}
+                {favCount>0&&<button onClick={()=>setFavourites(new Set())} style={{ background:"linear-gradient(180deg,rgba(244,63,94,.25) 0%,rgba(190,18,60,.2) 100%)",border:"1px solid rgba(244,63,94,.4)",color:"#fda4af",borderRadius:22,boxShadow:"0 2px 6px rgba(244,63,94,.25),inset 0 1px 0 rgba(255,255,255,.1)",padding:"4px 10px",cursor:"pointer",fontSize:10.5,fontWeight:600 }}>Clear All ♡</button>}
               </div>
               <p style={{ color:"#475569",fontSize:11,marginBottom:18 }}>Items you've hearted. Add them to your favourites basket or your main basket.</p>
 
@@ -1314,7 +1322,7 @@ export default function JerseyGroceryApp() {
                   <div style={{ fontSize:44,marginBottom:12 }}>♡</div>
                   <div style={{ color:"#64748b",fontSize:14,marginBottom:6 }}>No saved items yet</div>
                   <div style={{ color:"#475569",fontSize:12,marginBottom:18 }}>Tap the ♡ heart on any product to save it here</div>
-                  <button onClick={()=>setView("shop")} style={{ padding:"9px 22px",background:"linear-gradient(135deg,#f43f5e,#e11d48)",border:"none",borderRadius:10,color:"#fff",cursor:"pointer",fontSize:12,fontWeight:600 }}>Browse Products</button>
+                  <button onClick={()=>setView("shop")} style={{ padding:"9px 22px",background:"linear-gradient(180deg,#fb7185 0%,#be123c 100%)",boxShadow:"0 3px 10px rgba(190,18,60,.5),inset 0 1px 0 rgba(255,255,255,.25)",border:"none",borderRadius:10,color:"#fff",cursor:"pointer",fontSize:12,fontWeight:600 }}>Browse Products</button>
                 </div>
               ):(
                 <div>
@@ -1354,7 +1362,7 @@ export default function JerseyGroceryApp() {
                         {/* action buttons */}
                         <div style={{ display:"flex",gap:7 }}>
                           <button onClick={()=>{ addToFavBasket(p.id,getBestStoreId(p,disabledStores)); showToast(`♥ Added to Favourites Basket`); }}
-                            style={{ flex:1,padding:"6px 0",background:"linear-gradient(135deg,#f43f5e,#e11d48)",border:"none",borderRadius:8,color:"#fff",cursor:"pointer",fontSize:11,fontWeight:700 }}>
+                            style={{ flex:1,padding:"6px 0",background:"linear-gradient(180deg,#fb7185 0%,#be123c 100%)",boxShadow:"0 3px 10px rgba(190,18,60,.5),inset 0 1px 0 rgba(255,255,255,.25)",border:"none",borderRadius:8,color:"#fff",cursor:"pointer",fontSize:11,fontWeight:700 }}>
                             ♥ Add to Fav Basket
                           </button>
                           <button onClick={()=>{ addToBasket(p.id,getBestStoreId(p,disabledStores)); showToast(`🧺 Added to Main Basket`); }}
@@ -1369,11 +1377,11 @@ export default function JerseyGroceryApp() {
                   {/* quick actions */}
                   <div style={{ display:"flex",gap:10,marginBottom:24,flexWrap:"wrap" }}>
                     <button onClick={()=>{ favProducts.forEach(p=>addToFavBasket(p.id,getBestStoreId(p,disabledStores))); showToast(`♥ All ${favCount} items added to Favourites Basket`); }}
-                      style={{ padding:"9px 18px",background:"linear-gradient(135deg,#f43f5e,#e11d48)",border:"none",borderRadius:10,color:"#fff",cursor:"pointer",fontSize:12,fontWeight:700 }}>
+                      style={{ padding:"9px 18px",background:"linear-gradient(180deg,#fb7185 0%,#be123c 100%)",boxShadow:"0 3px 10px rgba(190,18,60,.5),inset 0 1px 0 rgba(255,255,255,.25)",border:"none",borderRadius:10,color:"#fff",cursor:"pointer",fontSize:12,fontWeight:700 }}>
                       ♥ Add All to Fav Basket
                     </button>
                     <button onClick={()=>{ favProducts.forEach(p=>addToBasket(p.id,getBestStoreId(p,disabledStores))); showToast(`🧺 All ${favCount} items added to Main Basket`); }}
-                      style={{ padding:"9px 18px",background:"rgba(34,197,94,.15)",border:"1px solid rgba(34,197,94,.3)",borderRadius:10,color:"#22c55e",cursor:"pointer",fontSize:12,fontWeight:700 }}>
+                      style={{ padding:"9px 18px",background:"linear-gradient(180deg,#4ade80 0%,#15803d 100%)",border:"none",borderRadius:10,color:"#052e16",cursor:"pointer",fontSize:12,fontWeight:700,boxShadow:"0 3px 10px rgba(34,197,94,.5),inset 0 1px 0 rgba(255,255,255,.3)",position:"relative",overflow:"hidden" }}>
                       🧺 Add All to Main Basket
                     </button>
                   </div>
@@ -1383,7 +1391,7 @@ export default function JerseyGroceryApp() {
                     <div>
                       <div style={{ display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:12 }}>
                         <h3 style={{ fontSize:15,fontWeight:700,margin:0,color:"#f43f5e" }}>♥ Favourites Basket</h3>
-                        <button onClick={()=>setFavBasket({})} style={{ background:"rgba(244,63,94,.1)",border:"1px solid rgba(244,63,94,.25)",color:"#f43f5e",borderRadius:7,padding:"3px 9px",cursor:"pointer",fontSize:10,fontWeight:600 }}>Clear</button>
+                        <button onClick={()=>setFavBasket({})} style={{ background:"linear-gradient(180deg,rgba(244,63,94,.25) 0%,rgba(190,18,60,.2) 100%)",border:"1px solid rgba(244,63,94,.4)",color:"#fda4af",borderRadius:22,boxShadow:"0 2px 6px rgba(244,63,94,.25),inset 0 1px 0 rgba(255,255,255,.1)",padding:"3px 9px",cursor:"pointer",fontSize:10,fontWeight:600 }}>Clear</button>
                       </div>
                       <div style={{ display:"flex",flexDirection:"column",gap:6,marginBottom:14 }}>
                         {favBasketItems.map(item=>{
@@ -1437,7 +1445,7 @@ export default function JerseyGroceryApp() {
                         setFavBasket({});
                         setView("basket");
                         showToast("🧺 Favourites basket moved to main basket!");
-                      }} style={{ width:"100%",padding:"11px",background:"linear-gradient(135deg,#16a34a,#15803d)",border:"none",borderRadius:12,color:"#fff",cursor:"pointer",fontSize:13,fontWeight:700 }}>
+                      }} style={{ width:"100%",padding:"11px",background:"linear-gradient(180deg,#4ade80 0%,#15803d 100%)",boxShadow:"0 3px 10px rgba(34,197,94,.5),inset 0 1px 0 rgba(255,255,255,.3)",border:"none",borderRadius:12,color:"#fff",cursor:"pointer",fontSize:13,fontWeight:700 }}>
                         🧺 Move Everything to Main Basket
                       </button>
                     </div>
@@ -1459,32 +1467,47 @@ export default function JerseyGroceryApp() {
                 const avg=items.reduce((s,p)=>s+p.prices[store.id],0)/items.length;
                 const wins=items.filter(p=>getBestStoreId(p)===store.id).length;
                 const winPct=Math.round((wins/items.length)*100);
+                const sc = store.color;
+                const r=parseInt(sc.slice(1,3),16), g=parseInt(sc.slice(3,5),16), b=parseInt(sc.slice(5,7),16);
                 return(
-                  <div key={store.id} style={{ background:"rgba(255,255,255,.04)",border:`1px solid ${store.color}32`,borderLeft:`4px solid ${store.color}`,borderRadius:14,padding:16 }}>
+                  <div key={store.id} style={{
+                    background:`linear-gradient(135deg,rgba(${r},${g},${b},0.12) 0%,rgba(${r},${g},${b},0.04) 100%)`,
+                    border:`1px solid rgba(${r},${g},${b},0.35)`,
+                    borderLeft:`4px solid ${sc}`,
+                    borderRadius:14, padding:16,
+                    boxShadow:`0 4px 16px rgba(${r},${g},${b},0.15), inset 0 1px 0 rgba(255,255,255,0.07)`,
+                    position:"relative", overflow:"hidden",
+                  }}>
+                    <span style={{ position:"absolute",top:0,left:0,right:0,height:"40%",background:"linear-gradient(180deg,rgba(255,255,255,.05) 0%,rgba(255,255,255,0) 100%)",pointerEvents:"none" }}/>
                     <div style={{ display:"flex",justifyContent:"space-between",alignItems:"flex-start",flexWrap:"wrap",gap:10 }}>
                       <div>
                         <div style={{ display:"flex",alignItems:"center",gap:7,marginBottom:3 }}>
                           <span style={{ fontSize:19 }}>{store.emoji}</span>
                           <span style={{ fontSize:15,fontWeight:700 }}>{store.name}</span>
-                          <span style={{ background:`${store.color}20`,color:store.color,border:`1px solid ${store.color}50`,borderRadius:6,padding:"2px 6px",fontSize:8.5,fontWeight:700 }}>{store.tag}</span>
+                          <span style={{
+                            background:`linear-gradient(180deg,rgba(${r},${g},${b},0.4) 0%,rgba(${r},${g},${b},0.2) 100%)`,
+                            color:sc, border:`1px solid rgba(${r},${g},${b},0.5)`,
+                            borderRadius:22, padding:"2px 9px", fontSize:8.5, fontWeight:700,
+                            boxShadow:`0 1px 4px rgba(${r},${g},${b},0.3)`,
+                          }}>{store.tag}</span>
                         </div>
                         <div style={{ fontSize:10,color:"#64748b" }}>📍 {store.note}</div>
                       </div>
                       <div style={{ textAlign:"right" }}>
-                        <div style={{ fontSize:19,fontWeight:700,color:store.color }}>£{avg.toFixed(2)}</div>
+                        <div style={{ fontSize:19,fontWeight:700,color:sc,textShadow:`0 0 10px rgba(${r},${g},${b},0.5)` }}>£{avg.toFixed(2)}</div>
                         <div style={{ fontSize:9,color:"#64748b" }}>avg / item</div>
                       </div>
                     </div>
                     <div style={{ display:"flex",gap:9,marginTop:11,flexWrap:"wrap" }}>
-                      <div style={{ background:"rgba(255,255,255,.04)",borderRadius:8,padding:"6px 12px",textAlign:"center" }}>
-                        <div style={{ fontSize:14,fontWeight:700,color:"#fbbf24" }}>{wins}</div>
+                      <div style={{ background:`linear-gradient(180deg,rgba(${r},${g},${b},0.15) 0%,rgba(${r},${g},${b},0.08) 100%)`,border:`1px solid rgba(${r},${g},${b},0.25)`,borderRadius:10,padding:"7px 14px",textAlign:"center",boxShadow:"inset 0 1px 0 rgba(255,255,255,.07)" }}>
+                        <div style={{ fontSize:16,fontWeight:700,color:sc,textShadow:`0 0 8px rgba(${r},${g},${b},0.4)` }}>{wins}</div>
                         <div style={{ fontSize:7.5,color:"#94a3b8" }}>cheapest items</div>
                       </div>
-                      <div style={{ background:"rgba(255,255,255,.04)",borderRadius:8,padding:"6px 12px",textAlign:"center" }}>
-                        <div style={{ fontSize:14,fontWeight:700,color:"#a78bfa" }}>{winPct}%</div>
+                      <div style={{ background:`linear-gradient(180deg,rgba(${r},${g},${b},0.15) 0%,rgba(${r},${g},${b},0.08) 100%)`,border:`1px solid rgba(${r},${g},${b},0.25)`,borderRadius:10,padding:"7px 14px",textAlign:"center",boxShadow:"inset 0 1px 0 rgba(255,255,255,.07)" }}>
+                        <div style={{ fontSize:16,fontWeight:700,color:sc,textShadow:`0 0 8px rgba(${r},${g},${b},0.4)` }}>{winPct}%</div>
                         <div style={{ fontSize:7.5,color:"#94a3b8" }}>of range</div>
                       </div>
-                      <div style={{ background:"rgba(255,255,255,.04)",borderRadius:8,padding:"6px 12px",flex:1,fontSize:10,color:"#94a3b8" }}>
+                      <div style={{ background:"rgba(255,255,255,.03)",border:"1px solid rgba(255,255,255,.07)",borderRadius:10,padding:"7px 12px",flex:1,fontSize:10,color:"#94a3b8",lineHeight:1.5 }}>
                         {store.id==="coop"&&"✅ Best overall value. Family-friendly. Large stores closed Sunday."}
                         {store.id==="morrisons"&&"⚠️ Prices ~45% above UK Morrisons. Convenience format across multiple branches."}
                         {store.id==="ms"&&"✨ Premium quality. Freight surcharge applied. Best for special occasions."}
@@ -1599,7 +1622,7 @@ export default function JerseyGroceryApp() {
                   Once verified in-store it will be added to the app shortly.
                 </div>
                 <button onClick={()=>{ setAddItemStatus("idle"); setShowAddModal(false); setNewItem({name:"",cat:"➕ Custom",icon:"🛒",prices:{coop:"",morrisons:"",ms:"",waitrose:"",iceland:""}}); }}
-                  style={{ padding:"10px 28px",background:"linear-gradient(135deg,#16a34a,#15803d)",border:"none",borderRadius:11,color:"#fff",cursor:"pointer",fontSize:13,fontWeight:700 }}>
+                  style={{ padding:"10px 28px",background:"linear-gradient(180deg,#4ade80 0%,#15803d 100%)",boxShadow:"0 3px 10px rgba(34,197,94,.5),inset 0 1px 0 rgba(255,255,255,.3)",border:"none",borderRadius:11,color:"#fff",cursor:"pointer",fontSize:13,fontWeight:700 }}>
                   Back to App
                 </button>
               </div>
@@ -2165,7 +2188,7 @@ function HelpModal({ onClose, onShare, onReplay }) {
             <button onClick={onShare} style={{ flex:1,padding:"11px",background:"rgba(99,102,241,.15)",border:"1px solid rgba(99,102,241,.35)",borderRadius:11,color:"#a5b4fc",cursor:"pointer",fontSize:13,fontWeight:700,display:"flex",alignItems:"center",justifyContent:"center",gap:6 }}>
               ↗ Share JerseyBasket.je
             </button>
-            <button onClick={onClose} style={{ flex:1,padding:"11px",background:"linear-gradient(135deg,#16a34a,#15803d)",border:"none",borderRadius:11,color:"#fff",cursor:"pointer",fontSize:13,fontWeight:700 }}>
+            <button onClick={onClose} style={{ flex:1,padding:"11px",background:"linear-gradient(180deg,#4ade80 0%,#15803d 100%)",boxShadow:"0 3px 10px rgba(34,197,94,.5),inset 0 1px 0 rgba(255,255,255,.3)",border:"none",borderRadius:11,color:"#fff",cursor:"pointer",fontSize:13,fontWeight:700 }}>
               Start Shopping →
             </button>
           </div>
@@ -2230,7 +2253,7 @@ function ReportModal({ onClose }) {
               We'll look into it and fix it as soon as possible.<br/>
               JerseyBasket is better because of people like you.
             </div>
-            <button onClick={onClose} style={{ padding:"10px 28px",background:"linear-gradient(135deg,#16a34a,#15803d)",border:"none",borderRadius:11,color:"#fff",cursor:"pointer",fontSize:13,fontWeight:700 }}>
+            <button onClick={onClose} style={{ padding:"10px 28px",background:"linear-gradient(180deg,#4ade80 0%,#15803d 100%)",boxShadow:"0 3px 10px rgba(34,197,94,.5),inset 0 1px 0 rgba(255,255,255,.3)",border:"none",borderRadius:11,color:"#fff",cursor:"pointer",fontSize:13,fontWeight:700 }}>
               Back to App
             </button>
           </div>
@@ -2363,7 +2386,7 @@ function EnquiryModal({ onClose }) {
               Thanks for your interest in advertising on JerseyBasket.je.<br/>
               Eamonn will be in touch shortly at <strong style={{ color:"#f0f4f8" }}>{form.email}</strong>
             </div>
-            <button onClick={onClose} style={{ padding:"10px 28px", background:"linear-gradient(135deg,#16a34a,#15803d)", border:"none", borderRadius:11, color:"#fff", cursor:"pointer", fontSize:13, fontWeight:700 }}>
+            <button onClick={onClose} style={{ padding:"10px 28px", background:"linear-gradient(180deg,#4ade80 0%,#15803d 100%)",boxShadow:"0 3px 10px rgba(34,197,94,.5),inset 0 1px 0 rgba(255,255,255,.3)", border:"none", borderRadius:11, color:"#fff", cursor:"pointer", fontSize:13, fontWeight:700 }}>
               Back to App
             </button>
           </div>
@@ -2471,7 +2494,7 @@ function SettingsModal({ disabledStores, onToggleStore, onClose }) {
           </div>
         )}
 
-        <button onClick={onClose} style={{ width:"100%",padding:"13px",background:"linear-gradient(135deg,#16a34a,#15803d)",border:"none",borderRadius:12,color:"#fff",cursor:"pointer",fontSize:14,fontWeight:700 }}>
+        <button onClick={onClose} style={{ width:"100%",padding:"13px",background:"linear-gradient(180deg,#4ade80 0%,#15803d 100%)",boxShadow:"0 3px 10px rgba(34,197,94,.5),inset 0 1px 0 rgba(255,255,255,.3)",border:"none",borderRadius:12,color:"#fff",cursor:"pointer",fontSize:14,fontWeight:700 }}>
           Done
         </button>
       </div>
@@ -2564,7 +2587,7 @@ function CompetitionModal({ onClose, onSubmit }) {
           )}
         </div>
 
-        <button onClick={onSubmit} style={{ width:"100%",padding:"14px",background:"linear-gradient(135deg,#ea580c,#c2410c)",border:"none",borderRadius:12,color:"#fff",cursor:"pointer",fontSize:14,fontWeight:700,marginBottom:10 }}>
+        <button onClick={onSubmit} style={{ width:"100%",padding:"14px",background:"linear-gradient(180deg,#fb923c 0%,#b45309 100%)",boxShadow:"0 3px 10px rgba(194,65,12,.5),inset 0 1px 0 rgba(255,255,255,.25)",border:"none",borderRadius:12,color:"#fff",cursor:"pointer",fontSize:14,fontWeight:700,marginBottom:10 }}>
           📸 Submit a Price Now →
         </button>
         <button onClick={onClose} style={{ width:"100%",padding:"12px",background:"rgba(255,255,255,.06)",border:"1px solid rgba(255,255,255,.1)",borderRadius:12,color:"#94a3b8",cursor:"pointer",fontSize:13,fontWeight:600 }}>
@@ -2624,7 +2647,7 @@ function SubmitPriceModal({ onClose }) {
               If you win, we'll contact you on <span style={{ color:"#fb923c" }}>{form.mobile}</span>.<br/>
               Keep those receipts coming! 📸
             </div>
-            <button onClick={onClose} style={{ padding:"11px 28px",background:"linear-gradient(135deg,#ea580c,#c2410c)",border:"none",borderRadius:11,color:"#fff",cursor:"pointer",fontSize:13,fontWeight:700 }}>
+            <button onClick={onClose} style={{ padding:"11px 28px",background:"linear-gradient(180deg,#fb923c 0%,#b45309 100%)",boxShadow:"0 3px 10px rgba(194,65,12,.5),inset 0 1px 0 rgba(255,255,255,.25)",border:"none",borderRadius:11,color:"#fff",cursor:"pointer",fontSize:13,fontWeight:700 }}>
               Back to App
             </button>
           </div>
@@ -3127,15 +3150,30 @@ function BasketItem({ item, overPay, onRemove, onAdd, onDelete }) {
 }
 
 function Chip({ active, onClick, color, children }) {
+  const hexToRgb = (hex) => {
+    const r = parseInt(hex.slice(1,3),16);
+    const g = parseInt(hex.slice(3,5),16);
+    const b = parseInt(hex.slice(5,7),16);
+    return {r,g,b};
+  };
+  const {r,g,b} = hexToRgb(color);
+  const light = `rgb(${Math.min(255,r+40)},${Math.min(255,g+40)},${Math.min(255,b+40)})`;
+  const dark  = `rgb(${Math.round(r*0.55)},${Math.round(g*0.55)},${Math.round(b*0.55)})`;
+  const dim   = `rgb(${Math.round(r*0.25)},${Math.round(g*0.25)},${Math.round(b*0.25)})`;
   return (
     <button onClick={onClick} style={{
       whiteSpace:"nowrap", padding:"6px 13px", borderRadius:22, fontSize:11, fontWeight:700, cursor:"pointer",
-      background: active ? `linear-gradient(180deg,${color}dd 0%,${color}88 100%)` : "linear-gradient(180deg,#1e3a5f 0%,#0f1f3d 100%)",
-      border: active ? `1px solid ${color}80` : "1px solid rgba(125,211,252,0.15)",
-      color: active ? "#fff" : "#7dd3fc",
-      boxShadow: active ? `0 3px 10px ${color}55, inset 0 1px 0 rgba(255,255,255,0.2)` : "0 2px 6px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.07)",
-      textShadow: active ? "0 1px 2px rgba(0,0,0,0.3)" : "none",
+      background: active
+        ? `linear-gradient(180deg,${light} 0%,${dark} 100%)`
+        : `linear-gradient(180deg,${dark} 0%,${dim} 100%)`,
+      border: `1px solid rgba(${r},${g},${b},${active?0.7:0.35})`,
+      color: active ? "#fff" : `rgba(${r+80},${g+80},${b+80},0.85)`,
+      boxShadow: active
+        ? `0 3px 10px rgba(${r},${g},${b},0.55), inset 0 1px 0 rgba(255,255,255,0.25)`
+        : `0 2px 6px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.07)`,
+      textShadow: "0 1px 2px rgba(0,0,0,0.35)",
       position:"relative", overflow:"hidden",
+      opacity: active ? 1 : 0.75,
     }}>
       <span style={{ position:"absolute", top:0, left:0, right:0, height:"52%", background:"linear-gradient(180deg,rgba(255,255,255,0.28) 0%,rgba(255,255,255,0.04) 100%)", borderRadius:"22px 22px 0 0", pointerEvents:"none" }} />
       {children}
