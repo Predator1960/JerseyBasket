@@ -13,11 +13,9 @@
  * Built for Jersey, Channel Islands.
  * Contact: hello@jerseybasket.je
  *
- * Version:   v45
+ * Version:   v46
  * Updated:   2 June 2026
- * Changes:   Fix £0.00 prices showing as cheapest (stores with no price excluded)
- *            Fix modal X button hidden behind iPhone status bar on all modals
- *            Fix header row 1 hidden behind iOS status bar (safe-area-inset-top)
+ * Changes:   Add receipt photo upload to competition submission form
  *            in the header (e.g. for ethical/personal reasons). Hidden stores are
  *            removed from product cards, store pin chips, and basket comparisons.
  *            Setting persists for the session.
@@ -2510,6 +2508,7 @@ function CompetitionModal({ onClose, onSubmit }) {
 ═══════════════════════════════════════════════════════════════════════════ */
 function SubmitPriceModal({ onClose }) {
   const [form,   setForm]   = useState({ name:"", mobile:"", email:"", store:"coop", product:"", price:"", detail:"" });
+  const [photo,  setPhoto]  = useState(null);
   const [status, setStatus] = useState("idle");
 
   const handleSubmit = async () => {
@@ -2517,20 +2516,21 @@ function SubmitPriceModal({ onClose }) {
     setStatus("sending");
     const storeName = STORES.find(s=>s.id===form.store)?.name||form.store;
     try {
+      const data = new FormData();
+      data.append("_subject", `🏆 June Competition Entry — ${form.name}`);
+      data.append("name",    form.name);
+      data.append("mobile",  form.mobile);
+      data.append("email",   form.email);
+      data.append("store",   storeName);
+      data.append("product", form.product);
+      data.append("price",   `£${form.price}`);
+      data.append("detail",  form.detail||"No additional notes");
+      data.append("message", `JUNE COMPETITION ENTRY\n\nName: ${form.name}\nMobile: ${form.mobile}\nEmail: ${form.email}\nStore: ${storeName}\nProduct: ${form.product}\nPrice: £${form.price}\nNotes: ${form.detail||"None"}`);
+      if(photo) data.append("receipt_photo", photo);
       const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`,{
         method:"POST",
-        headers:{"Content-Type":"application/json","Accept":"application/json"},
-        body: JSON.stringify({
-          _subject:`🏆 June Competition Entry — ${form.name}`,
-          name: form.name,
-          mobile: form.mobile,
-          email: form.email,
-          store: storeName,
-          product: form.product,
-          price: `£${form.price}`,
-          detail: form.detail||"No additional notes",
-          message:`JUNE COMPETITION ENTRY\n\nName: ${form.name}\nMobile: ${form.mobile}\nEmail: ${form.email}\nStore: ${storeName}\nProduct: ${form.product}\nPrice: £${form.price}\nNotes: ${form.detail||"None"}`,
-        })
+        headers:{"Accept":"application/json"},
+        body: data,
       });
       if(res.ok){ setStatus("sent"); }
       else { setStatus("error"); }
@@ -2627,8 +2627,28 @@ function SubmitPriceModal({ onClose }) {
                 style={{ width:"100%",padding:"9px 12px",background:"rgba(255,255,255,.07)",border:"1px solid rgba(255,255,255,.11)",borderRadius:9,color:"#fff",fontSize:12,outline:"none",resize:"none",boxSizing:"border-box",fontFamily:"inherit",lineHeight:1.5 }} />
             </div>
 
-            <div style={{ background:"rgba(251,146,60,.07)",border:"1px solid rgba(251,146,60,.2)",borderRadius:9,padding:"9px 13px",fontSize:10,color:"#9a3412",lineHeight:1.7,marginBottom:14 }}>
-              📸 <strong style={{ color:"#fed7aa" }}>Tip:</strong> A photo of your receipt is the quickest way to submit multiple prices at once — email it to <span style={{ color:"#fb923c" }}>hello@jerseybasket.je</span> with your name and we'll count them all! Make sure the <strong style={{ color:"#fed7aa" }}>store name, date, and prices are clearly visible</strong>. All receipts are manually verified before counting.
+            {/* receipt photo */}
+            <div style={{ marginBottom:14 }}>
+              <div style={{ fontSize:10,color:"#9a3412",fontWeight:700,letterSpacing:".5px",marginBottom:6 }}>📸 RECEIPT PHOTO <span style={{ color:"#334155",fontWeight:400 }}>(optional but recommended)</span></div>
+              <label style={{ display:"block",cursor:"pointer" }}>
+                <div style={{ background:photo?"rgba(34,197,94,.1)":"rgba(251,146,60,.07)",border:`2px dashed ${photo?"rgba(34,197,94,.4)":"rgba(251,146,60,.3)"}`,borderRadius:10,padding:"14px",textAlign:"center",transition:"all .2s" }}>
+                  {photo ? (
+                    <div>
+                      <div style={{ fontSize:22,marginBottom:4 }}>✅</div>
+                      <div style={{ fontSize:12,color:"#86efac",fontWeight:700 }}>{photo.name}</div>
+                      <div style={{ fontSize:10,color:"#475569",marginTop:3 }}>Tap to change photo</div>
+                    </div>
+                  ) : (
+                    <div>
+                      <div style={{ fontSize:28,marginBottom:6 }}>📸</div>
+                      <div style={{ fontSize:12,color:"#fed7aa",fontWeight:700 }}>Tap to attach your receipt</div>
+                      <div style={{ fontSize:10,color:"#9a3412",marginTop:4,lineHeight:1.5 }}>Take a photo or choose from your gallery<br/>Store name, date & prices must be visible</div>
+                    </div>
+                  )}
+                </div>
+                <input type="file" accept="image/*" capture="environment" onChange={e=>setPhoto(e.target.files?.[0]||null)}
+                  style={{ display:"none" }} />
+              </label>
             </div>
 
             {status==="error"&&<div style={{ background:"rgba(239,68,68,.1)",border:"1px solid rgba(239,68,68,.28)",borderRadius:8,padding:"7px 12px",fontSize:11,color:"#fca5a5",marginBottom:12 }}>Something went wrong. Please email hello@jerseybasket.je</div>}
