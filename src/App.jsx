@@ -1742,7 +1742,7 @@ const AD_SLIDES = [
     headline: { before:"This could be ",   highlight:"your",  highlightColor:"#4ade80", after:" Business" },
     sub:      { text:"Reach every Jersey shopper — every day", color:"#86efac" },
     cta:      { label:"Advertise here",    labelColor:"#4ade80", url:"jerseybasket.je", urlColor:"#f0fdf4", arrowBg:"#4ade80",   arrowColor:"#052e16", boxBg:"rgba(74,222,128,0.15)", boxBorder:"#4ade80" },
-    stats:    [{ val:"730+", label:"weekly users" },{ val:"428",    label:"products" }],
+    stats:    [{ val:"930+", label:"weekly users" },{ val:"428",    label:"products" }],
     statColor:"#4ade80",
     accent:   "linear-gradient(90deg,transparent,#22c55e55,transparent)",
     deco: true,
@@ -1936,7 +1936,7 @@ function WelcomeModal({ onDismiss, onSubmitPrice }) {
     {
       emoji: "🛍️",
       title: "Welcome to JerseyBasket.je",
-      subtitle: "Join 730+ Jersey shoppers saving money every week",
+      subtitle: "Join 930+ Jersey shoppers saving money every week",
       body: "Compare prices across all 5 Jersey supermarkets instantly. Find the cheapest price on every item — and build your shopping list before you leave the house.",
       bg: "linear-gradient(135deg,#052e16 0%,#14532d 50%,#16a34a 100%)",
       accent: "#22c55e",
