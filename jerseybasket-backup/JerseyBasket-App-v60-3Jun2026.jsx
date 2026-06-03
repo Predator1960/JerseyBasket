@@ -2013,8 +2013,8 @@ function WelcomeModal({ onDismiss, onSubmitPrice }) {
           </div>
 
           {/* subtitle */}
-          {activeStep===0 && <style>{`@keyframes tricolour{0%{color:#22c55e}33%{color:#ffffff}66%{color:#f59e0b}100%{color:#22c55e}}`}</style>}
-          <div style={{ fontSize:12,fontWeight:600,color:s.accent,marginBottom:16,textTransform:"uppercase",letterSpacing:"1px", ...(activeStep===0 ? {animation:"tricolour 2.4s ease-in-out infinite"} : {}) }}>
+          {step===0 && <style>{`@keyframes goldpulse{0%,100%{color:#f59e0b;transform:scale(1);box-shadow:0 0 8px rgba(245,158,11,.4),inset 0 0 8px rgba(245,158,11,.1)}50%{color:#fcd34d;transform:scale(1.04);box-shadow:0 0 18px rgba(252,211,77,.7),inset 0 0 12px rgba(252,211,77,.15)}}`}</style>}
+          <div style={{ fontSize:12,fontWeight:700,marginBottom:16,textTransform:"uppercase",letterSpacing:"1px", ...(step===0 ? {animation:"goldpulse 2.8s ease-in-out infinite",display:"inline-block",color:"#f59e0b",border:"1.5px solid rgba(245,158,11,.7)",borderRadius:20,padding:"6px 18px",background:"rgba(245,158,11,.08)"} : {color:s.accent}) }}>
             {s.subtitle}
           </div>
 
