@@ -18,7 +18,7 @@
 - **Name:** JerseyBasket
 - **URL:** https://jerseybasket.je
 - **Description:** Jersey's first free grocery price comparison app
-- **Current Version:** v58
+- **Current Version:** v59
 - **Total Products:** 453
 - **Categories:** 15
 - **Stores:** 5
@@ -63,23 +63,32 @@ Vercel auto-deploys in ~24 seconds. No manual build needed.
 
 ### Git Notes
 - Pause OneDrive before pushing
-- node_modules and build NOT committed
-- .vercel/output removed — was causing stale builds
+- node_modules, build, and .vercel/output NOT committed (in .gitignore)
 - vercel.json has no-cache headers
 - react-scripts chmod +x fixed
+- Vercel Framework Preset = Create React App (important — must not be "Other")
 
 ---
 
 ## KEY FILES
 - src/App.jsx — main app file
-- public/index.html — GA tag, viewport-fit=cover
+- public/index.html — GA tag, viewport-fit=cover, service worker unregister script
 - vercel.json — no-cache headers
-- Latest: /mnt/user-data/outputs/App.jsx (v58)
-- Backup: /mnt/user-data/outputs/JerseyBasket-App-v58-2Jun2026.jsx
+- Backup: jerseybasket-backup\JerseyBasket-App-v59-2Jun2026.jsx
 
 ---
 
-## APP FEATURES (v58)
+## CRITICAL DEPLOYMENT NOTES (learned the hard way)
+- NEVER commit .vercel/output or build folders — Vercel serves them instead of building
+- If Vercel builds in 12-13s it is serving a cached/pre-built folder, not compiling
+- Vercel Framework Preset must be "Create React App" not "Other"
+- Use Python install script to write App.jsx — PowerShell corrupts emoji (BOM/encoding)
+- Python script template: base64 encode file → script decodes and writes as raw bytes
+- Always verify no BOM: file must not start with \xef\xbb\xbf
+
+---
+
+## APP FEATURES (v59)
 - 453 products, 15 categories, 5 stores
 - FULL GLOSSY UI — all pills, buttons, cards use brand colours with 3D gloss
 - Store filter chips wrap to 2 rows on iPhone
@@ -97,6 +106,8 @@ Vercel auto-deploys in ~24 seconds. No manual build needed.
 - Tick off items, swipe-left to delete
 - Tooltip on truncated names
 - Search, Sort (Cheapest/Saving/AZ/Category)
+- **Sort: Category** shows alphabetical group headers with product count
+- All category names normalised — no emoji/name mismatches across products
 - Welcome screen 6 slides — glossy buttons
 - June Price Hunt Competition with leaderboard
 - InstallSteps auto-detects iPhone/Android
@@ -208,18 +219,21 @@ Next product id: 454
 5. Keep disclaimer banner until prices verified
 6. No tobacco/lottery. Alcohol OK.
 7. Add Item = approval workflow, not live immediately
-8. Always produce App.jsx + dated backup
+8. Always produce App.jsx + dated backup via Python install script
 9. Deploy = git add/commit/push only
 10. localStorage for basket/favourites
 11. Competition entries via Gmail
 12. Share button = 🔗 emoji ONLY, never ↗
-13. Never commit .vercel/output or node_modules
+13. Never commit .vercel/output, build, or node_modules
 14. Store colours: use hexToRgb() for inline gradients — hex opacity unreliable
 15. Glossy buttons: linear-gradient(180deg, light 0%, dark 100%) + inset glow
 16. Chip component uses hexToRgb() for light/dark/dim variants
 17. MAINTENANCE = false near top of file
+18. ALWAYS use Python script to write App.jsx — never PowerShell (corrupts emojis)
+19. Verify Vercel Framework Preset = Create React App before first deploy in new session
+20. If Vercel builds in <20s something is wrong — should take ~25s with proper build
 
 ---
 
-*Brief updated by Claude Sonnet 4.6 — 2 June 2026*
+*Brief updated by Claude Sonnet 4.6 (V5) — 2 June 2026*
 *Upload this at the start of every new JerseyBasket Claude session*
