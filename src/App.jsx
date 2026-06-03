@@ -2013,7 +2013,8 @@ function WelcomeModal({ onDismiss, onSubmitPrice }) {
           </div>
 
           {/* subtitle */}
-          <div style={{ fontSize:12,fontWeight:600,color:s.accent,marginBottom:16,textTransform:"uppercase",letterSpacing:"1px" }}>
+          {activeStep===0 && <style>{`@keyframes tricolour{0%{color:#22c55e}33%{color:#ffffff}66%{color:#f59e0b}100%{color:#22c55e}}`}</style>}
+          <div style={{ fontSize:12,fontWeight:600,color:s.accent,marginBottom:16,textTransform:"uppercase",letterSpacing:"1px", ...(activeStep===0 ? {animation:"tricolour 2.4s ease-in-out infinite"} : {}) }}>
             {s.subtitle}
           </div>
 
