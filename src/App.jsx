@@ -3004,7 +3004,6 @@ function AdBanner({ onEnquiry }) {
               {/* LEFT — eyebrow + headline on one line */}
               <div style={{ display:"flex", alignItems:"center", gap:"clamp(6px,1.5vw,14px)", minWidth:0, flex:1 }}>
                 {s.logo && <img src={s.logo} alt="advertiser logo" style={{ height:"clamp(32px,5vh,52px)", width:"auto", borderRadius:6, flexShrink:0, objectFit:"contain" }} />}
-                {s.logo && <img src={s.logo} alt="advertiser logo" style={{ height:"clamp(32px,5vh,52px)", width:"auto", borderRadius:6, flexShrink:0, objectFit:"contain" }} />}
                 <div style={{ fontFamily:"'DM Sans',Arial,sans-serif", fontSize:"clamp(7px,1vh,9px)", fontWeight:700, letterSpacing:"1.5px", textTransform:"uppercase", color:s.eyebrow.color, borderLeft:`2px solid ${s.eyebrow.color}`, paddingLeft:6, lineHeight:1, whiteSpace:"nowrap", flexShrink:0 }}>
                   {s.eyebrow.text}
                 </div>
