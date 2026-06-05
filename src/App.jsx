@@ -1064,7 +1064,7 @@ export default function JerseyGroceryApp() {
         </div>
       </header>
 
-      <main style={{ maxWidth:1040,margin:"0 auto",padding:"0 16px calc(10vh + 60px)",position:"relative",zIndex:1 }}>
+      <main style={{ maxWidth:1040,margin:"0 auto",padding:"0 16px calc(132px + 60px)",position:"relative",zIndex:1 }}>
 
         {/* ══════════════════════════ SHOP ══════════════════════════ */}
         {view==="shop" && (
@@ -1559,7 +1559,7 @@ export default function JerseyGroceryApp() {
       {showAddModal&&(
         <div style={{ position:"fixed",inset:0,zIndex:200,display:"flex",alignItems:"flex-end",justifyContent:"center",paddingTop:60,background:"rgba(0,0,0,.72)",backdropFilter:"blur(8px)" }}
           onClick={e=>{if(e.target===e.currentTarget){setShowAddModal(false);setAddError("");}}}>
-          <div style={{ width:"100%",maxWidth:580,background:"#0a1a30",border:"1px solid rgba(255,255,255,.11)",borderRadius:"20px 20px 0 0",padding:"21px 20px 28px",maxHeight:"82vh",overflowY:"auto",paddingBottom:"calc(10vh + 32px)" }}>
+          <div style={{ width:"100%",maxWidth:580,background:"#0a1a30",border:"1px solid rgba(255,255,255,.11)",borderRadius:"20px 20px 0 0",padding:"21px 20px 28px",maxHeight:"82vh",overflowY:"auto",paddingBottom:"calc(132px + 32px)" }}>
             <div style={{ display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:15,position:"sticky",top:0,background:"#0a1a30",paddingTop:4,paddingBottom:8,zIndex:10 }}>
               <div>
                 <div style={{ fontSize:16,fontWeight:700 }}>➕ Add Custom Item</div>
@@ -1671,7 +1671,7 @@ export default function JerseyGroceryApp() {
 
       {/* ── TOAST ── */}
       {toast&&(
-        <div style={{ position:"fixed",bottom:"calc(10vh + 10px)",left:"50%",transform:"translateX(-50%)",zIndex:300,
+        <div style={{ position:"fixed",bottom:"calc(133px + 10px)",left:"50%",transform:"translateX(-50%)",zIndex:300,
           background:"#16a34a",color:"#fff",borderRadius:12,padding:"11px 20px",fontSize:13,fontWeight:600,
           boxShadow:"0 4px 24px rgba(0,0,0,.5)",whiteSpace:"nowrap",pointerEvents:"none" }}>
           {toast}
@@ -1680,7 +1680,7 @@ export default function JerseyGroceryApp() {
 
       {/* ── AD BANNER ── */}
       {/* ── FOOTER ── */}
-      <div style={{ position:"fixed",bottom:"calc(10vh + 1px)",left:0,right:0,background:"rgba(5,13,26,.97)",backdropFilter:"blur(16px)",borderTop:"1px solid rgba(255,255,255,.09)",padding:"6px 20px",display:"flex",justifyContent:"center",alignItems:"center",fontSize:10,color:"#475569",gap:12,zIndex:199,flexWrap:"wrap",minHeight:28 }}>
+      <div style={{ position:"fixed",bottom:"133px",left:0,right:0,background:"rgba(5,13,26,.97)",backdropFilter:"blur(16px)",borderTop:"1px solid rgba(255,255,255,.09)",padding:"6px 20px",display:"flex",justifyContent:"center",alignItems:"center",fontSize:10,color:"#475569",gap:12,zIndex:199,flexWrap:"wrap",minHeight:28 }}>
         <span>🇯🇪 Jersey, Channel Islands</span>
         <span style={{ color:"#1e293b" }}>·</span>
         <span>© 2026 Eamonn O'Shea</span>
@@ -2283,7 +2283,7 @@ function ReportModal({ onClose }) {
   return (
     <div style={{ position:"fixed",inset:0,zIndex:500,display:"flex",alignItems:"flex-end",justifyContent:"center",paddingTop:60,background:"rgba(0,0,0,.75)",backdropFilter:"blur(8px)" }}
       onClick={e=>{ if(e.target===e.currentTarget) onClose(); }}>
-      <div style={{ width:"100%",maxWidth:520,background:"#0a1a30",border:"1px solid rgba(255,255,255,.12)",borderRadius:"20px 20px 0 0",padding:"22px 20px 30px",maxHeight:"82vh",overflowY:"auto",paddingBottom:"calc(10vh + 32px)" }}>
+      <div style={{ width:"100%",maxWidth:520,background:"#0a1a30",border:"1px solid rgba(255,255,255,.12)",borderRadius:"20px 20px 0 0",padding:"22px 20px 30px",maxHeight:"82vh",overflowY:"auto",paddingBottom:"calc(132px + 32px)" }}>
 
         {status==="sent" ? (
           <div style={{ textAlign:"center",padding:"30px 0" }}>
@@ -2416,7 +2416,7 @@ function EnquiryModal({ onClose }) {
   return (
     <div style={{ position:"fixed", inset:0, zIndex:500, display:"flex", alignItems:"flex-end", justifyContent:"center", background:"rgba(0,0,0,.75)", backdropFilter:"blur(8px)" }}
       onClick={e=>{ if(e.target===e.currentTarget) onClose(); }}>
-      <div style={{ width:"100%", maxWidth:520, background:"#0a1a30", border:"1px solid rgba(255,255,255,.12)", borderRadius:"20px 20px 0 0", padding:"24px 20px 32px", maxHeight:"82vh", overflowY:"auto", paddingBottom:"calc(10vh + 32px)" }}>
+      <div style={{ width:"100%", maxWidth:520, background:"#0a1a30", border:"1px solid rgba(255,255,255,.12)", borderRadius:"20px 20px 0 0", padding:"24px 20px 32px", maxHeight:"82vh", overflowY:"auto", paddingBottom:"calc(132px + 32px)" }}>
 
         {status === "sent" ? (
           <div style={{ textAlign:"center", padding:"30px 10px" }}>
@@ -2490,7 +2490,7 @@ function SettingsModal({ disabledStores, onToggleStore, onClose }) {
   return (
     <div style={{ position:"fixed",inset:0,zIndex:500,display:"flex",alignItems:"flex-end",justifyContent:"center",paddingTop:60,background:"rgba(0,0,0,.75)",backdropFilter:"blur(8px)" }}
       onClick={e=>{ if(e.target===e.currentTarget) onClose(); }}>
-      <div style={{ width:"100%",maxWidth:520,background:"#0a1a30",border:"1px solid rgba(255,255,255,.12)",borderRadius:"20px 20px 0 0",padding:"24px 20px 32px",paddingBottom:"calc(10vh + 32px)" }}>
+      <div style={{ width:"100%",maxWidth:520,background:"#0a1a30",border:"1px solid rgba(255,255,255,.12)",borderRadius:"20px 20px 0 0",padding:"24px 20px 32px",paddingBottom:"calc(132px + 32px)" }}>
 
         {/* header */}
         <div style={{ display:"flex",justifyContent:"space-between",alignItems:"flex-start",marginBottom:20 }}>
@@ -2549,7 +2549,7 @@ function CompetitionModal({ onClose, onSubmit }) {
   return (
     <div style={{ position:"fixed",inset:0,zIndex:500,display:"flex",alignItems:"flex-end",justifyContent:"center",paddingTop:60,background:"rgba(0,0,0,.8)",backdropFilter:"blur(8px)" }}
       onClick={e=>{ if(e.target===e.currentTarget) onClose(); }}>
-      <div style={{ width:"100%",maxWidth:520,background:"#120800",border:"1px solid rgba(251,146,60,.25)",borderRadius:"20px 20px 0 0",padding:"24px 20px 32px",paddingBottom:"calc(10vh + 32px)",maxHeight:"82vh",overflowY:"auto" }}>
+      <div style={{ width:"100%",maxWidth:520,background:"#120800",border:"1px solid rgba(251,146,60,.25)",borderRadius:"20px 20px 0 0",padding:"24px 20px 32px",paddingBottom:"calc(132px + 32px)",maxHeight:"82vh",overflowY:"auto" }}>
 
         {/* header */}
         <div style={{ display:"flex",justifyContent:"space-between",alignItems:"flex-start",marginBottom:20 }}>
@@ -2675,7 +2675,7 @@ function SubmitPriceModal({ onClose }) {
   return (
     <div style={{ position:"fixed",inset:0,zIndex:600,display:"flex",alignItems:"flex-end",justifyContent:"center",paddingTop:60,background:"rgba(0,0,0,.8)",backdropFilter:"blur(8px)" }}
       onClick={e=>{ if(e.target===e.currentTarget) onClose(); }}>
-      <div style={{ width:"100%",maxWidth:520,background:"#120800",border:"1px solid rgba(251,146,60,.25)",borderRadius:"20px 20px 0 0",padding:"24px 20px 32px",paddingBottom:"calc(10vh + 32px)",maxHeight:"82vh",overflowY:"auto" }}>
+      <div style={{ width:"100%",maxWidth:520,background:"#120800",border:"1px solid rgba(251,146,60,.25)",borderRadius:"20px 20px 0 0",padding:"24px 20px 32px",paddingBottom:"calc(132px + 32px)",maxHeight:"82vh",overflowY:"auto" }}>
 
         {status==="sent" ? (
           <div style={{ textAlign:"center",padding:"30px 0" }}>
