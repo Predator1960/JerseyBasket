@@ -2913,13 +2913,54 @@ function AdBanner({ onEnquiry }) {
     schedule();
   }, [slideTo, startTick, schedule]);
 
-  // touch swipe
-  const touchX = useRef(0);
-  const mouseDownX = useRef(0);
-  const handleTouchStart = (e) => { touchX.current = e.touches[0].clientX; };
-  const handleTouchEnd   = (e) => {
+  // touch swipe + tap-to-pause / second-tap-to-open
+  const touchX        = useRef(0);
+  const tapPaused     = useRef(false);
+  const tapTimer      = useRef(null);
+  const mouseDownX    = useRef(0);
+
+  const handleTouchStart = (e) => {
+    touchX.current = e.touches[0].clientX;
+  };
+  const handleTouchEnd = (e) => {
     const dx = e.changedTouches[0].clientX - touchX.current;
-    if (Math.abs(dx) > 40) jumpTo(dx < 0 ? (current+1)%COUNT : (current-1+COUNT)%COUNT);
+    if (Math.abs(dx) > 40) {
+      // swipe
+      tapPaused.current = false;
+      pauseRef.current  = false;
+      setPaused(false);
+      jumpTo(dx < 0 ? (current+1)%COUNT : (current-1+COUNT)%COUNT);
+      return;
+    }
+    // tap — prevent ghost click
+    e.preventDefault();
+    const s = AD_SLIDES[currentRef.current];
+    if (!s) return;
+    if (!tapPaused.current) {
+      // FIRST TAP — pause so user can read
+      tapPaused.current = true;
+      pauseRef.current  = true;
+      setPaused(true);
+      clearTimeout(tapTimer.current);
+      // auto-resume after 4s
+      tapTimer.current = setTimeout(() => {
+        tapPaused.current = false;
+        pauseRef.current  = false;
+        setPaused(false);
+        schedule(500);
+        startTick();
+      }, 4000);
+    } else {
+      // SECOND TAP — open URL
+      clearTimeout(tapTimer.current);
+      tapPaused.current = false;
+      pauseRef.current  = false;
+      setPaused(false);
+      if (s.link === ENQUIRY_TRIGGER) { onEnquiry(); }
+      else { window.open(s.link, "_blank", "noopener,noreferrer"); }
+      schedule(500);
+      startTick();
+    }
   };
 
   // track translateX: offset=0 → 0%, offset=1 → -100%, etc.
@@ -2931,7 +2972,8 @@ function AdBanner({ onEnquiry }) {
       onMouseLeave={handleLeave}
       onMouseDown={e=>{ mouseDownX.current = e.clientX; }}
       onClick={(e)=>{
-        // Only fire if mouse didn't move (real click not drag)
+        // Desktop click only — skip if touch (handled above)
+        if(e.detail === 0) return;
         if(Math.abs(e.clientX - mouseDownX.current) > 5) return;
         const s = AD_SLIDES[current];
         if(!s) return;
@@ -3006,7 +3048,7 @@ function AdBanner({ onEnquiry }) {
             }}>
               {/* LEFT */}
               <div style={{ display:"flex", alignItems:"center", gap:"clamp(5px,1.2vw,12px)", minWidth:0, flex:1, flexWrap: s.sub && s.sub.wrap ? "wrap" : "nowrap" }}>
-                {s.logo && <img src={s.logo} alt="advertiser logo" style={{ height:"clamp(30px,4.5vh,52px)", width:"auto", borderRadius:6, flexShrink:0, objectFit:"contain" }} />}
+                {s.logo && <img src={s.logo} alt="advertiser logo" style={{ height:"clamp(30px,4.5vw,52px)", width:"auto", maxHeight:"70%", borderRadius:6, flexShrink:0, objectFit:"contain" }} />}
                 {/* Eyebrow + headline row */}
                 <div style={{ display:"flex", alignItems:"center", gap:"clamp(5px,1vw,10px)", flexShrink:0, ...(s.sub && s.sub.wrap ? { flexBasis:"auto" } : {}) }}>
                   <div style={{ fontFamily:"'DM Sans',Arial,sans-serif", fontSize:"clamp(7px,1.2vw,10px)", fontWeight:700, letterSpacing:"1.5px", textTransform:"uppercase", color:s.eyebrow.color, borderLeft:`2px solid ${s.eyebrow.color}`, paddingLeft:6, lineHeight:1, whiteSpace:"nowrap", flexShrink:0 }}>
@@ -3079,10 +3121,12 @@ function AdBanner({ onEnquiry }) {
 
       {/* ── paused hint ── */}
       {paused && (
-        <div style={{ position:"absolute",top:5,right:"clamp(10px,2vw,20px)",fontFamily:"'DM Sans',Arial",fontSize:"9px",letterSpacing:"1px",textTransform:"uppercase",color:"rgba(255,255,255,0.35)",zIndex:10 }}>
-          ⏸
+        <div style={{ position:"absolute",top:5,right:"clamp(10px,2vw,20px)",fontFamily:"'DM Sans',Arial",fontSize:"9px",letterSpacing:"1px",textTransform:"uppercase",color:"rgba(255,255,255,0.55)",zIndex:10,display:"flex",alignItems:"center",gap:4 }}>
+          <span style={{ opacity:0.6 }}>⏸</span>
+          <span className="mobile-tap-hint" style={{ display:"none" }}>tap again to visit →</span>
         </div>
       )}
+      <style>{`.mobile-tap-hint { display:none !important; } @media (pointer:coarse) { .mobile-tap-hint { display:inline !important; } }`}</style>
     </div>
   );
 }
