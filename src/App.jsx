@@ -3071,7 +3071,7 @@ function AdBanner({ onEnquiry }) {
                 </div>
                 {/* Sub text — full-width centred row when wrap:true */}
                 {s.sub && s.sub.text && (
-                  <div style={{ fontFamily:"'DM Sans',Arial,sans-serif", fontSize:"clamp(9px,1.3vw,15px)", color:s.sub.color, opacity:0.85,
+                  <div style={{ fontFamily:"'DM Sans',Arial,sans-serif", fontSize:"clamp(9px,1.3vw,15px)", color:s.sub.color, opacity:0.85, fontWeight:700, textDecoration:"underline", textDecorationThickness:1.5, textUnderlineOffset:2,
                     ...(s.sub.wrap ? {
                       flexBasis:"100%",
                       textAlign:"center",
