@@ -1,239 +1,107 @@
 # JerseyBasket.je — Project Brief
-## For use in new Claude conversations to continue development
-### Last Updated: 2 June 2026
+*Updated: 5 June 2026*
 
 ---
 
-## OWNER
-- **Name:** Eamonn O'Shea
-- **Phone:** 07797 721247
-- **Email:** Eamonnoshea1960@gmail.com
-- **Business Email:** eamonn@jerseybasket.je / hello@jerseybasket.je
-- **Location:** Jersey, Channel Islands
-- **Works:** From home
+## Project Overview
+JerseyBasket.je is a Jersey grocery price comparison app. Users pick a basket of products and instantly see which supermarket is cheapest. Built in React, deployed via Vercel, ~930+ organic users in roughly 2 weeks.
 
 ---
 
-## THE APP
-- **Name:** JerseyBasket
-- **URL:** https://jerseybasket.je
-- **Description:** Jersey's first free grocery price comparison app
-- **Current Version:** v59
-- **Total Products:** 453
-- **Categories:** 15
-- **Stores:** 5
-- **Next product id:** 454
+## Key Details
 
-### Stores
-{ id:"coop",      name:"CI Co-op",  color:"#16a34a", emoji:"🌿" }
-{ id:"morrisons", name:"Morrisons", color:"#eab308", emoji:"🛒" }
-{ id:"ms",        name:"M&S Food",  color:"#94a3b8", emoji:"✨" }
-{ id:"waitrose",  name:"Waitrose",  color:"#0d9488", emoji:"🌱" }
-{ id:"iceland",   name:"Iceland",   color:"#dc2626", emoji:"🧊" }
+| Item | Value |
+|------|-------|
+| Owner | Eamonn O'Shea |
+| Email | hello@jerseybasket.je |
+| Phone | 07797 721247 |
+| Repo | https://github.com/Predator1960/JerseyBasket |
+| Local path | C:\Users\eamon_qw9m8iy\OneDrive\Desktop\jerseybasket\ |
+| Backup folder | jerseybasket-backup\ on Desktop |
+| Live URL | jerseybasket.je (Vercel auto-deploy) |
+| Current version | v63 |
 
 ---
 
-## INFRASTRUCTURE
-- **Hosting:** Vercel (free tier, ~24 seconds deploy)
-- **DNS:** Cloudflare (Browser Cache TTL: 1 second)
-- **Domain Registrar:** my.channelisles.net
-- **Email Routing:** Cloudflare → Eamonnoshea1960@gmail.com
-- **Forms:** Formspree ID: mvzyrgqj (free tier — no file uploads)
-- **Analytics:** Google Analytics G-CGQ6PXHN9T
-- **Sister Domain:** guernseybasket.gg (registered, not yet built)
+## Tech Stack
+- React (Create React App)
+- Vercel (Framework Preset: Create React App — critical, not "Other")
+- Git → GitHub → Vercel auto-deploy (~25–30s build)
 
 ---
 
-## LOCAL PROJECT PATH
-C:\Users\eamon_qw9m8iy\OneDrive\Desktop\jerseybasket\
+## Critical Workflow Rules
 
-## DEPLOY COMMANDS
-cd C:\Users\eamon_qw9m8iy\OneDrive\Desktop\jerseybasket
-git add .
-git commit -m "brief description"
-git push
-
-Vercel auto-deploys in ~24 seconds. No manual build needed.
-
-### GitHub
-- Account: Predator1960 (eamonn1960@yahoo.co.uk)
-- Repo: https://github.com/Predator1960/JerseyBasket (PUBLIC)
-- Branch: main
-- Second account: Curtisboooy (Gmail) — not used for deployment
-
-### Git Notes
-- Pause OneDrive before pushing
-- node_modules, build, and .vercel/output NOT committed (in .gitignore)
-- vercel.json has no-cache headers
-- react-scripts chmod +x fixed
-- Vercel Framework Preset = Create React App (important — must not be "Other")
+1. NEVER use PowerShell to write App.jsx — corrupts emoji (BOM encoding). Always use a Python install script.
+2. Deploy method:
+   python "C:\Users\eamon_qw9m8iy\OneDrive\Desktop\jerseybasket\install_vXX.py"
+   cd C:\Users\eamon_qw9m8iy\OneDrive\Desktop\jerseybasket
+   git add . && git commit -m "message" && git push
+3. If Vercel builds in <20s → something is wrong (cached/pre-built folder).
+4. Never commit: .vercel/output/, build/, node_modules/, install_*.py, Promotional Video Guide folder.
+5. Pause OneDrive before pushing.
+6. Vercel treats ESLint warnings as errors (CI=true). Zero warnings required.
 
 ---
 
-## KEY FILES
-- src/App.jsx — main app file
-- public/index.html — GA tag, viewport-fit=cover, service worker unregister script
-- vercel.json — no-cache headers
-- Backup: jerseybasket-backup\JerseyBasket-App-v59-2Jun2026.jsx
+## App State (v63 — Current)
 
----
-
-## CRITICAL DEPLOYMENT NOTES (learned the hard way)
-- NEVER commit .vercel/output or build folders — Vercel serves them instead of building
-- If Vercel builds in 12-13s it is serving a cached/pre-built folder, not compiling
-- Vercel Framework Preset must be "Create React App" not "Other"
-- Use Python install script to write App.jsx — PowerShell corrupts emoji (BOM/encoding)
-- Python script template: base64 encode file → script decodes and writes as raw bytes
-- Always verify no BOM: file must not start with \xef\xbb\xbf
-
----
-
-## APP FEATURES (v59)
+### Products & Stores
 - 453 products, 15 categories, 5 stores
-- FULL GLOSSY UI — all pills, buttons, cards use brand colours with 3D gloss
-- Store filter chips wrap to 2 rows on iPhone
-- Store pills always show brand colour (dim inactive, full active)
-- Product card store pill uses chosen store's brand colour
-- Store dropdown uses each store's brand colour
-- Store Comparison cards glow in store brand colour
-- £0.00 prices excluded from best price / dropdown
-- Cheapest price shown by default
-- Global store pin
-- Store on/off toggle (Settings)
-- Smart basket with store-comparison strip and savings calculator
-- Favourites system with separate basket
-- Basket + Favourites persist via localStorage
-- Tick off items, swipe-left to delete
-- Tooltip on truncated names
-- Search, Sort (Cheapest/Saving/AZ/Category)
-- **Sort: Category** shows alphabetical group headers with product count
-- All category names normalised — no emoji/name mismatches across products
-- Welcome screen 6 slides — glossy buttons
-- June Price Hunt Competition with leaderboard
-- InstallSteps auto-detects iPhone/Android
-- Report a Problem modal
-- Share button (🔗 emoji — NOT ↗ arrow which Safari hijacks as native share)
-- Add Item approval workflow
-- Scrolling ad banner (5 slides)
-- Help modal
-- Price disclaimer banner (remove when verified)
-- Competition submit form (name/mobile/email required; product/price optional)
-- Email Receipt Photo button → opens mail app to hello@jerseybasket.je
-- MAINTENANCE mode flag
-- iOS safe-area header padding
-- Modal overlay paddingTop:60 (X button never hidden)
-- LIVE badge in header
-- Green glow on JerseyBasket logo
+- Stores: Co-op #16a34a, Morrisons #eab308, M&S #94a3b8, Waitrose #0d9488, Iceland #dc2626
+
+### Key Constants
+- MAINTENANCE = false
+- COMP_ACTIVE = true (June Price Hunt, closes 30 June 2026)
+
+### Features Live
+- Glossy UI (hexToRgb Chip component, gradient buttons)
+- Sort by Category with alphabetical group headers + product count
+- Gold pulse animation on welcome screen
+- 930+ user count
+- AdBanner: 6 slides (ids 0–5), BOUNCE scrolling (right→left→right, not loop)
+- June Price Hunt Competition banner
 
 ---
 
-## HEADER LAYOUT
-Row 1: 🛍️ JerseyBasket · 453 products LIVE | 🔗 🚩 ? ⚙️
-Row 2: 🛒 Shop · 🧺 Basket · ♥ Saved · 📊 Stores | + Add
+## AdBanner Slides
+
+| ID | Type | Notes |
+|----|------|-------|
+| 0–4 | "Advertise Here" placeholders | Various colour schemes |
+| 5 | Ernie's.je ADVERTISER | Yellow bg #ffee00, green text #166534, base64 logo, wrapped sub text |
+
+### Ernie's Slide (id 5)
+- bg: #ffee00, headline highlight: #166534
+- Sub: "Jersey's leading supplier of Tools, Agricultural & Automotive parts & accessories"
+- sub.wrap: true → renders over 2 lines, maxWidth 280px
+- Link: https://www.ernies.je
+- Status: demonstration banner (not yet paying)
 
 ---
 
-## MAINTENANCE MODE
-const MAINTENANCE = false; // set true → holding page, false → app
-Change → save → git add/commit/push → live in 24s
+## Advertiser Packages
+- Bronze £99 / Silver £249 / Gold £499 / Platinum £999 per month
 
----
-
-## JUNE COMPETITION
-const COMP_ACTIVE = true;
-const COMP_WINNER = "";
-const LEADERBOARD = [];
-- Closes 30 June midnight
-- Winner announced 1 July 12:00pm
-- Prize: £10 voucher, store of winner's choice
-
----
-
-## PRICE DATA STATUS
-- Co-op: 1,022 verified (25 May 2026)
-- Morrisons: 998 UK prices (Jersey ~12% higher)
-- M&S: estimated only
-- Waitrose: partial verified (Red Houses 31 May, St Helier 30 May)
-- Iceland: estimated only
-
----
-
-## ROBERTS GARAGE (future store)
-Prices from Roberts West, St Peter (30 May 2026):
-- Monster Ultra White: £2.59
-- Monster Ultra Rosa: £2.59
-- Sausage Roll: £1.70
-- Bacon & Cheese Turnover: £2.10
-
----
-
-## PRICE FUNCTION
-sp(base, [coop, morrisons, ms, waitrose, iceland])
-Negative offset = store doesn't stock item (shows £0.00, excluded from display)
-Next product id: 454
-
----
-
-## ANALYTICS (2 June 2026)
-- 687 active users last 7 days (+288%)
-- 677 new users this week
-- All organic traffic
-
----
-
-## ADVERTISING
+### Pipeline
 - Jason Acott (Jasons Valeting) — first advertiser, first month free
-- Packages: Bronze £99 / Silver £249 / Gold £499 / Platinum £999/month
+- Ernie's.je — demo banner live, not paying yet
+- Bauformat Jersey — approached about Silver
+- David McGrath — Co-op CMO
+- Sarah Carlucci — Morrisons, LinkedIn connected
+- Alliance Stores — call pending
 
 ---
 
-## BUSINESS CONTACTS
-- David McGrath — Co-op CMO — email sent 28/05
-- Andrew Holmes — Morrisons Ops CI — LinkedIn 28/05
-- Sarah Carlucci — Morrisons Online — connected LinkedIn ✅
-- Alliance Stores — call awaited this week
-- Waitrose Customer Care — email sent 28/05
-- Alliance runs: M&S Food, Iceland, ONE Waitrose in Jersey
+## Pending
+- Roberts Garage as future store (prices captured 30 May 2026)
+- GuernseyBasket.gg — build when JerseyBasket stable
+- Competition winner (after 30 June)
+- Convert Ernie's to paying advertiser
 
 ---
 
-## SOCIAL MEDIA
-- Facebook: JerseyBasket
-- Instagram: @jerseybasket
-- TikTok: revisit in 3 months
-
----
-
-## GUERNSEYBASKET.GG (future)
-- Domain registered
-- Build when JerseyBasket stable
-- Use JerseyBasket as template, change accent colour
-
----
-
-## IMPORTANT NOTES FOR CLAUDE
-1. Always read uploaded App.jsx before changes
-2. React app with sp() pricing function
-3. Next product id: 454
-4. Morrisons = UK estimates, Jersey ~12% higher
-5. Keep disclaimer banner until prices verified
-6. No tobacco/lottery. Alcohol OK.
-7. Add Item = approval workflow, not live immediately
-8. Always produce App.jsx + dated backup via Python install script
-9. Deploy = git add/commit/push only
-10. localStorage for basket/favourites
-11. Competition entries via Gmail
-12. Share button = 🔗 emoji ONLY, never ↗
-13. Never commit .vercel/output, build, or node_modules
-14. Store colours: use hexToRgb() for inline gradients — hex opacity unreliable
-15. Glossy buttons: linear-gradient(180deg, light 0%, dark 100%) + inset glow
-16. Chip component uses hexToRgb() for light/dark/dim variants
-17. MAINTENANCE = false near top of file
-18. ALWAYS use Python script to write App.jsx — never PowerShell (corrupts emojis)
-19. Verify Vercel Framework Preset = Create React App before first deploy in new session
-20. If Vercel builds in <20s something is wrong — should take ~25s with proper build
-
----
-
-*Brief updated by Claude Sonnet 4.6 (V5) — 2 June 2026*
-*Upload this at the start of every new JerseyBasket Claude session*
+## Recent Git
+- 2a2fc7c  v63 fix duplicate logo and Ernies slide + bounce scroll
+- a762063  v63 Ernies wrapped sub text, remove promo folder
+- ac2e089  v62 update user count to 930+
