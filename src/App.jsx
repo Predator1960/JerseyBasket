@@ -2984,7 +2984,10 @@ function AdBanner({ onEnquiry }) {
       onTouchEnd={handleTouchEnd}
       style={{
         position:"fixed", bottom:0, left:0, right:0,
-        height:"10vh", minHeight:56, maxHeight:80,
+        height:"auto", minHeight:64, maxHeight:110,
+        paddingBottom:"env(safe-area-inset-bottom,0px)",
+        paddingLeft:"env(safe-area-inset-left,0px)",
+        paddingRight:"env(safe-area-inset-right,0px)",
         zIndex:200, overflow:"hidden",
         boxShadow:"0 -2px 16px rgba(0,0,0,0.35)",
         borderTop:"1px solid rgba(255,255,255,0.06)",
@@ -2995,7 +2998,6 @@ function AdBanner({ onEnquiry }) {
       <div style={{
         display:"flex",
         width:`${COUNT * 100}%`,
-        height:"100%",
         transform:`translateX(${trackX}%)`,
         transition:"none",   /* animation is driven by rAF, not CSS */
         willChange:"transform",
@@ -3005,7 +3007,6 @@ function AdBanner({ onEnquiry }) {
             key={s.id}
             style={{
               width:`${100/COUNT}%`,
-              height:"100%",
               flexShrink:0,
               position:"relative",
               overflow:"hidden",
@@ -3040,15 +3041,16 @@ function AdBanner({ onEnquiry }) {
 
             {/* ── CONTENT ── responsive: mobile stacks sub below eyebrow, desktop enlarges */}
             <div style={{
-              position:"relative", zIndex:2, height:"100%",
+              position:"relative", zIndex:2,
               display:"flex", alignItems:"center", justifyContent:"space-between",
-              padding:"0 clamp(10px,3vw,32px)",
+              padding:"clamp(8px,1.2vh,14px) clamp(10px,3vw,32px)",
               gap:"clamp(6px,2vw,20px)",
               maxWidth:1200, margin:"0 auto", boxSizing:"border-box",
+              width:"100%",
             }}>
               {/* LEFT */}
               <div style={{ display:"flex", alignItems:"center", gap:"clamp(5px,1.2vw,12px)", minWidth:0, flex:1, flexWrap: s.sub && s.sub.wrap ? "wrap" : "nowrap" }}>
-                {s.logo && <img src={s.logo} alt="advertiser logo" style={{ height:"clamp(30px,4.5vw,52px)", width:"auto", maxHeight:"70%", borderRadius:6, flexShrink:0, objectFit:"contain" }} />}
+                {s.logo && <img src={s.logo} alt="advertiser logo" style={{ height:"clamp(30px,4.5vw,52px)", width:"auto", maxHeight:52, borderRadius:6, flexShrink:0, objectFit:"contain" }} />}
                 {/* Eyebrow + headline row */}
                 <div style={{ display:"flex", alignItems:"center", gap:"clamp(5px,1vw,10px)", flexShrink:0, ...(s.sub && s.sub.wrap ? { flexBasis:"auto" } : {}) }}>
                   <div style={{ fontFamily:"'DM Sans',Arial,sans-serif", fontSize:"clamp(7px,1.2vw,10px)", fontWeight:700, letterSpacing:"1.5px", textTransform:"uppercase", color:s.eyebrow.color, borderLeft:`2px solid ${s.eyebrow.color}`, paddingLeft:6, lineHeight:1, whiteSpace:"nowrap", flexShrink:0 }}>
@@ -3067,19 +3069,19 @@ function AdBanner({ onEnquiry }) {
                     {s.headline.after}
                   </div>
                 </div>
-                {/* Sub text — inline on desktop, full-width row below on mobile when wrap:true */}
+                {/* Sub text — full-width centred row when wrap:true */}
                 {s.sub && s.sub.text && (
                   <div style={{ fontFamily:"'DM Sans',Arial,sans-serif", fontSize:"clamp(8px,1.1vw,12px)", color:s.sub.color, opacity:0.85,
                     ...(s.sub.wrap ? {
-                      flexBasis:"100%",         /* forces to new row on mobile */
-                      marginLeft:0,
+                      flexBasis:"100%",
+                      textAlign:"center",
+                      padding:"2px clamp(8px,2vw,16px) 0",
                       whiteSpace:"normal",
                       lineHeight:1.3,
                       overflow:"hidden",
                       display:"-webkit-box",
                       WebkitLineClamp:2,
                       WebkitBoxOrient:"vertical",
-                      maxWidth:"100%",
                     } : {
                       whiteSpace:"nowrap", overflow:"hidden", textOverflow:"ellipsis",
                     })
