@@ -2984,7 +2984,7 @@ function AdBanner({ onEnquiry }) {
       onTouchEnd={handleTouchEnd}
       style={{
         position:"fixed", bottom:0, left:0, right:0,
-        height:"auto", minHeight:64, maxHeight:110,
+        height:"auto", minHeight:72, maxHeight:130,
         paddingBottom:"env(safe-area-inset-bottom,0px)",
         paddingLeft:"env(safe-area-inset-left,0px)",
         paddingRight:"env(safe-area-inset-right,0px)",
@@ -3043,20 +3043,20 @@ function AdBanner({ onEnquiry }) {
             <div style={{
               position:"relative", zIndex:2,
               display:"flex", alignItems:"center", justifyContent:"space-between",
-              padding:"clamp(8px,1.2vh,14px) clamp(10px,3vw,32px)",
+              padding:"clamp(10px,1.5vh,18px) clamp(10px,3vw,32px)",
               gap:"clamp(6px,2vw,20px)",
               maxWidth:1200, margin:"0 auto", boxSizing:"border-box",
               width:"100%",
             }}>
               {/* LEFT */}
-              <div style={{ display:"flex", alignItems:"center", gap:"clamp(5px,1.2vw,12px)", minWidth:0, flex:1, flexWrap: s.sub && s.sub.wrap ? "wrap" : "nowrap" }}>
-                {s.logo && <img src={s.logo} alt="advertiser logo" style={{ height:"clamp(30px,4.5vw,52px)", width:"auto", maxHeight:52, borderRadius:6, flexShrink:0, objectFit:"contain" }} />}
+              <div style={{ display:"flex", alignItems:"center", gap:"clamp(6px,1.5vw,16px)", minWidth:0, flex:1, flexWrap: s.sub && s.sub.wrap ? "wrap" : "nowrap" }}>
+                {s.logo && <img src={s.logo} alt="advertiser logo" style={{ height:"clamp(32px,5.5vw,70px)", width:"auto", maxHeight:70, borderRadius:6, flexShrink:0, objectFit:"contain" }} />}
                 {/* Eyebrow + headline row */}
-                <div style={{ display:"flex", alignItems:"center", gap:"clamp(5px,1vw,10px)", flexShrink:0, ...(s.sub && s.sub.wrap ? { flexBasis:"auto" } : {}) }}>
-                  <div style={{ fontFamily:"'DM Sans',Arial,sans-serif", fontSize:"clamp(7px,1.2vw,10px)", fontWeight:700, letterSpacing:"1.5px", textTransform:"uppercase", color:s.eyebrow.color, borderLeft:`2px solid ${s.eyebrow.color}`, paddingLeft:6, lineHeight:1, whiteSpace:"nowrap", flexShrink:0 }}>
+                <div style={{ display:"flex", alignItems:"center", gap:"clamp(6px,1.2vw,14px)", flexShrink:0, ...(s.sub && s.sub.wrap ? { flexBasis:"auto" } : {}) }}>
+                  <div style={{ fontFamily:"'DM Sans',Arial,sans-serif", fontSize:"clamp(8px,1.4vw,13px)", fontWeight:700, letterSpacing:"1.5px", textTransform:"uppercase", color:s.eyebrow.color, borderLeft:`2px solid ${s.eyebrow.color}`, paddingLeft:6, lineHeight:1, whiteSpace:"nowrap", flexShrink:0 }}>
                     {s.eyebrow.text}
                   </div>
-                  <div style={{ fontFamily:"'DM Serif Display',Georgia,serif", fontSize:"clamp(12px,2.2vw,22px)", lineHeight:1.2, letterSpacing:"-0.3px", color:s.headline.headlineColor||"#f0f4f8", whiteSpace:"nowrap", overflow:"hidden", textOverflow:"ellipsis" }}>
+                  <div style={{ fontFamily:"'DM Serif Display',Georgia,serif", fontSize:"clamp(13px,2.8vw,30px)", lineHeight:1.2, letterSpacing:"-0.3px", color:s.headline.headlineColor||"#f0f4f8", whiteSpace:"nowrap", overflow:"hidden", textOverflow:"ellipsis" }}>
                     {s.headline.before}
                     <span style={{
                       color: s.headline.highlightGold||s.headline.highlightGreen ? "transparent" : s.headline.highlightColor,
@@ -3071,7 +3071,7 @@ function AdBanner({ onEnquiry }) {
                 </div>
                 {/* Sub text — full-width centred row when wrap:true */}
                 {s.sub && s.sub.text && (
-                  <div style={{ fontFamily:"'DM Sans',Arial,sans-serif", fontSize:"clamp(8px,1.1vw,12px)", color:s.sub.color, opacity:0.85,
+                  <div style={{ fontFamily:"'DM Sans',Arial,sans-serif", fontSize:"clamp(9px,1.3vw,15px)", color:s.sub.color, opacity:0.85,
                     ...(s.sub.wrap ? {
                       flexBasis:"100%",
                       textAlign:"center",
@@ -3092,15 +3092,15 @@ function AdBanner({ onEnquiry }) {
               </div>
 
               {/* RIGHT — CTA */}
-              <div style={{ display:"flex", alignItems:"center", gap:"clamp(5px,1vw,10px)", flexShrink:0 }}>
-                <div style={{ fontFamily:"'DM Sans',Arial,sans-serif", fontSize:"clamp(9px,1.1vw,12px)", color:s.cta.labelColor, fontWeight:600, whiteSpace:"nowrap", opacity:0.9 }}>
+              <div style={{ display:"flex", alignItems:"center", gap:"clamp(6px,1.2vw,14px)", flexShrink:0 }}>
+                <div style={{ fontFamily:"'DM Sans',Arial,sans-serif", fontSize:"clamp(10px,1.3vw,15px)", color:s.cta.labelColor, fontWeight:600, whiteSpace:"nowrap", opacity:0.9 }}>
                   {s.cta.label}
                 </div>
-                <div style={{ display:"flex", alignItems:"center", gap:"clamp(5px,0.8vw,8px)", borderRadius:7, padding:"clamp(4px,0.8vh,7px) clamp(7px,1vw,13px)", background:s.cta.boxBg, border:`1px solid ${s.cta.boxBorder}` }}>
-                  <div style={{ fontFamily:"'DM Serif Display',Georgia,serif", fontSize:"clamp(10px,1.4vw,15px)", color:s.cta.urlColor, whiteSpace:"nowrap", fontWeight:400 }}>
+                <div style={{ display:"flex", alignItems:"center", gap:"clamp(6px,1vw,11px)", borderRadius:8, padding:"clamp(5px,1vh,9px) clamp(9px,1.2vw,16px)", background:s.cta.boxBg, border:`1px solid ${s.cta.boxBorder}` }}>
+                  <div style={{ fontFamily:"'DM Serif Display',Georgia,serif", fontSize:"clamp(11px,1.7vw,19px)", color:s.cta.urlColor, whiteSpace:"nowrap", fontWeight:400 }}>
                     {s.cta.url}
                   </div>
-                  <div style={{ width:"clamp(18px,2.2vw,26px)", height:"clamp(18px,2.2vw,26px)", borderRadius:"50%", background:s.cta.arrowBg, color:s.cta.arrowColor, display:"flex", alignItems:"center", justifyContent:"center", fontSize:"clamp(10px,1.2vw,14px)", fontWeight:700, flexShrink:0 }}>→</div>
+                  <div style={{ width:"clamp(20px,2.8vw,34px)", height:"clamp(20px,2.8vw,34px)", borderRadius:"50%", background:s.cta.arrowBg, color:s.cta.arrowColor, display:"flex", alignItems:"center", justifyContent:"center", fontSize:"clamp(11px,1.5vw,17px)", fontWeight:700, flexShrink:0 }}>→</div>
                 </div>
               </div>
             </div>
