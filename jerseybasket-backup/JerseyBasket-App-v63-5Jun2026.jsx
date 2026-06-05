@@ -1678,20 +1678,24 @@ export default function JerseyGroceryApp() {
         </div>
       )}
 
-      {/* ── AD BANNER ── */}
-      {/* ── FOOTER ── */}
-      <div style={{ position:"fixed",bottom:"133px",left:0,right:0,background:"rgba(5,13,26,.97)",backdropFilter:"blur(16px)",borderTop:"1px solid rgba(255,255,255,.09)",padding:"6px 20px",display:"flex",justifyContent:"center",alignItems:"center",fontSize:10,color:"#475569",gap:12,zIndex:199,flexWrap:"wrap",minHeight:28 }}>
-        <span>🇯🇪 Jersey, Channel Islands</span>
-        <span style={{ color:"#1e293b" }}>·</span>
-        <span>© 2026 Eamonn O'Shea</span>
-        <span style={{ color:"#1e293b" }}>·</span>
-        <a href="mailto:hello@jerseybasket.je" style={{ color:"#22c55e",textDecoration:"none",fontWeight:600 }}>hello@jerseybasket.je</a>
-        <span style={{ color:"#1e293b" }}>·</span>
-        <span style={{ color:"#22c55e",fontWeight:600 }}>
-          🕐 Prices updated: {new Date().toLocaleDateString("en-GB", { day:"numeric", month:"long", year:"numeric" })}
-        </span>
-        <span style={{ color:"#1e293b" }}>·</span>
-        <span>Always verify in-store</span>
+      {/* ── FOOTER + BANNER — single fixed stack, footer always flush above banner ── */}
+      <div style={{ position:"fixed", bottom:0, left:0, right:0, zIndex:200, display:"flex", flexDirection:"column" }}>
+        {/* footer */}
+        <div style={{ background:"rgba(5,13,26,.97)",backdropFilter:"blur(16px)",borderTop:"1px solid rgba(255,255,255,.09)",padding:"6px 20px",display:"flex",justifyContent:"center",alignItems:"center",fontSize:10,color:"#475569",gap:12,flexWrap:"wrap",minHeight:28 }}>
+          <span>🇯🇪 Jersey, Channel Islands</span>
+          <span style={{ color:"#1e293b" }}>·</span>
+          <span>© 2026 Eamonn O'Shea</span>
+          <span style={{ color:"#1e293b" }}>·</span>
+          <a href="mailto:hello@jerseybasket.je" style={{ color:"#22c55e",textDecoration:"none",fontWeight:600 }}>hello@jerseybasket.je</a>
+          <span style={{ color:"#1e293b" }}>·</span>
+          <span style={{ color:"#22c55e",fontWeight:600 }}>
+            🕐 Prices updated: {new Date().toLocaleDateString("en-GB", { day:"numeric", month:"long", year:"numeric" })}
+          </span>
+          <span style={{ color:"#1e293b" }}>·</span>
+          <span>Always verify in-store</span>
+        </div>
+        {/* banner */}
+        <AdBanner onEnquiry={()=>setShowEnquiry(true)} />
       </div>
 
       {/* ── WELCOME SCREEN — first visit only ── */}
@@ -1721,8 +1725,6 @@ export default function JerseyGroceryApp() {
 
       {/* ── SUBMIT PRICE MODAL ── */}
       {showSubmitPrice && <SubmitPriceModal onClose={()=>setShowSubmitPrice(false)} />}
-
-      <AdBanner onEnquiry={()=>setShowEnquiry(true)} />
 
     </div>
   );
@@ -2983,12 +2985,12 @@ function AdBanner({ onEnquiry }) {
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
       style={{
-        position:"fixed", bottom:0, left:0, right:0,
+        position:"relative",
         height:"auto", minHeight:72, maxHeight:130,
         paddingBottom:"env(safe-area-inset-bottom,0px)",
         paddingLeft:"env(safe-area-inset-left,0px)",
         paddingRight:"env(safe-area-inset-right,0px)",
-        zIndex:200, overflow:"hidden",
+        overflow:"hidden",
         boxShadow:"0 -2px 16px rgba(0,0,0,0.35)",
         borderTop:"1px solid rgba(255,255,255,0.06)",
         cursor:"pointer",
