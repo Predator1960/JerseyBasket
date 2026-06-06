@@ -68,7 +68,7 @@ const BASE_PRODUCTS = [
   {id:7,  name:"Coconut Milk Drink (1L)",      cat:"🥛 Dairy & Eggs", icon:"🥛", prices:sp(1.65,[0,0.22,0.72,0.52,0.11])},
   {id:8,  name:"Free Range Eggs (6pk)",        cat:"🥛 Dairy & Eggs", icon:"🥚", prices:sp(1.85,[0,0.2,0.64,0.5,0.1])},
   {id:9,  name:"Free Range Eggs (12pk)",       cat:"🥛 Dairy & Eggs", icon:"🥚", prices:sp(3.40,[0,0.3,1,0.8,0.15])},
-  {id:10, name:"Cheddar Mature (400g)",        cat:"🥛 Dairy & Eggs", icon:"🧀", prices:sp(2.80,[0.90,0.00,0.6,0.4,0.07])},
+  {id:10, name:"Cheddar Mature (400g)",        cat:"🥛 Dairy & Eggs", icon:"🧀", prices:sp(2.80,[0.85,0.0,0.6,0.4,0.07])},
   {id:11, name:"Cheddar Mild (400g)",          cat:"🥛 Dairy & Eggs", icon:"🧀", prices:sp(2.60,[0,0.14,0.55,0.38,0.07])},
   {id:12, name:"Mozzarella (125g)",            cat:"🥛 Dairy & Eggs", icon:"🧀", prices:sp(1.10,[0,0.15,0.45,0.35,0.07])},
   {id:13, name:"Brie (200g)",                  cat:"🥛 Dairy & Eggs", icon:"🧀", prices:sp(2.20,[0,0.2,0.8,0.6,0.1])},
@@ -82,7 +82,7 @@ const BASE_PRODUCTS = [
   {id:21, name:"Fruit Yoghurts 4pk",           cat:"🥛 Dairy & Eggs", icon:"🫙", prices:sp(1.80,[0,0.18,0.7,0.52,0.09])},
   {id:22, name:"Sour Cream (300ml)",           cat:"🥛 Dairy & Eggs", icon:"🫙", prices:sp(1.40,[0,0.15,0.6,0.45,0.07])},
   {id:23, name:"Crème Fraîche (300ml)",        cat:"🥛 Dairy & Eggs", icon:"🫙", prices:sp(1.60,[0,0.18,0.65,0.5,0.09])},
-  {id:24, name:"Double Cream (300ml)",         cat:"🥛 Dairy & Eggs", icon:"🍦", prices:sp(1.60,[0,0.2,0.7,0.55,0.1])},
+  {id:24, name:"Double Cream (300ml)",         cat:"🥛 Dairy & Eggs", icon:"🍦", prices:sp(1.60,[0.0,0.2,0.7,-0.09,0.1])},
   {id:25, name:"Single Cream (300ml)",         cat:"🥛 Dairy & Eggs", icon:"🍦", prices:sp(1.45,[0,0.18,0.65,0.5,0.09])},
   {id:26, name:"Cottage Cheese (300g)",        cat:"🥛 Dairy & Eggs", icon:"🫙", prices:sp(1.50,[0,1.10,0.6,0.45,0.07])},
   {id:27, name:"Cream Cheese (200g)",          cat:"🥛 Dairy & Eggs", icon:"🧀", prices:sp(1.80,[0.85,0.18,0.7,0.52,0.09])},
@@ -110,14 +110,14 @@ const BASE_PRODUCTS = [
   {id:47, name:"Scones (4pk)",                 cat:"🍞 Bread & Bakery",icon:"🥐", prices:sp(1.80,[0,0.18,0.7,0.54,0.09])},
 
   /* ── MEAT & FISH ──────────────────────────────────────────────── */
-  {id:48, name:"Chicken Breast (500g)",        cat:"🥩 Meat & Fish",   icon:"🍗", prices:sp(3.80,[0,0.15,1,0.7,0.07])},
+  {id:48, name:"Chicken Breast (500g)",        cat:"🥩 Meat & Fish",   icon:"🍗", prices:sp(3.80,[0.0,0.15,1.0,0.11,0.07])},
   {id:49, name:"Chicken Thighs (1kg)",         cat:"🥩 Meat & Fish",   icon:"🍗", prices:sp(3.20,[0,0.2,0.9,0.65,0.1])},
   {id:50, name:"Chicken Drumsticks (1kg)",     cat:"🥩 Meat & Fish",   icon:"🍗", prices:sp(2.80,[0,1.18,0.8,0.58,0.09])},
   {id:51, name:"Whole Chicken (~1.4kg)",       cat:"🥩 Meat & Fish",   icon:"🍗", prices:sp(5.50,[0,0.4,1.8,1.3,0.2])},
   {id:52, name:"Minced Beef (500g)",           cat:"🥩 Meat & Fish",   icon:"🥩", prices:sp(3.50,[0,-0.20,0.9,0.7,0.07])},
   {id:53, name:"Minced Beef (750g)",           cat:"🥩 Meat & Fish",   icon:"🥩", prices:sp(5.00,[0,0.2,1.3,1,0.1])},
   {id:54, name:"Beef Steak (200g)",            cat:"🥩 Meat & Fish",   icon:"🥩", prices:sp(5.50,[0,0.4,1.8,1.3,0.2])},
-  {id:55, name:"Beef Burgers (4pk)",           cat:"🥩 Meat & Fish",   icon:"🥩", prices:sp(3.20,[0,0.22,0.98,0.72,0.11])},
+  {id:55, name:"Beef Burgers (4pk)",           cat:"🥩 Meat & Fish",   icon:"🥩", prices:sp(3.20,[0.0,0.22,0.98,1.4,0.11])},
   {id:56, name:"Pork Chops (2pk)",             cat:"🥩 Meat & Fish",   icon:"🥩", prices:sp(3.20,[0,0.2,0.9,0.7,0.1])},
   {id:57, name:"Pork Mince (500g)",            cat:"🥩 Meat & Fish",   icon:"🥩", prices:sp(3.00,[0,0.18,0.85,0.65,0.09])},
   {id:58, name:"Pork Ribs (500g)",             cat:"🥩 Meat & Fish",   icon:"🥩", prices:sp(3.80,[0,0.25,1,0.78,0.12])},
@@ -125,7 +125,7 @@ const BASE_PRODUCTS = [
   {id:60, name:"Lamb Chops (2pk)",             cat:"🥩 Meat & Fish",   icon:"🥩", prices:sp(4.80,[0,0.35,1.3,1,0.17])},
   {id:61, name:"Back Bacon (200g)",            cat:"🥩 Meat & Fish",   icon:"🥓", prices:sp(2.50,[0,-1.01,0.7,0.5,0.07])},
   {id:62, name:"Streaky Bacon (200g)",         cat:"🥩 Meat & Fish",   icon:"🥓", prices:sp(2.30,[0,0.14,0.65,0.47,0.07])},
-  {id:63, name:"Sausages Pork (8pk)",          cat:"🥩 Meat & Fish",   icon:"🌭", prices:sp(2.80,[0.10,0.2,0.8,0.6,0.1])},
+  {id:63, name:"Sausages Pork (8pk)",          cat:"🥩 Meat & Fish",   icon:"🌭", prices:sp(2.80,[0.35,0.2,0.8,0.6,0.1])},
   {id:64, name:"Chipolatas (12pk)",            cat:"🥩 Meat & Fish",   icon:"🌭", prices:sp(2.60,[0,0.18,0.76,0.57,0.09])},
   {id:65, name:"Chorizo (200g)",               cat:"🥩 Meat & Fish",   icon:"🥩", prices:sp(2.80,[0,0.22,0.88,0.68,0.11])},
   {id:66, name:"Salami (100g)",                cat:"🥩 Meat & Fish",   icon:"🥩", prices:sp(2.20,[0,0.18,0.75,0.57,0.09])},
@@ -144,14 +144,14 @@ const BASE_PRODUCTS = [
   {id:79, name:"Crab Sticks (200g)",           cat:"🥩 Meat & Fish",   icon:"🦀", prices:sp(1.80,[0,0.15,0.65,0.5,0.07])},
 
   /* ── FRUIT & VEG ──────────────────────────────────────────────── */
-  {id:80, name:"Bananas (5pk)",                cat:"🥦 Fruit & Veg",  icon:"🍌", prices:sp(0.90,[0,0.05,0.3,0.2,0.03])},
+  {id:80, name:"Bananas (5pk)",                cat:"🥦 Fruit & Veg",  icon:"🍌", prices:sp(0.90,[-0.64,0.05,0.3,0.2,0.03])},
   {id:81, name:"Apples Braeburn (6pk)",        cat:"🥦 Fruit & Veg",  icon:"🍎", prices:sp(1.40,[2.20,0.15,0.55,0.4,0.07])},
   {id:82, name:"Apples Granny Smith (6pk)",    cat:"🥦 Fruit & Veg",  icon:"🍏", prices:sp(1.40,[0,0.15,0.55,0.4,0.07])},
   {id:83, name:"Oranges (4pk)",                cat:"🥦 Fruit & Veg",  icon:"🍊", prices:sp(1.50,[0,0.15,0.6,0.45,0.07])},
   {id:84, name:"Satsumas (700g bag)",          cat:"🥦 Fruit & Veg",  icon:"🍊", prices:sp(1.80,[0,0.18,0.7,0.54,0.09])},
   {id:85, name:"Lemons (4pk)",                 cat:"🥦 Fruit & Veg",  icon:"🍋", prices:sp(0.90,[0,0.1,0.38,0.28,0.05])},
   {id:86, name:"Limes (4pk)",                  cat:"🥦 Fruit & Veg",  icon:"🍋", prices:sp(0.90,[0,0.1,0.38,0.28,0.05])},
-  {id:87, name:"Strawberries (400g)",          cat:"🥦 Fruit & Veg",  icon:"🍓", prices:sp(2.50,[0,0.2,0.9,0.7,0.1])},
+  {id:87, name:"Strawberries (400g)",          cat:"🥦 Fruit & Veg",  icon:"🍓", prices:sp(2.50,[-0.65,0.2,0.9,0.7,0.1])},
   {id:88, name:"Raspberries (150g)",           cat:"🥦 Fruit & Veg",  icon:"🍓", prices:sp(2.20,[0,0.2,0.85,0.65,0.1])},
   {id:89, name:"Blueberries (150g)",           cat:"🥦 Fruit & Veg",  icon:"🫐", prices:sp(2.20,[0,0.2,0.85,0.65,0.1])},
   {id:90, name:"Grapes White (500g)",          cat:"🥦 Fruit & Veg",  icon:"🍇", prices:sp(2.20,[0,0.2,0.8,0.65,0.1])},
@@ -161,8 +161,8 @@ const BASE_PRODUCTS = [
   {id:94, name:"Mango (each)",                 cat:"🥦 Fruit & Veg",  icon:"🥭", prices:sp(0.85,[0,0.1,0.38,0.28,0.05])},
   {id:95, name:"Pineapple (each)",             cat:"🥦 Fruit & Veg",  icon:"🍍", prices:sp(1.20,[0,0.12,0.5,0.38,0.06])},
   {id:96, name:"Kiwi Fruit (4pk)",             cat:"🥦 Fruit & Veg",  icon:"🥝", prices:sp(0.95,[0,0.1,0.4,0.3,0.05])},
-  {id:97, name:"Broccoli (head)",              cat:"🥦 Fruit & Veg",  icon:"🥦", prices:sp(0.85,[0,0.05,0.3,0.2,0.03])},
-  {id:98, name:"Cauliflower (head)",           cat:"🥦 Fruit & Veg",  icon:"🥦", prices:sp(0.95,[0,0.08,0.35,0.26,0.04])},
+  {id:97, name:"Broccoli (head)",              cat:"🥦 Fruit & Veg",  icon:"🥦", prices:sp(0.85,[0.6,0.05,0.3,0.2,0.03])},
+  {id:98, name:"Cauliflower (head)",           cat:"🥦 Fruit & Veg",  icon:"🥦", prices:sp(0.95,[0.65,0.08,0.35,0.26,0.04])},
   {id:99, name:"Bag of Spinach (200g)",        cat:"🥦 Fruit & Veg",  icon:"🥬", prices:sp(1.25,[0,0.1,0.5,0.35,0.05])},
   {id:100,name:"Kale (200g)",                  cat:"🥦 Fruit & Veg",  icon:"🥬", prices:sp(1.30,[0,0.12,0.5,0.38,0.06])},
   {id:101,name:"Mixed Salad Leaves (100g)",    cat:"🥦 Fruit & Veg",  icon:"🥗", prices:sp(1.10,[0,0.1,0.42,0.32,0.05])},
@@ -171,7 +171,7 @@ const BASE_PRODUCTS = [
   {id:104,name:"Red Pepper (each)",            cat:"🥦 Fruit & Veg",  icon:"🫑", prices:sp(0.65,[0,0.07,0.28,0.2,0.04])},
   {id:105,name:"Carrots (1kg)",                cat:"🥦 Fruit & Veg",  icon:"🥕", prices:sp(0.70,[0,0.08,0.3,0.22,0.04])},
   {id:106,name:"Parsnips (500g)",              cat:"🥦 Fruit & Veg",  icon:"🥕", prices:sp(0.90,[0,0.09,0.35,0.26,0.04])},
-  {id:107,name:"Onions (1kg)",                 cat:"🥦 Fruit & Veg",  icon:"🧅", prices:sp(0.80,[0,0.1,0.35,0.25,0.05])},
+  {id:107,name:"Onions (1kg)",                 cat:"🥦 Fruit & Veg",  icon:"🧅", prices:sp(0.80,[0.25,0.1,0.35,0.25,0.05])},
   {id:108,name:"Spring Onions (bunch)",        cat:"🥦 Fruit & Veg",  icon:"🧅", prices:sp(0.60,[0,0.07,0.28,0.2,0.04])},
   {id:109,name:"Red Onions (3pk)",             cat:"🥦 Fruit & Veg",  icon:"🧅", prices:sp(0.90,[0,0.09,0.35,0.26,0.04])},
   {id:110,name:"Garlic (3 bulbs)",             cat:"🥦 Fruit & Veg",  icon:"🧄", prices:sp(0.75,[0,0.1,0.35,0.25,0.05])},
@@ -202,7 +202,7 @@ const BASE_PRODUCTS = [
   {id:133,name:"Frozen Oven Pizza (Pepperoni)", cat:"🧊 Frozen",      icon:"🍕", prices:sp(2.80,[1.65,0.70,1,0.8,0.14])},
   {id:134,name:"Ice Cream Vanilla (1L)",       cat:"🧊 Frozen",       icon:"🍨", prices:sp(3.00,[0.15,0.3,1.1,0.85,0.15])},
   {id:135,name:"Ice Cream Tub Luxury (500ml)", cat:"🧊 Frozen",       icon:"🍨", prices:sp(3.80,[0.15,0.38,1.35,1.05,0.19])},
-  {id:136,name:"Frozen Fish Fingers (12pk)",   cat:"🧊 Frozen",       icon:"🐟", prices:sp(2.80,[1.95,0.25,1,0.8,0.12])},
+  {id:136,name:"Frozen Fish Fingers (12pk)",   cat:"🧊 Frozen",       icon:"🐟", prices:sp(2.80,[-0.25,0.25,1.0,0.8,0.12])},
   {id:137,name:"Frozen Salmon Fillets (4pk)",  cat:"🧊 Frozen",       icon:"🐟", prices:sp(5.50,[0,0.5,1.8,1.4,0.25])},
   {id:138,name:"Frozen Cod Fillets (4pk)",     cat:"🧊 Frozen",       icon:"🐟", prices:sp(4.80,[0,0.44,1.6,1.22,0.22])},
   {id:139,name:"Frozen Prawns (400g)",         cat:"🧊 Frozen",       icon:"🍤", prices:sp(4.50,[0,0.4,1.4,1.1,0.2])},
@@ -221,7 +221,7 @@ const BASE_PRODUCTS = [
   {id:152,name:"Still Water (1.5L)",           cat:"🥤 Drinks",       icon:"💧", prices:sp(0.55,[0,0.08,0.3,0.22,0.04])},
   {id:153,name:"Sparkling Water (1.5L)",       cat:"🥤 Drinks",       icon:"💧", prices:sp(0.65,[0,0.08,0.3,0.22,0.04])},
   {id:154,name:"Coca-Cola (1.75L)",            cat:"🥤 Drinks",       icon:"🥤", prices:sp(2.20,[0,0.2,0.8,0.6,0.1])},
-  {id:155,name:"Pepsi Max (1.75L)",            cat:"🥤 Drinks",       icon:"🥤", prices:sp(2.10,[0,0.2,0.78,0.44,0.1])},
+  {id:155,name:"Pepsi Max (1.75L)",            cat:"🥤 Drinks",       icon:"🥤", prices:sp(2.10,[1.55,0.2,0.78,0.44,0.1])},
   {id:156,name:"Lemonade (2L)",                cat:"🥤 Drinks",       icon:"🥤", prices:sp(0.95,[0,0.1,0.38,0.28,0.05])},
   {id:157,name:"Fanta Orange (1.5L)",          cat:"🥤 Drinks",       icon:"🥤", prices:sp(1.65,[0,0.16,0.65,0.5,0.08])},
   {id:158,name:"Sprite (1.5L)",                cat:"🥤 Drinks",       icon:"🥤", prices:sp(1.65,[0,0.16,0.65,0.5,0.08])},
@@ -258,7 +258,7 @@ const BASE_PRODUCTS = [
   {id:187,name:"Tinned Chickpeas (400g)",      cat:"🍝 Pantry",       icon:"🫘", prices:sp(0.75,[0,0.08,0.38,0.28,0.04])},
   {id:188,name:"Tinned Kidney Beans (400g)",   cat:"🍝 Pantry",       icon:"🫘", prices:sp(0.70,[0,0.07,0.36,0.26,0.04])},
   {id:189,name:"Tinned Lentils (400g)",        cat:"🍝 Pantry",       icon:"🫘", prices:sp(0.80,[0,0.08,0.38,0.28,0.04])},
-  {id:190,name:"Tinned Baked Beans (415g)",    cat:"🍝 Pantry",       icon:"🫘", prices:sp(0.70,[0,0.06,0.25,0.15,0.03])},
+  {id:190,name:"Tinned Baked Beans (415g)",    cat:"🍝 Pantry",       icon:"🫘", prices:sp(0.70,[0.0,0.06,0.25,0.15,0.03])},
   {id:191,name:"Tinned Sweetcorn (340g)",      cat:"🍝 Pantry",       icon:"🌽", prices:sp(0.65,[0,0.08,0.32,0.24,0.04])},
   {id:192,name:"Tinned Coconut Milk (400ml)",  cat:"🍝 Pantry",       icon:"🥥", prices:sp(1.10,[0,0.1,0.45,0.34,0.05])},
   {id:193,name:"Olive Oil Extra Virgin (500ml)",cat:"🍝 Pantry",      icon:"🫒", prices:sp(3.80,[0,0.19,1.2,0.95,0.1])},
@@ -322,7 +322,7 @@ const BASE_PRODUCTS = [
   {id:249,name:"Chocolate Bar Milk (100g)",    cat:"🥨 Snacks & Treats",icon:"🍫",prices:sp(1.50,[0,0.15,0.6,0.45,0.07])},
   {id:250,name:"Chocolate Bar Dark (100g)",    cat:"🥨 Snacks & Treats",icon:"🍫",prices:sp(1.60,[0,0.16,0.64,0.49,0.08])},
   {id:251,name:"Chocolate Fingers (114g)",     cat:"🥨 Snacks & Treats",icon:"🍫",prices:sp(1.40,[0,0.14,0.56,0.43,0.07])},
-  {id:252,name:"Kit Kat 4pk",                  cat:"🥨 Snacks & Treats",icon:"🍫",prices:sp(1.30,[0,0.13,0.52,0.4,0.07])},
+  {id:252,name:"Kit Kat 4pk",                  cat:"🥨 Snacks & Treats",icon:"🍫",prices:sp(1.30,[0.64,0.13,0.52,0.4,0.07])},
   {id:253,name:"Mixed Nuts (200g)",            cat:"🥨 Snacks & Treats",icon:"🥜",prices:sp(2.80,[0,0.25,0.95,0.75,0.12])},
   {id:254,name:"Cashew Nuts (200g)",           cat:"🥨 Snacks & Treats",icon:"🥜",prices:sp(3.20,[0,0.28,1.1,0.85,0.14])},
   {id:255,name:"Cereal Bars 5pk",              cat:"🥨 Snacks & Treats",icon:"🍫",prices:sp(2.20,[0,0.2,0.8,0.6,0.1])},
@@ -484,7 +484,7 @@ const BASE_PRODUCTS = [
   {id:402,name:"Breadcrumbs (400g)",cat:"🍝 Pantry",icon:"🍞",prices:sp(1.2,[0.15,0.05,0.4,0.25,0.08])},
   {id:403,name:"Lemon Juice (250ml)",cat:"🍝 Pantry",icon:"🍋",prices:sp(0.9,[0.1,0.05,0.3,0.2,0.06])},
   {id:404,name:"Tropicana Orange Juice (850ml)",cat:"🥤 Drinks",icon:"🍊",prices:sp(2.5,[0.25,0.0,0.7,0.4,0.18])},
-  {id:405,name:"Ribena Squash (850ml)",cat:"🥤 Drinks",icon:"🫐",prices:sp(2.0,[0.25,0.1,0.6,0.35,0.14])},
+  {id:405,name:"Ribena Squash (850ml)",cat:"🥤 Drinks",icon:"🫐",prices:sp(2.0,[0.25,0.1,0.6,0.44,0.14])},
   {id:406,name:"Coconut Water (1L)",cat:"🥤 Drinks",icon:"🥥",prices:sp(4.0,[0.45,0.0,1.0,0.5,0.28])},
   {id:407,name:"Carex Hand Wash (250ml)",cat:"💊 Health & Beauty",icon:"🧴",prices:sp(1.5,[0.19,0.0,0.4,0.25,0.11])},
   {id:408,name:"Radox Shower Gel (500ml)",cat:"💊 Health & Beauty",icon:"🚿",prices:sp(2.5,[0.25,0.5,0.7,0.4,0.18])},
@@ -539,6 +539,22 @@ const BASE_PRODUCTS = [
   {id:451,name:"Waitrose Essential Back Bacon (10)", cat:"🥩 Meat & Fish",  icon:"🥓",prices:sp(3.19,[-3.19,-3.19,-3.19,0,-3.19])},
   {id:452,name:"Waitrose Frozen Quarter Pounder",    cat:"🧊 Frozen",       icon:"🍔",prices:sp(4.60,[-4.60,-4.60,-4.60,0,-4.60])},
   {id:453,name:"McCain Southern Fries",              cat:"🧊 Frozen",       icon:"🍟",prices:sp(2.90,[-2.90,-2.90,-2.90,0,-2.90])},
+
+  // ── Added 6 June 2026 from receipts ──
+  {id:454,name:"Jersey Full Fat Milk (1ltr)",         cat:"🥛 Dairy & Eggs", icon:"🥛",prices:sp(1.64,[0,0,0,0,0])},
+  {id:455,name:"Jersey Salted Butter (250g)",         cat:"🥛 Dairy & Eggs", icon:"🧈",prices:sp(1.90,[0,0,0,0,0])},
+  {id:456,name:"Tortilla Wraps Large (8pk)",          cat:"🍞 Bread & Bakery",icon:"🌯",prices:sp(1.80,[0,0,0,0,0])},
+  {id:457,name:"Large White Baps (4pk)",              cat:"🍞 Bread & Bakery",icon:"🍞",prices:sp(1.50,[0,0,0,0,0])},
+  {id:458,name:"Smoked Streaky Bacon (250g)",         cat:"🥩 Meat & Fish",  icon:"🥓",prices:sp(3.49,[0,0,0,0,0])},
+  {id:459,name:"Unsmoked Back Bacon (300g)",          cat:"🥩 Meat & Fish",  icon:"🥓",prices:sp(2.20,[0,0,0,0,0])},
+  {id:460,name:"Iceberg Lettuce",                     cat:"🥦 Fruit & Veg",  icon:"🥬",prices:sp(1.60,[0,0,0,0,0])},
+  {id:461,name:"Monster Energy Original (500ml)",     cat:"🥤 Drinks",       icon:"🟢",prices:sp(2.10,[0,0,0,0,0])},
+  {id:462,name:"Chicken Dippers (20pk)",              cat:"🥩 Meat & Fish",  icon:"🍗",prices:sp(3.40,[0,0,0,0,0])},
+  {id:463,name:"Garlic Chicken Kiev (2pk)",           cat:"🥩 Meat & Fish",  icon:"🍗",prices:sp(3.60,[0,0,0,0,0])},
+  {id:464,name:"Beef Mince 20% Fat (500g)",           cat:"🥩 Meat & Fish",  icon:"🥩",prices:sp(4.35,[-4.35,-4.35,-4.35,0,-4.35])},
+  {id:465,name:"Parmentier Potatoes (400g)",          cat:"🧊 Frozen",       icon:"🥔",prices:sp(2.79,[-2.79,-2.79,-2.79,0,-2.79])},
+  {id:466,name:"Jacobs Cream Crackers (200g)",        cat:"🍪 Snacks",       icon:"🍘",prices:sp(1.55,[-1.55,-1.55,-1.55,0,-1.55])},
+  {id:467,name:"Jam Doughnuts (5pk)",                 cat:"🍞 Bread & Bakery",icon:"🍩",prices:sp(1.57,[-1.57,-1.57,-1.57,0,-1.57])},
 ];
 
 /* ═══════════════════════════════════════════════════════════════════════════
@@ -1954,7 +1970,8 @@ function WelcomeModal({ onDismiss, onSubmitPrice }) {
       emoji: "🛍️",
       title: "Welcome to JerseyBasket.je",
       subtitle: "Join 950+ Jersey shoppers saving money every week",
-      body: "Compare prices across all 5 Jersey supermarkets instantly. Find the cheapest price on every item — and build your shopping list before you leave the house.",
+      body: "Compare prices across all 5 Jersey supermarkets instantly. Over 467 products and growing — find the cheapest price on every item and build your shopping list before you leave the house.",
+      bodyJsx: true,
       bg: "linear-gradient(135deg,#052e16 0%,#14532d 50%,#16a34a 100%)",
       accent: "#22c55e",
     },
@@ -2032,7 +2049,15 @@ function WelcomeModal({ onDismiss, onSubmitPrice }) {
 
           {/* body */}
           <div style={{ fontSize:13,color:"rgba(255,255,255,.8)",lineHeight:1.75,whiteSpace:"pre-line" }}>
-            {s.body}
+            {s.bodyJsx ? (
+              <>
+                Compare prices across all{" "}
+                <span style={{ fontFamily:"'DM Serif Display',Georgia,serif", fontSize:16, fontWeight:700, color:"#ffffff" }}>5</span>
+                {" "}Jersey supermarkets instantly. Over{" "}
+                <span style={{ fontFamily:"'DM Serif Display',Georgia,serif", fontSize:16, fontWeight:700, color:"#ffffff" }}>467</span>
+                {" "}products and growing — find the cheapest price on every item and build your shopping list before you leave the house.
+              </>
+            ) : s.body}
           </div>
 
           {/* install steps — only on install slide */}
@@ -2650,7 +2675,7 @@ function SubmitPriceModal({ onClose }) {
   const [status, setStatus] = useState("idle");
 
   const handleSubmit = async () => {
-    if(!form.name.trim()||!form.mobile.trim()||!form.email.trim()){return;}
+    if(!form.name.trim()||(!form.mobile.trim()&&!form.email.trim())){return;}
     setStatus("sending");
     const storeName = STORES.find(s=>s.id===form.store)?.name||form.store;
     try {
@@ -2674,7 +2699,7 @@ function SubmitPriceModal({ onClose }) {
     } catch { setStatus("error"); }
   };
 
-  const required = !form.name.trim()||!form.mobile.trim()||!form.email.trim();
+  const required = !form.name.trim()||(!form.mobile.trim()&&!form.email.trim());
 
   return (
     <div style={{ position:"fixed",inset:0,zIndex:600,display:"flex",alignItems:"flex-end",justifyContent:"center",paddingTop:60,background:"rgba(0,0,0,.8)",backdropFilter:"blur(8px)" }}
@@ -2712,22 +2737,22 @@ function SubmitPriceModal({ onClose }) {
             {/* name */}
             <div style={{ marginBottom:12 }}>
               <div style={{ fontSize:10,color:"#9a3412",fontWeight:700,letterSpacing:".5px",marginBottom:6 }}>YOUR NAME <span style={{ color:"#f43f5e" }}>*</span></div>
-              <input value={form.name} onChange={e=>setForm(p=>({...p,name:e.target.value}))} placeholder="First name + last initial e.g. Sarah M"
+              <input value={form.name} onChange={e=>setForm(p=>({...p,name:e.target.value}))} placeholder="First name, nickname or alias e.g. IslandShopper"
                 style={{ width:"100%",padding:"9px 12px",background:"rgba(255,255,255,.07)",border:"1px solid rgba(255,255,255,.11)",borderRadius:9,color:"#fff",fontSize:12,outline:"none",boxSizing:"border-box",fontFamily:"inherit" }} />
-              <div style={{ fontSize:10,color:"#475569",marginTop:4 }}>Only your first name + last initial will appear on the leaderboard</div>
+              <div style={{ fontSize:10,color:"#475569",marginTop:4 }}>Any name or alias is fine — only this appears on the leaderboard, never your real details</div>
             </div>
 
             {/* contact */}
             <div style={{ marginBottom:12 }}>
-              <div style={{ fontSize:10,color:"#9a3412",fontWeight:700,letterSpacing:".5px",marginBottom:6 }}>MOBILE NUMBER <span style={{ color:"#f43f5e" }}>*</span></div>
+              <div style={{ fontSize:10,color:"#9a3412",fontWeight:700,letterSpacing:".5px",marginBottom:6 }}>MOBILE NUMBER <span style={{ color:"#94a3b8", fontWeight:400 }}>(optional if email provided)</span></div>
               <input value={form.mobile} onChange={e=>setForm(p=>({...p,mobile:e.target.value}))} placeholder="e.g. 07797 123456"
                 style={{ width:"100%",padding:"9px 12px",background:"rgba(255,255,255,.07)",border:"1px solid rgba(255,255,255,.11)",borderRadius:9,color:"#fff",fontSize:12,outline:"none",boxSizing:"border-box",fontFamily:"inherit" }} />
             </div>
             <div style={{ marginBottom:12 }}>
-              <div style={{ fontSize:10,color:"#9a3412",fontWeight:700,letterSpacing:".5px",marginBottom:6 }}>EMAIL ADDRESS <span style={{ color:"#f43f5e" }}>*</span></div>
+              <div style={{ fontSize:10,color:"#9a3412",fontWeight:700,letterSpacing:".5px",marginBottom:6 }}>EMAIL ADDRESS <span style={{ color:"#94a3b8", fontWeight:400 }}>(optional if mobile provided)</span></div>
               <input value={form.email} onChange={e=>setForm(p=>({...p,email:e.target.value}))} placeholder="e.g. yourname@email.com"
                 style={{ width:"100%",padding:"9px 12px",background:"rgba(255,255,255,.07)",border:"1px solid rgba(255,255,255,.11)",borderRadius:9,color:"#fff",fontSize:12,outline:"none",boxSizing:"border-box",fontFamily:"inherit" }} />
-              <div style={{ fontSize:10,color:"#475569",marginTop:4 }}>Never shared publicly — only used to contact the winner</div>
+              <div style={{ fontSize:10,color:"#475569",marginTop:4 }}>Never shared or sold — only used to contact you if you win 🏆</div>
             </div>
 
             {/* store */}
