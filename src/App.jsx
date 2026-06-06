@@ -2578,16 +2578,19 @@ function CompetitionModal({ onClose, onSubmit }) {
   return (
     <div style={{ position:"fixed",inset:0,zIndex:500,display:"flex",alignItems:"flex-end",justifyContent:"center",paddingTop:60,background:"rgba(0,0,0,.8)",backdropFilter:"blur(8px)" }}
       onClick={e=>{ if(e.target===e.currentTarget) onClose(); }}>
-      <div style={{ width:"100%",maxWidth:520,background:"#120800",border:"1px solid rgba(251,146,60,.25)",borderRadius:"20px 20px 0 0",padding:"24px 20px 32px",paddingBottom:"calc(132px + 32px)",maxHeight:"82vh",overflowY:"auto" }}>
+      <div style={{ width:"100%",maxWidth:520,background:"#120800",border:"1px solid rgba(251,146,60,.25)",borderRadius:"20px 20px 0 0",maxHeight:"88vh",display:"flex",flexDirection:"column" }}>
 
-        {/* header */}
-        <div style={{ display:"flex",justifyContent:"space-between",alignItems:"flex-start",marginBottom:20 }}>
+        {/* sticky header */}
+        <div style={{ display:"flex",justifyContent:"space-between",alignItems:"center",padding:"18px 20px 14px",borderBottom:"1px solid rgba(251,146,60,.15)",flexShrink:0 }}>
           <div>
             <div style={{ fontSize:17,fontWeight:700,color:"#fed7aa" }}>🏆 June Price Hunt</div>
             <div style={{ fontSize:11,color:"#9a3412",marginTop:2 }}>1st June – 30th June 2026 midnight · Winner announced 1st July 12:00pm</div>
           </div>
-          <button onClick={onClose} style={{ background:"rgba(255,255,255,.07)",border:"none",borderRadius:7,width:28,height:28,color:"#94a3b8",cursor:"pointer",fontSize:14 }}>✕</button>
+          <button onClick={onClose} style={{ background:"rgba(255,255,255,.07)",border:"none",borderRadius:7,width:32,height:32,color:"#94a3b8",cursor:"pointer",fontSize:16,flexShrink:0 }}>✕</button>
         </div>
+
+        {/* scrollable body */}
+        <div style={{ overflowY:"auto",padding:"16px 20px",paddingBottom:"calc(132px + 24px)",flex:1 }}>
 
         {/* winner banner */}
         {COMP_WINNER && (
@@ -2656,10 +2659,12 @@ function CompetitionModal({ onClose, onSubmit }) {
           )}
         </div>
 
-        <button onClick={onSubmit} style={{ width:"100%",padding:"14px",background:"linear-gradient(180deg,#fb923c 0%,#b45309 100%)",boxShadow:"0 3px 10px rgba(194,65,12,.5),inset 0 1px 0 rgba(255,255,255,.25)",border:"none",borderRadius:12,color:"#fff",cursor:"pointer",fontSize:14,fontWeight:700,marginBottom:10 }}>
+        </div>{/* end scrollable body */}
+
+        <button onClick={onSubmit} style={{ padding:"14px",background:"linear-gradient(180deg,#fb923c 0%,#b45309 100%)",boxShadow:"0 3px 10px rgba(194,65,12,.5),inset 0 1px 0 rgba(255,255,255,.25)",border:"none",borderRadius:12,color:"#fff",cursor:"pointer",fontSize:14,fontWeight:700,margin:"0 20px 10px",width:"calc(100% - 40px)" }}>
           📸 Submit a Price Now →
         </button>
-        <button onClick={onClose} style={{ width:"100%",padding:"12px",background:"rgba(255,255,255,.06)",border:"1px solid rgba(255,255,255,.1)",borderRadius:12,color:"#94a3b8",cursor:"pointer",fontSize:13,fontWeight:600 }}>
+        <button onClick={onClose} style={{ width:"calc(100% - 40px)",margin:"0 20px 20px",padding:"12px",background:"rgba(255,255,255,.06)",border:"1px solid rgba(255,255,255,.1)",borderRadius:12,color:"#94a3b8",cursor:"pointer",fontSize:13,fontWeight:600 }}>
           Back to App
         </button>
       </div>
