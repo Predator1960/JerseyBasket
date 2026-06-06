@@ -2677,10 +2677,10 @@ function SubmitPriceModal({ onClose }) {
   return (
     <div style={{ position:"fixed",inset:0,zIndex:600,display:"flex",alignItems:"flex-end",justifyContent:"center",paddingTop:60,background:"rgba(0,0,0,.8)",backdropFilter:"blur(8px)" }}
       onClick={e=>{ if(e.target===e.currentTarget) onClose(); }}>
-      <div style={{ width:"100%",maxWidth:520,background:"#120800",border:"1px solid rgba(251,146,60,.25)",borderRadius:"20px 20px 0 0",padding:"24px 20px 32px",paddingBottom:"calc(132px + 32px)",maxHeight:"82vh",overflowY:"auto" }}>
+      <div style={{ width:"100%",maxWidth:520,background:"#120800",border:"1px solid rgba(251,146,60,.25)",borderRadius:"20px 20px 0 0",maxHeight:"88vh",display:"flex",flexDirection:"column" }}>
 
         {status==="sent" ? (
-          <div style={{ textAlign:"center",padding:"30px 0" }}>
+          <div style={{ textAlign:"center",padding:"30px 20px" }}>
             <div style={{ fontSize:48,marginBottom:14 }}>🏆</div>
             <div style={{ fontSize:18,fontWeight:700,color:"#fb923c",marginBottom:8 }}>Entry submitted!</div>
             <div style={{ fontSize:12,color:"#94a3b8",lineHeight:1.8,marginBottom:24 }}>
@@ -2695,13 +2695,17 @@ function SubmitPriceModal({ onClose }) {
           </div>
         ) : (
           <>
-            <div style={{ display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:18 }}>
+            {/* sticky header — always visible */}
+            <div style={{ display:"flex",justifyContent:"space-between",alignItems:"center",padding:"18px 20px 14px",borderBottom:"1px solid rgba(251,146,60,.15)",flexShrink:0 }}>
               <div>
                 <div style={{ fontSize:17,fontWeight:700,color:"#fed7aa" }}>📸 Submit a Price</div>
                 <div style={{ fontSize:11,color:"#9a3412",marginTop:2 }}>June competition · Every price counts!</div>
               </div>
-              <button onClick={onClose} style={{ background:"rgba(255,255,255,.07)",border:"none",borderRadius:7,width:28,height:28,color:"#94a3b8",cursor:"pointer",fontSize:14 }}>✕</button>
+              <button onClick={onClose} style={{ background:"rgba(255,255,255,.07)",border:"none",borderRadius:7,width:32,height:32,color:"#94a3b8",cursor:"pointer",fontSize:16,flexShrink:0 }}>✕</button>
             </div>
+
+            {/* scrollable body */}
+            <div style={{ overflowY:"auto",padding:"16px 20px",paddingBottom:"calc(132px + 24px)",flex:1 }}>
 
             {/* name */}
             <div style={{ marginBottom:12 }}>
@@ -2784,6 +2788,7 @@ function SubmitPriceModal({ onClose }) {
               <span style={{ position:"absolute",top:0,left:0,right:0,height:"52%",background:"linear-gradient(180deg,rgba(255,255,255,.25) 0%,rgba(255,255,255,.04) 100%)",borderRadius:"12px 12px 0 0",pointerEvents:"none" }}/>
               {status==="sending" ? "Submitting…" : "Submit Entry →"}
             </button>
+            </div>{/* end scrollable body */}
           </>
         )}
       </div>
