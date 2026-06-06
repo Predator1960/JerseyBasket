@@ -1517,13 +1517,14 @@ export default function JerseyGroceryApp() {
                             boxShadow:`0 1px 4px rgba(${r},${g},${b},0.3)`,
                           }}>{store.tag}</span>
                         </div>
-                        <div style={{ fontSize:10,color:"#64748b" }}>📍 {store.note}</div>
+                        <div style={{ fontSize:11,fontWeight:700,color:"#cbd5e1" }}>📍 {store.note}</div>
                       </div>
                       <div style={{ textAlign:"right" }}>
                         <div style={{ fontSize:19,fontWeight:700,color:sc,textShadow:`0 0 10px rgba(${r},${g},${b},0.5)` }}>£{avg.toFixed(2)}</div>
-                        <div style={{ fontSize:9,color:"#64748b" }}>avg / item</div>
+                        <div style={{ fontSize:11,fontWeight:700,color:"#cbd5e1" }}>avg / item</div>
                       </div>
                     </div>
+                    {/* stat badges row */}
                     <div style={{ display:"flex",gap:9,marginTop:11,flexWrap:"wrap" }}>
                       <div style={{ background:`linear-gradient(180deg,rgba(${r},${g},${b},0.15) 0%,rgba(${r},${g},${b},0.08) 100%)`,border:`1px solid rgba(${r},${g},${b},0.25)`,borderRadius:10,padding:"7px 14px",textAlign:"center",boxShadow:"inset 0 1px 0 rgba(255,255,255,.07)" }}>
                         <div style={{ fontSize:16,fontWeight:700,color:sc,textShadow:`0 0 8px rgba(${r},${g},${b},0.4)` }}>{wins}</div>
@@ -1533,7 +1534,8 @@ export default function JerseyGroceryApp() {
                         <div style={{ fontSize:16,fontWeight:700,color:sc,textShadow:`0 0 8px rgba(${r},${g},${b},0.4)` }}>{winPct}%</div>
                         <div style={{ fontSize:11,fontWeight:600,color:"#cbd5e1" }}>of range</div>
                       </div>
-                      <div style={{ background:"rgba(255,255,255,.03)",border:"1px solid rgba(255,255,255,.07)",borderRadius:10,padding:"7px 12px",flex:1,fontSize:10,color:"#94a3b8",lineHeight:1.5 }}>
+                      {/* description — inline on desktop, full width below on mobile */}
+                      <div style={{ background:"rgba(255,255,255,.03)",border:"1px solid rgba(255,255,255,.1)",borderRadius:10,padding:"7px 12px",flex:1,minWidth:"100%",fontSize:11,fontWeight:700,color:"#e2e8f0",lineHeight:1.6 }}>
                         {store.id==="coop"&&"✅ Best overall value. Family-friendly. Large stores closed Sunday."}
                         {store.id==="morrisons"&&"⚠️ Prices ~45% above UK Morrisons. Convenience format across multiple branches."}
                         {store.id==="ms"&&"✨ Premium quality. Freight surcharge applied. Best for special occasions."}
