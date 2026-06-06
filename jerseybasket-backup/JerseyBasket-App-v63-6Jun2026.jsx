@@ -1762,7 +1762,7 @@ const AD_SLIDES = [
     headline: { before:"This could be ",   highlight:"your",  highlightColor:"#4ade80", after:" Business" },
     sub:      { text:"Reach every Jersey shopper — every day", color:"#86efac" },
     cta:      { label:"Advertise here",    labelColor:"#4ade80", url:"jerseybasket.je", urlColor:"#f0fdf4", arrowBg:"#4ade80",   arrowColor:"#052e16", boxBg:"rgba(74,222,128,0.15)", boxBorder:"#4ade80" },
-    stats:    [{ val:"950+", label:"weekly users" },{ val:"428",    label:"products" }],
+    stats:    [{ val:"950+", label:"weekly users" },{ val:"467",    label:"products" }],
     statColor:"#4ade80",
     accent:   "linear-gradient(90deg,transparent,#22c55e55,transparent)",
     deco: true,
@@ -1978,7 +1978,7 @@ function WelcomeModal({ onDismiss, onSubmitPrice }) {
     {
       emoji: "🏆",
       title: "Always the Cheapest Price First",
-      subtitle: "428+ products across 5 stores",
+      subtitle: "467+ products across 5 stores",
       body: "Every product shows you the lowest price available in Jersey right now. Tap the store pill to compare all stores — or pin one store to see all their prices at once.",
       bg: "linear-gradient(135deg,#0c1445 0%,#1e3a8a 100%)",
       accent: "#93c5fd",
@@ -2161,7 +2161,7 @@ const FEATURES = [
   },
   {
     icon:"🔍", title:"Search & Sort",
-    desc:"Search across all 428+ products instantly. Sort by cheapest price, biggest saving, A–Z, or category."
+    desc:"Search across all 467+ products instantly. Sort by cheapest price, biggest saving, A–Z, or category."
   },
   {
     icon:"➕", title:"Add Your Own Items",
@@ -2211,7 +2211,7 @@ function HelpModal({ onClose, onShare, onReplay }) {
 
           {/* stats strip */}
           <div style={{ display:"flex",gap:6,margin:"14px 0 16px",flexWrap:"wrap" }}>
-            {[["428+","Products"],["5","Stores"],["15","Categories"],["🇯🇪","Jersey Only"]].map(([val,lbl])=>(
+            {[["467+","Products"],["5","Stores"],["15","Categories"],["🇯🇪","Jersey Only"]].map(([val,lbl])=>(
               <div key={lbl} style={{ background:"rgba(34,197,94,.09)",border:"1px solid rgba(34,197,94,.18)",borderRadius:8,padding:"5px 12px",display:"flex",alignItems:"center",gap:6 }}>
                 <span style={{ fontSize:13,fontWeight:700,color:"#22c55e" }}>{val}</span>
                 <span style={{ fontSize:10,color:"#64748b",textTransform:"uppercase",letterSpacing:".5px" }}>{lbl}</span>
@@ -2475,7 +2475,7 @@ function EnquiryModal({ onClose }) {
 
             {/* stats row */}
             <div style={{ display:"flex", gap:8, marginBottom:20 }}>
-              {[["428+","products listed"],["5","stores compared"],["Jersey","audience only"],["Daily","active users"]].map(([val,lbl])=>(
+              {[["467+","products listed"],["5","stores compared"],["Jersey","audience only"],["Daily","active users"]].map(([val,lbl])=>(
                 <div key={lbl} style={{ flex:1, background:"rgba(34,197,94,.08)", border:"1px solid rgba(34,197,94,.15)", borderRadius:9, padding:"7px 4px", textAlign:"center" }}>
                   <div style={{ fontSize:13, fontWeight:700, color:"#22c55e" }}>{val}</div>
                   <div style={{ fontSize:8, color:"#64748b", marginTop:1, textTransform:"uppercase", letterSpacing:".5px" }}>{lbl}</div>
