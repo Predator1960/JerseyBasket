@@ -809,7 +809,7 @@ const FORMSPREE_ID = "mvzyrgqj";
 
 /* ═══════════════════════════════════════════════════════════════════════════
    JUNE COMPETITION — update LEADERBOARD entries below each week
-   Format: { name: "First L", count: 12 }   ← first name + last initial only
+   Format: { name: "Carmen1971", count: 14 }   ← any name or alias
    Set COMP_WINNER to "" while competition is live, or "First L" when decided.
    Competition auto-expires at midnight 30 June 2026 — no manual change needed.
 ═══════════════════════════════════════════════════════════════════════════ */
@@ -2630,7 +2630,7 @@ function CompetitionModal({ onClose, onSubmit }) {
           • Only receipts dated within June 2026 are valid<br/>
           • Prices must be from Jersey stores only<br/>
           • Only new prices not already in the app count<br/>
-          • First name + last initial only shown on leaderboard<br/>
+          • Any name or alias shown on leaderboard — your real details are never shared<br/>
           • Competition closes 30th June 2026 at midnight<br/>
           • Winner announced 1st July 2026 at 12:00pm<br/>
           • Winner contacted via the email or phone provided<br/>
