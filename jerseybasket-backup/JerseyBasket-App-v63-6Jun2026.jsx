@@ -811,7 +811,7 @@ const FORMSPREE_ID = "mvzyrgqj";
    JUNE COMPETITION — update LEADERBOARD entries below each week
    Format: { name: "First L", count: 12 }   ← first name + last initial only
    Set COMP_WINNER to "" while competition is live, or "First L" when decided.
-   Set COMP_ACTIVE to false after 30 June to hide the banner.
+   Competition auto-expires at midnight 30 June 2026 — no manual change needed.
 ═══════════════════════════════════════════════════════════════════════════ */
 const COMP_ACTIVE = true;
 const COMP_WINNER = ""; // e.g. "Sarah M" — leave blank while competition is live
@@ -2211,7 +2211,7 @@ function HelpModal({ onClose, onShare, onReplay }) {
 
           {/* stats strip */}
           <div style={{ display:"flex",gap:6,margin:"14px 0 16px",flexWrap:"wrap" }}>
-            {[[`${BASE_PRODUCTS.length}+`,"Products"],[`${STORES.length}`,"Stores"],["15","Categories"],["🇯🇪","Jersey Only"]].map(([val,lbl])=>(
+            {[[`${BASE_PRODUCTS.length}+`,"Products"],[`${STORES.length}`,"Stores"],[`${CATS.filter(c=>c!=="All").length}`,"Categories"],["🇯🇪","Jersey Only"]].map(([val,lbl])=>(
               <div key={lbl} style={{ background:"rgba(34,197,94,.09)",border:"1px solid rgba(34,197,94,.18)",borderRadius:8,padding:"5px 12px",display:"flex",alignItems:"center",gap:6 }}>
                 <span style={{ fontSize:13,fontWeight:700,color:"#22c55e" }}>{val}</span>
                 <span style={{ fontSize:10,color:"#64748b",textTransform:"uppercase",letterSpacing:".5px" }}>{lbl}</span>
