@@ -820,11 +820,11 @@ const COMP_WINNER = ""; // e.g. "Sarah M" — leave blank while competition is l
 const MAINTENANCE = false;
 const LEADERBOARD = [
   // ── TOP 5 — update these entries with real submissions ──────────────────
+  { name: "Carmen1971", store: "CI Co-op", count: 14, date: "06 Jun" },
   // { name: "Sarah M",  count: 24 },
   // { name: "James O",  count: 18 },
   // { name: "Claire B", count: 15 },
   // { name: "Tom H",    count: 9  },
-  // { name: "Ruth K",   count: 7  },
   // ── Remove the // at the start of each line above to activate ────────────
 ];
 
@@ -2803,6 +2803,7 @@ function SubmitPriceModal({ onClose }) {
               📸 <strong style={{ color:"#fed7aa" }}>Got a receipt?</strong> Email a photo to <span style={{ color:"#fb923c" }}>hello@jerseybasket.je</span> with your name and we'll count all the prices on it! Make sure the <strong style={{ color:"#fed7aa" }}>store name, date, and prices are clearly visible</strong>.
             </div>
             <a href={`mailto:hello@jerseybasket.je?subject=🏆 June Competition Receipt — ${form.name||"Entry"}&body=Hi Eamonn, please find my receipt photo attached.%0A%0AName: ${form.name||""}%0AMobile: ${form.mobile||""}%0AStore: ${STORES.find(s=>s.id===form.store)?.name||""}`}
+              onClick={e=>{ if(!/Mobi|Android/i.test(navigator.userAgent)){ e.preventDefault(); navigator.clipboard&&navigator.clipboard.writeText("hello@jerseybasket.je"); alert("Email address copied!\nSend your receipt photo to:\nhello@jerseybasket.je"); } }}
               style={{ display:"flex",alignItems:"center",justifyContent:"center",gap:8,width:"100%",padding:"11px",background:"linear-gradient(180deg,#fbbf24 0%,#b45309 100%)",border:"none",borderRadius:10,color:"#fff",textDecoration:"none",fontSize:13,fontWeight:700,marginBottom:14,boxSizing:"border-box",boxShadow:"0 3px 10px rgba(180,83,9,.5),inset 0 1px 0 rgba(255,255,255,.25)",position:"relative",overflow:"hidden" }}>
               <span style={{ position:"absolute",top:0,left:0,right:0,height:"52%",background:"linear-gradient(180deg,rgba(255,255,255,.25) 0%,rgba(255,255,255,.04) 100%)",borderRadius:"10px 10px 0 0",pointerEvents:"none" }}/>
               📸 Email Receipt Photo
