@@ -1527,11 +1527,11 @@ export default function JerseyGroceryApp() {
                     <div style={{ display:"flex",gap:9,marginTop:11,flexWrap:"wrap" }}>
                       <div style={{ background:`linear-gradient(180deg,rgba(${r},${g},${b},0.15) 0%,rgba(${r},${g},${b},0.08) 100%)`,border:`1px solid rgba(${r},${g},${b},0.25)`,borderRadius:10,padding:"7px 14px",textAlign:"center",boxShadow:"inset 0 1px 0 rgba(255,255,255,.07)" }}>
                         <div style={{ fontSize:16,fontWeight:700,color:sc,textShadow:`0 0 8px rgba(${r},${g},${b},0.4)` }}>{wins}</div>
-                        <div style={{ fontSize:7.5,color:"#94a3b8" }}>cheapest items</div>
+                        <div style={{ fontSize:11,fontWeight:600,color:"#cbd5e1" }}>cheapest items</div>
                       </div>
                       <div style={{ background:`linear-gradient(180deg,rgba(${r},${g},${b},0.15) 0%,rgba(${r},${g},${b},0.08) 100%)`,border:`1px solid rgba(${r},${g},${b},0.25)`,borderRadius:10,padding:"7px 14px",textAlign:"center",boxShadow:"inset 0 1px 0 rgba(255,255,255,.07)" }}>
                         <div style={{ fontSize:16,fontWeight:700,color:sc,textShadow:`0 0 8px rgba(${r},${g},${b},0.4)` }}>{winPct}%</div>
-                        <div style={{ fontSize:7.5,color:"#94a3b8" }}>of range</div>
+                        <div style={{ fontSize:11,fontWeight:600,color:"#cbd5e1" }}>of range</div>
                       </div>
                       <div style={{ background:"rgba(255,255,255,.03)",border:"1px solid rgba(255,255,255,.07)",borderRadius:10,padding:"7px 12px",flex:1,fontSize:10,color:"#94a3b8",lineHeight:1.5 }}>
                         {store.id==="coop"&&"✅ Best overall value. Family-friendly. Large stores closed Sunday."}
