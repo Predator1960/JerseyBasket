@@ -1179,18 +1179,19 @@ export default function JerseyGroceryApp() {
 
             {/* ── JUNE COMPETITION BANNER ── */}
             {COMP_ACTIVE && (
-              <div onClick={()=>setShowCompetition(true)} style={{ marginBottom:12,background:"linear-gradient(135deg,#1a0a00 0%,#7c2d12 100%)",border:"1px solid rgba(251,146,60,.4)",borderRadius:12,padding:"11px 16px",display:"flex",alignItems:"center",justifyContent:"space-between",cursor:"pointer",gap:10,boxShadow:"0 4px 16px rgba(194,65,12,.35),inset 0 1px 0 rgba(255,255,255,.08)",position:"relative",overflow:"hidden" }}>
-                <span style={{ position:"absolute",top:0,left:0,right:0,height:"40%",background:"linear-gradient(180deg,rgba(255,255,255,.07) 0%,rgba(255,255,255,0) 100%)",pointerEvents:"none" }}/>
+              <div onClick={()=>setShowCompetition(true)} style={{ marginBottom:12,background:"linear-gradient(135deg,#431a07 0%,#6b2d0a 50%,#7c2412 100%)",border:"1px solid rgba(251,186,60,.6)",borderRadius:12,padding:"12px 16px",display:"flex",alignItems:"center",justifyContent:"space-between",cursor:"pointer",gap:10,boxShadow:"0 4px 20px rgba(194,65,12,.6),inset 0 1px 0 rgba(255,255,255,.2)",position:"relative",overflow:"hidden" }}>
+                <span style={{ position:"absolute",top:0,left:0,right:0,height:"45%",background:"linear-gradient(180deg,rgba(255,255,255,.18) 0%,rgba(255,255,255,0) 100%)",pointerEvents:"none" }}/>
+                <span style={{ position:"absolute",top:0,left:"-60%",width:"40%",height:"100%",background:"linear-gradient(90deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.12) 50%,rgba(255,255,255,0) 100%)",pointerEvents:"none",animation:"shimmer 3s infinite" }}/>
                 <div style={{ display:"flex",alignItems:"center",gap:10 }}>
-                  <span style={{ fontSize:22 }}>🏆</span>
+                  <span style={{ fontSize:26 }}>🏆</span>
                   <div>
-                    <div style={{ fontSize:12,fontWeight:700,color:"#fed7aa" }}>June Price Hunt Competition!</div>
-                    <div style={{ fontSize:10,color:"#9a3412",marginTop:1 }}>Submit prices · Win a £10 gift voucher · Tap to see leaderboard</div>
+                    <div style={{ fontSize:13,fontWeight:800,color:"#fff",textShadow:"0 1px 4px rgba(0,0,0,.4)",letterSpacing:".01em" }}>🎯 June Price Hunt Competition!</div>
+                    <div style={{ fontSize:11,color:"rgba(255,255,255,.9)",marginTop:2,fontWeight:500 }}>Submit prices · Win a £10 gift voucher · Tap to see leaderboard</div>
                   </div>
                 </div>
-                <button onClick={e=>{e.stopPropagation();setShowSubmitPrice(true);}} style={{ background:"linear-gradient(180deg,#fb923c 0%,#b45309 100%)",border:"none",borderRadius:9,padding:"8px 13px",color:"#fff",fontSize:11,fontWeight:700,cursor:"pointer",whiteSpace:"nowrap",flexShrink:0,boxShadow:"0 3px 10px rgba(194,65,12,.6),inset 0 1px 0 rgba(255,255,255,.25)",position:"relative",overflow:"hidden" }}>
-                  <span style={{ position:"absolute",top:0,left:0,right:0,height:"52%",background:"linear-gradient(180deg,rgba(255,255,255,.25) 0%,rgba(255,255,255,.04) 100%)",borderRadius:"9px 9px 0 0",pointerEvents:"none" }}/>
-                  Submit Price
+                <button onClick={e=>{e.stopPropagation();setShowSubmitPrice(true);}} style={{ background:"linear-gradient(180deg,#fbbf24 0%,#f59e0b 100%)",border:"none",borderRadius:9,padding:"9px 14px",color:"#1a0a00",fontSize:11,fontWeight:800,cursor:"pointer",whiteSpace:"nowrap",flexShrink:0,boxShadow:"0 3px 10px rgba(245,158,11,.7),inset 0 1px 0 rgba(255,255,255,.4)",position:"relative",overflow:"hidden" }}>
+                  <span style={{ position:"absolute",top:0,left:0,right:0,height:"52%",background:"linear-gradient(180deg,rgba(255,255,255,.3) 0%,rgba(255,255,255,.04) 100%)",borderRadius:"9px 9px 0 0",pointerEvents:"none" }}/>
+                  🎯 Submit Price
                 </button>
               </div>
             )}
