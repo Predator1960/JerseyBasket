@@ -1502,7 +1502,7 @@ export default function JerseyGroceryApp() {
         {view==="compare" && (
           <div style={{ marginTop:18 }}>
             <h2 style={{ fontSize:18,fontWeight:700,marginBottom:3 }}>📊 Store Comparison</h2>
-            <p style={{ color:"#64748b",fontSize:11,marginBottom:16 }}>Jersey Channel Islands · Prices include 5% GST · Updated May 2026</p>
+            <p style={{ color:"#64748b",fontSize:11,marginBottom:16 }}>Jersey Channel Islands · Prices include 5% GST</p>
             <div style={{ display:"grid",gap:10 }}>
               {STORES.map(store=>{
                 const items=allProducts.filter(p=>p.prices[store.id]);
@@ -1762,7 +1762,7 @@ const AD_SLIDES = [
     headline: { before:"This could be ",   highlight:"your",  highlightColor:"#4ade80", after:" Business" },
     sub:      { text:"Reach every Jersey shopper — every day", color:"#86efac" },
     cta:      { label:"Advertise here",    labelColor:"#4ade80", url:"jerseybasket.je", urlColor:"#f0fdf4", arrowBg:"#4ade80",   arrowColor:"#052e16", boxBg:"rgba(74,222,128,0.15)", boxBorder:"#4ade80" },
-    stats:    [{ val:"950+", label:"weekly users" },{ val:"467",    label:"products" }],
+    stats:    [{ val:"950+", label:"weekly users" },{ val:`${BASE_PRODUCTS.length}`, label:"products" }],
     statColor:"#4ade80",
     accent:   "linear-gradient(90deg,transparent,#22c55e55,transparent)",
     deco: true,
@@ -1969,8 +1969,8 @@ function WelcomeModal({ onDismiss, onSubmitPrice }) {
     {
       emoji: "🛍️",
       title: "Welcome to JerseyBasket.je",
-      subtitle: "Join 950+ Jersey shoppers saving money every week",
-      body: "Compare prices across all 5 Jersey supermarkets instantly. Over 467 products and growing — find the cheapest price on every item and build your shopping list before you leave the house.",
+      subtitle: `Join 950+ Jersey shoppers saving money every week`,
+      body: `Compare prices across all ${BASE_PRODUCTS.length} products and growing — find the cheapest price on every item and build your shopping list before you leave the house.`,
       bodyJsx: true,
       bg: "linear-gradient(135deg,#052e16 0%,#14532d 50%,#16a34a 100%)",
       accent: "#22c55e",
@@ -1978,7 +1978,7 @@ function WelcomeModal({ onDismiss, onSubmitPrice }) {
     {
       emoji: "🏆",
       title: "Always the Cheapest Price First",
-      subtitle: "467+ products across 5 stores",
+      subtitle: `${BASE_PRODUCTS.length}+ products across ${STORES.length} stores`,
       body: "Every product shows you the lowest price available in Jersey right now. Tap the store pill to compare all stores — or pin one store to see all their prices at once.",
       bg: "linear-gradient(135deg,#0c1445 0%,#1e3a8a 100%)",
       accent: "#93c5fd",
@@ -2054,7 +2054,7 @@ function WelcomeModal({ onDismiss, onSubmitPrice }) {
                 Compare prices across all{" "}
                 <span style={{ fontFamily:"'DM Serif Display',Georgia,serif", fontSize:16, fontWeight:700, color:"#ffffff" }}>5</span>
                 {" "}Jersey supermarkets instantly. Over{" "}
-                <span style={{ fontFamily:"'DM Serif Display',Georgia,serif", fontSize:16, fontWeight:700, color:"#ffffff" }}>467</span>
+                <span style={{ fontFamily:"'DM Serif Display',Georgia,serif", fontSize:16, fontWeight:700, color:"#ffffff" }}>{BASE_PRODUCTS.length}</span>
                 {" "}products and growing — find the cheapest price on every item and build your shopping list before you leave the house.
               </>
             ) : s.body}
@@ -2161,7 +2161,7 @@ const FEATURES = [
   },
   {
     icon:"🔍", title:"Search & Sort",
-    desc:"Search across all 467+ products instantly. Sort by cheapest price, biggest saving, A–Z, or category."
+    desc:`Search across all ${BASE_PRODUCTS.length}+ products instantly. Sort by cheapest price, biggest saving, A–Z, or category.`
   },
   {
     icon:"➕", title:"Add Your Own Items",
@@ -2211,7 +2211,7 @@ function HelpModal({ onClose, onShare, onReplay }) {
 
           {/* stats strip */}
           <div style={{ display:"flex",gap:6,margin:"14px 0 16px",flexWrap:"wrap" }}>
-            {[["467+","Products"],["5","Stores"],["15","Categories"],["🇯🇪","Jersey Only"]].map(([val,lbl])=>(
+            {[[`${BASE_PRODUCTS.length}+`,"Products"],[`${STORES.length}`,"Stores"],["15","Categories"],["🇯🇪","Jersey Only"]].map(([val,lbl])=>(
               <div key={lbl} style={{ background:"rgba(34,197,94,.09)",border:"1px solid rgba(34,197,94,.18)",borderRadius:8,padding:"5px 12px",display:"flex",alignItems:"center",gap:6 }}>
                 <span style={{ fontSize:13,fontWeight:700,color:"#22c55e" }}>{val}</span>
                 <span style={{ fontSize:10,color:"#64748b",textTransform:"uppercase",letterSpacing:".5px" }}>{lbl}</span>
@@ -2475,7 +2475,7 @@ function EnquiryModal({ onClose }) {
 
             {/* stats row */}
             <div style={{ display:"flex", gap:8, marginBottom:20 }}>
-              {[["467+","products listed"],["5","stores compared"],["Jersey","audience only"],["Daily","active users"]].map(([val,lbl])=>(
+              {[[`${BASE_PRODUCTS.length}+`,"products listed"],[`${STORES.length}`,"stores compared"],["Jersey","audience only"],["Daily","active users"]].map(([val,lbl])=>(
                 <div key={lbl} style={{ flex:1, background:"rgba(34,197,94,.08)", border:"1px solid rgba(34,197,94,.15)", borderRadius:9, padding:"7px 4px", textAlign:"center" }}>
                   <div style={{ fontSize:13, fontWeight:700, color:"#22c55e" }}>{val}</div>
                   <div style={{ fontSize:8, color:"#64748b", marginTop:1, textTransform:"uppercase", letterSpacing:".5px" }}>{lbl}</div>
