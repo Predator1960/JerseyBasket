@@ -1,6 +1,7 @@
 /**
  * ============================================================
  * JerseyBasket.je — Channel Islands Grocery Price Comparison
+ * Build: 20260607213833
  * ============================================================
  * Copyright © 2026 Eamonn O'Shea. All Rights Reserved.
  *
