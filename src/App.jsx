@@ -565,6 +565,17 @@ const BASE_PRODUCTS = [
   {id:474,name:"Hula Hoops Original",                 cat:"🍪 Snacks",       icon:"⭕",prices:sp(2.00,[-2.00,0,-2.00,-2.00,-2.00])},
   {id:475,name:"Popchips BBQ (85g)",                  cat:"🍪 Snacks",       icon:"🍿",prices:sp(2.59,[-2.59,0,-2.59,-2.59,-2.59])},
   {id:476,name:"Popchips Sour Cream & Onion (85g)",   cat:"🍪 Snacks",       icon:"🍿",prices:sp(2.59,[-2.59,0,-2.59,-2.59,-2.59])},
+  // ── Added 8 June 2026 from Leticia's Co-op receipt ──
+  {id:477,name:"Quavers Cheese (6pk)",               cat:"🍪 Snacks",       icon:"🧀",prices:sp(2.25,[0,-2.25,-2.25,-2.25,-2.25])},
+  {id:478,name:"Cp Organic Cheesy Pie",               cat:"🥩 Meat & Fish",  icon:"🥧",prices:sp(2.10,[0,-2.10,-2.10,-2.10,-2.10])},
+  {id:479,name:"Cp Roast Chicken Pieces",             cat:"🥩 Meat & Fish",  icon:"🍗",prices:sp(1.60,[0,-1.60,-1.60,-1.60,-1.60])},
+  {id:480,name:"Roast Multipack Crisps (3x22.5g)",    cat:"🍪 Snacks",       icon:"🥔",prices:sp(4.40,[0,-4.40,-4.40,-4.40,-4.40])},
+  {id:481,name:"Eclairs Variety Pack",                cat:"🍪 Snacks",       icon:"🍬",prices:sp(2.78,[0,-2.78,-2.78,-2.78,-2.78])},
+  {id:482,name:"Switchcorn Puff Pop",                 cat:"🍪 Snacks",       icon:"🍿",prices:sp(2.39,[0,-2.39,-2.39,-2.39,-2.39])},
+  {id:483,name:"Cp Veg Straws",                       cat:"🍪 Snacks",       icon:"🥕",prices:sp(3.55,[0,-3.55,-3.55,-3.55,-3.55])},
+  {id:484,name:"Organic Clouds Multipack",            cat:"🍪 Snacks",       icon:"☁️",prices:sp(4.00,[0,-4.00,-4.00,-4.00,-4.00])},
+  {id:485,name:"Jason Jungle Z (4x200ml)",            cat:"🥤 Drinks",       icon:"🧃",prices:sp(2.10,[0,-2.10,-2.10,-2.10,-2.10])},
+  {id:486,name:"Lil Con Carn Pouch",                  cat:"🍱 Cupboard",     icon:"🥫",prices:sp(2.50,[0,-2.50,-2.50,-2.50,-2.50])},
 ];
 
 /* ═══════════════════════════════════════════════════════════════════════════
@@ -830,9 +841,9 @@ const COMP_WINNER = ""; // e.g. "Sarah M" — leave blank while competition is l
 const MAINTENANCE = false;
 const LEADERBOARD = [
   // ── TOP 5 — update these entries with real submissions ──────────────────
-  { name: "Carmen1971", store: "CI Co-op", count: 14, date: "06 Jun" },
-  // { name: "Sarah M",  count: 24 },
-  // { name: "James O",  count: 18 },
+  { name: "Carmen1971", store: "CI Co-op",  count: 14, date: "06 Jun" },
+  { name: "Leticia",    store: "CI Co-op",  count: 10, date: "08 Jun" },
+  { name: "Sharon",     store: "Morrisons", count: 9,  date: "07 Jun" },
   // { name: "Claire B", count: 15 },
   // { name: "Tom H",    count: 9  },
   // ── Remove the // at the start of each line above to activate ────────────
