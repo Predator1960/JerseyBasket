@@ -1,7 +1,6 @@
 /**
  * ============================================================
  * JerseyBasket.je — Channel Islands Grocery Price Comparison
- * Build: 20260607213833
  * ============================================================
  * Copyright © 2026 Eamonn O'Shea. All Rights Reserved.
  *
@@ -315,7 +314,7 @@ const BASE_PRODUCTS = [
   {id:241,name:"Tortilla Chips (200g)",        cat:"🥨 Snacks & Treats",icon:"🌮",prices:sp(1.80,[0,0.18,0.7,0.54,0.09])},
   {id:242,name:"Salsa Dip (300g)",             cat:"🥨 Snacks & Treats",icon:"🌮",prices:sp(1.60,[0,0.16,0.64,0.49,0.08])},
   {id:243,name:"Hummus (200g)",                cat:"🥨 Snacks & Treats",icon:"🥙",prices:sp(1.50,[0,0.15,0.6,0.46,0.07])},
-  {id:244,name:"Digestive Biscuits (400g)",    cat:"🥨 Snacks & Treats",icon:"🍪",prices:sp(1.20,[0.0,0.05,0.5,0.38,0.06])},
+  {id:244,name:"Digestive Biscuits (400g)",    cat:"🥨 Snacks & Treats",icon:"🍪",prices:sp(1.20,[0,0.12,0.5,0.38,0.06])},
   {id:245,name:"Hobnobs (300g)",               cat:"🥨 Snacks & Treats",icon:"🍪",prices:sp(1.50,[0,0.15,0.6,0.46,0.07])},
   {id:246,name:"Shortbread Fingers (160g)",    cat:"🥨 Snacks & Treats",icon:"🍪",prices:sp(1.40,[0,0.14,0.56,0.43,0.07])},
   {id:247,name:"Rich Tea Biscuits (300g)",     cat:"🥨 Snacks & Treats",icon:"🍪",prices:sp(1.10,[0,0.11,0.44,0.33,0.06])},
@@ -542,8 +541,8 @@ const BASE_PRODUCTS = [
   {id:453,name:"McCain Southern Fries",              cat:"🧊 Frozen",       icon:"🍟",prices:sp(2.90,[-2.90,-2.90,-2.90,0,-2.90])},
 
   // ── Added 6 June 2026 from receipts ──
-  {id:454,name:"Jersey Full Fat Milk (1ltr)",         cat:"🥛 Dairy & Eggs", icon:"🥛",prices:sp(1.64,[0.0,0.0,0.0,0.0,0.0])},
-  {id:455,name:"Jersey Salted Butter (250g)",         cat:"🥛 Dairy & Eggs", icon:"🧈",prices:sp(1.90,[0.0,0.59,0.0,0.0,0.0])},
+  {id:454,name:"Jersey Full Fat Milk (1ltr)",         cat:"🥛 Dairy & Eggs", icon:"🥛",prices:sp(1.64,[0,0,0,0,0])},
+  {id:455,name:"Jersey Salted Butter (250g)",         cat:"🥛 Dairy & Eggs", icon:"🧈",prices:sp(1.90,[0,0,0,0,0])},
   {id:456,name:"Tortilla Wraps Large (8pk)",          cat:"🍞 Bread & Bakery",icon:"🌯",prices:sp(1.80,[0,0,0,0,0])},
   {id:457,name:"Large White Baps (4pk)",              cat:"🍞 Bread & Bakery",icon:"🍞",prices:sp(1.50,[0,0,0,0,0])},
   {id:458,name:"Smoked Streaky Bacon (250g)",         cat:"🥩 Meat & Fish",  icon:"🥓",prices:sp(3.49,[0,0,0,0,0])},
@@ -556,9 +555,6 @@ const BASE_PRODUCTS = [
   {id:465,name:"Parmentier Potatoes (400g)",          cat:"🧊 Frozen",       icon:"🥔",prices:sp(2.79,[-2.79,-2.79,-2.79,0,-2.79])},
   {id:466,name:"Jacobs Cream Crackers (200g)",        cat:"🍪 Snacks",       icon:"🍘",prices:sp(1.55,[-1.55,-1.55,-1.55,0,-1.55])},
   {id:467,name:"Jam Doughnuts (5pk)",                 cat:"🍞 Bread & Bakery",icon:"🍩",prices:sp(1.57,[-1.57,-1.57,-1.57,0,-1.57])},
-];
-
-/* ═══════════════════════════════════════════════════════════════════════════
   // ── Added 7 June 2026 from Sharon's Morrisons receipt ──
   {id:468,name:"Carlsberg Pilsner (4x440ml)",        cat:"🥤 Drinks",       icon:"🍺",prices:sp(4.30,[-4.30,0,-4.30,-4.30,-4.30])},
   {id:469,name:"Batchelors BBQ Beef Noodles",         cat:"🍱 Cupboard",     icon:"🍜",prices:sp(1.40,[-1.40,0,-1.40,-1.40,-1.40])},
@@ -569,6 +565,9 @@ const BASE_PRODUCTS = [
   {id:474,name:"Hula Hoops Original",                 cat:"🍪 Snacks",       icon:"⭕",prices:sp(2.00,[-2.00,0,-2.00,-2.00,-2.00])},
   {id:475,name:"Popchips BBQ (85g)",                  cat:"🍪 Snacks",       icon:"🍿",prices:sp(2.59,[-2.59,0,-2.59,-2.59,-2.59])},
   {id:476,name:"Popchips Sour Cream & Onion (85g)",   cat:"🍪 Snacks",       icon:"🍿",prices:sp(2.59,[-2.59,0,-2.59,-2.59,-2.59])},
+];
+
+/* ═══════════════════════════════════════════════════════════════════════════
    HELPERS
 ═══════════════════════════════════════════════════════════════════════════ */
 const getBestPrice   = (p, disabled=new Set()) => { const vals=Object.entries(p.prices).filter(([k,v])=>!disabled.has(k)&&v>0).map(([,v])=>v); return vals.length?Math.min(...vals):0; };
@@ -832,7 +831,6 @@ const MAINTENANCE = false;
 const LEADERBOARD = [
   // ── TOP 5 — update these entries with real submissions ──────────────────
   { name: "Carmen1971", store: "CI Co-op", count: 14, date: "06 Jun" },
-  { name: "Sharon",    store: "Morrisons",  count: 9,  date: "07 Jun" },
   // { name: "Sarah M",  count: 24 },
   // { name: "James O",  count: 18 },
   // { name: "Claire B", count: 15 },
