@@ -582,6 +582,11 @@ const BASE_PRODUCTS = [
   {id:489,name:"White Bread (800g)",                 cat:"🍞 Bread & Bakery",icon:"🍞",prices:sp(1.25,[0,-0.45,-0.35,-0.09,0.70])},
   {id:490,name:"Potatoes (1.5kg)",                   cat:"🥦 Fruit & Veg",  icon:"🥔",prices:sp(1.40,[0,1.20,0.25,0.69,1.10])},
   {id:491,name:"Toilet Rolls (4pk)",                 cat:"🧹 Household",    icon:"🧻",prices:sp(1.55,[0.94,0.45,1.45,0.54,0])},
+  {id:492,name:"Aptamil 1 (800g)",               cat:"🍼 Baby & Child", icon:"🍼",prices:sp(14.89,[4.71,0,0,0,0])},
+  {id:493,name:"Aptamil 2 (800g)",               cat:"🍼 Baby & Child", icon:"🍼",prices:sp(14.75,[0,0,0,0.91,0])},
+  {id:494,name:"Aptamil 3 (800g)",               cat:"🍼 Baby & Child", icon:"🍼",prices:sp(13.89,[1.86,0,0,1.77,0])},
+  {id:495,name:"Baby Shampoo (500ml)",            cat:"🍼 Baby & Child", icon:"🧴",prices:sp(1.59,[0.81,0,0,1.94,0])},
+  {id:496,name:"Antiseptic Cream (125g)",         cat:"💊 Health & Beauty",icon:"🧴",prices:sp(1.45,[0,3.70,0,4.18,3.50])},
 ];
 
 /* ═══════════════════════════════════════════════════════════════════════════
@@ -1858,11 +1863,6 @@ const AD_SLIDES = [
     statColor:"#93c5fd",
     accent:   "linear-gradient(90deg,transparent,#3b82f688,transparent)",
   },
-  {id:492,name:"Aptamil 1 (800g)",               cat:"🍼 Baby & Child", icon:"🍼",prices:sp(14.89,[4.71,0,0,0,0])},
-  {id:493,name:"Aptamil 2 (800g)",               cat:"🍼 Baby & Child", icon:"🍼",prices:sp(14.75,[0,0,0,0.91,0])},
-  {id:494,name:"Aptamil 3 (800g)",               cat:"🍼 Baby & Child", icon:"🍼",prices:sp(13.89,[1.86,0,0,1.77,0])},
-  {id:495,name:"Baby Shampoo (500ml)",            cat:"🍼 Baby & Child", icon:"🧴",prices:sp(1.59,[0.81,0,0,1.94,0])},
-  {id:496,name:"Antiseptic Cream (125g)",         cat:"💊 Health & Beauty",icon:"🧴",prices:sp(1.45,[0,3.70,0,4.18,3.50])},
 ];
 
 /* ═══════════════════════════════════════════════════════════════════════════
