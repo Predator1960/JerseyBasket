@@ -194,7 +194,7 @@ const BASE_PRODUCTS = [
   {id:127,name:"Ginger Root (piece)",          cat:"🥦 Fruit & Veg",  icon:"🫚", prices:sp(0.45,[0,0.05,0.2,0.15,0.03])},
 
   /* ── FROZEN ───────────────────────────────────────────────────── */
-  {id:128,name:"Frozen Peas (900g)",           cat:"🧊 Frozen",       icon:"🟢", prices:sp(1.80,[1.60,0.18,0.7,0.55,0.09])},
+  {id:128,name:"Frozen Peas (1kg)",            cat:"🧊 Frozen",       icon:"🟢", prices:sp(2.00,[0,0,0.10,0.96,0.50])},
   {id:129,name:"Frozen Peas & Sweetcorn (1kg)",cat:"🧊 Frozen",       icon:"🟢", prices:sp(1.60,[0,0.16,0.65,0.5,0.08])},
   {id:130,name:"Frozen Chips Straight (1.5kg)",cat:"🧊 Frozen",       icon:"🍟", prices:sp(2.20,[-0.10,0.2,0.8,0.6,0.1])},
   {id:131,name:"Frozen Chips Crinkle (1kg)",   cat:"🧊 Frozen",       icon:"🍟", prices:sp(1.90,[0,0.18,0.72,0.55,0.09])},
@@ -202,7 +202,7 @@ const BASE_PRODUCTS = [
   {id:133,name:"Frozen Oven Pizza (Pepperoni)", cat:"🧊 Frozen",      icon:"🍕", prices:sp(2.80,[1.65,0.70,1,0.8,0.14])},
   {id:134,name:"Ice Cream Vanilla (1L)",       cat:"🧊 Frozen",       icon:"🍨", prices:sp(3.00,[0.15,0.3,1.1,0.85,0.15])},
   {id:135,name:"Ice Cream Tub Luxury (500ml)", cat:"🧊 Frozen",       icon:"🍨", prices:sp(3.80,[0.15,0.38,1.35,1.05,0.19])},
-  {id:136,name:"Frozen Fish Fingers (12pk)",   cat:"🧊 Frozen",       icon:"🐟", prices:sp(2.80,[-0.25,0.25,1.0,0.8,0.12])},
+  {id:136,name:"Frozen Fish Fingers (10pk)",   cat:"🧊 Frozen",       icon:"🐟", prices:sp(1.10,[1.45,0,1.90,2.35,0])},
   {id:137,name:"Frozen Salmon Fillets (4pk)",  cat:"🧊 Frozen",       icon:"🐟", prices:sp(5.50,[0,0.5,1.8,1.4,0.25])},
   {id:138,name:"Frozen Cod Fillets (4pk)",     cat:"🧊 Frozen",       icon:"🐟", prices:sp(4.80,[0,0.44,1.6,1.22,0.22])},
   {id:139,name:"Frozen Prawns (400g)",         cat:"🧊 Frozen",       icon:"🍤", prices:sp(4.50,[0,0.4,1.4,1.1,0.2])},
@@ -420,8 +420,8 @@ const BASE_PRODUCTS = [
   {id:342,name:"Fish Food (100g)",             cat:"🐾 Pet Care",      icon:"🐠",prices:sp(2.50,[0,0.25,0.95,0.75,0.12])},
 
   /* ── FREE FROM ────────────────────────────────────────────────── */
-  {id:343,name:"GF White Bread (400g)",        cat:"🌱 Free From",    icon:"🍞",prices:sp(2.90,[0,0.28,1,0.8,0.14])},
-  {id:344,name:"GF Pasta (500g)",              cat:"🌱 Free From",    icon:"🍝",prices:sp(2.20,[0,0.22,0.85,0.65,0.11])},
+  {id:343,name:"GF Loaf (500g)",               cat:"🌱 Free From",    icon:"🍞",prices:sp(2.35,[0,0,1.40,1.21,0])},
+  {id:344,name:"GF Pasta (500g)",              cat:"🌱 Free From",    icon:"🍝",prices:sp(1.50,[0.15,0,0.75,0.67,0])},
   {id:345,name:"GF Oats (500g)",               cat:"🌱 Free From",    icon:"🌾",prices:sp(2.80,[0,0.28,1,0.8,0.14])},
   {id:346,name:"GF Crackers (150g)",           cat:"🌱 Free From",    icon:"🍘",prices:sp(2.50,[0,0.25,0.95,0.75,0.12])},
   {id:347,name:"Dairy Free Cheese (200g)",     cat:"🌱 Free From",    icon:"🧀",prices:sp(3.50,[0,0.32,1.2,0.95,0.16])},
@@ -597,6 +597,11 @@ const BASE_PRODUCTS = [
   {id:509,name:"Cathedral City Grated Cheddar", cat:"🥛 Dairy & Eggs", icon:"🧀",prices:sp(2.30,[0,0,0,0,0])},
   {id:510,name:"Albert Bartlett Bake Pot (4pk)",cat:"🥦 Fruit & Veg",  icon:"🥔",prices:sp(2.96,[0,0,0,0,0])},
   {id:511,name:"Lucozade Energy Orange (500ml)", cat:"🥤 Drinks",       icon:"⚡",prices:sp(2.73,[0,0,0,0,0])},
+  {id:512,name:"Oven Chips (1kg)",               cat:"🧊 Frozen",       icon:"🍟",prices:sp(2.00,[1.90,0,0.40,1.89,0.50])},
+  {id:513,name:"Frozen Roast Potatoes (700g)",   cat:"🧊 Frozen",       icon:"🥔",prices:sp(1.86,[1.54,1.49,1.79,0,0])},
+  {id:514,name:"Vegetarian Sausages (6pk)",      cat:"🧊 Frozen",       icon:"🌭",prices:sp(2.81,[0.09,0.50,0,0,0])},
+  {id:515,name:"GF Self-raising Flour (1kg)",  cat:"🌱 Free From",    icon:"🌾",prices:sp(2.34,[0,0.11,0.21,0,0])},
+  {id:516,name:"GF Gravy Granules (165g)",     cat:"🌱 Free From",    icon:"🍖",prices:sp(2.62,[0,0,0,0,0])},
   {id:492,name:"Aptamil 1 (800g)",               cat:"🍼 Baby & Child", icon:"🍼",prices:sp(14.89,[4.71,0,0,0,0])},
   {id:493,name:"Aptamil 2 (800g)",               cat:"🍼 Baby & Child", icon:"🍼",prices:sp(14.75,[0,0,0,0.91,0])},
   {id:494,name:"Aptamil 3 (800g)",               cat:"🍼 Baby & Child", icon:"🍼",prices:sp(13.89,[1.86,0,0,1.77,0])},
