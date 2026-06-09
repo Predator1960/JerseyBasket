@@ -66,23 +66,23 @@ const BASE_PRODUCTS = [
   {id:5,  name:"Almond Milk (1L)",             cat:"🥛 Dairy & Eggs", icon:"🥛", prices:sp(1.55,[0,0.2,0.7,0.5,0.1])},
   {id:6,  name:"Soya Milk (1L)",               cat:"🥛 Dairy & Eggs", icon:"🥛", prices:sp(1.45,[0,0.18,0.65,0.48,0.09])},
   {id:7,  name:"Coconut Milk Drink (1L)",      cat:"🥛 Dairy & Eggs", icon:"🥛", prices:sp(1.65,[0,0.22,0.72,0.52,0.11])},
-  {id:8,  name:"Free Range Eggs (6pk)",        cat:"🥛 Dairy & Eggs", icon:"🥚", prices:sp(1.85,[0,0.2,0.64,0.5,0.1])},
+  {id:8,  name:"Free Range Eggs (6pk)",        cat:"🥛 Dairy & Eggs", icon:"🥚", prices:sp(1.74,[0.16,0.26,0.06,0,0.71])},
   {id:9,  name:"Free Range Eggs (12pk)",       cat:"🥛 Dairy & Eggs", icon:"🥚", prices:sp(3.40,[0,0.3,1,0.8,0.15])},
-  {id:10, name:"Cheddar Mature (400g)",        cat:"🥛 Dairy & Eggs", icon:"🧀", prices:sp(2.80,[0.85,0.0,0.6,0.4,0.07])},
+  {id:10, name:"Cheddar Mature (400g)",        cat:"🥛 Dairy & Eggs", icon:"🧀", prices:sp(3.17,[0.53,0.13,0.23,0,0.88])},
   {id:11, name:"Cheddar Mild (400g)",          cat:"🥛 Dairy & Eggs", icon:"🧀", prices:sp(2.60,[0,0.14,0.55,0.38,0.07])},
   {id:12, name:"Mozzarella (125g)",            cat:"🥛 Dairy & Eggs", icon:"🧀", prices:sp(1.10,[0,0.15,0.45,0.35,0.07])},
   {id:13, name:"Brie (200g)",                  cat:"🥛 Dairy & Eggs", icon:"🧀", prices:sp(2.20,[0,0.2,0.8,0.6,0.1])},
   {id:14, name:"Parmesan (100g)",              cat:"🥛 Dairy & Eggs", icon:"🧀", prices:sp(2.50,[0,-0.40,0.95,0.75,0.12])},
   {id:15, name:"Feta Cheese (200g)",           cat:"🥛 Dairy & Eggs", icon:"🧀", prices:sp(2.00,[0,0.2,0.8,0.6,0.1])},
-  {id:16, name:"Butter Salted (250g)",         cat:"🥛 Dairy & Eggs", icon:"🧈", prices:sp(2.20,[0.15,0.15,0.6,0.45,0.07])},
+  {id:16, name:"Butter Salted (250g)",         cat:"🥛 Dairy & Eggs", icon:"🧈", prices:sp(1.05,[1.50,3.93,3.45,1.15,0])},
   {id:17, name:"Butter Unsalted (250g)",       cat:"🥛 Dairy & Eggs", icon:"🧈", prices:sp(2.25,[0.10,0.15,0.6,0.45,0.07])},
   {id:18, name:"Spreadable Butter (500g)",     cat:"🥛 Dairy & Eggs", icon:"🧈", prices:sp(3.10,[1.45,0.22,0.85,0.65,0.11])},
-  {id:19, name:"Greek Yoghurt (500g)",         cat:"🥛 Dairy & Eggs", icon:"🫙", prices:sp(1.95,[0,0.05,0.65,0.45,0.07])},
+  {id:19, name:"Greek Yoghurt (500g)",         cat:"🥛 Dairy & Eggs", icon:"🫙", prices:sp(1.25,[0.40,0.30,0.15,0.09,0])},
   {id:20, name:"Natural Yoghurt (500g)",       cat:"🥛 Dairy & Eggs", icon:"🫙", prices:sp(1.60,[0,0.15,0.55,0.4,0.07])},
   {id:21, name:"Fruit Yoghurts 4pk",           cat:"🥛 Dairy & Eggs", icon:"🫙", prices:sp(1.80,[0,0.18,0.7,0.52,0.09])},
   {id:22, name:"Sour Cream (300ml)",           cat:"🥛 Dairy & Eggs", icon:"🫙", prices:sp(1.40,[0,0.15,0.6,0.45,0.07])},
   {id:23, name:"Crème Fraîche (300ml)",        cat:"🥛 Dairy & Eggs", icon:"🫙", prices:sp(1.60,[0,0.18,0.65,0.5,0.09])},
-  {id:24, name:"Double Cream (300ml)",         cat:"🥛 Dairy & Eggs", icon:"🍦", prices:sp(1.60,[0.0,0.2,0.7,-0.09,0.1])},
+  {id:24, name:"Double Cream (300ml)",         cat:"🥛 Dairy & Eggs", icon:"🍦", prices:sp(4.00,[0.10,0.20,0,0,0])},
   {id:25, name:"Single Cream (300ml)",         cat:"🥛 Dairy & Eggs", icon:"🍦", prices:sp(1.45,[0,0.18,0.65,0.5,0.09])},
   {id:26, name:"Cottage Cheese (300g)",        cat:"🥛 Dairy & Eggs", icon:"🫙", prices:sp(1.50,[0,1.10,0.6,0.45,0.07])},
   {id:27, name:"Cream Cheese (200g)",          cat:"🥛 Dairy & Eggs", icon:"🧀", prices:sp(1.80,[0.85,0.18,0.7,0.52,0.09])},
@@ -504,7 +504,7 @@ const BASE_PRODUCTS = [
   {id:422,name:"Pedigree Dog Food (1.5kg)",cat:"🐾 Pet Care",icon:"🐕",prices:sp(4.5,[0.5,0.25,1.3,0.7,0.32])},
 
   /* ── NEW — verified Co-op Millennium Park receipt 28 May 2026 ─── */
-  {id:423,name:"Jersey Dairy Fresh Milk 1% (500ml)", cat:"🥔 Local Jersey", icon:"🥛",prices:sp(0.87,[0,-0.87,-0.87,-0.87,-0.87])},
+  {id:423,name:"Jersey Dairy Fresh Milk 1% (500ml)", cat:"🥔 Local Jersey", icon:"🥛",prices:sp(0.87,[0,0.01,0,0,0])},
   {id:430,name:"Jersey Dairy Fresh Milk 1% (1L)",    cat:"🥔 Local Jersey", icon:"🥛",prices:sp(1.65,[-1.65,-1.65,-1.65,0,-1.65])},
 
   /* ── NEW — verified Waitrose Red Houses receipt 31 May 2026 ─────────── */
@@ -541,7 +541,7 @@ const BASE_PRODUCTS = [
   {id:453,name:"McCain Southern Fries",              cat:"🧊 Frozen",       icon:"🍟",prices:sp(2.90,[-2.90,-2.90,-2.90,0,-2.90])},
 
   // ── Added 6 June 2026 from receipts ──
-  {id:454,name:"Jersey Full Fat Milk (1ltr)",         cat:"🥛 Dairy & Eggs", icon:"🥛",prices:sp(1.64,[0.0,0.0,0.01,0.01,0.0])},
+  {id:454,name:"Jersey Full Fat Milk (1ltr)",         cat:"🥛 Dairy & Eggs", icon:"🥛",prices:sp(1.64,[0,0,0.01,0.01,0])},
   {id:455,name:"Jersey Salted Butter (250g)",         cat:"🥛 Dairy & Eggs", icon:"🧈",prices:sp(1.90,[0,0,0,0,0])},
   {id:456,name:"Tortilla Wraps Large (8pk)",          cat:"🍞 Bread & Bakery",icon:"🌯",prices:sp(1.80,[0,0,0,0,0])},
   {id:457,name:"Large White Baps (4pk)",              cat:"🍞 Bread & Bakery",icon:"🍞",prices:sp(1.50,[0,0,0,0,0])},
@@ -578,7 +578,7 @@ const BASE_PRODUCTS = [
   {id:486,name:"Lil Con Carn Pouch",                  cat:"🍱 Cupboard",     icon:"🥫",prices:sp(2.50,[0,-2.50,-2.50,-2.50,-2.50])},
   // ── Added 9 June 2026 from JCC Essentials data ──
   {id:487,name:"Apples (4pk)",                      cat:"🥦 Fruit & Veg",  icon:"🍎",prices:sp(2.20,[0,1.00,0.20,-0.05,-0.60])},
-  {id:488,name:"Unsalted Butter (250g)",             cat:"🥛 Dairy & Eggs", icon:"🧈",prices:sp(2.35,[0,0,-0.05,0.23,0])},
+  {id:488,name:"Unsalted Butter (250g)",             cat:"🥛 Dairy & Eggs", icon:"🧈",prices:sp(2.35,[0,0,0.05,0.23,0])},
   {id:489,name:"White Bread (800g)",                 cat:"🍞 Bread & Bakery",icon:"🍞",prices:sp(0.80,[0.45,0,0.10,0.36,1.15])},
   {id:490,name:"Potatoes (1.5kg)",                   cat:"🥦 Fruit & Veg",  icon:"🥔",prices:sp(1.40,[0,1.20,0.25,0.69,1.10])},
   {id:491,name:"Toilet Rolls (4pk)",                 cat:"🧹 Household",    icon:"🧻",prices:sp(1.55,[0.94,0.45,1.45,0.54,0])},
@@ -587,6 +587,7 @@ const BASE_PRODUCTS = [
   {id:499,name:"Furniture Polish (300ml)",       cat:"🧹 Household",    icon:"🧹",prices:sp(1.80,[0.29,0.40,0,0,0])},
   {id:500,name:"Multi-purpose Spray (750ml)",    cat:"🧹 Household",    icon:"🧴",prices:sp(0.89,[0,1.86,1.51,0.11,0.36])},
   {id:501,name:"Pringles (165g)",               cat:"🥨 Snacks & Treats",icon:"🥨",prices:sp(1.80,[1.05,0.95,0,0,1.30])},
+  {id:502,name:"Flora Margarine (500g)",        cat:"🥛 Dairy & Eggs", icon:"🧈",prices:sp(2.20,[0.95,1.30,1.20,0,1.25])},
   {id:492,name:"Aptamil 1 (800g)",               cat:"🍼 Baby & Child", icon:"🍼",prices:sp(14.89,[4.71,0,0,0,0])},
   {id:493,name:"Aptamil 2 (800g)",               cat:"🍼 Baby & Child", icon:"🍼",prices:sp(14.75,[0,0,0,0.91,0])},
   {id:494,name:"Aptamil 3 (800g)",               cat:"🍼 Baby & Child", icon:"🍼",prices:sp(13.89,[1.86,0,0,1.77,0])},
