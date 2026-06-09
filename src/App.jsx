@@ -1858,6 +1858,11 @@ const AD_SLIDES = [
     statColor:"#93c5fd",
     accent:   "linear-gradient(90deg,transparent,#3b82f688,transparent)",
   },
+  {id:492,name:"Aptamil 1 (800g)",               cat:"🍼 Baby & Child", icon:"🍼",prices:sp(14.89,[4.71,0,0,0,0])},
+  {id:493,name:"Aptamil 2 (800g)",               cat:"🍼 Baby & Child", icon:"🍼",prices:sp(14.75,[0,0,0,0.91,0])},
+  {id:494,name:"Aptamil 3 (800g)",               cat:"🍼 Baby & Child", icon:"🍼",prices:sp(13.89,[1.86,0,0,1.77,0])},
+  {id:495,name:"Baby Shampoo (500ml)",            cat:"🍼 Baby & Child", icon:"🧴",prices:sp(1.59,[0.81,0,0,1.94,0])},
+  {id:496,name:"Antiseptic Cream (125g)",         cat:"💊 Health & Beauty",icon:"🧴",prices:sp(1.45,[0,3.70,0,4.18,3.50])},
 ];
 
 /* ═══════════════════════════════════════════════════════════════════════════
