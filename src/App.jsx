@@ -309,7 +309,7 @@ const BASE_PRODUCTS = [
   {id:238,name:"Dried Pasta Mixed 3kg",        cat:"🍝 Pantry",       icon:"🍝", prices:sp(4.50,[0,0.38,1.45,1.12,0.19])},
 
   /* ── SNACKS & TREATS ──────────────────────────────────────────── */
-  {id:239,name:"Crisps Multipack (6pk)",       cat:"🥨 Snacks & Treats",icon:"🥨",prices:sp(2.50,[0,0.25,0.95,0.75,0.12])},
+  {id:239,name:"Crisps Multipack (6pk)",       cat:"🥨 Snacks & Treats",icon:"🥨",prices:sp(1.00,[0.39,0,1.40,0.23,1.70])},
   {id:240,name:"Crisps Large Sharing Bag",     cat:"🥨 Snacks & Treats",icon:"🥨",prices:sp(2.20,[-0.9,0.22,0.85,0.65,0.11])},
   {id:241,name:"Tortilla Chips (200g)",        cat:"🥨 Snacks & Treats",icon:"🌮",prices:sp(1.80,[0,0.18,0.7,0.54,0.09])},
   {id:242,name:"Salsa Dip (300g)",             cat:"🥨 Snacks & Treats",icon:"🌮",prices:sp(1.60,[0,0.16,0.64,0.49,0.08])},
@@ -586,6 +586,7 @@ const BASE_PRODUCTS = [
   {id:498,name:"Cream Cleaner (500ml)",         cat:"🧹 Household",    icon:"🧴",prices:sp(1.65,[0,0.18,0,0.09,0.30])},
   {id:499,name:"Furniture Polish (300ml)",       cat:"🧹 Household",    icon:"🧹",prices:sp(1.80,[0.29,0.40,0,0,0])},
   {id:500,name:"Multi-purpose Spray (750ml)",    cat:"🧹 Household",    icon:"🧴",prices:sp(0.89,[0,1.86,1.51,0.11,0.36])},
+  {id:501,name:"Pringles (165g)",               cat:"🥨 Snacks & Treats",icon:"🥨",prices:sp(1.80,[1.05,0.95,0,0,1.30])},
   {id:492,name:"Aptamil 1 (800g)",               cat:"🍼 Baby & Child", icon:"🍼",prices:sp(14.89,[4.71,0,0,0,0])},
   {id:493,name:"Aptamil 2 (800g)",               cat:"🍼 Baby & Child", icon:"🍼",prices:sp(14.75,[0,0,0,0.91,0])},
   {id:494,name:"Aptamil 3 (800g)",               cat:"🍼 Baby & Child", icon:"🍼",prices:sp(13.89,[1.86,0,0,1.77,0])},
