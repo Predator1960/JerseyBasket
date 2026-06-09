@@ -90,7 +90,7 @@ const BASE_PRODUCTS = [
 
   /* ── BREAD & BAKERY ───────────────────────────────────────────── */
   {id:29, name:"White Sliced Bread 800g",      cat:"🍞 Bread & Bakery",icon:"🍞", prices:sp(1.25,[0.50,-0.51,0.55,0.4,0.05])},
-  {id:30, name:"Wholemeal Bread 800g",         cat:"🍞 Bread & Bakery",icon:"🥖", prices:sp(1.45,[0,0.1,0.55,0.4,0.05])},
+  {id:30, name:"Wholemeal Bread 800g",         cat:"🍞 Bread & Bakery",icon:"🥖", prices:sp(0.90,[0.35,0.35,0,0.84,1.05])},
   {id:31, name:"Seeded Batch Loaf",            cat:"🍞 Bread & Bakery",icon:"🥖", prices:sp(1.75,[-0.20,0.15,0.65,0.5,0.07])},
   {id:32, name:"Sourdough Loaf",               cat:"🍞 Bread & Bakery",icon:"🥖", prices:sp(2.50,[0,0.25,0.95,0.75,0.12])},
   {id:33, name:"Gluten Free White Bread",      cat:"🍞 Bread & Bakery",icon:"🍞", prices:sp(2.90,[0,0.28,1,0.8,0.14])},
@@ -98,13 +98,13 @@ const BASE_PRODUCTS = [
   {id:35, name:"Pain au Chocolat (4pk)",       cat:"🍞 Bread & Bakery",icon:"🥐", prices:sp(1.95,[0,0.2,0.8,0.6,0.1])},
   {id:36, name:"Bagels (5pk)",                 cat:"🍞 Bread & Bakery",icon:"🥯", prices:sp(1.50,[0,0.2,0.7,0.55,0.1])},
   {id:37, name:"Pitta Bread (6pk)",            cat:"🍞 Bread & Bakery",icon:"🫓", prices:sp(1.20,[0,-0.70,0.65,0.5,0.07])},
-  {id:38, name:"Wraps / Tortillas (8pk)",      cat:"🍞 Bread & Bakery",icon:"🫓", prices:sp(1.60,[0,-0.20,0.7,0.55,0.07])},
+  {id:38, name:"Wraps / Tortillas (8pk)",      cat:"🍞 Bread & Bakery",icon:"🫓", prices:sp(1.25,[0.55,0.44,0.55,1.07,0])},
   {id:39, name:"Naan Bread (4pk)",             cat:"🍞 Bread & Bakery",icon:"🫓", prices:sp(1.50,[0,0.19,0.65,0.5,0.07])},
   {id:40, name:"English Muffins (6pk)",        cat:"🍞 Bread & Bakery",icon:"🥯", prices:sp(1.40,[0,0.14,0.6,0.46,0.07])},
   {id:41, name:"Hot Dog Rolls (6pk)",          cat:"🍞 Bread & Bakery",icon:"🍞", prices:sp(1.20,[0,0.12,0.5,0.38,0.06])},
   {id:42, name:"Burger Buns (4pk)",            cat:"🍞 Bread & Bakery",icon:"🍞", prices:sp(1.25,[0,0.12,0.52,0.4,0.06])},
   {id:43, name:"Ciabatta Rolls (4pk)",         cat:"🍞 Bread & Bakery",icon:"🥖", prices:sp(1.80,[0,0.18,0.72,0.55,0.09])},
-  {id:44, name:"Crumpets (6pk)",               cat:"🍞 Bread & Bakery",icon:"🫓", prices:sp(1.10,[0.39,0.40,0.48,0.36,0.06])},
+  {id:44, name:"Crumpets (6pk)",               cat:"🍞 Bread & Bakery",icon:"🫓", prices:sp(0.80,[0,0.49,1.00,0.48,0.55])},
   {id:45, name:"Pancakes (6pk)",               cat:"🍞 Bread & Bakery",icon:"🥞", prices:sp(1.40,[0,0.14,0.58,0.44,0.07])},
   {id:46, name:"Waffles (6pk)",                cat:"🍞 Bread & Bakery",icon:"🧇", prices:sp(1.60,[0,0.16,0.62,0.47,0.08])},
   {id:47, name:"Scones (4pk)",                 cat:"🍞 Bread & Bakery",icon:"🥐", prices:sp(1.80,[0,0.18,0.7,0.54,0.09])},
@@ -579,7 +579,7 @@ const BASE_PRODUCTS = [
   // ── Added 9 June 2026 from JCC Essentials data ──
   {id:487,name:"Apples (4pk)",                      cat:"🥦 Fruit & Veg",  icon:"🍎",prices:sp(2.20,[0,1.00,0.20,-0.05,-0.60])},
   {id:488,name:"Unsalted Butter (250g)",             cat:"🥛 Dairy & Eggs", icon:"🧈",prices:sp(2.35,[0,0,-0.05,0.23,0])},
-  {id:489,name:"White Bread (800g)",                 cat:"🍞 Bread & Bakery",icon:"🍞",prices:sp(1.25,[0,-0.45,-0.35,-0.09,0.70])},
+  {id:489,name:"White Bread (800g)",                 cat:"🍞 Bread & Bakery",icon:"🍞",prices:sp(0.80,[0.45,0,0.10,0.36,1.15])},
   {id:490,name:"Potatoes (1.5kg)",                   cat:"🥦 Fruit & Veg",  icon:"🥔",prices:sp(1.40,[0,1.20,0.25,0.69,1.10])},
   {id:491,name:"Toilet Rolls (4pk)",                 cat:"🧹 Household",    icon:"🧻",prices:sp(1.55,[0.94,0.45,1.45,0.54,0])},
   {id:492,name:"Aptamil 1 (800g)",               cat:"🍼 Baby & Child", icon:"🍼",prices:sp(14.89,[4.71,0,0,0,0])},
