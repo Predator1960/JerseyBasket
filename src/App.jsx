@@ -175,7 +175,7 @@ const BASE_PRODUCTS = [
   {id:108,name:"Spring Onions (bunch)",        cat:"🥦 Fruit & Veg",  icon:"🧅", prices:sp(0.60,[0,0.07,0.28,0.2,0.04])},
   {id:109,name:"Red Onions (3pk)",             cat:"🥦 Fruit & Veg",  icon:"🧅", prices:sp(0.90,[0,0.09,0.35,0.26,0.04])},
   {id:110,name:"Garlic (3 bulbs)",             cat:"🥦 Fruit & Veg",  icon:"🧄", prices:sp(0.75,[0,0.1,0.35,0.25,0.05])},
-  {id:111,name:"Cherry Tomatoes (250g)",       cat:"🥦 Fruit & Veg",  icon:"🍅", prices:sp(1.20,[0,0.12,0.5,0.38,0.06])},
+  {id:111,name:"Cherry Tomatoes (250g)",       cat:"🥦 Fruit & Veg",  icon:"🍅", prices:sp(1.20,[0.4,0.05,0.0,1.2,0.05])},
   {id:112,name:"Vine Tomatoes (500g)",         cat:"🥦 Fruit & Veg",  icon:"🍅", prices:sp(1.30,[0,0.12,0.5,0.38,0.06])},
   {id:113,name:"Cucumber (each)",              cat:"🥦 Fruit & Veg",  icon:"🥒", prices:sp(0.65,[0,0.08,0.3,0.22,0.04])},
   {id:114,name:"Courgette (2pk)",              cat:"🥦 Fruit & Veg",  icon:"🥒", prices:sp(0.90,[0,0.1,0.4,0.3,0.05])},
@@ -230,7 +230,7 @@ const BASE_PRODUCTS = [
   {id:161,name:"Filter Coffee (227g)",         cat:"🥤 Drinks",       icon:"☕", prices:sp(3.20,[0,0.2,1,0.75,0.1])},
   {id:162,name:"Instant Coffee (100g)",        cat:"🥤 Drinks",       icon:"☕", prices:sp(3.50,[0,0.3,1.2,0.95,0.15])},
   {id:163,name:"Coffee Pods (16pk)",           cat:"🥤 Drinks",       icon:"☕", prices:sp(4.50,[0,0.4,1.45,1.12,0.2])},
-  {id:164,name:"Tea Bags (80pk)",              cat:"🥤 Drinks",       icon:"🫖", prices:sp(2.50,[0,0.2,0.85,0.65,0.1])},
+  {id:164,name:"Tea Bags (80pk)",              cat:"🥤 Drinks",       icon:"🫖", prices:sp(2.50,[-0.7,-1.25,-0.9,-0.94,-0.7])},
   {id:165,name:"Tea Bags (160pk)",             cat:"🥤 Drinks",       icon:"🫖", prices:sp(4.50,[0,0.38,1.45,1.12,0.19])},
   {id:166,name:"Green Tea Bags (40pk)",        cat:"🥤 Drinks",       icon:"🍵", prices:sp(2.20,[0,0.22,0.85,0.65,0.11])},
   {id:167,name:"Herbal Tea Variety (20pk)",    cat:"🥤 Drinks",       icon:"🍵", prices:sp(2.00,[0,0.2,0.8,0.6,0.1])},
@@ -248,7 +248,7 @@ const BASE_PRODUCTS = [
   {id:179,name:"Squash (1L)",                  cat:"🥤 Drinks",       icon:"🥤", prices:sp(1.50,[0.6,0.15,0.6,0.46,0.07])},
 
   /* ── PANTRY ───────────────────────────────────────────────────── */
-  {id:180,name:"Pasta Penne (500g)",           cat:"🍝 Pantry",       icon:"🍝", prices:sp(0.89,[0.06,0.06,0.41,0.26,0.03])},
+  {id:180,name:"Pasta Penne (500g)",           cat:"🍝 Pantry",       icon:"🍝", prices:sp(0.89,[0.06,-0.24,0.01,0.03,0.71])},
   {id:181,name:"Spaghetti (500g)",             cat:"🍝 Pantry",       icon:"🍝", prices:sp(0.89,[0.06,0.06,0.41,0.26,0.03])},
   {id:182,name:"Fusilli (500g)",               cat:"🍝 Pantry",       icon:"🍝", prices:sp(0.89,[0.06,0.06,0.41,0.26,0.03])},
   {id:183,name:"Tagliatelle (500g)",           cat:"🍝 Pantry",       icon:"🍝", prices:sp(0.95,[0.0,0.08,0.42,0.28,0.04])},
@@ -267,7 +267,7 @@ const BASE_PRODUCTS = [
   {id:196,name:"Basmati Rice (1kg)",           cat:"🍝 Pantry",       icon:"🍚", prices:sp(1.80,[0.0,0.15,0.7,0.5,0.07])},
   {id:197,name:"Long Grain Rice (1kg)",        cat:"🍝 Pantry",       icon:"🍚", prices:sp(1.60,[0,0.14,0.65,0.48,0.07])},
   {id:198,name:"Microwave Rice (3pk)",         cat:"🍝 Pantry",       icon:"🍚", prices:sp(2.40,[0,0.22,0.88,0.68,0.11])},
-  {id:199,name:"Porridge Oats (500g)",         cat:"🍝 Pantry",       icon:"🌾", prices:sp(1.30,[-0.5,0.12,0.5,0.38,0.06])},
+  {id:199,name:"Porridge Oats (500g)",         cat:"🍝 Pantry",       icon:"🌾", prices:sp(1.30,[-0.45,-0.8,-0.47,-0.58,0.5])},
   {id:200,name:"Porridge Oats (1kg)",          cat:"🍝 Pantry",       icon:"🌾", prices:sp(2.20,[0,0.2,0.85,0.65,0.1])},
   {id:201,name:"Cornflakes (500g)",            cat:"🍝 Pantry",       icon:"🌽", prices:sp(1.60,[0,0.15,0.6,0.45,0.07])},
   {id:202,name:"Weetabix (24pk)",              cat:"🍝 Pantry",       icon:"🌾", prices:sp(2.80,[0,0.25,0.98,0.76,0.12])},
@@ -451,7 +451,7 @@ const BASE_PRODUCTS = [
   {id:369,name:"Jersey Wonders (6pk)",         cat:"🥔 Local Jersey", icon:"🍩",prices:sp(2.00,[0,0.2,0.6,0.45,0.1])},
   {id:370,name:"Local Honey (250g)",           cat:"🥔 Local Jersey", icon:"🍯",prices:sp(5.50,[0,0.5,1.5,1.2,0.25])},
   {id:371,name:"Jersey Elderflower Cordial",   cat:"🥔 Local Jersey", icon:"🌸",prices:sp(4.80,[0,0.44,1.3,1,0.22])},
-  {id:372,name:"Local Free Range Eggs (6pk)",  cat:"🥔 Local Jersey", icon:"🥚",prices:sp(2.20,[0,0.2,0.65,0.5,0.1])},
+  {id:372,name:"Local Free Range Eggs (6pk)",  cat:"🥔 Local Jersey", icon:"🥚",prices:sp(2.20,[-0.3,-0.2,-0.4,-0.46,0.25])},
   {id:373,name:"Jersey Woollen Jumper",        cat:"🥔 Local Jersey", icon:"🧶",prices:sp(45.0,[0,4,12,10,2])},
   {id:374,name:"Halloumi (225g)",cat:"🥛 Dairy & Eggs",icon:"🧀",prices:sp(2.5,[0.35,-0.11,1.0,0.7,0.18])},
   {id:375,name:"Clotted Cream (113g)",cat:"🥛 Dairy & Eggs",icon:"🍦",prices:sp(2.0,[0.35,0.4,1.0,0.8,0.14])},
@@ -541,7 +541,7 @@ const BASE_PRODUCTS = [
   {id:453,name:"McCain Southern Fries",              cat:"🧊 Frozen",       icon:"🍟",prices:sp(2.90,[-2.90,-2.90,-2.90,0,-2.90])},
 
   // ── Added 6 June 2026 from receipts ──
-  {id:454,name:"Jersey Full Fat Milk (1ltr)",         cat:"🥛 Dairy & Eggs", icon:"🥛",prices:sp(1.64,[0,0,0,0,0])},
+  {id:454,name:"Jersey Full Fat Milk (1ltr)",         cat:"🥛 Dairy & Eggs", icon:"🥛",prices:sp(1.64,[0.0,0.0,0.01,0.01,0.0])},
   {id:455,name:"Jersey Salted Butter (250g)",         cat:"🥛 Dairy & Eggs", icon:"🧈",prices:sp(1.90,[0,0,0,0,0])},
   {id:456,name:"Tortilla Wraps Large (8pk)",          cat:"🍞 Bread & Bakery",icon:"🌯",prices:sp(1.80,[0,0,0,0,0])},
   {id:457,name:"Large White Baps (4pk)",              cat:"🍞 Bread & Bakery",icon:"🍞",prices:sp(1.50,[0,0,0,0,0])},
@@ -551,7 +551,7 @@ const BASE_PRODUCTS = [
   {id:461,name:"Monster Energy Original (500ml)",     cat:"🥤 Drinks",       icon:"🟢",prices:sp(2.10,[0,0,0,0,0])},
   {id:462,name:"Chicken Dippers (20pk)",              cat:"🥩 Meat & Fish",  icon:"🍗",prices:sp(3.40,[0,0,0,0,0])},
   {id:463,name:"Garlic Chicken Kiev (2pk)",           cat:"🥩 Meat & Fish",  icon:"🍗",prices:sp(3.60,[0,0,0,0,0])},
-  {id:464,name:"Beef Mince 20% Fat (500g)",           cat:"🥩 Meat & Fish",  icon:"🥩",prices:sp(4.35,[-4.35,-4.35,-4.35,0,-4.35])},
+  {id:464,name:"Beef Mince 20% Fat (500g)",           cat:"🥩 Meat & Fish",  icon:"🥩",prices:sp(4.35,[0.95,-0.35,0.9,0.58,0.95])},
   {id:465,name:"Parmentier Potatoes (400g)",          cat:"🧊 Frozen",       icon:"🥔",prices:sp(2.79,[-2.79,-2.79,-2.79,0,-2.79])},
   {id:466,name:"Jacobs Cream Crackers (200g)",        cat:"🍪 Snacks",       icon:"🍘",prices:sp(1.55,[-1.55,-1.55,-1.55,0,-1.55])},
   {id:467,name:"Jam Doughnuts (5pk)",                 cat:"🍞 Bread & Bakery",icon:"🍩",prices:sp(1.57,[-1.57,-1.57,-1.57,0,-1.57])},
@@ -576,6 +576,12 @@ const BASE_PRODUCTS = [
   {id:484,name:"Organic Clouds Multipack",            cat:"🍪 Snacks",       icon:"☁️",prices:sp(4.00,[0,-4.00,-4.00,-4.00,-4.00])},
   {id:485,name:"Jason Jungle Z (4x200ml)",            cat:"🥤 Drinks",       icon:"🧃",prices:sp(2.10,[0,-2.10,-2.10,-2.10,-2.10])},
   {id:486,name:"Lil Con Carn Pouch",                  cat:"🍱 Cupboard",     icon:"🥫",prices:sp(2.50,[0,-2.50,-2.50,-2.50,-2.50])},
+  // ── Added 9 June 2026 from JCC Essentials data ──
+  {id:487,name:"Apples (4pk)",                      cat:"🥦 Fruit & Veg",  icon:"🍎",prices:sp(2.20,[0,1.00,0.20,-0.05,-0.60])},
+  {id:488,name:"Unsalted Butter (250g)",             cat:"🥛 Dairy & Eggs", icon:"🧈",prices:sp(2.35,[0,0,-0.05,0.23,0])},
+  {id:489,name:"White Bread (800g)",                 cat:"🍞 Bread & Bakery",icon:"🍞",prices:sp(1.25,[0,-0.45,-0.35,-0.09,0.70])},
+  {id:490,name:"Potatoes (1.5kg)",                   cat:"🥦 Fruit & Veg",  icon:"🥔",prices:sp(1.40,[0,1.20,0.25,0.69,1.10])},
+  {id:491,name:"Toilet Rolls (4pk)",                 cat:"🧹 Household",    icon:"🧻",prices:sp(1.55,[0.94,0.45,1.45,0.54,0])},
 ];
 
 /* ═══════════════════════════════════════════════════════════════════════════
