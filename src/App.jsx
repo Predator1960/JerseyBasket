@@ -524,6 +524,7 @@ const BASE_PRODUCTS = [
   {id:440,name:"Waitrose Essential Mature Cheddar",  cat:"🥛 Dairy & Eggs", icon:"🧀",prices:sp(5.75,[-5.75,-5.75,-5.75,0,-5.75])},
   {id:441,name:"Walkers Cheese & Onion Crisps",      cat:"🥨 Snacks & Treats",       icon:"🥔",prices:sp(2.40,[-2.40,-2.40,-2.40,0,-2.40])},
   {id:442,name:"Walkers Ready Salted Crisps",        cat:"🥨 Snacks & Treats",       icon:"🥔",prices:sp(2.40,[-2.40,-2.40,-2.40,0,-2.40])},
+  {id:524,name:"Walkers Max Crisps",                 cat:"🥨 Snacks & Treats",       icon:"🥔",prices:sp(1.53,[0,0,0,0,0])},
   {id:443,name:"Alpro Mango Protein Yogurt",         cat:"🥛 Dairy & Eggs", icon:"🥭",prices:sp(1.86,[-1.86,-1.86,-1.86,0,-1.86])},
   {id:444,name:"Muller Corner Fruit Yogurt",         cat:"🥛 Dairy & Eggs", icon:"🍓",prices:sp(3.68,[-3.68,-3.68,-3.68,0,-3.68])},
   {id:445,name:"Waitrose Essential Mineral Water",   cat:"🥤 Drinks",       icon:"💧",prices:sp(1.69,[-1.69,-1.69,-1.69,0,-1.69])},
@@ -599,11 +600,14 @@ const BASE_PRODUCTS = [
   {id:507,name:"Fruit Shoot Blackcurrant (6pk)",cat:"🥤 Drinks",       icon:"🥤",prices:sp(3.83,[0,0,0,0,0])},
   {id:508,name:"Rolo Creme Dessert (4pk)",      cat:"🥨 Snacks & Treats",icon:"🍮",prices:sp(1.16,[0,0,0,0,0])},
   {id:509,name:"Cathedral City Grated Cheddar", cat:"🥛 Dairy & Eggs", icon:"🧀",prices:sp(2.30,[0,0,0,0,0])},
+  {id:525,name:"Babybel Mini Original (6pk)",   cat:"🥛 Dairy & Eggs", icon:"🧀",prices:sp(2.99,[0,0,0,0,0])},
   {id:510,name:"Albert Bartlett Bake Pot (4pk)",cat:"🥦 Fruit & Veg",  icon:"🥔",prices:sp(2.96,[0,0,0,0,0])},
   {id:511,name:"Lucozade Energy Orange (500ml)", cat:"🥤 Drinks",       icon:"⚡",prices:sp(2.73,[0,0,0,0,0])},
+  {id:523,name:"Capri-Sun Juice Drink (10pk)",  cat:"🥤 Drinks",       icon:"🧃",prices:sp(1.50,[0,0,0,0,0])},
   {id:512,name:"Oven Chips (1kg)",               cat:"🧊 Frozen",       icon:"🍟",prices:sp(2.00,[1.90,0,0.40,1.89,0.50])},
   {id:513,name:"Frozen Roast Potatoes (700g)",   cat:"🧊 Frozen",       icon:"🥔",prices:sp(1.86,[1.54,1.49,1.79,0,0])},
   {id:514,name:"Vegetarian Sausages (6pk)",      cat:"🧊 Frozen",       icon:"🌭",prices:sp(2.81,[0.09,0.50,0,0,0])},
+  {id:526,name:"Itsu Chicken Gyoza (210g)",      cat:"🧊 Frozen",       icon:"🥟",prices:sp(4.12,[0,0,0,0,0])},
   {id:515,name:"GF Self-raising Flour (1kg)",  cat:"🌱 Free From",    icon:"🌾",prices:sp(2.34,[0,0.11,0.21,0,0])},
   {id:516,name:"GF Gravy Granules (165g)",     cat:"🌱 Free From",    icon:"🍖",prices:sp(2.62,[0,0,0,0,0])},
   {id:517,name:"Heinz Tomato Ketchup (500ml)",cat:"🍝 Pantry",       icon:"🍅",prices:sp(2.50,[0.65,1.23,1.75,0.40,0])},
@@ -878,7 +882,7 @@ const COMP_WINNER = ""; // e.g. "Sarah M" — leave blank while competition is l
 const MAINTENANCE = false;
 const LEADERBOARD = [
   // ── TOP 5 — update these entries with real submissions ──────────────────
-  { name: "Leticia",    store: "Waitrose",  count: 41, date: "10 Jun" },
+  { name: "Leticia",    store: "Waitrose",  count: 14, date: "10 Jun" },
   { name: "Carmen1971", store: "CI Co-op",  count: 14, date: "06 Jun" },
   { name: "Sharon",     store: "Morrisons", count: 9,  date: "07 Jun" },
   { name: "Kate",       store: "Waitrose",  count: 4,  date: "08 Jun" },
