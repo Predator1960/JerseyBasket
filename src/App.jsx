@@ -1041,11 +1041,11 @@ export default function JerseyGroceryApp() {
   if (MAINTENANCE) return (
     <div style={{ minHeight:"100vh", background:"linear-gradient(160deg,#050d1a 0%,#0b1c35 55%,#061220 100%)", fontFamily:"'Georgia',serif", color:"#f0f4f8", display:"flex", alignItems:"center", justifyContent:"center", padding:24 }}>
       <div style={{ textAlign:"center", maxWidth:400 }}>
-        <div style={{ fontSize:64, marginBottom:20 }}>🛠️</div>
-        <div style={{ fontSize:24, fontWeight:700, color:"#22c55e", marginBottom:10 }}>Back Shortly!</div>
+        <div style={{ fontSize:64, marginBottom:20 }}>🛒</div>
+        <div style={{ fontSize:24, fontWeight:700, color:"#22c55e", marginBottom:10 }}>Store Closed For Restocking</div>
         <div style={{ fontSize:15, color:"#94a3b8", lineHeight:1.7, marginBottom:24 }}>
-          JerseyBasket is currently being updated with new prices and features.
-          <br/>We'll be back in just a few minutes. 🇯🇪
+          We're busy updating our shelves with fresh prices!
+          <br/>Come back in 15 minutes. 🇯🇪
         </div>
         <div style={{ fontSize:12, color:"#475569" }}>
           Questions? Email <a href="mailto:hello@jerseybasket.je" style={{ color:"#22c55e" }}>hello@jerseybasket.je</a>
