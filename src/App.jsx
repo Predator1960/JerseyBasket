@@ -879,7 +879,7 @@ const COMP_ACTIVE = true;
 const COMP_WINNER = ""; // e.g. "Sarah M" — leave blank while competition is live
 
 /* ─── MAINTENANCE MODE — set to true to show "back shortly" screen ─── */
-const MAINTENANCE = true;
+const MAINTENANCE = false;
 const LEADERBOARD = [
   // ── TOP 5 — update these entries with real submissions ──────────────────
   { name: "Leticia",    store: "Waitrose",  count: 14, date: "10 Jun" },
