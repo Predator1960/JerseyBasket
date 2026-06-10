@@ -1245,7 +1245,7 @@ export default function JerseyGroceryApp() {
                   <span style={{ fontSize:26 }}>🏆</span>
                   <div>
                     <div style={{ fontSize:13,fontWeight:800,color:"#fff",textShadow:"0 1px 4px rgba(0,0,0,.4)",letterSpacing:".01em" }}>🎯 June Price Hunt Competition!</div>
-                    <div style={{ fontSize:11,color:"rgba(255,255,255,.9)",marginTop:2,fontWeight:500 }}>Submit prices · Win a £10 gift voucher · Tap to see leaderboard</div>
+                    <div style={{ fontSize:11,color:"rgba(255,255,255,.9)",marginTop:2,fontWeight:500 }}>Submit prices · Win up to £15 in gift vouchers · Tap to see leaderboard</div>
                   </div>
                 </div>
                 <button onClick={e=>{e.stopPropagation();setShowSubmitPrice(true);}} style={{ background:"linear-gradient(180deg,#fbbf24 0%,#f59e0b 100%)",border:"none",borderRadius:9,padding:"9px 14px",color:"#1a0a00",fontSize:11,fontWeight:800,cursor:"pointer",whiteSpace:"nowrap",flexShrink:0,boxShadow:"0 3px 10px rgba(245,158,11,.7),inset 0 1px 0 rgba(255,255,255,.4)",position:"relative",overflow:"hidden" }}>
@@ -2071,8 +2071,8 @@ function WelcomeModal({ onDismiss, onSubmitPrice }) {
     {
       emoji: "🏆",
       title: "June Price Hunt!",
-      subtitle: "Win a £10 gift voucher",
-      body: "Help us verify prices across Jersey's 5 supermarkets — and win! Submit prices from your shopping receipts throughout June. The shopper who submits the most verified prices wins a £10 gift voucher. 🇯🇪",
+      subtitle: "Win up to £15 in gift vouchers",
+      body: "Help us verify prices across Jersey's 5 supermarkets — and win! Submit prices from your shopping receipts throughout June. The shopper who submits the most verified prices wins a £15 gift voucher. 2nd place wins £10, 3rd place wins £5. 🇯🇪",
       bg: "linear-gradient(135deg,#1a0a00 0%,#7c2d12 60%,#c2410c 100%)",
       accent: "#fb923c",
       competition: true,
@@ -2151,7 +2151,7 @@ function WelcomeModal({ onDismiss, onSubmitPrice }) {
                 </div>
               )}
               <div style={{ fontSize:10,color:"rgba(255,255,255,.35)",textAlign:"center",marginTop:10,lineHeight:1.6 }}>
-                Submit prices via receipt photo · 1–30 June midnight · Winner announced 1st July 12:00pm · £10 gift voucher
+                Submit prices via receipt photo · 1–30 June midnight · Winner announced 1st July 12:00pm · 🥇£15 🥈£10 🥉£5 gift vouchers
               </div>
             </div>
           )}
@@ -2669,7 +2669,7 @@ function CompetitionModal({ onClose, onSubmit }) {
             ["📤","Submit it via the form below","Include your name and which store"],
             ["✅","We manually check every receipt","Store name, date & prices must be clearly visible — duplicates rejected"],
             ["🏆","Top 5 shown on the leaderboard","Updated weekly throughout June"],
-            ["🎁","Win a £10 gift voucher","Announced 1st July 2026 at 12:00pm"],
+            ["🎁","Win up to £15 in gift vouchers","🥇£15 · 🥈£10 · 🥉£5 — Announced 1st July 2026 at 12:00pm"],
           ].map(([icon,title,sub],i)=>(
             <div key={i} style={{ display:"flex",gap:12,marginBottom:i<4?10:0 }}>
               <span style={{ fontSize:18,flexShrink:0 }}>{icon}</span>
@@ -2694,7 +2694,7 @@ function CompetitionModal({ onClose, onSubmit }) {
           • Competition closes 30th June 2026 at midnight<br/>
           • Winner announced 1st July 2026 at 12:00pm<br/>
           • Winner contacted via the email or phone provided<br/>
-          • £10 prize — store of winner's choice<br/>
+          • £15 prize 1st place, £10 prize 2nd place, £5 prize 3rd place — store of winner's choice<br/>
           • JerseyBasket decision is final
         </div>
 
