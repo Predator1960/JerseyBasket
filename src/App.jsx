@@ -878,8 +878,8 @@ const COMP_WINNER = ""; // e.g. "Sarah M" — leave blank while competition is l
 const MAINTENANCE = false;
 const LEADERBOARD = [
   // ── TOP 5 — update these entries with real submissions ──────────────────
+  { name: "Leticia",    store: "Waitrose",  count: 41, date: "10 Jun" },
   { name: "Carmen1971", store: "CI Co-op",  count: 14, date: "06 Jun" },
-  { name: "Leticia",    store: "CI Co-op",  count: 10, date: "08 Jun" },
   { name: "Sharon",     store: "Morrisons", count: 9,  date: "07 Jun" },
   { name: "Kate",       store: "Waitrose",  count: 4,  date: "08 Jun" },
   // { name: "Claire B", count: 15 },
