@@ -66,7 +66,7 @@ const BASE_PRODUCTS = [
   {id:5,  name:"Almond Milk (1L)",             cat:"🥛 Dairy & Eggs", icon:"🥛", prices:sp(1.73,[0.97,1.22,0.94,0,1.07])},
   {id:6,  name:"Soya Milk (1L)",               cat:"🥛 Dairy & Eggs", icon:"🥛", prices:sp(1.45,[0,0.18,0.65,0.48,0.09])},
   {id:7,  name:"Coconut Milk Drink (1L)",      cat:"🥛 Dairy & Eggs", icon:"🥛", prices:sp(1.65,[0,0.22,0.72,0.52,0.11])},
-  {id:8,  name:"Free Range Eggs (6pk)",        cat:"🥛 Dairy & Eggs", icon:"🥚", prices:sp(1.74,[0.16,0.26,0.06,0,0.71])},
+  {id:8,  name:"Free Range Eggs (6pk)",        cat:"🥛 Dairy & Eggs", icon:"🥚", prices:sp(1.74,[0.16,0.26,0.06,-0.23,0.71])},
   {id:9,  name:"Free Range Eggs (12pk)",       cat:"🥛 Dairy & Eggs", icon:"🥚", prices:sp(3.40,[0,0.3,1,0.8,0.15])},
   {id:10, name:"Cheddar Mature (400g)",        cat:"🥛 Dairy & Eggs", icon:"🧀", prices:sp(3.17,[0.53,0.13,0.23,0,0.88])},
   {id:11, name:"Cheddar Mild (400g)",          cat:"🥛 Dairy & Eggs", icon:"🧀", prices:sp(2.60,[0,0.14,0.55,0.38,0.07])},
@@ -104,13 +104,13 @@ const BASE_PRODUCTS = [
   {id:41, name:"Hot Dog Rolls (6pk)",          cat:"🍞 Bread & Bakery",icon:"🍞", prices:sp(1.20,[0,0.12,0.5,0.38,0.06])},
   {id:42, name:"Burger Buns (4pk)",            cat:"🍞 Bread & Bakery",icon:"🍞", prices:sp(1.25,[0,0.12,0.52,0.4,0.06])},
   {id:43, name:"Ciabatta Rolls (4pk)",         cat:"🍞 Bread & Bakery",icon:"🥖", prices:sp(1.80,[0,0.18,0.72,0.55,0.09])},
-  {id:44, name:"Crumpets (6pk)",               cat:"🍞 Bread & Bakery",icon:"🫓", prices:sp(0.80,[0,0.49,1.00,0.48,0.55])},
+  {id:44, name:"Crumpets (6pk)",               cat:"🍞 Bread & Bakery",icon:"🫓", prices:sp(0.61,[0.19,0.68,1.39,0,0.74])},
   {id:45, name:"Pancakes (6pk)",               cat:"🍞 Bread & Bakery",icon:"🥞", prices:sp(1.40,[0,0.14,0.58,0.44,0.07])},
   {id:46, name:"Waffles (6pk)",                cat:"🍞 Bread & Bakery",icon:"🧇", prices:sp(1.60,[0,0.16,0.62,0.47,0.08])},
   {id:47, name:"Scones (4pk)",                 cat:"🍞 Bread & Bakery",icon:"🥐", prices:sp(1.80,[0,0.18,0.7,0.54,0.09])},
 
   /* ── MEAT & FISH ──────────────────────────────────────────────── */
-  {id:48, name:"Chicken Breast (500g)",        cat:"🥩 Meat & Fish",   icon:"🍗", prices:sp(3.80,[0.0,0.15,1.0,1.71,0.07])},
+  {id:48, name:"Chicken Breast (500g)",        cat:"🥩 Meat & Fish",   icon:"🍗", prices:sp(3.13,[0.67,0.82,1.57,0,0.74])},
   {id:49, name:"Chicken Thighs (1kg)",         cat:"🥩 Meat & Fish",   icon:"🍗", prices:sp(3.20,[0,0.2,0.9,0.65,0.1])},
   {id:50, name:"Chicken Drumsticks (1kg)",     cat:"🥩 Meat & Fish",   icon:"🍗", prices:sp(2.80,[0,1.18,0.8,0.58,0.09])},
   {id:51, name:"Whole Chicken (~1.4kg)",       cat:"🥩 Meat & Fish",   icon:"🍗", prices:sp(4.95,[1.15,0.85,5.02,2.30,0])},
@@ -157,7 +157,7 @@ const BASE_PRODUCTS = [
   {id:89, name:"Blueberries (150g)",           cat:"🥦 Fruit & Veg",  icon:"🫐", prices:sp(2.20,[0,0.2,0.85,0.65,0.1])},
   {id:90, name:"Grapes White (500g)",          cat:"🥦 Fruit & Veg",  icon:"🍇", prices:sp(2.20,[0,0.2,0.8,0.65,0.1])},
   {id:91, name:"Grapes Red (500g)",            cat:"🥦 Fruit & Veg",  icon:"🍇", prices:sp(2.20,[0,0.2,0.8,0.65,0.1])},
-  {id:92, name:"Avocados (2pk)",               cat:"🥦 Fruit & Veg",  icon:"🥑", prices:sp(1.80,[0,0.2,0.8,0.6,0.1])},
+  {id:92, name:"Avocados (2pk)",               cat:"🥦 Fruit & Veg",  icon:"🥑", prices:sp(1.80,[0,0.2,0.8,0.41,0.1])},
   {id:93, name:"Melon Cantaloupe (half)",      cat:"🥦 Fruit & Veg",  icon:"🍈", prices:sp(1.40,[0,0.15,0.55,0.42,0.07])},
   {id:94, name:"Mango (each)",                 cat:"🥦 Fruit & Veg",  icon:"🥭", prices:sp(0.85,[0,0.1,0.38,0.28,0.05])},
   {id:95, name:"Pineapple (each)",             cat:"🥦 Fruit & Veg",  icon:"🍍", prices:sp(1.20,[0,0.12,0.5,0.38,0.06])},
@@ -176,7 +176,7 @@ const BASE_PRODUCTS = [
   {id:108,name:"Spring Onions (bunch)",        cat:"🥦 Fruit & Veg",  icon:"🧅", prices:sp(0.60,[0,0.07,0.28,0.2,0.04])},
   {id:109,name:"Red Onions (3pk)",             cat:"🥦 Fruit & Veg",  icon:"🧅", prices:sp(0.90,[0,0.09,0.35,0.26,0.04])},
   {id:110,name:"Garlic (bulb)",                cat:"🥦 Fruit & Veg",  icon:"🧄", prices:sp(0.60,[0.05,0,0,0.04,0])},
-  {id:111,name:"Cherry Tomatoes (250g)",       cat:"🥦 Fruit & Veg",  icon:"🍅", prices:sp(1.20,[0.4,0.05,0.0,1.2,0.05])},
+  {id:111,name:"Cherry Tomatoes (250g)",       cat:"🥦 Fruit & Veg",  icon:"🍅", prices:sp(1.20,[0.4,0.05,0.0,0.05,0.05])},
   {id:112,name:"Tomatoes (6pk)",               cat:"🥦 Fruit & Veg",  icon:"🍅", prices:sp(1.20,[0.40,0.05,0,1.20,0.05])},
   {id:113,name:"Cucumber (each)",              cat:"🥦 Fruit & Veg",  icon:"🥒", prices:sp(1.00,[0.50,0.20,0,0,0.25])},
   {id:114,name:"Courgette (2pk)",              cat:"🥦 Fruit & Veg",  icon:"🥒", prices:sp(0.90,[0,0.1,0.4,0.3,0.05])},
@@ -186,6 +186,8 @@ const BASE_PRODUCTS = [
   {id:118,name:"Mushrooms (250g)",             cat:"🥦 Fruit & Veg",  icon:"🍄", prices:sp(1.10,[0,0.1,0.45,0.35,0.05])},
   {id:119,name:"Celery (head)",                cat:"🥦 Fruit & Veg",  icon:"🥬", prices:sp(0.90,[0,0.1,0.38,0.28,0.05])},
   {id:120,name:"Lettuce Iceberg (each)",       cat:"🥦 Fruit & Veg",  icon:"🥗", prices:sp(1.10,[0,0.15,0,0.06,0.15])},
+  {id:549,name:"Sweet Cos Lettuce (2pk)",      cat:"🥦 Fruit & Veg",  icon:"🥬", prices:sp(1.10,[-1.10,-1.10,-1.10,0,-1.10])},
+  {id:550,name:"Onion Bhaji (4pk)",            cat:"🥩 Meat & Fish",  icon:"🧅", prices:sp(1.05,[-1.05,-1.05,-1.05,0,-1.05])},
   {id:121,name:"Asparagus (200g)",             cat:"🥦 Fruit & Veg",  icon:"🥦", prices:sp(2.00,[0,0.2,0.8,0.6,0.1])},
   {id:122,name:"Sweetcorn (2pk)",              cat:"🥦 Fruit & Veg",  icon:"🌽", prices:sp(0.90,[0,0.09,0.36,0.26,0.04])},
   {id:123,name:"Leek (each)",                  cat:"🥦 Fruit & Veg",  icon:"🥬", prices:sp(0.55,[0,0.06,0.24,0.18,0.03])},
@@ -219,6 +221,10 @@ const BASE_PRODUCTS = [
   /* ── DRINKS ───────────────────────────────────────────────────── */
   {id:148,name:"Orange Juice (1L)",            cat:"🥤 Drinks",       icon:"🍊", prices:sp(1.65,[0,0.1,0.5,0.35,0.05])},
   {id:149,name:"Apple Juice (1L)",             cat:"🥤 Drinks",       icon:"🍏", prices:sp(1.55,[0,0.1,0.5,0.64,0.05])},
+  {id:544,name:"Apple Elderflower Cordial",    cat:"🥤 Drinks",       icon:"🌸", prices:sp(2.19,[-2.19,-2.19,-2.19,0,-2.19])},
+  {id:545,name:"Orange & Mango Juice (1L)",    cat:"🥤 Drinks",       icon:"🥭", prices:sp(2.19,[-2.19,-2.19,-2.19,0,-2.19])},
+  {id:546,name:"Innocent Energise Smoothie",   cat:"🥤 Drinks",       icon:"🥤", prices:sp(4.72,[-4.72,-4.72,-4.72,0,-4.72])},
+  {id:547,name:"Actimel Blueberry (8pk)",      cat:"🥤 Drinks",       icon:"🫐", prices:sp(2.90,[-2.90,-2.90,-2.90,0,-2.90])},
   {id:150,name:"Cranberry Juice (1L)",         cat:"🥤 Drinks",       icon:"🍷", prices:sp(1.80,[0,0.18,0.7,0.54,0.09])},
   {id:151,name:"Pineapple Juice (1L)",         cat:"🥤 Drinks",       icon:"🍍", prices:sp(1.65,[0,0.16,0.65,0.5,0.08])},
   {id:152,name:"Still Water (2L)",             cat:"🥤 Drinks",       icon:"💧", prices:sp(1.00,[0,0.45,0.10,0.05,0])},
@@ -342,9 +348,12 @@ const BASE_PRODUCTS = [
   {id:257,name:"Popcorn (100g)",               cat:"🥨 Snacks & Treats",icon:"🍿",prices:sp(1.20,[0,0.12,0.48,0.36,0.06])},
   {id:258,name:"Sweets Pick n Mix (200g)",     cat:"🥨 Snacks & Treats",icon:"🍬",prices:sp(1.80,[0,0.18,0.7,0.54,0.09])},
   {id:259,name:"Jelly Babies (190g)",          cat:"🥨 Snacks & Treats",icon:"🍬",prices:sp(1.50,[0,0.15,0.6,0.46,0.07])},
-  {id:260,name:"Fruit Pastilles (52g roll)",   cat:"🥨 Snacks & Treats",icon:"🍬",prices:sp(0.80,[0,0.08,0.32,0.24,0.04])},
+  {id:260,name:"Fruit Pastilles (52g roll)",   cat:"🥨 Snacks & Treats",icon:"🍬",prices:sp(0.80,[0,0.08,0.32,1.84,0.04])},
   {id:261,name:"Kettle Chips (150g)",          cat:"🥨 Snacks & Treats",icon:"🥨",prices:sp(1.80,[1.0,0.18,0.7,0.54,0.09])},
   {id:262,name:"Pretzels (175g)",              cat:"🥨 Snacks & Treats",icon:"🥨",prices:sp(1.60,[0,0.16,0.64,0.49,0.08])},
+  {id:552,name:"Sliced Pretzel Bites (175g)",  cat:"🥨 Snacks & Treats",icon:"🥨",prices:sp(1.80,[-1.80,-1.80,-1.80,0,-1.80])},
+  {id:553,name:"LU Petit Choc Noir Biscuits",  cat:"🥨 Snacks & Treats",icon:"🍫",prices:sp(1.35,[-1.35,-1.35,-1.35,0,-1.35])},
+  {id:554,name:"Cadbury Flake 99 (4pk)",       cat:"🥨 Snacks & Treats",icon:"🍫",prices:sp(3.96,[-3.96,-3.96,-3.96,0,-3.96])},
 
   /* ── HOUSEHOLD ────────────────────────────────────────────────── */
   {id:263,name:"Washing Up Liquid (500ml)",    cat:"🧹 Household",    icon:"🧴", prices:sp(0.70,[0.50,0,0.15,0.10,0.80])},
@@ -468,7 +477,7 @@ const BASE_PRODUCTS = [
   {id:373,name:"Jersey Woollen Jumper",        cat:"🥔 Local Jersey", icon:"🧶",prices:sp(45.0,[0,4,12,10,2])},
   {id:374,name:"Halloumi (225g)",cat:"🥛 Dairy & Eggs",icon:"🧀",prices:sp(2.5,[0.35,-0.11,1.0,0.7,0.18])},
   {id:375,name:"Clotted Cream (113g)",cat:"🥛 Dairy & Eggs",icon:"🍦",prices:sp(2.0,[0.35,0.4,1.0,0.8,0.14])},
-  {id:376,name:"Vine Tomatoes (220g)",cat:"🥦 Fruit & Veg",icon:"🍅",prices:sp(1.2,[0.25,0.95,1.3,1.0,0.08])},
+  {id:376,name:"Vine Tomatoes (220g)",cat:"🥦 Fruit & Veg",icon:"🍅",prices:sp(1.20,[0.25,0.95,1.30,0.67,0.08])},
   {id:377,name:"Avocados (2pk)",cat:"🥦 Fruit & Veg",icon:"🥑",prices:sp(1.5,[0.25,1.1,1.3,1.1,0.11])},
   {id:378,name:"Florette Salad (125g)",cat:"🥦 Fruit & Veg",icon:"🥗",prices:sp(1.2,[0.15,0.05,0.4,0.25,0.08])},
   {id:379,name:"Fresh Coriander (30g)",cat:"🥦 Fruit & Veg",icon:"🌿",prices:sp(0.65,[0.1,-0.05,0.25,0.15,0.05])},
@@ -536,6 +545,7 @@ const BASE_PRODUCTS = [
   {id:442,name:"Walkers Ready Salted Crisps",        cat:"🥨 Snacks & Treats",       icon:"🥔",prices:sp(2.40,[-2.40,-2.40,-2.40,0,-2.40])},
   {id:524,name:"Walkers Max Crisps",                 cat:"🥨 Snacks & Treats",       icon:"🥔",prices:sp(1.53,[0,0,0,0,0])},
   {id:443,name:"Alpro Mango Protein Yogurt",         cat:"🥛 Dairy & Eggs", icon:"🥭",prices:sp(1.86,[-1.86,-1.86,-1.86,0,-1.86])},
+  {id:548,name:"Alpro Strawberry Peach Yogurt",      cat:"🥛 Dairy & Eggs", icon:"🍓",prices:sp(2.05,[-2.05,-2.05,-2.05,0,-2.05])},
   {id:444,name:"Muller Corner Fruit Yogurt",         cat:"🥛 Dairy & Eggs", icon:"🍓",prices:sp(3.68,[-3.68,-3.68,-3.68,0,-3.68])},
   {id:445,name:"Waitrose Essential Mineral Water",   cat:"🥤 Drinks",       icon:"💧",prices:sp(1.69,[-1.69,-1.69,-1.69,0,-1.69])},
   {id:446,name:"Waitrose Chocolate Raisins",         cat:"🥨 Snacks & Treats",       icon:"🍫",prices:sp(2.09,[-2.09,-2.09,-2.09,0,-2.09])},
@@ -596,6 +606,7 @@ const BASE_PRODUCTS = [
   {id:488,name:"Unsalted Butter (250g)",             cat:"🥛 Dairy & Eggs", icon:"🧈",prices:sp(2.35,[0,0,0.05,0.23,0])},
   {id:528,name:"Salted Butter (250g)",               cat:"🥛 Dairy & Eggs", icon:"🧈",prices:sp(4.75,[-4.75,-4.75,0,-4.75,-4.75])},
   {id:489,name:"White Bread (800g)",                 cat:"🍞 Bread & Bakery",icon:"🍞",prices:sp(0.80,[0.45,0,0.10,0.36,1.15])},
+  {id:551,name:"Brown Bloomer Loaf",                 cat:"🍞 Bread & Bakery",icon:"🍞",prices:sp(1.19,[-1.19,-1.19,-1.19,0,-1.19])},
   {id:490,name:"Potatoes (1.5kg)",                   cat:"🥦 Fruit & Veg",  icon:"🥔",prices:sp(1.40,[0,1.20,0.25,0.69,1.10])},
   {id:491,name:"Toilet Rolls (4pk)",                 cat:"🧹 Household",    icon:"🧻",prices:sp(1.55,[0.94,0.45,1.45,0.54,0])},
   {id:497,name:"Ginger Nuts (400g)",           cat:"🥨 Snacks & Treats",icon:"🍪",prices:sp(0.90,[1.19,0.15,0,0,1.10])},
@@ -902,6 +913,7 @@ const LEADERBOARD = [
   { name: "Kate",       store: "Waitrose",  count: 27, date: "11 Jun" },
   { name: "Leticia",    store: "CI Co-op",  count: 16, date: "11 Jun" },
   { name: "Carmen1971", store: "CI Co-op",  count: 16, date: "11 Jun" },
+  { name: "Nicole1",    store: "Waitrose",  count: 12, date: "11 Jun" },
   { name: "Sharon",     store: "Morrisons", count: 9,  date: "07 Jun" },
   // { name: "Claire B", count: 15 },
   // { name: "Tom H",    count: 9  },
@@ -2045,6 +2057,33 @@ function InstallSteps({ accent = "#22c55e", compact = false }) {
 ═══════════════════════════════════════════════════════════════════════════ */
 function WelcomeModal({ onDismiss, onSubmitPrice }) {
   const [step, setStep] = useState(0);
+  const [surveyAnswers, setSurveyAnswers] = useState({ q1: "", q2: "", q3: "", q4: "", q5: "" });
+  const [surveySubmitted, setSurveySubmitted] = useState(false);
+  const [surveySubmitting, setSurveySubmitting] = useState(false);
+
+  const handleSurveySelect = (q, val) => setSurveyAnswers(prev => ({ ...prev, [q]: prev[q] === val ? "" : val }));
+
+  const submitSurvey = async () => {
+    setSurveySubmitting(true);
+    try {
+      await fetch("https://formspree.io/f/mvzyrgqj", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          subject: "JerseyBasket App Survey Response",
+          q1_ease: surveyAnswers.q1 || "No answer",
+          q2_colour: surveyAnswers.q2 || "No answer",
+          q3_improve: surveyAnswers.q3 || "No answer",
+          q4_receipts: surveyAnswers.q4 || "No answer",
+          q5_recommend: surveyAnswers.q5 || "No answer",
+        }),
+      });
+      setSurveySubmitted(true);
+    } catch(e) {
+      setSurveySubmitted(true);
+    }
+    setSurveySubmitting(false);
+  };
 
   const steps = [
     {
@@ -2097,6 +2136,15 @@ function WelcomeModal({ onDismiss, onSubmitPrice }) {
       bg: "linear-gradient(135deg,#1a0a00 0%,#7c2d12 60%,#c2410c 100%)",
       accent: "#fb923c",
       competition: true,
+    },
+    {
+      emoji: "📝",
+      title: "Help Us Improve!",
+      subtitle: "Your opinion shapes JerseyBasket",
+      body: "",
+      bg: "linear-gradient(135deg,#0f172a 0%,#1e3a5f 60%,#0c4a6e 100%)",
+      accent: "#38bdf8",
+      survey: true,
     },
   ];
 
@@ -2174,6 +2222,49 @@ function WelcomeModal({ onDismiss, onSubmitPrice }) {
               <div style={{ fontSize:10,color:"rgba(255,255,255,.35)",textAlign:"center",marginTop:10,lineHeight:1.6 }}>
                 Submit prices via receipt photo · 1–30 June midnight · Winner announced 1st July 12:00pm · 🥇£15 🥈£10 🥉£5 gift vouchers
               </div>
+            </div>
+          )}
+
+          {/* survey — only on survey slide */}
+          {s.survey && (
+            <div style={{ width:"100%",marginTop:8,textAlign:"left" }}>
+              {surveySubmitted ? (
+                <div style={{ textAlign:"center",padding:"24px 0" }}>
+                  <div style={{ fontSize:48,marginBottom:12 }}>🙏</div>
+                  <div style={{ fontSize:18,fontWeight:700,color:"#fff",marginBottom:8 }}>Thank you!</div>
+                  <div style={{ fontSize:13,color:"rgba(255,255,255,.7)",lineHeight:1.7 }}>Your feedback helps us make JerseyBasket better for everyone in Jersey. 🇯🇪</div>
+                </div>
+              ) : (
+                <>
+                  {[
+                    { q:"q1", label:"1️⃣ How easy is JerseyBasket to use?", opts:["😍 Love it","😊 Easy enough","😐 Takes getting used to","😕 Find it tricky"] },
+                    { q:"q2", label:"2️⃣ What do you think of the colour scheme?", opts:["🌿 Love the dark green","☀️ Prefer something lighter","🤷 Don't mind either way"] },
+                    { q:"q3", label:"3️⃣ What would you most like improved?", opts:["🔍 Better search","📦 More products","💰 More stores","📱 Easier to use"] },
+                    { q:"q4", label:"4️⃣ What would make you submit more receipts?", opts:["🏆 Bigger prizes","📱 Easier submission","⏰ More reminders","✅ I already do!"] },
+                    { q:"q5", label:"5️⃣ Would you recommend JerseyBasket?", opts:["👍 Already have!","👀 Haven't yet but will","🤔 Not sure yet"] },
+                  ].map(({ q, label, opts }) => (
+                    <div key={q} style={{ marginBottom:16 }}>
+                      <div style={{ fontSize:12,fontWeight:700,color:"#38bdf8",marginBottom:8,lineHeight:1.4 }}>{label}</div>
+                      <div style={{ display:"flex",flexDirection:"column",gap:6 }}>
+                        {opts.map(opt => (
+                          <button key={opt} onClick={() => handleSurveySelect(q, opt)} style={{ textAlign:"left",padding:"9px 14px",borderRadius:10,border:`1.5px solid ${surveyAnswers[q]===opt?"#38bdf8":"rgba(255,255,255,.15)"}`,background:surveyAnswers[q]===opt?"rgba(56,189,248,.2)":"rgba(255,255,255,.05)",color:surveyAnswers[q]===opt?"#fff":"rgba(255,255,255,.75)",fontSize:12,fontWeight:surveyAnswers[q]===opt?700:400,cursor:"pointer",display:"flex",alignItems:"center",gap:8,transition:"all .2s" }}>
+                            <div style={{ width:16,height:16,borderRadius:4,border:`2px solid ${surveyAnswers[q]===opt?"#38bdf8":"rgba(255,255,255,.3)"}`,background:surveyAnswers[q]===opt?"#38bdf8":"transparent",flexShrink:0,display:"flex",alignItems:"center",justifyContent:"center" }}>
+                              {surveyAnswers[q]===opt && <div style={{ width:8,height:8,borderRadius:2,background:"#0f172a" }}/>}
+                            </div>
+                            {opt}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                  <button onClick={submitSurvey} disabled={surveySubmitting} style={{ width:"100%",marginTop:8,padding:"13px",borderRadius:12,border:"none",background:"linear-gradient(135deg,#0ea5e9,#0284c7)",color:"#fff",fontSize:14,fontWeight:700,cursor:"pointer",opacity:surveySubmitting?0.7:1 }}>
+                    {surveySubmitting ? "Sending..." : "Submit My Feedback 📝"}
+                  </button>
+                  <button onClick={onDismiss} style={{ width:"100%",marginTop:8,padding:"10px",borderRadius:12,border:"1px solid rgba(255,255,255,.1)",background:"transparent",color:"rgba(255,255,255,.4)",fontSize:12,cursor:"pointer" }}>
+                    Skip survey
+                  </button>
+                </>
+              )}
             </div>
           )}
 
