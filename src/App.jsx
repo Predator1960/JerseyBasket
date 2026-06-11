@@ -2189,6 +2189,13 @@ function WelcomeModal({ onDismiss, onSubmitPrice }) {
             ) : s.body}
           </div>
 
+          {/* survey shortcut — only on slide 1 */}
+          {step===0 && (
+            <button onClick={()=>setStep(6)} style={{ marginTop:14,background:"rgba(56,189,248,.15)",border:"1px solid rgba(56,189,248,.4)",borderRadius:20,padding:"7px 18px",color:"#38bdf8",fontSize:12,fontWeight:700,cursor:"pointer" }}>
+              📝 Take our quick survey
+            </button>
+          )}
+
           {/* install steps — only on install slide */}
           {s.installSteps && <InstallSteps accent={s.accent} />}
 
@@ -2231,8 +2238,11 @@ function WelcomeModal({ onDismiss, onSubmitPrice }) {
               {surveySubmitted ? (
                 <div style={{ textAlign:"center",padding:"24px 0" }}>
                   <div style={{ fontSize:48,marginBottom:12 }}>🙏</div>
-                  <div style={{ fontSize:18,fontWeight:700,color:"#fff",marginBottom:8 }}>Thank you!</div>
-                  <div style={{ fontSize:13,color:"rgba(255,255,255,.7)",lineHeight:1.7 }}>Your feedback helps us make JerseyBasket better for everyone in Jersey. 🇯🇪</div>
+                  <div style={{ fontSize:18,fontWeight:700,color:"#fff",marginBottom:8 }}>Survey Completed!</div>
+                  <div style={{ fontSize:13,color:"rgba(255,255,255,.7)",lineHeight:1.7,marginBottom:24 }}>Your feedback helps us make JerseyBasket better for everyone in Jersey. 🇯🇪</div>
+                  <button onClick={()=>{setStep(0);setSurveySubmitted(false);}} style={{ padding:"12px 32px",borderRadius:12,border:"none",background:"linear-gradient(135deg,#22c55e,#16a34a)",color:"#fff",fontSize:14,fontWeight:700,cursor:"pointer" }}>
+                    Back to JerseyBasket 🛒
+                  </button>
                 </div>
               ) : (
                 <>
