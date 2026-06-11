@@ -82,7 +82,7 @@ const BASE_PRODUCTS = [
   {id:21, name:"Fruit Yoghurts 4pk",           cat:"🥛 Dairy & Eggs", icon:"🫙", prices:sp(1.80,[0,0.18,0.7,0.52,0.09])},
   {id:22, name:"Sour Cream (300ml)",           cat:"🥛 Dairy & Eggs", icon:"🫙", prices:sp(1.40,[0,0.15,0.6,0.45,0.07])},
   {id:23, name:"Crème Fraîche (300ml)",        cat:"🥛 Dairy & Eggs", icon:"🫙", prices:sp(1.60,[0,0.18,0.65,0.5,0.09])},
-  {id:24, name:"Double Cream (300ml)",         cat:"🥛 Dairy & Eggs", icon:"🍦", prices:sp(4.00,[0.10,0.20,0,0,0])},
+  {id:24, name:"Double Cream (300ml)",         cat:"🥛 Dairy & Eggs", icon:"🍦", prices:sp(2.26,[0.10,0.20,0,0,0])},
   {id:25, name:"Single Cream (300ml)",         cat:"🥛 Dairy & Eggs", icon:"🍦", prices:sp(1.45,[0,0.18,0.65,0.5,0.09])},
   {id:26, name:"Cottage Cheese (300g)",        cat:"🥛 Dairy & Eggs", icon:"🫙", prices:sp(1.50,[0,1.10,0.6,0.45,0.07])},
   {id:27, name:"Cream Cheese (200g)",          cat:"🥛 Dairy & Eggs", icon:"🧀", prices:sp(1.80,[0.85,0.18,0.7,0.52,0.09])},
@@ -280,7 +280,8 @@ const BASE_PRODUCTS = [
   {id:206,name:"Self Raising Flour (1.5kg)",   cat:"🍝 Pantry",       icon:"🌾", prices:sp(1.25,[-0.2,0.12,0.5,0.38,0.06])},
   {id:207,name:"Sugar White (1kg)",            cat:"🍝 Pantry",       icon:"🍬", prices:sp(1.35,[0,0,0,0.10,0.15])},
   {id:208,name:"Caster Sugar (1kg)",           cat:"🍝 Pantry",       icon:"🍬", prices:sp(1.10,[1.25,0.1,0.4,0.3,0.05])},
-  {id:209,name:"Icing Sugar (500g)",           cat:"🍝 Pantry",       icon:"🍬", prices:sp(0.90,[0.0,0.09,0.35,0.26,0.04])},
+  {id:209,name:"Icing Sugar (500g)",           cat:"🍝 Pantry",       icon:"🍬", prices:sp(0.90,[0.0,0.09,2.20,0.26,0.04])},
+  {id:527,name:"White Marzipan (500g)",        cat:"🍝 Pantry",       icon:"🍰", prices:sp(3.20,[0,0,0,0,0])},
   {id:210,name:"Tomato Ketchup (460g)",        cat:"🍝 Pantry",       icon:"🍅", prices:sp(1.00,[0.30,0,0.80,0.16,1.50])},
   {id:211,name:"Mayonnaise (400g)",            cat:"🍝 Pantry",       icon:"🥄", prices:sp(1.61,[0.29,0.34,0.19,0,1.04])},
   {id:212,name:"Brown Sauce (400ml)",          cat:"🍝 Pantry",       icon:"🥄", prices:sp(1.60,[0.4,0.16,0.65,0.5,0.08])},
@@ -584,6 +585,7 @@ const BASE_PRODUCTS = [
   // ── Added 9 June 2026 from JCC Essentials data ──
   {id:487,name:"Apples (4pk)",                      cat:"🥦 Fruit & Veg",  icon:"🍎",prices:sp(1.60,[0.60,1.60,0.80,0.55,0])},
   {id:488,name:"Unsalted Butter (250g)",             cat:"🥛 Dairy & Eggs", icon:"🧈",prices:sp(2.35,[0,0,0.05,0.23,0])},
+  {id:528,name:"Salted Butter (250g)",               cat:"🥛 Dairy & Eggs", icon:"🧈",prices:sp(4.75,[0,0,0,0,0])},
   {id:489,name:"White Bread (800g)",                 cat:"🍞 Bread & Bakery",icon:"🍞",prices:sp(0.80,[0.45,0,0.10,0.36,1.15])},
   {id:490,name:"Potatoes (1.5kg)",                   cat:"🥦 Fruit & Veg",  icon:"🥔",prices:sp(1.40,[0,1.20,0.25,0.69,1.10])},
   {id:491,name:"Toilet Rolls (4pk)",                 cat:"🧹 Household",    icon:"🧻",prices:sp(1.55,[0.94,0.45,1.45,0.54,0])},
@@ -882,8 +884,8 @@ const COMP_WINNER = ""; // e.g. "Sarah M" — leave blank while competition is l
 const MAINTENANCE = false;
 const LEADERBOARD = [
   // ── TOP 5 — update these entries with real submissions ──────────────────
+  { name: "Carmen1971", store: "CI Co-op",  count: 16, date: "11 Jun" },
   { name: "Leticia",    store: "Waitrose",  count: 14, date: "10 Jun" },
-  { name: "Carmen1971", store: "CI Co-op",  count: 14, date: "06 Jun" },
   { name: "Sharon",     store: "Morrisons", count: 9,  date: "07 Jun" },
   { name: "Kate",       store: "Waitrose",  count: 4,  date: "08 Jun" },
   // { name: "Claire B", count: 15 },
