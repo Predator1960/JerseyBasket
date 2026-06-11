@@ -211,6 +211,8 @@ const BASE_PRODUCTS = [
   {id:141,name:"Frozen Edamame (500g)",        cat:"🧊 Frozen",       icon:"🫘", prices:sp(2.20,[0,0.22,0.8,0.6,0.11])},
   {id:143,name:"Frozen Mince Beef (900g)",     cat:"🧊 Frozen",       icon:"🥩", prices:sp(5.80,[0,0.5,1.8,1.4,0.25])},
   {id:144,name:"Frozen Garlic Bread (2pk)",    cat:"🧊 Frozen",       icon:"🍞", prices:sp(1.50,[-0.20,0.15,0.6,0.46,0.07])},
+  {id:540,name:"Garlic Baguettes (2pk)",       cat:"🧊 Frozen",       icon:"🥖", prices:sp(2.40,[0,0,0,0,0])},
+  {id:541,name:"Ice Cubes (1kg)",              cat:"🧊 Frozen",       icon:"🧊", prices:sp(2.20,[0,0,0,0,0])},
   {id:146,name:"Frozen Vegetarian Burgers 4pk",cat:"🧊 Frozen",       icon:"🍔", prices:sp(2.80,[0,0.28,1,0.8,0.14])},
   {id:147,name:"Frozen Yorkshire Puddings 9pk",cat:"🧊 Frozen",       icon:"🍳", prices:sp(1.50,[0,0.15,0.58,0.44,0.07])},
 
@@ -898,7 +900,7 @@ const MAINTENANCE = false;
 const LEADERBOARD = [
   // ── TOP 5 — update these entries with real submissions ──────────────────
   { name: "Kate",       store: "Waitrose",  count: 27, date: "11 Jun" },
-  { name: "Leticia",    store: "Waitrose",  count: 14, date: "10 Jun" },
+  { name: "Leticia",    store: "CI Co-op",  count: 16, date: "11 Jun" },
   { name: "Carmen1971", store: "CI Co-op",  count: 16, date: "11 Jun" },
   { name: "Sharon",     store: "Morrisons", count: 9,  date: "07 Jun" },
   // { name: "Claire B", count: 15 },
