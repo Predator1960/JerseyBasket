@@ -792,7 +792,7 @@ function ProductCard({ product, onAddToBasket, pinnedStore, isFavourite, onToggl
           <span style={{ fontSize:22, flexShrink:0, filter:"drop-shadow(0 1px 3px rgba(0,0,0,0.5))" }}>{product.icon}</span>
           <div style={{ flex:1, minWidth:0 }}>
             <Tooltip text={product.name}>
-              <div style={{ fontSize:12.5, fontWeight:700, color:lightMode?"#0f172a":"#f0f4f8", lineHeight:1.3 }}>{product.name}</div>
+              <div style={{ fontSize:12.5, fontWeight:700, color:"#f0f4f8", lineHeight:1.3 }}>{product.name}</div>
             </Tooltip>
             <div style={{ fontSize:9.5, color:"#475569", marginTop:1 }}>{product.cat.replace(/^[^\s]+\s/,"")}{product.custom?" · custom":""}</div>
           </div>
@@ -1098,7 +1098,10 @@ export default function JerseyGroceryApp() {
         .jb-light [style*="rgba(255,255,255,.12)"] { background: rgba(0,0,0,.09) !important; }
         .jb-light [style*="rgba(255,255,255,.14)"] { background: rgba(0,0,0,.10) !important; }
         .jb-light [style*="#475569"] { color: #334155 !important; }
-        .jb-light [style*="#eab308"] { color: #78350f !important; background-color: rgba(120,53,15,.12) !important; border-color: rgba(120,53,15,.3) !important; }
+        .jb-light [style*="color:#f0f4f8"] { color: #0f172a !important; }
+        .jb-light [style*='color:"#f0f4f8"'] { color: #0f172a !important; }
+        .jb-light [style*="#eab308"] { color: #78350f !important; background-color: rgba(120,53,15,.15) !important; border-color: rgba(120,53,15,.4) !important; }
+        .jb-light [style*="#94a3b8"] { color: #1e293b !important; background-color: rgba(30,41,59,.12) !important; border-color: rgba(30,41,59,.35) !important; }
       `}</style>}
       <div style={{ position:"fixed",inset:0,pointerEvents:"none",zIndex:0, background:"radial-gradient(ellipse 80% 60% at 15% 5%,rgba(0,180,100,.05) 0%,transparent 60%),radial-gradient(ellipse 60% 80% at 85% 95%,rgba(0,100,220,.06) 0%,transparent 60%)" }} />
 
@@ -1498,7 +1501,7 @@ export default function JerseyGroceryApp() {
                           <span style={{ fontSize:22,flexShrink:0 }}>{p.icon}</span>
                           <div style={{ minWidth:0 }}>
                             <Tooltip text={p.name}>
-                              <div style={{ fontSize:12.5,fontWeight:700,color:lightMode?"#0f172a":"#f0f4f8",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap" }}>{p.name}</div>
+                              <div style={{ fontSize:12.5,fontWeight:700,color:"#f0f4f8",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap" }}>{p.name}</div>
                             </Tooltip>
                             <div style={{ fontSize:9.5,color:"#475569",marginTop:1 }}>{p.cat.replace(/^[^\s]+\s/,"")}</div>
                           </div>
