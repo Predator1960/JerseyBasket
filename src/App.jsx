@@ -752,7 +752,7 @@ function Tooltip({ text, children }) {
 }
 
 
-function ProductCard({ product, onAddToBasket, pinnedStore, isFavourite, onToggleFavourite, disabledStores=new Set() }) {
+function ProductCard({ product, onAddToBasket, pinnedStore, isFavourite, onToggleFavourite, disabledStores=new Set(), lightMode=false }) {
   const [open, setOpen]             = useState(false);
   // manualOverride tracks if the user explicitly picked a store via the dropdown
   const [manualOverride, setManualOverride] = useState(null);
@@ -826,8 +826,8 @@ function ProductCard({ product, onAddToBasket, pinnedStore, isFavourite, onToggl
               }}>
                 <div style={{ display:"flex", alignItems:"center", gap:5 }}>
                   <span style={{ fontSize:13 }}>{chosenStore?.emoji}</span>
-                  <span style={{ fontSize:10.5, fontWeight:700, color:`rgb(${Math.min(255,r+80)},${Math.min(255,g+80)},${Math.min(255,b+80)})` }}>{chosenStore?.name}</span>
-                  {isOnBest && <span style={{ fontSize:8, background:`rgba(${r},${g},${b},0.3)`, color:sc, borderRadius:4, padding:"1px 5px", fontWeight:700, border:`1px solid rgba(${r},${g},${b},0.4)` }}>BEST</span>}
+                  <span style={{ fontSize:10.5, fontWeight:700, color: lightMode ? `rgb(${Math.max(0,r-60)},${Math.max(0,g-60)},${Math.max(0,b-60)})` : `rgb(${Math.min(255,r+80)},${Math.min(255,g+80)},${Math.min(255,b+80)})` }}>{chosenStore?.name}</span>
+                  {isOnBest && <span style={{ fontSize:8, background:`rgba(${r},${g},${b},0.3)`, color: lightMode ? `rgb(${Math.max(0,r-80)},${Math.max(0,g-80)},${Math.max(0,b-80)})` : sc, borderRadius:4, padding:"1px 5px", fontWeight:700, border:`1px solid rgba(${r},${g},${b},0.4)` }}>BEST</span>}
                 </div>
                 <span style={{ fontSize:16, color:sc, display:"inline-block", transition:"transform .2s", transform:open?"rotate(180deg)":"none", lineHeight:1 }}>▾</span>
               </button>
@@ -1330,14 +1330,14 @@ export default function JerseyGroceryApp() {
                     </div>
                     </div>
                     <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill,minmax(270px,1fr))", gap:11 }}>
-                      {g.products.map(p=><ProductCard key={p.id} product={p} onAddToBasket={addToBasket} pinnedStore={pinnedStore} isFavourite={favourites.has(p.id)} onToggleFavourite={toggleFavourite} disabledStores={disabledStores}/>)}
+                      {g.products.map(p=><ProductCard key={p.id} product={p} onAddToBasket={addToBasket} pinnedStore={pinnedStore} isFavourite={favourites.has(p.id)} onToggleFavourite={toggleFavourite} disabledStores={disabledStores} lightMode={lightMode}/>)}
                     </div>
                   </div>
                 ));
               })()
             ) : (
               <div style={{ display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(270px,1fr))",gap:11 }}>
-                {filteredProducts.map(p=><ProductCard key={p.id} product={p} onAddToBasket={addToBasket} pinnedStore={pinnedStore} isFavourite={favourites.has(p.id)} onToggleFavourite={toggleFavourite} disabledStores={disabledStores}/>)}
+                {filteredProducts.map(p=><ProductCard key={p.id} product={p} onAddToBasket={addToBasket} pinnedStore={pinnedStore} isFavourite={favourites.has(p.id)} onToggleFavourite={toggleFavourite} disabledStores={disabledStores} lightMode={lightMode}/>)}
               </div>
             )}
 
