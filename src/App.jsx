@@ -955,6 +955,8 @@ export default function JerseyGroceryApp() {
 
   // Show welcome screen every time the app loads
   const [showWelcome, setShowWelcome] = useState(true);
+  const [lightMode, setLightMode] = useState(()=>{ try{ return localStorage.getItem("jb_lightmode")==="true"; }catch{ return false; } });
+  const toggleLight = () => setLightMode(m=>{ try{ localStorage.setItem("jb_lightmode",String(!m)); }catch{} return !m; });
 
   const dismissWelcome = () => {
     setShowWelcome(false);
@@ -1084,11 +1086,35 @@ export default function JerseyGroceryApp() {
   );
 
   return (
-    <div style={{ minHeight:"100vh", background:"linear-gradient(160deg,#050d1a 0%,#0b1c35 55%,#061220 100%)", fontFamily:"'Georgia',serif", color:"#f0f4f8" }}>
+    <div className={lightMode?"jb-light":""} style={{ minHeight:"100vh", background: lightMode ? "linear-gradient(160deg,#e8edf2 0%,#dde4eb 55%,#e2e8f0 100%)" : "linear-gradient(160deg,#050d1a 0%,#0b1c35 55%,#061220 100%)", fontFamily:"'Georgia',serif", color: lightMode ? "#0f172a" : "#f0f4f8" }}>
+      {lightMode && <style>{`
+        .jb-light { color: #0f172a !important; }
+        .jb-light [style*="background:\"linear-gradient(180deg,#1e3a5f"] { background: #cbd5e1 !important; border-color: rgba(0,0,0,.2) !important; }
+        .jb-light [style*="background:\"linear-gradient(160deg,#050d1a"] { background: linear-gradient(160deg,#e8edf2 0%,#dde4eb 55%,#e2e8f0 100%) !important; }
+        .jb-light [style*="#0a1a30"] { background: #e2e8f0 !important; }
+        .jb-light [style*="#0f1f3d"] { background: #cbd5e1 !important; }
+        .jb-light [style*="#1e3a5f"] { background: #bcc5ce !important; }
+        .jb-light [style*="color:\"#7dd3fc\""] { color: #1e40af !important; }
+        .jb-light [style*="color:\"#f0f4f8\""] { color: #0f172a !important; }
+        .jb-light [style*="color:\"rgba(255,255,255,.7)\""] { color: rgba(0,0,0,.65) !important; }
+        .jb-light [style*="color:\"rgba(255,255,255,.5)\""] { color: rgba(0,0,0,.5) !important; }
+        .jb-light [style*="color:\"rgba(255,255,255,.4)\""] { color: rgba(0,0,0,.4) !important; }
+        .jb-light [style*="color:\"rgba(255,255,255,.35)\""] { color: rgba(0,0,0,.35) !important; }
+        .jb-light [style*="rgba(255,255,255,.05)"] { background: rgba(0,0,0,.04) !important; }
+        .jb-light [style*="rgba(255,255,255,.08)"] { background: rgba(0,0,0,.06) !important; }
+        .jb-light [style*="rgba(255,255,255,.1),"] { background: rgba(0,0,0,.07) !important; }
+        .jb-light [style*="rgba(255,255,255,.11)"] { background: rgba(0,0,0,.08) !important; }
+        .jb-light [style*="rgba(255,255,255,.12)"] { background: rgba(0,0,0,.09) !important; }
+        .jb-light [style*="rgba(255,255,255,.14)"] { background: rgba(0,0,0,.10) !important; }
+        .jb-light [style*="#475569"] { color: #334155 !important; }
+        .jb-light [style*="color:\"#94a3b8\""] { color: #475569 !important; }
+        .jb-light [style*="color:\"#64748b\""] { color: #374151 !important; }
+        .jb-light [style*="background:\"#0a1a30\""] { background: #e2e8f0 !important; }
+      `}</style>}
       <div style={{ position:"fixed",inset:0,pointerEvents:"none",zIndex:0, background:"radial-gradient(ellipse 80% 60% at 15% 5%,rgba(0,180,100,.05) 0%,transparent 60%),radial-gradient(ellipse 60% 80% at 85% 95%,rgba(0,100,220,.06) 0%,transparent 60%)" }} />
 
       {/* ══ HEADER ══ */}
-      <header style={{ position:"sticky",top:0,zIndex:100, background:"rgba(5,13,26,.96)",backdropFilter:"blur(20px)", borderBottom:"1px solid rgba(255,255,255,.07)",padding:"0 12px",paddingTop:"env(safe-area-inset-top,0px)" }}>
+      <header style={{ position:"sticky",top:0,zIndex:100, background: lightMode ? "rgba(210,218,226,.97)" : "rgba(5,13,26,.96)", backdropFilter:"blur(20px)", borderBottom: lightMode ? "1px solid rgba(0,0,0,.12)" : "1px solid rgba(255,255,255,.07)", padding:"0 12px",paddingTop:"env(safe-area-inset-top,0px)" }}>
         <div style={{ maxWidth:1040,margin:"0 auto" }}>
           {/* ── ROW 1: logo + icon buttons ── */}
           <div style={{ display:"flex",alignItems:"center",justifyContent:"space-between",paddingTop:10,paddingBottom:7,gap:6 }}>
@@ -1107,31 +1133,37 @@ export default function JerseyGroceryApp() {
               </div>
             </div>
             <div style={{ display:"flex",gap:4,alignItems:"center",flexShrink:0 }}>
+              {/* Light/Dark toggle */}
+              <button onClick={toggleLight} title={lightMode?"Switch to dark mode":"Switch to light mode"}
+              style={{ WebkitAppearance:"none",appearance:"none",background:lightMode?"linear-gradient(180deg,#cbd5e1 0%,#94a3b8 100%)":"linear-gradient(180deg,#1e3a5f 0%,#0f1f3d 100%)",border:lightMode?"1px solid rgba(0,0,0,.2)":"1px solid rgba(125,211,252,0.18)",borderRadius:9,width:32,height:32,color:lightMode?"#1e293b":"#7dd3fc",cursor:"pointer",fontSize:14,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,padding:0,boxShadow:"0 2px 6px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.1)",position:"relative",overflow:"hidden" }}>
+                <span style={{ position:"absolute",top:0,left:0,right:0,height:"52%",background:"linear-gradient(180deg,rgba(255,255,255,.12) 0%,rgba(255,255,255,.02) 100%)",borderRadius:"9px 9px 0 0",pointerEvents:"none" }}/>
+                {lightMode ? "🌙" : "☀️"}
+              </button>
               {/* Share */}
               <button onClick={()=>{
                 const shareData = { title:"JerseyBasket.je", text:"Compare grocery prices across all Jersey supermarkets! 🇯🇪", url:"https://jerseybasket.je" };
                 if (navigator.share) { navigator.share(shareData).catch(()=>{}); }
                 else { navigator.clipboard.writeText("https://jerseybasket.je").then(()=>showToast("🔗 Link copied!")); }
               }} title="Share JerseyBasket"
-              style={{ WebkitAppearance:"none",appearance:"none",background:"linear-gradient(180deg,#1e3a5f 0%,#0f1f3d 100%)",border:"1px solid rgba(125,211,252,0.18)",borderRadius:9,width:32,height:32,color:"#7dd3fc",cursor:"pointer",fontSize:14,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,padding:0,boxShadow:"0 2px 6px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.1)",position:"relative",overflow:"hidden" }}>
+              style={{ WebkitAppearance:"none",appearance:"none",background:lightMode?"linear-gradient(180deg,#cbd5e1 0%,#94a3b8 100%)":"linear-gradient(180deg,#1e3a5f 0%,#0f1f3d 100%)",border:lightMode?"1px solid rgba(0,0,0,.2)":"1px solid rgba(125,211,252,0.18)",borderRadius:9,width:32,height:32,color:lightMode?"#1e293b":"#7dd3fc",cursor:"pointer",fontSize:14,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,padding:0,boxShadow:"0 2px 6px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.1)",position:"relative",overflow:"hidden" }}>
                 <span style={{ position:"absolute",top:0,left:0,right:0,height:"52%",background:"linear-gradient(180deg,rgba(255,255,255,.12) 0%,rgba(255,255,255,.02) 100%)",borderRadius:"9px 9px 0 0",pointerEvents:"none" }}/>
                 🔗
               </button>
               {/* Report */}
               <button onClick={()=>setShowReport(true)} title="Report a problem"
-              style={{ WebkitAppearance:"none",appearance:"none",background:"linear-gradient(180deg,#1e3a5f 0%,#0f1f3d 100%)",border:"1px solid rgba(125,211,252,0.18)",borderRadius:9,width:32,height:32,color:"#7dd3fc",cursor:"pointer",fontSize:14,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,padding:0,boxShadow:"0 2px 6px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.1)",position:"relative",overflow:"hidden" }}>
+              style={{ WebkitAppearance:"none",appearance:"none",background:lightMode?"linear-gradient(180deg,#cbd5e1 0%,#94a3b8 100%)":"linear-gradient(180deg,#1e3a5f 0%,#0f1f3d 100%)",border:lightMode?"1px solid rgba(0,0,0,.2)":"1px solid rgba(125,211,252,0.18)",borderRadius:9,width:32,height:32,color:lightMode?"#1e293b":"#7dd3fc",cursor:"pointer",fontSize:14,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,padding:0,boxShadow:"0 2px 6px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.1)",position:"relative",overflow:"hidden" }}>
                 <span style={{ position:"absolute",top:0,left:0,right:0,height:"52%",background:"linear-gradient(180deg,rgba(255,255,255,.12) 0%,rgba(255,255,255,.02) 100%)",borderRadius:"9px 9px 0 0",pointerEvents:"none" }}/>
                 🚩
               </button>
               {/* Help */}
               <button onClick={()=>setShowHelp(true)} title="Help"
-              style={{ WebkitAppearance:"none",appearance:"none",background:"linear-gradient(180deg,#1e3a5f 0%,#0f1f3d 100%)",border:"1px solid rgba(125,211,252,0.18)",borderRadius:9,width:32,height:32,color:"#7dd3fc",cursor:"pointer",fontSize:14,fontWeight:700,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,padding:0,boxShadow:"0 2px 6px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.1)",position:"relative",overflow:"hidden" }}>
+              style={{ WebkitAppearance:"none",appearance:"none",background:lightMode?"linear-gradient(180deg,#cbd5e1 0%,#94a3b8 100%)":"linear-gradient(180deg,#1e3a5f 0%,#0f1f3d 100%)",border:lightMode?"1px solid rgba(0,0,0,.2)":"1px solid rgba(125,211,252,0.18)",borderRadius:9,width:32,height:32,color:lightMode?"#1e293b":"#7dd3fc",cursor:"pointer",fontSize:14,fontWeight:700,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,padding:0,boxShadow:"0 2px 6px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.1)",position:"relative",overflow:"hidden" }}>
                 <span style={{ position:"absolute",top:0,left:0,right:0,height:"52%",background:"linear-gradient(180deg,rgba(255,255,255,.12) 0%,rgba(255,255,255,.02) 100%)",borderRadius:"9px 9px 0 0",pointerEvents:"none" }}/>
                 ?
               </button>
               {/* Settings */}
               <button onClick={()=>setShowSettings(true)} title="Settings"
-              style={{ WebkitAppearance:"none",appearance:"none",background:"linear-gradient(180deg,#1e3a5f 0%,#0f1f3d 100%)",border:"1px solid rgba(125,211,252,0.18)",borderRadius:9,width:32,height:32,color:"#7dd3fc",cursor:"pointer",fontSize:15,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,padding:0,boxShadow:"0 2px 6px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.1)",position:"relative",overflow:"hidden" }}>
+              style={{ WebkitAppearance:"none",appearance:"none",background:lightMode?"linear-gradient(180deg,#cbd5e1 0%,#94a3b8 100%)":"linear-gradient(180deg,#1e3a5f 0%,#0f1f3d 100%)",border:lightMode?"1px solid rgba(0,0,0,.2)":"1px solid rgba(125,211,252,0.18)",borderRadius:9,width:32,height:32,color:lightMode?"#1e293b":"#7dd3fc",cursor:"pointer",fontSize:15,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,padding:0,boxShadow:"0 2px 6px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.1)",position:"relative",overflow:"hidden" }}>
                 <span style={{ position:"absolute",top:0,left:0,right:0,height:"52%",background:"linear-gradient(180deg,rgba(255,255,255,.12) 0%,rgba(255,255,255,.02) 100%)",borderRadius:"9px 9px 0 0",pointerEvents:"none" }}/>
                 ⚙️
               </button>
