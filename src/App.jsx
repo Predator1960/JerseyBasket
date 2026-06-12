@@ -782,7 +782,7 @@ function ProductCard({ product, onAddToBasket, pinnedStore, isFavourite, onToggl
   },[pinnedStore]);
 
   return (
-    <div style={{ background:"linear-gradient(180deg,rgba(255,255,255,.06) 0%,rgba(255,255,255,.03) 100%)", border:`1px solid ${product.custom?"rgba(34,197,94,.25)":"rgba(255,255,255,.1)"}`, borderRadius:16, overflow:"visible", transition:"box-shadow .15s", boxShadow:"0 4px 16px rgba(0,0,0,.3), inset 0 1px 0 rgba(255,255,255,.08)" }}
+    <div style={{ background: lightMode?"linear-gradient(180deg,rgba(255,255,255,.85) 0%,rgba(255,255,255,.75) 100%)":"linear-gradient(180deg,rgba(255,255,255,.06) 0%,rgba(255,255,255,.03) 100%)", border:`1px solid ${product.custom?"rgba(34,197,94,.25)":lightMode?"rgba(0,0,0,.12)":"rgba(255,255,255,.1)"}`, borderRadius:16, overflow:"visible", transition:"box-shadow .15s", boxShadow: lightMode?"0 4px 16px rgba(0,0,0,.1), inset 0 1px 0 rgba(255,255,255,.8)":"0 4px 16px rgba(0,0,0,.3), inset 0 1px 0 rgba(255,255,255,.08)" }}
       onMouseEnter={e=>{e.currentTarget.style.boxShadow="0 8px 28px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.1)";}}
       onMouseLeave={e=>{e.currentTarget.style.boxShadow="0 4px 16px rgba(0,0,0,.3), inset 0 1px 0 rgba(255,255,255,.08)";}}>
 
@@ -792,9 +792,9 @@ function ProductCard({ product, onAddToBasket, pinnedStore, isFavourite, onToggl
           <span style={{ fontSize:22, flexShrink:0, filter:"drop-shadow(0 1px 3px rgba(0,0,0,0.5))" }}>{product.icon}</span>
           <div style={{ flex:1, minWidth:0 }}>
             <Tooltip text={product.name}>
-              <div style={{ fontSize:12.5, fontWeight:700, color:"#f0f4f8", lineHeight:1.3 }}>{product.name}</div>
+              <div style={{ fontSize:12.5, fontWeight:700, color:lightMode?"#0f172a":"#f0f4f8", lineHeight:1.3 }}>{product.name}</div>
             </Tooltip>
-            <div style={{ fontSize:9.5, color:"#475569", marginTop:1 }}>{product.cat.replace(/^[^\s]+\s/,"")}{product.custom?" · custom":""}</div>
+            <div style={{ fontSize:9.5, color:lightMode?"#475569":"#475569", marginTop:1 }}>{product.cat.replace(/^[^\s]+\s/,"")}{product.custom?" · custom":""}</div>
           </div>
           {/* heart / favourite button */}
           <button
@@ -1232,7 +1232,7 @@ export default function JerseyGroceryApp() {
                   autoCorrect="off"
                   autoCapitalize="off"
                   spellCheck="false"
-                  style={{ width:"100%",padding:"8px 32px 8px 34px",background:"rgba(255,255,255,.06)",border:`1px solid ${searchQuery?"rgba(34,197,94,.4)":"rgba(255,255,255,.10)"}`,borderRadius:9,color:"#fff",fontSize:16,outline:"none",boxSizing:"border-box",transition:"border-color .2s",WebkitAppearance:"none" }}
+                  style={{ width:"100%",padding:"8px 32px 8px 34px",background:lightMode?"rgba(0,0,0,.06)":"rgba(255,255,255,.06)",border:`1px solid ${searchQuery?"rgba(34,197,94,.4)":lightMode?"rgba(0,0,0,.2)":"rgba(255,255,255,.10)"}`,borderRadius:9,color:lightMode?"#0f172a":"#fff",fontSize:16,outline:"none",boxSizing:"border-box",transition:"border-color .2s",WebkitAppearance:"none" }}
                 />
                 {searchQuery && (
                   <button
@@ -1244,7 +1244,7 @@ export default function JerseyGroceryApp() {
                   >✕</button>
                 )}
               </div>
-              <select value={sortBy} onChange={e=>setSortBy(e.target.value)} style={{ padding:"8px 12px",background:"rgba(255,255,255,.06)",border:"1px solid rgba(255,255,255,.10)",borderRadius:9,color:"#fff",fontSize:11,cursor:"pointer",outline:"none" }}>
+              <select value={sortBy} onChange={e=>setSortBy(e.target.value)} style={{ padding:"8px 12px",background:lightMode?"rgba(0,0,0,.06)":"rgba(255,255,255,.06)",border:lightMode?"1px solid rgba(0,0,0,.2)":"1px solid rgba(255,255,255,.10)",borderRadius:9,color:lightMode?"#0f172a":"#fff",fontSize:11,cursor:"pointer",outline:"none" }}>
                 <option value="bestPrice">Sort: Cheapest First</option>
                 <option value="savings">Sort: Biggest Saving</option>
                 <option value="az">Sort: A–Z</option>
@@ -1256,7 +1256,7 @@ export default function JerseyGroceryApp() {
             <div style={{ display:"flex",gap:6,flexWrap:"wrap",paddingBottom:7,marginBottom:4 }}>
               <Chip active={!pinnedStore} onClick={()=>setPinnedStore(null)} color="#3b82f6">🏷️ Best Price</Chip>
               {activeStores.map(s=>(
-                <Chip key={s.id} active={pinnedStore===s.id} onClick={()=>setPinnedStore(pinnedStore===s.id?null:s.id)} color={s.color}>{s.emoji} {s.short}</Chip>
+                <Chip key={s.id} active={pinnedStore===s.id} onClick={()=>setPinnedStore(pinnedStore===s.id?null:s.id)} color={s.color} lightMode={lightMode}>{s.emoji} {s.short}</Chip>
               ))}
               {disabledStores.size>0&&<button onClick={()=>setShowSettings(true)} style={{ whiteSpace:"nowrap",padding:"6px 13px",borderRadius:22,fontSize:11,fontWeight:700,cursor:"pointer",background:"linear-gradient(180deg,rgba(251,191,36,.2) 0%,rgba(180,83,9,.15) 100%)",border:"1px solid rgba(251,191,36,.4)",color:"#fcd34d",flexShrink:0 }}>⚙️ {disabledStores.size} store{disabledStores.size>1?"s":""} hidden</button>}
             </div>
@@ -1264,13 +1264,13 @@ export default function JerseyGroceryApp() {
             {/* category pills */}
             <div style={{ display:"flex",gap:5,overflowX:"auto",paddingBottom:9,marginBottom:7 }}>
               {CATS.filter(c=>catCounts[c]).map(cat=>(
-                <button key={cat} onClick={()=>setActiveCategory(cat)} style={{ whiteSpace:"nowrap",padding:"5px 13px",borderRadius:20,fontSize:10.5,fontWeight:600,border:"none",cursor:"pointer", background:activeCategory===cat?"linear-gradient(135deg,#16a34a,#15803d)":"rgba(255,255,255,.05)", color:activeCategory===cat?"#fff":"#94a3b8" }}>
+                <button key={cat} onClick={()=>setActiveCategory(cat)} style={{ whiteSpace:"nowrap",padding:"5px 13px",borderRadius:20,fontSize:10.5,fontWeight:600,border:"none",cursor:"pointer", background:activeCategory===cat?"linear-gradient(135deg,#16a34a,#15803d)":lightMode?"rgba(0,0,0,.08)":"rgba(255,255,255,.05)", color:activeCategory===cat?"#fff":lightMode?"#1e293b":"#94a3b8" }}>
                   {cat} <span style={{ opacity:.5,fontSize:8.5 }}>({catCounts[cat]})</span>
                 </button>
               ))}
             </div>
 
-            <div style={{ fontSize:10.5,color:"#475569",marginBottom:10 }}>
+            <div style={{ fontSize:10.5,color:lightMode?"#334155":"#475569",marginBottom:10 }}>
               {filteredProducts.length} product{filteredProducts.length!==1?"s":""}
               {searchQuery&&` · "${searchQuery}"`}
               {activeCategory!=="All"&&` · ${activeCategory.replace(/^[^\s]+\s/,"")}`}
@@ -3507,7 +3507,7 @@ function BasketItem({ item, overPay, onRemove, onAdd, onDelete }) {
   );
 }
 
-function Chip({ active, onClick, color, children }) {
+function Chip({ active, onClick, color, children, lightMode=false }) {
   const hexToRgb = (hex) => {
     const r = parseInt(hex.slice(1,3),16);
     const g = parseInt(hex.slice(3,5),16);
@@ -3518,20 +3518,23 @@ function Chip({ active, onClick, color, children }) {
   const light = `rgb(${Math.min(255,r+40)},${Math.min(255,g+40)},${Math.min(255,b+40)})`;
   const dark  = `rgb(${Math.round(r*0.55)},${Math.round(g*0.55)},${Math.round(b*0.55)})`;
   const dim   = `rgb(${Math.round(r*0.25)},${Math.round(g*0.25)},${Math.round(b*0.25)})`;
+  const inactiveText = lightMode
+    ? `rgb(${Math.max(0,r-60)},${Math.max(0,g-60)},${Math.max(0,b-60)})`
+    : `rgba(${r+80},${g+80},${b+80},0.85)`;
   return (
     <button onClick={onClick} style={{
       whiteSpace:"nowrap", padding:"6px 13px", borderRadius:22, fontSize:11, fontWeight:700, cursor:"pointer",
       background: active
         ? `linear-gradient(180deg,${light} 0%,${dark} 100%)`
-        : `linear-gradient(180deg,${dark} 0%,${dim} 100%)`,
-      border: `1px solid rgba(${r},${g},${b},${active?0.7:0.35})`,
-      color: active ? "#fff" : `rgba(${r+80},${g+80},${b+80},0.85)`,
+        : lightMode ? `rgba(${r},${g},${b},0.15)` : `linear-gradient(180deg,${dark} 0%,${dim} 100%)`,
+      border: `1px solid rgba(${r},${g},${b},${active?0.7:lightMode?0.5:0.35})`,
+      color: active ? "#fff" : inactiveText,
       boxShadow: active
         ? `0 3px 10px rgba(${r},${g},${b},0.55), inset 0 1px 0 rgba(255,255,255,0.25)`
         : `0 2px 6px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.07)`,
       textShadow: "0 1px 2px rgba(0,0,0,0.35)",
       position:"relative", overflow:"hidden",
-      opacity: active ? 1 : 0.75,
+      opacity: active ? 1 : 0.9,
     }}>
       <span style={{ position:"absolute", top:0, left:0, right:0, height:"52%", background:"linear-gradient(180deg,rgba(255,255,255,0.28) 0%,rgba(255,255,255,0.04) 100%)", borderRadius:"22px 22px 0 0", pointerEvents:"none" }} />
       {children}
