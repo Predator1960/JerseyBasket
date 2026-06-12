@@ -1089,27 +1089,15 @@ export default function JerseyGroceryApp() {
     <div className={lightMode?"jb-light":""} style={{ minHeight:"100vh", background: lightMode ? "linear-gradient(160deg,#e8edf2 0%,#dde4eb 55%,#e2e8f0 100%)" : "linear-gradient(160deg,#050d1a 0%,#0b1c35 55%,#061220 100%)", fontFamily:"'Georgia',serif", color: lightMode ? "#0f172a" : "#f0f4f8" }}>
       {lightMode && <style>{`
         .jb-light { color: #0f172a !important; }
-        .jb-light [style*="background:\"linear-gradient(180deg,#1e3a5f"] { background: #cbd5e1 !important; border-color: rgba(0,0,0,.2) !important; }
-        .jb-light [style*="background:\"linear-gradient(160deg,#050d1a"] { background: linear-gradient(160deg,#e8edf2 0%,#dde4eb 55%,#e2e8f0 100%) !important; }
         .jb-light [style*="#0a1a30"] { background: #e2e8f0 !important; }
         .jb-light [style*="#0f1f3d"] { background: #cbd5e1 !important; }
         .jb-light [style*="#1e3a5f"] { background: #bcc5ce !important; }
-        .jb-light [style*="color:\"#7dd3fc\""] { color: #1e40af !important; }
-        .jb-light [style*="color:\"#f0f4f8\""] { color: #0f172a !important; }
-        .jb-light [style*="color:\"rgba(255,255,255,.7)\""] { color: rgba(0,0,0,.65) !important; }
-        .jb-light [style*="color:\"rgba(255,255,255,.5)\""] { color: rgba(0,0,0,.5) !important; }
-        .jb-light [style*="color:\"rgba(255,255,255,.4)\""] { color: rgba(0,0,0,.4) !important; }
-        .jb-light [style*="color:\"rgba(255,255,255,.35)\""] { color: rgba(0,0,0,.35) !important; }
         .jb-light [style*="rgba(255,255,255,.05)"] { background: rgba(0,0,0,.04) !important; }
         .jb-light [style*="rgba(255,255,255,.08)"] { background: rgba(0,0,0,.06) !important; }
-        .jb-light [style*="rgba(255,255,255,.1),"] { background: rgba(0,0,0,.07) !important; }
         .jb-light [style*="rgba(255,255,255,.11)"] { background: rgba(0,0,0,.08) !important; }
         .jb-light [style*="rgba(255,255,255,.12)"] { background: rgba(0,0,0,.09) !important; }
         .jb-light [style*="rgba(255,255,255,.14)"] { background: rgba(0,0,0,.10) !important; }
         .jb-light [style*="#475569"] { color: #334155 !important; }
-        .jb-light [style*="color:\"#94a3b8\""] { color: #475569 !important; }
-        .jb-light [style*="color:\"#64748b\""] { color: #374151 !important; }
-        .jb-light [style*="background:\"#0a1a30\""] { background: #e2e8f0 !important; }
       `}</style>}
       <div style={{ position:"fixed",inset:0,pointerEvents:"none",zIndex:0, background:"radial-gradient(ellipse 80% 60% at 15% 5%,rgba(0,180,100,.05) 0%,transparent 60%),radial-gradient(ellipse 60% 80% at 85% 95%,rgba(0,100,220,.06) 0%,transparent 60%)" }} />
 
