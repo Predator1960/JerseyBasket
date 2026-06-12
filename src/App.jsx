@@ -792,7 +792,7 @@ function ProductCard({ product, onAddToBasket, pinnedStore, isFavourite, onToggl
           <span style={{ fontSize:22, flexShrink:0, filter:"drop-shadow(0 1px 3px rgba(0,0,0,0.5))" }}>{product.icon}</span>
           <div style={{ flex:1, minWidth:0 }}>
             <Tooltip text={product.name}>
-              <div style={{ fontSize:12.5, fontWeight:700, color:"#f0f4f8", lineHeight:1.3 }}>{product.name}</div>
+              <div style={{ fontSize:12.5, fontWeight:700, color:lightMode?"#0f172a":"#f0f4f8", lineHeight:1.3 }}>{product.name}</div>
             </Tooltip>
             <div style={{ fontSize:9.5, color:"#475569", marginTop:1 }}>{product.cat.replace(/^[^\s]+\s/,"")}{product.custom?" · custom":""}</div>
           </div>
@@ -1098,6 +1098,7 @@ export default function JerseyGroceryApp() {
         .jb-light [style*="rgba(255,255,255,.12)"] { background: rgba(0,0,0,.09) !important; }
         .jb-light [style*="rgba(255,255,255,.14)"] { background: rgba(0,0,0,.10) !important; }
         .jb-light [style*="#475569"] { color: #334155 !important; }
+        .jb-light [style*="#eab308"] { color: #78350f !important; background-color: rgba(120,53,15,.12) !important; border-color: rgba(120,53,15,.3) !important; }
       `}</style>}
       <div style={{ position:"fixed",inset:0,pointerEvents:"none",zIndex:0, background:"radial-gradient(ellipse 80% 60% at 15% 5%,rgba(0,180,100,.05) 0%,transparent 60%),radial-gradient(ellipse 60% 80% at 85% 95%,rgba(0,100,220,.06) 0%,transparent 60%)" }} />
 
@@ -1198,18 +1199,18 @@ export default function JerseyGroceryApp() {
         {view==="shop" && (
           <div>
             {/* ── PRICE DISCLAIMER BANNER ── */}
-            <div style={{ margin:"14px 0 10px",background:"rgba(245,158,11,.08)",border:"1px solid rgba(245,158,11,.28)",borderRadius:11,padding:"10px 14px",display:"flex",gap:10,alignItems:"flex-start" }}>
+            <div style={{ margin:"14px 0 10px",background: lightMode ? "rgba(180,120,0,.1)" : "rgba(245,158,11,.08)",border: lightMode ? "1px solid rgba(180,120,0,.35)" : "1px solid rgba(245,158,11,.28)",borderRadius:11,padding:"10px 14px",display:"flex",gap:10,alignItems:"flex-start" }}>
               <span style={{ fontSize:18,flexShrink:0,marginTop:1 }}>⚠️</span>
-              <div style={{ fontSize:11,color:"#fcd34d",lineHeight:1.6 }}>
+              <div style={{ fontSize:11,color: lightMode ? "#92400e" : "#fcd34d",lineHeight:1.6 }}>
                 <strong>Prices are currently approximate.</strong> We are actively verifying all prices in-store across all 5 Jersey supermarkets. Some prices may differ from what you see on the shelf.
-                {" "}<span style={{ color:"#f59e0b" }}>Always verify in-store before you shop.</span>
+                {" "}<span style={{ color: lightMode ? "#b45309" : "#f59e0b" }}>Always verify in-store before you shop.</span>
               </div>
             </div>
 
             {/* hint */}
-            <div style={{ margin:"14px 0 12px",background:"rgba(59,130,246,.09)",border:"1px solid rgba(59,130,246,.22)",borderRadius:11,padding:"9px 13px",display:"flex",gap:9,alignItems:"center" }}>
+            <div style={{ margin:"14px 0 12px",background: lightMode ? "rgba(30,64,175,.08)" : "rgba(59,130,246,.09)",border: lightMode ? "1px solid rgba(30,64,175,.25)" : "1px solid rgba(59,130,246,.22)",borderRadius:11,padding:"9px 13px",display:"flex",gap:9,alignItems:"center" }}>
               <span style={{ fontSize:16,flexShrink:0 }}>💡</span>
-              <div style={{ fontSize:11,color:"#93c5fd",lineHeight:1.5 }}>
+              <div style={{ fontSize:11,color: lightMode ? "#1e3a8a" : "#93c5fd",lineHeight:1.5 }}>
                 <strong>Each item shows the cheapest price.</strong> Tap the store pill to switch to a different store — then hit <strong>+ Add</strong> to add to basket.
               </div>
             </div>
@@ -1497,7 +1498,7 @@ export default function JerseyGroceryApp() {
                           <span style={{ fontSize:22,flexShrink:0 }}>{p.icon}</span>
                           <div style={{ minWidth:0 }}>
                             <Tooltip text={p.name}>
-                              <div style={{ fontSize:12.5,fontWeight:700,color:"#f0f4f8",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap" }}>{p.name}</div>
+                              <div style={{ fontSize:12.5,fontWeight:700,color:lightMode?"#0f172a":"#f0f4f8",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap" }}>{p.name}</div>
                             </Tooltip>
                             <div style={{ fontSize:9.5,color:"#475569",marginTop:1 }}>{p.cat.replace(/^[^\s]+\s/,"")}</div>
                           </div>
