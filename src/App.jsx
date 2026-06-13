@@ -1933,7 +1933,7 @@ const AD_SLIDES = [
     stats:    [{ val:"1,000+", label:"active users" },{ val:"From £99", label:"per month" }],
     statColor:"#6ee7b7",
     accent:   "linear-gradient(90deg,transparent,#05966988,transparent)",
-  }
+  },
   {
     id: 4,
     link: ENQUIRY_TRIGGER,
