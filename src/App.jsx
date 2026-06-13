@@ -13,12 +13,12 @@
  * Built for Jersey, Channel Islands.
  * Contact: hello@jerseybasket.je
  *
- * Version:   v58
- * Updated:   2 June 2026
- * Changes:   Full glossy UI overhaul — welcome modal, submit price form added — pills, buttons, cards, header, competition banner
- *            in the header (e.g. for ethical/personal reasons). Hidden stores are
- *            removed from product cards, store pin chips, and basket comparisons.
- *            Setting persists for the session.
+ * Version:   v67
+ * Updated:   13 June 2026
+ * Changes:   Full light mode pass — BasketItem, Basket tab, Favourites tab, Stores tab,
+ *            WelcomeModal, HelpModal, ReportModal, EnquiryModal, SettingsModal,
+ *            CompetitionModal, SubmitPriceModal, Footer all prop-based lightMode.
+ *            CSS override block removed.
  * ============================================================
  */
 import React, { useState, useMemo, useRef, useEffect, useCallback } from "react";
@@ -1129,22 +1129,7 @@ export default function JerseyGroceryApp() {
 
   return (
     <div className={lightMode?"jb-light":""} style={{ minHeight:"100vh", background: lightMode ? "linear-gradient(160deg,#e8edf2 0%,#dde4eb 55%,#e2e8f0 100%)" : "linear-gradient(160deg,#050d1a 0%,#0b1c35 55%,#061220 100%)", fontFamily:"'Georgia',serif", color: lightMode ? "#0f172a" : "#f0f4f8" }}>
-      {lightMode && <style>{`
-        .jb-light { color: #0f172a !important; }
-        .jb-light [style*="#0a1a30"] { background: #e2e8f0 !important; }
-        .jb-light [style*="#0f1f3d"] { background: #cbd5e1 !important; }
-        .jb-light [style*="#1e3a5f"] { background: #bcc5ce !important; }
-        .jb-light [style*="rgba(255,255,255,.05)"] { background: rgba(0,0,0,.04) !important; }
-        .jb-light [style*="rgba(255,255,255,.08)"] { background: rgba(0,0,0,.06) !important; }
-        .jb-light [style*="rgba(255,255,255,.11)"] { background: rgba(0,0,0,.08) !important; }
-        .jb-light [style*="rgba(255,255,255,.12)"] { background: rgba(0,0,0,.09) !important; }
-        .jb-light [style*="rgba(255,255,255,.14)"] { background: rgba(0,0,0,.10) !important; }
-        .jb-light [style*="#475569"] { color: #334155 !important; }
-        .jb-light [style*="color:#f0f4f8"] { color: #0f172a !important; }
-        .jb-light [style*='color:"#f0f4f8"'] { color: #0f172a !important; }
-        .jb-light [style*="#eab308"] { color: #78350f !important; background-color: rgba(120,53,15,.15) !important; border-color: rgba(120,53,15,.4) !important; }
-        .jb-light [style*="#94a3b8"] { color: #1e293b !important; background-color: rgba(30,41,59,.12) !important; border-color: rgba(30,41,59,.35) !important; }
-      `}</style>}
+
       <div style={{ position:"fixed",inset:0,pointerEvents:"none",zIndex:0, background:"radial-gradient(ellipse 80% 60% at 15% 5%,rgba(0,180,100,.05) 0%,transparent 60%),radial-gradient(ellipse 60% 80% at 85% 95%,rgba(0,100,220,.06) 0%,transparent 60%)" }} />
 
       {/* ══ HEADER ══ */}
@@ -1211,8 +1196,8 @@ export default function JerseyGroceryApp() {
               return (
                 <button key={v} onClick={()=>setView(v)} style={{
                   WebkitAppearance:"none",appearance:"none",
-                  background: isActive ? (isFav?"linear-gradient(180deg,#fb7185 0%,#be123c 100%)":"linear-gradient(180deg,#4ade80 0%,#15803d 100%)") : "linear-gradient(180deg,#1e3a5f 0%,#0f1f3d 100%)",
-                  border: isActive ? (isFav?"1px solid rgba(251,113,133,.5)":"1px solid rgba(74,222,128,.5)") : "1px solid rgba(125,211,252,0.15)",
+                  background: isActive ? (isFav?"linear-gradient(180deg,#fb7185 0%,#be123c 100%)":"linear-gradient(180deg,#4ade80 0%,#15803d 100%)") : lightMode?"rgba(0,0,0,.07)":"linear-gradient(180deg,#1e3a5f 0%,#0f1f3d 100%)",
+                  border: isActive ? (isFav?"1px solid rgba(251,113,133,.5)":"1px solid rgba(74,222,128,.5)") : lightMode?"1px solid rgba(0,0,0,.15)":"1px solid rgba(125,211,252,0.15)",
                   color: isActive ? (isFav?"#fff":"#052e16") : "#7dd3fc",
                   borderRadius:22, padding:"6px 11px", cursor:"pointer", fontSize:11, fontWeight:700,
                   flexShrink:0, position:"relative", overflow:"hidden",
@@ -1384,9 +1369,9 @@ export default function JerseyGroceryApp() {
             )}
 
             {filteredProducts.length===0&&(
-              <div style={{ textAlign:"center",padding:"40px 20px",background:"rgba(255,255,255,.03)",borderRadius:18,border:"1px dashed rgba(255,255,255,.07)",marginTop:10 }}>
+              <div style={{ textAlign:"center",padding:"40px 20px",background:lightMode?"rgba(0,0,0,.03)":"rgba(255,255,255,.03)",borderRadius:18,border:lightMode?"1px dashed rgba(0,0,0,.12)":"1px dashed rgba(255,255,255,.07)",marginTop:10 }}>
                 <div style={{ fontSize:36,marginBottom:10 }}>🔍</div>
-                <div style={{ color:"#f0f4f8",fontSize:14,fontWeight:600,marginBottom:6 }}>
+                <div style={{ color:lightMode?"#0f172a":"#f0f4f8",fontSize:14,fontWeight:600,marginBottom:6 }}>
                   No results for {searchQuery ? <span style={{ color:"#22c55e" }}>"{searchQuery}"</span> : "these filters"}
                 </div>
                 <div style={{ color:"#64748b",fontSize:12,marginBottom:20 }}>
@@ -1419,12 +1404,12 @@ export default function JerseyGroceryApp() {
         {view==="basket" && (
           <div style={{ marginTop:18 }}>
             <div style={{ display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:14 }}>
-              <h2 style={{ fontSize:18,fontWeight:700,margin:0 }}>🧺 Your Basket</h2>
+              <h2 style={{ fontSize:18,fontWeight:700,margin:0,color:lightMode?"#0f172a":"#f0f4f8" }}>🧺 Your Basket</h2>
               {basketItems.length>0&&<button onClick={()=>setBasket({})} style={{ background:"linear-gradient(180deg,rgba(239,68,68,.25) 0%,rgba(185,28,28,.2) 100%)",border:"1px solid rgba(239,68,68,.4)",color:"#fca5a5",borderRadius:22,boxShadow:"0 2px 6px rgba(239,68,68,.25),inset 0 1px 0 rgba(255,255,255,.1)",padding:"4px 11px",cursor:"pointer",fontSize:10.5,fontWeight:600 }}>Clear All</button>}
             </div>
 
             {basketItems.length===0?(
-              <div style={{ textAlign:"center",padding:"55px 20px",background:"rgba(255,255,255,.03)",borderRadius:18,border:"1px dashed rgba(255,255,255,.09)" }}>
+              <div style={{ textAlign:"center",padding:"55px 20px",background:lightMode?"rgba(0,0,0,.03)":"rgba(255,255,255,.03)",borderRadius:18,border:lightMode?"1px dashed rgba(0,0,0,.12)":"1px dashed rgba(255,255,255,.09)" }}>
                 <div style={{ fontSize:44,marginBottom:12 }}>🛒</div>
                 <div style={{ color:"#64748b" }}>Your basket is empty</div>
                 <button onClick={()=>setView("shop")} style={{ marginTop:16,padding:"9px 22px",background:"linear-gradient(180deg,#4ade80 0%,#15803d 100%)",boxShadow:"0 3px 10px rgba(34,197,94,.5),inset 0 1px 0 rgba(255,255,255,.3)",border:"none",borderRadius:11,color:"#fff",cursor:"pointer",fontSize:13,fontWeight:600 }}>Start Shopping</button>
@@ -1432,9 +1417,9 @@ export default function JerseyGroceryApp() {
             ):(
               <div>
                 {/* smart tip */}
-                <div style={{ background:"linear-gradient(135deg,rgba(34,197,94,.12),rgba(21,128,61,.07))",border:"1px solid rgba(34,197,94,.24)",borderRadius:12,padding:13,marginBottom:14 }}>
+                <div style={{ background:lightMode?"linear-gradient(135deg,rgba(34,197,94,.15),rgba(21,128,61,.08))":"linear-gradient(135deg,rgba(34,197,94,.12),rgba(21,128,61,.07))",border:"1px solid rgba(34,197,94,.24)",borderRadius:12,padding:13,marginBottom:14 }}>
                   <div style={{ fontSize:10.5,color:"#86efac",fontWeight:700,marginBottom:3 }}>💡 SMART TIP</div>
-                  <div style={{ fontSize:11.5,color:"#d1fae5",lineHeight:1.65 }}>
+                  <div style={{ fontSize:11.5,color:lightMode?"#14532d":"#d1fae5",lineHeight:1.65 }}>
                     Buying everything from <strong>{storeBasketTotals[0]?.store.name}</strong> costs <strong style={{ color:"#22c55e" }}>£{storeBasketTotals[0]?.total.toFixed(2)}</strong> — saving <strong style={{ color:"#fbbf24" }}>£{(storeBasketTotals[storeBasketTotals.length-1]?.total-storeBasketTotals[0]?.total).toFixed(2)}</strong> vs the most expensive option.
                   </div>
                 </div>
@@ -1442,12 +1427,12 @@ export default function JerseyGroceryApp() {
                 {/* store totals strip */}
                 <div style={{ display:"flex",gap:7,overflowX:"auto",paddingBottom:11,marginBottom:13 }}>
                   {storeBasketTotals.map(({store,total},i)=>(
-                    <div key={store.id} style={{ flex:"0 0 auto",background:i===0?"rgba(34,197,94,.11)":"rgba(255,255,255,.04)", border:i===0?"1px solid rgba(34,197,94,.28)":"1px solid rgba(255,255,255,.07)", borderRadius:11,padding:"8px 12px",minWidth:95,textAlign:"center" }}>
+                    <div key={store.id} style={{ flex:"0 0 auto",background:i===0?"rgba(34,197,94,.11)":lightMode?"rgba(0,0,0,.04)":"rgba(255,255,255,.04)", border:i===0?"1px solid rgba(34,197,94,.28)":lightMode?"1px solid rgba(0,0,0,.08)":"1px solid rgba(255,255,255,.07)", borderRadius:11,padding:"8px 12px",minWidth:95,textAlign:"center" }}>
                       {i===0&&<div style={{ fontSize:7.5,color:"#22c55e",fontWeight:700,marginBottom:2 }}>CHEAPEST</div>}
                       {i===storeBasketTotals.length-1&&<div style={{ fontSize:7.5,color:"#f87171",fontWeight:700,marginBottom:2 }}>PRICIEST</div>}
                       <div style={{ fontSize:15 }}>{store.emoji}</div>
-                      <div style={{ fontSize:9.5,fontWeight:600,color:i===0?"#86efac":"#94a3b8",marginTop:2 }}>{store.short}</div>
-                      <div style={{ fontSize:15,fontWeight:700,color:i===0?"#22c55e":i===storeBasketTotals.length-1?"#f87171":"#f0f4f8",marginTop:3 }}>£{total.toFixed(2)}</div>
+                      <div style={{ fontSize:9.5,fontWeight:600,color:i===0?"#22c55e":lightMode?"#475569":"#94a3b8",marginTop:2 }}>{store.short}</div>
+                      <div style={{ fontSize:15,fontWeight:700,color:i===0?"#22c55e":i===storeBasketTotals.length-1?"#f87171":lightMode?"#0f172a":"#f0f4f8",marginTop:3 }}>£{total.toFixed(2)}</div>
                     </div>
                   ))}
                 </div>
@@ -1464,13 +1449,14 @@ export default function JerseyGroceryApp() {
                         onRemove={()=>removeFromBasket(item.key)}
                         onAdd={()=>addToBasket(item.product.id,item.store?.id)}
                         onDelete={()=>deleteFromBasket(item.key)}
+                        lightMode={lightMode}
                       />
                     );
                   })}
                 </div>
 
                 {/* totals */}
-                <div style={{ background:"rgba(255,255,255,.05)",borderRadius:13,padding:15,border:"1px solid rgba(255,255,255,.09)" }}>
+                <div style={{ background:lightMode?"rgba(0,0,0,.04)":"rgba(255,255,255,.05)",borderRadius:13,padding:15,border:lightMode?"1px solid rgba(0,0,0,.08)":"1px solid rgba(255,255,255,.09)" }}>
                   <div style={{ display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:5 }}>
                     <span style={{ fontSize:11,color:"#94a3b8" }}>{basketCount} item{basketCount!==1?"s":""} · {new Set(basketItems.map(i=>i.store?.id)).size} store{new Set(basketItems.map(i=>i.store?.id)).size!==1?"s":""}</span>
                     <span style={{ fontSize:10,color:"#475569" }}>incl. 5% GST</span>
@@ -1510,16 +1496,16 @@ export default function JerseyGroceryApp() {
             <div style={{ marginTop:18 }}>
               {/* header */}
               <div style={{ display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:4 }}>
-                <h2 style={{ fontSize:18,fontWeight:700,margin:0,display:"flex",alignItems:"center",gap:8 }}>
+                <h2 style={{ fontSize:18,fontWeight:700,margin:0,display:"flex",alignItems:"center",gap:8,color:lightMode?"#0f172a":"#f0f4f8" }}>
                   <span style={{ color:"#f43f5e" }}>♥</span> Saved Items
                   <span style={{ fontSize:12,fontWeight:400,color:"#64748b" }}>{favCount} item{favCount!==1?"s":""}</span>
                 </h2>
                 {favCount>0&&<button onClick={()=>setFavourites(new Set())} style={{ background:"linear-gradient(180deg,rgba(244,63,94,.25) 0%,rgba(190,18,60,.2) 100%)",border:"1px solid rgba(244,63,94,.4)",color:"#fda4af",borderRadius:22,boxShadow:"0 2px 6px rgba(244,63,94,.25),inset 0 1px 0 rgba(255,255,255,.1)",padding:"4px 10px",cursor:"pointer",fontSize:10.5,fontWeight:600 }}>Clear All ♡</button>}
               </div>
-              <p style={{ color:"#475569",fontSize:11,marginBottom:18 }}>Items you've hearted. Add them to your favourites basket or your main basket.</p>
+              <p style={{ color:lightMode?"#334155":"#475569",fontSize:11,marginBottom:18 }}>Items you've hearted. Add them to your favourites basket or your main basket.</p>
 
               {favCount===0?(
-                <div style={{ textAlign:"center",padding:"50px 20px",background:"rgba(255,255,255,.03)",borderRadius:18,border:"1px dashed rgba(244,63,94,.2)",marginTop:10 }}>
+                <div style={{ textAlign:"center",padding:"50px 20px",background:lightMode?"rgba(0,0,0,.03)":"rgba(255,255,255,.03)",borderRadius:18,border:"1px dashed rgba(244,63,94,.2)",marginTop:10 }}>
                   <div style={{ fontSize:44,marginBottom:12 }}>♡</div>
                   <div style={{ color:"#64748b",fontSize:14,marginBottom:6 }}>No saved items yet</div>
                   <div style={{ color:"#475569",fontSize:12,marginBottom:18 }}>Tap the ♡ heart on any product to save it here</div>
@@ -1530,7 +1516,7 @@ export default function JerseyGroceryApp() {
                   {/* saved item cards */}
                   <div style={{ display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(270px,1fr))",gap:11,marginBottom:24 }}>
                     {favProducts.map(p=>(
-                      <div key={p.id} style={{ background:"rgba(244,63,94,.04)",border:"1px solid rgba(244,63,94,.18)",borderRadius:16,padding:"12px 14px",position:"relative" }}>
+                      <div key={p.id} style={{ background:lightMode?"rgba(244,63,94,.06)":"rgba(244,63,94,.04)",border:"1px solid rgba(244,63,94,.18)",borderRadius:16,padding:"12px 14px",position:"relative" }}>
                         {/* remove heart */}
                         <button onClick={()=>toggleFavourite(p.id)} title="Remove from favourites"
                           style={{ position:"absolute",top:10,right:10,background:"none",border:"none",cursor:"pointer",fontSize:16,color:"#f43f5e",lineHeight:1,padding:2 }}
@@ -1660,8 +1646,8 @@ export default function JerseyGroceryApp() {
         {/* ═══════════════════════ COMPARE ══════════════════════════ */}
         {view==="compare" && (
           <div style={{ marginTop:18 }}>
-            <h2 style={{ fontSize:18,fontWeight:700,marginBottom:3 }}>📊 Store Comparison</h2>
-            <p style={{ color:"#64748b",fontSize:11,marginBottom:16 }}>Jersey Channel Islands · Prices include 5% GST</p>
+            <h2 style={{ fontSize:18,fontWeight:700,marginBottom:3,color:lightMode?"#0f172a":"#f0f4f8" }}>📊 Store Comparison</h2>
+            <p style={{ color:lightMode?"#334155":"#64748b",fontSize:11,marginBottom:16 }}>Jersey Channel Islands · Prices include 5% GST</p>
             <div style={{ display:"grid",gap:10 }}>
               {STORES.map(store=>{
                 const items=allProducts.filter(p=>p.prices[store.id]);
@@ -1692,25 +1678,25 @@ export default function JerseyGroceryApp() {
                             boxShadow:`0 1px 4px rgba(${r},${g},${b},0.3)`,
                           }}>{store.tag}</span>
                         </div>
-                        <div style={{ fontSize:11,fontWeight:700,color:"#cbd5e1" }}>📍 {store.note}</div>
+                        <div style={{ fontSize:11,fontWeight:700,color:lightMode?"#334155":"#cbd5e1" }}>📍 {store.note}</div>
                       </div>
                       <div style={{ textAlign:"right" }}>
                         <div style={{ fontSize:19,fontWeight:700,color:sc,textShadow:`0 0 10px rgba(${r},${g},${b},0.5)` }}>£{avg.toFixed(2)}</div>
-                        <div style={{ fontSize:11,fontWeight:700,color:"#cbd5e1" }}>avg / item</div>
+                        <div style={{ fontSize:11,fontWeight:700,color:lightMode?"#334155":"#cbd5e1" }}>avg / item</div>
                       </div>
                     </div>
                     {/* stat badges row */}
                     <div style={{ display:"flex",gap:9,marginTop:11,flexWrap:"wrap" }}>
                       <div style={{ background:`linear-gradient(180deg,rgba(${r},${g},${b},0.15) 0%,rgba(${r},${g},${b},0.08) 100%)`,border:`1px solid rgba(${r},${g},${b},0.25)`,borderRadius:10,padding:"7px 14px",textAlign:"center",boxShadow:"inset 0 1px 0 rgba(255,255,255,.07)" }}>
                         <div style={{ fontSize:16,fontWeight:700,color:sc,textShadow:`0 0 8px rgba(${r},${g},${b},0.4)` }}>{wins}</div>
-                        <div style={{ fontSize:11,fontWeight:600,color:"#cbd5e1" }}>cheapest items</div>
+                        <div style={{ fontSize:11,fontWeight:600,color:lightMode?"#334155":"#cbd5e1" }}>cheapest items</div>
                       </div>
                       <div style={{ background:`linear-gradient(180deg,rgba(${r},${g},${b},0.15) 0%,rgba(${r},${g},${b},0.08) 100%)`,border:`1px solid rgba(${r},${g},${b},0.25)`,borderRadius:10,padding:"7px 14px",textAlign:"center",boxShadow:"inset 0 1px 0 rgba(255,255,255,.07)" }}>
                         <div style={{ fontSize:16,fontWeight:700,color:sc,textShadow:`0 0 8px rgba(${r},${g},${b},0.4)` }}>{winPct}%</div>
-                        <div style={{ fontSize:11,fontWeight:600,color:"#cbd5e1" }}>of range</div>
+                        <div style={{ fontSize:11,fontWeight:600,color:lightMode?"#334155":"#cbd5e1" }}>of range</div>
                       </div>
                       {/* description — inline on desktop, full width below on mobile */}
-                      <div style={{ background:"rgba(255,255,255,.03)",border:"1px solid rgba(255,255,255,.1)",borderRadius:10,padding:"7px 12px",flex:1,minWidth:"100%",fontSize:11,fontWeight:700,color:"#e2e8f0",lineHeight:1.6 }}>
+                      <div style={{ background:lightMode?"rgba(0,0,0,.04)":"rgba(255,255,255,.03)",border:lightMode?"1px solid rgba(0,0,0,.1)":"1px solid rgba(255,255,255,.1)",borderRadius:10,padding:"7px 12px",flex:1,minWidth:"100%",fontSize:11,fontWeight:700,color:lightMode?"#1e293b":"#e2e8f0",lineHeight:1.6 }}>
                         {store.id==="coop"&&"✅ Best overall value. Family-friendly. Large stores closed Sunday."}
                         {store.id==="morrisons"&&"⚠️ Prices ~45% above UK Morrisons. Convenience format across multiple branches."}
                         {store.id==="ms"&&"✨ Premium quality. Freight surcharge applied. Best for special occasions."}
@@ -1722,9 +1708,9 @@ export default function JerseyGroceryApp() {
                 );
               })}
             </div>
-            <div style={{ marginTop:16,background:"rgba(234,179,8,.06)",border:"1px solid rgba(234,179,8,.17)",borderRadius:12,padding:15 }}>
+            <div style={{ marginTop:16,background:lightMode?"rgba(234,179,8,.08)":"rgba(234,179,8,.06)",border:"1px solid rgba(234,179,8,.17)",borderRadius:12,padding:15 }}>
               <div style={{ fontSize:11,color:"#fbbf24",fontWeight:700,marginBottom:6 }}>ℹ️ Jersey Pricing Context</div>
-              <div style={{ fontSize:10.5,color:"#94a3b8",lineHeight:1.85 }}>
+              <div style={{ fontSize:10.5,color:lightMode?"#334155":"#94a3b8",lineHeight:1.85 }}>
                 Groceries in Jersey average <strong style={{ color:"#fbbf24" }}>14–19% more</strong> than UK mainland prices due to freight costs, the small market size, and higher labour costs. Without Aldi or Lidl, low-income households can pay up to <strong style={{ color:"#fbbf24" }}>49% more</strong> than their UK counterparts. The CI Co-op (Grande Marché) consistently offers the best everyday value for Jersey residents.
               </div>
             </div>
@@ -1736,20 +1722,20 @@ export default function JerseyGroceryApp() {
       {showAddModal&&(
         <div style={{ position:"fixed",inset:0,zIndex:200,display:"flex",alignItems:"flex-end",justifyContent:"center",paddingTop:60,background:"rgba(0,0,0,.72)",backdropFilter:"blur(8px)" }}
           onClick={e=>{if(e.target===e.currentTarget){setShowAddModal(false);setAddError("");}}}>
-          <div style={{ width:"100%",maxWidth:580,background:"#0a1a30",border:"1px solid rgba(255,255,255,.11)",borderRadius:"20px 20px 0 0",padding:"21px 20px 28px",maxHeight:"82vh",overflowY:"auto",paddingBottom:"calc(132px + 32px)" }}>
-            <div style={{ display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:15,position:"sticky",top:0,background:"#0a1a30",paddingTop:4,paddingBottom:8,zIndex:10 }}>
+          <div style={{ width:"100%",maxWidth:580,background:lightMode?"#f0f4f8":"#0a1a30",border:lightMode?"1px solid rgba(0,0,0,.12)":"1px solid rgba(255,255,255,.11)",borderRadius:"20px 20px 0 0",padding:"21px 20px 28px",maxHeight:"82vh",overflowY:"auto",paddingBottom:"calc(132px + 32px)" }}>
+            <div style={{ display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:15,position:"sticky",top:0,background:lightMode?"#f0f4f8":"#0a1a30",paddingTop:4,paddingBottom:8,zIndex:10 }}>
               <div>
-                <div style={{ fontSize:16,fontWeight:700 }}>➕ Add Custom Item</div>
-                <div style={{ fontSize:10.5,color:"#64748b",marginTop:2 }}>Enter prices for the stores you know — leave others blank</div>
+                <div style={{ fontSize:16,fontWeight:700,color:lightMode?"#0f172a":"#f0f4f8" }}>➕ Add Custom Item</div>
+                <div style={{ fontSize:10.5,color:lightMode?"#334155":"#64748b",marginTop:2 }}>Enter prices for the stores you know — leave others blank</div>
               </div>
               <button onClick={()=>{setShowAddModal(false);setAddError("");}} style={{ background:"rgba(255,255,255,.07)",border:"none",borderRadius:7,width:27,height:27,color:"#94a3b8",cursor:"pointer",fontSize:13 }}>✕</button>
             </div>
 
             <div style={{ display:"flex",gap:10,marginBottom:12 }}>
               <div style={{ position:"relative",flexShrink:0 }}>
-                <button onClick={()=>setIconPickerOpen(!iconPickerOpen)} style={{ width:44,height:44,background:"rgba(255,255,255,.07)",border:"1px solid rgba(255,255,255,.12)",borderRadius:10,fontSize:20,cursor:"pointer" }}>{newItem.icon}</button>
+                <button onClick={()=>setIconPickerOpen(!iconPickerOpen)} style={{ width:44,height:44,background:lightMode?"rgba(0,0,0,.07)":"rgba(255,255,255,.07)",border:lightMode?"1px solid rgba(0,0,0,.12)":"1px solid rgba(255,255,255,.12)",borderRadius:10,fontSize:20,cursor:"pointer" }}>{newItem.icon}</button>
                 {iconPickerOpen&&(
-                  <div style={{ position:"absolute",top:50,left:0,zIndex:50,background:"#0a1a30",border:"1px solid rgba(255,255,255,.14)",borderRadius:12,padding:8,display:"grid",gridTemplateColumns:"repeat(8,1fr)",gap:3,width:235,boxShadow:"0 8px 32px rgba(0,0,0,.7)" }}>
+                  <div style={{ position:"absolute",top:50,left:0,zIndex:50,background:lightMode?"#f0f4f8":"#0a1a30",border:lightMode?"1px solid rgba(0,0,0,.14)":"1px solid rgba(255,255,255,.14)",borderRadius:12,padding:8,display:"grid",gridTemplateColumns:"repeat(8,1fr)",gap:3,width:235,boxShadow:"0 8px 32px rgba(0,0,0,.7)" }}>
                     {ICON_OPTIONS.map(ic=>(
                       <button key={ic} onClick={()=>{setNewItem(p=>({...p,icon:ic}));setIconPickerOpen(false);}} style={{ background:newItem.icon===ic?"rgba(34,197,94,.18)":"transparent",border:"none",borderRadius:5,fontSize:16,cursor:"pointer",padding:3,lineHeight:1 }}>{ic}</button>
                     ))}
@@ -1757,26 +1743,26 @@ export default function JerseyGroceryApp() {
                 )}
               </div>
               <input value={newItem.name} onChange={e=>setNewItem(p=>({...p,name:e.target.value}))} placeholder="Product name, e.g. Oat Milk 1L"
-                style={{ flex:1,padding:"0 13px",background:"rgba(255,255,255,.07)",border:"1px solid rgba(255,255,255,.11)",borderRadius:10,color:"#fff",fontSize:12.5,outline:"none",height:44 }} />
+                style={{ flex:1,padding:"0 13px",background:lightMode?"rgba(0,0,0,.06)":"rgba(255,255,255,.07)",border:lightMode?"1px solid rgba(0,0,0,.12)":"1px solid rgba(255,255,255,.11)",borderRadius:10,color:lightMode?"#0f172a":"#fff",fontSize:12.5,outline:"none",height:44 }} />
             </div>
 
             <div style={{ marginBottom:13 }}>
-              <div style={{ fontSize:9.5,color:"#64748b",fontWeight:700,letterSpacing:".5px",marginBottom:6 }}>CATEGORY</div>
+              <div style={{ fontSize:9.5,color:lightMode?"#334155":"#64748b",fontWeight:700,letterSpacing:".5px",marginBottom:6 }}>CATEGORY</div>
               <div style={{ display:"flex",flexWrap:"wrap",gap:5 }}>
                 {CATS.filter(c=>c!=="All").map(cat=>(
-                  <button key={cat} onClick={()=>setNewItem(p=>({...p,cat}))} style={{ padding:"4px 10px",borderRadius:14,fontSize:9.5,fontWeight:600,cursor:"pointer",border:"none",background:newItem.cat===cat?"linear-gradient(135deg,#16a34a,#15803d)":"rgba(255,255,255,.06)",color:newItem.cat===cat?"#fff":"#94a3b8" }}>{cat}</button>
+                  <button key={cat} onClick={()=>setNewItem(p=>({...p,cat}))} style={{ padding:"4px 10px",borderRadius:14,fontSize:9.5,fontWeight:600,cursor:"pointer",border:"none",background:newItem.cat===cat?"linear-gradient(135deg,#16a34a,#15803d)":lightMode?"rgba(0,0,0,.06)":"rgba(255,255,255,.06)",color:newItem.cat===cat?"#fff":lightMode?"#334155":"#94a3b8" }}>{cat}</button>
                 ))}
               </div>
             </div>
 
             <div style={{ marginBottom:13 }}>
-              <div style={{ fontSize:9.5,color:"#64748b",fontWeight:700,letterSpacing:".5px",marginBottom:7 }}>STORE PRICES (£) — leave blank if unknown</div>
+              <div style={{ fontSize:9.5,color:lightMode?"#334155":"#64748b",fontWeight:700,letterSpacing:".5px",marginBottom:7 }}>STORE PRICES (£) — leave blank if unknown</div>
               <div style={{ display:"grid",gridTemplateColumns:"1fr 1fr",gap:7 }}>
                 {STORES.map(store=>{
                   const val=parseFloat(newItem.prices[store.id]);
                   const isBest=!isNaN(val)&&val>0&&val===liveMin;
                   return(
-                    <div key={store.id} style={{ display:"flex",alignItems:"center",gap:7,background:isBest?"rgba(34,197,94,.1)":"rgba(255,255,255,.04)",border:isBest?"1px solid rgba(34,197,94,.28)":"1px solid rgba(255,255,255,.07)",borderRadius:9,padding:"7px 10px",transition:"all .15s" }}>
+                    <div key={store.id} style={{ display:"flex",alignItems:"center",gap:7,background:isBest?"rgba(34,197,94,.1)":lightMode?"rgba(0,0,0,.04)":"rgba(255,255,255,.04)",border:isBest?"1px solid rgba(34,197,94,.28)":lightMode?"1px solid rgba(0,0,0,.08)":"1px solid rgba(255,255,255,.07)",borderRadius:9,padding:"7px 10px",transition:"all .15s" }}>
                       <span style={{ fontSize:14 }}>{store.emoji}</span>
                       <div style={{ flex:1,minWidth:0 }}>
                         <div style={{ fontSize:9,color:isBest?"#86efac":"#64748b",marginBottom:2,fontWeight:isBest?700:400 }}>{store.name}{isBest?" 🏆":""}</div>
@@ -1784,7 +1770,7 @@ export default function JerseyGroceryApp() {
                           <span style={{ fontSize:11,color:"#64748b" }}>£</span>
                           <input type="number" step="0.01" min="0" placeholder="—" value={newItem.prices[store.id]}
                             onChange={e=>setNewItem(p=>({...p,prices:{...p.prices,[store.id]:e.target.value}}))}
-                            style={{ width:"100%",background:"transparent",border:"none",borderBottom:"1px solid rgba(255,255,255,.13)",color:"#fff",fontSize:12.5,fontWeight:600,outline:"none",padding:"1px 0" }} />
+                            style={{ width:"100%",background:"transparent",border:"none",borderBottom:lightMode?"1px solid rgba(0,0,0,.15)":"1px solid rgba(255,255,255,.13)",color:lightMode?"#0f172a":"#fff",fontSize:12.5,fontWeight:600,outline:"none",padding:"1px 0" }} />
                         </div>
                       </div>
                     </div>
@@ -1858,34 +1844,34 @@ export default function JerseyGroceryApp() {
       {/* ── FOOTER + BANNER — single fixed stack, footer always flush above banner ── */}
       <div style={{ position:"fixed", bottom:0, left:0, right:0, zIndex:200, display:"flex", flexDirection:"column" }}>
         {/* footer */}
-        <div style={{ background:"rgba(5,13,26,.97)",backdropFilter:"blur(16px)",borderTop:"1px solid rgba(255,255,255,.09)",padding:"6px 20px",display:"flex",justifyContent:"center",alignItems:"center",fontSize:10,color:"#475569",gap:12,flexWrap:"wrap",minHeight:28 }}>
+        <div style={{ background:lightMode?"rgba(210,218,226,.97)":"rgba(5,13,26,.97)",backdropFilter:"blur(16px)",borderTop:lightMode?"1px solid rgba(0,0,0,.12)":"1px solid rgba(255,255,255,.09)",padding:"6px 20px",display:"flex",justifyContent:"center",alignItems:"center",fontSize:10,color:lightMode?"#334155":"#475569",gap:12,flexWrap:"wrap",minHeight:28 }}>
           <span>🇯🇪 Jersey, Channel Islands</span>
-          <span style={{ color:"#1e293b" }}>·</span>
+          <span style={{ color:lightMode?"#94a3b8":"#1e293b" }}>·</span>
           <span>© 2026 Eamonn O'Shea</span>
-          <span style={{ color:"#1e293b" }}>·</span>
+          <span style={{ color:lightMode?"#94a3b8":"#1e293b" }}>·</span>
           <a href="mailto:hello@jerseybasket.je" style={{ color:"#22c55e",textDecoration:"none",fontWeight:600 }}>hello@jerseybasket.je</a>
-          <span style={{ color:"#1e293b" }}>·</span>
+          <span style={{ color:lightMode?"#94a3b8":"#1e293b" }}>·</span>
           <span style={{ color:"#22c55e",fontWeight:600 }}>
             🕐 Prices updated: {new Date().toLocaleDateString("en-GB", { day:"numeric", month:"long", year:"numeric" })}
           </span>
-          <span style={{ color:"#1e293b" }}>·</span>
-          <span>Always verify in-store</span>
+          <span style={{ color:lightMode?"#94a3b8":"#1e293b" }}>·</span>
+          <span style={{ color:lightMode?"#334155":"#94a3b8" }}>Always verify in-store</span>
         </div>
         {/* banner */}
         <AdBanner onEnquiry={()=>setShowEnquiry(true)} />
       </div>
 
       {/* ── WELCOME SCREEN — first visit only ── */}
-      {showWelcome && <WelcomeModal onDismiss={dismissWelcome} onSubmitPrice={()=>setShowSubmitPrice(true)} />}
+      {showWelcome && <WelcomeModal onDismiss={dismissWelcome} onSubmitPrice={()=>setShowSubmitPrice(true)} lightMode={lightMode} />}
 
       {/* ── REPORT MODAL ── */}
-      {showReport && <ReportModal onClose={()=>setShowReport(false)} />}
+      {showReport && <ReportModal onClose={()=>setShowReport(false)} lightMode={lightMode} />}
 
       {/* ── ENQUIRY MODAL ── */}
-      {showEnquiry && <EnquiryModal onClose={()=>setShowEnquiry(false)} />}
+      {showEnquiry && <EnquiryModal onClose={()=>setShowEnquiry(false)} lightMode={lightMode} />}
 
       {/* ── HELP MODAL ── */}
-      {showHelp && <HelpModal onClose={()=>setShowHelp(false)} onShare={()=>{
+      {showHelp && <HelpModal onClose={()=>setShowHelp(false)} lightMode={lightMode} onShare={()=>{
         const shareData = { title:"JerseyBasket.je", text:"Compare grocery prices across all Jersey supermarkets! 🇯🇪", url:"https://jerseybasket.je" };
         if (navigator.share) { navigator.share(shareData).catch(()=>{}); }
         else { navigator.clipboard.writeText("https://jerseybasket.je").then(()=>showToast("🔗 Link copied!")); }
@@ -1895,13 +1881,13 @@ export default function JerseyGroceryApp() {
       }} />}
 
       {/* ── SETTINGS MODAL ── */}
-      {showSettings && <SettingsModal disabledStores={disabledStores} onToggleStore={toggleStore} onClose={()=>setShowSettings(false)} />}
+      {showSettings && <SettingsModal disabledStores={disabledStores} onToggleStore={toggleStore} onClose={()=>setShowSettings(false)} lightMode={lightMode} />}
 
       {/* ── COMPETITION MODAL ── */}
-      {showCompetition && <CompetitionModal onClose={()=>setShowCompetition(false)} onSubmit={()=>{setShowCompetition(false);setShowSubmitPrice(true);}} />}
+      {showCompetition && <CompetitionModal onClose={()=>setShowCompetition(false)} onSubmit={()=>{setShowCompetition(false);setShowSubmitPrice(true);}} lightMode={lightMode} />}
 
       {/* ── SUBMIT PRICE MODAL ── */}
-      {showSubmitPrice && <SubmitPriceModal onClose={()=>setShowSubmitPrice(false)} />}
+      {showSubmitPrice && <SubmitPriceModal onClose={()=>setShowSubmitPrice(false)} lightMode={lightMode} />}
 
     </div>
   );
@@ -2120,7 +2106,11 @@ function InstallSteps({ accent = "#22c55e", compact = false }) {
 /* ═══════════════════════════════════════════════════════════════════════════
    WELCOME SCREEN — shown once to first-time visitors
 ═══════════════════════════════════════════════════════════════════════════ */
-function WelcomeModal({ onDismiss, onSubmitPrice }) {
+function WelcomeModal({ onDismiss, onSubmitPrice, lightMode=false }) {
+  const lmbg = lightMode ? "#f0f4f8" : "#0a1628";
+  const lmborder = lightMode ? "rgba(0,0,0,.12)" : "rgba(255,255,255,.08)";
+  const lmtext = lightMode ? "#0f172a" : "#f0f4f8";
+  const lmsub = lightMode ? "#334155" : "#94a3b8";
   const [step, setStep] = useState(0);
   const [surveyAnswers, setSurveyAnswers] = useState({ q1: "", q2: "", q3: "", q4: "", q5: "" });
   const [surveySubmitted, setSurveySubmitted] = useState(false);
@@ -2436,7 +2426,13 @@ const FEATURES = [
   },
 ];
 
-function HelpModal({ onClose, onShare, onReplay }) {
+function HelpModal({ onClose, onShare, onReplay, lightMode=false }) {
+  const lmbg = lightMode ? '#f0f4f8' : '#0a1628';
+  const lmtext = lightMode ? '#0f172a' : '#f0f4f8';
+  const lmsub = lightMode ? '#334155' : '#94a3b8';
+  const lmbg = lightMode ? '#f0f4f8' : '#0a1628';
+  const lmtext = lightMode ? '#0f172a' : '#f0f4f8';
+  const lmsub = lightMode ? '#334155' : '#94a3b8';
   return (
     <div style={{ position:"fixed",inset:0,zIndex:500,display:"flex",alignItems:"center",justifyContent:"center",background:"rgba(0,0,0,.75)",backdropFilter:"blur(8px)",padding:"16px" }}
       onClick={e=>{ if(e.target===e.currentTarget) onClose(); }}>
@@ -2522,7 +2518,13 @@ function HelpModal({ onClose, onShare, onReplay }) {
 /* ═══════════════════════════════════════════════════════════════════════════
    REPORT PROBLEM MODAL
 ═══════════════════════════════════════════════════════════════════════════ */
-function ReportModal({ onClose }) {
+function ReportModal({ onClose, lightMode=false }) {
+  const lmbg = lightMode ? '#f0f4f8' : '#0a1628';
+  const lmtext = lightMode ? '#0f172a' : '#f0f4f8';
+  const lmsub = lightMode ? '#334155' : '#94a3b8';
+  const lmbg = lightMode ? '#f0f4f8' : '#0a1628';
+  const lmtext = lightMode ? '#0f172a' : '#f0f4f8';
+  const lmsub = lightMode ? '#334155' : '#94a3b8';
   const [form,   setForm]   = useState({ type:"wrong_price", product:"", detail:"" });
   const [status, setStatus] = useState("idle");
 
@@ -2578,7 +2580,7 @@ function ReportModal({ onClose }) {
             <div style={{ display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:16 }}>
               <div>
                 <div style={{ fontSize:17,fontWeight:700,color:"#f0f4f8" }}>🚩 Report a Problem</div>
-                <div style={{ fontSize:11,color:"#64748b",marginTop:2 }}>Help us keep JerseyBasket accurate</div>
+                <div style={{ fontSize:11,color:lightMode?lmsub:"#64748b",marginTop:2 }}>Help us keep JerseyBasket accurate</div>
               </div>
               <button onClick={onClose} style={{ background:"rgba(255,255,255,.07)",border:"none",borderRadius:7,width:28,height:28,color:"#94a3b8",cursor:"pointer",fontSize:14 }}>✕</button>
             </div>
@@ -2627,7 +2629,13 @@ function ReportModal({ onClose }) {
 /* ═══════════════════════════════════════════════════════════════════════════
    ENQUIRY MODAL — friendly in-app contact form, no email client needed
 ═══════════════════════════════════════════════════════════════════════════ */
-function EnquiryModal({ onClose }) {
+function EnquiryModal({ onClose, lightMode=false }) {
+  const lmbg = lightMode ? '#f0f4f8' : '#0a1628';
+  const lmtext = lightMode ? '#0f172a' : '#f0f4f8';
+  const lmsub = lightMode ? '#334155' : '#94a3b8';
+  const lmbg = lightMode ? '#f0f4f8' : '#0a1628';
+  const lmtext = lightMode ? '#0f172a' : '#f0f4f8';
+  const lmsub = lightMode ? '#334155' : '#94a3b8';
   const [form,    setForm]    = useState({ name:"", business:"", email:"", message:"I am interested in advertising on JerseyBasket.je. Please send me more information about available banner slots and pricing." });
   const [status,  setStatus]  = useState("idle"); // idle | sending | sent | error
   const [touched, setTouched] = useState({});
@@ -2711,7 +2719,7 @@ function EnquiryModal({ onClose }) {
             {/* header */}
             <div style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-start", marginBottom:20 }}>
               <div>
-                <div style={{ fontSize:18, fontWeight:700, color:"#f0f4f8", marginBottom:3 }}>📢 Advertise on JerseyBasket.je</div>
+                <div style={{ fontSize:18, fontWeight:700, color:lightMode?lmtext:"#f0f4f8", marginBottom:3 }}>📢 Advertise on JerseyBasket.je</div>
                 <div style={{ fontSize:11, color:"#64748b", lineHeight:1.6 }}>
                   Reach Jersey's grocery shoppers every day.<br/>
                   Banner slots from <strong style={{ color:"#22c55e" }}>£99/month</strong> — limited availability.
@@ -2762,7 +2770,13 @@ function EnquiryModal({ onClose }) {
 /* ═══════════════════════════════════════════════════════════════════════════
    SETTINGS MODAL — store on/off toggles
 ═══════════════════════════════════════════════════════════════════════════ */
-function SettingsModal({ disabledStores, onToggleStore, onClose }) {
+function SettingsModal({ disabledStores, onToggleStore, onClose, lightMode=false }) {
+  const lmbg = lightMode ? '#f0f4f8' : '#0a1628';
+  const lmtext = lightMode ? '#0f172a' : '#f0f4f8';
+  const lmsub = lightMode ? '#334155' : '#94a3b8';
+  const lmbg = lightMode ? '#f0f4f8' : '#0a1628';
+  const lmtext = lightMode ? '#0f172a' : '#f0f4f8';
+  const lmsub = lightMode ? '#334155' : '#94a3b8';
   return (
     <div style={{ position:"fixed",inset:0,zIndex:500,display:"flex",alignItems:"flex-end",justifyContent:"center",paddingTop:60,background:"rgba(0,0,0,.75)",backdropFilter:"blur(8px)" }}
       onClick={e=>{ if(e.target===e.currentTarget) onClose(); }}>
@@ -2821,7 +2835,9 @@ function SettingsModal({ disabledStores, onToggleStore, onClose }) {
 /* ═══════════════════════════════════════════════════════════════════════════
    COMPETITION MODAL — June Price Hunt leaderboard + info
 ═══════════════════════════════════════════════════════════════════════════ */
-function CompetitionModal({ onClose, onSubmit }) {
+function CompetitionModal({ onClose, onSubmit, lightMode=false }) {
+  const lmbg = lightMode ? '#120800' : '#120800'; /* orange-tinted always */
+  const lmbg = lightMode ? '#120800' : '#120800'; /* orange-tinted always */
   return (
     <div style={{ position:"fixed",inset:0,zIndex:500,display:"flex",alignItems:"flex-end",justifyContent:"center",paddingTop:60,background:"rgba(0,0,0,.8)",backdropFilter:"blur(8px)" }}
       onClick={e=>{ if(e.target===e.currentTarget) onClose(); }}>
@@ -2922,7 +2938,9 @@ function CompetitionModal({ onClose, onSubmit }) {
 /* ═══════════════════════════════════════════════════════════════════════════
    SUBMIT PRICE MODAL — competition price submission via Formspree
 ═══════════════════════════════════════════════════════════════════════════ */
-function SubmitPriceModal({ onClose }) {
+function SubmitPriceModal({ onClose, lightMode=false }) {
+  /* modal is always orange-tinted dark — inputs adapt */
+  /* modal is always orange-tinted dark — inputs adapt */
   const [form,   setForm]   = useState({ name:"", mobile:"", email:"", store:"coop", product:"", price:"", detail:"" });
   const [status, setStatus] = useState("idle");
 
@@ -3423,7 +3441,7 @@ function AdBanner({ onEnquiry }) {
 /* ═══════════════════════════════════════════════════════════════════════════
    BASKET ITEM — swipe to delete on mobile, ✕ button on desktop, tick off
 ═══════════════════════════════════════════════════════════════════════════ */
-function BasketItem({ item, overPay, onRemove, onAdd, onDelete }) {
+function BasketItem({ item, overPay, onRemove, onAdd, onDelete, lightMode=false }) {
   const [ticked,     setTicked]     = useState(false);
   const [swipeX,     setSwipeX]     = useState(0);
   const [swiping,    setSwiping]    = useState(false);
@@ -3474,9 +3492,9 @@ function BasketItem({ item, overPay, onRemove, onAdd, onDelete }) {
         onTouchEnd={handleTouchEnd}
         style={{
           display:"flex", alignItems:"center", justifyContent:"space-between",
-          background: ticked ? "#0d2818" : "#0f172a",
+          background: ticked ? (lightMode?"#dcfce7":"#0d2818") : (lightMode?"#f8fafc":"#0f172a"),
           borderRadius:12, padding:"9px 13px",
-          border: ticked ? "1px solid rgba(34,197,94,.2)" : "1px solid rgba(255,255,255,.07)",
+          border: ticked ? "1px solid rgba(34,197,94,.2)" : lightMode?"1px solid rgba(0,0,0,.1)":"1px solid rgba(255,255,255,.07)",
           transform:`translateX(${swipeX}px)`,
           transition: swiping ? "none" : "transform .3s ease, background .2s, border .2s, opacity .3s",
           opacity: deleted ? 0 : 1,
@@ -3504,7 +3522,7 @@ function BasketItem({ item, overPay, onRemove, onAdd, onDelete }) {
           <span style={{ fontSize:18, flexShrink:0, opacity: ticked ? 0.4 : 1, transition:"opacity .2s" }}>{item.product.icon}</span>
           <div style={{ minWidth:0 }}>
             <Tooltip text={item.product.name}>
-              <div style={{ fontSize:11.5, fontWeight:600, color: ticked ? "#475569" : "#f0f4f8", overflow:"hidden", textOverflow:"ellipsis", whiteSpace:"nowrap", textDecoration: ticked ? "line-through" : "none", transition:"all .2s" }}>
+              <div style={{ fontSize:11.5, fontWeight:600, color: ticked ? "#475569" : lightMode?"#0f172a":"#f0f4f8", overflow:"hidden", textOverflow:"ellipsis", whiteSpace:"nowrap", textDecoration: ticked ? "line-through" : "none", transition:"all .2s" }}>
                 {item.product.name}
               </div>
             </Tooltip>
@@ -3521,9 +3539,9 @@ function BasketItem({ item, overPay, onRemove, onAdd, onDelete }) {
             £{(item.price*item.qty).toFixed(2)}
           </span>
           <div style={{ display:"flex", alignItems:"flex-start", gap:5 }}>
-            <div style={{ display:"flex", alignItems:"center", gap:5, background:"rgba(255,255,255,.06)", borderRadius:8, padding:"3px 7px" }}>
+            <div style={{ display:"flex", alignItems:"center", gap:5, background:lightMode?"rgba(0,0,0,.06)":"rgba(255,255,255,.06)", borderRadius:8, padding:"3px 7px" }}>
               <button onClick={onRemove} style={{ background:"rgba(255,255,255,.9)", border:"none", borderRadius:5, width:20, height:20, color:"#dc2626", cursor:"pointer", fontSize:14, fontWeight:700, lineHeight:1, display:"flex", alignItems:"center", justifyContent:"center" }}>−</button>
-              <span style={{ fontSize:12, fontWeight:700, minWidth:16, textAlign:"center", color:"#f0f4f8" }}>{item.qty}</span>
+              <span style={{ fontSize:12, fontWeight:700, minWidth:16, textAlign:"center", color:lightMode?"#0f172a":"#f0f4f8" }}>{item.qty}</span>
               <button onClick={onAdd} style={{ background:"rgba(255,255,255,.9)", border:"none", borderRadius:5, width:20, height:20, color:"#16a34a", cursor:"pointer", fontSize:14, fontWeight:700, lineHeight:1, display:"flex", alignItems:"center", justifyContent:"center" }}>+</button>
             </div>
             {/* ✕ delete button */}
