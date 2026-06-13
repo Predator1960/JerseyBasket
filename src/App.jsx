@@ -1009,7 +1009,7 @@ export default function JerseyGroceryApp() {
     });
   };
 
-  const activeStores = STORES.filter(s => !disabledStores.has(s.id));
+
 
   // Show welcome screen every time the app loads
   const [showWelcome, setShowWelcome] = useState(true);
