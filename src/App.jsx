@@ -31,6 +31,7 @@ const STORES = [
   { id:"ms",        name:"M&S Food",  short:"M&S",      tag:"Premium",    color:"#94a3b8", emoji:"✨", note:"St Helier (SandpiperCI)" },
   { id:"waitrose",  name:"Waitrose",  short:"Waitrose", tag:"Organic",    color:"#0d9488", emoji:"🌱", note:"St Saviour" },
   { id:"iceland",   name:"Iceland",   short:"Iceland",  tag:"Frozen",     color:"#dc2626", emoji:"🧊", note:"St Ouen & Broad St (via Alliance)" },
+  { id:"alliance",  name:"Alliance",  short:"Alliance", tag:"Great Value · Local Choice", color:"#cc0000", emoji:"🎯", note:"Multiple locations across Jersey" },
 ];
 
 /* ═══════════════════════════════════════════════════════════════════════════
@@ -44,12 +45,13 @@ const CATS = [
 ];
 
 /* helper — spread prices from a base. Order: [coop, morrisons, ms, waitrose, iceland] */
-const sp = (base,[c,m,ms2,w,i]) => ({
+const sp = (base,[c,m,ms2,w,i,a=0]) => ({
   coop:      Math.max(0,+(base+c  ).toFixed(2)),
   morrisons: Math.max(0,+(base+m  ).toFixed(2)),
   ms:        Math.max(0,+(base+ms2).toFixed(2)),
   waitrose:  Math.max(0,+(base+w  ).toFixed(2)),
   iceland:   Math.max(0,+(base+i  ).toFixed(2)),
+  alliance:  Math.max(0,+(base+a  ).toFixed(2)),
 });
 
 /* ═══════════════════════════════════════════════════════════════════════════
@@ -1017,7 +1019,7 @@ export default function JerseyGroceryApp() {
   const dismissWelcome = () => {
     setShowWelcome(false);
   };
-  const [newItem, setNewItem]               = useState({ name:"", cat:"➕ Custom", icon:"🛒", prices:{coop:"",morrisons:"",ms:"",waitrose:"",iceland:""} });
+  const [newItem, setNewItem]               = useState({ name:"", cat:"➕ Custom", icon:"🛒", prices:{coop:"",morrisons:"",ms:"",waitrose:"",iceland:"",alliance:""} });
   const [iconPickerOpen, setIconPickerOpen] = useState(false);
   const [addError, setAddError]             = useState("");
   const [toast, setToast] = useState(null);
@@ -1246,7 +1248,7 @@ export default function JerseyGroceryApp() {
             <div style={{ margin:"14px 0 10px",background: lightMode ? "rgba(180,120,0,.1)" : "rgba(245,158,11,.08)",border: lightMode ? "1px solid rgba(180,120,0,.35)" : "1px solid rgba(245,158,11,.28)",borderRadius:11,padding:"10px 14px",display:"flex",gap:10,alignItems:"flex-start" }}>
               <span style={{ fontSize:18,flexShrink:0,marginTop:1 }}>⚠️</span>
               <div style={{ fontSize:11,color: lightMode ? "#92400e" : "#fcd34d",lineHeight:1.6 }}>
-                <strong>Prices are currently approximate.</strong> We are actively verifying all prices in-store across all 5 Jersey supermarkets. Some prices may differ from what you see on the shelf.
+                <strong>Prices are currently approximate.</strong> We are actively verifying all prices in-store across all 6 Jersey supermarkets. Some prices may differ from what you see on the shelf.
                 {" "}<span style={{ color: lightMode ? "#b45309" : "#f59e0b" }}>Always verify in-store before you shop.</span>
               </div>
             </div>
@@ -1716,6 +1718,7 @@ export default function JerseyGroceryApp() {
                         {store.id==="ms"&&"✨ Premium quality. Freight surcharge applied. Best for special occasions."}
                         {store.id==="waitrose"&&"🌱 Excellent organic & ethical range. Great health-conscious choice."}
                         {store.id==="iceland"&&"🧊 Best for frozen & freezer staples. Run by Alliance since March 2025. Two Jersey stores."}
+                        {store.id==="alliance"&&"🎯 Jersey's local supermarket group. Multiple convenient locations island-wide. Prices coming soon — watch this space!"}
                       </div>
                     </div>
                   </div>
@@ -1826,7 +1829,7 @@ export default function JerseyGroceryApp() {
                   Thank you! Your product suggestion has been sent for review.<br/>
                   Once verified in-store it will be added to the app shortly.
                 </div>
-                <button onClick={()=>{ setAddItemStatus("idle"); setShowAddModal(false); setNewItem({name:"",cat:"➕ Custom",icon:"🛒",prices:{coop:"",morrisons:"",ms:"",waitrose:"",iceland:""}}); }}
+                <button onClick={()=>{ setAddItemStatus("idle"); setShowAddModal(false); setNewItem({name:"",cat:"➕ Custom",icon:"🛒",prices:{coop:"",morrisons:"",ms:"",waitrose:"",iceland:"",alliance:""}}); }}
                   style={{ padding:"10px 28px",background:"linear-gradient(180deg,#4ade80 0%,#15803d 100%)",boxShadow:"0 3px 10px rgba(34,197,94,.5),inset 0 1px 0 rgba(255,255,255,.3)",border:"none",borderRadius:11,color:"#fff",cursor:"pointer",fontSize:13,fontWeight:700 }}>
                   Back to App
                 </button>
