@@ -2107,10 +2107,6 @@ function InstallSteps({ accent = "#22c55e", compact = false }) {
    WELCOME SCREEN — shown once to first-time visitors
 ═══════════════════════════════════════════════════════════════════════════ */
 function WelcomeModal({ onDismiss, onSubmitPrice, lightMode=false }) {
-  const lmbg = lightMode ? "#f0f4f8" : "#0a1628";
-  const lmborder = lightMode ? "rgba(0,0,0,.12)" : "rgba(255,255,255,.08)";
-  const lmtext = lightMode ? "#0f172a" : "#f0f4f8";
-  const lmsub = lightMode ? "#334155" : "#94a3b8";
   const [step, setStep] = useState(0);
   const [surveyAnswers, setSurveyAnswers] = useState({ q1: "", q2: "", q3: "", q4: "", q5: "" });
   const [surveySubmitted, setSurveySubmitted] = useState(false);
@@ -2427,9 +2423,6 @@ const FEATURES = [
 ];
 
 function HelpModal({ onClose, onShare, onReplay, lightMode=false }) {
-  const lmbg = lightMode ? '#f0f4f8' : '#0a1628';
-  const lmtext = lightMode ? '#0f172a' : '#f0f4f8';
-  const lmsub = lightMode ? '#334155' : '#94a3b8';
   return (
     <div style={{ position:"fixed",inset:0,zIndex:500,display:"flex",alignItems:"center",justifyContent:"center",background:"rgba(0,0,0,.75)",backdropFilter:"blur(8px)",padding:"16px" }}
       onClick={e=>{ if(e.target===e.currentTarget) onClose(); }}>
@@ -2516,9 +2509,6 @@ function HelpModal({ onClose, onShare, onReplay, lightMode=false }) {
    REPORT PROBLEM MODAL
 ═══════════════════════════════════════════════════════════════════════════ */
 function ReportModal({ onClose, lightMode=false }) {
-  const lmbg = lightMode ? '#f0f4f8' : '#0a1628';
-  const lmtext = lightMode ? '#0f172a' : '#f0f4f8';
-  const lmsub = lightMode ? '#334155' : '#94a3b8';
   const [form,   setForm]   = useState({ type:"wrong_price", product:"", detail:"" });
   const [status, setStatus] = useState("idle");
 
@@ -2574,7 +2564,7 @@ function ReportModal({ onClose, lightMode=false }) {
             <div style={{ display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:16 }}>
               <div>
                 <div style={{ fontSize:17,fontWeight:700,color:"#f0f4f8" }}>🚩 Report a Problem</div>
-                <div style={{ fontSize:11,color:lightMode?lmsub:"#64748b",marginTop:2 }}>Help us keep JerseyBasket accurate</div>
+                <div style={{ fontSize:11,color:lightMode?'#334155':"#64748b",marginTop:2 }}>Help us keep JerseyBasket accurate</div>
               </div>
               <button onClick={onClose} style={{ background:"rgba(255,255,255,.07)",border:"none",borderRadius:7,width:28,height:28,color:"#94a3b8",cursor:"pointer",fontSize:14 }}>✕</button>
             </div>
@@ -2624,9 +2614,6 @@ function ReportModal({ onClose, lightMode=false }) {
    ENQUIRY MODAL — friendly in-app contact form, no email client needed
 ═══════════════════════════════════════════════════════════════════════════ */
 function EnquiryModal({ onClose, lightMode=false }) {
-  const lmbg = lightMode ? '#f0f4f8' : '#0a1628';
-  const lmtext = lightMode ? '#0f172a' : '#f0f4f8';
-  const lmsub = lightMode ? '#334155' : '#94a3b8';
   const [form,    setForm]    = useState({ name:"", business:"", email:"", message:"I am interested in advertising on JerseyBasket.je. Please send me more information about available banner slots and pricing." });
   const [status,  setStatus]  = useState("idle"); // idle | sending | sent | error
   const [touched, setTouched] = useState({});
@@ -2710,7 +2697,7 @@ function EnquiryModal({ onClose, lightMode=false }) {
             {/* header */}
             <div style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-start", marginBottom:20 }}>
               <div>
-                <div style={{ fontSize:18, fontWeight:700, color:lightMode?lmtext:"#f0f4f8", marginBottom:3 }}>📢 Advertise on JerseyBasket.je</div>
+                <div style={{ fontSize:18, fontWeight:700, color:lightMode?'#0f172a':"#f0f4f8", marginBottom:3 }}>📢 Advertise on JerseyBasket.je</div>
                 <div style={{ fontSize:11, color:"#64748b", lineHeight:1.6 }}>
                   Reach Jersey's grocery shoppers every day.<br/>
                   Banner slots from <strong style={{ color:"#22c55e" }}>£99/month</strong> — limited availability.
@@ -2762,9 +2749,6 @@ function EnquiryModal({ onClose, lightMode=false }) {
    SETTINGS MODAL — store on/off toggles
 ═══════════════════════════════════════════════════════════════════════════ */
 function SettingsModal({ disabledStores, onToggleStore, onClose, lightMode=false }) {
-  const lmbg = lightMode ? '#f0f4f8' : '#0a1628';
-  const lmtext = lightMode ? '#0f172a' : '#f0f4f8';
-  const lmsub = lightMode ? '#334155' : '#94a3b8';
   return (
     <div style={{ position:"fixed",inset:0,zIndex:500,display:"flex",alignItems:"flex-end",justifyContent:"center",paddingTop:60,background:"rgba(0,0,0,.75)",backdropFilter:"blur(8px)" }}
       onClick={e=>{ if(e.target===e.currentTarget) onClose(); }}>
@@ -2824,7 +2808,6 @@ function SettingsModal({ disabledStores, onToggleStore, onClose, lightMode=false
    COMPETITION MODAL — June Price Hunt leaderboard + info
 ═══════════════════════════════════════════════════════════════════════════ */
 function CompetitionModal({ onClose, onSubmit, lightMode=false }) {
-  const lmbg = lightMode ? '#120800' : '#120800'; /* orange-tinted always */
   return (
     <div style={{ position:"fixed",inset:0,zIndex:500,display:"flex",alignItems:"flex-end",justifyContent:"center",paddingTop:60,background:"rgba(0,0,0,.8)",backdropFilter:"blur(8px)" }}
       onClick={e=>{ if(e.target===e.currentTarget) onClose(); }}>
@@ -2926,8 +2909,6 @@ function CompetitionModal({ onClose, onSubmit, lightMode=false }) {
    SUBMIT PRICE MODAL — competition price submission via Formspree
 ═══════════════════════════════════════════════════════════════════════════ */
 function SubmitPriceModal({ onClose, lightMode=false }) {
-  /* modal is always orange-tinted dark — inputs adapt */
-  /* modal is always orange-tinted dark — inputs adapt */
   const [form,   setForm]   = useState({ name:"", mobile:"", email:"", store:"coop", product:"", price:"", detail:"" });
   const [status, setStatus] = useState("idle");
 
