@@ -995,7 +995,7 @@ export default function JerseyGroceryApp() {
   const [showHelp,       setShowHelp]       = useState(false);
   const [showReport,     setShowReport]     = useState(false);
   const [showSettings,   setShowSettings]   = useState(false);
-  const [disabledStores, setDisabledStores] = useState(new Set());
+  const [disabledStores, setDisabledStores] = useState(new Set(["alliance"]));
   const [showCompetition,  setShowCompetition]  = useState(false);
   const [showSubmitPrice,  setShowSubmitPrice]  = useState(false);
 
@@ -1023,6 +1023,7 @@ export default function JerseyGroceryApp() {
   const [iconPickerOpen, setIconPickerOpen] = useState(false);
   const [addError, setAddError]             = useState("");
   const [toast, setToast] = useState(null);
+  const [showAllianceTip, setShowAllianceTip] = useState(false);
   const [favourites, setFavourites]         = useState(new Set());
   const [favBasket,  setFavBasket]          = useState({});
 
@@ -1298,10 +1299,24 @@ export default function JerseyGroceryApp() {
             {/* store filter */}
             <div style={{ display:"flex",gap:6,flexWrap:"wrap",paddingBottom:7,marginBottom:4 }}>
               <Chip active={!pinnedStore} onClick={()=>setPinnedStore(null)} color="#3b82f6">🏷️ Best Price</Chip>
-              {activeStores.map(s=>(
+              {/* Alliance coming soon chip */}
+              <div style={{ position:"relative" }}>
+                <Chip active={false} onClick={()=>setShowAllianceTip(t=>!t)} color="#cc0000" lightMode={lightMode}>🎯 Alliance</Chip>
+                {showAllianceTip && (
+                  <div style={{ position:"absolute",top:"calc(100% + 8px)",left:0,zIndex:500,background:"#1e293b",border:"1px solid rgba(204,0,0,.5)",borderRadius:10,padding:"8px 12px",whiteSpace:"nowrap",boxShadow:"0 8px 24px rgba(0,0,0,.6)",fontSize:11,color:"#f0f4f8",fontWeight:600 }}
+                    onClick={()=>setShowAllianceTip(false)}>
+                    <div style={{ marginBottom:2 }}>🎯 <span style={{ color:"#fb923c" }}>Alliance</span> — Coming Soon!</div>
+                    <div style={{ fontSize:10,color:"#64748b",fontWeight:400 }}>Prices being verified in-store</div>
+                    {/* little arrow */}
+                    <div style={{ position:"absolute",top:-5,left:14,width:0,height:0,borderLeft:"5px solid transparent",borderRight:"5px solid transparent",borderBottom:"5px solid rgba(204,0,0,.5)" }}/>
+                  </div>
+                )}
+              </div>
+              {/* other stores alphabetically, excluding alliance */}
+              {[...STORES].filter(s=>s.id!=="alliance").sort((a,b)=>a.name.localeCompare(b.name)).map(s=>(
                 <Chip key={s.id} active={pinnedStore===s.id} onClick={()=>setPinnedStore(pinnedStore===s.id?null:s.id)} color={s.color} lightMode={lightMode}>{s.emoji} {s.short}</Chip>
               ))}
-              {disabledStores.size>0&&<button onClick={()=>setShowSettings(true)} style={{ whiteSpace:"nowrap",padding:"6px 13px",borderRadius:22,fontSize:11,fontWeight:700,cursor:"pointer",background:"linear-gradient(180deg,rgba(251,191,36,.2) 0%,rgba(180,83,9,.15) 100%)",border:"1px solid rgba(251,191,36,.4)",color:"#fcd34d",flexShrink:0 }}>⚙️ {disabledStores.size} store{disabledStores.size>1?"s":""} hidden</button>}
+              {disabledStores.size>1&&<button onClick={()=>setShowSettings(true)} style={{ whiteSpace:"nowrap",padding:"6px 13px",borderRadius:22,fontSize:11,fontWeight:700,cursor:"pointer",background:"linear-gradient(180deg,rgba(251,191,36,.2) 0%,rgba(180,83,9,.15) 100%)",border:"1px solid rgba(251,191,36,.4)",color:"#fcd34d",flexShrink:0 }}>⚙️ {disabledStores.size-1} store{disabledStores.size-1>1?"s":""} hidden</button>}
             </div>
 
             {/* category pills */}
@@ -2791,23 +2806,27 @@ function SettingsModal({ disabledStores, onToggleStore, onClose, lightMode=false
         <div style={{ display:"flex",flexDirection:"column",gap:8,marginBottom:20 }}>
           {STORES.map(store => {
             const enabled = !disabledStores.has(store.id);
+            const comingSoon = store.id === "alliance";
             return (
-              <div key={store.id} onClick={()=>onToggleStore(store.id)}
-                style={{ display:"flex",alignItems:"center",justifyContent:"space-between",padding:"13px 16px",borderRadius:12,cursor:"pointer",
-                  background:enabled?`${store.color}12`:"rgba(255,255,255,.03)",
-                  border:`1px solid ${enabled?store.color+"40":"rgba(255,255,255,.07)"}`,
-                  opacity:enabled?1:0.5, transition:"all .2s" }}>
+              <div key={store.id} onClick={()=>!comingSoon&&onToggleStore(store.id)}
+                style={{ display:"flex",alignItems:"center",justifyContent:"space-between",padding:"13px 16px",borderRadius:12,cursor:comingSoon?"default":"pointer",
+                  background:enabled&&!comingSoon?`${store.color}12`:"rgba(255,255,255,.03)",
+                  border:`1px solid ${enabled&&!comingSoon?store.color+"40":"rgba(255,255,255,.07)"}`,
+                  opacity:comingSoon?0.5:enabled?1:0.5, transition:"all .2s" }}>
                 <div style={{ display:"flex",alignItems:"center",gap:10 }}>
                   <span style={{ fontSize:20 }}>{store.emoji}</span>
                   <div>
-                    <div style={{ fontSize:13,fontWeight:700,color:enabled?"#f0f4f8":"#64748b" }}>{store.name}</div>
+                    <div style={{ display:"flex",alignItems:"center",gap:7 }}>
+                      <div style={{ fontSize:13,fontWeight:700,color:enabled?"#f0f4f8":"#64748b" }}>{store.name}</div>
+                      {comingSoon && <span style={{ fontSize:8,fontWeight:700,background:"rgba(251,191,36,.2)",color:"#fcd34d",borderRadius:4,padding:"2px 6px",letterSpacing:".5px" }}>PRICES COMING SOON</span>}
+                    </div>
                     <div style={{ fontSize:10,color:"#475569",marginTop:1 }}>{store.note}</div>
                   </div>
                 </div>
                 {/* toggle pill */}
-                <div style={{ width:44,height:24,borderRadius:12,background:enabled?store.color:"rgba(255,255,255,.1)",position:"relative",transition:"background .2s",flexShrink:0 }}>
+                {!comingSoon && <div style={{ width:44,height:24,borderRadius:12,background:enabled?store.color:"rgba(255,255,255,.1)",position:"relative",transition:"background .2s",flexShrink:0 }}>
                   <div style={{ position:"absolute",top:3,left:enabled?22:3,width:18,height:18,borderRadius:"50%",background:"#fff",transition:"left .2s",boxShadow:"0 1px 4px rgba(0,0,0,.4)" }} />
-                </div>
+                </div>}
               </div>
             );
           })}
