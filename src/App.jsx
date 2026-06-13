@@ -678,6 +678,34 @@ const BASE_PRODUCTS = [
   {id:608,name:"Vienna Bakery Baguette",          cat:"🍞 Bread & Bakery",icon:"🥖", prices:sp(1.99,[0,-1.99,-1.99,-1.99,-1.99])},
   {id:609,name:"Plain Cooked Ham",                cat:"🥩 Meat & Fish",  icon:"🥩", prices:sp(3.22,[0,-3.22,-3.22,-3.22,-3.22])},
   {id:610,name:"Cp Tortilla Dip",                 cat:"🥨 Snacks & Treats",icon:"🌮",prices:sp(2.20,[0,-2.20,-2.20,-2.20,-2.20])},
+
+  // ── Added 13 June 2026 from Leticia's CI Co-op Millennium Park receipt ──
+  {id:611,name:"Cp Parsnips Loose",               cat:"🥦 Fruit & Veg",  icon:"🥕", prices:sp(2.11,[0,-2.11,-2.11,-2.11,-2.11])},
+  {id:612,name:"Cp Lemons Loose",                 cat:"🥦 Fruit & Veg",  icon:"🍋", prices:sp(1.92,[0,-1.92,-1.92,-1.92,-1.92])},
+  {id:613,name:"Cp Limes",                        cat:"🥦 Fruit & Veg",  icon:"🍋", prices:sp(2.00,[0,-2.00,-2.00,-2.00,-2.00])},
+  {id:614,name:"Cp Strawberries (packet)",        cat:"🥦 Fruit & Veg",  icon:"🍓", prices:sp(3.40,[0,-3.40,-3.40,-3.40,-3.40])},
+  {id:615,name:"Cp Ir Easy Peelers",              cat:"🥦 Fruit & Veg",  icon:"🍊", prices:sp(2.65,[0,-2.65,-2.65,-2.65,-2.65])},
+  {id:616,name:"Cp Blueberries Large",            cat:"🥦 Fruit & Veg",  icon:"🫐", prices:sp(3.40,[0,-3.40,-3.40,-3.40,-3.40])},
+  {id:617,name:"Cp Water Melon",                  cat:"🥦 Fruit & Veg",  icon:"🍉", prices:sp(3.95,[0,-3.95,-3.95,-3.95,-3.95])},
+  {id:618,name:"Cp Org Pink Lady 4pk",            cat:"🥦 Fruit & Veg",  icon:"🍎", prices:sp(7.70,[0,-7.70,-7.70,-7.70,-7.70])},
+  {id:619,name:"Bartlett Potatoes",               cat:"🥦 Fruit & Veg",  icon:"🥔", prices:sp(4.50,[0,-4.50,-4.50,-4.50,-4.50])},
+  {id:620,name:"Jersey Green Fresh Milk (1L)",    cat:"🥛 Dairy & Eggs", icon:"🥛", prices:sp(4.92,[0,-4.92,-4.92,-4.92,-4.92])},
+  {id:621,name:"Fp Fromage Frais",                cat:"🥛 Dairy & Eggs", icon:"🍦", prices:sp(2.00,[0,-2.00,-2.00,-2.00,-2.00])},
+  {id:622,name:"Organix Clouds Mo",               cat:"🍼 Baby & Child", icon:"👶", prices:sp(8.00,[0,-8.00,-8.00,-8.00,-8.00])},
+  {id:623,name:"Lotus Original Caramel Biscuits", cat:"🥨 Snacks & Treats",icon:"🍪",prices:sp(3.70,[0,-3.70,-3.70,-3.70,-3.70])},
+  {id:624,name:"Ella's Kitchen Chicken 7M (130g)",cat:"🍼 Baby & Child", icon:"👶", prices:sp(2.50,[0,-2.50,-2.50,-2.50,-2.50])},
+  {id:625,name:"Yoplait Mc Variety",              cat:"🥛 Dairy & Eggs", icon:"🍦", prices:sp(2.78,[0,-2.78,-2.78,-2.78,-2.78])},
+  {id:626,name:"Kiddylicious Apple Biscotti",     cat:"🍼 Baby & Child", icon:"👶", prices:sp(3.25,[0,-3.25,-3.25,-3.25,-3.25])},
+  {id:627,name:"Cp Shortbread Fingers",           cat:"🥨 Snacks & Treats",icon:"🍪",prices:sp(1.95,[0,-1.95,-1.95,-1.95,-1.95])},
+  {id:628,name:"Regina Gentle Soft",              cat:"🧹 Household",    icon:"🧻", prices:sp(11.50,[0,-11.50,-11.50,-11.50,-11.50])},
+  {id:629,name:"Chilli Con Carne Pouch",          cat:"🍝 Pantry",       icon:"🌶", prices:sp(5.00,[0,-5.00,-5.00,-5.00,-5.00])},
+  {id:630,name:"Ella's Kitchen Stew & Apple (120g)",cat:"🍼 Baby & Child",icon:"👶",prices:sp(1.65,[0,-1.65,-1.65,-1.65,-1.65])},
+  {id:631,name:"Kiddylicious Veg Straws",         cat:"🍼 Baby & Child", icon:"👶", prices:sp(7.10,[0,-7.10,-7.10,-7.10,-7.10])},
+  {id:632,name:"Fruit Shoot Pack of 4",           cat:"🥤 Drinks",       icon:"🧃", prices:sp(2.10,[0,-2.10,-2.10,-2.10,-2.10])},
+  {id:633,name:"LF Beef Lasagne White Cheese",    cat:"🍝 Pantry",       icon:"🍝", prices:sp(4.20,[0,-4.20,-4.20,-4.20,-4.20])},
+  {id:634,name:"Ella's Kitchen Banana & Coconut (120g)",cat:"🍼 Baby & Child",icon:"👶",prices:sp(1.65,[0,-1.65,-1.65,-1.65,-1.65])},
+  {id:635,name:"Ella's Kitchen Beef 7M (130g)",   cat:"🍼 Baby & Child", icon:"👶", prices:sp(2.50,[0,-2.50,-2.50,-2.50,-2.50])},
+  {id:636,name:"Ella's Kitchen Broccoli Pudding", cat:"🍼 Baby & Child", icon:"👶", prices:sp(1.95,[0,-1.95,-1.95,-1.95,-1.95])},
   {id:543,name:"Guinness Cans (4pk)",           cat:"🥤 Drinks",       icon:"🍺",prices:sp(13.86,[-13.86,-13.86,-13.86,0,-13.86])},
   {id:512,name:"Oven Chips (1kg)",               cat:"🧊 Frozen",       icon:"🍟",prices:sp(2.00,[1.90,0,0.40,1.89,0.50])},
   {id:513,name:"Frozen Roast Potatoes (700g)",   cat:"🧊 Frozen",       icon:"🥔",prices:sp(1.86,[1.54,1.49,1.79,0,0])},
@@ -967,14 +995,12 @@ const COMP_WINNER = ""; // e.g. "Sarah M" — leave blank while competition is l
 const MAINTENANCE = false;
 const LEADERBOARD = [
   // ── TOP 10 — update these entries with real submissions ─────────────────
+  { name: "Leticia",       store: "CI Co-op",  count: 42, date: "13 Jun" },
   { name: "Kate",          store: "Waitrose",  count: 27, date: "11 Jun" },
-  { name: "Leticia",       store: "CI Co-op",  count: 16, date: "11 Jun" },
   { name: "Carmen1971",    store: "CI Co-op",  count: 16, date: "11 Jun" },
   { name: "19Margaret37",  store: "CI Co-op",  count: 14, date: "13 Jun" },
   { name: "Nicole1",       store: "Waitrose",  count: 12, date: "11 Jun" },
   { name: "Sharon",        store: "Morrisons", count: 9,  date: "07 Jun" },
-  // { name: "Claire B", count: 15 },
-  // { name: "Tom H",    count: 9  },
   // ── Remove the // at the start of each line above to activate ────────────
 ];
 
