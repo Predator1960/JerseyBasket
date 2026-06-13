@@ -2430,9 +2430,6 @@ function HelpModal({ onClose, onShare, onReplay, lightMode=false }) {
   const lmbg = lightMode ? '#f0f4f8' : '#0a1628';
   const lmtext = lightMode ? '#0f172a' : '#f0f4f8';
   const lmsub = lightMode ? '#334155' : '#94a3b8';
-  const lmbg = lightMode ? '#f0f4f8' : '#0a1628';
-  const lmtext = lightMode ? '#0f172a' : '#f0f4f8';
-  const lmsub = lightMode ? '#334155' : '#94a3b8';
   return (
     <div style={{ position:"fixed",inset:0,zIndex:500,display:"flex",alignItems:"center",justifyContent:"center",background:"rgba(0,0,0,.75)",backdropFilter:"blur(8px)",padding:"16px" }}
       onClick={e=>{ if(e.target===e.currentTarget) onClose(); }}>
@@ -2519,9 +2516,6 @@ function HelpModal({ onClose, onShare, onReplay, lightMode=false }) {
    REPORT PROBLEM MODAL
 ═══════════════════════════════════════════════════════════════════════════ */
 function ReportModal({ onClose, lightMode=false }) {
-  const lmbg = lightMode ? '#f0f4f8' : '#0a1628';
-  const lmtext = lightMode ? '#0f172a' : '#f0f4f8';
-  const lmsub = lightMode ? '#334155' : '#94a3b8';
   const lmbg = lightMode ? '#f0f4f8' : '#0a1628';
   const lmtext = lightMode ? '#0f172a' : '#f0f4f8';
   const lmsub = lightMode ? '#334155' : '#94a3b8';
@@ -2630,9 +2624,6 @@ function ReportModal({ onClose, lightMode=false }) {
    ENQUIRY MODAL — friendly in-app contact form, no email client needed
 ═══════════════════════════════════════════════════════════════════════════ */
 function EnquiryModal({ onClose, lightMode=false }) {
-  const lmbg = lightMode ? '#f0f4f8' : '#0a1628';
-  const lmtext = lightMode ? '#0f172a' : '#f0f4f8';
-  const lmsub = lightMode ? '#334155' : '#94a3b8';
   const lmbg = lightMode ? '#f0f4f8' : '#0a1628';
   const lmtext = lightMode ? '#0f172a' : '#f0f4f8';
   const lmsub = lightMode ? '#334155' : '#94a3b8';
@@ -2774,9 +2765,6 @@ function SettingsModal({ disabledStores, onToggleStore, onClose, lightMode=false
   const lmbg = lightMode ? '#f0f4f8' : '#0a1628';
   const lmtext = lightMode ? '#0f172a' : '#f0f4f8';
   const lmsub = lightMode ? '#334155' : '#94a3b8';
-  const lmbg = lightMode ? '#f0f4f8' : '#0a1628';
-  const lmtext = lightMode ? '#0f172a' : '#f0f4f8';
-  const lmsub = lightMode ? '#334155' : '#94a3b8';
   return (
     <div style={{ position:"fixed",inset:0,zIndex:500,display:"flex",alignItems:"flex-end",justifyContent:"center",paddingTop:60,background:"rgba(0,0,0,.75)",backdropFilter:"blur(8px)" }}
       onClick={e=>{ if(e.target===e.currentTarget) onClose(); }}>
@@ -2836,7 +2824,6 @@ function SettingsModal({ disabledStores, onToggleStore, onClose, lightMode=false
    COMPETITION MODAL — June Price Hunt leaderboard + info
 ═══════════════════════════════════════════════════════════════════════════ */
 function CompetitionModal({ onClose, onSubmit, lightMode=false }) {
-  const lmbg = lightMode ? '#120800' : '#120800'; /* orange-tinted always */
   const lmbg = lightMode ? '#120800' : '#120800'; /* orange-tinted always */
   return (
     <div style={{ position:"fixed",inset:0,zIndex:500,display:"flex",alignItems:"flex-end",justifyContent:"center",paddingTop:60,background:"rgba(0,0,0,.8)",backdropFilter:"blur(8px)" }}
