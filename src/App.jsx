@@ -1301,7 +1301,7 @@ export default function JerseyGroceryApp() {
               <Chip active={!pinnedStore} onClick={()=>setPinnedStore(null)} color="#3b82f6">🏷️ Best Price</Chip>
               {/* Alliance coming soon chip */}
               <div style={{ position:"relative" }}>
-                <Chip active={false} onClick={()=>setShowAllianceTip(t=>!t)} color="#cc0000" lightMode={lightMode}>🎯 Alliance</Chip>
+                <button onClick={()=>{setShowAllianceTip(true);setTimeout(()=>setShowAllianceTip(false),2000);}} style={{ whiteSpace:"nowrap",padding:"6px 13px",borderRadius:22,fontSize:11,fontWeight:700,cursor:"pointer",background:"#ffffff",border:"2px solid #cc0000",color:"#cc0000",flexShrink:0 }}>🎯 Alliance</button>
                 {showAllianceTip && (
                   <div style={{ position:"absolute",top:"calc(100% + 8px)",left:0,zIndex:500,background:"#1e293b",border:"1px solid rgba(204,0,0,.5)",borderRadius:10,padding:"8px 12px",whiteSpace:"nowrap",boxShadow:"0 8px 24px rgba(0,0,0,.6)",fontSize:11,color:"#f0f4f8",fontWeight:600 }}
                     onClick={()=>setShowAllianceTip(false)}>
