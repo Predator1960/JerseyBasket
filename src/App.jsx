@@ -1342,11 +1342,11 @@ export default function JerseyGroceryApp() {
                   <div style={{ display:"flex", alignItems:"center", gap:8 }}>
                     <span style={{ fontSize:18 }}>{s.emoji}</span>
                     <div>
-                      <div style={{ fontSize:12, fontWeight:700, color:"#f0f4f8" }}>Showing <span style={{ color:s.color }}>{s.name}</span> prices for all items</div>
-                      <div style={{ fontSize:10, color:"#64748b", marginTop:1 }}>Tap any store pill on a card to override that item individually</div>
+                      <div style={{ fontSize:12, fontWeight:700, color:lightMode?"#0f172a":"#f0f4f8" }}>Showing <span style={{ color:s.color }}>{s.name}</span> prices for all items</div>
+                      <div style={{ fontSize:10, color:lightMode?"#334155":"#64748b", marginTop:1 }}>Tap any store pill on a card to override that item individually</div>
                     </div>
                   </div>
-                  <button onClick={()=>setPinnedStore(null)} style={{ background:"rgba(255,255,255,.1)",border:"none",color:"#94a3b8",borderRadius:7,padding:"4px 9px",cursor:"pointer",fontSize:11,fontWeight:600,whiteSpace:"nowrap" }}>✕ Clear</button>
+                  <button onClick={()=>setPinnedStore(null)} style={{ background:lightMode?"rgba(0,0,0,.08)":"rgba(255,255,255,.1)",border:"none",color:lightMode?"#334155":"#94a3b8",borderRadius:7,padding:"4px 9px",cursor:"pointer",fontSize:11,fontWeight:600,whiteSpace:"nowrap" }}>✕ Clear</button>
                 </div>
               );
             })()}
