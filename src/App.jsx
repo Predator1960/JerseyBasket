@@ -2288,7 +2288,7 @@ function WelcomeModal({ onDismiss, onSubmitPrice, lightMode=false }) {
             {s.bodyJsx ? (
               <>
                 Compare prices across all{" "}
-                <span style={{ fontFamily:"'DM Serif Display',Georgia,serif", fontSize:16, fontWeight:700, color:"#ffffff" }}>5</span>
+                <span style={{ fontFamily:"'DM Serif Display',Georgia,serif", fontSize:16, fontWeight:700, color:"#ffffff" }}>6</span>
                 {" "}Jersey supermarkets instantly. Over{" "}
                 <span style={{ fontFamily:"'DM Serif Display',Georgia,serif", fontSize:16, fontWeight:700, color:"#ffffff" }}>{BASE_PRODUCTS.length}</span>
                 {" "}products and growing — find the cheapest price on every item and build your shopping list before you leave the house.
