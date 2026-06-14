@@ -731,6 +731,7 @@ const BASE_PRODUCTS = [
   {id:567,name:"Sure Fresh Anti-perspirant (250ml)",cat:"💊 Health & Beauty",icon:"💨",prices:sp(3.95,[0,-3.95,-3.95,-3.95,-3.95])},
   {id:568,name:"Gentle Whitening Toothpaste",      cat:"💊 Health & Beauty",icon:"🪥",prices:sp(1.70,[0,-1.70,-1.70,-1.70,-1.70])},
   {id:637,name:"Baco Foil (300mm x 10m)",           cat:"🧹 Household",    icon:"✨",prices:sp(5.16,[-5.16,0,-5.16,-5.16,-5.16,-5.16])},
+  {id:638,name:"Cruzcampo Lager (10 pack)",         cat:"🥤 Drinks",       icon:"🍺",prices:sp(12.75,[-12.75,0,-12.75,-12.75,-12.75,-12.75])},
 ];
 
 /* ═══════════════════════════════════════════════════════════════════════════
@@ -996,7 +997,7 @@ const COMP_WINNER = ""; // e.g. "Sarah M" — leave blank while competition is l
 const MAINTENANCE = false;
 const LEADERBOARD = [
   // ── TOP 10 — update these entries with real submissions ─────────────────
-  { name: "Leticia",       store: "CI Co-op",  count: 42, date: "13 Jun" },
+  { name: "Leticia",       store: "CI Co-op",  count: 43, date: "14 Jun" },
   { name: "Kate",          store: "Waitrose",  count: 27, date: "11 Jun" },
   { name: "Carmen1971",    store: "CI Co-op",  count: 16, date: "11 Jun" },
   { name: "19Margaret37",  store: "CI Co-op",  count: 14, date: "13 Jun" },
