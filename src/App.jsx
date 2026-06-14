@@ -63,27 +63,27 @@ const BASE_PRODUCTS = [
   {id:1,  name:"Full Fat Milk (2L)",           cat:"🥛 Dairy & Eggs", icon:"🥛", prices:sp(1.75,[1.53,0.14,0.35,0.24,0.07])},
   {id:2,  name:"Semi-Skimmed Milk (2L)",       cat:"🥛 Dairy & Eggs", icon:"🥛", prices:sp(1.70,[1.58,-0.05,0.34,0.24,0.07])},
   {id:3,  name:"Skimmed Milk (2L)",            cat:"🥛 Dairy & Eggs", icon:"🥛", prices:sp(1.65,[0,0.13,0.3,0.22,0.07])},
-  {id:4,  name:"Oat Milk (1L)",                cat:"🥛 Dairy & Eggs", icon:"🥛", prices:sp(1.73,[0.72,0.92,0.70,0,0.77])},
-  {id:5,  name:"Almond Milk (1L)",             cat:"🥛 Dairy & Eggs", icon:"🥛", prices:sp(1.73,[0.97,1.22,0.94,0,1.07])},
+  {id:4,  name:"Oat Milk (1L)",                cat:"🥛 Dairy & Eggs", icon:"🥛", prices:sp(1.73,[0.72,0.92,0.70,0,0.77,0.37])},
+  {id:5,  name:"Almond Milk (1L)",             cat:"🥛 Dairy & Eggs", icon:"🥛", prices:sp(1.73,[0.97,1.22,0.94,0,1.07,0.12])},
   {id:6,  name:"Soya Milk (1L)",               cat:"🥛 Dairy & Eggs", icon:"🥛", prices:sp(1.45,[0,0.18,0.65,0.48,0.09])},
   {id:7,  name:"Coconut Milk Drink (1L)",      cat:"🥛 Dairy & Eggs", icon:"🥛", prices:sp(1.65,[0,0.22,0.72,0.52,0.11])},
-  {id:8,  name:"Free Range Eggs (6pk)",        cat:"🥛 Dairy & Eggs", icon:"🥚", prices:sp(1.74,[0.16,0.26,0.06,-0.23,0.71])},
+  {id:8,  name:"Free Range Eggs (6pk)",        cat:"🥛 Dairy & Eggs", icon:"🥚", prices:sp(1.74,[0.16,0.26,0.06,-0.23,0.71,0.11])},
   {id:9,  name:"Free Range Eggs (12pk)",       cat:"🥛 Dairy & Eggs", icon:"🥚", prices:sp(3.40,[0,0.3,1,0.8,0.15])},
-  {id:10, name:"Cheddar Mature (400g)",        cat:"🥛 Dairy & Eggs", icon:"🧀", prices:sp(3.17,[0.53,0.13,0.23,0,0.88])},
+  {id:10, name:"Cheddar Mature (400g)",        cat:"🥛 Dairy & Eggs", icon:"🧀", prices:sp(3.17,[0.53,0.13,0.23,0,0.88,0.13])},
   {id:11, name:"Cheddar Mild (400g)",          cat:"🥛 Dairy & Eggs", icon:"🧀", prices:sp(2.60,[0,0.14,0.55,0.38,0.07])},
   {id:12, name:"Mozzarella (125g)",            cat:"🥛 Dairy & Eggs", icon:"🧀", prices:sp(1.10,[0,0.15,0.45,0.35,0.07])},
   {id:13, name:"Brie (200g)",                  cat:"🥛 Dairy & Eggs", icon:"🧀", prices:sp(2.20,[0,0.2,0.8,0.6,0.1])},
   {id:14, name:"Parmesan (100g)",              cat:"🥛 Dairy & Eggs", icon:"🧀", prices:sp(2.50,[0,-0.40,0.95,0.75,0.12])},
   {id:15, name:"Feta Cheese (200g)",           cat:"🥛 Dairy & Eggs", icon:"🧀", prices:sp(2.00,[0,0.2,0.8,0.6,0.1])},
   {id:16, name:"Butter Salted (250g)",         cat:"🥛 Dairy & Eggs", icon:"🧈", prices:sp(1.05,[1.50,3.93,3.45,1.15,0])},
-  {id:17, name:"Butter Unsalted (250g)",       cat:"🥛 Dairy & Eggs", icon:"🧈", prices:sp(2.25,[0.10,0.15,0.6,0.45,0.07])},
+  {id:17, name:"Butter Unsalted (250g)",       cat:"🥛 Dairy & Eggs", icon:"🧈", prices:sp(2.25,[0.10,0.15,0.6,0.45,0.07,0])},
   {id:18, name:"Spreadable Butter (500g)",     cat:"🥛 Dairy & Eggs", icon:"🧈", prices:sp(3.10,[1.45,0.22,0.85,0.65,0.11])},
-  {id:19, name:"Greek Yoghurt (500g)",         cat:"🥛 Dairy & Eggs", icon:"🫙", prices:sp(1.25,[0.40,0.30,0.15,0.09,0])},
+  {id:19, name:"Greek Yoghurt (500g)",         cat:"🥛 Dairy & Eggs", icon:"🫙", prices:sp(1.25,[0.40,0.30,0.15,0.09,0,0.65])},
   {id:20, name:"Natural Yoghurt (500g)",       cat:"🥛 Dairy & Eggs", icon:"🫙", prices:sp(1.60,[0,0.15,0.55,0.4,0.07])},
   {id:21, name:"Fruit Yoghurts 4pk",           cat:"🥛 Dairy & Eggs", icon:"🫙", prices:sp(1.80,[0,0.18,0.7,0.52,0.09])},
   {id:22, name:"Sour Cream (300ml)",           cat:"🥛 Dairy & Eggs", icon:"🫙", prices:sp(1.40,[0,0.15,0.6,0.45,0.07])},
   {id:23, name:"Crème Fraîche (300ml)",        cat:"🥛 Dairy & Eggs", icon:"🫙", prices:sp(1.60,[0,0.18,0.65,0.5,0.09])},
-  {id:24, name:"Double Cream (300ml)",         cat:"🥛 Dairy & Eggs", icon:"🍦", prices:sp(2.26,[0.10,0.20,0,0,0])},
+  {id:24, name:"Double Cream (300ml)",         cat:"🥛 Dairy & Eggs", icon:"🍦", prices:sp(2.26,[0.10,0.20,0,0,0,1.49])},
   {id:25, name:"Single Cream (300ml)",         cat:"🥛 Dairy & Eggs", icon:"🍦", prices:sp(1.45,[0.04,0.18,0.65,0.5,0.09])},
   {id:26, name:"Cottage Cheese (300g)",        cat:"🥛 Dairy & Eggs", icon:"🫙", prices:sp(1.50,[0,1.10,0.6,0.45,0.07])},
   {id:27, name:"Cream Cheese (200g)",          cat:"🥛 Dairy & Eggs", icon:"🧀", prices:sp(1.80,[0.85,0.18,0.7,0.52,0.09])},
@@ -91,7 +91,7 @@ const BASE_PRODUCTS = [
 
   /* ── BREAD & BAKERY ───────────────────────────────────────────── */
   {id:29, name:"White Sliced Bread 800g",      cat:"🍞 Bread & Bakery",icon:"🍞", prices:sp(1.25,[0.50,-0.51,0.55,0.4,0.05])},
-  {id:30, name:"Wholemeal Bread 800g",         cat:"🍞 Bread & Bakery",icon:"🥖", prices:sp(0.90,[0.35,0.35,0,0.84,1.05])},
+  {id:30, name:"Wholemeal Bread 800g",         cat:"🍞 Bread & Bakery",icon:"🥖", prices:sp(0.90,[0.35,0.35,0,0.84,1.05,0.90])},
   {id:31, name:"Seeded Batch Loaf",            cat:"🍞 Bread & Bakery",icon:"🥖", prices:sp(1.75,[-0.20,0.15,0.65,0.5,0.07])},
   {id:32, name:"Sourdough Loaf",               cat:"🍞 Bread & Bakery",icon:"🥖", prices:sp(2.50,[0,0.25,0.95,0.75,0.12])},
   {id:33, name:"Gluten Free White Bread",      cat:"🍞 Bread & Bakery",icon:"🍞", prices:sp(2.90,[0,0.28,1,0.8,0.14])},
@@ -99,13 +99,13 @@ const BASE_PRODUCTS = [
   {id:35, name:"Pain au Chocolat (4pk)",       cat:"🍞 Bread & Bakery",icon:"🥐", prices:sp(1.95,[0,0.2,0.8,0.6,0.1])},
   {id:36, name:"Bagels (5pk)",                 cat:"🍞 Bread & Bakery",icon:"🥯", prices:sp(1.50,[0,0.2,0.7,0.55,0.1])},
   {id:37, name:"Pitta Bread (6pk)",            cat:"🍞 Bread & Bakery",icon:"🫓", prices:sp(1.20,[0,-0.70,0.65,0.5,0.07])},
-  {id:38, name:"Wraps / Tortillas (8pk)",      cat:"🍞 Bread & Bakery",icon:"🫓", prices:sp(1.25,[0.55,0.44,0.55,1.07,0])},
+  {id:38, name:"Wraps / Tortillas (8pk)",      cat:"🍞 Bread & Bakery",icon:"🫓", prices:sp(1.25,[0.55,0.44,0.55,1.07,0,0.75])},
   {id:39, name:"Naan Bread (4pk)",             cat:"🍞 Bread & Bakery",icon:"🫓", prices:sp(1.50,[0,0.19,0.65,0.5,0.07])},
   {id:40, name:"English Muffins (6pk)",        cat:"🍞 Bread & Bakery",icon:"🥯", prices:sp(1.40,[0,0.14,0.6,0.46,0.07])},
   {id:41, name:"Hot Dog Rolls (6pk)",          cat:"🍞 Bread & Bakery",icon:"🍞", prices:sp(1.20,[0,0.12,0.5,0.38,0.06])},
   {id:42, name:"Burger Buns (4pk)",            cat:"🍞 Bread & Bakery",icon:"🍞", prices:sp(1.25,[0,0.12,0.52,0.4,0.06])},
   {id:43, name:"Ciabatta Rolls (4pk)",         cat:"🍞 Bread & Bakery",icon:"🥖", prices:sp(1.80,[0,0.18,0.72,0.55,0.09])},
-  {id:44, name:"Crumpets (6pk)",               cat:"🍞 Bread & Bakery",icon:"🫓", prices:sp(0.61,[0.19,0.68,1.39,0,0.74])},
+  {id:44, name:"Crumpets (6pk)",               cat:"🍞 Bread & Bakery",icon:"🫓", prices:sp(0.61,[0.19,0.68,1.39,0,0.74,1.29])},
   {id:45, name:"Pancakes (6pk)",               cat:"🍞 Bread & Bakery",icon:"🥞", prices:sp(1.40,[0,0.14,0.58,0.44,0.07])},
   {id:46, name:"Waffles (6pk)",                cat:"🍞 Bread & Bakery",icon:"🧇", prices:sp(1.60,[0,0.16,0.62,0.47,0.08])},
   {id:47, name:"Scones (4pk)",                 cat:"🍞 Bread & Bakery",icon:"🥐", prices:sp(1.80,[0,0.18,0.7,0.54,0.09])},
@@ -114,8 +114,8 @@ const BASE_PRODUCTS = [
   {id:48, name:"Chicken Breast (500g)",        cat:"🥩 Meat & Fish",   icon:"🍗", prices:sp(3.13,[0.67,0.82,1.57,0,0.74])},
   {id:49, name:"Chicken Thighs (1kg)",         cat:"🥩 Meat & Fish",   icon:"🍗", prices:sp(3.20,[0,0.2,0.9,0.65,0.1])},
   {id:50, name:"Chicken Drumsticks (1kg)",     cat:"🥩 Meat & Fish",   icon:"🍗", prices:sp(2.80,[0,1.18,0.8,0.58,0.09])},
-  {id:51, name:"Whole Chicken (~1.4kg)",       cat:"🥩 Meat & Fish",   icon:"🍗", prices:sp(4.95,[1.15,0.85,5.02,2.30,0])},
-  {id:52, name:"Minced Beef (500g)",           cat:"🥩 Meat & Fish",   icon:"🥩", prices:sp(4.00,[1.30,0,1.25,0.93,1.30])},
+  {id:51, name:"Whole Chicken (~1.4kg)",       cat:"🥩 Meat & Fish",   icon:"🍗", prices:sp(4.95,[1.15,0.85,5.02,2.30,0,1.55])},
+  {id:52, name:"Minced Beef (500g)",           cat:"🥩 Meat & Fish",   icon:"🥩", prices:sp(4.00,[1.30,0,1.25,0.93,1.30,1.10])},
   {id:53, name:"Minced Beef (750g)",           cat:"🥩 Meat & Fish",   icon:"🥩", prices:sp(5.00,[0,0.2,1.3,1,0.1])},
   {id:54, name:"Beef Steak (200g)",            cat:"🥩 Meat & Fish",   icon:"🥩", prices:sp(5.50,[0,0.4,1.8,1.3,0.2])},
   {id:55, name:"Beef Burgers (4pk)",           cat:"🥩 Meat & Fish",   icon:"🥩", prices:sp(3.20,[0.0,0.22,0.98,1.4,0.11])},
@@ -126,7 +126,7 @@ const BASE_PRODUCTS = [
   {id:60, name:"Lamb Chops (2pk)",             cat:"🥩 Meat & Fish",   icon:"🥩", prices:sp(4.80,[0,0.35,1.3,1,0.17])},
   {id:61, name:"Back Bacon (200g)",            cat:"🥩 Meat & Fish",   icon:"🥓", prices:sp(2.50,[0,-1.01,0.7,0.5,0.07])},
   {id:62, name:"Streaky Bacon (200g)",         cat:"🥩 Meat & Fish",   icon:"🥓", prices:sp(2.30,[0,0.14,0.65,0.47,0.07])},
-  {id:63, name:"Sausages Pork (8pk)",          cat:"🥩 Meat & Fish",   icon:"🌭", prices:sp(2.07,[0.83,0.43,0.13,0,0.43])},
+  {id:63, name:"Sausages Pork (8pk)",          cat:"🥩 Meat & Fish",   icon:"🌭", prices:sp(2.07,[0.83,0.43,0.13,0,0.43,1.38])},
   {id:591,name:"Rich Pork Sausages (12pk)",     cat:"🥩 Meat & Fish",   icon:"🌭", prices:sp(3.00,[0,-3.00,-3.00,-3.00,-3.00])},
   {id:592,name:"Deep Fill Pepper Steak Slice",  cat:"🥩 Meat & Fish",   icon:"🥩", prices:sp(2.80,[0,-2.80,-2.80,-2.80,-2.80])},
   {id:593,name:"Breaded Ham (125g)",             cat:"🥩 Meat & Fish",   icon:"🥩", prices:sp(1.94,[0,-1.94,-1.94,-1.94,-1.94])},
@@ -155,7 +155,7 @@ const BASE_PRODUCTS = [
   {id:82, name:"Apples Granny Smith (6pk)",    cat:"🥦 Fruit & Veg",  icon:"🍏", prices:sp(1.40,[0,0.15,0.55,0.4,0.07])},
   {id:83, name:"Oranges (4pk)",                cat:"🥦 Fruit & Veg",  icon:"🍊", prices:sp(1.50,[0,0.15,0.6,0.45,0.07])},
   {id:84, name:"Satsumas (700g bag)",          cat:"🥦 Fruit & Veg",  icon:"🍊", prices:sp(1.80,[0,0.18,0.7,0.54,0.09])},
-  {id:85, name:"Lemon (each)",                 cat:"🥦 Fruit & Veg",  icon:"🍋", prices:sp(0.47,[0.01,0.08,0,0,0])},
+  {id:85, name:"Lemon (each)",                 cat:"🥦 Fruit & Veg",  icon:"🍋", prices:sp(0.47,[0.01,0.08,0,0,0,-0.02])},
   {id:86, name:"Limes (4pk)",                  cat:"🥦 Fruit & Veg",  icon:"🍋", prices:sp(0.90,[0,0.1,0.38,0.28,0.05])},
   {id:87, name:"Strawberries (400g)",          cat:"🥦 Fruit & Veg",  icon:"🍓", prices:sp(2.50,[-0.65,0.2,0.9,0.7,0.1])},
   {id:88, name:"Raspberries (150g)",           cat:"🥦 Fruit & Veg",  icon:"🍓", prices:sp(2.20,[0,0.2,0.85,0.65,0.1])},
@@ -167,25 +167,25 @@ const BASE_PRODUCTS = [
   {id:94, name:"Mango (each)",                 cat:"🥦 Fruit & Veg",  icon:"🥭", prices:sp(0.85,[0,0.1,0.38,0.28,0.05])},
   {id:95, name:"Pineapple (each)",             cat:"🥦 Fruit & Veg",  icon:"🍍", prices:sp(1.20,[0,0.12,0.5,0.38,0.06])},
   {id:96, name:"Kiwi Fruit (4pk)",             cat:"🥦 Fruit & Veg",  icon:"🥝", prices:sp(0.95,[0,0.1,0.4,0.3,0.05])},
-  {id:97, name:"Broccoli (head)",              cat:"🥦 Fruit & Veg",  icon:"🥦", prices:sp(1.10,[0,0,0.50,0.47,0.15])},
-  {id:98, name:"Cauliflower (head)",           cat:"🥦 Fruit & Veg",  icon:"🥦", prices:sp(1.40,[0,0,0.05,0.17,0])},
+  {id:97, name:"Broccoli (head)",              cat:"🥦 Fruit & Veg",  icon:"🥦", prices:sp(1.10,[0,0,0.50,0.47,0.15,0.45])},
+  {id:98, name:"Cauliflower (head)",           cat:"🥦 Fruit & Veg",  icon:"🥦", prices:sp(1.40,[0,0,0.05,0.17,0,0.70])},
   {id:99, name:"Bag of Spinach (200g)",        cat:"🥦 Fruit & Veg",  icon:"🥬", prices:sp(1.25,[0,0.1,0.5,0.35,0.05])},
   {id:100,name:"Kale (200g)",                  cat:"🥦 Fruit & Veg",  icon:"🥬", prices:sp(1.30,[0,0.12,0.5,0.38,0.06])},
   {id:101,name:"Mixed Salad Leaves (100g)",    cat:"🥦 Fruit & Veg",  icon:"🥗", prices:sp(1.10,[0,0.1,0.42,0.32,0.05])},
   {id:102,name:"Rocket (100g)",               cat:"🥦 Fruit & Veg",  icon:"🥗", prices:sp(1.20,[0,0.12,0.48,0.36,0.06])},
-  {id:103,name:"Mixed Peppers (3pk)",          cat:"🥦 Fruit & Veg",  icon:"🫑", prices:sp(2.00,[0,0.25,0.60,0.90,0.40])},
+  {id:103,name:"Mixed Peppers (3pk)",          cat:"🥦 Fruit & Veg",  icon:"🫑", prices:sp(2.00,[0,0.25,0.60,0.90,0.40,0.75])},
   {id:104,name:"Red Pepper (each)",            cat:"🥦 Fruit & Veg",  icon:"🫑", prices:sp(0.65,[0,0.07,0.28,0.2,0.04])},
-  {id:105,name:"Carrots (1kg)",                cat:"🥦 Fruit & Veg",  icon:"🥕", prices:sp(0.75,[0,0.54,0.10,0.07,0.40])},
+  {id:105,name:"Carrots (1kg)",                cat:"🥦 Fruit & Veg",  icon:"🥕", prices:sp(0.75,[0,0.54,0.10,0.07,0.40,0.35])},
   {id:106,name:"Parsnips (500g)",              cat:"🥦 Fruit & Veg",  icon:"🥕", prices:sp(0.90,[0,0.09,0.35,0.26,0.04])},
-  {id:107,name:"Onions (3pk)",                 cat:"🥦 Fruit & Veg",  icon:"🧅", prices:sp(1.05,[0,0.20,0.42,0.46,0.22])},
+  {id:107,name:"Onions (3pk)",                 cat:"🥦 Fruit & Veg",  icon:"🧅", prices:sp(1.05,[0,0.20,0.42,0.46,0.22,0.45])},
   {id:108,name:"Spring Onions (bunch)",        cat:"🥦 Fruit & Veg",  icon:"🧅", prices:sp(0.60,[0,0.07,0.28,0.2,0.04])},
   {id:109,name:"Red Onions (3pk)",             cat:"🥦 Fruit & Veg",  icon:"🧅", prices:sp(0.90,[0,0.09,0.35,0.26,0.04])},
   {id:110,name:"Garlic (bulb)",                cat:"🥦 Fruit & Veg",  icon:"🧄", prices:sp(0.60,[0.05,0,0,0.04,0])},
   {id:111,name:"Cherry Tomatoes (250g)",       cat:"🥦 Fruit & Veg",  icon:"🍅", prices:sp(1.20,[0.4,0.05,0.0,0.05,0.05])},
   {id:563,name:"Green Grapes (500g)",           cat:"🥦 Fruit & Veg",  icon:"🍇", prices:sp(3.15,[0,-3.15,-3.15,-3.15,-3.15])},
   {id:564,name:"Plums Punnet (400g)",           cat:"🥦 Fruit & Veg",  icon:"🍑", prices:sp(1.78,[0,-1.78,-1.78,-1.78,-1.78])},
-  {id:112,name:"Tomatoes (6pk)",               cat:"🥦 Fruit & Veg",  icon:"🍅", prices:sp(1.20,[0.40,0.05,0,1.20,0.05])},
-  {id:113,name:"Cucumber (each)",              cat:"🥦 Fruit & Veg",  icon:"🥒", prices:sp(1.00,[0.50,0.20,0,0,0.25])},
+  {id:112,name:"Tomatoes (6pk)",               cat:"🥦 Fruit & Veg",  icon:"🍅", prices:sp(1.20,[0.40,0.05,0,1.20,0.05,0.15])},
+  {id:113,name:"Cucumber (each)",              cat:"🥦 Fruit & Veg",  icon:"🥒", prices:sp(1.00,[0.50,0.20,0,0,0.25,0.30])},
   {id:114,name:"Courgette (2pk)",              cat:"🥦 Fruit & Veg",  icon:"🥒", prices:sp(0.90,[0,0.1,0.4,0.3,0.05])},
   {id:115,name:"Aubergine (each)",             cat:"🥦 Fruit & Veg",  icon:"🍆", prices:sp(0.80,[0,0.08,0.32,0.24,0.04])},
   {id:116,name:"Butternut Squash (each)",      cat:"🥦 Fruit & Veg",  icon:"🎃", prices:sp(1.00,[0,0.1,0.4,0.3,0.05])},
@@ -193,7 +193,7 @@ const BASE_PRODUCTS = [
   {id:118,name:"Mushrooms (250g)",             cat:"🥦 Fruit & Veg",  icon:"🍄", prices:sp(1.10,[0,0.1,0.45,0.47,0.05])},
   {id:569,name:"Cup Mushrooms (300g)",         cat:"🥦 Fruit & Veg",  icon:"🍄", prices:sp(1.57,[-1.57,-1.57,-1.57,0,-1.57])},
   {id:119,name:"Celery (head)",                cat:"🥦 Fruit & Veg",  icon:"🥬", prices:sp(0.90,[0,0.1,0.38,0.28,0.05])},
-  {id:120,name:"Lettuce Iceberg (each)",       cat:"🥦 Fruit & Veg",  icon:"🥗", prices:sp(1.10,[0,0.15,0,0.06,0.15])},
+  {id:120,name:"Lettuce Iceberg (each)",       cat:"🥦 Fruit & Veg",  icon:"🥗", prices:sp(1.10,[0,0.15,0,0.06,0.15,0.30])},
   {id:549,name:"Sweet Cos Lettuce (2pk)",      cat:"🥦 Fruit & Veg",  icon:"🥬", prices:sp(1.10,[-1.10,-1.10,-1.10,0,-1.10])},
   {id:550,name:"Onion Bhaji (4pk)",            cat:"🥩 Meat & Fish",  icon:"🧅", prices:sp(1.05,[-1.05,-1.05,-1.05,0,-1.05])},
   {id:121,name:"Asparagus (200g)",             cat:"🥦 Fruit & Veg",  icon:"🥦", prices:sp(2.00,[0,0.2,0.8,0.6,0.1])},
@@ -235,9 +235,9 @@ const BASE_PRODUCTS = [
   {id:547,name:"Actimel Blueberry (8pk)",      cat:"🥤 Drinks",       icon:"🫐", prices:sp(2.90,[-2.90,-2.90,-2.90,0,-2.90])},
   {id:150,name:"Cranberry Juice (1L)",         cat:"🥤 Drinks",       icon:"🍷", prices:sp(1.80,[0,0.18,0.7,0.54,0.09])},
   {id:151,name:"Pineapple Juice (1L)",         cat:"🥤 Drinks",       icon:"🍍", prices:sp(1.65,[0,0.16,0.65,0.5,0.08])},
-  {id:152,name:"Still Water (2L)",             cat:"🥤 Drinks",       icon:"💧", prices:sp(1.00,[0,0.45,0.10,0.05,0])},
-  {id:153,name:"Sparkling Water (2L)",         cat:"🥤 Drinks",       icon:"💧", prices:sp(0.99,[0,0.46,0.11,0.10,0.01])},
-  {id:154,name:"Coca-Cola (1.75L)",            cat:"🥤 Drinks",       icon:"🥤", prices:sp(2.30,[0,0.85,0,0.44,0.45])},
+  {id:152,name:"Still Water (2L)",             cat:"🥤 Drinks",       icon:"💧", prices:sp(1.00,[0,0.45,0.10,0.05,0,0.15])},
+  {id:153,name:"Sparkling Water (2L)",         cat:"🥤 Drinks",       icon:"💧", prices:sp(0.99,[0,0.46,0.11,0.10,0.01,0.01])},
+  {id:154,name:"Coca-Cola (1.75L)",            cat:"🥤 Drinks",       icon:"🥤", prices:sp(2.30,[0,0.85,0,0.44,0.45,1.00])},
   {id:155,name:"Pepsi Max (1.75L)",            cat:"🥤 Drinks",       icon:"🥤", prices:sp(2.10,[1.55,0.2,0.78,0.44,0.1])},
   {id:156,name:"Lemonade (2L)",                cat:"🥤 Drinks",       icon:"🥤", prices:sp(0.95,[0,0.1,0.38,0.28,0.05])},
   {id:157,name:"Fanta Orange (1.5L)",          cat:"🥤 Drinks",       icon:"🥤", prices:sp(1.65,[0,0.16,0.65,0.5,0.08])},
@@ -247,7 +247,7 @@ const BASE_PRODUCTS = [
   {id:161,name:"Filter Coffee (227g)",         cat:"🥤 Drinks",       icon:"☕", prices:sp(3.20,[0,0.2,1,0.75,0.1])},
   {id:162,name:"Instant Coffee (200g)",        cat:"🥤 Drinks",       icon:"☕", prices:sp(5.35,[2.85,0,3.40,4.72,2.15])},
   {id:163,name:"Coffee Pods (16pk)",           cat:"🥤 Drinks",       icon:"☕", prices:sp(4.50,[0,0.4,1.45,1.12,0.2])},
-  {id:164,name:"Tea Bags (80pk)",              cat:"🥤 Drinks",       icon:"🫖", prices:sp(1.25,[0.55,0,0.55,0.33,0.55])},
+  {id:164,name:"Tea Bags (80pk)",              cat:"🥤 Drinks",       icon:"🫖", prices:sp(1.25,[0.55,0,0.55,0.33,0.55,0.70])},
   {id:165,name:"Tea Bags (160pk)",             cat:"🥤 Drinks",       icon:"🫖", prices:sp(4.50,[0,0.38,1.45,1.12,0.19])},
   {id:166,name:"Green Tea Bags (40pk)",        cat:"🥤 Drinks",       icon:"🍵", prices:sp(2.20,[0,0.22,0.85,0.65,0.11])},
   {id:167,name:"Herbal Tea Variety (20pk)",    cat:"🥤 Drinks",       icon:"🍵", prices:sp(2.00,[0,0.2,0.8,0.6,0.1])},
@@ -266,7 +266,7 @@ const BASE_PRODUCTS = [
 
   /* ── PANTRY ───────────────────────────────────────────────────── */
   {id:180,name:"Pasta Penne (500g)",           cat:"🍝 Pantry",       icon:"🍝", prices:sp(0.89,[0.06,-0.24,0.01,0.03,0.71])},
-  {id:181,name:"Spaghetti (500g)",             cat:"🍝 Pantry",       icon:"🍝", prices:sp(0.50,[0.45,0,0.40,1.23,1.10])},
+  {id:181,name:"Spaghetti (500g)",             cat:"🍝 Pantry",       icon:"🍝", prices:sp(0.50,[0.45,0,0.40,1.23,1.10,0.85])},
   {id:182,name:"Fusilli (500g)",               cat:"🍝 Pantry",       icon:"🍝", prices:sp(0.89,[0.06,0.06,0.41,0.26,0.03])},
   {id:183,name:"Tagliatelle (500g)",           cat:"🍝 Pantry",       icon:"🍝", prices:sp(0.95,[0.0,0.08,0.42,0.28,0.04])},
   {id:184,name:"Chopped Tomatoes (400g)",       cat:"🍝 Pantry",       icon:"🍅", prices:sp(0.70,[0,0.10,0.10,0.08,0.10])},
@@ -281,26 +281,26 @@ const BASE_PRODUCTS = [
   {id:519,name:"Heinz Tomato Soup (400g)",     cat:"🍝 Pantry",       icon:"🥣", prices:sp(1.89,[0.26,0,0.26,0.14,0.26])},
   {id:520,name:"Tomato Soup (400g)",           cat:"🍝 Pantry",       icon:"🥣", prices:sp(0.75,[0.25,0.45,0,0.18,1.40])},
   {id:521,name:"Tinned Tuna (160g)",           cat:"🍝 Pantry",       icon:"🐟", prices:sp(0.80,[0.40,0,0.15,0.65,0])},
-  {id:193,name:"Olive Oil Extra Virgin (500ml)",cat:"🍝 Pantry",      icon:"🫒", prices:sp(3.40,[3.35,4.00,3.85,2.40,0])},
-  {id:194,name:"Sunflower Oil (1L)",           cat:"🍝 Pantry",       icon:"🌻", prices:sp(2.45,[0.10,2.15,0,0.34,1.60])},
+  {id:193,name:"Olive Oil Extra Virgin (500ml)",cat:"🍝 Pantry",      icon:"🫒", prices:sp(3.40,[3.35,4.00,3.85,2.40,0,3.60])},
+  {id:194,name:"Sunflower Oil (1L)",           cat:"🍝 Pantry",       icon:"🌻", prices:sp(2.45,[0.10,2.15,0,0.34,1.60,0.54])},
   {id:195,name:"Vegetable Oil (1L)",           cat:"🍝 Pantry",       icon:"🌻", prices:sp(1.90,[2.49,0.16,0.78,0.6,0.08])},
   {id:196,name:"Basmati Rice (1kg)",           cat:"🍝 Pantry",       icon:"🍚", prices:sp(0.87,[0.93,0.08,0.83,0,0.93])},
   {id:197,name:"Long Grain Rice (1kg)",        cat:"🍝 Pantry",       icon:"🍚", prices:sp(1.60,[0,0.14,0.65,0.48,0.07])},
   {id:198,name:"Microwave Rice (3pk)",         cat:"🍝 Pantry",       icon:"🍚", prices:sp(2.40,[0,0.22,0.88,0.68,0.11])},
   {id:199,name:"Porridge Oats (500g)",         cat:"🍝 Pantry",       icon:"🌾", prices:sp(1.30,[-0.45,-0.8,-0.47,-0.58,0.5])},
-  {id:200,name:"Porridge Oats (1kg)",          cat:"🍝 Pantry",       icon:"🌾", prices:sp(1.00,[0.70,0,0.65,0.44,2.60])},
+  {id:200,name:"Porridge Oats (1kg)",          cat:"🍝 Pantry",       icon:"🌾", prices:sp(1.00,[0.70,0,0.65,0.44,2.60,0.75])},
   {id:201,name:"Cornflakes (500g)",            cat:"🍝 Pantry",       icon:"🌽", prices:sp(1.60,[0,0.15,0.6,0.45,0.07])},
   {id:202,name:"Weetabix (24pk)",              cat:"🍝 Pantry",       icon:"🌾", prices:sp(2.42,[0,0.25,0.98,0,-0.30])},
-  {id:203,name:"Muesli (500g)",                cat:"🍝 Pantry",       icon:"🌾", prices:sp(2.10,[0,1.35,0,1.58,1.15])},
+  {id:203,name:"Muesli (500g)",                cat:"🍝 Pantry",       icon:"🌾", prices:sp(2.10,[0,1.35,0,1.58,1.15,2.05])},
   {id:204,name:"Granola (500g)",               cat:"🍝 Pantry",       icon:"🌾", prices:sp(2.80,[0,0.25,0.98,0.76,0.12])},
-  {id:205,name:"Plain Flour (1kg)",            cat:"🍝 Pantry",       icon:"🌾", prices:sp(0.95,[1.15,0,0.10,0.04,1.20])},
+  {id:205,name:"Plain Flour (1kg)",            cat:"🍝 Pantry",       icon:"🌾", prices:sp(0.95,[1.15,0,0.10,0.04,1.20,0.70])},
   {id:206,name:"Self Raising Flour (1.5kg)",   cat:"🍝 Pantry",       icon:"🌾", prices:sp(1.84,[0,0.12,0.5,0.38,0.06])},
-  {id:207,name:"Sugar White (1kg)",            cat:"🍝 Pantry",       icon:"🍬", prices:sp(1.35,[0,0,0,0.10,0.15])},
+  {id:207,name:"Sugar White (1kg)",            cat:"🍝 Pantry",       icon:"🍬", prices:sp(1.35,[0,0,0,0.10,0.15,0.15])},
   {id:208,name:"Caster Sugar (1kg)",           cat:"🍝 Pantry",       icon:"🍬", prices:sp(1.10,[1.25,0.1,0.4,0.3,0.05])},
   {id:209,name:"Icing Sugar (500g)",           cat:"🍝 Pantry",       icon:"🍬", prices:sp(0.90,[0.0,0.09,2.20,0.26,0.04])},
   {id:527,name:"White Marzipan (500g)",        cat:"🍝 Pantry",       icon:"🍰", prices:sp(3.20,[-3.20,-3.20,0,-3.20,-3.20])},
-  {id:210,name:"Tomato Ketchup (460g)",        cat:"🍝 Pantry",       icon:"🍅", prices:sp(1.00,[0.30,0,0.80,0.16,1.50])},
-  {id:211,name:"Mayonnaise (400g)",            cat:"🍝 Pantry",       icon:"🥄", prices:sp(1.61,[0.29,0.34,0.19,0,1.04])},
+  {id:210,name:"Tomato Ketchup (460g)",        cat:"🍝 Pantry",       icon:"🍅", prices:sp(1.00,[0.30,0,0.80,0.16,1.50,0.70])},
+  {id:211,name:"Mayonnaise (400g)",            cat:"🍝 Pantry",       icon:"🥄", prices:sp(1.61,[0.29,0.34,0.19,0,1.04,1.04])},
   {id:212,name:"Brown Sauce (400ml)",          cat:"🍝 Pantry",       icon:"🥄", prices:sp(1.60,[0.4,0.16,0.65,0.5,0.08])},
   {id:213,name:"English Mustard (185g)",       cat:"🍝 Pantry",       icon:"🥄", prices:sp(1.40,[0,0.14,0.58,0.44,0.07])},
   {id:214,name:"Dijon Mustard (200g)",         cat:"🍝 Pantry",       icon:"🥄", prices:sp(1.60,[0,0.16,0.65,0.5,0.08])},
@@ -313,11 +313,11 @@ const BASE_PRODUCTS = [
   {id:221,name:"Stock Cubes Veg (12pk)",       cat:"🍝 Pantry",       icon:"🫙", prices:sp(1.10,[0,0.11,0.44,0.33,0.06])},
   {id:222,name:"Honey (340g)",                 cat:"🍝 Pantry",       icon:"🍯", prices:sp(2.80,[0.09,0.25,1,1.45,0.12])},
   {id:530,name:"Golden Syrup (454g)",          cat:"🍝 Pantry",       icon:"🍯", prices:sp(1.56,[-1.56,-1.56,-1.56,0,-1.56])},
-  {id:223,name:"Peanut Butter Smooth (340g)",  cat:"🍝 Pantry",       icon:"🥜", prices:sp(1.96,[0.03,0.44,0.44,0.86,1.54])},
+  {id:223,name:"Peanut Butter Smooth (340g)",  cat:"🍝 Pantry",       icon:"🥜", prices:sp(1.96,[0.03,0.44,0.44,0.86,1.54,0.39])},
   {id:531,name:"Chopped Garlic (90g)",         cat:"🍝 Pantry",       icon:"🧄", prices:sp(2.32,[-2.32,-2.32,-2.32,0,-2.32])},
   {id:224,name:"Peanut Butter Crunchy (340g)", cat:"🍝 Pantry",       icon:"🥜", prices:sp(2.50,[-0.4,0.22,0.88,0.68,0.11])},
   {id:225,name:"Strawberry Jam (454g)",        cat:"🍝 Pantry",       icon:"🍓", prices:sp(1.80,[-0.21,0.18,0.7,0.55,0.09])},
-  {id:226,name:"Marmalade (454g)",             cat:"🍝 Pantry",       icon:"🍊", prices:sp(1.19,[0,1.70,0.16,0.19,1.46])},
+  {id:226,name:"Marmalade (454g)",             cat:"🍝 Pantry",       icon:"🍊", prices:sp(1.19,[0,1.70,0.16,0.19,1.46,1.16])},
   {id:227,name:"Nutella (400g)",               cat:"🍝 Pantry",       icon:"🍫", prices:sp(3.20,[0,0.28,1.1,0.85,0.14])},
   {id:228,name:"Pasta Sauce Tomato (500g)",    cat:"🍝 Pantry",       icon:"🍅", prices:sp(1.50,[0,0.15,0.6,0.45,0.07])},
   {id:229,name:"Pasta Sauce Bolognese (500g)", cat:"🍝 Pantry",       icon:"🍅", prices:sp(1.80,[0,0.18,0.7,0.54,0.09])},
@@ -337,13 +337,13 @@ const BASE_PRODUCTS = [
   {id:241,name:"Tortilla Chips (200g)",        cat:"🥨 Snacks & Treats",icon:"🌮",prices:sp(1.80,[0,0.18,0.7,0.54,0.09])},
   {id:242,name:"Salsa Dip (300g)",             cat:"🥨 Snacks & Treats",icon:"🌮",prices:sp(1.60,[0,0.16,0.64,0.49,0.08])},
   {id:243,name:"Hummus (200g)",                cat:"🥨 Snacks & Treats",icon:"🥙",prices:sp(1.50,[0,0.15,0.6,0.46,0.07])},
-  {id:244,name:"Digestive Biscuits (400g)",    cat:"🥨 Snacks & Treats",icon:"🍪",prices:sp(0.80,[0.15,1.39,0.30,0,0])},
+  {id:244,name:"Digestive Biscuits (400g)",    cat:"🥨 Snacks & Treats",icon:"🍪",prices:sp(0.80,[0.15,1.39,0.30,0,0,1.85])},
   {id:245,name:"Hobnobs (300g)",               cat:"🥨 Snacks & Treats",icon:"🍪",prices:sp(1.50,[0,0.15,0.6,0.45,0.07])},
   {id:532,name:"Malted Milk Biscuits",         cat:"🥨 Snacks & Treats",icon:"🍪",prices:sp(0.69,[-0.69,-0.69,-0.69,0,-0.69])},
   {id:533,name:"Milk Choc Digestives",         cat:"🥨 Snacks & Treats",icon:"🍪",prices:sp(1.38,[-1.38,-1.38,-1.38,0,-1.38])},
   {id:246,name:"Shortbread Fingers (160g)",    cat:"🥨 Snacks & Treats",icon:"🍪",prices:sp(1.40,[0,0.14,0.56,0.43,0.07])},
   {id:247,name:"Rich Tea Biscuits (300g)",     cat:"🥨 Snacks & Treats",icon:"🍪",prices:sp(1.10,[0,0.11,0.44,0.33,0.06])},
-  {id:248,name:"Chocolate Digestives (300g)",  cat:"🥨 Snacks & Treats",icon:"🍪",prices:sp(1.30,[0,0.39,0.20,0.08,0.60])},
+  {id:248,name:"Chocolate Digestives (300g)",  cat:"🥨 Snacks & Treats",icon:"🍪",prices:sp(1.30,[0,0.39,0.20,0.08,0.60,0.35])},
   {id:249,name:"Chocolate Bar Milk (100g)",    cat:"🥨 Snacks & Treats",icon:"🍫",prices:sp(1.50,[0,0.15,0.6,0.45,0.07])},
   {id:250,name:"Chocolate Bar Dark (100g)",    cat:"🥨 Snacks & Treats",icon:"🍫",prices:sp(1.60,[0,0.16,0.64,0.49,0.08])},
   {id:251,name:"Chocolate Fingers (114g)",     cat:"🥨 Snacks & Treats",icon:"🍫",prices:sp(1.40,[0,0.14,0.56,0.43,0.07])},
@@ -373,20 +373,20 @@ const BASE_PRODUCTS = [
   {id:554,name:"Cadbury Flake 99 (4pk)",       cat:"🥨 Snacks & Treats",icon:"🍫",prices:sp(3.96,[-3.96,-3.96,-3.96,0,-3.96])},
 
   /* ── HOUSEHOLD ────────────────────────────────────────────────── */
-  {id:263,name:"Washing Up Liquid (500ml)",    cat:"🧹 Household",    icon:"🧴", prices:sp(0.70,[0.50,0,0.15,0.10,0.80])},
+  {id:263,name:"Washing Up Liquid (500ml)",    cat:"🧹 Household",    icon:"🧴", prices:sp(0.70,[0.50,0,0.15,0.10,0.80,0.55])},
   {id:264,name:"Washing Up Liquid (900ml)",    cat:"🧹 Household",    icon:"🧴", prices:sp(2.00,[0,0.22,0.85,0.65,0.11])},
-  {id:265,name:"Laundry Liquid (800ml)",       cat:"🧹 Household",    icon:"🫧", prices:sp(2.20,[0.55,0,0,1.77,0.75])},
+  {id:265,name:"Laundry Liquid (800ml)",       cat:"🧹 Household",    icon:"🫧", prices:sp(2.20,[0.55,0,0,1.77,0.75,1.55])},
   {id:266,name:"Laundry Tablets (30pk)",       cat:"🧹 Household",    icon:"🫧", prices:sp(7.50,[0,0.7,2.5,2,0.35])},
   {id:267,name:"Laundry Capsules (32pk)",      cat:"🧹 Household",    icon:"🫧", prices:sp(8.50,[-1.75,0.8,2.8,2.2,0.4])},
   {id:268,name:"Fabric Conditioner (1L)",      cat:"🧹 Household",    icon:"🫧", prices:sp(3.80,[-1.9,0.35,1.3,1,0.17])},
   {id:269,name:"Toilet Rolls (9pk)",           cat:"🧹 Household",    icon:"🧻", prices:sp(4.50,[-0.1,0.4,1.6,1.2,0.2])},
   {id:270,name:"Toilet Rolls (24pk)",          cat:"🧹 Household",    icon:"🧻", prices:sp(10.0,[0,0.88,3.5,2.7,0.44])},
-  {id:271,name:"Kitchen Roll (2pk)",           cat:"🧹 Household",    icon:"🧻", prices:sp(1.00,[1.55,2.10,2.00,1.69,0])},
+  {id:271,name:"Kitchen Roll (2pk)",           cat:"🧹 Household",    icon:"🧻", prices:sp(1.00,[1.55,2.10,2.00,1.69,0,1.75])},
   {id:272,name:"Bin Bags (30pk)",              cat:"🧹 Household",    icon:"🗑️", prices:sp(2.50,[0,0.25,0.9,0.7,0.12])},
   {id:273,name:"Freezer Bags (50pk)",          cat:"🧹 Household",    icon:"📦", prices:sp(1.50,[0,0.15,0.6,0.46,0.07])},
   {id:276,name:"Sandwich Bags (50pk)",         cat:"🧹 Household",    icon:"📦", prices:sp(1.20,[0,0.12,0.48,0.36,0.06])},
   {id:277,name:"All-Purpose Spray (500ml)",    cat:"🧹 Household",    icon:"🧹", prices:sp(1.90,[-0.7,0.18,0.72,0.55,0.09])},
-  {id:278,name:"Bleach (750ml)",               cat:"🧹 Household",    icon:"🧹", prices:sp(0.80,[0.05,0.15,0.15,0,0.95])},
+  {id:278,name:"Bleach (750ml)",               cat:"🧹 Household",    icon:"🧹", prices:sp(0.80,[0.05,0.15,0.15,0,0.95,0.20])},
   {id:279,name:"Bathroom Cleaner (500ml)",     cat:"🧹 Household",    icon:"🧹", prices:sp(1.80,[0,0.18,0.7,0.54,0.09])},
   {id:280,name:"Floor Cleaner (1L)",           cat:"🧹 Household",    icon:"🧹", prices:sp(2.20,[0,0.22,0.85,0.65,0.11])},
   {id:281,name:"Dishwasher Tablets (30pk)",    cat:"🧹 Household",    icon:"🍽️", prices:sp(6.50,[0,0.6,2.2,1.8,0.3])},
@@ -459,8 +459,8 @@ const BASE_PRODUCTS = [
   {id:342,name:"Fish Food (100g)",             cat:"🐾 Pet Care",      icon:"🐠",prices:sp(2.50,[0,0.25,0.95,0.75,0.12])},
 
   /* ── FREE FROM ────────────────────────────────────────────────── */
-  {id:343,name:"GF Loaf (500g)",               cat:"🌱 Free From",    icon:"🍞",prices:sp(2.35,[0,0,1.40,1.21,0])},
-  {id:344,name:"GF Pasta (500g)",              cat:"🌱 Free From",    icon:"🍝",prices:sp(1.50,[0.15,0,0.75,0.67,0])},
+  {id:343,name:"GF Loaf (500g)",               cat:"🌱 Free From",    icon:"🍞",prices:sp(2.35,[0,0,1.40,1.21,0,1.60])},
+  {id:344,name:"GF Pasta (500g)",              cat:"🌱 Free From",    icon:"🍝",prices:sp(1.50,[0.15,0,0.75,0.67,0,0.85])},
   {id:345,name:"GF Oats (500g)",               cat:"🌱 Free From",    icon:"🌾",prices:sp(2.80,[0,0.28,1,0.8,0.14])},
   {id:346,name:"GF Crackers (150g)",           cat:"🌱 Free From",    icon:"🍘",prices:sp(2.50,[0,0.25,0.95,0.75,0.12])},
   {id:347,name:"Dairy Free Cheese (200g)",     cat:"🌱 Free From",    icon:"🧀",prices:sp(3.50,[0,0.32,1.2,0.95,0.16])},
@@ -502,7 +502,7 @@ const BASE_PRODUCTS = [
   {id:381,name:"Cherries (500g)",cat:"🥦 Fruit & Veg",icon:"🍒",prices:sp(3.0,[0.35,0.5,1.2,0.8,0.21])},
   {id:382,name:"Pears (4pk)",cat:"🥦 Fruit & Veg",icon:"🍐",prices:sp(1.5,[0.15,0.05,0.5,0.3,0.11])},
   {id:383,name:"Strawberry Punnet (400g)",cat:"🥦 Fruit & Veg",icon:"🍓",prices:sp(2.5,[0.25,0.25,0.7,0.4,0.18])},
-  {id:384,name:"Seedless Grapes (500g)",cat:"🥦 Fruit & Veg",icon:"🍇",prices:sp(2.80,[0.35,0.40,0.20,0.10,0])},
+  {id:384,name:"Seedless Grapes (500g)",cat:"🥦 Fruit & Veg",icon:"🍇",prices:sp(2.80,[0.35,0.40,0.20,0.10,0,0.45])},
   {id:385,name:"Burger Buns (4pk)",cat:"🍞 Bread & Bakery",icon:"🍔",prices:sp(1.2,[0.15,0.25,0.6,0.4,0.08])},
   {id:386,name:"Pancakes (6pk)",cat:"🍞 Bread & Bakery",icon:"🥞",prices:sp(1.2,[0.15,0.3,0.6,0.45,0.08])},
   {id:387,name:"Chicken Wings (750g)",cat:"🥩 Meat & Fish",icon:"🍗",prices:sp(3.0,[0.35,0.0,1.0,0.6,0.21])},
@@ -518,7 +518,7 @@ const BASE_PRODUCTS = [
   {id:397,name:"Frozen Waffles (8pk)",cat:"🧊 Frozen",icon:"🧇",prices:sp(1.8,[0.2,-0.01,0.5,0.3,0.13])},
   {id:398,name:"Chopped Tomatoes (4pk)",cat:"🍝 Pantry",icon:"🍅",prices:sp(2.4,[0.25,-0.52,0.6,0.3,0.17])},
   {id:399,name:"Coconut Milk (400ml)",cat:"🍝 Pantry",icon:"🥥",prices:sp(1.2,[0.15,0.1,0.4,0.25,0.08])},
-  {id:400,name:"Gravy Granules (200g)",cat:"🍝 Pantry",icon:"🍖",prices:sp(1.16,[0.03,0.43,1.49,0,0.59])},
+  {id:400,name:"Gravy Granules (200g)",cat:"🍝 Pantry",icon:"🍖",prices:sp(1.16,[0.03,0.43,1.49,0,0.59,0.69])},
   {id:401,name:"Custard (400g)",cat:"🍝 Pantry",icon:"🍮",prices:sp(1.28,[0.17,0.12,0.42,0,0.11])},
   {id:402,name:"Breadcrumbs (400g)",cat:"🍝 Pantry",icon:"🍞",prices:sp(1.2,[0.15,0.05,0.4,0.25,0.08])},
   {id:403,name:"Lemon Juice (250ml)",cat:"🍝 Pantry",icon:"🍋",prices:sp(0.9,[0.1,0.05,0.3,0.2,0.06])},
@@ -583,7 +583,7 @@ const BASE_PRODUCTS = [
   {id:453,name:"McCain Southern Fries",              cat:"🧊 Frozen",       icon:"🍟",prices:sp(2.90,[-2.90,-2.90,-2.90,0,-2.90])},
 
   // ── Added 6 June 2026 from receipts ──
-  {id:454,name:"Jersey Full Fat Milk (1ltr)",         cat:"🥛 Dairy & Eggs", icon:"🥛",prices:sp(1.64,[0,0,0.01,0.01,0])},
+  {id:454,name:"Jersey Full Fat Milk (1ltr)",         cat:"🥛 Dairy & Eggs", icon:"🥛",prices:sp(1.64,[0,0,0.01,0.01,0,0])},
   {id:455,name:"Jersey Salted Butter (250g)",         cat:"🥛 Dairy & Eggs", icon:"🧈",prices:sp(1.90,[0,0,0,0,0])},
   {id:456,name:"Tortilla Wraps Large (8pk)",          cat:"🍞 Bread & Bakery",icon:"🌯",prices:sp(1.80,[0,0,0,0,0])},
   {id:555,name:"White Toastie Loaf",                  cat:"🍞 Bread & Bakery",icon:"🍞",prices:sp(1.25,[0,-1.25,-1.25,-1.25,-1.25])},
@@ -623,27 +623,27 @@ const BASE_PRODUCTS = [
   {id:485,name:"Jason Jungle Z (4x200ml)",            cat:"🥤 Drinks",       icon:"🧃",prices:sp(2.10,[0,-2.10,-2.10,-2.10,-2.10])},
   {id:486,name:"Lil Con Carn Pouch",                  cat:"🍱 Cupboard",     icon:"🥫",prices:sp(2.50,[0,-2.50,-2.50,-2.50,-2.50])},
   // ── Added 9 June 2026 from JCC Essentials data ──
-  {id:487,name:"Apples (4pk)",                      cat:"🥦 Fruit & Veg",  icon:"🍎",prices:sp(1.60,[0.60,1.60,0.80,0.55,0])},
+  {id:487,name:"Apples (4pk)",                      cat:"🥦 Fruit & Veg",  icon:"🍎",prices:sp(1.60,[0.60,1.60,0.80,0.55,0,1.70])},
   {id:488,name:"Unsalted Butter (250g)",             cat:"🥛 Dairy & Eggs", icon:"🧈",prices:sp(2.35,[0,0,0.05,0.23,0])},
   {id:528,name:"Salted Butter (250g)",               cat:"🥛 Dairy & Eggs", icon:"🧈",prices:sp(4.75,[-4.75,-4.75,0,-4.75,-4.75])},
-  {id:489,name:"White Bread (800g)",                 cat:"🍞 Bread & Bakery",icon:"🍞",prices:sp(0.80,[0.45,0,0.10,0.36,1.15])},
+  {id:489,name:"White Bread (800g)",                 cat:"🍞 Bread & Bakery",icon:"🍞",prices:sp(0.80,[0.45,0,0.10,0.36,1.15,0.65])},
   {id:551,name:"Brown Bloomer Loaf",                 cat:"🍞 Bread & Bakery",icon:"🍞",prices:sp(1.19,[-1.19,-1.19,-1.19,0,-1.19])},
-  {id:490,name:"Potatoes (1.5kg)",                   cat:"🥦 Fruit & Veg",  icon:"🥔",prices:sp(1.40,[0,1.20,0.25,0.69,1.10])},
-  {id:491,name:"Toilet Rolls (4pk)",                 cat:"🧹 Household",    icon:"🧻",prices:sp(1.55,[0.94,0.45,1.45,0.54,0])},
-  {id:497,name:"Ginger Nuts (400g)",           cat:"🥨 Snacks & Treats",icon:"🍪",prices:sp(0.90,[1.19,0.15,0,0,1.10])},
-  {id:498,name:"Cream Cleaner (500ml)",         cat:"🧹 Household",    icon:"🧴",prices:sp(1.65,[0,0.18,0,0.09,0.30])},
-  {id:499,name:"Furniture Polish (300ml)",       cat:"🧹 Household",    icon:"🧹",prices:sp(1.80,[0.29,0.40,0,0,0])},
+  {id:490,name:"Potatoes (1.5kg)",                   cat:"🥦 Fruit & Veg",  icon:"🥔",prices:sp(1.40,[0,1.20,0.25,0.69,1.10,1.39])},
+  {id:491,name:"Toilet Rolls (4pk)",                 cat:"🧹 Household",    icon:"🧻",prices:sp(1.55,[0.94,0.45,1.45,0.54,0,1.20])},
+  {id:497,name:"Ginger Nuts (400g)",           cat:"🥨 Snacks & Treats",icon:"🍪",prices:sp(0.90,[1.19,0.15,0,0,1.10,0.50])},
+  {id:498,name:"Cream Cleaner (500ml)",         cat:"🧹 Household",    icon:"🧴",prices:sp(1.65,[0,0.18,0,0.09,0.30,0.50])},
+  {id:499,name:"Furniture Polish (300ml)",       cat:"🧹 Household",    icon:"🧹",prices:sp(1.80,[0.29,0.40,0,0,0,0.70])},
   {id:500,name:"Multi-purpose Spray (750ml)",    cat:"🧹 Household",    icon:"🧴",prices:sp(0.89,[0,1.86,1.51,0.11,0.36])},
   {id:559,name:"Quilted Bathroom Tissue (9pk)",  cat:"🧹 Household",    icon:"🧻",prices:sp(2.49,[0,-2.49,-2.49,-2.49,-2.49])},
   {id:560,name:"Multi Kitchen Towel (3pk)",       cat:"🧹 Household",    icon:"🧻",prices:sp(2.05,[0,-2.05,-2.05,-2.05,-2.05])},
   {id:561,name:"Mammoth Refuse Sacks (20pk)",     cat:"🧹 Household",    icon:"🗑️",prices:sp(2.10,[0,-2.10,-2.10,-2.10,-2.10])},
   {id:562,name:"All Purpose Cloths (10pk)",       cat:"🧹 Household",    icon:"🧽",prices:sp(2.99,[0,-2.99,-2.99,-2.99,-2.99])},
-  {id:501,name:"Pringles (165g)",               cat:"🥨 Snacks & Treats",icon:"🥨",prices:sp(1.80,[1.05,0.95,0,0,1.30])},
-  {id:502,name:"Flora Margarine (500g)",        cat:"🥛 Dairy & Eggs", icon:"🧈",prices:sp(2.20,[0.95,1.30,1.20,0,1.25])},
-  {id:503,name:"Orange Squash (1L)",           cat:"🥤 Drinks",       icon:"🍊",prices:sp(1.25,[0,0.44,1.40,0.84,0.42])},
+  {id:501,name:"Pringles (165g)",               cat:"🥨 Snacks & Treats",icon:"🥨",prices:sp(1.80,[1.05,0.95,0,0,1.30,0.15])},
+  {id:502,name:"Flora Margarine (500g)",        cat:"🥛 Dairy & Eggs", icon:"🧈",prices:sp(2.20,[0.95,1.30,1.20,0,1.25,1.10])},
+  {id:503,name:"Orange Squash (1L)",           cat:"🥤 Drinks",       icon:"🍊",prices:sp(1.25,[0,0.44,1.40,0.84,0.42,0.35])},
   {id:504,name:"Corn Flakes (500g)",           cat:"🍝 Pantry",       icon:"🌾",prices:sp(1.15,[0.50,0.20,0,0,3.15])},
-  {id:505,name:"Bisto Gravy Granules (180g)",  cat:"🍝 Pantry",       icon:"🍖",prices:sp(3.49,[0.11,0,0,0.23,0.01])},
-  {id:506,name:"White Rice (1kg)",             cat:"🍝 Pantry",       icon:"🍚",prices:sp(1.50,[0.45,0.09,0,0.36,1.00])},
+  {id:505,name:"Bisto Gravy Granules (180g)",  cat:"🍝 Pantry",       icon:"🍖",prices:sp(3.49,[0.11,0,0,0.23,0.01,-0.09])},
+  {id:506,name:"White Rice (1kg)",             cat:"🍝 Pantry",       icon:"🍚",prices:sp(1.50,[0.45,0.09,0,0.36,1.00,0.85])},
   {id:529,name:"Arborio Risotto Rice (500g)",  cat:"🍝 Pantry",       icon:"🍚",prices:sp(3.08,[-3.08,-3.08,-3.08,0,-3.08])},
   {id:535,name:"Rigatoni Pasta (500g)",        cat:"🍝 Pantry",       icon:"🍝",prices:sp(1.00,[-1.00,-1.00,-1.00,0,-1.00])},
   {id:536,name:"Ambrosia Rice Pudding (400g)", cat:"🍝 Pantry",       icon:"🍮",prices:sp(1.25,[-1.25,-1.25,-1.25,0,-1.25])},
@@ -707,9 +707,9 @@ const BASE_PRODUCTS = [
   {id:635,name:"Ella's Kitchen Beef 7M (130g)",   cat:"🍼 Baby & Child", icon:"👶", prices:sp(2.50,[0,-2.50,-2.50,-2.50,-2.50])},
   {id:636,name:"Ella's Kitchen Broccoli Pudding", cat:"🍼 Baby & Child", icon:"👶", prices:sp(1.95,[0,-1.95,-1.95,-1.95,-1.95])},
   {id:543,name:"Guinness Cans (4pk)",           cat:"🥤 Drinks",       icon:"🍺",prices:sp(13.86,[-13.86,-13.86,-13.86,0,-13.86])},
-  {id:512,name:"Oven Chips (1kg)",               cat:"🧊 Frozen",       icon:"🍟",prices:sp(2.00,[1.90,0,0.40,1.89,0.50])},
-  {id:513,name:"Frozen Roast Potatoes (700g)",   cat:"🧊 Frozen",       icon:"🥔",prices:sp(1.86,[1.54,1.49,1.79,0,0])},
-  {id:514,name:"Vegetarian Sausages (6pk)",      cat:"🧊 Frozen",       icon:"🌭",prices:sp(2.81,[0.09,0.50,0,0,0])},
+  {id:512,name:"Oven Chips (1kg)",               cat:"🧊 Frozen",       icon:"🍟",prices:sp(2.00,[1.90,0,0.40,1.89,0.50,1.45])},
+  {id:513,name:"Frozen Roast Potatoes (700g)",   cat:"🧊 Frozen",       icon:"🥔",prices:sp(1.86,[1.54,1.49,1.79,0,0,0.39])},
+  {id:514,name:"Vegetarian Sausages (6pk)",      cat:"🧊 Frozen",       icon:"🌭",prices:sp(2.81,[0.09,0.50,0,0,0,0.54])},
   {id:526,name:"Itsu Chicken Gyoza (210g)",      cat:"🧊 Frozen",       icon:"🥟",prices:sp(4.12,[0,0,0,0,0])},
   {id:534,name:"Beef Meatballs 12pk",            cat:"🧊 Frozen",       icon:"🍝",prices:sp(5.22,[-5.22,-5.22,-5.22,0,-5.22])},
   {id:572,name:"McCain Spiced Wedges (750g)",    cat:"🧊 Frozen",       icon:"🍟",prices:sp(1.60,[0,-1.60,-1.60,-1.60,-1.60])},
@@ -717,19 +717,20 @@ const BASE_PRODUCTS = [
   {id:574,name:"Garlic Kiev (260g)",             cat:"🧊 Frozen",       icon:"🍗",prices:sp(2.10,[0,-2.10,-2.10,-2.10,-2.10])},
   {id:575,name:"Hot Crunchy Mini Fillets",        cat:"🧊 Frozen",       icon:"🍗",prices:sp(3.60,[0,-3.60,-3.60,-3.60,-3.60])},
   {id:576,name:"Chicken Nuggets (240g)",          cat:"🧊 Frozen",       icon:"🍗",prices:sp(3.35,[0,-3.35,-3.35,-3.35,-3.35])},
-  {id:515,name:"GF Self-raising Flour (1kg)",  cat:"🌱 Free From",    icon:"🌾",prices:sp(2.34,[0,0.11,0.21,0,0])},
-  {id:516,name:"GF Gravy Granules (165g)",     cat:"🌱 Free From",    icon:"🍖",prices:sp(2.62,[0,0,0,0,0])},
-  {id:517,name:"Heinz Tomato Ketchup (500ml)",cat:"🍝 Pantry",       icon:"🍅",prices:sp(2.50,[0.65,1.23,1.75,0.40,0])},
-  {id:518,name:"Gammon Steaks (2pk)",          cat:"🥩 Meat & Fish",  icon:"🥩",prices:sp(3.15,[2.10,0.85,3.85,1.49,0])},
+  {id:515,name:"GF Self-raising Flour (1kg)",  cat:"🌱 Free From",    icon:"🌾",prices:sp(2.34,[0,0.11,0.21,0,0,0.61])},
+  {id:516,name:"GF Gravy Granules (165g)",     cat:"🌱 Free From",    icon:"🍖",prices:sp(2.62,[0,0,0,0,0,0.13])},
+  {id:517,name:"Heinz Tomato Ketchup (500ml)",cat:"🍝 Pantry",       icon:"🍅",prices:sp(2.50,[0.65,1.23,1.75,0.40,0,1.60])},
+  {id:518,name:"Gammon Steaks (2pk)",          cat:"🥩 Meat & Fish",  icon:"🥩",prices:sp(3.15,[2.10,0.85,3.85,1.49,0,1.60])},
   {id:492,name:"Aptamil 1 (800g)",               cat:"🍼 Baby & Child", icon:"🍼",prices:sp(14.89,[4.71,0,0,0,0])},
   {id:493,name:"Aptamil 2 (800g)",               cat:"🍼 Baby & Child", icon:"🍼",prices:sp(14.75,[0,0,0,0.91,0])},
   {id:494,name:"Aptamil 3 (800g)",               cat:"🍼 Baby & Child", icon:"🍼",prices:sp(13.89,[1.86,0,0,1.77,0])},
   {id:495,name:"Baby Shampoo (500ml)",            cat:"🍼 Baby & Child", icon:"🧴",prices:sp(1.59,[0.81,0,0,1.94,0])},
-  {id:496,name:"Antiseptic Cream (125g)",         cat:"💊 Health & Beauty",icon:"🧴",prices:sp(1.45,[0,3.70,0,4.18,3.50])},
+  {id:496,name:"Antiseptic Cream (125g)",         cat:"💊 Health & Beauty",icon:"🧴",prices:sp(1.45,[0,3.70,0,4.18,3.50,4.05])},
   {id:565,name:"Lenor Summer Breeze (1L)",         cat:"🧹 Household",    icon:"🌸",prices:sp(2.10,[0,-2.10,-2.10,-2.10,-2.10])},
   {id:566,name:"Co-op 2in1 Shampoo (400ml)",       cat:"💊 Health & Beauty",icon:"🧴",prices:sp(1.65,[0,-1.65,-1.65,-1.65,-1.65])},
   {id:567,name:"Sure Fresh Anti-perspirant (250ml)",cat:"💊 Health & Beauty",icon:"💨",prices:sp(3.95,[0,-3.95,-3.95,-3.95,-3.95])},
   {id:568,name:"Gentle Whitening Toothpaste",      cat:"💊 Health & Beauty",icon:"🪥",prices:sp(1.70,[0,-1.70,-1.70,-1.70,-1.70])},
+  {id:637,name:"Baco Foil (300mm x 10m)",           cat:"🧹 Household",    icon:"✨",prices:sp(5.16,[-5.16,0,-5.16,-5.16,-5.16,-5.16])},
 ];
 
 /* ═══════════════════════════════════════════════════════════════════════════
@@ -1021,7 +1022,7 @@ export default function JerseyGroceryApp() {
   const [showHelp,       setShowHelp]       = useState(false);
   const [showReport,     setShowReport]     = useState(false);
   const [showSettings,   setShowSettings]   = useState(false);
-  const [disabledStores, setDisabledStores] = useState(new Set(["alliance"]));
+  const [disabledStores, setDisabledStores] = useState(new Set());
   const [showCompetition,  setShowCompetition]  = useState(false);
   const [showSubmitPrice,  setShowSubmitPrice]  = useState(false);
 
@@ -1049,7 +1050,6 @@ export default function JerseyGroceryApp() {
   const [iconPickerOpen, setIconPickerOpen] = useState(false);
   const [addError, setAddError]             = useState("");
   const [toast, setToast] = useState(null);
-  const [showAllianceTip, setShowAllianceTip] = useState(false);
   const [favourites, setFavourites]         = useState(new Set());
   const [favBasket,  setFavBasket]          = useState({});
 
@@ -1325,22 +1325,17 @@ export default function JerseyGroceryApp() {
             {/* store filter */}
             <div style={{ display:"flex",gap:6,flexWrap:"wrap",paddingBottom:7,marginBottom:4 }}>
               <Chip active={!pinnedStore} onClick={()=>setPinnedStore(null)} color="#3b82f6">🏷️ Best Price</Chip>
-              {/* Alliance coming soon chip */}
-              <div style={{ position:"relative" }}>
-                <button onClick={()=>{setShowAllianceTip(true);setTimeout(()=>setShowAllianceTip(false),2000);}} style={{ whiteSpace:"nowrap",padding:"6px 13px",borderRadius:22,fontSize:11,fontWeight:700,cursor:"pointer",background:"#ffffff",border:"2px solid #cc0000",color:"#cc0000",flexShrink:0 }}>🎯 Alliance</button>
-                {showAllianceTip && (
-                  <div style={{ position:"absolute",top:"calc(100% + 8px)",left:0,zIndex:500,background:"#1e293b",border:"1px solid rgba(204,0,0,.5)",borderRadius:10,padding:"8px 12px",whiteSpace:"nowrap",boxShadow:"0 8px 24px rgba(0,0,0,.6)",fontSize:11,color:"#f0f4f8",fontWeight:600 }}
-                    onClick={()=>setShowAllianceTip(false)}>
-                    <div style={{ marginBottom:2 }}>🎯 <span style={{ color:"#fb923c" }}>Alliance</span> — Coming Soon!</div>
-                    <div style={{ fontSize:10,color:"#64748b",fontWeight:400 }}>Prices being verified in-store</div>
-                    {/* little arrow */}
-                    <div style={{ position:"absolute",top:-5,left:14,width:0,height:0,borderLeft:"5px solid transparent",borderRight:"5px solid transparent",borderBottom:"5px solid rgba(204,0,0,.5)" }}/>
-                  </div>
-                )}
-              </div>
-              {/* other stores alphabetically, excluding alliance */}
-              {[...STORES].filter(s=>s.id!=="alliance").sort((a,b)=>a.name.localeCompare(b.name)).map(s=>(
-                <Chip key={s.id} active={pinnedStore===s.id} onClick={()=>setPinnedStore(pinnedStore===s.id?null:s.id)} color={s.color} lightMode={lightMode}>{s.emoji} {s.short}</Chip>
+              {/* store chips — Alliance custom white/red style, others standard */}
+              {[...STORES].sort((a,b)=>a.name.localeCompare(b.name)).map(s=>(
+                s.id==="alliance"
+                  ? <button key={s.id} onClick={()=>setPinnedStore(pinnedStore==="alliance"?null:"alliance")}
+                      style={{ whiteSpace:"nowrap",padding:"6px 13px",borderRadius:22,fontSize:11,fontWeight:700,cursor:"pointer",
+                        background:pinnedStore==="alliance"?"#cc0000":"#ffffff",
+                        border:"2px solid #cc0000",
+                        color:pinnedStore==="alliance"?"#ffffff":"#cc0000",
+                        boxShadow:pinnedStore==="alliance"?"0 3px 10px rgba(204,0,0,0.5)":"none",
+                        flexShrink:0 }}>🎯 Alliance</button>
+                  : <Chip key={s.id} active={pinnedStore===s.id} onClick={()=>setPinnedStore(pinnedStore===s.id?null:s.id)} color={s.color} lightMode={lightMode}>{s.emoji} {s.short}</Chip>
               ))}
               {disabledStores.size>1&&<button onClick={()=>setShowSettings(true)} style={{ whiteSpace:"nowrap",padding:"6px 13px",borderRadius:22,fontSize:11,fontWeight:700,cursor:"pointer",background:"linear-gradient(180deg,rgba(251,191,36,.2) 0%,rgba(180,83,9,.15) 100%)",border:"1px solid rgba(251,191,36,.4)",color:"#fcd34d",flexShrink:0 }}>⚙️ {disabledStores.size-1} store{disabledStores.size-1>1?"s":""} hidden</button>}
             </div>
@@ -1759,7 +1754,7 @@ export default function JerseyGroceryApp() {
                         {store.id==="ms"&&"✨ Premium quality. Freight surcharge applied. Best for special occasions."}
                         {store.id==="waitrose"&&"🌱 Excellent organic & ethical range. Great health-conscious choice."}
                         {store.id==="iceland"&&"🧊 Best for frozen & freezer staples. Run by Alliance since March 2025. Two Jersey stores."}
-                        {store.id==="alliance"&&"🎯 Jersey's local supermarket group. Multiple convenient locations island-wide. Prices coming soon — watch this space!"}
+                        {store.id==="alliance"&&"🎯 Jersey's local supermarket group. Multiple convenient locations island-wide."}
                       </div>
                     </div>
                   </div>
@@ -2832,27 +2827,26 @@ function SettingsModal({ disabledStores, onToggleStore, onClose, lightMode=false
         <div style={{ display:"flex",flexDirection:"column",gap:8,marginBottom:20 }}>
           {STORES.map(store => {
             const enabled = !disabledStores.has(store.id);
-            const comingSoon = store.id === "alliance";
             return (
-              <div key={store.id} onClick={()=>!comingSoon&&onToggleStore(store.id)}
-                style={{ display:"flex",alignItems:"center",justifyContent:"space-between",padding:"13px 16px",borderRadius:12,cursor:comingSoon?"default":"pointer",
-                  background:enabled&&!comingSoon?`${store.color}12`:"rgba(255,255,255,.03)",
-                  border:`1px solid ${enabled&&!comingSoon?store.color+"40":"rgba(255,255,255,.07)"}`,
-                  opacity:comingSoon?0.5:enabled?1:0.5, transition:"all .2s" }}>
+              <div key={store.id} onClick={()=>onToggleStore(store.id)}
+                style={{ display:"flex",alignItems:"center",justifyContent:"space-between",padding:"13px 16px",borderRadius:12,cursor:"pointer",
+                  background:enabled?`${store.color}12`:"rgba(255,255,255,.03)",
+                  border:`1px solid ${enabled?store.color+"40":"rgba(255,255,255,.07)"}`,
+                  opacity:enabled?1:0.5, transition:"all .2s" }}>
                 <div style={{ display:"flex",alignItems:"center",gap:10 }}>
                   <span style={{ fontSize:20 }}>{store.emoji}</span>
                   <div>
                     <div style={{ display:"flex",alignItems:"center",gap:7 }}>
                       <div style={{ fontSize:13,fontWeight:700,color:enabled?"#f0f4f8":"#64748b" }}>{store.name}</div>
-                      {comingSoon && <span style={{ fontSize:8,fontWeight:700,background:"rgba(251,191,36,.2)",color:"#fcd34d",borderRadius:4,padding:"2px 6px",letterSpacing:".5px" }}>PRICES COMING SOON</span>}
+
                     </div>
                     <div style={{ fontSize:10,color:"#475569",marginTop:1 }}>{store.note}</div>
                   </div>
                 </div>
                 {/* toggle pill */}
-                {!comingSoon && <div style={{ width:44,height:24,borderRadius:12,background:enabled?store.color:"rgba(255,255,255,.1)",position:"relative",transition:"background .2s",flexShrink:0 }}>
+                <div style={{ width:44,height:24,borderRadius:12,background:enabled?store.color:"rgba(255,255,255,.1)",position:"relative",transition:"background .2s",flexShrink:0 }}>
                   <div style={{ position:"absolute",top:3,left:enabled?22:3,width:18,height:18,borderRadius:"50%",background:"#fff",transition:"left .2s",boxShadow:"0 1px 4px rgba(0,0,0,.4)" }} />
-                </div>}
+                </div>
               </div>
             );
           })}
