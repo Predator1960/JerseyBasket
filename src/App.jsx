@@ -2239,7 +2239,7 @@ function WelcomeModal({ onDismiss, onSubmitPrice, lightMode=false }) {
       emoji: "🏆",
       title: "June Price Hunt!",
       subtitle: "Win up to £15 in gift vouchers",
-      body: "Help us verify prices across Jersey's 5 supermarkets — and win! Submit prices from your shopping receipts throughout June. The shopper who submits the most verified prices wins a £15 gift voucher. 2nd place wins £10, 3rd place wins £5. 🇯🇪",
+      body: "Help us verify prices across Jersey's 6 supermarkets — and win! Submit prices from your shopping receipts throughout June. The shopper who submits the most verified prices wins a £15 gift voucher. 2nd place wins £10, 3rd place wins £5. 🇯🇪",
       bg: "linear-gradient(135deg,#1a0a00 0%,#7c2d12 60%,#c2410c 100%)",
       accent: "#fb923c",
       competition: true,
@@ -2433,7 +2433,7 @@ function WelcomeModal({ onDismiss, onSubmitPrice, lightMode=false }) {
 const FEATURES = [
   {
     icon:"🏆", title:"Cheapest Price First",
-    desc:"Every product shows the lowest available price across all 5 Jersey stores automatically."
+    desc:"Every product shows the lowest available price across all 6 Jersey stores automatically."
   },
   {
     icon:"🏪", title:"Switch Stores Per Item",
@@ -2465,7 +2465,7 @@ const FEATURES = [
   },
   {
     icon:"📊", title:"Store Comparison",
-    desc:"See how all 5 Jersey stores compare — average prices, which has the most cheapest items, and honest notes on each."
+    desc:"See how all 6 Jersey stores compare — average prices, which has the most cheapest items, and honest notes on each."
   },
   {
     icon:"📱", title:"Install as an App",
@@ -2900,7 +2900,7 @@ function CompetitionModal({ onClose, onSubmit, lightMode=false }) {
         <div style={{ background:"rgba(255,255,255,.03)",border:"1px solid rgba(255,255,255,.07)",borderRadius:12,padding:"14px 16px",marginBottom:16 }}>
           <div style={{ fontSize:10,color:"#9a3412",fontWeight:700,letterSpacing:".08em",textTransform:"uppercase",marginBottom:10 }}>HOW IT WORKS</div>
           {[
-            ["📸","Take a photo of your receipt","From any of Jersey's 5 supermarkets"],
+            ["📸","Take a photo of your receipt","From any of Jersey's 6 supermarkets"],
             ["📤","Submit it via the form below","Include your name and which store"],
             ["✅","We manually check every receipt","Store name, date & prices must be clearly visible — duplicates rejected"],
             ["🏆","Top 5 shown on the leaderboard","Updated weekly throughout June"],
