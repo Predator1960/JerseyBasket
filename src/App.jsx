@@ -1324,9 +1324,17 @@ export default function JerseyGroceryApp() {
             {/* store filter */}
             <div style={{ display:"flex",gap:6,flexWrap:"wrap",paddingBottom:7,marginBottom:4 }}>
               <Chip active={!pinnedStore} onClick={()=>setPinnedStore(null)} color="#3b82f6">🏷️ Best Price</Chip>
-              {/* store chips — all stores alphabetically */}
+              {/* store chips — Alliance custom white/red style, others standard */}
               {[...STORES].sort((a,b)=>a.name.localeCompare(b.name)).map(s=>(
-                <Chip key={s.id} active={pinnedStore===s.id} onClick={()=>setPinnedStore(pinnedStore===s.id?null:s.id)} color={s.color} lightMode={lightMode}>{s.emoji} {s.short}</Chip>
+                s.id==="alliance"
+                  ? <button key={s.id} onClick={()=>setPinnedStore(pinnedStore==="alliance"?null:"alliance")}
+                      style={{ whiteSpace:"nowrap",padding:"6px 13px",borderRadius:22,fontSize:11,fontWeight:700,cursor:"pointer",
+                        background:pinnedStore==="alliance"?"#cc0000":"#ffffff",
+                        border:"2px solid #cc0000",
+                        color:pinnedStore==="alliance"?"#ffffff":"#cc0000",
+                        boxShadow:pinnedStore==="alliance"?"0 3px 10px rgba(204,0,0,0.5)":"none",
+                        flexShrink:0 }}>🎯 Alliance</button>
+                  : <Chip key={s.id} active={pinnedStore===s.id} onClick={()=>setPinnedStore(pinnedStore===s.id?null:s.id)} color={s.color} lightMode={lightMode}>{s.emoji} {s.short}</Chip>
               ))}
               {disabledStores.size>1&&<button onClick={()=>setShowSettings(true)} style={{ whiteSpace:"nowrap",padding:"6px 13px",borderRadius:22,fontSize:11,fontWeight:700,cursor:"pointer",background:"linear-gradient(180deg,rgba(251,191,36,.2) 0%,rgba(180,83,9,.15) 100%)",border:"1px solid rgba(251,191,36,.4)",color:"#fcd34d",flexShrink:0 }}>⚙️ {disabledStores.size-1} store{disabledStores.size-1>1?"s":""} hidden</button>}
             </div>
