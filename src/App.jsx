@@ -26,7 +26,7 @@ import React, { useState, useMemo, useRef, useEffect, useCallback } from "react"
    STORES
 ═══════════════════════════════════════════════════════════════════════════ */
 const STORES = [
-  { id:"coop",      name:"CI Co-op",  short:"Co-op",    tag:"Best Value", color:"#0097a7", emoji:"🌿", note:"Grande Marché, St Peter & branches" },
+  { id:"coop",      name:"CI Co-op",  short:"Co-op",    tag:"Best Value", color:"#00a1cc", emoji:"🌿", note:"Grande Marché, St Peter & branches" },
   { id:"morrisons", name:"Morrisons", short:"Morrisons",tag:"Convenience",color:"#eab308", emoji:"🛒", note:"The Parade, Benest's & branches" },
   { id:"ms",        name:"M&S Food",  short:"M&S",      tag:"Premium",    color:"#94a3b8", emoji:"✨", note:"St Helier (SandpiperCI)" },
   { id:"waitrose",  name:"Waitrose",  short:"Waitrose", tag:"Organic",    color:"#0d9488", emoji:"🌱", note:"St Saviour" },
@@ -1397,12 +1397,16 @@ export default function JerseyGroceryApp() {
             {/* category pills */}
             <div style={{ display:"flex",gap:5,overflowX:"auto",paddingBottom:9,marginBottom:7 }}>
               {CATS.filter(c=>catCounts[c]).map(cat=>(
-                <button key={cat} onClick={()=>setActiveCategory(cat)} style={{ whiteSpace:"nowrap",padding:"6px 13px",borderRadius:22,fontSize:10.5,fontWeight:700,cursor:"pointer",
-                  background:activeCategory===cat?"linear-gradient(135deg,#22c55e,#16a34a)":lightMode?"rgba(0,0,0,.08)":"rgba(255,255,255,.08)",
-                  border:activeCategory===cat?"none":`1px solid ${lightMode?"rgba(0,0,0,.12)":"rgba(255,255,255,.12)"}`,
-                  color:activeCategory===cat?"#fff":lightMode?"#1e293b":"#cbd5e1",
-                  boxShadow:activeCategory===cat?"0 3px 10px rgba(34,197,94,0.4)":"none",
-                  flexShrink:0 }}>
+                <button key={cat} onClick={()=>setActiveCategory(cat)} style={{
+                  WebkitAppearance:"none",appearance:"none",
+                  whiteSpace:"nowrap",padding:"6px 13px",borderRadius:22,fontSize:10.5,fontWeight:700,cursor:"pointer",flexShrink:0,
+                  position:"relative",overflow:"hidden",
+                  background:activeCategory===cat?"linear-gradient(180deg,#4ade80 0%,#15803d 100%)":lightMode?"rgba(0,0,0,.07)":"linear-gradient(180deg,#1e3a5f 0%,#0f1f3d 100%)",
+                  border:activeCategory===cat?"1px solid rgba(74,222,128,.5)":lightMode?"1px solid rgba(0,0,0,.15)":"1px solid rgba(125,211,252,0.15)",
+                  color:activeCategory===cat?"#052e16":lightMode?"#1e293b":"#7dd3fc",
+                  boxShadow:activeCategory===cat?"0 3px 10px rgba(34,197,94,.5),inset 0 1px 0 rgba(255,255,255,.25)":"0 2px 6px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.07)",
+                }}>
+                  <span style={{ position:"absolute",top:0,left:0,right:0,height:"52%",background:"linear-gradient(180deg,rgba(255,255,255,.28) 0%,rgba(255,255,255,.04) 100%)",borderRadius:"22px 22px 0 0",pointerEvents:"none" }}/>
                   {cat} <span style={{ opacity:.6,fontSize:8.5 }}>({catCounts[cat]})</span>
                 </button>
               ))}
