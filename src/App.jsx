@@ -26,7 +26,7 @@ import React, { useState, useMemo, useRef, useEffect, useCallback } from "react"
    STORES
 ═══════════════════════════════════════════════════════════════════════════ */
 const STORES = [
-  { id:"coop",      name:"CI Co-op",  short:"Co-op",    tag:"Best Value", color:"#16a34a", emoji:"🌿", note:"Grande Marché, St Peter & branches" },
+  { id:"coop",      name:"CI Co-op",  short:"Co-op",    tag:"Best Value", color:"#0097a7", emoji:"🌿", note:"Grande Marché, St Peter & branches" },
   { id:"morrisons", name:"Morrisons", short:"Morrisons",tag:"Convenience",color:"#eab308", emoji:"🛒", note:"The Parade, Benest's & branches" },
   { id:"ms",        name:"M&S Food",  short:"M&S",      tag:"Premium",    color:"#94a3b8", emoji:"✨", note:"St Helier (SandpiperCI)" },
   { id:"waitrose",  name:"Waitrose",  short:"Waitrose", tag:"Organic",    color:"#0d9488", emoji:"🌱", note:"St Saviour" },
@@ -1378,7 +1378,7 @@ export default function JerseyGroceryApp() {
 
             {/* store filter */}
             <div style={{ display:"flex",gap:6,flexWrap:"wrap",paddingBottom:7,marginBottom:4 }}>
-              <Chip active={!pinnedStore} onClick={()=>setPinnedStore(null)} color="#3b82f6">🏷️ Best Price</Chip>
+              <Chip active={!pinnedStore} onClick={()=>setPinnedStore(null)} color="#16a34a">🏷️ Best Price</Chip>
               {/* store chips — Alliance custom white/red style, others standard */}
               {[...STORES].sort((a,b)=>a.name.localeCompare(b.name)).map(s=>(
                 s.id==="alliance"
@@ -1397,8 +1397,13 @@ export default function JerseyGroceryApp() {
             {/* category pills */}
             <div style={{ display:"flex",gap:5,overflowX:"auto",paddingBottom:9,marginBottom:7 }}>
               {CATS.filter(c=>catCounts[c]).map(cat=>(
-                <button key={cat} onClick={()=>setActiveCategory(cat)} style={{ whiteSpace:"nowrap",padding:"5px 13px",borderRadius:20,fontSize:10.5,fontWeight:600,border:"none",cursor:"pointer", background:activeCategory===cat?"linear-gradient(135deg,#16a34a,#15803d)":lightMode?"rgba(0,0,0,.08)":"rgba(255,255,255,.05)", color:activeCategory===cat?"#fff":lightMode?"#1e293b":"#94a3b8" }}>
-                  {cat} <span style={{ opacity:.5,fontSize:8.5 }}>({catCounts[cat]})</span>
+                <button key={cat} onClick={()=>setActiveCategory(cat)} style={{ whiteSpace:"nowrap",padding:"6px 13px",borderRadius:22,fontSize:10.5,fontWeight:700,cursor:"pointer",
+                  background:activeCategory===cat?"linear-gradient(135deg,#22c55e,#16a34a)":lightMode?"rgba(0,0,0,.08)":"rgba(255,255,255,.08)",
+                  border:activeCategory===cat?"none":`1px solid ${lightMode?"rgba(0,0,0,.12)":"rgba(255,255,255,.12)"}`,
+                  color:activeCategory===cat?"#fff":lightMode?"#1e293b":"#cbd5e1",
+                  boxShadow:activeCategory===cat?"0 3px 10px rgba(34,197,94,0.4)":"none",
+                  flexShrink:0 }}>
+                  {cat} <span style={{ opacity:.6,fontSize:8.5 }}>({catCounts[cat]})</span>
                 </button>
               ))}
             </div>
