@@ -1393,7 +1393,7 @@ export default function JerseyGroceryApp() {
                   ? <button key={s.id} onClick={()=>setPinnedStore(pinnedStore==="coop"?null:"coop")}
                       style={{ whiteSpace:"nowrap",padding:"6px 13px",borderRadius:22,fontSize:11,fontWeight:700,cursor:"pointer",
                         position:"relative",overflow:"hidden",
-                        background:pinnedStore==="coop"?"linear-gradient(180deg,#60a5fa 0%,#1d4ed8 100%)":lightMode?"rgba(0,0,0,.07)":"linear-gradient(180deg,#1e3a5f 0%,#0f1f3d 100%)",
+                        background:pinnedStore==="coop"?"linear-gradient(180deg,#3b82f6 0%,#1e3a8a 100%)":lightMode?"rgba(0,0,0,.07)":"linear-gradient(180deg,#1e3a5f 0%,#0f1f3d 100%)",
                         border:pinnedStore==="coop"?"1px solid rgba(96,165,250,.5)":lightMode?"1px solid rgba(0,0,0,.15)":"1px solid rgba(125,211,252,0.15)",
                         color:pinnedStore==="coop"?"#fff":lightMode?"#1e293b":"#7dd3fc",
                         boxShadow:pinnedStore==="coop"?"0 3px 10px rgba(29,78,216,.5),inset 0 1px 0 rgba(255,255,255,.25)":"0 2px 6px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.07)",
