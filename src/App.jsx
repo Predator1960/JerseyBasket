@@ -1802,17 +1802,19 @@ export default function JerseyGroceryApp() {
             <h2 style={{ fontSize:18,fontWeight:700,marginBottom:3,color:lightMode?"#0f172a":"#f0f4f8" }}>📊 Store Comparison</h2>
             <p style={{ color:lightMode?"#334155":"#64748b",fontSize:11,marginBottom:16 }}>Jersey Channel Islands · Prices include 5% GST</p>
             <div style={{ display:"grid",gap:10 }}>
-              {STORES.map(store=>{
+              {[...STORES].sort((a,b)=>a.name.localeCompare(b.name)).map(store=>{
                 const items=allProducts.filter(p=>p.prices[store.id]);
                 const avg=items.reduce((s,p)=>s+p.prices[store.id],0)/items.length;
                 const wins=items.filter(p=>getBestStoreId(p)===store.id).length;
-                const winPct=Math.round((wins/items.length)*100);
+                const winPct=Math.round((wins/allProducts.length)*100);
                 const sc = store.color;
                 const r=parseInt(sc.slice(1,3),16), g=parseInt(sc.slice(3,5),16), b=parseInt(sc.slice(5,7),16);
                 return(
                   <div key={store.id} style={{
-                    background:`linear-gradient(135deg,rgba(${r},${g},${b},0.12) 0%,rgba(${r},${g},${b},0.04) 100%)`,
-                    border:`1px solid rgba(${r},${g},${b},0.35)`,
+                    background:store.id==="alliance"
+                      ?`linear-gradient(135deg,rgba(255,255,255,0.08) 0%,rgba(204,0,0,0.06) 100%)`
+                      :`linear-gradient(135deg,rgba(${r},${g},${b},0.12) 0%,rgba(${r},${g},${b},0.04) 100%)`,
+                    border:store.id==="alliance"?"1px solid rgba(204,0,0,0.4)":`1px solid rgba(${r},${g},${b},0.35)`,
                     borderLeft:`4px solid ${sc}`,
                     borderRadius:14, padding:16,
                     boxShadow:`0 4px 16px rgba(${r},${g},${b},0.15), inset 0 1px 0 rgba(255,255,255,0.07)`,
@@ -1914,7 +1916,7 @@ export default function JerseyGroceryApp() {
             <div style={{ marginBottom:13 }}>
               <div style={{ fontSize:9.5,color:lightMode?"#334155":"#64748b",fontWeight:700,letterSpacing:".5px",marginBottom:7 }}>STORE PRICES (£) — leave blank if unknown</div>
               <div style={{ display:"grid",gridTemplateColumns:"1fr 1fr",gap:7 }}>
-                {STORES.map(store=>{
+                {[...STORES].sort((a,b)=>a.name.localeCompare(b.name)).map(store=>{
                   const val=parseFloat(newItem.prices[store.id]);
                   const isBest=!isNaN(val)&&val>0&&val===liveMin;
                   return(
