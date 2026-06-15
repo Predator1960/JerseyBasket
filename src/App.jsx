@@ -732,6 +732,58 @@ const BASE_PRODUCTS = [
   {id:568,name:"Gentle Whitening Toothpaste",      cat:"💊 Health & Beauty",icon:"🪥",prices:sp(1.70,[0,-1.70,-1.70,-1.70,-1.70])},
   {id:637,name:"Baco Foil (300mm x 10m)",           cat:"🧹 Household",    icon:"✨",prices:sp(5.16,[-5.16,0,-5.16,-5.16,-5.16,-5.16])},
   {id:638,name:"Cruzcampo Lager (10 pack)",         cat:"🥤 Drinks",       icon:"🍺",prices:sp(12.75,[-12.75,0,-12.75,-12.75,-12.75,-12.75])},
+
+  /* ── M&S (no date) ── */
+  {id:639,name:"M&S Auth Greek Yoghurt (200g)",    cat:"🥛 Dairy & Eggs", icon:"🫙", prices:sp(1.50,[-1.50,-1.50,0,-1.50,-1.50,-1.50])},
+  {id:640,name:"M&S Auth Greek Yoghurt (400g)",    cat:"🥛 Dairy & Eggs", icon:"🫙", prices:sp(2.85,[-2.85,-2.85,0,-2.85,-2.85,-2.85])},
+  {id:641,name:"Blueberries (150g)",               cat:"🥦 Fruit & Veg",  icon:"🫐", prices:sp(3.00,[-3.00,-3.00,0,-3.00,-3.00,-3.00])},
+  {id:642,name:"Sweet Chilli Sauce",               cat:"🍝 Pantry",       icon:"🌶️", prices:sp(1.60,[-1.60,-1.60,0,-1.60,-1.60,-1.60])},
+  {id:643,name:"Peanut Pad Thai Sauce",            cat:"🍝 Pantry",       icon:"🥜", prices:sp(2.10,[-2.10,-2.10,0,-2.10,-2.10,-2.10])},
+  {id:644,name:"M&S English Medium Cheddar (350g)",cat:"🥛 Dairy & Eggs", icon:"🧀", prices:sp(3.40,[-3.40,-3.40,0,-3.40,-3.40,-3.40])},
+  {id:645,name:"Sweet Potato Jackets (2pk)",       cat:"🥦 Fruit & Veg",  icon:"🍠", prices:sp(2.75,[-2.75,-2.75,0,-2.75,-2.75,-2.75])},
+  {id:646,name:"M&S Beef Strips",                  cat:"🥩 Meat & Fish",  icon:"🥩", prices:sp(6.70,[-6.70,-6.70,0,-6.70,-6.70,-6.70])},
+  {id:647,name:"Mixed Pepper Stir Fry",            cat:"🥦 Fruit & Veg",  icon:"🫑", prices:sp(2.40,[-2.40,-2.40,0,-2.40,-2.40,-2.40])},
+  {id:648,name:"Lime & Coriander Seasoning",       cat:"🍝 Pantry",       icon:"🌿", prices:sp(2.40,[-2.40,-2.40,0,-2.40,-2.40,-2.40])},
+  {id:649,name:"New Potatoes (500g)",              cat:"🥦 Fruit & Veg",  icon:"🥔", prices:sp(2.60,[-2.60,-2.60,0,-2.60,-2.60,-2.60])},
+  {id:650,name:"Salad Cream (425g)",               cat:"🍝 Pantry",       icon:"🥗", prices:sp(2.30,[-2.30,-2.30,0,-2.30,-2.30,-2.30])},
+  {id:651,name:"Avocado Oil (250ml)",              cat:"🍝 Pantry",       icon:"🥑", prices:sp(3.65,[-3.65,-3.65,0,-3.65,-3.65,-3.65])},
+  {id:652,name:"Fresh Ginger (200g)",              cat:"🥦 Fruit & Veg",  icon:"🫚", prices:sp(2.40,[-2.40,-2.40,0,-2.40,-2.40,-2.40])},
+  {id:653,name:"Fresh Flat Parsley (bunch)",       cat:"🥦 Fruit & Veg",  icon:"🌿", prices:sp(1.05,[-1.05,-1.05,0,-1.05,-1.05,-1.05])},
+  {id:654,name:"Fresh Cut Mint (bunch)",           cat:"🥦 Fruit & Veg",  icon:"🌿", prices:sp(1.05,[-1.05,-1.05,0,-1.05,-1.05,-1.05])},
+  {id:655,name:"Rosa Verde Salad (80g)",           cat:"🥦 Fruit & Veg",  icon:"🥗", prices:sp(1.95,[-1.95,-1.95,0,-1.95,-1.95,-1.95])},
+  {id:656,name:"Single Pepper",                    cat:"🥦 Fruit & Veg",  icon:"🫑", prices:sp(0.85,[-0.85,-0.85,0,-0.85,-0.85,-0.85])},
+  {id:657,name:"Brown Onion Net",                  cat:"🥦 Fruit & Veg",  icon:"🧅", prices:sp(1.80,[-1.80,-1.80,0,-1.80,-1.80,-1.80])},
+  {id:658,name:"Pistachio & Caramel Snack",        cat:"🥨 Snacks & Treats",icon:"🌰",prices:sp(1.70,[-1.70,-1.70,0,-1.70,-1.70,-1.70])},
+
+  /* ── Co-op (receipts 2 & 6) ── */
+  {id:659,name:"Tilda Caster Sugar (1kg)",         cat:"🍝 Pantry",       icon:"🍬", prices:sp(2.60,[0,-2.60,-2.60,-2.60,-2.60,-2.60])},
+  {id:660,name:"Co-op Plain White Flour (1.5kg)",  cat:"🍝 Pantry",       icon:"🌾", prices:sp(1.05,[0,-1.05,-1.05,-1.05,-1.05,-1.05])},
+  {id:661,name:"Co-op Wholemeal Flour (1.5kg)",    cat:"🍝 Pantry",       icon:"🌾", prices:sp(1.65,[0,-1.65,-1.65,-1.65,-1.65,-1.65])},
+  {id:662,name:"Tilda Medium Grain Rice (500g)",   cat:"🍝 Pantry",       icon:"🍚", prices:sp(1.75,[0,-1.75,-1.75,-1.75,-1.75,-1.75])},
+  {id:663,name:"Co-op Chicken Breast Fillets (580g)",cat:"🥩 Meat & Fish",icon:"🍗", prices:sp(6.20,[0,-6.20,-6.20,-6.20,-6.20,-6.20])},
+  {id:664,name:"Signal Post Chardonnay (75cl)",    cat:"🥤 Drinks",       icon:"🍷", prices:sp(5.50,[0,-5.50,-5.50,-5.50,-5.50,-5.50])},
+  {id:665,name:"Tenderstem Broccoli (200g)",       cat:"🥦 Fruit & Veg",  icon:"🥦", prices:sp(2.30,[0,-2.30,-2.30,-2.30,-2.30,-2.30])},
+  {id:666,name:"Stork Baking Block (250g)",        cat:"🥛 Dairy & Eggs", icon:"🧈", prices:sp(1.49,[0,-1.49,-1.49,-1.49,-1.49,-1.49])},
+  {id:667,name:"Nando's Sauce",                    cat:"🍝 Pantry",       icon:"🌶️", prices:sp(1.84,[0,-1.84,-1.84,-1.84,-1.84,-1.84])},
+  {id:668,name:"Tuna in Spring Water (145g)",      cat:"🍝 Pantry",       icon:"🐟", prices:sp(2.40,[0,-2.40,-2.40,-2.40,-2.40,-2.40])},
+  {id:669,name:"Co-op Peanuts (110g)",             cat:"🥨 Snacks & Treats",icon:"🥜",prices:sp(1.95,[0,-1.95,-1.95,-1.95,-1.95,-1.95])},
+  {id:670,name:"Co-op Green Pesto (190g)",         cat:"🍝 Pantry",       icon:"🌿", prices:sp(1.69,[0,-1.69,-1.69,-1.69,-1.69,-1.69])},
+  {id:671,name:"Co-op Mozzarella Slices",          cat:"🥛 Dairy & Eggs", icon:"🧀", prices:sp(3.95,[0,-3.95,-3.95,-3.95,-3.95,-3.95])},
+  {id:672,name:"Co-op Greek Style Yoghurt",        cat:"🥛 Dairy & Eggs", icon:"🫙", prices:sp(1.60,[0,-1.60,-1.60,-1.60,-1.60,-1.60])},
+  {id:673,name:"Co-op Smoked Back Bacon",          cat:"🥩 Meat & Fish",  icon:"🥓", prices:sp(4.20,[0,-4.20,-4.20,-4.20,-4.20,-4.20])},
+  {id:674,name:"Chicken & Chickpea Italian",       cat:"🍝 Pantry",       icon:"🍗", prices:sp(4.20,[0,-4.20,-4.20,-4.20,-4.20,-4.20])},
+  {id:675,name:"Co-op Medium Free Range Eggs (6pk)",cat:"🥛 Dairy & Eggs",icon:"🥚", prices:sp(2.40,[0,-2.40,-2.40,-2.40,-2.40,-2.40])},
+  {id:676,name:"Co-op Wholemeal Fusilli (500g)",   cat:"🍝 Pantry",       icon:"🍝", prices:sp(0.95,[0,-0.95,-0.95,-0.95,-0.95,-0.95])},
+
+  /* ── Waitrose (no date) ── */
+  {id:677,name:"Magnum Salted Caramel",            cat:"🧊 Frozen",       icon:"🍦", prices:sp(2.00,[-2.00,-2.00,-2.00,0,-2.00,-2.00])},
+
+  /* ── Morrisons (no date) ── */
+  {id:678,name:"Morrisons Crispy Salad",           cat:"🥦 Fruit & Veg",  icon:"🥗", prices:sp(1.35,[-1.35,0,-1.35,-1.35,-1.35,-1.35])},
+  {id:679,name:"Morrisons Savers Soft Cheese",     cat:"🥛 Dairy & Eggs", icon:"🧀", prices:sp(1.10,[-1.10,0,-1.10,-1.10,-1.10,-1.10])},
+  {id:680,name:"Morrisons Stain Remover Whites",   cat:"🧹 Household",    icon:"🫧", prices:sp(3.84,[-3.84,0,-3.84,-3.84,-3.84,-3.84])},
+  {id:681,name:"Fanta Grape (500ml)",              cat:"🥤 Drinks",       icon:"🥤", prices:sp(2.25,[-2.25,0,-2.25,-2.25,-2.25,-2.25])},
+  {id:682,name:"Galbani Italian Burrata",          cat:"🥛 Dairy & Eggs", icon:"🧀", prices:sp(2.35,[-2.35,0,-2.35,-2.35,-2.35,-2.35])},
 ];
 
 /* ═══════════════════════════════════════════════════════════════════════════
@@ -1003,6 +1055,7 @@ const LEADERBOARD = [
   { name: "19Margaret37",  store: "CI Co-op",  count: 14, date: "13 Jun" },
   { name: "Nicole1",       store: "Waitrose",  count: 12, date: "11 Jun" },
   { name: "Sharon",        store: "Morrisons", count: 9,  date: "07 Jun" },
+  { name: "dreamer1977",   store: "CI Co-op",  count: 9,  date: "06 Jun" },
   // ── Remove the // at the start of each line above to activate ────────────
 ];
 
