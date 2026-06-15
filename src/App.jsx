@@ -28,9 +28,9 @@ import React, { useState, useMemo, useRef, useEffect, useCallback } from "react"
 const STORES = [
   { id:"coop",      name:"CI Co-op",  short:"Co-op",    tag:"Best Value", color:"#1d4ed8", emoji:"🌿", note:"Grande Marché, St Peter & branches" },
   { id:"morrisons", name:"Morrisons", short:"Morrisons",tag:"Convenience",color:"#eab308", emoji:"🛒", note:"The Parade, Benest's & branches" },
-  { id:"ms",        name:"M&S Food",  short:"M&S",      tag:"Premium",    color:"#94a3b8", emoji:"✨", note:"St Helier (SandpiperCI)" },
-  { id:"waitrose",  name:"Waitrose",  short:"Waitrose", tag:"Organic",    color:"#0d9488", emoji:"🌱", note:"St Saviour" },
-  { id:"iceland",   name:"Iceland",   short:"Iceland",  tag:"Frozen",     color:"#dc2626", emoji:"🧊", note:"St Ouen & Broad St (via Alliance)" },
+  { id:"ms",        name:"M&S Food",  short:"M&S",      tag:"Premium",    color:"#94a3b8", emoji:"✨", note:"St Helier (SandpiperCI · Alliance Group)" },
+  { id:"waitrose",  name:"Waitrose",  short:"Waitrose", tag:"Organic",    color:"#0d9488", emoji:"🌱", note:"St Saviour (Alliance Group)" },
+  { id:"iceland",   name:"Iceland",   short:"Iceland",  tag:"Frozen",     color:"#dc2626", emoji:"🧊", note:"St Ouen & Broad St (Alliance franchise)" },
   { id:"alliance",  name:"Alliance",  short:"Alliance", tag:"Great Value · Local Choice", color:"#cc0000", emoji:"🎯", note:"Multiple locations across Jersey" },
 ];
 
@@ -1379,7 +1379,7 @@ export default function JerseyGroceryApp() {
             {/* store filter */}
             <div style={{ display:"flex",gap:6,flexWrap:"wrap",paddingBottom:7,marginBottom:4 }}>
               <Chip active={!pinnedStore} onClick={()=>setPinnedStore(null)} color="#16a34a">🏷️ Best Price</Chip>
-              {/* store chips — Alliance custom white/red style, others standard */}
+              {/* store chips — Alliance custom white/red, Co-op gradient blue like LIVE, others standard */}
               {[...STORES].sort((a,b)=>a.name.localeCompare(b.name)).map(s=>(
                 s.id==="alliance"
                   ? <button key={s.id} onClick={()=>setPinnedStore(pinnedStore==="alliance"?null:"alliance")}
@@ -1389,6 +1389,17 @@ export default function JerseyGroceryApp() {
                         color:pinnedStore==="alliance"?"#ffffff":"#cc0000",
                         boxShadow:pinnedStore==="alliance"?"0 3px 10px rgba(204,0,0,0.5)":"none",
                         flexShrink:0 }}>🎯 Alliance</button>
+                  : s.id==="coop"
+                  ? <button key={s.id} onClick={()=>setPinnedStore(pinnedStore==="coop"?null:"coop")}
+                      style={{ whiteSpace:"nowrap",padding:"6px 13px",borderRadius:22,fontSize:11,fontWeight:700,cursor:"pointer",
+                        position:"relative",overflow:"hidden",
+                        background:pinnedStore==="coop"?"linear-gradient(180deg,#60a5fa 0%,#1d4ed8 100%)":lightMode?"rgba(0,0,0,.07)":"linear-gradient(180deg,#1e3a5f 0%,#0f1f3d 100%)",
+                        border:pinnedStore==="coop"?"1px solid rgba(96,165,250,.5)":lightMode?"1px solid rgba(0,0,0,.15)":"1px solid rgba(125,211,252,0.15)",
+                        color:pinnedStore==="coop"?"#fff":lightMode?"#1e293b":"#7dd3fc",
+                        boxShadow:pinnedStore==="coop"?"0 3px 10px rgba(29,78,216,.5),inset 0 1px 0 rgba(255,255,255,.25)":"0 2px 6px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.07)",
+                        flexShrink:0 }}>
+                      <span style={{ position:"absolute",top:0,left:0,right:0,height:"52%",background:"linear-gradient(180deg,rgba(255,255,255,.28) 0%,rgba(255,255,255,.04) 100%)",borderRadius:"22px 22px 0 0",pointerEvents:"none" }}/>
+                      🌿 Co-op</button>
                   : <Chip key={s.id} active={pinnedStore===s.id} onClick={()=>setPinnedStore(pinnedStore===s.id?null:s.id)} color={s.color} lightMode={lightMode}>{s.emoji} {s.short}</Chip>
               ))}
               {disabledStores.size>1&&<button onClick={()=>setShowSettings(true)} style={{ whiteSpace:"nowrap",padding:"6px 13px",borderRadius:22,fontSize:11,fontWeight:700,cursor:"pointer",background:"linear-gradient(180deg,rgba(251,191,36,.2) 0%,rgba(180,83,9,.15) 100%)",border:"1px solid rgba(251,191,36,.4)",color:"#fcd34d",flexShrink:0 }}>⚙️ {disabledStores.size-1} store{disabledStores.size-1>1?"s":""} hidden</button>}
