@@ -26,7 +26,7 @@ import React, { useState, useMemo, useRef, useEffect, useCallback } from "react"
    STORES
 ═══════════════════════════════════════════════════════════════════════════ */
 const STORES = [
-  { id:"coop",      name:"CI Co-op",  short:"Co-op",    tag:"Best Value", color:"#1d4ed8", emoji:"🌿", note:"Grande Marché, St Peter & branches" },
+  { id:"coop",      name:"CI Co-op",  short:"Co-op",    tag:"Best Value", color:"#60a5fa", emoji:"🌿", note:"Grande Marché, St Peter & branches" },
   { id:"morrisons", name:"Morrisons", short:"Morrisons",tag:"Convenience",color:"#eab308", emoji:"🛒", note:"The Parade, Benest's & branches" },
   { id:"ms",        name:"M&S Food",  short:"M&S",      tag:"Premium",    color:"#94a3b8", emoji:"✨", note:"St Helier (SandpiperCI · Alliance Group)" },
   { id:"waitrose",  name:"Waitrose",  short:"Waitrose", tag:"Organic",    color:"#0d9488", emoji:"🌱", note:"St Saviour (Alliance Group)" },
