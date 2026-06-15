@@ -784,9 +784,8 @@ const BASE_PRODUCTS = [
   {id:680,name:"Morrisons Stain Remover Whites",   cat:"🧹 Household",    icon:"🫧", prices:sp(3.84,[-3.84,0,-3.84,-3.84,-3.84,-3.84])},
   {id:681,name:"Fanta Grape (500ml)",              cat:"🥤 Drinks",       icon:"🥤", prices:sp(2.25,[-2.25,0,-2.25,-2.25,-2.25,-2.25])},
   {id:682,name:"Galbani Italian Burrata",          cat:"🥛 Dairy & Eggs", icon:"🧀", prices:sp(2.35,[-2.35,0,-2.35,-2.35,-2.35,-2.35])},
-];
 
-  /* ── Waitrose (Jason Acott receipt — no date yet) ── */
+  /* ── Waitrose (Jason Acott j.acottjsy — 15 Jun 2026) ── */
   {id:683,name:"Maldon Salt Flakes",               cat:"🍝 Pantry",       icon:"🧂", prices:sp(3.48,[-3.48,-3.48,-3.48,0,-3.48,-3.48])},
   {id:684,name:"TruFru Frozen Strawberries",        cat:"🧊 Frozen",       icon:"🍓", prices:sp(4.50,[-4.50,-4.50,-4.50,0,-4.50,-4.50])},
   {id:685,name:"WR Garlic Half Chicken",            cat:"🥩 Meat & Fish",  icon:"🍗", prices:sp(5.51,[-5.51,-5.51,-5.51,0,-5.51,-5.51])},
@@ -1070,6 +1069,7 @@ const LEADERBOARD = [
   { name: "Nicole1",       store: "Waitrose",  count: 12, date: "11 Jun" },
   { name: "Sharon",        store: "Morrisons", count: 9,  date: "07 Jun" },
   { name: "dreamer1977",   store: "CI Co-op",  count: 9,  date: "06 Jun" },
+  { name: "j.acottjsy",     store: "Waitrose",  count: 12, date: "15 Jun" },
   // ── Remove the // at the start of each line above to activate ────────────
 ];
 
