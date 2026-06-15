@@ -26,7 +26,7 @@ import React, { useState, useMemo, useRef, useEffect, useCallback } from "react"
    STORES
 ═══════════════════════════════════════════════════════════════════════════ */
 const STORES = [
-  { id:"coop",      name:"CI Co-op",  short:"Co-op",    tag:"Best Value", color:"#60a5fa", emoji:"🌿", note:"Grande Marché, St Peter & branches" },
+  { id:"coop",      name:"CI Co-op",  short:"Co-op",    tag:"Best Value", color:"#1d4ed8", emoji:"🌿", note:"Grande Marché, St Peter & branches" },
   { id:"morrisons", name:"Morrisons", short:"Morrisons",tag:"Convenience",color:"#eab308", emoji:"🛒", note:"The Parade, Benest's & branches" },
   { id:"ms",        name:"M&S Food",  short:"M&S",      tag:"Premium",    color:"#94a3b8", emoji:"✨", note:"St Helier (SandpiperCI · Alliance Group)" },
   { id:"waitrose",  name:"Waitrose",  short:"Waitrose", tag:"Organic",    color:"#0d9488", emoji:"🌱", note:"St Saviour (Alliance Group)" },
@@ -1393,7 +1393,7 @@ export default function JerseyGroceryApp() {
             {/* store filter */}
             <div style={{ display:"flex",gap:6,flexWrap:"wrap",paddingBottom:7,marginBottom:4 }}>
               <Chip active={!pinnedStore} onClick={()=>setPinnedStore(null)} color="#16a34a">🏷️ Best Price</Chip>
-              {/* store chips — Alliance custom white/red, Co-op gradient blue like LIVE, others standard */}
+              {/* store chips — Alliance custom white/red, Co-op custom light/dark blue, others standard */}
               {[...STORES].sort((a,b)=>a.name.localeCompare(b.name)).map(s=>(
                 s.id==="alliance"
                   ? <button key={s.id} onClick={()=>setPinnedStore(pinnedStore==="alliance"?null:"alliance")}
@@ -1403,6 +1403,21 @@ export default function JerseyGroceryApp() {
                         color:pinnedStore==="alliance"?"#ffffff":"#cc0000",
                         boxShadow:pinnedStore==="alliance"?"0 3px 10px rgba(204,0,0,0.5)":"none",
                         flexShrink:0 }}>🎯 Alliance</button>
+                  : s.id==="coop"
+                  ? <button key={s.id} onClick={()=>setPinnedStore(pinnedStore==="coop"?null:"coop")}
+                      style={{ whiteSpace:"nowrap",padding:"6px 13px",borderRadius:22,fontSize:11,fontWeight:700,cursor:"pointer",
+                        position:"relative",overflow:"hidden",flexShrink:0,
+                        background:pinnedStore==="coop"
+                          ?"linear-gradient(180deg,#1e40af 0%,#1e3a8a 100%)"
+                          :"linear-gradient(180deg,#93c5fd 0%,#60a5fa 100%)",
+                        border:pinnedStore==="coop"?"1px solid rgba(30,64,175,.7)":"1px solid rgba(147,197,253,.5)",
+                        color:"#fff",
+                        boxShadow:pinnedStore==="coop"
+                          ?"0 3px 10px rgba(30,64,175,.55),inset 0 1px 0 rgba(255,255,255,.25)"
+                          :"0 2px 6px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.3)",
+                      }}>
+                      <span style={{ position:"absolute",top:0,left:0,right:0,height:"52%",background:"linear-gradient(180deg,rgba(255,255,255,.28) 0%,rgba(255,255,255,.04) 100%)",borderRadius:"22px 22px 0 0",pointerEvents:"none" }}/>
+                      🌿 Co-op</button>
                   : <Chip key={s.id} active={pinnedStore===s.id} onClick={()=>setPinnedStore(pinnedStore===s.id?null:s.id)} color={s.color} lightMode={lightMode}>{s.emoji} {s.short}</Chip>
               ))}
               {disabledStores.size>1&&<button onClick={()=>setShowSettings(true)} style={{ whiteSpace:"nowrap",padding:"6px 13px",borderRadius:22,fontSize:11,fontWeight:700,cursor:"pointer",background:"linear-gradient(180deg,rgba(251,191,36,.2) 0%,rgba(180,83,9,.15) 100%)",border:"1px solid rgba(251,191,36,.4)",color:"#fcd34d",flexShrink:0 }}>⚙️ {disabledStores.size-1} store{disabledStores.size-1>1?"s":""} hidden</button>}
