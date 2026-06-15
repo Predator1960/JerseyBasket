@@ -798,6 +798,15 @@ const BASE_PRODUCTS = [
   {id:692,name:"CI Cucumber Portion",               cat:"🥦 Fruit & Veg",  icon:"🥒", prices:sp(0.90,[-0.90,-0.90,-0.90,0,-0.90,-0.90])},
   {id:693,name:"WR Fruit Salad",                    cat:"🥦 Fruit & Veg",  icon:"🍇", prices:sp(4.59,[-4.59,-4.59,-4.59,0,-4.59,-4.59])},
   {id:694,name:"WR Protein Vanilla Yoghurt",        cat:"🥛 Dairy & Eggs", icon:"🫙", prices:sp(1.51,[-1.51,-1.51,-1.51,0,-1.51,-1.51])},
+
+  /* ── Various receipts 15 Jun 2026 — no comp credit ── */
+  {id:695,name:"Wotsits Crunch Hot",               cat:"🥨 Snacks & Treats",icon:"🧡",prices:sp(2.71,[-2.71,-2.71,-2.71,0,-2.71,-2.71])},
+  {id:696,name:"White Marzipan",                   cat:"🍝 Pantry",       icon:"🍬",prices:sp(3.20,[-3.20,-3.20,0,-3.20,-3.20,-3.20])},
+  {id:697,name:"Icing Sugar (500g)",                cat:"🍝 Pantry",       icon:"🍬",prices:sp(2.20,[-2.20,-2.20,0,-2.20,-2.20,-2.20])},
+  {id:698,name:"Co-op Wholemeal Farmhouse Loaf",    cat:"🍞 Bread & Bakery",icon:"🍞",prices:sp(1.25,[0,-1.25,-1.25,-1.25,-1.25,-1.25])},
+  {id:699,name:"Coca-Cola Zero Sugar (1.75L)",      cat:"🥤 Drinks",       icon:"🥤",prices:sp(6.15,[0,-6.15,-6.15,-6.15,-6.15,-6.15])},
+  {id:700,name:"Jersey Green Fat Reduced Milk",     cat:"🥛 Dairy & Eggs", icon:"🥛",prices:sp(0.87,[0,-0.87,-0.87,-0.87,-0.87,-0.87])},
+  {id:701,name:"Carte D'Or Vanilla Ice Cream (900ml)",cat:"🧊 Frozen",    icon:"🍦",prices:sp(2.90,[0,-2.90,-2.90,-2.90,-2.90,-2.90])},
 ];
 /* ═══════════════════════════════════════════════════════════════════════════
    HELPERS
