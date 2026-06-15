@@ -786,6 +786,20 @@ const BASE_PRODUCTS = [
   {id:682,name:"Galbani Italian Burrata",          cat:"🥛 Dairy & Eggs", icon:"🧀", prices:sp(2.35,[-2.35,0,-2.35,-2.35,-2.35,-2.35])},
 ];
 
+  /* ── Waitrose (Jason Acott receipt — no date yet) ── */
+  {id:683,name:"Maldon Salt Flakes",               cat:"🍝 Pantry",       icon:"🧂", prices:sp(3.48,[-3.48,-3.48,-3.48,0,-3.48,-3.48])},
+  {id:684,name:"TruFru Frozen Strawberries",        cat:"🧊 Frozen",       icon:"🍓", prices:sp(4.50,[-4.50,-4.50,-4.50,0,-4.50,-4.50])},
+  {id:685,name:"WR Garlic Half Chicken",            cat:"🥩 Meat & Fish",  icon:"🍗", prices:sp(5.51,[-5.51,-5.51,-5.51,0,-5.51,-5.51])},
+  {id:686,name:"Mango & Strawberry Smoothie",       cat:"🥤 Drinks",       icon:"🥭", prices:sp(3.09,[-3.09,-3.09,-3.09,0,-3.09,-3.09])},
+  {id:687,name:"Gem Lettuce",                       cat:"🥦 Fruit & Veg",  icon:"🥬", prices:sp(1.05,[-1.05,-1.05,-1.05,0,-1.05,-1.05])},
+  {id:688,name:"Small White Baguette",              cat:"🍞 Bread & Bakery",icon:"🥖",prices:sp(0.99,[-0.99,-0.99,-0.99,0,-0.99,-0.99])},
+  {id:689,name:"WR Parmentier Potatoes",            cat:"🥦 Fruit & Veg",  icon:"🥔", prices:sp(2.79,[-2.79,-2.79,-2.79,0,-2.79,-2.79])},
+  {id:690,name:"WR Sweet Mixed Baby Bell Peppers",  cat:"🥦 Fruit & Veg",  icon:"🫑", prices:sp(2.56,[-2.56,-2.56,-2.56,0,-2.56,-2.56])},
+  {id:691,name:"WR Protein Strawberry Yoghurt",     cat:"🥛 Dairy & Eggs", icon:"🍓", prices:sp(1.51,[-1.51,-1.51,-1.51,0,-1.51,-1.51])},
+  {id:692,name:"CI Cucumber Portion",               cat:"🥦 Fruit & Veg",  icon:"🥒", prices:sp(0.90,[-0.90,-0.90,-0.90,0,-0.90,-0.90])},
+  {id:693,name:"WR Fruit Salad",                    cat:"🥦 Fruit & Veg",  icon:"🍇", prices:sp(4.59,[-4.59,-4.59,-4.59,0,-4.59,-4.59])},
+  {id:694,name:"WR Protein Vanilla Yoghurt",        cat:"🥛 Dairy & Eggs", icon:"🫙", prices:sp(1.51,[-1.51,-1.51,-1.51,0,-1.51,-1.51])},
+];
 /* ═══════════════════════════════════════════════════════════════════════════
    HELPERS
 ═══════════════════════════════════════════════════════════════════════════ */
