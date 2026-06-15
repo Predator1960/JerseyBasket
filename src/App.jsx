@@ -1807,14 +1807,14 @@ export default function JerseyGroceryApp() {
                 const avg=items.reduce((s,p)=>s+p.prices[store.id],0)/items.length;
                 const wins=items.filter(p=>getBestStoreId(p)===store.id).length;
                 const winPct=Math.round((wins/allProducts.length)*100);
-                const sc = store.color;
+                const sc = store.id==="alliance" ? "#cc0000" : store.color;
                 const r=parseInt(sc.slice(1,3),16), g=parseInt(sc.slice(3,5),16), b=parseInt(sc.slice(5,7),16);
                 return(
                   <div key={store.id} style={{
                     background:store.id==="alliance"
-                      ?`linear-gradient(135deg,rgba(255,255,255,0.08) 0%,rgba(204,0,0,0.06) 100%)`
+                      ?(lightMode?"rgba(255,255,255,0.95)":"rgba(255,255,255,0.06)")
                       :`linear-gradient(135deg,rgba(${r},${g},${b},0.12) 0%,rgba(${r},${g},${b},0.04) 100%)`,
-                    border:store.id==="alliance"?"1px solid rgba(204,0,0,0.4)":`1px solid rgba(${r},${g},${b},0.35)`,
+                    border:store.id==="alliance"?"2px solid #cc0000":`1px solid rgba(${r},${g},${b},0.35)`,
                     borderLeft:`4px solid ${sc}`,
                     borderRadius:14, padding:16,
                     boxShadow:`0 4px 16px rgba(${r},${g},${b},0.15), inset 0 1px 0 rgba(255,255,255,0.07)`,
