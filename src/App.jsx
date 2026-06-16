@@ -2453,7 +2453,7 @@ function WelcomeModal({ onDismiss, onSubmitPrice, lightMode=false }) {
                     🏆 Top Shoppers — June 2026
                   </div>
                   <div style={{ maxHeight:280,overflowY:"auto" }}>
-                  {LEADERBOARD.slice(0,10).map((entry,i)=>(
+                  {[...LEADERBOARD].sort((a,b)=>b.count-a.count).slice(0,10).map((entry,i)=>(
                     <div key={i} style={{ display:"flex",alignItems:"center",gap:10,padding:"8px 14px",borderBottom:i<Math.min(LEADERBOARD.length,10)-1?"1px solid rgba(255,255,255,.05)":"none",background:i===0?"rgba(251,146,60,.1)":"transparent" }}>
                       <div style={{ fontSize:14,width:20,textAlign:"center",flexShrink:0 }}>{["🥇","🥈","🥉","4️⃣","5️⃣","6️⃣","7️⃣","8️⃣","9️⃣","🔟"][i]}</div>
                       <div style={{ flex:1,fontSize:11,fontWeight:700,color:"#f0f4f8",minWidth:0,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap" }}>{entry.name}</div>
