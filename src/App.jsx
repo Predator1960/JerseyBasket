@@ -3073,7 +3073,7 @@ function CompetitionModal({ onClose, onSubmit, lightMode=false }) {
           </div>
           {LEADERBOARD.length > 0 ? (
             <div style={{ display:"flex",flexDirection:"column",gap:5,maxHeight:320,overflowY:"auto",paddingRight:2 }}>
-              {LEADERBOARD.slice(0,10).map((entry,i)=>{
+              {[...LEADERBOARD].sort((a,b)=>b.count-a.count).slice(0,10).map((entry,i)=>{
                 const medal = ["🥇","🥈","🥉"][i];
                 const pos = medal || `${i+1}`;
                 const isTop = i < 3;
