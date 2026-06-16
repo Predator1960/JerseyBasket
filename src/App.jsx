@@ -837,6 +837,13 @@ const BASE_PRODUCTS = [
   {id:727,name:"Bear Strawberry Snack",            cat:"🥨 Snacks & Treats",icon:"🍓",prices:sp(2.96,[-2.96,-2.96,-2.96,0,-2.96,-2.96])},
   {id:728,name:"Forest Feast Dried Mango",         cat:"🥨 Snacks & Treats",icon:"🥭",prices:sp(9.20,[-9.20,-9.20,-9.20,0,-9.20,-9.20])},
   {id:729,name:"Gingerbread Man",                  cat:"🍞 Bread & Bakery",icon:"🫚",prices:sp(1.45,[-1.45,-1.45,-1.45,0,-1.45,-1.45])},
+
+  /* ── Leticia receipts 16 Jun 2026 ── */
+  {id:730,name:"Co-op Spinach Salad",              cat:"🥦 Fruit & Veg",  icon:"🥗",prices:sp(1.50,[0,-1.50,-1.50,-1.50,-1.50,-1.50])},
+  {id:731,name:"Philadelphia Light",               cat:"🥛 Dairy & Eggs", icon:"🧀",prices:sp(0.28,[0,-0.28,-0.28,-0.28,-0.28,-0.28])},
+  {id:732,name:"Co-op Chicken Breast Fillets (850g)",cat:"🥩 Meat & Fish",icon:"🍗",prices:sp(7.90,[0,-7.90,-7.90,-7.90,-7.90,-7.90])},
+  {id:733,name:"Iceland Large Eggs (10pk)",        cat:"🥛 Dairy & Eggs", icon:"🥚",prices:sp(2.65,[-2.65,-2.65,-2.65,-2.65,-2.65,0])},
+  {id:734,name:"Iceland Whole Chicken (1.5kg)",    cat:"🥩 Meat & Fish",  icon:"🍗",prices:sp(10.50,[-10.50,-10.50,-10.50,-10.50,-10.50,0])},
 ];/* ═══════════════════════════════════════════════════════════════════════════
    HELPERS
 ═══════════════════════════════════════════════════════════════════════════ */
@@ -846,12 +853,8 @@ const getBestStoreId = (p, disabled=new Set()) => { const b=getBestPrice(p,disab
 const getSortedPrices= (p, disabled=new Set()) => Object.entries(p.prices).filter(([k,v])=>!disabled.has(k)&&v>0).sort(([,a],[,b])=>a-b);
 
 const ICON_OPTIONS = ["🛒","🥛","🥚","🧀","🧈","🍞","🥖","🥐","🍗","🥩","🥓","🐟","🍌","🍎","🥦","🥬","🫑","🥕","🍅","🥑","🍊","💧","☕","🍷","🍺","🍝","🍚","🫒","🧴","🧻","🪥","💊","🧹","🥔","🦀","🍦","🍯","🍕","🍟","🍨","🥨","🍫","🥜","🫧","🧼","💨","🍶","🌾","🫘","🌭","🥤","🍸","🧅","🧄","🥒","🍋","🍄","🍓","🫐","🍾","🥂","🍩","🦞","🍏","🍇","🌻","🐶","🐱","🦴","🍼","🩸","💊","🩹","🌸","🏷️","⚡","🥂","🥃","🌮","🥙","🍬","🍿","🥝","🍍","🥭","🌶️","🍠","🍈","🍆","🎃","🌽","🧇","🥞","🥯","🍳"
-  /* ── Leticia receipts 16 Jun 2026 ── */
-  {id:730,name:"Co-op Spinach Salad",              cat:"🥦 Fruit & Veg",  icon:"🥗",prices:sp(1.50,[0,-1.50,-1.50,-1.50,-1.50,-1.50])},
-  {id:731,name:"Philadelphia Light",               cat:"🥛 Dairy & Eggs", icon:"🧀",prices:sp(0.28,[0,-0.28,-0.28,-0.28,-0.28,-0.28])},
-  {id:732,name:"Co-op Chicken Breast Fillets (850g)",cat:"🥩 Meat & Fish",icon:"🍗",prices:sp(7.90,[0,-7.90,-7.90,-7.90,-7.90,-7.90])},
-  {id:733,name:"Iceland Large Eggs (10pk)",        cat:"🥛 Dairy & Eggs", icon:"🥚",prices:sp(2.65,[-2.65,-2.65,-2.65,-2.65,-2.65,0])},
-  {id:734,name:"Iceland Whole Chicken (1.5kg)",     cat:"🥩 Meat & Fish",  icon:"🍗",prices:sp(10.50,[-10.50,-10.50,-10.50,-10.50,-10.50,0])},
+];
+
 ];
 /* ═══════════════════════════════════════════════════════════════════════════
    TOOLTIP — shows full text on hover when content is truncated
