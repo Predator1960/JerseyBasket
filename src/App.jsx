@@ -845,8 +845,14 @@ const getWorstPrice  = (p, disabled=new Set()) => { const vals=Object.entries(p.
 const getBestStoreId = (p, disabled=new Set()) => { const b=getBestPrice(p,disabled); return Object.entries(p.prices).find(([k,v])=>!disabled.has(k)&&v===b&&v>0)?.[0]; };
 const getSortedPrices= (p, disabled=new Set()) => Object.entries(p.prices).filter(([k,v])=>!disabled.has(k)&&v>0).sort(([,a],[,b])=>a-b);
 
-const ICON_OPTIONS = ["🛒","🥛","🥚","🧀","🧈","🍞","🥖","🥐","🍗","🥩","🥓","🐟","🍌","🍎","🥦","🥬","🫑","🥕","🍅","🥑","🍊","💧","☕","🍷","🍺","🍝","🍚","🫒","🧴","🧻","🪥","💊","🧹","🥔","🦀","🍦","🍯","🍕","🍟","🍨","🥨","🍫","🥜","🫧","🧼","💨","🍶","🌾","🫘","🌭","🥤","🍸","🧅","🧄","🥒","🍋","🍄","🍓","🫐","🍾","🥂","🍩","🦞","🍏","🍇","🌻","🐶","🐱","🦴","🍼","🩸","💊","🩹","🌸","🏷️","⚡","🥂","🥃","🌮","🥙","🍬","🍿","🥝","🍍","🥭","🌶️","🍠","🍈","🍆","🎃","🌽","🧇","🥞","🥯","🍳"];
-
+const ICON_OPTIONS = ["🛒","🥛","🥚","🧀","🧈","🍞","🥖","🥐","🍗","🥩","🥓","🐟","🍌","🍎","🥦","🥬","🫑","🥕","🍅","🥑","🍊","💧","☕","🍷","🍺","🍝","🍚","🫒","🧴","🧻","🪥","💊","🧹","🥔","🦀","🍦","🍯","🍕","🍟","🍨","🥨","🍫","🥜","🫧","🧼","💨","🍶","🌾","🫘","🌭","🥤","🍸","🧅","🧄","🥒","🍋","🍄","🍓","🫐","🍾","🥂","🍩","🦞","🍏","🍇","🌻","🐶","🐱","🦴","🍼","🩸","💊","🩹","🌸","🏷️","⚡","🥂","🥃","🌮","🥙","🍬","🍿","🥝","🍍","🥭","🌶️","🍠","🍈","🍆","🎃","🌽","🧇","🥞","🥯","🍳"
+  /* ── Leticia receipts 16 Jun 2026 ── */
+  {id:730,name:"Co-op Spinach Salad",              cat:"🥦 Fruit & Veg",  icon:"🥗",prices:sp(1.50,[0,-1.50,-1.50,-1.50,-1.50,-1.50])},
+  {id:731,name:"Philadelphia Light",               cat:"🥛 Dairy & Eggs", icon:"🧀",prices:sp(0.28,[0,-0.28,-0.28,-0.28,-0.28,-0.28])},
+  {id:732,name:"Co-op Chicken Breast Fillets (850g)",cat:"🥩 Meat & Fish",icon:"🍗",prices:sp(7.90,[0,-7.90,-7.90,-7.90,-7.90,-7.90])},
+  {id:733,name:"Iceland Large Eggs (10pk)",        cat:"🥛 Dairy & Eggs", icon:"🥚",prices:sp(2.65,[-2.65,-2.65,-2.65,-2.65,-2.65,0])},
+  {id:734,name:"Iceland Whole Chicken (1.5kg)",     cat:"🥩 Meat & Fish",  icon:"🍗",prices:sp(10.50,[-10.50,-10.50,-10.50,-10.50,-10.50,0])},
+];
 /* ═══════════════════════════════════════════════════════════════════════════
    TOOLTIP — shows full text on hover when content is truncated
 ═══════════════════════════════════════════════════════════════════════════ */
@@ -1100,7 +1106,7 @@ const COMP_WINNER = ""; // e.g. "Sarah M" — leave blank while competition is l
 const MAINTENANCE = false;
 const LEADERBOARD = [
   // ── TOP 10 — update these entries with real submissions ─────────────────
-  { name: "Leticia",       store: "CI Co-op",  count: 43, date: "14 Jun" },
+  { name: "Leticia",       store: "CI Co-op",  count: 48, date: "16 Jun" },
   { name: "Kate",          store: "Waitrose",  count: 55, date: "15 Jun" },
   { name: "Carmen1971",    store: "CI Co-op",  count: 16, date: "11 Jun" },
   { name: "19Margaret37",  store: "CI Co-op",  count: 14, date: "13 Jun" },
