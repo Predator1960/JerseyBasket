@@ -41,7 +41,7 @@ const CATS = [
   "All","🥛 Dairy & Eggs","🍞 Bread & Bakery","🥩 Meat & Fish",
   "🥦 Fruit & Veg","🧊 Frozen","🥤 Drinks","🍝 Pantry","🥨 Snacks & Treats",
   "🧹 Household","💊 Health & Beauty","🍼 Baby & Child",
-  "🐾 Pet Care","🌱 Free From","🥔 Local Jersey","➕ Custom",
+  "🐾 Pet Care","🌱 Free From","🥔 Local Jersey","🥗 Deli & Salads","➕ Custom",
 ];
 
 /* helper — spread prices from a base. Order: [coop, morrisons, ms, waitrose, iceland] */
@@ -807,8 +807,37 @@ const BASE_PRODUCTS = [
   {id:699,name:"Coca-Cola Zero Sugar (1.75L)",      cat:"🥤 Drinks",       icon:"🥤",prices:sp(6.15,[0,-6.15,-6.15,-6.15,-6.15,-6.15])},
   {id:700,name:"Jersey Green Fat Reduced Milk",     cat:"🥛 Dairy & Eggs", icon:"🥛",prices:sp(0.87,[0,-0.87,-0.87,-0.87,-0.87,-0.87])},
   {id:701,name:"Carte D'Or Vanilla Ice Cream (900ml)",cat:"🧊 Frozen",    icon:"🍦",prices:sp(2.90,[0,-2.90,-2.90,-2.90,-2.90,-2.90])},
-];
-/* ═══════════════════════════════════════════════════════════════════════════
+
+  /* ── Waitrose Kate receipt 15 Jun 2026 — 28 new items ── */
+  {id:702,name:"Good Boy Mega Stick Dog Treat",    cat:"🐾 Pet Care",     icon:"🐕",prices:sp(2.95,[-2.95,-2.95,-2.95,0,-2.95,-2.95])},
+  {id:703,name:"Good Boy Twist Chicken Dog Treat", cat:"🐾 Pet Care",     icon:"🐕",prices:sp(2.96,[-2.96,-2.96,-2.96,0,-2.96,-2.96])},
+  {id:704,name:"Good Boy T&T Chicken Roll",        cat:"🐾 Pet Care",     icon:"🐕",prices:sp(1.99,[-1.99,-1.99,-1.99,0,-1.99,-1.99])},
+  {id:705,name:"KP Roasted Peanuts",               cat:"🥨 Snacks & Treats",icon:"🥜",prices:sp(4.35,[-4.35,-4.35,-4.35,0,-4.35,-4.35])},
+  {id:706,name:"Albert's Fries",                   cat:"🥨 Snacks & Treats",icon:"🍟",prices:sp(2.55,[-2.55,-2.55,-2.55,0,-2.55,-2.55])},
+  {id:707,name:"New York Bakery Plain Bagels",     cat:"🍞 Bread & Bakery",icon:"🥯",prices:sp(1.85,[-1.85,-1.85,-1.85,0,-1.85,-1.85])},
+  {id:708,name:"Seabrook Sea Salted Crisps",       cat:"🥨 Snacks & Treats",icon:"🥔",prices:sp(1.64,[-1.64,-1.64,-1.64,0,-1.64,-1.64])},
+  {id:709,name:"WR CI Fresh Basil",               cat:"🥦 Fruit & Veg",  icon:"🌿",prices:sp(0.39,[-0.39,-0.39,-0.39,0,-0.39,-0.39])},
+  {id:710,name:"WR Chicken Homemade Fillet",       cat:"🥩 Meat & Fish",  icon:"🍗",prices:sp(6.38,[-6.38,-6.38,-6.38,0,-6.38,-6.38])},
+  {id:711,name:"WR Jazz Apples",                   cat:"🥦 Fruit & Veg",  icon:"🍎",prices:sp(3.06,[-3.06,-3.06,-3.06,0,-3.06,-3.06])},
+  {id:712,name:"Walkers Sensations Chilli Crisps", cat:"🥨 Snacks & Treats",icon:"🌶️",prices:sp(2.40,[-2.40,-2.40,-2.40,0,-2.40,-2.40])},
+  {id:713,name:"Mini Cheddars (6pk)",              cat:"🥨 Snacks & Treats",icon:"🧀",prices:sp(2.04,[-2.04,-2.04,-2.04,0,-2.04,-2.04])},
+  {id:714,name:"WR Brioche Burger Buns",           cat:"🍞 Bread & Bakery",icon:"🍔",prices:sp(2.03,[-2.03,-2.03,-2.03,0,-2.03,-2.03])},
+  {id:715,name:"WR CI Big Peppercorn Grinder",     cat:"🍝 Pantry",       icon:"🧂",prices:sp(2.09,[-2.09,-2.09,-2.09,0,-2.09,-2.09])},
+  {id:716,name:"Jersey Dairy Fudge Toffee",        cat:"🥨 Snacks & Treats",icon:"🍬",prices:sp(1.00,[-1.00,-1.00,-1.00,0,-1.00,-1.00])},
+  {id:717,name:"WR Deli Style Coleslaw",           cat:"🥗 Deli & Salads", icon:"🥗",prices:sp(1.72,[-1.72,-1.72,-1.72,0,-1.72,-1.72])},
+  {id:718,name:"Actimel Strawberry",               cat:"🥛 Dairy & Eggs", icon:"🍓",prices:sp(3.30,[-3.30,-3.30,-3.30,0,-3.30,-3.30])},
+  {id:719,name:"Muller Corner Crunch",             cat:"🥛 Dairy & Eggs", icon:"🫙",prices:sp(4.53,[-4.53,-4.53,-4.53,0,-4.53,-4.53])},
+  {id:720,name:"WR CI Root Ginger",               cat:"🥦 Fruit & Veg",  icon:"🫚",prices:sp(0.99,[-0.99,-0.99,-0.99,0,-0.99,-0.99])},
+  {id:721,name:"WR Sultana Scones (4pk)",          cat:"🍞 Bread & Bakery",icon:"🧁",prices:sp(1.26,[-1.26,-1.26,-1.26,0,-1.26,-1.26])},
+  {id:722,name:"WR Garlic Olive Pot Salt",         cat:"🍝 Pantry",       icon:"🧄",prices:sp(2.67,[-2.67,-2.67,-2.67,0,-2.67,-2.67])},
+  {id:723,name:"Vita Coco Organic Coconut Water (1L)",cat:"🥤 Drinks",    icon:"🥥",prices:sp(3.55,[-3.55,-3.55,-3.55,0,-3.55,-3.55])},
+  {id:724,name:"WR CI Turmeric Grinder",           cat:"🍝 Pantry",       icon:"🧂",prices:sp(2.09,[-2.09,-2.09,-2.09,0,-2.09,-2.09])},
+  {id:725,name:"WR Custard Slices",                cat:"🍞 Bread & Bakery",icon:"🍰",prices:sp(1.90,[-1.90,-1.90,-1.90,0,-1.90,-1.90])},
+  {id:726,name:"WR Raspberry Celebration Cake",    cat:"🍞 Bread & Bakery",icon:"🎂",prices:sp(1.45,[-1.45,-1.45,-1.45,0,-1.45,-1.45])},
+  {id:727,name:"Bear Strawberry Snack",            cat:"🥨 Snacks & Treats",icon:"🍓",prices:sp(2.96,[-2.96,-2.96,-2.96,0,-2.96,-2.96])},
+  {id:728,name:"Forest Feast Dried Mango",         cat:"🥨 Snacks & Treats",icon:"🥭",prices:sp(9.20,[-9.20,-9.20,-9.20,0,-9.20,-9.20])},
+  {id:729,name:"Gingerbread Man",                  cat:"🍞 Bread & Bakery",icon:"🫚",prices:sp(1.45,[-1.45,-1.45,-1.45,0,-1.45,-1.45])},
+];/* ═══════════════════════════════════════════════════════════════════════════
    HELPERS
 ═══════════════════════════════════════════════════════════════════════════ */
 const getBestPrice   = (p, disabled=new Set()) => { const vals=Object.entries(p.prices).filter(([k,v])=>!disabled.has(k)&&v>0).map(([,v])=>v); return vals.length?Math.min(...vals):0; };
@@ -1072,7 +1101,7 @@ const MAINTENANCE = false;
 const LEADERBOARD = [
   // ── TOP 10 — update these entries with real submissions ─────────────────
   { name: "Leticia",       store: "CI Co-op",  count: 43, date: "14 Jun" },
-  { name: "Kate",          store: "Waitrose",  count: 27, date: "11 Jun" },
+  { name: "Kate",          store: "Waitrose",  count: 55, date: "15 Jun" },
   { name: "Carmen1971",    store: "CI Co-op",  count: 16, date: "11 Jun" },
   { name: "19Margaret37",  store: "CI Co-op",  count: 14, date: "13 Jun" },
   { name: "Nicole1",       store: "Waitrose",  count: 12, date: "11 Jun" },
