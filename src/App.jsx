@@ -844,6 +844,15 @@ const BASE_PRODUCTS = [
   {id:732,name:"Co-op Chicken Breast Fillets (850g)",cat:"🥩 Meat & Fish",icon:"🍗",prices:sp(7.90,[0,-7.90,-7.90,-7.90,-7.90,-7.90])},
   {id:733,name:"Iceland Large Eggs (10pk)",        cat:"🥛 Dairy & Eggs", icon:"🥚",prices:sp(2.65,[-2.65,-2.65,-2.65,-2.65,-2.65,0])},
   {id:734,name:"Iceland Whole Chicken (1.5kg)",    cat:"🥩 Meat & Fish",  icon:"🍗",prices:sp(10.50,[-10.50,-10.50,-10.50,-10.50,-10.50,0])},
+  /* ── Kate receipts 17 Jun 2026 — 7 new items ── */
+  {id:735,name:"WR Choc Chip Brioche",             cat:"🍞 Bread & Bakery",icon:"🥐",prices:sp(1.74,[-1.74,-1.74,-1.74,0,-1.74,-1.74])},
+  {id:736,name:"WR Sweet Potato Fries",            cat:"🧊 Frozen",        icon:"🍟",prices:sp(3.48,[-3.48,-3.48,-3.48,0,-3.48,-3.48])},
+  {id:737,name:"Old El Paso Taco Shells",          cat:"🍝 Pantry",        icon:"🌮",prices:sp(2.61,[-2.61,-2.61,-2.61,0,-2.61,-2.61])},
+  {id:738,name:"Bear Fruit Mango",                 cat:"🥨 Snacks & Treats",icon:"🥭",prices:sp(3.48,[-3.48,-3.48,-3.48,0,-3.48,-3.48])},
+  {id:739,name:"Della Almonds Orange",             cat:"🥨 Snacks & Treats",icon:"🌰",prices:sp(3.84,[-3.84,-3.84,-3.84,0,-3.84,-3.84])},
+  {id:740,name:"Brit Soured Cream (150ml)",        cat:"🥛 Dairy & Eggs",  icon:"🫙",prices:sp(1.05,[-1.05,-1.05,-1.05,0,-1.05,-1.05])},
+  {id:741,name:"Brit Soured Cream (300ml)",        cat:"🥛 Dairy & Eggs",  icon:"🫙",prices:sp(1.40,[-1.40,-1.40,-1.40,0,-1.40,-1.40])},
+  {id:742,name:"CI Irresinante Soave Classico",    cat:"🥤 Drinks",        icon:"🍷",prices:sp(6.50,[0,-6.50,-6.50,-6.50,-6.50,-6.50])},
 ];/* ═══════════════════════════════════════════════════════════════════════════
    HELPERS
 ═══════════════════════════════════════════════════════════════════════════ */
@@ -1108,7 +1117,7 @@ const MAINTENANCE = false;
 const LEADERBOARD = [
   // ── TOP 10 — update these entries with real submissions ─────────────────
   { name: "Leticia",       store: "CI Co-op",  count: 48, date: "16 Jun" },
-  { name: "Kate",          store: "Waitrose",  count: 55, date: "15 Jun" },
+  { name: "Kate",          store: "Waitrose",  count: 62, date: "17 Jun" },
   { name: "Carmen1971",    store: "CI Co-op",  count: 16, date: "11 Jun" },
   { name: "19Margaret37",  store: "CI Co-op",  count: 14, date: "13 Jun" },
   { name: "Nicole1",       store: "Waitrose",  count: 12, date: "11 Jun" },
