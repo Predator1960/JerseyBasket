@@ -3391,17 +3391,26 @@ function AdBanner({ onEnquiry }) {
   const PAUSE_MS  = 2000;
   const SLIDE_MS  = 620;
 
-  // ── Group rotation — 3 groups of 5, cycles on each app open ─────────────
-  const getActiveGroup = () => {
-    try {
-      const last = parseInt(localStorage.getItem("jb_ad_group") || "0", 10);
-      const next = (last % 3) + 1;  // 1 → 2 → 3 → 1
-      localStorage.setItem("jb_ad_group", String(next));
-      return next;
-    } catch(e) { return 1; }
+  // ── Group rotation — bounces through group 1, then 2, then 3, then back ──
+  // localStorage remembers which group was active when app was closed
+  const getStartGroup = () => {
+    try { const g = parseInt(localStorage.getItem("jb_ad_group")||"1",10); return (g>=1&&g<=3)?g:1; }
+    catch(e) { return 1; }
   };
-  const [activeGroup] = useState(() => getActiveGroup());
-  const ACTIVE_SLIDES = AD_SLIDES.filter(s => s.group === activeGroup);
+  const saveGroup = (g) => { try { localStorage.setItem("jb_ad_group",String(g)); } catch(e) {} };
+  const [activeGroup, setActiveGroup] = useState(() => getStartGroup());
+  const activeGroupRef = useRef(activeGroup);
+
+  // When a group finishes its full bounce (reaches first slide again going forward),
+  // advance to next group
+  const advanceGroup = useCallback(() => {
+    const next = (activeGroupRef.current % 3) + 1;
+    activeGroupRef.current = next;
+    setActiveGroup(next);
+    saveGroup(next);
+  }, []);
+
+  const ACTIVE_SLIDES = AD_SLIDES.filter(s => s.group === activeGroupRef.current);
   const COUNT     = ACTIVE_SLIDES.length;
 
   const [current,  setCurrent]  = useState(0);
@@ -3461,12 +3470,20 @@ function AdBanner({ onEnquiry }) {
       const cur  = currentRef.current;
       let next = cur + dirRef.current;
       if (next >= COUNT) { dirRef.current = -1; next = cur - 1; }
-      else if (next < 0) { dirRef.current =  1; next = cur + 1; }
+      else if (next < 0) {
+        // Reached start of group going backwards — advance to next group
+        dirRef.current = 1;
+        advanceGroup();
+        next = 0;
+        currentRef.current = 0;
+        setCurrent(0);
+        setOffset(0);
+      }
       slideTo(next);
       startTick();
       schedule();
     }, after);
-  }, [slideTo, startTick, COUNT]);
+  }, [slideTo, startTick, COUNT, advanceGroup]);
 
   // boot
   useEffect(() => {
@@ -3648,6 +3665,18 @@ function AdBanner({ onEnquiry }) {
             )}
             {s.accent      && <div style={{ position:"absolute",top:0,left:0,right:0,height:3,background:s.accent,pointerEvents:"none" }} />}
             {s.accentBottom && <div style={{ position:"absolute",bottom:2,left:0,right:0,height:3,background:s.accentBottom,pointerEvents:"none" }} />}
+            {/* ── Flag watermark — large flag in background right side ── */}
+            {s.flag && (
+              <div style={{ position:"absolute",right:"clamp(8px,3vw,32px)",top:"50%",transform:"translateY(-50%)",fontSize:"clamp(36px,7vw,72px)",opacity:0.18,pointerEvents:"none",lineHeight:1,userSelect:"none" }}>
+                {s.flag}
+              </div>
+            )}
+            {/* ── Slot counter pill ── */}
+            {s.flagLabel && (
+              <div style={{ position:"absolute",top:4,right:6,fontSize:9,fontFamily:"'DM Sans',Arial,sans-serif",fontWeight:700,color:s.statColor||"#fff",opacity:0.55,letterSpacing:"0.5px",pointerEvents:"none" }}>
+                {s.flagLabel}
+              </div>
+            )}
 
             {/* ── CONTENT ── responsive: mobile stacks sub below eyebrow, desktop enlarges */}
             <div style={{
