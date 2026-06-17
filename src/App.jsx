@@ -3390,7 +3390,19 @@ function SubmitPriceModal({ onClose, lightMode=false }) {
 function AdBanner({ onEnquiry }) {
   const PAUSE_MS  = 2000;
   const SLIDE_MS  = 620;
-  const COUNT     = AD_SLIDES.length;
+
+  // ── Group rotation — 3 groups of 5, cycles on each app open ─────────────
+  const getActiveGroup = () => {
+    try {
+      const last = parseInt(localStorage.getItem("jb_ad_group") || "0", 10);
+      const next = (last % 3) + 1;  // 1 → 2 → 3 → 1
+      localStorage.setItem("jb_ad_group", String(next));
+      return next;
+    } catch(e) { return 1; }
+  };
+  const [activeGroup] = useState(() => getActiveGroup());
+  const ACTIVE_SLIDES = AD_SLIDES.filter(s => s.group === activeGroup);
+  const COUNT     = ACTIVE_SLIDES.length;
 
   const [current,  setCurrent]  = useState(0);
   const [offset,   setOffset]   = useState(0);   // 0..COUNT-1 (fractional during animation)
@@ -3532,7 +3544,7 @@ function AdBanner({ onEnquiry }) {
     }
     // tap — prevent ghost click
     e.preventDefault();
-    const s = AD_SLIDES[currentRef.current];
+    const s = ACTIVE_SLIDES[currentRef.current];
     if (!s) return;
     if (!tapPaused.current) {
       // FIRST TAP — pause so user can read
@@ -3573,7 +3585,7 @@ function AdBanner({ onEnquiry }) {
         // Desktop click only — skip if touch (handled above)
         if(e.detail === 0) return;
         if(Math.abs(e.clientX - mouseDownX.current) > 5) return;
-        const s = AD_SLIDES[current];
+        const s = ACTIVE_SLIDES[current];
         if(!s) return;
         if(s.link===ENQUIRY_TRIGGER){ onEnquiry(); }
         else { window.open(s.link,"_blank","noopener,noreferrer"); }
@@ -3600,7 +3612,7 @@ function AdBanner({ onEnquiry }) {
         transition:"none",   /* animation is driven by rAF, not CSS */
         willChange:"transform",
       }}>
-        {AD_SLIDES.map((s) => (
+        {ACTIVE_SLIDES.map((s) => (
           <div
             key={s.id}
             style={{
@@ -3711,7 +3723,7 @@ function AdBanner({ onEnquiry }) {
 
       {/* ── dot indicators ── */}
       <div style={{ position:"absolute",bottom:5,right:"clamp(10px,2vw,20px)",display:"flex",gap:4,zIndex:10 }}>
-        {AD_SLIDES.map((_,i) => (
+        {ACTIVE_SLIDES.map((_,i) => (
           <div key={i} onClick={()=>jumpTo(i)}
             style={{ width:i===current?10:4,height:4,borderRadius:i===current?2:50,
               background:i===current?"rgba(255,255,255,0.8)":"rgba(255,255,255,0.25)",
