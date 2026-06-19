@@ -721,7 +721,7 @@ const BASE_PRODUCTS = [
   {id:516,name:"GF Gravy Granules (165g)",     cat:"🌱 Free From",    icon:"🍖",prices:sp(2.62,[0,0,0,0,0,0.13])},
   {id:517,name:"Heinz Tomato Ketchup (500ml)",cat:"🍝 Pantry",       icon:"🍅",prices:sp(2.50,[0.65,1.23,1.75,0.40,0,1.60])},
   {id:518,name:"Gammon Steaks (2pk)",          cat:"🥩 Meat & Fish",  icon:"🥩",prices:sp(3.15,[2.10,0.85,3.85,1.49,0,1.60])},
-  {id:492,name:"Aptamil 1 (800g)",               cat:"🍼 Baby & Child", icon:"🍼",prices:sp(14.89,[4.71,0,0,0,0])},
+  {id:492,name:"Aptamil 1 (800g)",               cat:"🍼 Baby & Child", icon:"🍼",prices:sp(14.89,[-0.14,0,0,0,0])},
   {id:493,name:"Aptamil 2 (800g)",               cat:"🍼 Baby & Child", icon:"🍼",prices:sp(14.75,[0,0,0,0.91,0])},
   {id:494,name:"Aptamil 3 (800g)",               cat:"🍼 Baby & Child", icon:"🍼",prices:sp(13.89,[1.86,0,0,1.77,0])},
   {id:495,name:"Baby Shampoo (500ml)",            cat:"🍼 Baby & Child", icon:"🧴",prices:sp(1.59,[0.81,0,0,1.94,0])},
