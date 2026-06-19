@@ -723,7 +723,7 @@ const BASE_PRODUCTS = [
   {id:518,name:"Gammon Steaks (2pk)",          cat:"🥩 Meat & Fish",  icon:"🥩",prices:sp(3.15,[2.10,0.85,3.85,1.49,0,1.60])},
   {id:492,name:"Aptamil 1 (800g)",               cat:"🍼 Baby & Child", icon:"🍼",prices:sp(14.89,[-0.14,0,0,0,0])},
   {id:493,name:"Aptamil 2 (800g)",               cat:"🍼 Baby & Child", icon:"🍼",prices:sp(14.75,[0,0,0,0.91,0])},
-  {id:494,name:"Aptamil 3 (800g)",               cat:"🍼 Baby & Child", icon:"🍼",prices:sp(13.89,[1.86,0,0,1.77,0])},
+  {id:494,name:"Aptamil 3 (800g)",               cat:"🍼 Baby & Child", icon:"🍼",prices:sp(13.89,[1.86,0.80,0,1.77,0])},
   {id:495,name:"Baby Shampoo (500ml)",            cat:"🍼 Baby & Child", icon:"🧴",prices:sp(1.59,[0.81,0,0,1.94,0])},
   {id:496,name:"Antiseptic Cream (125g)",         cat:"💊 Health & Beauty",icon:"🧴",prices:sp(1.45,[0,3.70,0,4.18,3.50,4.05])},
   {id:565,name:"Lenor Summer Breeze (1L)",         cat:"🧹 Household",    icon:"🌸",prices:sp(2.10,[0,-2.10,-2.10,-2.10,-2.10])},
