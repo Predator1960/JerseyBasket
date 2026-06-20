@@ -2609,7 +2609,7 @@ function WelcomeModal({ onDismiss, onSubmitPrice, lightMode=false }) {
         </div>
 
         {/* bottom controls — sticky so always visible */}
-        <div style={{ background:lightMode?"rgba(220,228,236,.98)":s.bg,padding:"20px 24px 24px",display:"flex",flexDirection:"column",gap:16,flexShrink:0 }}>
+        <div style={{ background:lightMode?"rgba(220,228,236,.98)":"rgba(0,0,0,.4)",padding:"20px 24px 24px",display:"flex",flexDirection:"column",gap:16,flexShrink:0 }}>
           {/* dots */}
           <div style={{ display:"flex",justifyContent:"center",gap:6 }}>
             {steps.map((_,i)=>(
