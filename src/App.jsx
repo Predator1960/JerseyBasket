@@ -1040,10 +1040,10 @@ function ProductCard({ product, onAddToBasket, pinnedStore, isFavourite, onToggl
             );
           })()}
           <button onClick={()=>onAddToBasket(product.id,chosenStoreId)} style={{
-            flexShrink:0, position:"relative", overflow:"hidden",
+            flexShrink:0, position:"relative", overflow:"hidden", minWidth:60,
             background:"linear-gradient(180deg,#4ade80 0%,#15803d 100%)",
-            border:"none", borderRadius:9, padding:"7px 14px",
-            color:"#052e16", cursor:"pointer", fontSize:12.5, fontWeight:700, whiteSpace:"nowrap",
+            border:"none", borderRadius:9, padding:"7px 10px",
+            color:"#052e16", cursor:"pointer", fontSize:12, fontWeight:700, whiteSpace:"nowrap",
             boxShadow:"0 2px 8px rgba(34,197,94,.5), inset 0 1px 0 rgba(255,255,255,.3)",
           }}>
             <span style={{ position:"absolute", top:0, left:0, right:0, height:"52%", background:"linear-gradient(180deg,rgba(255,255,255,.28) 0%,rgba(255,255,255,.04) 100%)", borderRadius:"9px 9px 0 0", pointerEvents:"none" }} />
@@ -1664,11 +1664,11 @@ export default function JerseyGroceryApp() {
                     <span style={{ color:"#22c55e" }}>£{basketTotal.toFixed(2)}</span>
                   </div>
                   {potentialSave>0.01?(
-                    <div style={{ background:"rgba(251,191,36,.09)",border:"1px solid rgba(251,191,36,.22)",borderRadius:9,padding:"8px 12px",fontSize:10.5,color:"#fcd34d" }}>
+                    <div style={{ background:lightMode?"rgba(180,120,0,.08)":"rgba(251,191,36,.09)",border:lightMode?"1px solid rgba(180,120,0,.3)":"1px solid rgba(251,191,36,.22)",borderRadius:9,padding:"8px 12px",fontSize:10.5,color:lightMode?"#92400e":"#fcd34d" }}>
                       💸 Switch every item to cheapest store → save <strong>£{potentialSave.toFixed(2)}</strong>
                     </div>
                   ):(
-                    <div style={{ background:"rgba(34,197,94,.09)",border:"1px solid rgba(34,197,94,.22)",borderRadius:9,padding:"8px 12px",fontSize:10.5,color:"#86efac" }}>
+                    <div style={{ background:lightMode?"rgba(22,101,52,.08)":"rgba(34,197,94,.09)",border:lightMode?"1px solid rgba(22,101,52,.25)":"1px solid rgba(34,197,94,.22)",borderRadius:9,padding:"8px 12px",fontSize:10.5,color:lightMode?"#14532d":"#86efac" }}>
                       ✅ You're already buying every item at its best price!
                     </div>
                   )}
@@ -1881,18 +1881,18 @@ export default function JerseyGroceryApp() {
                         <div style={{ fontSize:11,fontWeight:700,color:lightMode?"#334155":"#cbd5e1" }}>📍 {store.note}</div>
                       </div>
                       <div style={{ textAlign:"right" }}>
-                        <div style={{ fontSize:19,fontWeight:700,color:sc,textShadow:`0 0 10px rgba(${r},${g},${b},0.5)` }}>£{avg.toFixed(2)}</div>
+                        <div style={{ fontSize:19,fontWeight:700,color:lightMode?`rgb(${Math.max(0,r-80)},${Math.max(0,g-80)},${Math.max(0,b-80)})`:sc,textShadow:lightMode?"none":`0 0 10px rgba(${r},${g},${b},0.5)` }}>£{avg.toFixed(2)}</div>
                         <div style={{ fontSize:11,fontWeight:700,color:lightMode?"#334155":"#cbd5e1" }}>avg / item</div>
                       </div>
                     </div>
                     {/* stat badges row */}
                     <div style={{ display:"flex",gap:9,marginTop:11,flexWrap:"wrap" }}>
                       <div style={{ background:`linear-gradient(180deg,rgba(${r},${g},${b},0.15) 0%,rgba(${r},${g},${b},0.08) 100%)`,border:`1px solid rgba(${r},${g},${b},0.25)`,borderRadius:10,padding:"7px 14px",textAlign:"center",boxShadow:"inset 0 1px 0 rgba(255,255,255,.07)" }}>
-                        <div style={{ fontSize:16,fontWeight:700,color:sc,textShadow:`0 0 8px rgba(${r},${g},${b},0.4)` }}>{wins}</div>
+                        <div style={{ fontSize:16,fontWeight:700,color:lightMode?`rgb(${Math.max(0,r-80)},${Math.max(0,g-80)},${Math.max(0,b-80)})`:sc,textShadow:lightMode?"none":`0 0 8px rgba(${r},${g},${b},0.4)` }}>{wins}</div>
                         <div style={{ fontSize:11,fontWeight:600,color:lightMode?"#334155":"#cbd5e1" }}>cheapest items</div>
                       </div>
                       <div style={{ background:`linear-gradient(180deg,rgba(${r},${g},${b},0.15) 0%,rgba(${r},${g},${b},0.08) 100%)`,border:`1px solid rgba(${r},${g},${b},0.25)`,borderRadius:10,padding:"7px 14px",textAlign:"center",boxShadow:"inset 0 1px 0 rgba(255,255,255,.07)" }}>
-                        <div style={{ fontSize:16,fontWeight:700,color:sc,textShadow:`0 0 8px rgba(${r},${g},${b},0.4)` }}>{winPct}%</div>
+                        <div style={{ fontSize:16,fontWeight:700,color:lightMode?`rgb(${Math.max(0,r-80)},${Math.max(0,g-80)},${Math.max(0,b-80)})`:sc,textShadow:lightMode?"none":`0 0 8px rgba(${r},${g},${b},0.4)` }}>{winPct}%</div>
                         <div style={{ fontSize:11,fontWeight:600,color:lightMode?"#334155":"#cbd5e1" }}>of range</div>
                       </div>
                       {/* description — inline on desktop, full width below on mobile */}
@@ -1909,10 +1909,10 @@ export default function JerseyGroceryApp() {
                 );
               })}
             </div>
-            <div style={{ marginTop:16,background:lightMode?"rgba(234,179,8,.08)":"rgba(234,179,8,.06)",border:"1px solid rgba(234,179,8,.17)",borderRadius:12,padding:15 }}>
-              <div style={{ fontSize:11,color:"#fbbf24",fontWeight:700,marginBottom:6 }}>ℹ️ Jersey Pricing Context</div>
+            <div style={{ marginTop:16,background:lightMode?"rgba(180,120,0,.07)":"rgba(234,179,8,.06)",border:lightMode?"1px solid rgba(180,120,0,.2)":"1px solid rgba(234,179,8,.17)",borderRadius:12,padding:15 }}>
+              <div style={{ fontSize:11,color:lightMode?"#78350f":"#fbbf24",fontWeight:700,marginBottom:6 }}>ℹ️ Jersey Pricing Context</div>
               <div style={{ fontSize:10.5,color:lightMode?"#334155":"#94a3b8",lineHeight:1.85 }}>
-                Groceries in Jersey average <strong style={{ color:"#fbbf24" }}>14–19% more</strong> than UK mainland prices due to freight costs, the small market size, and higher labour costs. Without Aldi or Lidl, low-income households can pay up to <strong style={{ color:"#fbbf24" }}>49% more</strong> than their UK counterparts. The CI Co-op (Grande Marché) consistently offers the best everyday value for Jersey residents.
+                Groceries in Jersey average <strong style={{ color:lightMode?"#78350f":"#fbbf24" }}>14–19% more</strong> than UK mainland prices due to freight costs, the small market size, and higher labour costs. Without Aldi or Lidl, low-income households can pay up to <strong style={{ color:lightMode?"#78350f":"#fbbf24" }}>49% more</strong> than their UK counterparts. The CI Co-op (Grande Marché) consistently offers the best everyday value for Jersey residents.
               </div>
             </div>
           </div>
