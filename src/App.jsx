@@ -2609,7 +2609,7 @@ function WelcomeModal({ onDismiss, onSubmitPrice, lightMode=false }) {
         </div>
 
         {/* bottom controls — sticky so always visible */}
-        <div style={{ background:"#0a1a30",padding:"20px 24px 24px",display:"flex",flexDirection:"column",gap:16,flexShrink:0 }}>
+        <div style={{ background:lightMode?"rgba(220,228,236,.98)":"#0a1a30",padding:"20px 24px 24px",display:"flex",flexDirection:"column",gap:16,flexShrink:0 }}>
           {/* dots */}
           <div style={{ display:"flex",justifyContent:"center",gap:6 }}>
             {steps.map((_,i)=>(
@@ -2701,13 +2701,13 @@ function HelpModal({ onClose, onShare, onReplay, lightMode=false }) {
   return (
     <div style={{ position:"fixed",inset:0,zIndex:500,display:"flex",alignItems:"center",justifyContent:"center",background:"rgba(0,0,0,.75)",backdropFilter:"blur(8px)",padding:"16px" }}
       onClick={e=>{ if(e.target===e.currentTarget) onClose(); }}>
-      <div style={{ width:"100%",maxWidth:580,background:"#0a1a30",border:"1px solid rgba(255,255,255,.12)",borderRadius:20,maxHeight:"92vh",display:"flex",flexDirection:"column",overflow:"hidden" }}>
+      <div style={{ width:"100%",maxWidth:580,background:lightMode?"rgba(240,244,248,.98)":"#0a1a30",border:lightMode?"1px solid rgba(0,0,0,.12)":"1px solid rgba(255,255,255,.12)",borderRadius:20,maxHeight:"92vh",display:"flex",flexDirection:"column",overflow:"hidden" }}>
 
         {/* header */}
         <div style={{ padding:"20px 20px 0",flexShrink:0 }}>
           <div style={{ display:"flex",justifyContent:"space-between",alignItems:"flex-start",marginBottom:4 }}>
             <div>
-              <div style={{ fontSize:18,fontWeight:700,color:"#f0f4f8",marginBottom:3 }}>
+              <div style={{ fontSize:18,fontWeight:700,color:lightMode?"#0f172a":"#f0f4f8",marginBottom:3 }}>
                 🛍️ What can JerseyBasket do?
               </div>
               <div style={{ fontSize:11,color:"#64748b" }}>
@@ -2820,7 +2820,7 @@ function ReportModal({ onClose, lightMode=false }) {
   return (
     <div style={{ position:"fixed",inset:0,zIndex:500,display:"flex",alignItems:"flex-end",justifyContent:"center",paddingTop:60,background:"rgba(0,0,0,.75)",backdropFilter:"blur(8px)" }}
       onClick={e=>{ if(e.target===e.currentTarget) onClose(); }}>
-      <div style={{ width:"100%",maxWidth:520,background:"#0a1a30",border:"1px solid rgba(255,255,255,.12)",borderRadius:"20px 20px 0 0",padding:"22px 20px 30px",maxHeight:"82vh",overflowY:"auto",paddingBottom:"calc(132px + 32px)" }}>
+      <div style={{ width:"100%",maxWidth:520,background:lightMode?"rgba(240,244,248,.98)":"#0a1a30",border:lightMode?"1px solid rgba(0,0,0,.12)":"1px solid rgba(255,255,255,.12)",borderRadius:"20px 20px 0 0",padding:"22px 20px 30px",maxHeight:"82vh",overflowY:"auto",paddingBottom:"calc(132px + 32px)" }}>
 
         {status==="sent" ? (
           <div style={{ textAlign:"center",padding:"30px 0" }}>
@@ -2953,7 +2953,7 @@ function EnquiryModal({ onClose, lightMode=false }) {
   return (
     <div style={{ position:"fixed", inset:0, zIndex:500, display:"flex", alignItems:"flex-end", justifyContent:"center", background:"rgba(0,0,0,.75)", backdropFilter:"blur(8px)" }}
       onClick={e=>{ if(e.target===e.currentTarget) onClose(); }}>
-      <div style={{ width:"100%", maxWidth:520, background:"#0a1a30", border:"1px solid rgba(255,255,255,.12)", borderRadius:"20px 20px 0 0", padding:"24px 20px 32px", maxHeight:"82vh", overflowY:"auto", paddingBottom:"calc(132px + 32px)" }}>
+      <div style={{ width:"100%", maxWidth:520, background:lightMode?"rgba(240,244,248,.98)":"#0a1a30", border:lightMode?"1px solid rgba(0,0,0,.12)":"1px solid rgba(255,255,255,.12)", borderRadius:"20px 20px 0 0", padding:"24px 20px 32px", maxHeight:"82vh", overflowY:"auto", paddingBottom:"calc(132px + 32px)" }}>
 
         {status === "sent" ? (
           <div style={{ textAlign:"center", padding:"30px 10px" }}>
@@ -3027,7 +3027,7 @@ function SettingsModal({ disabledStores, onToggleStore, onClose, lightMode=false
   return (
     <div style={{ position:"fixed",inset:0,zIndex:500,display:"flex",alignItems:"flex-end",justifyContent:"center",paddingTop:60,background:"rgba(0,0,0,.75)",backdropFilter:"blur(8px)" }}
       onClick={e=>{ if(e.target===e.currentTarget) onClose(); }}>
-      <div style={{ width:"100%",maxWidth:520,background:"#0a1a30",border:"1px solid rgba(255,255,255,.12)",borderRadius:"20px 20px 0 0",padding:"24px 20px 32px",paddingBottom:"calc(132px + 32px)",maxHeight:"85vh",overflowY:"auto" }}>
+      <div style={{ width:"100%",maxWidth:520,background:lightMode?"rgba(240,244,248,.98)":"#0a1a30",border:lightMode?"1px solid rgba(0,0,0,.12)":"1px solid rgba(255,255,255,.12)",borderRadius:"20px 20px 0 0",padding:"24px 20px 32px",paddingBottom:"calc(132px + 32px)",maxHeight:"85vh",overflowY:"auto" }}>
 
         {/* header */}
         <div style={{ display:"flex",justifyContent:"space-between",alignItems:"flex-start",marginBottom:20 }}>
@@ -3089,7 +3089,7 @@ function CompetitionModal({ onClose, onSubmit, lightMode=false }) {
   return (
     <div style={{ position:"fixed",inset:0,zIndex:500,display:"flex",alignItems:"flex-end",justifyContent:"center",paddingTop:60,background:"rgba(0,0,0,.8)",backdropFilter:"blur(8px)" }}
       onClick={e=>{ if(e.target===e.currentTarget) onClose(); }}>
-      <div style={{ width:"100%",maxWidth:520,background:"#120800",border:"1px solid rgba(251,146,60,.25)",borderRadius:"20px 20px 0 0",maxHeight:"88vh",display:"flex",flexDirection:"column" }}>
+      <div style={{ width:"100%",maxWidth:520,background:lightMode?"rgba(255,252,248,.98)":"#120800",border:lightMode?"1px solid rgba(251,146,60,.35)":"1px solid rgba(251,146,60,.25)",borderRadius:"20px 20px 0 0",maxHeight:"88vh",display:"flex",flexDirection:"column" }}>
 
         {/* sticky header */}
         <div style={{ display:"flex",justifyContent:"space-between",alignItems:"center",padding:"18px 20px 14px",borderBottom:"1px solid rgba(251,146,60,.15)",flexShrink:0 }}>
@@ -3235,7 +3235,7 @@ function SubmitPriceModal({ onClose, lightMode=false }) {
   return (
     <div style={{ position:"fixed",inset:0,zIndex:600,display:"flex",alignItems:"flex-end",justifyContent:"center",paddingTop:60,background:"rgba(0,0,0,.8)",backdropFilter:"blur(8px)" }}
       onClick={e=>{ if(e.target===e.currentTarget) onClose(); }}>
-      <div style={{ width:"100%",maxWidth:520,background:"#120800",border:"1px solid rgba(251,146,60,.25)",borderRadius:"20px 20px 0 0",maxHeight:"88vh",display:"flex",flexDirection:"column" }}>
+      <div style={{ width:"100%",maxWidth:520,background:lightMode?"rgba(255,252,248,.98)":"#120800",border:lightMode?"1px solid rgba(251,146,60,.35)":"1px solid rgba(251,146,60,.25)",borderRadius:"20px 20px 0 0",maxHeight:"88vh",display:"flex",flexDirection:"column" }}>
 
         {status==="sent" ? (
           <div style={{ textAlign:"center",padding:"30px 20px" }}>
@@ -3362,10 +3362,19 @@ function AdBanner({ onEnquiry }) {
   // ── Group rotation — bounces through group 1, then 2, then 3, then back ──
   // localStorage remembers which group was active when app was closed
   const getStartGroup = () => {
-    try { const g = parseInt(localStorage.getItem("jb_ad_group")||"1",10); return (g>=1&&g<=3)?g:1; }
-    catch(e) { return 1; }
+    try {
+      const g = parseInt(localStorage.getItem("jb_ad_group")||"1",10);
+      return (isNaN(g)||g<1||g>3)?1:g;
+    } catch(e) { return 1; }
   };
-  const saveGroup = (g) => { try { localStorage.setItem("jb_ad_group",String(g)); } catch(e) {} };
+  const saveGroup = (g) => {
+    try {
+      // Test write first — Safari private mode throws on storage quota exceeded
+      localStorage.setItem("jb_ad_group_test","1");
+      localStorage.removeItem("jb_ad_group_test");
+      localStorage.setItem("jb_ad_group",String(g));
+    } catch(e) { /* storage unavailable — silently ignore */ }
+  };
   const [activeGroup, setActiveGroup] = useState(() => getStartGroup());
   const activeGroupRef = useRef(activeGroup);
 
