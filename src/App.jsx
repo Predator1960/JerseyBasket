@@ -3275,7 +3275,7 @@ function SubmitPriceModal({ onClose, lightMode=false }) {
                 <div style={{ fontSize:10,color:lightMode?"#7c2d12":"#9a3412",fontWeight:700,letterSpacing:".5px",marginBottom:6 }}>YOUR NAME <span style={{ color:"#f43f5e" }}>*</span></div>
                 <input value={form.name} onChange={e=>setForm(p=>({...p,name:e.target.value}))} placeholder="First name, nickname or alias e.g. IslandShopper"
                   style={{ width:"100%",padding:"9px 12px",background:lightMode?"rgba(0,0,0,.05)":"rgba(255,255,255,.07)",border:lightMode?"1px solid rgba(0,0,0,.15)":"1px solid rgba(255,255,255,.11)",borderRadius:9,color:lightMode?"#0f172a":"#fff",fontSize:12,outline:"none",boxSizing:"border-box",fontFamily:"inherit" }} />
-                <div style={{ fontSize:10,color:"#475569",marginTop:4 }}>Any name or alias is fine — only this appears on the leaderboard, never your real details</div>
+                <div style={{ fontSize:10,color:lightMode?"#475569":"#94a3b8",marginTop:4 }}>Any name or alias is fine — only this appears on the leaderboard, never your real details</div>
               </div>
 
               {/* mobile */}
@@ -3290,7 +3290,7 @@ function SubmitPriceModal({ onClose, lightMode=false }) {
                 <div style={{ fontSize:10,color:lightMode?"#7c2d12":"#9a3412",fontWeight:700,letterSpacing:".5px",marginBottom:6 }}>EMAIL ADDRESS <span style={{ color:lightMode?"#64748b":"#94a3b8",fontWeight:400 }}>(optional if mobile provided)</span></div>
                 <input value={form.email} onChange={e=>setForm(p=>({...p,email:e.target.value}))} placeholder="e.g. yourname@email.com"
                   style={{ width:"100%",padding:"9px 12px",background:lightMode?"rgba(0,0,0,.05)":"rgba(255,255,255,.07)",border:lightMode?"1px solid rgba(0,0,0,.15)":"1px solid rgba(255,255,255,.11)",borderRadius:9,color:lightMode?"#0f172a":"#fff",fontSize:12,outline:"none",boxSizing:"border-box",fontFamily:"inherit" }} />
-                <div style={{ fontSize:10,color:"#475569",marginTop:4 }}>Never shared or sold — only used to contact you if you win 🏆</div>
+                <div style={{ fontSize:10,color:lightMode?"#475569":"#94a3b8",marginTop:4 }}>Never shared or sold — only used to contact you if you win 🏆</div>
               </div>
 
               {/* photo picker */}
@@ -3307,7 +3307,7 @@ function SubmitPriceModal({ onClose, lightMode=false }) {
                     ✕ Remove photo
                   </button>
                 )}
-                <div style={{ fontSize:10,color:"#475569",marginTop:6,lineHeight:1.6 }}>
+                <div style={{ fontSize:10,color:lightMode?"#475569":"#94a3b8",marginTop:6,lineHeight:1.6 }}>
                   Make sure the store name, date and prices are clearly visible on the receipt.
                 </div>
               </div>
@@ -3315,7 +3315,7 @@ function SubmitPriceModal({ onClose, lightMode=false }) {
               {status==="error" && <div style={{ background:"rgba(239,68,68,.1)",border:"1px solid rgba(239,68,68,.28)",borderRadius:8,padding:"7px 12px",fontSize:11,color:"#fca5a5",marginBottom:12 }}>Something went wrong. Please email hello@jerseybasket.je</div>}
 
               <button onClick={handleSubmit} disabled={required||status==="sending"}
-                style={{ width:"100%",padding:"13px",background:"linear-gradient(180deg,#fb923c 0%,#b45309 100%)",border:"none",borderRadius:12,color:required||status==="sending"?"rgba(255,255,255,0.5)":"#fff",cursor:required?"not-allowed":"pointer",opacity:required||status==="sending"?0.55:1,fontSize:14,fontWeight:700,boxShadow:required||status==="sending"?"none":"0 3px 12px rgba(194,65,12,.6),inset 0 1px 0 rgba(255,255,255,.25)",position:"relative",overflow:"hidden" }}>
+                style={{ width:"100%",padding:"13px",background:"linear-gradient(180deg,#fb923c 0%,#b45309 100%)",border:"none",borderRadius:12,color:"#fff",cursor:required?"not-allowed":"pointer",opacity:required||status==="sending"?0.6:1,fontSize:14,fontWeight:700,boxShadow:required||status==="sending"?"none":"0 3px 12px rgba(194,65,12,.6),inset 0 1px 0 rgba(255,255,255,.25)",position:"relative",overflow:"hidden" }}>
                 <span style={{ position:"absolute",top:0,left:0,right:0,height:"52%",background:"linear-gradient(180deg,rgba(255,255,255,.25) 0%,rgba(255,255,255,.04) 100%)",borderRadius:"12px 12px 0 0",pointerEvents:"none" }}/>
                 {status==="sending" ? "Submitting…" : "Submit Entry →"}
               </button>
