@@ -3097,7 +3097,7 @@ function CompetitionModal({ onClose, onSubmit, lightMode=false }) {
             <div style={{ fontSize:17,fontWeight:700,color:"#fed7aa" }}>🏆 June Price Hunt</div>
             <div style={{ fontSize:11,color:"#9a3412",marginTop:2 }}>1st June – 30th June 2026 midnight · Winner announced 1st July 12:00pm</div>
           </div>
-          <button onClick={onClose} style={{ background:"rgba(255,255,255,.07)",border:"none",borderRadius:7,width:32,height:32,color:"#94a3b8",cursor:"pointer",fontSize:16,flexShrink:0 }}>✕</button>
+          <button onClick={onClose} style={{ background:lightMode?"rgba(0,0,0,.07)":"rgba(255,255,255,.07)",border:"none",borderRadius:7,width:32,height:32,color:lightMode?"#475569":"#94a3b8",cursor:"pointer",fontSize:16,flexShrink:0 }}>✕</button>
         </div>
 
         {/* scrollable body */}
@@ -3202,35 +3202,41 @@ function CompetitionModal({ onClose, onSubmit, lightMode=false }) {
    SUBMIT PRICE MODAL — competition price submission via Formspree
 ═══════════════════════════════════════════════════════════════════════════ */
 function SubmitPriceModal({ onClose, lightMode=false }) {
-  const [form,   setForm]   = useState({ name:"", mobile:"", email:"", store:"coop", product:"", price:"", detail:"" });
+  const [form,   setForm]   = useState({ name:"", mobile:"", email:"" });
+  const [photo,  setPhoto]  = useState(null);  // { name, dataUrl }
   const [status, setStatus] = useState("idle");
+  const fileRef = useRef(null);
+
+  const handlePhoto = (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (ev) => setPhoto({ name: file.name, dataUrl: ev.target.result });
+    reader.readAsDataURL(file);
+  };
 
   const handleSubmit = async () => {
-    if(!form.name.trim()||(!form.mobile.trim()&&!form.email.trim())){return;}
+    if (!form.name.trim() || (!form.mobile.trim() && !form.email.trim())) return;
     setStatus("sending");
-    const storeName = STORES.find(s=>s.id===form.store)?.name||form.store;
     try {
-      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`,{
-        method:"POST",
-        headers:{"Content-Type":"application/json","Accept":"application/json"},
+      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
         body: JSON.stringify({
-          _subject:`🏆 June Competition Entry — ${form.name}`,
-          name: form.name,
-          mobile: form.mobile,
-          email: form.email,
-          store: storeName,
-          product: form.product||"Not specified",
-          price: form.price?`£${form.price}`:"Not specified",
-          detail: form.detail||"No additional notes",
-          message:`JUNE COMPETITION ENTRY\n\nName: ${form.name}\nMobile: ${form.mobile}\nEmail: ${form.email}\nStore: ${storeName}\nProduct: ${form.product||"Not specified"}\nPrice: ${form.price?`£${form.price}`:"Not specified"}\nNotes: ${form.detail||"None"}`,
+          _subject: `🏆 June Competition Receipt — ${form.name}`,
+          name:    form.name,
+          mobile:  form.mobile,
+          email:   form.email,
+          receipt: photo ? photo.name : "No photo attached",
+          message: `JUNE COMPETITION ENTRY\n\nName: ${form.name}\nMobile: ${form.mobile}\nEmail: ${form.email}\nReceipt: ${photo ? photo.name : "No photo attached"}`,
         })
       });
-      if(res.ok){ setStatus("sent"); }
+      if (res.ok) { setStatus("sent"); }
       else { setStatus("error"); }
     } catch { setStatus("error"); }
   };
 
-  const required = !form.name.trim()||(!form.mobile.trim()&&!form.email.trim());
+  const required = !form.name.trim() || (!form.mobile.trim() && !form.email.trim());
 
   return (
     <div style={{ position:"fixed",inset:0,zIndex:600,display:"flex",alignItems:"flex-end",justifyContent:"center",paddingTop:60,background:"rgba(0,0,0,.8)",backdropFilter:"blur(8px)" }}
@@ -3241,11 +3247,10 @@ function SubmitPriceModal({ onClose, lightMode=false }) {
           <div style={{ textAlign:"center",padding:"30px 20px" }}>
             <div style={{ fontSize:48,marginBottom:14 }}>🏆</div>
             <div style={{ fontSize:18,fontWeight:700,color:"#fb923c",marginBottom:8 }}>Entry submitted!</div>
-            <div style={{ fontSize:12,color:"#94a3b8",lineHeight:1.8,marginBottom:24 }}>
-              Thanks {form.name.split(" ")[0]}! We'll verify the price and add it<br/>
+            <div style={{ fontSize:12,color:lightMode?"#475569":"#94a3b8",lineHeight:1.8,marginBottom:24 }}>
+              Thanks {form.name.split(" ")[0]}! We'll verify your receipt and add the prices<br/>
               to the leaderboard within 24 hours.<br/>
-              If you win, we'll contact you on <span style={{ color:"#fb923c" }}>{form.mobile}</span>.<br/>
-              Keep those receipts coming! 📸
+              If you win, we'll be in touch! 🎉
             </div>
             <button onClick={onClose} style={{ padding:"11px 28px",background:"linear-gradient(180deg,#fb923c 0%,#b45309 100%)",boxShadow:"0 3px 10px rgba(194,65,12,.5),inset 0 1px 0 rgba(255,255,255,.25)",border:"none",borderRadius:11,color:"#fff",cursor:"pointer",fontSize:13,fontWeight:700 }}>
               Back to App
@@ -3253,100 +3258,68 @@ function SubmitPriceModal({ onClose, lightMode=false }) {
           </div>
         ) : (
           <>
-            {/* sticky header — always visible */}
-            <div style={{ display:"flex",justifyContent:"space-between",alignItems:"center",padding:"18px 20px 14px",borderBottom:"1px solid rgba(251,146,60,.15)",flexShrink:0 }}>
+            {/* header */}
+            <div style={{ display:"flex",justifyContent:"space-between",alignItems:"center",padding:"18px 20px 14px",borderBottom:`1px solid ${lightMode?"rgba(251,146,60,.25)":"rgba(251,146,60,.15)"}`,flexShrink:0 }}>
               <div>
-                <div style={{ fontSize:17,fontWeight:700,color:"#fed7aa" }}>📸 Submit a Price</div>
-                <div style={{ fontSize:11,color:"#9a3412",marginTop:2 }}>June competition · Every price counts!</div>
+                <div style={{ fontSize:17,fontWeight:700,color:lightMode?"#7c2d12":"#fed7aa" }}>📸 Submit a Receipt</div>
+                <div style={{ fontSize:11,color:lightMode?"#92400e":"#9a3412",marginTop:2 }}>June competition · Every receipt counts!</div>
               </div>
-              <button onClick={onClose} style={{ background:"rgba(255,255,255,.07)",border:"none",borderRadius:7,width:32,height:32,color:"#94a3b8",cursor:"pointer",fontSize:16,flexShrink:0 }}>✕</button>
+              <button onClick={onClose} style={{ background:lightMode?"rgba(0,0,0,.07)":"rgba(255,255,255,.07)",border:"none",borderRadius:7,width:32,height:32,color:lightMode?"#475569":"#94a3b8",cursor:"pointer",fontSize:16,flexShrink:0 }}>✕</button>
             </div>
 
             {/* scrollable body */}
             <div style={{ overflowY:"auto",padding:"16px 20px",paddingBottom:"calc(132px + 24px)",flex:1 }}>
 
-            {/* name */}
-            <div style={{ marginBottom:12 }}>
-              <div style={{ fontSize:10,color:"#9a3412",fontWeight:700,letterSpacing:".5px",marginBottom:6 }}>YOUR NAME <span style={{ color:"#f43f5e" }}>*</span></div>
-              <input value={form.name} onChange={e=>setForm(p=>({...p,name:e.target.value}))} placeholder="First name, nickname or alias e.g. IslandShopper"
-                style={{ width:"100%",padding:"9px 12px",background:"rgba(255,255,255,.07)",border:"1px solid rgba(255,255,255,.11)",borderRadius:9,color:"#fff",fontSize:12,outline:"none",boxSizing:"border-box",fontFamily:"inherit" }} />
-              <div style={{ fontSize:10,color:"#475569",marginTop:4 }}>Any name or alias is fine — only this appears on the leaderboard, never your real details</div>
-            </div>
+              {/* name */}
+              <div style={{ marginBottom:12 }}>
+                <div style={{ fontSize:10,color:lightMode?"#7c2d12":"#9a3412",fontWeight:700,letterSpacing:".5px",marginBottom:6 }}>YOUR NAME <span style={{ color:"#f43f5e" }}>*</span></div>
+                <input value={form.name} onChange={e=>setForm(p=>({...p,name:e.target.value}))} placeholder="First name, nickname or alias e.g. IslandShopper"
+                  style={{ width:"100%",padding:"9px 12px",background:lightMode?"rgba(0,0,0,.05)":"rgba(255,255,255,.07)",border:lightMode?"1px solid rgba(0,0,0,.15)":"1px solid rgba(255,255,255,.11)",borderRadius:9,color:lightMode?"#0f172a":"#fff",fontSize:12,outline:"none",boxSizing:"border-box",fontFamily:"inherit" }} />
+                <div style={{ fontSize:10,color:"#475569",marginTop:4 }}>Any name or alias is fine — only this appears on the leaderboard, never your real details</div>
+              </div>
 
-            {/* contact */}
-            <div style={{ marginBottom:12 }}>
-              <div style={{ fontSize:10,color:"#9a3412",fontWeight:700,letterSpacing:".5px",marginBottom:6 }}>MOBILE NUMBER <span style={{ color:"#94a3b8", fontWeight:400 }}>(optional if email provided)</span></div>
-              <input value={form.mobile} onChange={e=>setForm(p=>({...p,mobile:e.target.value}))} placeholder="e.g. 07797 123456"
-                style={{ width:"100%",padding:"9px 12px",background:"rgba(255,255,255,.07)",border:"1px solid rgba(255,255,255,.11)",borderRadius:9,color:"#fff",fontSize:12,outline:"none",boxSizing:"border-box",fontFamily:"inherit" }} />
-            </div>
-            <div style={{ marginBottom:12 }}>
-              <div style={{ fontSize:10,color:"#9a3412",fontWeight:700,letterSpacing:".5px",marginBottom:6 }}>EMAIL ADDRESS <span style={{ color:"#94a3b8", fontWeight:400 }}>(optional if mobile provided)</span></div>
-              <input value={form.email} onChange={e=>setForm(p=>({...p,email:e.target.value}))} placeholder="e.g. yourname@email.com"
-                style={{ width:"100%",padding:"9px 12px",background:"rgba(255,255,255,.07)",border:"1px solid rgba(255,255,255,.11)",borderRadius:9,color:"#fff",fontSize:12,outline:"none",boxSizing:"border-box",fontFamily:"inherit" }} />
-              <div style={{ fontSize:10,color:"#475569",marginTop:4 }}>Never shared or sold — only used to contact you if you win 🏆</div>
-            </div>
+              {/* mobile */}
+              <div style={{ marginBottom:12 }}>
+                <div style={{ fontSize:10,color:lightMode?"#7c2d12":"#9a3412",fontWeight:700,letterSpacing:".5px",marginBottom:6 }}>MOBILE NUMBER <span style={{ color:lightMode?"#64748b":"#94a3b8",fontWeight:400 }}>(optional if email provided)</span></div>
+                <input value={form.mobile} onChange={e=>setForm(p=>({...p,mobile:e.target.value}))} placeholder="e.g. 07797 123456"
+                  style={{ width:"100%",padding:"9px 12px",background:lightMode?"rgba(0,0,0,.05)":"rgba(255,255,255,.07)",border:lightMode?"1px solid rgba(0,0,0,.15)":"1px solid rgba(255,255,255,.11)",borderRadius:9,color:lightMode?"#0f172a":"#fff",fontSize:12,outline:"none",boxSizing:"border-box",fontFamily:"inherit" }} />
+              </div>
 
-            {/* store */}
-            <div style={{ marginBottom:12 }}>
-              <div style={{ fontSize:10,color:"#9a3412",fontWeight:700,letterSpacing:".5px",marginBottom:6 }}>STORE <span style={{ color:"#f43f5e" }}>*</span></div>
-              <div style={{ display:"flex",gap:6,flexWrap:"wrap" }}>
-                {STORES.map(s=>(
-                  <button key={s.id} onClick={()=>setForm(p=>({...p,store:s.id}))}
-                    style={{ padding:"7px 12px",borderRadius:22,border:`1px solid ${form.store===s.id?s.color+"80":"rgba(255,255,255,.08)"}`,
-                      background:form.store===s.id?`linear-gradient(180deg,${s.color}dd 0%,${s.color}88 100%)`:"linear-gradient(180deg,#1e3a5f 0%,#0f1f3d 100%)",
-                      color:form.store===s.id?"#fff":"#64748b",cursor:"pointer",fontSize:11,fontWeight:700,transition:"all .15s",
-                      boxShadow:form.store===s.id?`0 3px 10px ${s.color}55,inset 0 1px 0 rgba(255,255,255,.2)`:"0 2px 4px rgba(0,0,0,.3)",
-                      position:"relative",overflow:"hidden",
-                    }}>
-                    <span style={{ position:"absolute",top:0,left:0,right:0,height:"52%",background:"linear-gradient(180deg,rgba(255,255,255,.25) 0%,rgba(255,255,255,.04) 100%)",borderRadius:"22px 22px 0 0",pointerEvents:"none" }}/>
-                    {s.emoji} {s.name}
+              {/* email */}
+              <div style={{ marginBottom:16 }}>
+                <div style={{ fontSize:10,color:lightMode?"#7c2d12":"#9a3412",fontWeight:700,letterSpacing:".5px",marginBottom:6 }}>EMAIL ADDRESS <span style={{ color:lightMode?"#64748b":"#94a3b8",fontWeight:400 }}>(optional if mobile provided)</span></div>
+                <input value={form.email} onChange={e=>setForm(p=>({...p,email:e.target.value}))} placeholder="e.g. yourname@email.com"
+                  style={{ width:"100%",padding:"9px 12px",background:lightMode?"rgba(0,0,0,.05)":"rgba(255,255,255,.07)",border:lightMode?"1px solid rgba(0,0,0,.15)":"1px solid rgba(255,255,255,.11)",borderRadius:9,color:lightMode?"#0f172a":"#fff",fontSize:12,outline:"none",boxSizing:"border-box",fontFamily:"inherit" }} />
+                <div style={{ fontSize:10,color:"#475569",marginTop:4 }}>Never shared or sold — only used to contact you if you win 🏆</div>
+              </div>
+
+              {/* photo picker */}
+              <div style={{ marginBottom:16 }}>
+                <div style={{ fontSize:10,color:lightMode?"#7c2d12":"#9a3412",fontWeight:700,letterSpacing:".5px",marginBottom:8 }}>RECEIPT PHOTO <span style={{ color:"#f43f5e" }}>*</span></div>
+                <input ref={fileRef} type="file" accept="image/*" capture="environment" onChange={handlePhoto} style={{ display:"none" }} />
+                <button onClick={()=>fileRef.current?.click()}
+                  style={{ width:"100%",padding:"14px",background:photo?`linear-gradient(180deg,#16a34a 0%,#14532d 100%)`:`linear-gradient(180deg,#fb923c 0%,#b45309 100%)`,border:"none",borderRadius:12,color:"#fff",cursor:"pointer",fontSize:14,fontWeight:700,boxShadow:photo?"0 3px 12px rgba(22,163,74,.5),inset 0 1px 0 rgba(255,255,255,.25)":"0 3px 12px rgba(194,65,12,.5),inset 0 1px 0 rgba(255,255,255,.25)",position:"relative",overflow:"hidden" }}>
+                  <span style={{ position:"absolute",top:0,left:0,right:0,height:"52%",background:"linear-gradient(180deg,rgba(255,255,255,.25) 0%,rgba(255,255,255,.04) 100%)",borderRadius:"12px 12px 0 0",pointerEvents:"none" }}/>
+                  {photo ? `✅ ${photo.name}` : "📷 Take / Choose Photo"}
+                </button>
+                {photo && (
+                  <button onClick={()=>setPhoto(null)} style={{ width:"100%",marginTop:6,padding:"7px",background:"transparent",border:`1px solid ${lightMode?"rgba(0,0,0,.12)":"rgba(255,255,255,.1)"}`,borderRadius:8,color:lightMode?"#475569":"#64748b",cursor:"pointer",fontSize:11 }}>
+                    ✕ Remove photo
                   </button>
-                ))}
+                )}
+                <div style={{ fontSize:10,color:"#475569",marginTop:6,lineHeight:1.6 }}>
+                  Make sure the store name, date and prices are clearly visible on the receipt.
+                </div>
               </div>
-            </div>
 
-            {/* product */}
-            <div style={{ marginBottom:12 }}>
-              <div style={{ fontSize:10,color:"#9a3412",fontWeight:700,letterSpacing:".5px",marginBottom:6 }}>PRODUCT NAME <span style={{ color:"#334155",fontWeight:400 }}>(optional)</span></div>
-              <input value={form.product} onChange={e=>setForm(p=>({...p,product:e.target.value}))} placeholder="e.g. Full Fat Milk 2L"
-                style={{ width:"100%",padding:"9px 12px",background:"rgba(255,255,255,.07)",border:"1px solid rgba(255,255,255,.11)",borderRadius:9,color:"#fff",fontSize:12,outline:"none",boxSizing:"border-box",fontFamily:"inherit" }} />
-            </div>
+              {status==="error" && <div style={{ background:"rgba(239,68,68,.1)",border:"1px solid rgba(239,68,68,.28)",borderRadius:8,padding:"7px 12px",fontSize:11,color:"#fca5a5",marginBottom:12 }}>Something went wrong. Please email hello@jerseybasket.je</div>}
 
-            {/* price */}
-            <div style={{ marginBottom:12 }}>
-              <div style={{ fontSize:10,color:"#9a3412",fontWeight:700,letterSpacing:".5px",marginBottom:6 }}>PRICE <span style={{ color:"#334155",fontWeight:400 }}>(optional)</span></div>
-              <div style={{ position:"relative" }}>
-                <span style={{ position:"absolute",left:12,top:"50%",transform:"translateY(-50%)",color:"#64748b",fontSize:13,fontWeight:700 }}>£</span>
-                <input type="number" step="0.01" value={form.price} onChange={e=>setForm(p=>({...p,price:e.target.value}))} placeholder="0.00"
-                  style={{ width:"100%",padding:"9px 12px 9px 26px",background:"rgba(255,255,255,.07)",border:"1px solid rgba(255,255,255,.11)",borderRadius:9,color:"#fff",fontSize:12,outline:"none",boxSizing:"border-box",fontFamily:"inherit" }} />
-              </div>
-            </div>
+              <button onClick={handleSubmit} disabled={required||status==="sending"}
+                style={{ width:"100%",padding:"13px",background:required||status==="sending"?"rgba(234,88,12,.3)":"linear-gradient(180deg,#fb923c 0%,#b45309 100%)",border:"none",borderRadius:12,color:required?"rgba(255,255,255,0.5)":"#fff",cursor:required?"not-allowed":"pointer",fontSize:14,fontWeight:700,boxShadow:required||status==="sending"?"none":"0 3px 12px rgba(194,65,12,.6),inset 0 1px 0 rgba(255,255,255,.25)",position:"relative",overflow:"hidden" }}>
+                <span style={{ position:"absolute",top:0,left:0,right:0,height:"52%",background:"linear-gradient(180deg,rgba(255,255,255,.25) 0%,rgba(255,255,255,.04) 100%)",borderRadius:"12px 12px 0 0",pointerEvents:"none" }}/>
+                {status==="sending" ? "Submitting…" : "Submit Entry →"}
+              </button>
 
-            {/* notes */}
-            <div style={{ marginBottom:16 }}>
-              <div style={{ fontSize:10,color:"#9a3412",fontWeight:700,letterSpacing:".5px",marginBottom:6 }}>NOTES <span style={{ color:"#334155",fontWeight:400 }}>(optional)</span></div>
-              <textarea value={form.detail} onChange={e=>setForm(p=>({...p,detail:e.target.value}))} rows={2}
-                placeholder="e.g. pack size, variant, on promotion, etc."
-                style={{ width:"100%",padding:"9px 12px",background:"rgba(255,255,255,.07)",border:"1px solid rgba(255,255,255,.11)",borderRadius:9,color:"#fff",fontSize:12,outline:"none",resize:"none",boxSizing:"border-box",fontFamily:"inherit",lineHeight:1.5 }} />
-            </div>
-
-            <div style={{ background:"rgba(251,146,60,.07)",border:"1px solid rgba(251,146,60,.2)",borderRadius:9,padding:"9px 13px",fontSize:10,color:"#9a3412",lineHeight:1.7,marginBottom:10 }}>
-              📸 <strong style={{ color:"#fed7aa" }}>Got a receipt?</strong> Email a photo to <span style={{ color:"#fb923c" }}>hello@jerseybasket.je</span> with your name and we'll count all the prices on it! Make sure the <strong style={{ color:"#fed7aa" }}>store name, date, and prices are clearly visible</strong>.
-            </div>
-            <a href={`mailto:hello@jerseybasket.je?subject=🏆 June Competition Receipt — ${form.name||"Entry"}&body=Hi Eamonn, please find my receipt photo attached.%0A%0AName: ${form.name||""}%0AMobile: ${form.mobile||""}%0AStore: ${STORES.find(s=>s.id===form.store)?.name||""}`}
-              onClick={e=>{ if(!/Mobi|Android/i.test(navigator.userAgent)){ e.preventDefault(); navigator.clipboard&&navigator.clipboard.writeText("hello@jerseybasket.je"); alert("Email address copied!\nSend your receipt photo to:\nhello@jerseybasket.je"); } }}
-              style={{ display:"flex",alignItems:"center",justifyContent:"center",gap:8,width:"100%",padding:"11px",background:"linear-gradient(180deg,#fbbf24 0%,#b45309 100%)",border:"none",borderRadius:10,color:"#fff",textDecoration:"none",fontSize:13,fontWeight:700,marginBottom:14,boxSizing:"border-box",boxShadow:"0 3px 10px rgba(180,83,9,.5),inset 0 1px 0 rgba(255,255,255,.25)",position:"relative",overflow:"hidden" }}>
-              <span style={{ position:"absolute",top:0,left:0,right:0,height:"52%",background:"linear-gradient(180deg,rgba(255,255,255,.25) 0%,rgba(255,255,255,.04) 100%)",borderRadius:"10px 10px 0 0",pointerEvents:"none" }}/>
-              📸 Email Receipt Photo
-            </a>
-
-            {status==="error"&&<div style={{ background:"rgba(239,68,68,.1)",border:"1px solid rgba(239,68,68,.28)",borderRadius:8,padding:"7px 12px",fontSize:11,color:"#fca5a5",marginBottom:12 }}>Something went wrong. Please email hello@jerseybasket.je</div>}
-
-            <button onClick={handleSubmit} disabled={required||status==="sending"}
-              style={{ width:"100%",padding:"13px",background:required||status==="sending"?"rgba(234,88,12,.3)":"linear-gradient(180deg,#fb923c 0%,#b45309 100%)",border:"none",borderRadius:12,color:"#fff",cursor:required?"not-allowed":"pointer",fontSize:14,fontWeight:700,boxShadow:required||status==="sending"?"none":"0 3px 12px rgba(194,65,12,.6),inset 0 1px 0 rgba(255,255,255,.25)",position:"relative",overflow:"hidden" }}>
-              <span style={{ position:"absolute",top:0,left:0,right:0,height:"52%",background:"linear-gradient(180deg,rgba(255,255,255,.25) 0%,rgba(255,255,255,.04) 100%)",borderRadius:"12px 12px 0 0",pointerEvents:"none" }}/>
-              {status==="sending" ? "Submitting…" : "Submit Entry →"}
-            </button>
             </div>{/* end scrollable body */}
           </>
         )}
@@ -3354,6 +3327,7 @@ function SubmitPriceModal({ onClose, lightMode=false }) {
     </div>
   );
 }
+
 
 function AdBanner({ onEnquiry }) {
   const PAUSE_MS  = 2000;
