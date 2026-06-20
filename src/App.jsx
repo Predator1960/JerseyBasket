@@ -2476,7 +2476,7 @@ function WelcomeModal({ onDismiss, onSubmitPrice, lightMode=false }) {
 
   return (
     <div style={{ position:"fixed",inset:0,zIndex:1000,display:"flex",alignItems:"center",justifyContent:"center",background:"rgba(0,0,0,.85)",backdropFilter:"blur(10px)",padding:16 }}>
-      <div style={{ width:"100%",maxWidth:460,borderRadius:24,overflow:"hidden",boxShadow:"0 24px 80px rgba(0,0,0,.7)",display:"flex",flexDirection:"column",maxHeight:"90vh" }}>
+      <div style={{ width:"100%",maxWidth:460,borderRadius:24,overflow:"hidden",boxShadow:"0 24px 80px rgba(0,0,0,.7)",display:"flex",flexDirection:"column",maxHeight:"90vh",background:s.bg }}>
 
         {/* slide — scrollable content area */}
         <div style={{ background:s.bg,padding:"40px 32px 32px",position:"relative",flex:1,overflowY:"auto",display:"flex",flexDirection:"column",alignItems:"center",textAlign:"center" }}>
