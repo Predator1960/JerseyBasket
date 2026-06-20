@@ -1000,7 +1000,7 @@ function ProductCard({ product, onAddToBasket, pinnedStore, isFavourite, onToggl
             <Tooltip text={product.name}>
               <div style={{ fontSize:12.5, fontWeight:700, color:lightMode?"#0f172a":"#f0f4f8", lineHeight:1.3 }}>{product.name}</div>
             </Tooltip>
-            <div style={{ fontSize:9.5, color:lightMode?"#475569":"#475569", marginTop:1 }}>{product.cat.replace(/^[^\s]+\s/,"")}{product.custom?" · custom":""}</div>
+            <div style={{ fontSize:9.5, color:lightMode?"#475569":"#475569", marginTop:1 }}>{product.cat.replace(/^[^\s]+\s/,"")}{product.custom?" · custom":""}{product.upd&&<span style={{ marginLeft:5, fontSize:8, color:lightMode?"#94a3b8":"#64748b" }}>· {product.upd}</span>}</div>
           </div>
           {/* heart / favourite button */}
           <button
