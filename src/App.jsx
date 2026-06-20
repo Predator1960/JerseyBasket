@@ -2514,7 +2514,7 @@ function WelcomeModal({ onDismiss, onSubmitPrice, lightMode=false }) {
 
           {/* survey shortcut — only on slide 1 */}
           {step===0 && (
-            <button onClick={()=>setStep(6)} style={{ marginTop:14,background:"rgba(56,189,248,.15)",border:"1px solid rgba(56,189,248,.4)",borderRadius:20,padding:"7px 18px",color:"#38bdf8",fontSize:12,fontWeight:700,cursor:"pointer" }}>
+            <button onClick={()=>setStep(6)} style={{ marginTop:14,background:"rgba(56,189,248,.15)",border:"1px solid rgba(56,189,248,.4)",borderRadius:20,padding:"7px 18px",color:"#ffffff",fontSize:12,fontWeight:700,cursor:"pointer" }}>
               📝 Take our quick survey
             </button>
           )}
@@ -2634,7 +2634,7 @@ function WelcomeModal({ onDismiss, onSubmitPrice, lightMode=false }) {
           </div>
 
           {/* jersey flag note */}
-          <div style={{ textAlign:"center",fontSize:10,color:"#334155" }}>
+          <div style={{ textAlign:"center",fontSize:10,color:"rgba(255,255,255,0.7)" }}>
             🇯🇪 Built for Jersey · Free forever · jerseybasket.je
           </div>
         </div>
@@ -2769,7 +2769,7 @@ function HelpModal({ onClose, onShare, onReplay, lightMode=false }) {
               Start Shopping →
             </button>
           </div>
-          <button onClick={onReplay} style={{ width:"100%",padding:"10px",background:"rgba(255,255,255,.1)",border:"1px solid rgba(255,255,255,.25)",borderRadius:11,color:"#ffffff",cursor:"pointer",fontSize:12,fontWeight:700,letterSpacing:".3px" }}
+          <button onClick={onReplay} style={{ width:"100%",padding:"10px",background:"rgba(255,255,255,.1)",border:"1px solid rgba(255,255,255,.25)",borderRadius:11,color:lightMode?"#1e293b":"#ffffff",cursor:"pointer",fontSize:12,fontWeight:700,letterSpacing:".3px" }}
             onMouseEnter={e=>{e.currentTarget.style.background="rgba(255,255,255,.18)";e.currentTarget.style.borderColor="rgba(255,255,255,.4)";}}
             onMouseLeave={e=>{e.currentTarget.style.background="rgba(255,255,255,.1)";e.currentTarget.style.borderColor="rgba(255,255,255,.25)";}}>
             🎬 Replay the Welcome Guide
