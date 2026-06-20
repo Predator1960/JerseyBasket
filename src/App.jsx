@@ -1018,7 +1018,7 @@ function ProductCard({ product, onAddToBasket, pinnedStore, isFavourite, onToggl
         </div>
 
         {/* store pill + add */}
-        <div style={{ display:"flex", alignItems:"center", gap:8, paddingBottom:11 }}>
+        <div style={{ display:"flex", alignItems:"center", gap:6, paddingBottom:11, overflow:"hidden" }}>
           {(() => {
             const sc = chosenStore?.color || "#22c55e";
             const r=parseInt(sc.slice(1,3),16), g=parseInt(sc.slice(3,5),16), b=parseInt(sc.slice(5,7),16);
@@ -1040,10 +1040,10 @@ function ProductCard({ product, onAddToBasket, pinnedStore, isFavourite, onToggl
             );
           })()}
           <button onClick={()=>onAddToBasket(product.id,chosenStoreId)} style={{
-            flexShrink:0, position:"relative", overflow:"hidden", minWidth:60,
+            flexShrink:0, position:"relative", overflow:"hidden", minWidth:52, maxWidth:70,
             background:"linear-gradient(180deg,#4ade80 0%,#15803d 100%)",
-            border:"none", borderRadius:9, padding:"7px 10px",
-            color:"#052e16", cursor:"pointer", fontSize:12, fontWeight:700, whiteSpace:"nowrap",
+            border:"none", borderRadius:9, padding:"7px 8px",
+            color:"#052e16", cursor:"pointer", fontSize:11.5, fontWeight:700, whiteSpace:"nowrap",
             boxShadow:"0 2px 8px rgba(34,197,94,.5), inset 0 1px 0 rgba(255,255,255,.3)",
           }}>
             <span style={{ position:"absolute", top:0, left:0, right:0, height:"52%", background:"linear-gradient(180deg,rgba(255,255,255,.28) 0%,rgba(255,255,255,.04) 100%)", borderRadius:"9px 9px 0 0", pointerEvents:"none" }} />
@@ -1872,10 +1872,10 @@ export default function JerseyGroceryApp() {
                           <span style={{ fontSize:19 }}>{store.emoji}</span>
                           <span style={{ fontSize:15,fontWeight:700 }}>{store.name}</span>
                           <span style={{
-                            background:`linear-gradient(180deg,rgba(${r},${g},${b},0.4) 0%,rgba(${r},${g},${b},0.2) 100%)`,
-                            color:sc, border:`1px solid rgba(${r},${g},${b},0.5)`,
+                            background:lightMode?`rgba(${Math.max(0,r-60)},${Math.max(0,g-60)},${Math.max(0,b-60)},0.15)`:`linear-gradient(180deg,rgba(${r},${g},${b},0.4) 0%,rgba(${r},${g},${b},0.2) 100%)`,
+                            color:lightMode?`rgb(${Math.max(0,r-80)},${Math.max(0,g-80)},${Math.max(0,b-80)})`:sc, border:`1px solid rgba(${r},${g},${b},0.5)`,
                             borderRadius:22, padding:"2px 9px", fontSize:8.5, fontWeight:700,
-                            boxShadow:`0 1px 4px rgba(${r},${g},${b},0.3)`,
+                            boxShadow:lightMode?"none":`0 1px 4px rgba(${r},${g},${b},0.3)`,
                           }}>{store.tag}</span>
                         </div>
                         <div style={{ fontSize:11,fontWeight:700,color:lightMode?"#334155":"#cbd5e1" }}>📍 {store.note}</div>
