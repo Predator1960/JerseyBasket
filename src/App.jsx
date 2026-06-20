@@ -3296,7 +3296,7 @@ function SubmitPriceModal({ onClose, lightMode=false }) {
               {/* photo picker */}
               <div style={{ marginBottom:16 }}>
                 <div style={{ fontSize:10,color:lightMode?"#7c2d12":"#9a3412",fontWeight:700,letterSpacing:".5px",marginBottom:8 }}>RECEIPT PHOTO <span style={{ color:"#f43f5e" }}>*</span></div>
-                <input ref={fileRef} type="file" accept="image/*" capture="environment" onChange={handlePhoto} style={{ display:"none" }} />
+                <input ref={fileRef} type="file" accept="image/*" onChange={handlePhoto} style={{ display:"none" }} />
                 <button onClick={()=>fileRef.current?.click()}
                   style={{ width:"100%",padding:"14px",background:photo?`linear-gradient(180deg,#16a34a 0%,#14532d 100%)`:`linear-gradient(180deg,#fb923c 0%,#b45309 100%)`,border:"none",borderRadius:12,color:"#fff",cursor:"pointer",fontSize:14,fontWeight:700,boxShadow:photo?"0 3px 12px rgba(22,163,74,.5),inset 0 1px 0 rgba(255,255,255,.25)":"0 3px 12px rgba(194,65,12,.5),inset 0 1px 0 rgba(255,255,255,.25)",position:"relative",overflow:"hidden" }}>
                   <span style={{ position:"absolute",top:0,left:0,right:0,height:"52%",background:"linear-gradient(180deg,rgba(255,255,255,.25) 0%,rgba(255,255,255,.04) 100%)",borderRadius:"12px 12px 0 0",pointerEvents:"none" }}/>
@@ -3315,7 +3315,7 @@ function SubmitPriceModal({ onClose, lightMode=false }) {
               {status==="error" && <div style={{ background:"rgba(239,68,68,.1)",border:"1px solid rgba(239,68,68,.28)",borderRadius:8,padding:"7px 12px",fontSize:11,color:"#fca5a5",marginBottom:12 }}>Something went wrong. Please email hello@jerseybasket.je</div>}
 
               <button onClick={handleSubmit} disabled={required||status==="sending"}
-                style={{ width:"100%",padding:"13px",background:required||status==="sending"?"rgba(234,88,12,.3)":"linear-gradient(180deg,#fb923c 0%,#b45309 100%)",border:"none",borderRadius:12,color:required?"rgba(255,255,255,0.5)":"#fff",cursor:required?"not-allowed":"pointer",fontSize:14,fontWeight:700,boxShadow:required||status==="sending"?"none":"0 3px 12px rgba(194,65,12,.6),inset 0 1px 0 rgba(255,255,255,.25)",position:"relative",overflow:"hidden" }}>
+                style={{ width:"100%",padding:"13px",background:"linear-gradient(180deg,#fb923c 0%,#b45309 100%)",border:"none",borderRadius:12,color:required||status==="sending"?"rgba(255,255,255,0.5)":"#fff",cursor:required?"not-allowed":"pointer",opacity:required||status==="sending"?0.55:1,fontSize:14,fontWeight:700,boxShadow:required||status==="sending"?"none":"0 3px 12px rgba(194,65,12,.6),inset 0 1px 0 rgba(255,255,255,.25)",position:"relative",overflow:"hidden" }}>
                 <span style={{ position:"absolute",top:0,left:0,right:0,height:"52%",background:"linear-gradient(180deg,rgba(255,255,255,.25) 0%,rgba(255,255,255,.04) 100%)",borderRadius:"12px 12px 0 0",pointerEvents:"none" }}/>
                 {status==="sending" ? "Submitting…" : "Submit Entry →"}
               </button>
