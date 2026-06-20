@@ -2416,6 +2416,7 @@ function WelcomeModal({ onDismiss, onSubmitPrice, lightMode=false }) {
       body: `Compare prices across all ${BASE_PRODUCTS.length} products and growing — find the cheapest price on every item and build your shopping list before you leave the house.`,
       bodyJsx: true,
       bg: "linear-gradient(135deg,#052e16 0%,#14532d 50%,#16a34a 100%)",
+      bottomBg: "#052e16",
       accent: "#22c55e",
     },
     {
@@ -2424,6 +2425,7 @@ function WelcomeModal({ onDismiss, onSubmitPrice, lightMode=false }) {
       subtitle: `${BASE_PRODUCTS.length}+ products across ${STORES.length} stores`,
       body: "Every product shows you the lowest price available in Jersey right now. Tap the store pill to compare all stores — or pin one store to see all their prices at once.",
       bg: "linear-gradient(135deg,#0c1445 0%,#1e3a8a 100%)",
+      bottomBg: "#0c1445",
       accent: "#93c5fd",
     },
     {
@@ -2432,6 +2434,7 @@ function WelcomeModal({ onDismiss, onSubmitPrice, lightMode=false }) {
       subtitle: "Smart basket with savings calculator",
       body: "Add items as you browse. The basket automatically works out which single store is cheapest for your whole shop — and shows exactly how much you'd save.",
       bg: "linear-gradient(135deg,#1a0533 0%,#581c87 100%)",
+      bottomBg: "#1a0533",
       accent: "#c4b5fd",
     },
     {
@@ -2440,6 +2443,7 @@ function WelcomeModal({ onDismiss, onSubmitPrice, lightMode=false }) {
       subtitle: "Heart items to save them for next time",
       body: "Tap the heart on any product to save it. Your favourites have their own basket — add them all in one tap every week. Your regular shop, sorted in seconds.",
       bg: "linear-gradient(135deg,#450a0a 0%,#991b1b 100%)",
+      bottomBg: "#450a0a",
       accent: "#fca5a5",
     },
     {
@@ -2448,6 +2452,7 @@ function WelcomeModal({ onDismiss, onSubmitPrice, lightMode=false }) {
       subtitle: "Works like a native app — completely free",
       body: "Add JerseyBasket to your home screen in seconds:",
       bg: "linear-gradient(135deg,#0a1628 0%,#0d1f38 100%)",
+      bottomBg: "#0a1628",
       accent: "#22c55e",
       installSteps: true,
     },
@@ -2457,6 +2462,7 @@ function WelcomeModal({ onDismiss, onSubmitPrice, lightMode=false }) {
       subtitle: "Win up to £15 in gift vouchers",
       body: "Help us verify prices across Jersey's 6 supermarkets — and win! Submit prices from your shopping receipts throughout June. The shopper who submits the most verified prices wins a £15 gift voucher. 2nd place wins £10, 3rd place wins £5. 🇯🇪",
       bg: "linear-gradient(135deg,#1a0a00 0%,#7c2d12 60%,#c2410c 100%)",
+      bottomBg: "#1a0a00",
       accent: "#fb923c",
       competition: true,
     },
@@ -2466,6 +2472,7 @@ function WelcomeModal({ onDismiss, onSubmitPrice, lightMode=false }) {
       subtitle: "Your opinion shapes JerseyBasket",
       body: "",
       bg: "linear-gradient(135deg,#0f172a 0%,#1e3a5f 60%,#0c4a6e 100%)",
+      bottomBg: "#0f172a",
       accent: "#38bdf8",
       survey: true,
     },
@@ -2609,7 +2616,7 @@ function WelcomeModal({ onDismiss, onSubmitPrice, lightMode=false }) {
         </div>
 
         {/* bottom controls — sticky so always visible */}
-        <div style={{ background:lightMode?"rgba(220,228,236,.98)":"rgba(0,0,0,.4)",padding:"20px 24px 24px",display:"flex",flexDirection:"column",gap:16,flexShrink:0 }}>
+        <div style={{ background:lightMode?"rgba(220,228,236,.98)":(s.bottomBg||"#052e16"),padding:"20px 24px 24px",display:"flex",flexDirection:"column",gap:16,flexShrink:0 }}>
           {/* dots */}
           <div style={{ display:"flex",justifyContent:"center",gap:6 }}>
             {steps.map((_,i)=>(
