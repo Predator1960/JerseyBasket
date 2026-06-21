@@ -868,6 +868,33 @@ const BASE_PRODUCTS = [
   {id:754,name:"Fruit & Go Fruit Puree Pouches (20pk)",cat:"🥨 Snacks & Treats",icon:"🍓",prices:sp(8.20,[0,-8.20,-8.20,-8.20,-8.20,-8.20])},
   {id:755,name:"Co-op Pancakes (6pk)",              cat:"🍞 Bread & Bakery",icon:"🥞",prices:sp(1.30,[0,-1.30,-1.30,-1.30,-1.30,-1.30])},
   {id:756,name:"Babybel Mini Originals (12x20g)",   cat:"🥛 Dairy & Eggs",  icon:"🧀",prices:sp(4.59,[0,-4.59,-4.59,-4.59,-4.59,-4.59])},
+  /* ── Carmen1971 M&S receipt 21 Jun 2026 ── */
+  {id:757,name:"M&S Scottish Still Water (2L)",      cat:"🥤 Drinks",        icon:"💧",prices:sp(1.10,[-1.10,-1.10,0,-1.10,-1.10,-1.10])},
+  {id:758,name:"M&S Diet Lemonade",                  cat:"🥤 Drinks",        icon:"🥤",prices:sp(1.15,[-1.15,-1.15,0,-1.15,-1.15,-1.15])},
+  {id:759,name:"M&S Fruity Cocktail (tin)",           cat:"🍝 Pantry",        icon:"🍹",prices:sp(4.75,[-4.75,-4.75,0,-4.75,-4.75,-4.75])},
+  {id:760,name:"M&S Sour Cream & Chive Dip",         cat:"🥛 Dairy & Eggs",  icon:"🫙",prices:sp(2.10,[-2.10,-2.10,0,-2.10,-2.10,-2.10])},
+  {id:761,name:"M&S Soured Cream (300ml)",            cat:"🥛 Dairy & Eggs",  icon:"🫙",prices:sp(1.75,[-1.75,-1.75,0,-1.75,-1.75,-1.75])},
+  {id:762,name:"M&S Classic Scotch Eggs",             cat:"🥩 Meat & Fish",   icon:"🥚",prices:sp(2.40,[-2.40,-2.40,0,-2.40,-2.40,-2.40])},
+  {id:763,name:"M&S Honey Roast Ham Slices",          cat:"🥩 Meat & Fish",   icon:"🥩",prices:sp(3.00,[-3.00,-3.00,0,-3.00,-3.00,-3.00])},
+  {id:764,name:"M&S 9 Mini Mixed Rolls",              cat:"🍞 Bread & Bakery",icon:"🍞",prices:sp(3.30,[-3.30,-3.30,0,-3.30,-3.30,-3.30])},
+  {id:765,name:"M&S British Butter",                  cat:"🥛 Dairy & Eggs",  icon:"🧈",prices:sp(2.40,[-2.40,-2.40,0,-2.40,-2.40,-2.40])},
+  {id:766,name:"M&S Donkey Fig Cheese",               cat:"🥛 Dairy & Eggs",  icon:"🧀",prices:sp(4.85,[-4.85,-4.85,0,-4.85,-4.85,-4.85])},
+  {id:767,name:"M&S Pork Sausage Roll",               cat:"🥩 Meat & Fish",   icon:"🌭",prices:sp(4.70,[-4.70,-4.70,0,-4.70,-4.70,-4.70])},
+  {id:768,name:"M&S Donkey Manchego Pork Pate",       cat:"🥩 Meat & Fish",   icon:"🫙",prices:sp(4.85,[-4.85,-4.85,0,-4.85,-4.85,-4.85])},
+  /* ── Carmen1971 Co-op receipt 19 Jun 2026 ── */
+  {id:769,name:"Ariel Pods Original",                 cat:"🧴 Household",     icon:"🧺",prices:sp(3.65,[0,-3.65,-3.65,-3.65,-3.65,-3.65])},
+  {id:771,name:"Andrex Toilet Tissue",                cat:"🧴 Household",     icon:"🧻",prices:sp(2.78,[0,-2.78,-2.78,-2.78,-2.78,-2.78])},
+  {id:775,name:"Bakers Rewards Dog Food",             cat:"🐾 Pet",           icon:"🐶",prices:sp(1.49,[0,-1.49,-1.49,-1.49,-1.49,-1.49])},
+  {id:776,name:"Bakers Sizzlers Bacon Dog Food",      cat:"🐾 Pet",           icon:"🐶",prices:sp(1.49,[0,-1.49,-1.49,-1.49,-1.49,-1.49])},
+  /* ── j.acottjsy Waitrose receipt 21 Jun 2026 ── */
+  {id:808,name:"WR Organic Fairtrade Bananas",        cat:"🥦 Fruit & Veg",   icon:"🍌",prices:sp(2.27,[-2.27,-2.27,-2.27,0,-2.27,-2.27])},
+  {id:809,name:"Radox Feel Uplifted Shower Gel",      cat:"🧴 Household",     icon:"🚿",prices:sp(1.49,[-1.49,-1.49,-1.49,0,-1.49,-1.49])},
+  {id:810,name:"Hovis Wholemeal 400g",                cat:"🍞 Bread & Bakery",icon:"🍞",prices:sp(1.28,[-1.28,-1.28,-1.28,0,-1.28,-1.28])},
+  {id:811,name:"Soreen Sliced Loaf",                  cat:"🍞 Bread & Bakery",icon:"🍞",prices:sp(2.32,[-2.32,-2.32,-2.32,0,-2.32,-2.32])},
+  {id:812,name:"Persil Wonder Wash Ultra Care",       cat:"🧴 Household",     icon:"🧺",prices:sp(9.94,[-9.94,-9.94,-9.94,0,-9.94,-9.94])},
+  {id:813,name:"Andrex Supreme Quilt (16 rolls)",     cat:"🧴 Household",     icon:"🧻",prices:sp(8.90,[-8.90,-8.90,-8.90,0,-8.90,-8.90])},
+  {id:814,name:"Rachel's Coconut Yogurt",             cat:"🥛 Dairy & Eggs",  icon:"🥥",prices:sp(3.02,[-3.02,-3.02,-3.02,0,-3.02,-3.02])},
+  {id:815,name:"Rachel's Organic Rhubarb Yogurt",     cat:"🥛 Dairy & Eggs",  icon:"🍓",prices:sp(3.02,[-3.02,-3.02,-3.02,0,-3.02,-3.02])},
 ];/* ═══════════════════════════════════════════════════════════════════════════
    HELPERS
 ═══════════════════════════════════════════════════════════════════════════ */
@@ -1133,7 +1160,7 @@ const LEADERBOARD = [
   // ── TOP 10 — update these entries with real submissions ─────────────────
   { name: "Leticia",       store: "CI Co-op",  count: 62, date: "20 Jun" },
   { name: "Kate",          store: "Waitrose",  count: 62, date: "17 Jun" },
-  { name: "Carmen1971",    store: "CI Co-op",  count: 16, date: "11 Jun" },
+  { name: "Carmen1971",    store: "CI Co-op",  count: 32, date: "21 Jun" },
   { name: "19Margaret37",  store: "CI Co-op",  count: 14, date: "13 Jun" },
   { name: "Nicole1",       store: "Waitrose",  count: 12, date: "11 Jun" },
   { name: "Sharon",        store: "Morrisons", count: 9,  date: "07 Jun" },
@@ -3191,7 +3218,7 @@ function CompetitionModal({ onClose, onSubmit, lightMode=false }) {
                   }}>
                     <div style={{ fontSize:medal?16:12,fontWeight:700,width:24,textAlign:"center",color:i===0?"#fb923c":i===1?"#cbd5e1":i===2?"#f59e0b":"#475569",flexShrink:0 }}>{pos}</div>
                     <div style={{ flex:1,minWidth:0 }}>
-                      <div style={{ fontSize:12.5,fontWeight:700,color:i===0?"#7c2d12":isTop?"#1e293b":"#94a3b8",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap" }}>{entry.name}</div>
+                      <div style={{ fontSize:12.5,fontWeight:700,color:i===0?"#7c2d12":isTop?lightMode?"#1e293b":"#ffffff":"#94a3b8",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap" }}>{entry.name}</div>
                       {entry.store && <div style={{ fontSize:9.5,color:"#475569",marginTop:1 }}>{entry.store} · {entry.date}</div>}
                     </div>
                     <div style={{ fontSize:12,color:i===0?"#fb923c":isTop?"#fcd34d":"#64748b",fontWeight:700,flexShrink:0 }}>{entry.count} prices</div>
