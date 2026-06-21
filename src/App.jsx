@@ -805,7 +805,7 @@ const BASE_PRODUCTS = [
   {id:697,name:"Icing Sugar (500g)",                cat:"🍝 Pantry",       icon:"🍬",prices:sp(2.20,[-2.20,-2.20,0,-2.20,-2.20,-2.20])},
   {id:698,name:"Co-op Wholemeal Farmhouse Loaf",    cat:"🍞 Bread & Bakery",icon:"🍞",prices:sp(1.25,[0,-1.25,-1.25,-1.25,-1.25,-1.25])},
   {id:699,name:"Coca-Cola Zero Sugar (1.75L)",      cat:"🥤 Drinks",       icon:"🥤",prices:sp(6.15,[0,-6.15,-6.15,-6.15,-6.15,-6.15])},
-  {id:700,name:"Jersey Green Fat Reduced Milk",     cat:"🥛 Dairy & Eggs", icon:"🥛",prices:sp(0.87,[0,-0.87,-0.87,-0.87,-0.87,-0.87])},
+  {id:700,name:"Jersey Green Fat Reduced Milk",     cat:"🥛 Dairy & Eggs", icon:"🥛",prices:sp(1.64,[0,-1.64,-1.64,-1.64,-1.64,-1.64])},
   {id:701,name:"Carte D'Or Vanilla Ice Cream (900ml)",cat:"🧊 Frozen",    icon:"🍦",prices:sp(2.90,[0,-2.90,-2.90,-2.90,-2.90,-2.90])},
 
   /* ── Waitrose Kate receipt 15 Jun 2026 — 28 new items ── */
@@ -853,6 +853,21 @@ const BASE_PRODUCTS = [
   {id:740,name:"Brit Soured Cream (150ml)",        cat:"🥛 Dairy & Eggs",  icon:"🫙",prices:sp(1.05,[-1.05,-1.05,-1.05,0,-1.05,-1.05])},
   {id:741,name:"Brit Soured Cream (300ml)",        cat:"🥛 Dairy & Eggs",  icon:"🫙",prices:sp(1.40,[-1.40,-1.40,-1.40,0,-1.40,-1.40])},
   {id:742,name:"CI Irresinante Soave Classico",    cat:"🥤 Drinks",        icon:"🍷",prices:sp(6.50,[0,-6.50,-6.50,-6.50,-6.50,-6.50])},
+  /* ── Leticia receipt 20 Jun 2026 — Co-op Millennium Park ── */
+  {id:743,name:"Starbucks Frappuccino Mocha",      cat:"🥤 Drinks",        icon:"☕",prices:sp(1.90,[0,-1.90,-1.90,-1.90,-1.90,-1.90])},
+  {id:744,name:"Cathedral City Mature Cheddar",    cat:"🥛 Dairy & Eggs",  icon:"🧀",prices:sp(3.67,[0,-3.67,-3.67,-3.67,-3.67,-3.67])},
+  {id:745,name:"Co-op Mozzarella Grated (250g)",   cat:"🥛 Dairy & Eggs",  icon:"🧀",prices:sp(1.55,[0,-1.55,-1.55,-1.55,-1.55,-1.55])},
+  {id:746,name:"Doritos Tangy Cheese",             cat:"🥨 Snacks & Treats",icon:"🌽",prices:sp(1.30,[0,-1.30,-1.30,-1.30,-1.30,-1.30])},
+  {id:747,name:"Co-op All Day Breakfast (tin)",    cat:"🍝 Pantry",        icon:"🍳",prices:sp(3.60,[0,-3.60,-3.60,-3.60,-3.60,-3.60])},
+  {id:748,name:"Co-op Mozzarella & Cheddar Mix Grated",cat:"🥛 Dairy & Eggs",icon:"🧀",prices:sp(1.55,[0,-1.55,-1.55,-1.55,-1.55,-1.55])},
+  {id:749,name:"Co-op White Thistle Loaf",         cat:"🍞 Bread & Bakery",icon:"🍞",prices:sp(2.50,[0,-2.50,-2.50,-2.50,-2.50,-2.50])},
+  {id:750,name:"Co-op Snack Pepperoni",            cat:"🥨 Snacks & Treats",icon:"🍖",prices:sp(1.05,[0,-1.05,-1.05,-1.05,-1.05,-1.05])},
+  {id:751,name:"Cathedral City Mini Mature (2pk)", cat:"🥛 Dairy & Eggs",  icon:"🧀",prices:sp(5.10,[0,-5.10,-5.10,-5.10,-5.10,-5.10])},
+  {id:752,name:"Fridge Raiders Roast Chicken (90g)",cat:"🥨 Snacks & Treats",icon:"🐔",prices:sp(2.00,[0,-2.00,-2.00,-2.00,-2.00,-2.00])},
+  {id:753,name:"Co-op Honey Roast Ham",             cat:"🥩 Meat & Fish",   icon:"🥩",prices:sp(3.15,[0,-3.15,-3.15,-3.15,-3.15,-3.15])},
+  {id:754,name:"Fruit & Go Fruit Puree Pouches (20pk)",cat:"🥨 Snacks & Treats",icon:"🍓",prices:sp(8.20,[0,-8.20,-8.20,-8.20,-8.20,-8.20])},
+  {id:755,name:"Co-op Pancakes (6pk)",              cat:"🍞 Bread & Bakery",icon:"🥞",prices:sp(1.30,[0,-1.30,-1.30,-1.30,-1.30,-1.30])},
+  {id:756,name:"Babybel Mini Originals (12x20g)",   cat:"🥛 Dairy & Eggs",  icon:"🧀",prices:sp(4.59,[0,-4.59,-4.59,-4.59,-4.59,-4.59])},
 ];/* ═══════════════════════════════════════════════════════════════════════════
    HELPERS
 ═══════════════════════════════════════════════════════════════════════════ */
@@ -1116,7 +1131,7 @@ const COMP_WINNER = ""; // e.g. "Sarah M" — leave blank while competition is l
 const MAINTENANCE = false;
 const LEADERBOARD = [
   // ── TOP 10 — update these entries with real submissions ─────────────────
-  { name: "Leticia",       store: "CI Co-op",  count: 48, date: "16 Jun" },
+  { name: "Leticia",       store: "CI Co-op",  count: 62, date: "20 Jun" },
   { name: "Kate",          store: "Waitrose",  count: 62, date: "17 Jun" },
   { name: "Carmen1971",    store: "CI Co-op",  count: 16, date: "11 Jun" },
   { name: "19Margaret37",  store: "CI Co-op",  count: 14, date: "13 Jun" },
@@ -3176,7 +3191,7 @@ function CompetitionModal({ onClose, onSubmit, lightMode=false }) {
                   }}>
                     <div style={{ fontSize:medal?16:12,fontWeight:700,width:24,textAlign:"center",color:i===0?"#fb923c":i===1?"#cbd5e1":i===2?"#f59e0b":"#475569",flexShrink:0 }}>{pos}</div>
                     <div style={{ flex:1,minWidth:0 }}>
-                      <div style={{ fontSize:12.5,fontWeight:700,color:isTop?"#f0f4f8":"#94a3b8",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap" }}>{entry.name}</div>
+                      <div style={{ fontSize:12.5,fontWeight:700,color:i===0?"#7c2d12":isTop?"#1e293b":"#94a3b8",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap" }}>{entry.name}</div>
                       {entry.store && <div style={{ fontSize:9.5,color:"#475569",marginTop:1 }}>{entry.store} · {entry.date}</div>}
                     </div>
                     <div style={{ fontSize:12,color:i===0?"#fb923c":isTop?"#fcd34d":"#64748b",fontWeight:700,flexShrink:0 }}>{entry.count} prices</div>
