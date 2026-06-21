@@ -895,6 +895,17 @@ const BASE_PRODUCTS = [
   {id:813,name:"Andrex Supreme Quilt (16 rolls)",     cat:"🧴 Household",     icon:"🧻",prices:sp(8.90,[-8.90,-8.90,-8.90,0,-8.90,-8.90])},
   {id:814,name:"Rachel's Coconut Yogurt",             cat:"🥛 Dairy & Eggs",  icon:"🥥",prices:sp(3.02,[-3.02,-3.02,-3.02,0,-3.02,-3.02])},
   {id:815,name:"Rachel's Organic Rhubarb Yogurt",     cat:"🥛 Dairy & Eggs",  icon:"🍓",prices:sp(3.02,[-3.02,-3.02,-3.02,0,-3.02,-3.02])},
+  /* ── Lucy Lemos Waitrose receipt — date pending confirmation ── */
+  {id:816,name:"Kallo Corn Cakes (Low Salt)",          cat:"🥨 Snacks & Treats",icon:"🌽",prices:sp(1.45,[-1.45,-1.45,-1.45,0,-1.45,-1.45])},
+  {id:817,name:"Green Riced Cauliflower",              cat:"🥦 Fruit & Veg",   icon:"🥦",prices:sp(1.73,[-1.73,-1.73,-1.73,0,-1.73,-1.73])},
+  {id:818,name:"WR Cauliflower & Broccoli",            cat:"🥦 Fruit & Veg",   icon:"🥦",prices:sp(1.73,[-1.73,-1.73,-1.73,0,-1.73,-1.73])},
+  {id:819,name:"Vadasz Raw Kimchi",                    cat:"🥗 Deli & Salads", icon:"🥬",prices:sp(5.70,[-5.70,-5.70,-5.70,0,-5.70,-5.70])},
+  {id:821,name:"Tofoo Co Naked XL",                   cat:"🥩 Meat & Fish",   icon:"🫘",prices:sp(4.30,[-4.30,-4.30,-4.30,0,-4.30,-4.30])},
+  {id:822,name:"Lindahls Protein Quark",               cat:"🥛 Dairy & Eggs",  icon:"🍦",prices:sp(2.30,[-2.30,-2.30,-2.30,0,-2.30,-2.30])},
+  {id:823,name:"Fage Total 0% Yogurt",                 cat:"🥛 Dairy & Eggs",  icon:"🍦",prices:sp(4.59,[-4.59,-4.59,-4.59,0,-4.59,-4.59])},
+  {id:824,name:"WR Mediterranean Style Veg",           cat:"🧊 Frozen",        icon:"🥗",prices:sp(3.77,[-3.77,-3.77,-3.77,0,-3.77,-3.77])},
+  {id:825,name:"WR Frozen Grilled Veg",                cat:"🧊 Frozen",        icon:"🥗",prices:sp(3.37,[-3.37,-3.37,-3.37,0,-3.37,-3.37])},
+  {id:826,name:"Essential Blueberries",                cat:"🥦 Fruit & Veg",   icon:"🫐",prices:sp(3.83,[-3.83,-3.83,-3.83,0,-3.83,-3.83])},
 ];/* ═══════════════════════════════════════════════════════════════════════════
    HELPERS
 ═══════════════════════════════════════════════════════════════════════════ */
