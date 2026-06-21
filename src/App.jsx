@@ -906,6 +906,28 @@ const BASE_PRODUCTS = [
   {id:824,name:"WR Mediterranean Style Veg",           cat:"🧊 Frozen",        icon:"🥗",prices:sp(3.77,[-3.77,-3.77,-3.77,0,-3.77,-3.77])},
   {id:825,name:"WR Frozen Grilled Veg",                cat:"🧊 Frozen",        icon:"🥗",prices:sp(3.37,[-3.37,-3.37,-3.37,0,-3.37,-3.37])},
   {id:826,name:"Essential Blueberries",                cat:"🥦 Fruit & Veg",   icon:"🫐",prices:sp(3.83,[-3.83,-3.83,-3.83,0,-3.83,-3.83])},
+  /* ── Kate receipt 21 Jun 2026 — Waitrose St Saviour ── */
+  {id:827,name:"Heineken 0.0 (4pk)",               cat:"🥤 Drinks",        icon:"🍺",prices:sp(5.95,[-5.95,-5.95,-5.95,0,-5.95,-5.95])},
+  {id:828,name:"WR Tandoori Sizzlers",              cat:"🥩 Meat & Fish",   icon:"🍗",prices:sp(6.38,[-6.38,-6.38,-6.38,0,-6.38,-6.38])},
+  {id:829,name:"WR NY Cheesecake",                  cat:"🥨 Snacks & Treats",icon:"🍰",prices:sp(5.80,[-5.80,-5.80,-5.80,0,-5.80,-5.80])},
+  {id:830,name:"Cheestrings 3 Pack",                cat:"🥛 Dairy & Eggs",  icon:"🧀",prices:sp(2.67,[-2.67,-2.67,-2.67,0,-2.67,-2.67])},
+  {id:831,name:"WR Essential Medium Cheddar",       cat:"🥛 Dairy & Eggs",  icon:"🧀",prices:sp(3.28,[-3.28,-3.28,-3.28,0,-3.28,-3.28])},
+  {id:832,name:"WR Spanish Chorizo Slices",         cat:"🥩 Meat & Fish",   icon:"🌶️",prices:sp(2.90,[-2.90,-2.90,-2.90,0,-2.90,-2.90])},
+  {id:833,name:"WR Spanish Olive & Manchego",       cat:"🥗 Deli & Salads", icon:"🫒",prices:sp(4.60,[-4.60,-4.60,-4.60,0,-4.60,-4.60])},
+  {id:834,name:"Squares Multipack",                 cat:"🥨 Snacks & Treats",icon:"🍘",prices:sp(1.80,[-1.80,-1.80,-1.80,0,-1.80,-1.80])},
+  {id:835,name:"Fox's Choc Rocky",                  cat:"🥨 Snacks & Treats",icon:"🍫",prices:sp(1.80,[-1.80,-1.80,-1.80,0,-1.80,-1.80])},
+  {id:836,name:"McVities Penguin",                  cat:"🥨 Snacks & Treats",icon:"🍫",prices:sp(1.60,[-1.60,-1.60,-1.60,0,-1.60,-1.60])},
+  {id:837,name:"Bahlsen Pick Up Milk",              cat:"🥨 Snacks & Treats",icon:"🍫",prices:sp(1.35,[-1.35,-1.35,-1.35,0,-1.35,-1.35])},
+  {id:838,name:"Fairy Heavy Duty Original (520ml)", cat:"🧴 Household",     icon:"🧴",prices:sp(1.98,[-1.98,-1.98,-1.98,0,-1.98,-1.98])},
+  {id:839,name:"Colgate Deep Clean",                cat:"🧴 Household",     icon:"🪥",prices:sp(3.13,[-3.13,-3.13,-3.13,0,-3.13,-3.13])},
+  {id:840,name:"WR Strawberries (600g)",            cat:"🥦 Fruit & Veg",   icon:"🍓",prices:sp(4.18,[-4.18,-4.18,-4.18,0,-4.18,-4.18])},
+  {id:841,name:"WR BB Jersey Royal New Potatoes",   cat:"🥦 Fruit & Veg",   icon:"🥔",prices:sp(2.50,[-2.50,-2.50,-2.50,0,-2.50,-2.50])},
+  {id:842,name:"CI Jersey Peppers",                 cat:"🥦 Fruit & Veg",   icon:"🫑",prices:sp(2.40,[-2.40,-2.40,-2.40,0,-2.40,-2.40])},
+  {id:843,name:"CI Jersey Cucumber",                cat:"🥦 Fruit & Veg",   icon:"🥒",prices:sp(1.00,[-1.00,-1.00,-1.00,0,-1.00,-1.00])},
+  {id:844,name:"Big Hoops Beef Grab Bag",           cat:"🥨 Snacks & Treats",icon:"🌽",prices:sp(1.28,[-1.28,-1.28,-1.28,0,-1.28,-1.28])},
+  {id:845,name:"Chicken Chorizo Lettuce Wrap",      cat:"🥗 Deli & Salads", icon:"🌯",prices:sp(4.59,[-4.59,-4.59,-4.59,0,-4.59,-4.59])},
+  {id:846,name:"Oasis Summer Fruits",               cat:"🥤 Drinks",        icon:"🍹",prices:sp(2.14,[-2.14,-2.14,-2.14,0,-2.14,-2.14])},
+  {id:847,name:"Jersey Vanilla Ice Cream",          cat:"🧊 Frozen",        icon:"🍦",prices:sp(5.96,[-5.96,-5.96,-5.96,0,-5.96,-5.96])},
 ];/* ═══════════════════════════════════════════════════════════════════════════
    HELPERS
 ═══════════════════════════════════════════════════════════════════════════ */
@@ -1170,7 +1192,7 @@ const MAINTENANCE = false;
 const LEADERBOARD = [
   // ── TOP 10 — update these entries with real submissions ─────────────────
   { name: "Leticia",       store: "CI Co-op",  count: 62, date: "20 Jun" },
-  { name: "Kate",          store: "Waitrose",  count: 62, date: "17 Jun" },
+  { name: "Kate",          store: "Waitrose",  count: 83, date: "21 Jun" },
   { name: "Carmen1971",    store: "CI Co-op",  count: 32, date: "21 Jun" },
   { name: "19Margaret37",  store: "CI Co-op",  count: 14, date: "13 Jun" },
   { name: "Nicole1",       store: "Waitrose",  count: 12, date: "11 Jun" },
