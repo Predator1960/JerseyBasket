@@ -3143,8 +3143,8 @@ function CompetitionModal({ onClose, onSubmit, lightMode=false }) {
         {/* sticky header */}
         <div style={{ display:"flex",justifyContent:"space-between",alignItems:"center",padding:"18px 20px 14px",borderBottom:"1px solid rgba(251,146,60,.15)",flexShrink:0 }}>
           <div>
-            <div style={{ fontSize:17,fontWeight:700,color:"#fed7aa" }}>🏆 June Price Hunt</div>
-            <div style={{ fontSize:11,color:"#9a3412",marginTop:2 }}>1st June – 30th June 2026 midnight · Winner announced 1st July 12:00pm</div>
+            <div style={{ fontSize:17,fontWeight:700,color:lightMode?"#7c2d12":"#fed7aa" }}>🏆 June Price Hunt</div>
+            <div style={{ fontSize:11,color:lightMode?"#92400e":"#fb923c",marginTop:2 }}>1st June – 30th June 2026 midnight · Winner announced 1st July 12:00pm</div>
           </div>
           <button onClick={onClose} style={{ background:lightMode?"rgba(0,0,0,.07)":"rgba(255,255,255,.07)",border:"none",borderRadius:7,width:32,height:32,color:lightMode?"#475569":"#94a3b8",cursor:"pointer",fontSize:16,flexShrink:0 }}>✕</button>
         </div>
@@ -3163,7 +3163,7 @@ function CompetitionModal({ onClose, onSubmit, lightMode=false }) {
 
         {/* how it works */}
         <div style={{ background:"rgba(255,255,255,.03)",border:"1px solid rgba(255,255,255,.07)",borderRadius:12,padding:"14px 16px",marginBottom:16 }}>
-          <div style={{ fontSize:10,color:"#9a3412",fontWeight:700,letterSpacing:".08em",textTransform:"uppercase",marginBottom:10 }}>HOW IT WORKS</div>
+          <div style={{ fontSize:10,color:lightMode?"#92400e":"#fb923c",fontWeight:700,letterSpacing:".08em",textTransform:"uppercase",marginBottom:10 }}>HOW IT WORKS</div>
           {[
             ["📸","Take a photo of your receipt","From any of Jersey's 6 supermarkets"],
             ["📤","Submit it via the form below","Include your name and which store"],
@@ -3174,16 +3174,16 @@ function CompetitionModal({ onClose, onSubmit, lightMode=false }) {
             <div key={i} style={{ display:"flex",gap:12,marginBottom:i<4?10:0 }}>
               <span style={{ fontSize:18,flexShrink:0 }}>{icon}</span>
               <div>
-                <div style={{ fontSize:12,fontWeight:700,color:"#f0f4f8" }}>{title}</div>
-                <div style={{ fontSize:10,color:"#64748b",marginTop:1 }}>{sub}</div>
+                <div style={{ fontSize:12,fontWeight:700,color:lightMode?"#1e293b":"#f0f4f8" }}>{title}</div>
+                <div style={{ fontSize:10,color:lightMode?"#64748b":"#94a3b8",marginTop:1 }}>{sub}</div>
               </div>
             </div>
           ))}
         </div>
 
         {/* rules */}
-        <div style={{ background:"rgba(255,255,255,.02)",borderRadius:10,padding:"10px 14px",marginBottom:16,fontSize:10,color:"#64748b",lineHeight:1.8 }}>
-          <div style={{ fontWeight:700,color:"#475569",marginBottom:4 }}>Rules</div>
+        <div style={{ background:lightMode?"rgba(0,0,0,.04)":"rgba(255,255,255,.02)",borderRadius:10,padding:"10px 14px",marginBottom:16,fontSize:10,color:lightMode?"#334155":"#94a3b8",lineHeight:1.8 }}>
+          <div style={{ fontWeight:700,color:lightMode?"#1e293b":"#cbd5e1",marginBottom:4 }}>Rules</div>
           • Each receipt can only be submitted once<br/>
           • Receipt must show the store name and date clearly<br/>
           • All receipts are manually checked before prices are counted<br/>
@@ -3200,7 +3200,7 @@ function CompetitionModal({ onClose, onSubmit, lightMode=false }) {
 
         {/* leaderboard */}
         <div style={{ marginBottom:20 }}>
-          <div style={{ fontSize:10,color:"#9a3412",fontWeight:700,letterSpacing:".08em",textTransform:"uppercase",marginBottom:10 }}>
+          <div style={{ fontSize:10,color:lightMode?"#92400e":"#fb923c",fontWeight:700,letterSpacing:".08em",textTransform:"uppercase",marginBottom:10 }}>
             🏆 TOP SHOPPERS — JUNE 2026
             {LEADERBOARD.length > 0 && <span style={{ fontWeight:400,color:"#475569",marginLeft:8,textTransform:"none",letterSpacing:0 }}>{LEADERBOARD.length} entr{LEADERBOARD.length===1?"y":"ies"}</span>}
           </div>
@@ -3218,7 +3218,7 @@ function CompetitionModal({ onClose, onSubmit, lightMode=false }) {
                   }}>
                     <div style={{ fontSize:medal?16:12,fontWeight:700,width:24,textAlign:"center",color:i===0?"#fb923c":i===1?"#cbd5e1":i===2?"#f59e0b":"#475569",flexShrink:0 }}>{pos}</div>
                     <div style={{ flex:1,minWidth:0 }}>
-                      <div style={{ fontSize:12.5,fontWeight:700,color:i===0?"#7c2d12":isTop?lightMode?"#1e293b":"#ffffff":"#94a3b8",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap" }}>{entry.name}</div>
+                      <div style={{ fontSize:12.5,fontWeight:700,color:i===0?lightMode?"#7c2d12":"#ffffff":isTop?lightMode?"#1e293b":"#ffffff":"#94a3b8",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap" }}>{entry.name}</div>
                       {entry.store && <div style={{ fontSize:9.5,color:"#475569",marginTop:1 }}>{entry.store} · {entry.date}</div>}
                     </div>
                     <div style={{ fontSize:12,color:i===0?"#fb923c":isTop?"#fcd34d":"#64748b",fontWeight:700,flexShrink:0 }}>{entry.count} prices</div>
