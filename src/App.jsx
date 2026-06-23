@@ -949,6 +949,15 @@ const BASE_PRODUCTS = [
   {id:865,name:"Mitchum Floral Citrus Deodorant",   cat:"🧴 Household",     icon:"🌸",prices:sp(3.98,[-3.98,-3.98,-3.98,0,-3.98,-3.98])},
   {id:866,name:"Bionsen Deodorant Roll-On",         cat:"🧴 Household",     icon:"🌿",prices:sp(2.98,[-2.98,-2.98,-2.98,0,-2.98,-2.98])},
   {id:867,name:"Lu Petit Beurre Salted",            cat:"🥨 Snacks & Treats",icon:"🍪",prices:sp(1.35,[-1.35,-1.35,-1.35,0,-1.35,-1.35])},
+  /* ── Carmen1971 Co-op 23 Jun 2026 ── */
+  {id:868,name:"Stork Spread",                      cat:"🍝 Pantry",        icon:"🧈",prices:sp(2.75,[0,-2.75,-2.75,-2.75,-2.75,-2.75])},
+  {id:869,name:"Co-op Irresistable Victoria Sponge", cat:"🍞 Bread & Bakery",icon:"🎂",prices:sp(2.84,[0,-2.84,-2.84,-2.84,-2.84,-2.84])},
+  /* ── Jason S Waitrose 23 Jun 2026 ── */
+  {id:870,name:"WR 4 Fresh Pork Sausages",           cat:"🥩 Meat & Fish",   icon:"🌭",prices:sp(6.04,[-6.04,-6.04,-6.04,0,-6.04,-6.04])},
+  {id:871,name:"WR Sausage Patties",                 cat:"🥩 Meat & Fish",   icon:"🌭",prices:sp(4.60,[-4.60,-4.60,-4.60,0,-4.60,-4.60])},
+  {id:872,name:"WR Pork Round Sausages",             cat:"🥩 Meat & Fish",   icon:"🌭",prices:sp(4.60,[-4.60,-4.60,-4.60,0,-4.60,-4.60])},
+  {id:873,name:"WR Essential Dutch Edam",            cat:"🥛 Dairy & Eggs",  icon:"🧀",prices:sp(3.57,[-3.57,-3.57,-3.57,0,-3.57,-3.57])},
+  {id:874,name:"Vienna Floured Rolls",               cat:"🍞 Bread & Bakery",icon:"🥖",prices:sp(2.73,[-2.73,-2.73,-2.73,0,-2.73,-2.73])},
 ];/* ═══════════════════════════════════════════════════════════════════════════
    HELPERS
 ═══════════════════════════════════════════════════════════════════════════ */
@@ -1214,7 +1223,7 @@ const LEADERBOARD = [
   // ── TOP 10 — update these entries with real submissions ─────────────────
   { name: "Leticia",       store: "CI Co-op",  count: 82, date: "22 Jun" },
   { name: "Kate",          store: "Waitrose",  count: 83, date: "21 Jun" },
-  { name: "Carmen1971",    store: "CI Co-op",  count: 32, date: "21 Jun" },
+  { name: "Carmen1971",    store: "CI Co-op",  count: 34, date: "23 Jun" },
   { name: "19Margaret37",  store: "CI Co-op",  count: 14, date: "13 Jun" },
   { name: "Nicole1",       store: "Waitrose",  count: 12, date: "11 Jun" },
   { name: "Sharon",        store: "Morrisons", count: 9,  date: "07 Jun" },
