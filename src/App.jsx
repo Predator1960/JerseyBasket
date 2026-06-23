@@ -928,6 +928,27 @@ const BASE_PRODUCTS = [
   {id:845,name:"Chicken Chorizo Lettuce Wrap",      cat:"🥗 Deli & Salads", icon:"🌯",prices:sp(4.59,[-4.59,-4.59,-4.59,0,-4.59,-4.59])},
   {id:846,name:"Oasis Summer Fruits",               cat:"🥤 Drinks",        icon:"🍹",prices:sp(2.14,[-2.14,-2.14,-2.14,0,-2.14,-2.14])},
   {id:847,name:"Jersey Vanilla Ice Cream",          cat:"🧊 Frozen",        icon:"🍦",prices:sp(5.96,[-5.96,-5.96,-5.96,0,-5.96,-5.96])},
+  /* ── Leticia receipt 22 Jun 2026 — Waitrose St Saviour ── */
+  {id:848,name:"WR Goats Milk (FCRM)",              cat:"🥛 Dairy & Eggs",  icon:"🥛",prices:sp(2.90,[-2.90,-2.90,-2.90,0,-2.90,-2.90])},
+  {id:849,name:"WR Speciality Figs",                cat:"🥦 Fruit & Veg",   icon:"🍈",prices:sp(3.43,[-3.43,-3.43,-3.43,0,-3.43,-3.43])},
+  {id:850,name:"WR Mixed Berries",                  cat:"🥦 Fruit & Veg",   icon:"🍓",prices:sp(3.14,[-3.14,-3.14,-3.14,0,-3.14,-3.14])},
+  {id:851,name:"Piccolo Cheeseballs",               cat:"🥨 Snacks & Treats",icon:"🧀",prices:sp(3.53,[-3.53,-3.53,-3.53,0,-3.53,-3.53])},
+  {id:852,name:"WR Romaine Lettuce",                cat:"🥦 Fruit & Veg",   icon:"🥬",prices:sp(2.19,[-2.19,-2.19,-2.19,0,-2.19,-2.19])},
+  {id:853,name:"WR Essential Hazelnut Choc Spread", cat:"🍝 Pantry",        icon:"🍫",prices:sp(1.16,[-1.16,-1.16,-1.16,0,-1.16,-1.16])},
+  {id:854,name:"WR Soft White Medium Loaf",         cat:"🍞 Bread & Bakery",icon:"🍞",prices:sp(1.16,[-1.16,-1.16,-1.16,0,-1.16,-1.16])},
+  {id:855,name:"WR Bah Petit Pains",                cat:"🍞 Bread & Bakery",icon:"🥖",prices:sp(1.74,[-1.74,-1.74,-1.74,0,-1.74,-1.74])},
+  {id:856,name:"WR Bah Baguettes",                  cat:"🍞 Bread & Bakery",icon:"🥖",prices:sp(1.74,[-1.74,-1.74,-1.74,0,-1.74,-1.74])},
+  {id:857,name:"WR Wafer Cones",                    cat:"🥨 Snacks & Treats",icon:"🍦",prices:sp(1.16,[-1.16,-1.16,-1.16,0,-1.16,-1.16])},
+  {id:858,name:"Carnation Caramel Drizzle",         cat:"🍝 Pantry",        icon:"🍮",prices:sp(3.77,[-3.77,-3.77,-3.77,0,-3.77,-3.77])},
+  {id:859,name:"WR Scottish Salmon Steak",          cat:"🥩 Meat & Fish",   icon:"🐟",prices:sp(15.58,[-15.58,-15.58,-15.58,0,-15.58,-15.58])},
+  {id:860,name:"Jersey Dairy Yogurt",               cat:"🥛 Dairy & Eggs",  icon:"🍦",prices:sp(2.30,[-2.30,-2.30,-2.30,0,-2.30,-2.30])},
+  {id:861,name:"Biotiful Strawberry Kefir",         cat:"🥛 Dairy & Eggs",  icon:"🥛",prices:sp(3.50,[-3.50,-3.50,-3.50,0,-3.50,-3.50])},
+  {id:862,name:"Actimel Multifruit",                cat:"🥛 Dairy & Eggs",  icon:"🍹",prices:sp(5.51,[-5.51,-5.51,-5.51,0,-5.51,-5.51])},
+  {id:863,name:"Yeo Valley Honey Yogurt",           cat:"🥛 Dairy & Eggs",  icon:"🍯",prices:sp(3.19,[-3.19,-3.19,-3.19,0,-3.19,-3.19])},
+  {id:864,name:"WR Extra Strong Lager 30cl Tall",   cat:"🥤 Drinks",        icon:"🍺",prices:sp(4.42,[-4.42,-4.42,-4.42,0,-4.42,-4.42])},
+  {id:865,name:"Mitchum Floral Citrus Deodorant",   cat:"🧴 Household",     icon:"🌸",prices:sp(3.98,[-3.98,-3.98,-3.98,0,-3.98,-3.98])},
+  {id:866,name:"Bionsen Deodorant Roll-On",         cat:"🧴 Household",     icon:"🌿",prices:sp(2.98,[-2.98,-2.98,-2.98,0,-2.98,-2.98])},
+  {id:867,name:"Lu Petit Beurre Salted",            cat:"🥨 Snacks & Treats",icon:"🍪",prices:sp(1.35,[-1.35,-1.35,-1.35,0,-1.35,-1.35])},
 ];/* ═══════════════════════════════════════════════════════════════════════════
    HELPERS
 ═══════════════════════════════════════════════════════════════════════════ */
@@ -1191,7 +1212,7 @@ const COMP_WINNER = ""; // e.g. "Sarah M" — leave blank while competition is l
 const MAINTENANCE = false;
 const LEADERBOARD = [
   // ── TOP 10 — update these entries with real submissions ─────────────────
-  { name: "Leticia",       store: "CI Co-op",  count: 62, date: "20 Jun" },
+  { name: "Leticia",       store: "CI Co-op",  count: 82, date: "22 Jun" },
   { name: "Kate",          store: "Waitrose",  count: 83, date: "21 Jun" },
   { name: "Carmen1971",    store: "CI Co-op",  count: 32, date: "21 Jun" },
   { name: "19Margaret37",  store: "CI Co-op",  count: 14, date: "13 Jun" },
