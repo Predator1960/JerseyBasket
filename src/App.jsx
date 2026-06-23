@@ -1228,7 +1228,7 @@ const LEADERBOARD = [
   { name: "Nicole1",       store: "Waitrose",  count: 12, date: "11 Jun" },
   { name: "Sharon",        store: "Morrisons", count: 9,  date: "07 Jun" },
   { name: "dreamer1977",   store: "CI Co-op",  count: 9,  date: "06 Jun" },
-  { name: "j.acottjsy",     store: "Waitrose",  count: 12, date: "15 Jun" },
+  { name: "Jason S",        store: "Waitrose",  count: 25, date: "23 Jun" },
   // ── Remove the // at the start of each line above to activate ────────────
 ];
 
