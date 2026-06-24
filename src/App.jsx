@@ -958,6 +958,15 @@ const BASE_PRODUCTS = [
   {id:872,name:"WR Pork Round Sausages",             cat:"🥩 Meat & Fish",   icon:"🌭",prices:sp(4.60,[-4.60,-4.60,-4.60,0,-4.60,-4.60])},
   {id:873,name:"WR Essential Dutch Edam",            cat:"🥛 Dairy & Eggs",  icon:"🧀",prices:sp(3.57,[-3.57,-3.57,-3.57,0,-3.57,-3.57])},
   {id:874,name:"Vienna Floured Rolls",               cat:"🍞 Bread & Bakery",icon:"🥖",prices:sp(2.73,[-2.73,-2.73,-2.73,0,-2.73,-2.73])},
+  /* ── Jason S M&S 22 Jun 2026 ── */
+  {id:875,name:"M&S Outdoor Bred Wafer Thin Ham",    cat:"🥩 Meat & Fish",   icon:"🥩",prices:sp(4.00,[-4.00,-4.00,0,-4.00,-4.00,-4.00])},
+  {id:876,name:"M&S Cheddar & Bacon Crispbakes",     cat:"🥨 Snacks & Treats",icon:"🧀",prices:sp(3.00,[-3.00,-3.00,0,-3.00,-3.00,-3.00])},
+  {id:877,name:"M&S Miniature New Potatoes",         cat:"🥦 Fruit & Veg",   icon:"🥔",prices:sp(2.90,[-2.90,-2.90,0,-2.90,-2.90,-2.90])},
+  {id:878,name:"M&S Superberry Granola",             cat:"🥣 Breakfast",     icon:"🫐",prices:sp(3.00,[-3.00,-3.00,0,-3.00,-3.00,-3.00])},
+  {id:879,name:"M&S Free Range Medium Eggs (12pk)",  cat:"🥛 Dairy & Eggs",  icon:"🥚",prices:sp(4.00,[-4.00,-4.00,0,-4.00,-4.00,-4.00])},
+  {id:880,name:"M&S Orzo & Tomato Pasta",            cat:"🍝 Pantry",        icon:"🍝",prices:sp(3.65,[-3.65,-3.65,0,-3.65,-3.65,-3.65])},
+  {id:881,name:"M&S Moroccan Fruity Couscous",       cat:"🍝 Pantry",        icon:"🫙",prices:sp(5.20,[-5.20,-5.20,0,-5.20,-5.20,-5.20])},
+  {id:882,name:"M&S Reduced Fat Coleslaw",           cat:"🥗 Deli & Salads", icon:"🥗",prices:sp(1.60,[-1.60,-1.60,0,-1.60,-1.60,-1.60])},
 ];/* ═══════════════════════════════════════════════════════════════════════════
    HELPERS
 ═══════════════════════════════════════════════════════════════════════════ */
@@ -1229,7 +1238,7 @@ const LEADERBOARD = [
   { name: "Nicole1",       store: "Waitrose",  count: 12, date: "11 Jun" },
   { name: "Sharon",        store: "Morrisons", count: 9,  date: "07 Jun" },
   { name: "dreamer1977",   store: "CI Co-op",  count: 9,  date: "06 Jun" },
-  { name: "Jason S",        store: "Waitrose",  count: 25, date: "23 Jun" },
+  { name: "Jason S",        store: "Waitrose / M&S", count: 33, date: "24 Jun" },
   // ── Remove the // at the start of each line above to activate ────────────
 ];
 
