@@ -967,6 +967,14 @@ const BASE_PRODUCTS = [
   {id:880,name:"M&S Orzo & Tomato Pasta",            cat:"🍝 Pantry",        icon:"🍝",prices:sp(3.65,[-3.65,-3.65,0,-3.65,-3.65,-3.65])},
   {id:881,name:"M&S Moroccan Fruity Couscous",       cat:"🍝 Pantry",        icon:"🫙",prices:sp(5.20,[-5.20,-5.20,0,-5.20,-5.20,-5.20])},
   {id:882,name:"M&S Reduced Fat Coleslaw",           cat:"🥗 Deli & Salads", icon:"🥗",prices:sp(1.60,[-1.60,-1.60,0,-1.60,-1.60,-1.60])},
+  /* ── Carmen1971 Waitrose 24 Jun 2026 ── */
+  {id:883,name:"Oat Flaked Rolls",                   cat:"🍞 Bread & Bakery",icon:"🥖",prices:sp(2.85,[-2.85,-2.85,-2.85,0,-2.85,-2.85])},
+  {id:884,name:"Pepsi Max Cans (multipack)",          cat:"🥤 Drinks",        icon:"🥤",prices:sp(5.12,[-5.12,-5.12,-5.12,0,-5.12,-5.12])},
+  {id:885,name:"Tony's Caramel Chocolate Bar",        cat:"🥨 Snacks & Treats",icon:"🍫",prices:sp(3.83,[-3.83,-3.83,-3.83,0,-3.83,-3.83])},
+  {id:886,name:"WR CI White Fondant Icing",           cat:"🍝 Pantry",        icon:"🎂",prices:sp(2.32,[-2.32,-2.32,-2.32,0,-2.32,-2.32])},
+  {id:887,name:"WR Salted Danish Butter (250g)",      cat:"🥛 Dairy & Eggs",  icon:"🧈",prices:sp(3.88,[-3.88,-3.88,-3.88,0,-3.88,-3.88])},
+  {id:888,name:"WR Essential Single Cream",           cat:"🥛 Dairy & Eggs",  icon:"🍦",prices:sp(1.69,[-1.69,-1.69,-1.69,0,-1.69,-1.69])},
+  {id:889,name:"WR Essential Iceberg Lettuce",        cat:"🥦 Fruit & Veg",   icon:"🥬",prices:sp(1.16,[-1.16,-1.16,-1.16,0,-1.16,-1.16])},
 ];/* ═══════════════════════════════════════════════════════════════════════════
    HELPERS
 ═══════════════════════════════════════════════════════════════════════════ */
