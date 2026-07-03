@@ -1159,7 +1159,7 @@ const BASE_PRODUCTS = [
   {id:1068,name:"Carefree Cotton Feel Normal 20pk",             cat:"🧻 Toiletries",          icon:"🌸", prices:sp(1.26,[-1.26,-1.26,-1.26,-1.26,0,-1.26])},
   {id:1069,name:"Always Daily Fresh Normal",                    cat:"🧻 Toiletries",          icon:"🌸", prices:sp(1.59,[-1.59,-1.59,-1.59,-1.59,0,-1.59])},
   {id:1070,name:"Morrisons Comfort Pads Normal 12pk",           cat:"🧻 Toiletries",          icon:"🌸", prices:sp(1.70,[-1.70,-1.70,-1.70,-1.70,0,-1.70])},
-  {id:1071,name:"Morrisons Ultra Towels",                       cat:"🧻 Toiletries",          icon:"🌸", prices:sp(0.60,[-0.60,-0.60,-0.60,-0.60,0,-0.60])},
+  {id:1071,name:"Morrisons Ultra Sanitary Towels with Wings 12pk",cat:"🧻 Toiletries",         icon:"🌸", prices:sp(0.60,[-0.60,-0.60,-0.60,-0.60,0,-0.60])},
   {id:1072,name:"Tampons Non-Applicator",                       cat:"🧻 Toiletries",          icon:"🌸", prices:sp(1.40,[-1.40,-1.40,-1.40,-1.40,0,-1.40])},
   {id:1073,name:"Tena Pants Super Medium",                      cat:"🧻 Toiletries",          icon:"🌸", prices:sp(18.20,[-18.20,-18.20,-18.20,-18.20,0,-18.20])},
   {id:1074,name:"Dreamies Cat Treats Chicken",                  cat:"🐾 Pet",                 icon:"🐱", prices:sp(1.65,[-1.65,-1.65,-1.65,-1.65,0,-1.65])},
