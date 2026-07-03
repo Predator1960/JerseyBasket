@@ -13,11 +13,12 @@
  * Built for Jersey, Channel Islands.
  * Contact: hello@jerseybasket.je
  *
- * Version:   v80
- * Updated:   13 June 2026
- * Changes:   Add Item modal — fixed header always visible (pulled outside scroll container),
- *            ✕ button now accessible at all scroll positions, backdrop tap to close works,
- *            info box text readable in light mode.
+ * Version:   v81
+ * Updated:   03 July 2026
+ * Changes:   Added Iceland Non Food category from Snappy Shopper (20 products, IDs 2547-2566) —
+ *            completes all Snappy Shopper Iceland categories. Includes Daewoo Dual Air Fryer and
+ *            Duracell Plus AA 8 Pack, both marked available soon (currently out of stock at source).
+ *            2,525 total products.
  * ============================================================
  */
 import React, { useState, useMemo, useRef, useEffect, useCallback } from "react";
@@ -2635,6 +2636,26 @@ const BASE_PRODUCTS = [
   {id:2544,name:"Refresher Chews",                                    cat:"🍫 Confectionery",icon:"🍬",prices:sp(1.60,[-1.60,-1.60,-1.60,-1.60,0,-1.60])},
   {id:2545,name:"Candy Realms Sour Dummies 190g",                     cat:"🍫 Confectionery",icon:"🍬",prices:sp(1.35,[-1.35,-1.35,-1.35,-1.35,0,-1.35])},
   {id:2546,name:"Peelerz Peelable Banana Gummy 62g",                  cat:"🍫 Confectionery",icon:"🍬",prices:sp(1.35,[-1.35,-1.35,-1.35,-1.35,0,-1.35])},
+  {id:2547,name:"Paper Plates",                                       cat:"🧹 Household",icon:"🍽️",prices:sp(1.95,[-1.95,-1.95,-1.95,-1.95,0,-1.95])},
+  {id:2548,name:"Sellotape Original Golden",                          cat:"🧹 Household",icon:"📏",prices:sp(2.40,[-2.40,-2.40,-2.40,-2.40,0,-2.40])},
+  {id:2549,name:"Securfix Super Glue 2 Pack",                         cat:"🧹 Household",icon:"🧴",prices:sp(1.50,[-1.50,-1.50,-1.50,-1.50,0,-1.50])},
+  {id:2550,name:"Caroline Plastic Tubs With Lids 650ml x 5",          cat:"🧹 Household",icon:"🥡",prices:sp(2.30,[-2.30,-2.30,-2.30,-2.30,0,-2.30])},
+  {id:2551,name:"Bar-Be-Quick Party Barbecue",                        cat:"🧹 Household",icon:"🔥",prices:sp(7.90,[-7.90,-7.90,-7.90,-7.90,0,-7.90])},
+  {id:2552,name:"Bar Be Quick Lumpwood Charcoal 2.7kg",               cat:"🧹 Household",icon:"🔥",prices:sp(9.20,[-9.20,-9.20,-9.20,-9.20,0,-9.20])},
+  {id:2553,name:"Bar-Be-Quick Lighting Cubes 24 Pack",                cat:"🧹 Household",icon:"🔥",prices:sp(3.15,[-3.15,-3.15,-3.15,-3.15,0,-3.15])},
+  {id:2554,name:"Bar-Be-Quick Instant Barbecue",                      cat:"🧹 Household",icon:"🔥",prices:sp(3.95,[-3.95,-3.95,-3.95,-3.95,0,-3.95])},
+  {id:2555,name:"Duracell Plus AA 4 Pack",                            cat:"🧹 Household",icon:"🔋",prices:sp(5.00,[-5.00,-5.00,-5.00,-5.00,0,-5.00])},
+  {id:2556,name:"Duracell Plus AAA 4 Pack",                           cat:"🧹 Household",icon:"🔋",prices:sp(5.00,[-5.00,-5.00,-5.00,-5.00,0,-5.00])},
+  {id:2557,name:"Duracell Specialty 2032 Lithium Coin Battery 3V 2 Pack",cat:"🧹 Household",icon:"🔋",prices:sp(3.70,[-3.70,-3.70,-3.70,-3.70,0,-3.70])},
+  {id:2558,name:"Duracell Plus 9V 1 Pack",                            cat:"🧹 Household",icon:"🔋",prices:sp(4.75,[-4.75,-4.75,-4.75,-4.75,0,-4.75])},
+  {id:2559,name:"Duracell Plus 100% C 2 Pack",                        cat:"🧹 Household",icon:"🔋",prices:sp(4.75,[-4.75,-4.75,-4.75,-4.75,0,-4.75])},
+  {id:2560,name:"Duracell Plus D 2 Pack",                             cat:"🧹 Household",icon:"🔋",prices:sp(4.75,[-4.75,-4.75,-4.75,-4.75,0,-4.75])},
+  {id:2561,name:"Duracell Specialty 2025 Lithium Coin Battery 3V 2 Pack",cat:"🧹 Household",icon:"🔋",prices:sp(3.70,[-3.70,-3.70,-3.70,-3.70,0,-3.70])},
+  {id:2562,name:"Duracell Plus AAA 8 Pack",                           cat:"🧹 Household",icon:"🔋",prices:sp(9.25,[-9.25,-9.25,-9.25,-9.25,0,-9.25])},
+  {id:2563,name:"Energizer Primary Alkaline AAA Batteries 10 Pack",   cat:"🧹 Household",icon:"🔋",prices:sp(4.10,[-4.10,-4.10,-4.10,-4.10,0,-4.10])},
+  {id:2564,name:"Energizer Primary Alkaline AA Batteries 10 Pack",    cat:"🧹 Household",icon:"🔋",prices:sp(4.10,[-4.10,-4.10,-4.10,-4.10,0,-4.10])},
+  {id:2565,name:"Daewoo Dual Air Fryer 9ltr",                         cat:"🧹 Household",icon:"🔌",prices:sp(61.95,[-61.95,-61.95,-61.95,-61.95,0,-61.95])},
+  {id:2566,name:"Duracell Plus AA 8 Pack",                            cat:"🧹 Household",icon:"🔋",prices:sp(9.25,[-9.25,-9.25,-9.25,-9.25,0,-9.25])},
 ];/* ═══════════════════════════════════════════════════════════════════════════
    HELPERS
 ═══════════════════════════════════════════════════════════════════════════ */
