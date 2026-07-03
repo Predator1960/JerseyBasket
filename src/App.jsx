@@ -3684,18 +3684,18 @@ export default function JerseyGroceryApp() {
                         <div style={{ fontSize:11,fontWeight:700,color:lightMode?"#334155":"#cbd5e1" }}>📍 {store.note}</div>
                       </div>
                       <div style={{ textAlign:"right" }}>
-                        <div style={{ fontSize:19,fontWeight:700,color:lightMode?`rgb(${Math.max(0,r-80)},${Math.max(0,g-80)},${Math.max(0,b-80)})`:sc,textShadow:lightMode?"none":`0 0 10px rgba(${r},${g},${b},0.5)` }}>£{avg.toFixed(2)}</div>
+                        <div style={{ fontSize:19,fontWeight:700,color:lightMode?`rgb(${Math.max(0,r-80)},${Math.max(0,g-80)},${Math.max(0,b-80)})`:`rgb(${Math.min(255,r+110)},${Math.min(255,g+110)},${Math.min(255,b+110)})`,textShadow:lightMode?"none":`0 0 10px rgba(${r},${g},${b},0.5)` }}>£{avg.toFixed(2)}</div>
                         <div style={{ fontSize:11,fontWeight:700,color:lightMode?"#334155":"#cbd5e1" }}>avg / item</div>
                       </div>
                     </div>
                     {/* stat badges row */}
                     <div style={{ display:"flex",gap:9,marginTop:11,flexWrap:"wrap" }}>
                       <div style={{ background:`linear-gradient(180deg,rgba(${r},${g},${b},0.15) 0%,rgba(${r},${g},${b},0.08) 100%)`,border:`1px solid rgba(${r},${g},${b},0.25)`,borderRadius:10,padding:"7px 14px",textAlign:"center",boxShadow:"inset 0 1px 0 rgba(255,255,255,.07)" }}>
-                        <div style={{ fontSize:16,fontWeight:700,color:lightMode?`rgb(${Math.max(0,r-80)},${Math.max(0,g-80)},${Math.max(0,b-80)})`:sc,textShadow:lightMode?"none":`0 0 8px rgba(${r},${g},${b},0.4)` }}>{wins}</div>
+                        <div style={{ fontSize:16,fontWeight:700,color:lightMode?`rgb(${Math.max(0,r-80)},${Math.max(0,g-80)},${Math.max(0,b-80)})`:`rgb(${Math.min(255,r+110)},${Math.min(255,g+110)},${Math.min(255,b+110)})`,textShadow:lightMode?"none":`0 0 8px rgba(${r},${g},${b},0.4)` }}>{wins}</div>
                         <div style={{ fontSize:11,fontWeight:600,color:lightMode?"#334155":"#cbd5e1" }}>cheapest items</div>
                       </div>
                       <div style={{ background:`linear-gradient(180deg,rgba(${r},${g},${b},0.15) 0%,rgba(${r},${g},${b},0.08) 100%)`,border:`1px solid rgba(${r},${g},${b},0.25)`,borderRadius:10,padding:"7px 14px",textAlign:"center",boxShadow:"inset 0 1px 0 rgba(255,255,255,.07)" }}>
-                        <div style={{ fontSize:16,fontWeight:700,color:lightMode?`rgb(${Math.max(0,r-80)},${Math.max(0,g-80)},${Math.max(0,b-80)})`:sc,textShadow:lightMode?"none":`0 0 8px rgba(${r},${g},${b},0.4)` }}>{winPct}%</div>
+                        <div style={{ fontSize:16,fontWeight:700,color:lightMode?`rgb(${Math.max(0,r-80)},${Math.max(0,g-80)},${Math.max(0,b-80)})`:`rgb(${Math.min(255,r+110)},${Math.min(255,g+110)},${Math.min(255,b+110)})`,textShadow:lightMode?"none":`0 0 8px rgba(${r},${g},${b},0.4)` }}>{winPct}%</div>
                         <div style={{ fontSize:11,fontWeight:600,color:lightMode?"#334155":"#cbd5e1" }}>of range</div>
                       </div>
                       {/* description — inline on desktop, full width below on mobile */}
