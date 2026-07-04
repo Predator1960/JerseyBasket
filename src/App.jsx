@@ -13,8 +13,8 @@
  * Built for Jersey, Channel Islands.
  * Contact: hello@jerseybasket.je
  *
- * Version:   v81
- * Updated:   03 July 2026
+ * Version:   v82
+ * Updated:   04 July 2026
  * Changes:   Added Iceland Non Food category from Snappy Shopper (20 products, IDs 2547-2566) —
  *            completes all Snappy Shopper Iceland categories. Includes Daewoo Dual Air Fryer and
  *            Duracell Plus AA 8 Pack, both marked available soon (currently out of stock at source).
@@ -27,10 +27,12 @@
  *            Youngs Cod Cakes, Salted Caramel Chocolate Bar, Patak's Korma Curry Paste Pot,
  *            WR Essential Salted Butter (Waitrose). Also corrected Cheese Singles 10pk to £1.50
  *            and Garlic Kiev 260g to £3.59 (both existing items, prices updated from receipt).
- *            BUG FIXES: Settings modal (store picker) close button now clears the phone
- *            notch/status bar via safe-area-inset buffer. Product list now correctly excludes
- *            items priced £0.00 at every enabled store — fixes Iceland-only view showing
- *            unavailable products. 2,538 total products.
+ *            BUG FIXES: Product list now correctly excludes items priced £0.00 at every enabled
+ *            store — fixes Iceland-only view showing unavailable products (confirmed working).
+ *            Settings modal (store picker) rebuilt with sticky header outside the scroll
+ *            container — close button now always visible regardless of scroll position, and
+ *            removed the oversized bottom padding that was pushing the Done button off-screen.
+ *            2,538 total products.
  * ============================================================
  */
 import React, { useState, useMemo, useRef, useEffect, useCallback } from "react";
@@ -4864,18 +4866,21 @@ function EnquiryModal({ onClose, lightMode=false }) {
 ═══════════════════════════════════════════════════════════════════════════ */
 function SettingsModal({ disabledStores, onToggleStore, onClose, lightMode=false }) {
   return (
-    <div style={{ position:"fixed",inset:0,zIndex:500,display:"flex",alignItems:"flex-end",justifyContent:"center",paddingTop:"calc(60px + env(safe-area-inset-top,0px))",background:"rgba(0,0,0,.75)",backdropFilter:"blur(8px)" }}
+    <div style={{ position:"fixed",inset:0,zIndex:500,display:"flex",alignItems:"center",justifyContent:"center",background:"rgba(0,0,0,.75)",backdropFilter:"blur(8px)",padding:16,overflowY:"auto" }}
       onClick={e=>{ if(e.target===e.currentTarget) onClose(); }}>
-      <div style={{ width:"100%",maxWidth:520,background:lightMode?"rgba(240,244,248,.98)":"#0a1a30",border:lightMode?"1px solid rgba(0,0,0,.12)":"1px solid rgba(255,255,255,.12)",borderRadius:"20px 20px 0 0",padding:"24px 20px 32px",paddingBottom:"calc(132px + 32px)",maxHeight:"85vh",overflowY:"auto" }}>
+      <div style={{ position:"relative",width:"100%",maxWidth:520,background:lightMode?"rgba(240,244,248,.98)":"#0a1a30",border:lightMode?"1px solid rgba(0,0,0,.12)":"1px solid rgba(255,255,255,.12)",borderRadius:20,maxHeight:"85vh",display:"flex",flexDirection:"column",margin:"auto" }}>
 
-        {/* header */}
-        <div style={{ display:"flex",justifyContent:"space-between",alignItems:"flex-start",marginBottom:20 }}>
+        {/* sticky header — always visible regardless of scroll */}
+        <div style={{ display:"flex",justifyContent:"space-between",alignItems:"flex-start",flexShrink:0,padding:"20px 20px 16px",borderRadius:"20px 20px 0 0",background:lightMode?"rgba(240,244,248,.98)":"#0a1a30" }}>
           <div>
             <div style={{ fontSize:17,fontWeight:700,color:"#f0f4f8" }}>⚙️ Settings</div>
             <div style={{ fontSize:11,color:"#64748b",marginTop:2 }}>Hide stores you don't want to see</div>
           </div>
-          <button onClick={onClose} style={{ background:"rgba(255,255,255,.07)",border:"none",borderRadius:7,width:28,height:28,color:"#94a3b8",cursor:"pointer",fontSize:14 }}>✕</button>
+          <button onClick={onClose} style={{ background:"rgba(255,255,255,.07)",border:"none",borderRadius:7,width:32,height:32,color:"#94a3b8",cursor:"pointer",fontSize:16,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0 }}>✕</button>
         </div>
+
+        {/* scrollable content */}
+        <div style={{ overflowY:"auto",padding:"0 20px 20px" }}>
 
         {/* store toggles */}
         <div style={{ fontSize:10,color:"#64748b",fontWeight:700,letterSpacing:".5px",marginBottom:10 }}>SHOW / HIDE STORES</div>
@@ -4916,6 +4921,7 @@ function SettingsModal({ disabledStores, onToggleStore, onClose, lightMode=false
         <button onClick={onClose} style={{ width:"100%",padding:"13px",background:"linear-gradient(180deg,#4ade80 0%,#15803d 100%)",boxShadow:"0 3px 10px rgba(34,197,94,.5),inset 0 1px 0 rgba(255,255,255,.3)",border:"none",borderRadius:12,color:"#fff",cursor:"pointer",fontSize:14,fontWeight:700 }}>
           Done
         </button>
+        </div>
       </div>
     </div>
   );
