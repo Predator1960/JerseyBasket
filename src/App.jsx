@@ -15,6 +15,11 @@
  *
  * Version:   v82
  * Updated:   04 July 2026
+ * Changes:   FEATURE: When multiple stores share the exact same lowest price for an item, the
+ *            product card now shows "🔀 X stores tied" instead of arbitrarily picking one store
+ *            to feature. Opening the dropdown shows all tied stores marked CHEAPEST. Picking a
+ *            store manually (or having a global pinned store) still shows that specific store as
+ *            before — the tied display only applies when nothing has been explicitly chosen.
  * Changes:   Added Iceland Non Food category from Snappy Shopper (20 products, IDs 2547-2566) —
  *            completes all Snappy Shopper Iceland categories. Includes Daewoo Dual Air Fryer and
  *            Duracell Plus AA 8 Pack, both marked available soon (currently out of stock at source).
@@ -2796,6 +2801,7 @@ function ProductCard({ product, onAddToBasket, pinnedStore, isFavourite, onToggl
   const sorted     = getSortedPrices(product, disabledStores);
   const bestPrice  = sorted[0]?.[1] ?? 0;
   const bestId     = sorted[0]?.[0];
+  const tiedCount  = sorted.filter(([,price])=>price===bestPrice).length;
 
   // Priority: manual override > global pin > cheapest
   const effectiveStoreId = manualOverride && !disabledStores.has(manualOverride)
@@ -2810,6 +2816,8 @@ function ProductCard({ product, onAddToBasket, pinnedStore, isFavourite, onToggl
   const saving     = getWorstPrice(product,disabledStores)-bestPrice;
   const overBest   = chosenPrice-bestPrice;
   const isOnBest   = chosenStoreId===bestId;
+  // Showing the "tied" state only when nothing has been explicitly chosen (no manual pick, no global pin)
+  const isTied     = tiedCount>1 && !manualOverride && !(pinnedStore && product.prices[pinnedStore]>0 && !disabledStores.has(pinnedStore));
 
   // When global pin changes, clear any manual override
   const prevPin = useRef(pinnedStore);
@@ -2850,7 +2858,7 @@ function ProductCard({ product, onAddToBasket, pinnedStore, isFavourite, onToggl
         {/* store pill + add */}
         <div style={{ display:"flex", alignItems:"center", gap:6, paddingBottom:11, overflow:"hidden" }}>
           {(() => {
-            const sc = chosenStore?.color || "#22c55e";
+            const sc = isTied ? "#94a3b8" : (chosenStore?.color || "#22c55e");
             const r=parseInt(sc.slice(1,3),16), g=parseInt(sc.slice(3,5),16), b=parseInt(sc.slice(5,7),16);
             return (
               <button onClick={()=>setOpen(o=>!o)} style={{
@@ -2861,9 +2869,18 @@ function ProductCard({ product, onAddToBasket, pinnedStore, isFavourite, onToggl
                 boxShadow:`inset 0 1px 0 rgba(255,255,255,.1)`,
               }}>
                 <div style={{ display:"flex", alignItems:"center", gap:5 }}>
-                  <span style={{ fontSize:13 }}>{chosenStore?.emoji}</span>
-                  <span style={{ fontSize:10.5, fontWeight:700, color: lightMode ? `rgb(${Math.max(0,r-60)},${Math.max(0,g-60)},${Math.max(0,b-60)})` : `rgb(${Math.min(255,r+80)},${Math.min(255,g+80)},${Math.min(255,b+80)})` }}>{chosenStore?.name}</span>
-                  {isOnBest && <span style={{ fontSize:8, background:`rgba(${r},${g},${b},0.3)`, color: lightMode ? `rgb(${Math.max(0,r-80)},${Math.max(0,g-80)},${Math.max(0,b-80)})` : sc, borderRadius:4, padding:"1px 5px", fontWeight:700, border:`1px solid rgba(${r},${g},${b},0.4)` }}>BEST</span>}
+                  {isTied ? (
+                    <>
+                      <span style={{ fontSize:13 }}>🔀</span>
+                      <span style={{ fontSize:10.5, fontWeight:700, color: lightMode ? `rgb(${Math.max(0,r-60)},${Math.max(0,g-60)},${Math.max(0,b-60)})` : `rgb(${Math.min(255,r+80)},${Math.min(255,g+80)},${Math.min(255,b+80)})` }}>{tiedCount} stores tied</span>
+                    </>
+                  ) : (
+                    <>
+                      <span style={{ fontSize:13 }}>{chosenStore?.emoji}</span>
+                      <span style={{ fontSize:10.5, fontWeight:700, color: lightMode ? `rgb(${Math.max(0,r-60)},${Math.max(0,g-60)},${Math.max(0,b-60)})` : `rgb(${Math.min(255,r+80)},${Math.min(255,g+80)},${Math.min(255,b+80)})` }}>{chosenStore?.name}</span>
+                      {isOnBest && <span style={{ fontSize:8, background:`rgba(${r},${g},${b},0.3)`, color: lightMode ? `rgb(${Math.max(0,r-80)},${Math.max(0,g-80)},${Math.max(0,b-80)})` : sc, borderRadius:4, padding:"1px 5px", fontWeight:700, border:`1px solid rgba(${r},${g},${b},0.4)` }}>BEST</span>}
+                    </>
+                  )}
                 </div>
                 <span style={{ fontSize:16, color:sc, display:"inline-block", transition:"transform .2s", transform:open?"rotate(180deg)":"none", lineHeight:1 }}>▾</span>
               </button>
@@ -2887,7 +2904,7 @@ function ProductCard({ product, onAddToBasket, pinnedStore, isFavourite, onToggl
         <div style={{ borderTop:"1px solid rgba(255,255,255,.07)", background:"rgba(0,0,0,.35)", borderRadius:"0 0 16px 16px", overflow:"hidden" }}>
           {sorted.map(([sid,price],idx)=>{
             const store    = STORES.find(s=>s.id===sid);
-            const isBest   = idx===0;
+            const isBest   = price===bestPrice;
             const isSel    = sid===chosenStoreId;
             const diff     = price-bestPrice;
             const pct      = Math.round((diff/bestPrice)*100);
