@@ -18,7 +18,16 @@
  * Changes:   Added Iceland Non Food category from Snappy Shopper (20 products, IDs 2547-2566) —
  *            completes all Snappy Shopper Iceland categories. Includes Daewoo Dual Air Fryer and
  *            Duracell Plus AA 8 Pack, both marked available soon (currently out of stock at source).
- *            2,525 total products.
+ *            Added Coca-Cola Zero Sugar 4-pack (£2.90) and 12-pack (£5.25), confirmed from Co-op
+ *            receipts. Corrected 4 Co-op prices from live receipts: Lucozade Pink Lemonade 500ml
+ *            £1.30, White Choc Cookies 5pk £1.85, Cadbury Raspberry Ruffle Rolls £4.35, Warburtons
+ *            Farmhouse 800g £2.00 (Co-op price added). Added 11 more items from receipts
+ *            (IDs 2569-2579): Extra Thick Foil, Cadbury Daim Bar, Garlic & Coriander Naan,
+ *            Sausage & Bean Slice, Chocolate Twist, Pear Drops, Bakers Small Dog Beef & Veg,
+ *            Youngs Cod Cakes, Salted Caramel Chocolate Bar, Patak's Korma Curry Paste Pot,
+ *            WR Essential Salted Butter (Waitrose). Also corrected Cheese Singles 10pk to £1.50
+ *            and Garlic Kiev 260g to £3.59 (both existing items, prices updated from receipt).
+ *            2,538 total products.
  * ============================================================
  */
 import React, { useState, useMemo, useRef, useEffect, useCallback } from "react";
@@ -358,7 +367,7 @@ const BASE_PRODUCTS = [
   {id:258,name:"Sweets Pick n Mix (200g)",     cat:"🥨 Snacks & Treats",icon:"🍬",prices:sp(1.80,[0,0.18,0.7,0.54,0.09])},
   {id:259,name:"Jelly Babies (190g)",          cat:"🥨 Snacks & Treats",icon:"🍬",prices:sp(1.50,[0,0.15,0.6,0.46,0.07])},
   {id:260,name:"Fruit Pastilles (52g roll)",   cat:"🥨 Snacks & Treats",icon:"🍬",prices:sp(0.80,[0,0.08,0.32,1.84,0.04])},
-  {id:582,name:"White Choc Cookies (5pk)",      cat:"🥨 Snacks & Treats",icon:"🍪",prices:sp(1.60,[0,-1.60,-1.60,-1.60,-1.60])},
+  {id:582,name:"White Choc Cookies (5pk)",      cat:"🥨 Snacks & Treats",icon:"🍪",prices:sp(1.85,[0,-1.85,-1.85,-1.85,-1.85])},
   {id:583,name:"Peperami Original (25g)",        cat:"🥨 Snacks & Treats",icon:"🌭",prices:sp(1.30,[0,-1.30,-1.30,-1.30,-1.30])},
   {id:584,name:"NikNaks Nic Nac Spicy (125g)",  cat:"🥨 Snacks & Treats",icon:"🌶️",prices:sp(2.80,[0,-2.80,-2.80,-2.80,-2.80])},
   {id:585,name:"Wotsits Flamin Hot (140g)",      cat:"🥨 Snacks & Treats",icon:"🔥",prices:sp(1.60,[0,-1.60,-1.60,-1.60,-1.60])},
@@ -659,11 +668,11 @@ const BASE_PRODUCTS = [
   {id:525,name:"Babybel Mini Original (6pk)",   cat:"🥛 Dairy & Eggs", icon:"🧀",prices:sp(2.99,[0,0,0,0,0])},
   {id:539,name:"Whipping Cream (300ml)",        cat:"🥛 Dairy & Eggs", icon:"🍦",prices:sp(2.09,[-2.09,-2.09,-2.09,0,-2.09])},
   {id:570,name:"Yeo Valley Raspberry Yogurt",   cat:"🥛 Dairy & Eggs", icon:"🍓",prices:sp(1.80,[-1.80,-1.80,-1.80,0,-1.80])},
-  {id:571,name:"Cheese Singles (10pk)",         cat:"🥛 Dairy & Eggs", icon:"🧀",prices:sp(2.65,[0,-2.65,-2.65,-2.65,-2.65])},
+  {id:571,name:"Cheese Singles (10pk)",         cat:"🥛 Dairy & Eggs", icon:"🧀",prices:sp(1.50,[0,-1.50,-1.50,-1.50,-1.50])},
   {id:510,name:"Albert Bartlett Bake Pot (4pk)",cat:"🥦 Fruit & Veg",  icon:"🥔",prices:sp(2.96,[0,0,0,0,0])},
   {id:511,name:"Lucozade Energy Orange (500ml)", cat:"🥤 Drinks",       icon:"⚡",prices:sp(2.73,[0,0,0,0,0])},
   {id:523,name:"Capri-Sun Juice Drink (10pk)",  cat:"🥤 Drinks",       icon:"🧃",prices:sp(1.50,[0,0,0,0,0])},
-  {id:595,name:"Lucozade Pink Lemonade (500ml)", cat:"🥤 Drinks",       icon:"⚡", prices:sp(1.35,[0,-1.35,-1.35,-1.35,-1.35])},
+  {id:595,name:"Lucozade Pink Lemonade (500ml)", cat:"🥤 Drinks",       icon:"⚡", prices:sp(1.30,[0,-1.30,-1.30,-1.30,-1.30])},
   {id:596,name:"Robinsons Double Strength Orange (1L)", cat:"🥤 Drinks", icon:"🍊", prices:sp(1.00,[0,-1.00,-1.00,-1.00,1.10,-1.00])},
   {id:597,name:"Cp Closed Cup Mushrooms",        cat:"🥦 Fruit & Veg",  icon:"🍄", prices:sp(1.10,[0,-1.10,-1.10,-1.10,-1.10])},
   {id:598,name:"Cp Cauliflower (head)",           cat:"🥦 Fruit & Veg",  icon:"🥦", prices:sp(1.40,[0,-1.40,-1.40,-1.40,-1.40])},
@@ -715,7 +724,7 @@ const BASE_PRODUCTS = [
   {id:534,name:"Beef Meatballs 12pk",            cat:"🧊 Frozen",       icon:"🍝",prices:sp(5.22,[-5.22,-5.22,-5.22,0,-5.22])},
   {id:572,name:"McCain Spiced Wedges (750g)",    cat:"🧊 Frozen",       icon:"🍟",prices:sp(1.60,[0,-1.60,-1.60,-1.60,-1.60])},
   {id:573,name:"Crispy French Fries (900g)",     cat:"🧊 Frozen",       icon:"🍟",prices:sp(3.90,[0,-3.90,-3.90,-3.90,-3.90])},
-  {id:574,name:"Garlic Kiev (260g)",             cat:"🧊 Frozen",       icon:"🍗",prices:sp(2.10,[0,-2.10,-2.10,-2.10,-2.10])},
+  {id:574,name:"Garlic Kiev (260g)",             cat:"🧊 Frozen",       icon:"🍗",prices:sp(3.59,[0,-3.59,-3.59,-3.59,-3.59])},
   {id:575,name:"Hot Crunchy Mini Fillets",        cat:"🧊 Frozen",       icon:"🍗",prices:sp(3.60,[0,-3.60,-3.60,-3.60,-3.60])},
   {id:576,name:"Chicken Nuggets (240g)",          cat:"🧊 Frozen",       icon:"🍗",prices:sp(3.35,[0,-3.35,-3.35,-3.35,-3.35])},
   {id:515,name:"GF Self-raising Flour (1kg)",  cat:"🌱 Free From",    icon:"🌾",prices:sp(2.34,[0,0.11,0.21,0,0,0.61])},
@@ -807,6 +816,19 @@ const BASE_PRODUCTS = [
   {id:698,name:"Co-op Wholemeal Farmhouse Loaf",    cat:"🍞 Bread & Bakery",icon:"🍞",prices:sp(1.25,[0,-1.25,-1.25,-1.25,-1.25,-1.25])},
   {id:699,name:"Coca-Cola Zero Sugar (1.75L)",      cat:"🥤 Drinks",       icon:"🥤",prices:sp(2.30,[0,-2.30,-2.30,-2.30,-2.30,-2.30])},
   {id:890,name:"Coca-Cola Zero Sugar (18 cans)",   cat:"🥤 Drinks",       icon:"🥤",prices:sp(4.75,[0,-4.75,-4.75,-4.75,-4.75,-4.75])},
+  {id:2567,name:"Coca-Cola Zero Sugar (4 cans)",   cat:"🥤 Drinks",       icon:"🥤",prices:sp(2.90,[0,-2.90,-2.90,-2.90,-2.90,-2.90])},
+  {id:2568,name:"Coca-Cola Zero Sugar (12 cans)",   cat:"🥤 Drinks",       icon:"🥤",prices:sp(5.25,[0,-5.25,-5.25,-5.25,-5.25,-5.25])},
+  {id:2569,name:"Co-op Extra Thick Foil",           cat:"🧹 Household",    icon:"✨",prices:sp(2.45,[0,-2.45,-2.45,-2.45,-2.45,-2.45])},
+  {id:2570,name:"Cadbury Daim Bar",                 cat:"🍫 Confectionery",icon:"🍫",prices:sp(1.58,[0,-1.58,-1.58,-1.58,-1.58,-1.58])},
+  {id:2571,name:"Co-op Garlic & Coriander Naan",    cat:"🍞 Bread & Bakery",icon:"🫓",prices:sp(1.19,[0,-1.19,-1.19,-1.19,-1.19,-1.19])},
+  {id:2572,name:"Co-op Sausage & Bean Slice",       cat:"🥩 Meat & Fish",  icon:"🌭",prices:sp(1.60,[0,-1.60,-1.60,-1.60,-1.60,-1.60])},
+  {id:2573,name:"Co-op Chocolate Twist",            cat:"🍰 Cakes & Bakery",icon:"🥐",prices:sp(1.19,[0,-1.19,-1.19,-1.19,-1.19,-1.19])},
+  {id:2574,name:"Co-op Pear Drops",                 cat:"🍫 Confectionery",icon:"🍬",prices:sp(1.05,[0,-1.05,-1.05,-1.05,-1.05,-1.05])},
+  {id:2575,name:"Bakers Small Dog Beef & Veg",      cat:"🐾 Pet",          icon:"🐕",prices:sp(3.15,[0,-3.15,-3.15,-3.15,-3.15,-3.15])},
+  {id:2576,name:"Youngs Cod Cakes",                 cat:"🥩 Meat & Fish",  icon:"🐟",prices:sp(1.70,[0,-1.70,-1.70,-1.70,-1.70,-1.70])},
+  {id:2577,name:"Co-op Salted Caramel Chocolate Bar",cat:"🍫 Confectionery",icon:"🍫",prices:sp(3.15,[0,-3.15,-3.15,-3.15,-3.15,-3.15])},
+  {id:2578,name:"Patak's Korma Curry Paste Pot",    cat:"🍝 Pantry",       icon:"🍛",prices:sp(2.25,[0,-2.25,-2.25,-2.25,-2.25,-2.25])},
+  {id:2579,name:"WR Essential Salted Butter",       cat:"🥛 Dairy & Eggs", icon:"🧈",prices:sp(2.04,[-2.04,-2.04,-2.04,0,-2.04,-2.04])},
   {id:700,name:"Jersey Green Fat Reduced Milk",     cat:"🥛 Dairy & Eggs", icon:"🥛",prices:sp(1.64,[0,-1.64,-1.64,-1.64,-1.64,-1.64])},
   {id:701,name:"Carte D'Or Vanilla Ice Cream (900ml)",cat:"🧊 Frozen",    icon:"🍦",prices:sp(2.90,[0,-2.90,-2.90,-2.90,-2.90,-2.90])},
 
@@ -1004,7 +1026,7 @@ const BASE_PRODUCTS = [
   {id:914,name:"Snickers Duo (83.4g)",                      cat:"🍫 Confectionery",       icon:"🍫",prices:sp(1.60,[0,-1.60,-1.60,-1.60,-1.60,-1.60])}, 
   {id:915,name:"KitKat Chunky Peanut Butter (42g)",         cat:"🍫 Confectionery",       icon:"🍫",prices:sp(0.95,[0,-0.95,-0.95,-0.95,-0.95,-0.95])}, 
   {id:916,name:"Cadbury Twirl Orange (43g)",                cat:"🍫 Confectionery",       icon:"🍫",prices:sp(1.20,[0,-1.20,-1.20,-1.20,-1.20,-1.20])}, 
-  {id:917,name:"Cadbury Raspberry Ruffle Rolls",            cat:"🍫 Confectionery",       icon:"🍫",prices:sp(3.15,[0,-3.15,-3.15,-3.15,-3.15,-3.15])}, 
+  {id:917,name:"Cadbury Raspberry Ruffle Rolls",            cat:"🍫 Confectionery",       icon:"🍫",prices:sp(4.35,[0,-4.35,-4.35,-4.35,-4.35,-4.35])}, 
   {id:918,name:"Co-op Fresh Pork Mince (500g)",             cat:"🥩 Meat & Fish",         icon:"🥩",prices:sp(4.00,[0,-4.00,-4.00,-4.00,-4.00,-4.00])}, 
   {id:919,name:"Co-op Closed Cup Mushrooms (300g)",         cat:"🥦 Fruit & Veg",         icon:"🍄",prices:sp(1.30,[0,-1.30,-1.30,-1.30,-1.30,-1.30])}, 
   {id:920,name:"Skittles Fruits (136g)",                    cat:"🍫 Confectionery",       icon:"🍬",prices:sp(1.19,[0,-1.19,-1.19,-1.19,-1.19,-1.19])}, 
@@ -1339,7 +1361,7 @@ const BASE_PRODUCTS = [
   {id:1247,name:"Warburtons 12 Protein Power Seeds & Grains 500g",    cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(2.35,[-2.35,-2.35,-2.35,-2.35,0,-2.35])},
   {id:1248,name:"Warburtons 9 Seeds & Grain Fibre Fix 500g",          cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(2.30,[-2.30,-2.30,-2.30,-2.30,0,-2.30])},
   {id:1249,name:"Warburtons Danish Lighter White Bread 400g",         cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(1.70,[-1.70,-1.70,-1.70,-1.70,0,-1.70])},
-  {id:1250,name:"Warburtons Farmhouse 800g",                          cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(2.25,[-2.25,-2.25,-2.25,-2.25,0,-2.25])},
+  {id:1250,name:"Warburtons Farmhouse 800g",                          cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(2.25,[-0.25,-2.25,-2.25,-2.25,0,-2.25])},
   {id:1251,name:"Warburtons Medium Half & Half 800g",                 cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(2.10,[-2.10,-2.10,-2.10,-2.10,0,-2.10])},
   {id:1252,name:"Warburtons Thick Half & Half 800g",                  cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(2.10,[-2.10,-2.10,-2.10,-2.10,0,-2.10])},
   {id:1253,name:"Warburtons Medium Soft White 800g",                  cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(2.10,[-2.10,-2.10,-2.10,-2.10,0,-2.10])},
