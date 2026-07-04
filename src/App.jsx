@@ -27,7 +27,10 @@
  *            Youngs Cod Cakes, Salted Caramel Chocolate Bar, Patak's Korma Curry Paste Pot,
  *            WR Essential Salted Butter (Waitrose). Also corrected Cheese Singles 10pk to £1.50
  *            and Garlic Kiev 260g to £3.59 (both existing items, prices updated from receipt).
- *            2,538 total products.
+ *            BUG FIXES: Settings modal (store picker) close button now clears the phone
+ *            notch/status bar via safe-area-inset buffer. Product list now correctly excludes
+ *            items priced £0.00 at every enabled store — fixes Iceland-only view showing
+ *            unavailable products. 2,538 total products.
  * ============================================================
  */
 import React, { useState, useMemo, useRef, useEffect, useCallback } from "react";
@@ -3033,7 +3036,8 @@ export default function JerseyGroceryApp() {
     let list = allProducts;
     if(activeCategory!=="All") list = list.filter(p=>p.cat===activeCategory);
     if(searchQuery) list = list.filter(p=>p.name.toLowerCase().includes(searchQuery.toLowerCase()));
-    if(pinnedStore) list = list.filter(p=>p.prices[pinnedStore]!==undefined);
+    if(pinnedStore) list = list.filter(p=>p.prices[pinnedStore]>0);
+    list = list.filter(p=>STORES.some(s=>!disabledStores.has(s.id) && p.prices[s.id]>0));
     if(sortBy==="bestPrice") return [...list].sort((a,b)=>getBestPrice(a,disabledStores)-getBestPrice(b,disabledStores));
     if(sortBy==="savings")   return [...list].sort((a,b)=>(getWorstPrice(b,disabledStores)-getBestPrice(b,disabledStores))-(getWorstPrice(a,disabledStores)-getBestPrice(a,disabledStores)));
     if(sortBy==="az")        return [...list].sort((a,b)=>a.name.localeCompare(b.name));
@@ -4860,7 +4864,7 @@ function EnquiryModal({ onClose, lightMode=false }) {
 ═══════════════════════════════════════════════════════════════════════════ */
 function SettingsModal({ disabledStores, onToggleStore, onClose, lightMode=false }) {
   return (
-    <div style={{ position:"fixed",inset:0,zIndex:500,display:"flex",alignItems:"flex-end",justifyContent:"center",paddingTop:60,background:"rgba(0,0,0,.75)",backdropFilter:"blur(8px)" }}
+    <div style={{ position:"fixed",inset:0,zIndex:500,display:"flex",alignItems:"flex-end",justifyContent:"center",paddingTop:"calc(60px + env(safe-area-inset-top,0px))",background:"rgba(0,0,0,.75)",backdropFilter:"blur(8px)" }}
       onClick={e=>{ if(e.target===e.currentTarget) onClose(); }}>
       <div style={{ width:"100%",maxWidth:520,background:lightMode?"rgba(240,244,248,.98)":"#0a1a30",border:lightMode?"1px solid rgba(0,0,0,.12)":"1px solid rgba(255,255,255,.12)",borderRadius:"20px 20px 0 0",padding:"24px 20px 32px",paddingBottom:"calc(132px + 32px)",maxHeight:"85vh",overflowY:"auto" }}>
 
