@@ -17,8 +17,11 @@
  * Updated:   05 July 2026
  * Changes:   Added 4 Waitrose items from receipt: WR Diced Chicken Breast £6.38, Robinsons
  *            Creations £1.75, Hellmann's Light Mayo £2.60, Fanta Orange Zero (8x330ml) £3.75.
- *            Confirmed Waitrose Frozen Quarter Pounder price unchanged at £4.60. 2,542 total
- *            products.
+ *            Confirmed Waitrose Frozen Quarter Pounder price unchanged at £4.60. Removed the
+ *            (closed) June Price Hunt competition banner from the home screen and onboarding
+ *            carousel, replaced with a neutral "Watch this space" teaser for a future
+ *            announcement — competition modal/leaderboard code left in place but no longer
+ *            reachable from anywhere in the app. 2,542 total products.
  * Changes:   FEATURE: When multiple stores share the exact same lowest price for an item, the
  *            product card now shows "🔀 X stores tied" instead of arbitrarily picking one store
  *            to feature. Opening the dropdown shows all tied stores marked CHEAPEST. Picking a
@@ -2959,12 +2962,12 @@ function ProductCard({ product, onAddToBasket, pinnedStore, isFavourite, onToggl
 const FORMSPREE_ID = "mvzyrgqj";
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   JUNE COMPETITION — update LEADERBOARD entries below each week
-   Format: { name: "Carmen1971", count: 14 }   ← any name or alias
-   Set COMP_WINNER to "" while competition is live, or "First L" when decided.
-   Competition auto-expires at midnight 30 June 2026 — no manual change needed.
+   JUNE COMPETITION — CLOSED. Kept below (COMP_WINNER/LEADERBOARD) for the
+   historical record — no longer shown anywhere in the app.
+   HOME SCREEN TEASER — set TEASER_ACTIVE to false to hide the "Watch this
+   space" banner entirely once the next thing is ready to announce properly.
 ═══════════════════════════════════════════════════════════════════════════ */
-const COMP_ACTIVE = true;
+const TEASER_ACTIVE = true;
 const COMP_WINNER = ""; // e.g. "Sarah M" — leave blank while competition is live
 
 /* ─── MAINTENANCE MODE — set to true to show "back shortly" screen ─── */
@@ -3374,22 +3377,18 @@ export default function JerseyGroceryApp() {
               );
             })()}
 
-            {/* ── JUNE COMPETITION BANNER ── */}
-            {COMP_ACTIVE && (
-              <div onClick={()=>setShowCompetition(true)} style={{ marginBottom:12,background:"linear-gradient(135deg,#431a07 0%,#6b2d0a 50%,#7c2412 100%)",border:"1px solid rgba(251,186,60,.6)",borderRadius:12,padding:"12px 16px",display:"flex",alignItems:"center",justifyContent:"space-between",cursor:"pointer",gap:10,boxShadow:"0 4px 20px rgba(194,65,12,.6),inset 0 1px 0 rgba(255,255,255,.2)",position:"relative",overflow:"hidden" }}>
+            {/* ── WATCH THIS SPACE TEASER BANNER ── */}
+            {TEASER_ACTIVE && (
+              <div style={{ marginBottom:12,background:"linear-gradient(135deg,#0f0a2e 0%,#2d1a6b 50%,#4c1d95 100%)",border:"1px solid rgba(167,139,250,.5)",borderRadius:12,padding:"12px 16px",display:"flex",alignItems:"center",justifyContent:"space-between",gap:10,boxShadow:"0 4px 20px rgba(76,29,149,.5),inset 0 1px 0 rgba(255,255,255,.2)",position:"relative",overflow:"hidden" }}>
                 <span style={{ position:"absolute",top:0,left:0,right:0,height:"45%",background:"linear-gradient(180deg,rgba(255,255,255,.18) 0%,rgba(255,255,255,0) 100%)",pointerEvents:"none" }}/>
                 <span style={{ position:"absolute",top:0,left:"-60%",width:"40%",height:"100%",background:"linear-gradient(90deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.12) 50%,rgba(255,255,255,0) 100%)",pointerEvents:"none",animation:"shimmer 3s infinite" }}/>
                 <div style={{ display:"flex",alignItems:"center",gap:10 }}>
-                  <span style={{ fontSize:26 }}>🏆</span>
+                  <span style={{ fontSize:26 }}>👀</span>
                   <div>
-                    <div style={{ fontSize:13,fontWeight:800,color:"#fff",textShadow:"0 1px 4px rgba(0,0,0,.4)",letterSpacing:".01em" }}>🎯 June Price Hunt Competition!</div>
-                    <div style={{ fontSize:11,color:"rgba(255,255,255,.9)",marginTop:2,fontWeight:500 }}>Submit prices · Win up to £15 in gift vouchers · Tap to see leaderboard</div>
+                    <div style={{ fontSize:13,fontWeight:800,color:"#fff",textShadow:"0 1px 4px rgba(0,0,0,.4)",letterSpacing:".01em" }}>✨ Watch this space!</div>
+                    <div style={{ fontSize:11,color:"rgba(255,255,255,.9)",marginTop:2,fontWeight:500 }}>Something new is on the way for JerseyBasket shoppers...</div>
                   </div>
                 </div>
-                <button onClick={e=>{e.stopPropagation();setShowSubmitPrice(true);}} style={{ background:"linear-gradient(180deg,#fbbf24 0%,#f59e0b 100%)",border:"none",borderRadius:9,padding:"9px 14px",color:"#1a0a00",fontSize:11,fontWeight:800,cursor:"pointer",whiteSpace:"nowrap",flexShrink:0,boxShadow:"0 3px 10px rgba(245,158,11,.7),inset 0 1px 0 rgba(255,255,255,.4)",position:"relative",overflow:"hidden" }}>
-                  <span style={{ position:"absolute",top:0,left:0,right:0,height:"52%",background:"linear-gradient(180deg,rgba(255,255,255,.3) 0%,rgba(255,255,255,.04) 100%)",borderRadius:"9px 9px 0 0",pointerEvents:"none" }}/>
-                  🎯 Submit Price
-                </button>
               </div>
             )}
 
@@ -4313,14 +4312,13 @@ function WelcomeModal({ onDismiss, onSubmitPrice, lightMode=false }) {
       installSteps: true,
     },
     {
-      emoji: "🏆",
-      title: "June Price Hunt!",
-      subtitle: "Win up to £15 in gift vouchers",
-      body: "Help us verify prices across Jersey's 6 supermarkets — and win! Submit prices from your shopping receipts throughout June. The shopper who submits the most verified prices wins a £15 gift voucher. 2nd place wins £10, 3rd place wins £5. 🇯🇪",
-      bg: "linear-gradient(135deg,#1a0a00 0%,#7c2d12 60%,#c2410c 100%)",
-      bottomBg: "#1a0a00",
-      accent: "#fb923c",
-      competition: true,
+      emoji: "✨",
+      title: "Watch This Space!",
+      subtitle: "Something new is on the way",
+      body: "We're working on the next exciting thing for JerseyBasket shoppers — keep an eye out, more coming soon. 🇯🇪",
+      bg: "linear-gradient(135deg,#0f0a2e 0%,#2d1a6b 60%,#4c1d95 100%)",
+      bottomBg: "#0f0a2e",
+      accent: "#c4b5fd",
     },
     {
       emoji: "📝",
