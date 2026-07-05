@@ -19,9 +19,12 @@
  *            Creations £1.75, Hellmann's Light Mayo £2.60, Fanta Orange Zero (8x330ml) £3.75.
  *            Confirmed Waitrose Frozen Quarter Pounder price unchanged at £4.60. Removed the
  *            (closed) June Price Hunt competition banner from the home screen and onboarding
- *            carousel, replaced with a neutral "Watch this space" teaser for a future
- *            announcement — competition modal/leaderboard code left in place but no longer
- *            reachable from anywhere in the app. 2,542 total products.
+ *            carousel, replaced with a "Watch this space" teaser. FEATURE: teaser banner is now
+ *            tappable and opens a new swipeable Tips carousel (TipsModal) — 6 slides covering
+ *            cheapest-price-first, pinning a store, the smart basket, favourites, search/sort,
+ *            and PWA install — engagement/education feature to help users discover app features
+ *            they may be missing. A permanent Tips entry point (e.g. inside the existing Help
+ *            modal) is a good next step for a future session. 2,542 total products.
  * Changes:   FEATURE: When multiple stores share the exact same lowest price for an item, the
  *            product card now shows "🔀 X stores tied" instead of arbitrarily picking one store
  *            to feature. Opening the dropdown shows all tied stores marked CHEAPEST. Picking a
@@ -3000,6 +3003,7 @@ export default function JerseyGroceryApp() {
   const [showEnquiry,    setShowEnquiry]    = useState(false);
   const [showAddModal,   setShowAddModal]   = useState(false);
   const [showHelp,       setShowHelp]       = useState(false);
+  const [showTips,       setShowTips]       = useState(false);
   const [showReport,     setShowReport]     = useState(false);
   const [showSettings,   setShowSettings]   = useState(false);
   const [disabledStores, setDisabledStores] = useState(new Set());
@@ -3377,16 +3381,16 @@ export default function JerseyGroceryApp() {
               );
             })()}
 
-            {/* ── WATCH THIS SPACE TEASER BANNER ── */}
+            {/* ── WATCH THIS SPACE TEASER BANNER (tap opens Tips) ── */}
             {TEASER_ACTIVE && (
-              <div style={{ marginBottom:12,background:"linear-gradient(135deg,#0f0a2e 0%,#2d1a6b 50%,#4c1d95 100%)",border:"1px solid rgba(167,139,250,.5)",borderRadius:12,padding:"12px 16px",display:"flex",alignItems:"center",justifyContent:"space-between",gap:10,boxShadow:"0 4px 20px rgba(76,29,149,.5),inset 0 1px 0 rgba(255,255,255,.2)",position:"relative",overflow:"hidden" }}>
+              <div onClick={()=>setShowTips(true)} style={{ marginBottom:12,background:"linear-gradient(135deg,#0f0a2e 0%,#2d1a6b 50%,#4c1d95 100%)",border:"1px solid rgba(167,139,250,.5)",borderRadius:12,padding:"12px 16px",display:"flex",alignItems:"center",justifyContent:"space-between",cursor:"pointer",gap:10,boxShadow:"0 4px 20px rgba(76,29,149,.5),inset 0 1px 0 rgba(255,255,255,.2)",position:"relative",overflow:"hidden" }}>
                 <span style={{ position:"absolute",top:0,left:0,right:0,height:"45%",background:"linear-gradient(180deg,rgba(255,255,255,.18) 0%,rgba(255,255,255,0) 100%)",pointerEvents:"none" }}/>
                 <span style={{ position:"absolute",top:0,left:"-60%",width:"40%",height:"100%",background:"linear-gradient(90deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.12) 50%,rgba(255,255,255,0) 100%)",pointerEvents:"none",animation:"shimmer 3s infinite" }}/>
                 <div style={{ display:"flex",alignItems:"center",gap:10 }}>
                   <span style={{ fontSize:26 }}>👀</span>
                   <div>
                     <div style={{ fontSize:13,fontWeight:800,color:"#fff",textShadow:"0 1px 4px rgba(0,0,0,.4)",letterSpacing:".01em" }}>✨ Watch this space!</div>
-                    <div style={{ fontSize:11,color:"rgba(255,255,255,.9)",marginTop:2,fontWeight:500 }}>Something new is on the way for JerseyBasket shoppers...</div>
+                    <div style={{ fontSize:11,color:"rgba(255,255,255,.9)",marginTop:2,fontWeight:500 }}>Tap for tips on getting the most out of JerseyBasket</div>
                   </div>
                 </div>
               </div>
@@ -3938,6 +3942,9 @@ export default function JerseyGroceryApp() {
         setShowHelp(false);
         setShowWelcome(true);
       }} />}
+
+      {/* ── TIPS MODAL (opened from home screen banner) ── */}
+      {showTips && <TipsModal onClose={()=>setShowTips(false)} lightMode={lightMode} />}
 
       {/* ── SETTINGS MODAL ── */}
       {showSettings && <SettingsModal disabledStores={disabledStores} onToggleStore={toggleStore} onClose={()=>setShowSettings(false)} lightMode={lightMode} />}
@@ -4491,6 +4498,145 @@ function WelcomeModal({ onDismiss, onSubmitPrice, lightMode=false }) {
               style={{ flex:2,padding:"12px",background:`linear-gradient(180deg,${s.accent} 0%,${s.accent}99 100%)`,border:"none",borderRadius:12,color:"#052e16",cursor:"pointer",fontSize:14,fontWeight:700,position:"relative",overflow:"hidden",boxShadow:`0 3px 12px ${s.accent}66, inset 0 1px 0 rgba(255,255,255,.3)` }}>
               <span style={{ position:"absolute",top:0,left:0,right:0,height:"52%",background:"linear-gradient(180deg,rgba(255,255,255,.28) 0%,rgba(255,255,255,.04) 100%)",borderRadius:"12px 12px 0 0",pointerEvents:"none" }}/>
               {isLast ? (s.competition ? "🏆 Enter Competition →" : "🛒 Start Saving Now →") : "Next →"}
+            </button>
+          </div>
+
+          {/* jersey flag note */}
+          <div style={{ textAlign:"center",fontSize:10,color:"rgba(255,255,255,0.7)" }}>
+            🇯🇪 Built for Jersey · Free forever · jerseybasket.je
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   TIPS MODAL — swipeable "how to use the app" carousel, opened from the
+   home screen banner (and, later, from a permanent Tips button)
+═══════════════════════════════════════════════════════════════════════════ */
+function TipsModal({ onClose, lightMode=false }) {
+  const [step, setStep] = useState(0);
+
+  const steps = [
+    {
+      emoji: "🏆",
+      title: "Always See the Cheapest Price",
+      subtitle: `${BASE_PRODUCTS.length}+ products, 6 stores, one price shown first`,
+      body: "Every product automatically shows you the lowest price in Jersey right now. Tap the store pill on any item to see how all 6 stores compare, ranked cheapest to most expensive.",
+      bg: "linear-gradient(135deg,#0c1445 0%,#1e3a8a 100%)",
+      bottomBg: "#0c1445",
+      accent: "#93c5fd",
+    },
+    {
+      emoji: "📌",
+      title: "Pin Your Usual Store",
+      subtitle: "See one store's prices for everything at once",
+      body: "Tap a store chip at the top of the screen to pin it. Every product will then show that store's price first — perfect if you always shop in the same place but still want to spot better deals elsewhere.",
+      bg: "linear-gradient(135deg,#052e16 0%,#14532d 50%,#16a34a 100%)",
+      bottomBg: "#052e16",
+      accent: "#22c55e",
+    },
+    {
+      emoji: "🧺",
+      title: "Let the Basket Do the Maths",
+      subtitle: "Smart basket with a savings calculator",
+      body: "Add items as you browse, from any store. The basket automatically works out which single store is cheapest for your whole shop — and shows exactly how much you'd save versus the most expensive option.",
+      bg: "linear-gradient(135deg,#1a0533 0%,#581c87 100%)",
+      bottomBg: "#1a0533",
+      accent: "#c4b5fd",
+    },
+    {
+      emoji: "♥",
+      title: "Save Your Regular Shop",
+      subtitle: "Heart items to build a reusable favourites list",
+      body: "Tap the heart on any product to save it. Your favourites have their own basket — add them all in one tap every week instead of searching for the same items again and again.",
+      bg: "linear-gradient(135deg,#450a0a 0%,#991b1b 100%)",
+      bottomBg: "#450a0a",
+      accent: "#fca5a5",
+    },
+    {
+      emoji: "🔍",
+      title: "Search, Sort & Browse by Category",
+      subtitle: "Find anything in seconds",
+      body: "Search across all products instantly, or sort by cheapest price, biggest saving, A–Z, or category — whichever makes your shop easier.",
+      bg: "linear-gradient(135deg,#0f172a 0%,#1e3a5f 60%,#0c4a6e 100%)",
+      bottomBg: "#0f172a",
+      accent: "#38bdf8",
+    },
+    {
+      emoji: "📱",
+      title: "Install it on Your Phone",
+      subtitle: "Works like a native app — completely free",
+      body: "Add JerseyBasket to your home screen in seconds:",
+      bg: "linear-gradient(135deg,#0a1628 0%,#0d1f38 100%)",
+      bottomBg: "#0a1628",
+      accent: "#22c55e",
+      installSteps: true,
+    },
+  ];
+
+  const s = steps[step];
+  const isLast = step === steps.length - 1;
+
+  return (
+    <div style={{ position:"fixed",inset:0,zIndex:1000,display:"flex",alignItems:"center",justifyContent:"center",background:"rgba(0,0,0,.85)",backdropFilter:"blur(10px)",padding:16 }}>
+      <div style={{ width:"100%",maxWidth:460,borderRadius:24,overflow:"hidden",boxShadow:"0 24px 80px rgba(0,0,0,.7)",display:"flex",flexDirection:"column",maxHeight:"90vh",background:s.bg,isolation:"isolate" }}>
+
+        {/* slide — scrollable content area */}
+        <div style={{ background:s.bg,padding:"40px 32px 32px",position:"relative",flex:1,overflowY:"auto",display:"flex",flexDirection:"column",alignItems:"center",textAlign:"center" }}>
+          {/* close button */}
+          <button onClick={onClose} style={{ position:"absolute",top:16,right:16,background:"rgba(255,255,255,.1)",border:"none",borderRadius:7,padding:"4px 10px",color:"rgba(255,255,255,.5)",cursor:"pointer",fontSize:11,fontWeight:600 }}>
+            Close
+          </button>
+
+          {/* emoji */}
+          <div style={{ fontSize:64,marginBottom:20,lineHeight:1 }}>{s.emoji}</div>
+
+          {/* title */}
+          <div style={{ fontSize:22,fontWeight:700,color:"#fff",marginBottom:6,fontFamily:"'DM Serif Display',Georgia,serif",lineHeight:1.2 }}>
+            {s.title}
+          </div>
+
+          {/* subtitle */}
+          <div style={{ fontSize:12,fontWeight:700,marginBottom:16,textTransform:"uppercase",letterSpacing:"1px",color:s.accent }}>
+            {s.subtitle}
+          </div>
+
+          {/* body */}
+          <div style={{ fontSize:13,color:"rgba(255,255,255,.8)",lineHeight:1.75,whiteSpace:"pre-line" }}>
+            {s.body}
+          </div>
+
+          {/* install steps — only on install slide */}
+          {s.installSteps && <InstallSteps accent={s.accent} />}
+
+          {/* decorative glow */}
+          <div style={{ position:"absolute",bottom:-40,left:"50%",transform:"translateX(-50%)",width:200,height:200,borderRadius:"50%",background:`${s.accent}22`,pointerEvents:"none",filter:"blur(40px)" }} />
+        </div>
+
+        {/* bottom controls — sticky so always visible */}
+        <div style={{ background:s.bottomBg||"#052e16",padding:"20px 24px 24px",display:"flex",flexDirection:"column",gap:16,flexShrink:0 }}>
+          {/* dots */}
+          <div style={{ display:"flex",justifyContent:"center",gap:6 }}>
+            {steps.map((_,i)=>(
+              <div key={i} onClick={()=>setStep(i)} style={{ width:i===step?20:6,height:6,borderRadius:3,background:i===step?s.accent:"rgba(255,255,255,.2)",cursor:"pointer",transition:"all .3s",boxShadow:i===step?`0 0 8px ${s.accent}88`:"none" }} />
+            ))}
+          </div>
+
+          {/* buttons */}
+          <div style={{ display:"flex",gap:10 }}>
+            {step > 0 && (
+              <button onClick={()=>setStep(s=>s-1)} style={{ flex:1,padding:"12px",background:"linear-gradient(180deg,#1e3a5f 0%,#0f1f3d 100%)",border:"1px solid rgba(125,211,252,0.2)",borderRadius:12,color:"#7dd3fc",cursor:"pointer",fontSize:13,fontWeight:700,position:"relative",overflow:"hidden",boxShadow:"0 2px 8px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.08)" }}>
+                <span style={{ position:"absolute",top:0,left:0,right:0,height:"52%",background:"linear-gradient(180deg,rgba(255,255,255,.12) 0%,rgba(255,255,255,.02) 100%)",borderRadius:"12px 12px 0 0",pointerEvents:"none" }}/>
+                ← Back
+              </button>
+            )}
+            <button
+              onClick={isLast ? onClose : ()=>setStep(s=>s+1)}
+              style={{ flex:2,padding:"12px",background:`linear-gradient(180deg,${s.accent} 0%,${s.accent}99 100%)`,border:"none",borderRadius:12,color:"#052e16",cursor:"pointer",fontSize:14,fontWeight:700,position:"relative",overflow:"hidden",boxShadow:`0 3px 12px ${s.accent}66, inset 0 1px 0 rgba(255,255,255,.3)` }}>
+              <span style={{ position:"absolute",top:0,left:0,right:0,height:"52%",background:"linear-gradient(180deg,rgba(255,255,255,.28) 0%,rgba(255,255,255,.04) 100%)",borderRadius:"12px 12px 0 0",pointerEvents:"none" }}/>
+              {isLast ? "🛒 Got It →" : "Next →"}
             </button>
           </div>
 
