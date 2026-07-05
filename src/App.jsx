@@ -13,8 +13,12 @@
  * Built for Jersey, Channel Islands.
  * Contact: hello@jerseybasket.je
  *
- * Version:   v82
- * Updated:   04 July 2026
+ * Version:   v83
+ * Updated:   05 July 2026
+ * Changes:   Added 4 Waitrose items from receipt: WR Diced Chicken Breast £6.38, Robinsons
+ *            Creations £1.75, Hellmann's Light Mayo £2.60, Fanta Orange Zero (8x330ml) £3.75.
+ *            Confirmed Waitrose Frozen Quarter Pounder price unchanged at £4.60. 2,542 total
+ *            products.
  * Changes:   FEATURE: When multiple stores share the exact same lowest price for an item, the
  *            product card now shows "🔀 X stores tied" instead of arbitrarily picking one store
  *            to feature. Opening the dropdown shows all tied stores marked CHEAPEST. Picking a
@@ -839,6 +843,10 @@ const BASE_PRODUCTS = [
   {id:2577,name:"Co-op Salted Caramel Chocolate Bar",cat:"🍫 Confectionery",icon:"🍫",prices:sp(3.15,[0,-3.15,-3.15,-3.15,-3.15,-3.15])},
   {id:2578,name:"Patak's Korma Curry Paste Pot",    cat:"🍝 Pantry",       icon:"🍛",prices:sp(2.25,[0,-2.25,-2.25,-2.25,-2.25,-2.25])},
   {id:2579,name:"WR Essential Salted Butter",       cat:"🥛 Dairy & Eggs", icon:"🧈",prices:sp(2.04,[-2.04,-2.04,-2.04,0,-2.04,-2.04])},
+  {id:2580,name:"WR Diced Chicken Breast",           cat:"🥩 Meat & Fish",  icon:"🍗",prices:sp(6.38,[-6.38,-6.38,-6.38,0,-6.38,-6.38])},
+  {id:2581,name:"Robinsons Creations",               cat:"🥤 Drinks",       icon:"🧃",prices:sp(1.75,[-1.75,-1.75,-1.75,0,-1.75,-1.75])},
+  {id:2582,name:"Hellmann's Light Mayo",              cat:"🍝 Pantry",       icon:"🥫",prices:sp(2.60,[-2.60,-2.60,-2.60,0,-2.60,-2.60])},
+  {id:2583,name:"Fanta Orange Zero (8x330ml)",       cat:"🥤 Drinks",       icon:"🍊",prices:sp(3.75,[-3.75,-3.75,-3.75,0,-3.75,-3.75])},
   {id:700,name:"Jersey Green Fat Reduced Milk",     cat:"🥛 Dairy & Eggs", icon:"🥛",prices:sp(1.64,[0,-1.64,-1.64,-1.64,-1.64,-1.64])},
   {id:701,name:"Carte D'Or Vanilla Ice Cream (900ml)",cat:"🧊 Frozen",    icon:"🍦",prices:sp(2.90,[0,-2.90,-2.90,-2.90,-2.90,-2.90])},
 
