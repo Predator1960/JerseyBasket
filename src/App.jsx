@@ -13,8 +13,8 @@
  * Built for Jersey, Channel Islands.
  * Contact: hello@jerseybasket.je
  *
- * Version:   v84
- * Updated:   06 July 2026
+ * Version:   v85
+ * Updated:   07 July 2026
  * Changes:   Added 26 items from two receipts sent by Karen Scott on 30 June (Waitrose and
  *            Morrisons) — too late for the June competition itself, but the products were worth
  *            capturing. Waitrose: Smoked Lardons, Cumberland Sausages, British Chicken Wings,
@@ -32,7 +32,12 @@
  *            matches on Baking Powder, Bicarbonate of Soda, Carnation Caramel, Carnation
  *            Condensed Milk, Cocoa Powder, Free Range Eggs 12pk, and all 6 stores of Caster Sugar
  *            1kg. Added Butter (1kg) at £5.80 Iceland — was previously missing (only 250g/500g
- *            sizes existed). 2,573 total products.
+ *            sizes existed). BUG FIX: search was a literal exact substring match, so punctuation
+ *            broke it silently — "Butter 1kg" found nothing because the real entry is
+ *            "Butter (1kg)", same problem with hyphens e.g. "Coca Cola" vs "Coca-Cola". Added a
+ *            normalizeSearch() helper that strips all punctuation and collapses whitespace before
+ *            comparing, so brackets/hyphens/spacing no longer matter on either side of the search.
+ *            2,573 total products.
  * Changes:   Added 4 Waitrose items from receipt: WR Diced Chicken Breast £6.38, Robinsons
  *            Creations £1.75, Hellmann's Light Mayo £2.60, Fanta Orange Zero (8x330ml) £3.75.
  *            Confirmed Waitrose Frozen Quarter Pounder price unchanged at £4.60. Removed the
@@ -2758,6 +2763,10 @@ const BASE_PRODUCTS = [
 ];/* ═══════════════════════════════════════════════════════════════════════════
    HELPERS
 ═══════════════════════════════════════════════════════════════════════════ */
+// Strips punctuation (brackets, hyphens, etc.) and collapses whitespace so search
+// isn't broken by things like "Butter (1kg)" vs "Butter 1kg" or "Coca-Cola" vs "Coca Cola"
+const normalizeSearch = (s="") => s.toLowerCase().replace(/[^a-z0-9]+/g," ").trim();
+
 const getBestPrice   = (p, disabled=new Set()) => { const vals=Object.entries(p.prices).filter(([k,v])=>!disabled.has(k)&&v>0).map(([,v])=>v); return vals.length?Math.min(...vals):0; };
 const getWorstPrice  = (p, disabled=new Set()) => { const vals=Object.entries(p.prices).filter(([k,v])=>!disabled.has(k)&&v>0).map(([,v])=>v); return vals.length?Math.max(...vals):0; };
 const getBestStoreId = (p, disabled=new Set()) => { const b=getBestPrice(p,disabled); return Object.entries(p.prices).find(([k,v])=>!disabled.has(k)&&v===b&&v>0)?.[0]; };
@@ -3122,7 +3131,7 @@ export default function JerseyGroceryApp() {
   const filteredProducts = useMemo(()=>{
     let list = allProducts;
     if(activeCategory!=="All") list = list.filter(p=>p.cat===activeCategory);
-    if(searchQuery) list = list.filter(p=>p.name.toLowerCase().includes(searchQuery.toLowerCase()));
+    if(searchQuery) list = list.filter(p=>normalizeSearch(p.name).includes(normalizeSearch(searchQuery)));
     if(pinnedStore) list = list.filter(p=>p.prices[pinnedStore]>0);
     list = list.filter(p=>STORES.some(s=>!disabledStores.has(s.id) && p.prices[s.id]>0));
     if(sortBy==="bestPrice") return [...list].sort((a,b)=>getBestPrice(a,disabledStores)-getBestPrice(b,disabledStores));
