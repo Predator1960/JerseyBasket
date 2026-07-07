@@ -37,6 +37,12 @@
  *            "Butter (1kg)", same problem with hyphens e.g. "Coca Cola" vs "Coca-Cola". Added a
  *            normalizeSearch() helper that strips all punctuation and collapses whitespace before
  *            comparing, so brackets/hyphens/spacing no longer matter on either side of the search.
+ *            FOLLOW-UP BUG FIX: search still failed on word order — "bread wholemeal" found
+ *            nothing because the actual product is "Wholemeal Bread 800g" (opposite word order),
+ *            since the original fix still matched the query as one exact phrase. Search now
+ *            splits the query into separate words and requires each one to appear somewhere in
+ *            the product name, in any order — so "bread wholemeal", "wholemeal bread", and
+ *            "bread wholemeal 800g" all now find the same product.
  *            2,573 total products.
  * Changes:   Added 4 Waitrose items from receipt: WR Diced Chicken Breast £6.38, Robinsons
  *            Creations £1.75, Hellmann's Light Mayo £2.60, Fanta Orange Zero (8x330ml) £3.75.
@@ -3131,7 +3137,13 @@ export default function JerseyGroceryApp() {
   const filteredProducts = useMemo(()=>{
     let list = allProducts;
     if(activeCategory!=="All") list = list.filter(p=>p.cat===activeCategory);
-    if(searchQuery) list = list.filter(p=>normalizeSearch(p.name).includes(normalizeSearch(searchQuery)));
+    if(searchQuery) {
+      const searchTerms = normalizeSearch(searchQuery).split(" ").filter(Boolean);
+      list = list.filter(p=>{
+        const normName = normalizeSearch(p.name);
+        return searchTerms.every(term=>normName.includes(term));
+      });
+    }
     if(pinnedStore) list = list.filter(p=>p.prices[pinnedStore]>0);
     list = list.filter(p=>STORES.some(s=>!disabledStores.has(s.id) && p.prices[s.id]>0));
     if(sortBy==="bestPrice") return [...list].sort((a,b)=>getBestPrice(a,disabledStores)-getBestPrice(b,disabledStores));
