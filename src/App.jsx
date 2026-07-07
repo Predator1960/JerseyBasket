@@ -13,8 +13,26 @@
  * Built for Jersey, Channel Islands.
  * Contact: hello@jerseybasket.je
  *
- * Version:   v83
- * Updated:   05 July 2026
+ * Version:   v84
+ * Updated:   06 July 2026
+ * Changes:   Added 26 items from two receipts sent by Karen Scott on 30 June (Waitrose and
+ *            Morrisons) — too late for the June competition itself, but the products were worth
+ *            capturing. Waitrose: Smoked Lardons, Cumberland Sausages, British Chicken Wings,
+ *            Sweet & Sticky Pork Ribs, Garlic Kyivs, Pepperoni Pizza, Garlic Breadsticks, Ham &
+ *            Pineapple Pizza, Charlotte Potato Salad, Betty Crocker Vanilla Cake Mix + Lemon
+ *            Icing, Essential Strawberry Jam, Coca-Cola (Bottles), Always Discreet Sensitive
+ *            (2 sizes), J20 Orange & Passionfruit, Essential Still Water, Fusilli, Essential
+ *            Table Salt, Greek Yogurt with Honey, Lindt Dark Sea Salt, Lindt Mint Dark. Morrisons:
+ *            Yazoo Milk Strawberry, Flavoured Milk Banana + Strawberry, Youngs Scampi. Also
+ *            corrected New York Bakery Plain Bagels price from £1.85 to £2.32 (existing product,
+ *            confirmed price change from receipt). CORRECTION: Lindt Mint Dark was misread from
+ *            the receipt as £9.99 — actual price is £3.48 (same as Lindt Dark Sea Salt); £9.99
+ *            was actually "Voices of Victory", an unrelated non-grocery item, correctly excluded.
+ *            Cross-checked a baking ingredients price list against the database: confirmed exact
+ *            matches on Baking Powder, Bicarbonate of Soda, Carnation Caramel, Carnation
+ *            Condensed Milk, Cocoa Powder, Free Range Eggs 12pk, and all 6 stores of Caster Sugar
+ *            1kg. Added Butter (1kg) at £5.80 Iceland — was previously missing (only 250g/500g
+ *            sizes existed). 2,573 total products.
  * Changes:   Added 4 Waitrose items from receipt: WR Diced Chicken Breast £6.38, Robinsons
  *            Creations £1.75, Hellmann's Light Mayo £2.60, Fanta Orange Zero (8x330ml) £3.75.
  *            Confirmed Waitrose Frozen Quarter Pounder price unchanged at £4.60. Removed the
@@ -22,9 +40,13 @@
  *            carousel, replaced with a "Watch this space" teaser. FEATURE: teaser banner is now
  *            tappable and opens a new swipeable Tips carousel (TipsModal) — 6 slides covering
  *            cheapest-price-first, pinning a store, the smart basket, favourites, search/sort,
- *            and PWA install — engagement/education feature to help users discover app features
- *            they may be missing. A permanent Tips entry point (e.g. inside the existing Help
- *            modal) is a good next step for a future session. 2,542 total products.
+ *            and PWA install. Added 4 more Waitrose items from a second receipt: WR Durafold Bag
+ *            £1.00, Dr Pepper Zero (330ml) £2.09, Sprite (8x330ml) £3.75, Budweiser Budvar Lager
+ *            (500ml) £2.14. BUG FIX: 10 products from Kate's original Waitrose receipt (IDs
+ *            931-940, e.g. WR Linguine, Cirio Chopped Tomatoes, McVities Fig Rolls) had a data
+ *            entry error where Waitrose price was accidentally doubled (base price + full price
+ *            added again) while all other stores wrongly showed the same non-doubled price —
+ *            corrected to proper Waitrose-only entries. 2,546 total products.
  * Changes:   FEATURE: When multiple stores share the exact same lowest price for an item, the
  *            product card now shows "🔀 X stores tied" instead of arbitrarily picking one store
  *            to feature. Opening the dropdown shows all tied stores marked CHEAPEST. Picking a
@@ -853,6 +875,37 @@ const BASE_PRODUCTS = [
   {id:2581,name:"Robinsons Creations",               cat:"🥤 Drinks",       icon:"🧃",prices:sp(1.75,[-1.75,-1.75,-1.75,0,-1.75,-1.75])},
   {id:2582,name:"Hellmann's Light Mayo",              cat:"🍝 Pantry",       icon:"🥫",prices:sp(2.60,[-2.60,-2.60,-2.60,0,-2.60,-2.60])},
   {id:2583,name:"Fanta Orange Zero (8x330ml)",       cat:"🥤 Drinks",       icon:"🍊",prices:sp(3.75,[-3.75,-3.75,-3.75,0,-3.75,-3.75])},
+  {id:2584,name:"WR Durafold Bag",                   cat:"🧹 Household",    icon:"🛍️",prices:sp(1.00,[-1.00,-1.00,-1.00,0,-1.00,-1.00])},
+  {id:2585,name:"Dr Pepper Zero (330ml)",             cat:"🥤 Drinks",       icon:"🥤",prices:sp(2.09,[-2.09,-2.09,-2.09,0,-2.09,-2.09])},
+  {id:2586,name:"Sprite (8x330ml)",                   cat:"🥤 Drinks",       icon:"🥤",prices:sp(3.75,[-3.75,-3.75,-3.75,0,-3.75,-3.75])},
+  {id:2587,name:"Budweiser Budvar Lager (500ml)",     cat:"🍷 Wine & Beer",  icon:"🍺",prices:sp(2.14,[-2.14,-2.14,-2.14,0,-2.14,-2.14])},
+  {id:2588,name:"WR Essential Smoked Lardons",         cat:"🥩 Meat & Fish",  icon:"🥓",prices:sp(3.72,[-3.72,-3.72,-3.72,0,-3.72,-3.72])},
+  {id:2589,name:"WR Cumberland Sausages",              cat:"🥩 Meat & Fish",  icon:"🌭",prices:sp(4.60,[-4.60,-4.60,-4.60,0,-4.60,-4.60])},
+  {id:2590,name:"Essential British Chicken Wings",     cat:"🥩 Meat & Fish",  icon:"🍗",prices:sp(2.32,[-2.32,-2.32,-2.32,0,-2.32,-2.32])},
+  {id:2591,name:"WR Slow Cooked Sweet & Sticky Pork Ribs",cat:"🥩 Meat & Fish",icon:"🍖",prices:sp(7.88,[-7.88,-7.88,-7.88,0,-7.88,-7.88])},
+  {id:2592,name:"Essential Garlic Kyivs",              cat:"🧊 Frozen",       icon:"🍗",prices:sp(4.06,[-4.06,-4.06,-4.06,0,-4.06,-4.06])},
+  {id:2593,name:"WR Stonebaked Pepperoni Pizza",       cat:"🧊 Frozen",       icon:"🍕",prices:sp(6.33,[-6.33,-6.33,-6.33,0,-6.33,-6.33])},
+  {id:2594,name:"WR Garlic Breadsticks",               cat:"🍞 Bread & Bakery",icon:"🥖",prices:sp(3.17,[-3.17,-3.17,-3.17,0,-3.17,-3.17])},
+  {id:2595,name:"WR Stonebaked Ham & Pineapple Pizza", cat:"🧊 Frozen",       icon:"🍕",prices:sp(6.33,[-6.33,-6.33,-6.33,0,-6.33,-6.33])},
+  {id:2596,name:"WR Charlotte Potato Salad",            cat:"🥗 Deli & Salads",icon:"🥔",prices:sp(2.73,[-2.73,-2.73,-2.73,0,-2.73,-2.73])},
+  {id:2597,name:"Betty Crocker Vanilla Cake Mix",       cat:"🍝 Pantry",       icon:"🧁",prices:sp(3.89,[-3.89,-3.89,-3.89,0,-3.89,-3.89])},
+  {id:2598,name:"Betty Crocker Lemon Icing",            cat:"🍝 Pantry",       icon:"🍋",prices:sp(1.38,[-1.38,-1.38,-1.38,0,-1.38,-1.38])},
+  {id:2599,name:"WR Essential Strawberry Jam",          cat:"🍝 Pantry",       icon:"🍓",prices:sp(5.22,[-5.22,-5.22,-5.22,0,-5.22,-5.22])},
+  {id:2600,name:"Coca-Cola (Bottles)",                  cat:"🥤 Drinks",       icon:"🥤",prices:sp(5.98,[-5.98,-5.98,-5.98,0,-5.98,-5.98])},
+  {id:2601,name:"Always Discreet Sensitive (Large Pack)",cat:"💊 Health & Beauty",icon:"🌸",prices:sp(5.98,[-5.98,-5.98,-5.98,0,-5.98,-5.98])},
+  {id:2602,name:"Always Discreet Sensitive (Small Pack)",cat:"💊 Health & Beauty",icon:"🌸",prices:sp(3.00,[-3.00,-3.00,-3.00,0,-3.00,-3.00])},
+  {id:2603,name:"J20 Orange & Passionfruit",            cat:"🥤 Drinks",       icon:"🥤",prices:sp(2.19,[-2.19,-2.19,-2.19,0,-2.19,-2.19])},
+  {id:2604,name:"WR Essential Still Water",             cat:"🥤 Drinks",       icon:"💧",prices:sp(1.90,[-1.90,-1.90,-1.90,0,-1.90,-1.90])},
+  {id:2605,name:"WR Fusilli",                           cat:"🍝 Pantry",       icon:"🍝",prices:sp(0.99,[-0.99,-0.99,-0.99,0,-0.99,-0.99])},
+  {id:2606,name:"WR Essential Table Salt",              cat:"🍝 Pantry",       icon:"🧂",prices:sp(1.98,[-1.98,-1.98,-1.98,0,-1.98,-1.98])},
+  {id:2607,name:"WR Greek Yogurt with Honey",           cat:"🥛 Dairy & Eggs", icon:"🍯",prices:sp(3.48,[-3.48,-3.48,-3.48,0,-3.48,-3.48])},
+  {id:2608,name:"Lindt Dark Sea Salt",                  cat:"🍫 Confectionery",icon:"🍫",prices:sp(3.48,[-3.48,-3.48,-3.48,0,-3.48,-3.48])},
+  {id:2609,name:"Lindt Mint Dark",                      cat:"🍫 Confectionery",icon:"🍫",prices:sp(3.48,[-3.48,-3.48,-3.48,0,-3.48,-3.48])},
+  {id:2610,name:"Yazoo Milk Strawberry",                cat:"🥤 Drinks",       icon:"🥤",prices:sp(2.80,[-2.80,0,-2.80,-2.80,-2.80,-2.80])},
+  {id:2611,name:"Morrisons Flavoured Milk Banana",      cat:"🥤 Drinks",       icon:"🥤",prices:sp(1.55,[-1.55,0,-1.55,-1.55,-1.55,-1.55])},
+  {id:2612,name:"Morrisons Flavoured Milk Strawberry",  cat:"🥤 Drinks",       icon:"🥤",prices:sp(1.55,[-1.55,0,-1.55,-1.55,-1.55,-1.55])},
+  {id:2613,name:"Youngs Scampi",                        cat:"🧊 Frozen",       icon:"🦐",prices:sp(4.80,[-4.80,0,-4.80,-4.80,-4.80,-4.80])},
+  {id:2614,name:"Butter (1kg)",                         cat:"🥛 Dairy & Eggs", icon:"🧈",prices:sp(5.80,[-5.80,-5.80,-5.80,-5.80,0,-5.80])},
   {id:700,name:"Jersey Green Fat Reduced Milk",     cat:"🥛 Dairy & Eggs", icon:"🥛",prices:sp(1.64,[0,-1.64,-1.64,-1.64,-1.64,-1.64])},
   {id:701,name:"Carte D'Or Vanilla Ice Cream (900ml)",cat:"🧊 Frozen",    icon:"🍦",prices:sp(2.90,[0,-2.90,-2.90,-2.90,-2.90,-2.90])},
 
@@ -862,7 +915,7 @@ const BASE_PRODUCTS = [
   {id:704,name:"Good Boy T&T Chicken Roll",        cat:"🐾 Pet Care",     icon:"🐕",prices:sp(1.99,[-1.99,-1.99,-1.99,0,-1.99,-1.99])},
   {id:705,name:"KP Roasted Peanuts",               cat:"🥨 Snacks & Treats",icon:"🥜",prices:sp(4.35,[-4.35,-4.35,-4.35,0,-4.35,-4.35])},
   {id:706,name:"Albert's Fries",                   cat:"🥨 Snacks & Treats",icon:"🍟",prices:sp(2.55,[-2.55,-2.55,-2.55,0,-2.55,-2.55])},
-  {id:707,name:"New York Bakery Plain Bagels",     cat:"🍞 Bread & Bakery",icon:"🥯",prices:sp(1.85,[-1.85,-1.85,-1.85,0,-1.85,-1.85])},
+  {id:707,name:"New York Bakery Plain Bagels",     cat:"🍞 Bread & Bakery",icon:"🥯",prices:sp(2.32,[-2.32,-2.32,-2.32,0,-2.32,-2.32])},
   {id:708,name:"Seabrook Sea Salted Crisps",       cat:"🥨 Snacks & Treats",icon:"🥔",prices:sp(1.64,[-1.64,-1.64,-1.64,0,-1.64,-1.64])},
   {id:709,name:"WR CI Fresh Basil",               cat:"🥦 Fruit & Veg",  icon:"🌿",prices:sp(0.39,[-0.39,-0.39,-0.39,0,-0.39,-0.39])},
   {id:710,name:"WR Chicken Homemade Fillet",       cat:"🥩 Meat & Fish",  icon:"🍗",prices:sp(6.38,[-6.38,-6.38,-6.38,0,-6.38,-6.38])},
@@ -1066,16 +1119,16 @@ const BASE_PRODUCTS = [
   {id:929,name:"Heinz Sweet & Sour Chicken (400g)",         cat:"🥫 Tins & Jars",         icon:"🍗",prices:sp(2.50,[0,-2.50,-2.50,-2.50,-2.50,-2.50])}, 
   {id:930,name:"Monster Energy 9x500ml",                    cat:"🥤 Drinks",              icon:"🟢",prices:sp(9.45,[0,-9.45,-9.45,-9.45,-9.45,-9.45])}, 
   /* ── Kate receipt 27 Jun 2026 — Waitrose St Helier — 10 new items ── */
-  {id:931, name:"WR Linguine",                      cat:"🍝 Pasta, Rice & Grains", icon:"🍝", prices:sp(1.90,[0,0,0,1.90,0,0])},
-  {id:932, name:"Cirio Chopped Tomatoes (400g)",     cat:"🥫 Tins & Cans",          icon:"🍅", prices:sp(3.82,[0,0,0,3.82,0,0])},
-  {id:933, name:"Stoats Raisin & Honey Oat Bar",     cat:"🍫 Snacks & Confectionery",icon:"🌾", prices:sp(1.80,[0,0,0,1.80,0,0])},
-  {id:934, name:"Stoats Blueberry & Hemp Oat Bar",   cat:"🍫 Snacks & Confectionery",icon:"🌾", prices:sp(1.80,[0,0,0,1.80,0,0])},
-  {id:935, name:"McVities Fig Rolls",                cat:"🍫 Snacks & Confectionery",icon:"🍪", prices:sp(1.86,[0,0,0,1.86,0,0])},
-  {id:936, name:"Batchelors Super Noodles Chicken",  cat:"🍝 Pasta, Rice & Grains", icon:"🍜", prices:sp(1.57,[0,0,0,1.57,0,0])},
-  {id:937, name:"Method Oven & Hob Cleaner",         cat:"🧹 Household & Cleaning",  icon:"🧴", prices:sp(2.97,[0,0,0,2.97,0,0])},
-  {id:938, name:"Sparkling Blood Orange (750ml)",    cat:"🥤 Drinks",               icon:"🍊", prices:sp(1.59,[0,0,0,1.59,0,0])},
-  {id:939, name:"Soreen Banana Loaf",                cat:"🍞 Bread & Bakery",       icon:"🍌", prices:sp(2.27,[0,0,0,2.27,0,0])},
-  {id:940, name:"WR Onions (4S)",                    cat:"🥦 Fruit & Veg",          icon:"🧅", prices:sp(1.51,[0,0,0,1.51,0,0])},
+  {id:931, name:"WR Linguine",                      cat:"🍝 Pasta, Rice & Grains", icon:"🍝", prices:sp(1.90,[-1.90,-1.90,-1.90,0,-1.90,-1.90])},
+  {id:932, name:"Cirio Chopped Tomatoes (400g)",     cat:"🥫 Tins & Cans",          icon:"🍅", prices:sp(3.82,[-3.82,-3.82,-3.82,0,-3.82,-3.82])},
+  {id:933, name:"Stoats Raisin & Honey Oat Bar",     cat:"🍫 Snacks & Confectionery",icon:"🌾", prices:sp(1.80,[-1.80,-1.80,-1.80,0,-1.80,-1.80])},
+  {id:934, name:"Stoats Blueberry & Hemp Oat Bar",   cat:"🍫 Snacks & Confectionery",icon:"🌾", prices:sp(1.80,[-1.80,-1.80,-1.80,0,-1.80,-1.80])},
+  {id:935, name:"McVities Fig Rolls",                cat:"🍫 Snacks & Confectionery",icon:"🍪", prices:sp(1.86,[-1.86,-1.86,-1.86,0,-1.86,-1.86])},
+  {id:936, name:"Batchelors Super Noodles Chicken",  cat:"🍝 Pasta, Rice & Grains", icon:"🍜", prices:sp(1.57,[-1.57,-1.57,-1.57,0,-1.57,-1.57])},
+  {id:937, name:"Method Oven & Hob Cleaner",         cat:"🧹 Household & Cleaning",  icon:"🧴", prices:sp(2.97,[-2.97,-2.97,-2.97,0,-2.97,-2.97])},
+  {id:938, name:"Sparkling Blood Orange (750ml)",    cat:"🥤 Drinks",               icon:"🍊", prices:sp(1.59,[-1.59,-1.59,-1.59,0,-1.59,-1.59])},
+  {id:939, name:"Soreen Banana Loaf",                cat:"🍞 Bread & Bakery",       icon:"🍌", prices:sp(2.27,[-2.27,-2.27,-2.27,0,-2.27,-2.27])},
+  {id:940, name:"WR Onions (4S)",                    cat:"🥦 Fruit & Veg",          icon:"🧅", prices:sp(1.51,[-1.51,-1.51,-1.51,0,-1.51,-1.51])},
   {id:941, name:"Cif Cream Cleaner Original (500ml)",         cat:"🧹 Household & Cleaning", icon:"🧴", prices:sp(1.85,[-1.85,-1.85,-1.85,-1.85,0,-1.85])},
   {id:942, name:"Keep It Handy Drain Cleaning Liquid (500ml)",cat:"🧹 Household & Cleaning", icon:"🚰", prices:sp(1.00,[-1.00,-1.00,-1.00,-1.00,0,-1.00])},
   {id:943, name:"Persil Wonder Wash Black (470ml)",            cat:"🧺 Laundry",              icon:"🧺", prices:sp(8.79,[-8.79,-8.79,-8.79,-8.79,0,-8.79])},
