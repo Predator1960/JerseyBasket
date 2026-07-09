@@ -13,8 +13,22 @@
  * Built for Jersey, Channel Islands.
  * Contact: hello@jerseybasket.je
  *
- * Version:   v85
- * Updated:   07 July 2026
+ * Version:   v86
+ * Updated:   09 July 2026
+ * Changes:   Added Grove Mill Sauvignon Blanc (75cl) at £9.75 Co-op, from a Co-op receipt.
+ *            Updated Beef Meatballs 12pk price from £5.22 to £5.40 (same receipt) — assumed same
+ *            product/pack size since receipt didn't specify count, worth double-checking.
+ *            Two items from the same receipt not yet added pending name clarification from
+ *            Eamonn: "Islands Choice Custa..." £3.45 (uncertain if custard or the Islands Choice
+ *            spirits brand) and "Engchco Bscf 484G" £4.15 (couldn't confidently decode this
+ *            abbreviation). BUG FIX: product card titles in the main grid were hard-cutting mid-
+ *            word with no ellipsis when too long for the card (e.g. "Rennie Peppermint 24
+ *            Chewable Tablets" showing as "Rennie Peppermint 24 C" with a stray character from
+ *            the UI beside it, looking broken) — the title div was missing the same
+ *            overflow/ellipsis styling already used correctly in the basket and favourites list.
+ *            Added it so long names now truncate cleanly with "…" — the existing hover/long-press
+ *            tooltip to see the full name still works as before.
+ *            2,574 total products.
  * Changes:   Added 26 items from two receipts sent by Karen Scott on 30 June (Waitrose and
  *            Morrisons) — too late for the June competition itself, but the products were worth
  *            capturing. Waitrose: Smoked Lardons, Cumberland Sausages, British Chicken Wings,
@@ -774,7 +788,7 @@ const BASE_PRODUCTS = [
   {id:513,name:"Frozen Roast Potatoes (700g)",   cat:"🧊 Frozen",       icon:"🥔",prices:sp(1.86,[1.54,1.49,1.79,0,0,0.39])},
   {id:514,name:"Vegetarian Sausages (6pk)",      cat:"🧊 Frozen",       icon:"🌭",prices:sp(2.81,[0.09,0.50,0,0,0,0.54])},
   {id:526,name:"Itsu Chicken Gyoza (210g)",      cat:"🧊 Frozen",       icon:"🥟",prices:sp(4.12,[0,0,0,0,0])},
-  {id:534,name:"Beef Meatballs 12pk",            cat:"🧊 Frozen",       icon:"🍝",prices:sp(5.22,[-5.22,-5.22,-5.22,0,-5.22])},
+  {id:534,name:"Beef Meatballs 12pk",            cat:"🧊 Frozen",       icon:"🍝",prices:sp(5.40,[-5.40,-5.40,-5.40,0,-5.40])},
   {id:572,name:"McCain Spiced Wedges (750g)",    cat:"🧊 Frozen",       icon:"🍟",prices:sp(1.60,[0,-1.60,-1.60,-1.60,-1.60])},
   {id:573,name:"Crispy French Fries (900g)",     cat:"🧊 Frozen",       icon:"🍟",prices:sp(3.90,[0,-3.90,-3.90,-3.90,-3.90])},
   {id:574,name:"Garlic Kiev (260g)",             cat:"🧊 Frozen",       icon:"🍗",prices:sp(3.59,[0,-3.59,-3.59,-3.59,-3.59])},
@@ -917,6 +931,7 @@ const BASE_PRODUCTS = [
   {id:2612,name:"Morrisons Flavoured Milk Strawberry",  cat:"🥤 Drinks",       icon:"🥤",prices:sp(1.55,[-1.55,0,-1.55,-1.55,-1.55,-1.55])},
   {id:2613,name:"Youngs Scampi",                        cat:"🧊 Frozen",       icon:"🦐",prices:sp(4.80,[-4.80,0,-4.80,-4.80,-4.80,-4.80])},
   {id:2614,name:"Butter (1kg)",                         cat:"🥛 Dairy & Eggs", icon:"🧈",prices:sp(5.80,[-5.80,-5.80,-5.80,-5.80,0,-5.80])},
+  {id:2615,name:"Grove Mill Sauvignon Blanc (75cl)",     cat:"🍷 Wine & Beer",  icon:"🍷",prices:sp(9.75,[0,-9.75,-9.75,-9.75,-9.75,-9.75])},
   {id:700,name:"Jersey Green Fat Reduced Milk",     cat:"🥛 Dairy & Eggs", icon:"🥛",prices:sp(1.64,[0,-1.64,-1.64,-1.64,-1.64,-1.64])},
   {id:701,name:"Carte D'Or Vanilla Ice Cream (900ml)",cat:"🧊 Frozen",    icon:"🍦",prices:sp(2.90,[0,-2.90,-2.90,-2.90,-2.90,-2.90])},
 
@@ -2918,7 +2933,7 @@ function ProductCard({ product, onAddToBasket, pinnedStore, isFavourite, onToggl
           <span style={{ fontSize:22, flexShrink:0, filter:"drop-shadow(0 1px 3px rgba(0,0,0,0.5))" }}>{product.icon}</span>
           <div style={{ flex:1, minWidth:0 }}>
             <Tooltip text={product.name}>
-              <div style={{ fontSize:12.5, fontWeight:700, color:lightMode?"#0f172a":"#f0f4f8", lineHeight:1.3 }}>{product.name}</div>
+              <div style={{ fontSize:12.5, fontWeight:700, color:lightMode?"#0f172a":"#f0f4f8", lineHeight:1.3, overflow:"hidden", textOverflow:"ellipsis", whiteSpace:"nowrap" }}>{product.name}</div>
             </Tooltip>
             <div style={{ fontSize:9.5, color:lightMode?"#475569":"#475569", marginTop:1 }}>{product.cat.replace(/^[^\s]+\s/,"")}{product.custom?" · custom":""}{product.upd&&<span style={{ marginLeft:5, fontSize:8, color:lightMode?"#94a3b8":"#64748b" }}>· {product.upd}</span>}</div>
           </div>
