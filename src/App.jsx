@@ -21,13 +21,15 @@
  *            Two items from the same receipt not yet added pending name clarification from
  *            Eamonn: "Islands Choice Custa..." £3.45 (uncertain if custard or the Islands Choice
  *            spirits brand) and "Engchco Bscf 484G" £4.15 (couldn't confidently decode this
- *            abbreviation). BUG FIX: product card titles in the main grid were hard-cutting mid-
- *            word with no ellipsis when too long for the card (e.g. "Rennie Peppermint 24
- *            Chewable Tablets" showing as "Rennie Peppermint 24 C" with a stray character from
- *            the UI beside it, looking broken) — the title div was missing the same
- *            overflow/ellipsis styling already used correctly in the basket and favourites list.
- *            Added it so long names now truncate cleanly with "…" — the existing hover/long-press
- *            tooltip to see the full name still works as before.
+ *            abbreviation). CORRECTION (10 July): the "title truncation bug fix" logged below was
+ *            a mistake — the product card already had a working Tooltip component handling
+ *            truncation and the hover/long-press "see full name" popup correctly. Adding
+ *            duplicate overflow/ellipsis styling directly to the inner title div broke that
+ *            tooltip's truncation detection (it measures the OUTER wrapper's scrollWidth vs
+ *            clientWidth, which no longer showed an overflow once the inner div started
+ *            truncating itself first) — so hovering silently stopped showing anything. Reverted
+ *            the inner div back to its original styling; the existing Tooltip component was
+ *            never broken and needed no changes.
  *            2,574 total products.
  *            Added Islands Choice Custard at £3.45 Co-op, per Eamonn's confirmation. The other
  *            unclear item from the same receipt ("Engchco Bscf 484G") was left out — Eamonn
@@ -2949,7 +2951,7 @@ function ProductCard({ product, onAddToBasket, pinnedStore, isFavourite, onToggl
           <span style={{ fontSize:22, flexShrink:0, filter:"drop-shadow(0 1px 3px rgba(0,0,0,0.5))" }}>{product.icon}</span>
           <div style={{ flex:1, minWidth:0 }}>
             <Tooltip text={product.name}>
-              <div style={{ fontSize:12.5, fontWeight:700, color:lightMode?"#0f172a":"#f0f4f8", lineHeight:1.3, overflow:"hidden", textOverflow:"ellipsis", whiteSpace:"nowrap" }}>{product.name}</div>
+              <div style={{ fontSize:12.5, fontWeight:700, color:lightMode?"#0f172a":"#f0f4f8", lineHeight:1.3 }}>{product.name}</div>
             </Tooltip>
             <div style={{ fontSize:9.5, color:lightMode?"#475569":"#475569", marginTop:1 }}>{product.cat.replace(/^[^\s]+\s/,"")}{product.custom?" · custom":""}{product.upd&&<span style={{ marginLeft:5, fontSize:8, color:lightMode?"#94a3b8":"#64748b" }}>· {product.upd}</span>}</div>
           </div>
