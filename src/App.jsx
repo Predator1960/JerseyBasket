@@ -13,8 +13,8 @@
  * Built for Jersey, Channel Islands.
  * Contact: hello@jerseybasket.je
  *
- * Version:   v86
- * Updated:   09 July 2026
+ * Version:   v87
+ * Updated:   10 July 2026
  * Changes:   Added Grove Mill Sauvignon Blanc (75cl) at £9.75 Co-op, from a Co-op receipt.
  *            Updated Beef Meatballs 12pk price from £5.22 to £5.40 (same receipt) — assumed same
  *            product/pack size since receipt didn't specify count, worth double-checking.
@@ -29,6 +29,16 @@
  *            Added it so long names now truncate cleanly with "…" — the existing hover/long-press
  *            tooltip to see the full name still works as before.
  *            2,574 total products.
+ *            Added Islands Choice Custard at £3.45 Co-op, per Eamonn's confirmation. The other
+ *            unclear item from the same receipt ("Engchco Bscf 484G") was left out — Eamonn
+ *            wasn't sure what it was either, so not added rather than guess. 2,575 total products.
+ * Changes:   (v87, 10 July) Identified "Engchco Bscf" as English Cheesecake Company Vanilla &
+ *            Biscoff Cheesecake (484g) — added at £4.15 Co-op. Added 3 more items from Co-op
+ *            receipts: Double Pepperoni Stonebaked Pizza £1.95, 7UP Zero (8pk) £3.95, Sweet &
+ *            Sour Egg Rice £4.50, Unsmoked Back Bacon (Thick Cut) £3.49. Updated CP Cheese
+ *            Coleslaw price from £2.63 to £2.90. Flagged for later cleanup: two identically-named
+ *            "Unsmoked Back Bacon (300g)" entries exist at different prices (£2.80 and £2.20) —
+ *            not touched this round, worth deduplicating separately. 2,580 total products.
  * Changes:   Added 26 items from two receipts sent by Karen Scott on 30 June (Waitrose and
  *            Morrisons) — too late for the June competition itself, but the products were worth
  *            capturing. Waitrose: Smoked Lardons, Cumberland Sausages, British Chicken Wings,
@@ -932,6 +942,12 @@ const BASE_PRODUCTS = [
   {id:2613,name:"Youngs Scampi",                        cat:"🧊 Frozen",       icon:"🦐",prices:sp(4.80,[-4.80,0,-4.80,-4.80,-4.80,-4.80])},
   {id:2614,name:"Butter (1kg)",                         cat:"🥛 Dairy & Eggs", icon:"🧈",prices:sp(5.80,[-5.80,-5.80,-5.80,-5.80,0,-5.80])},
   {id:2615,name:"Grove Mill Sauvignon Blanc (75cl)",     cat:"🍷 Wine & Beer",  icon:"🍷",prices:sp(9.75,[0,-9.75,-9.75,-9.75,-9.75,-9.75])},
+  {id:2616,name:"Islands Choice Custard",                cat:"🥛 Dairy & Eggs", icon:"🍮",prices:sp(3.45,[0,-3.45,-3.45,-3.45,-3.45,-3.45])},
+  {id:2617,name:"English Cheesecake Company Vanilla & Biscoff Cheesecake (484g)",cat:"🍰 Cakes & Desserts",icon:"🍰",prices:sp(4.15,[0,-4.15,-4.15,-4.15,-4.15,-4.15])},
+  {id:2618,name:"Co-op Double Pepperoni Stonebaked Pizza",cat:"🧊 Frozen",       icon:"🍕",prices:sp(1.95,[0,-1.95,-1.95,-1.95,-1.95,-1.95])},
+  {id:2619,name:"7UP Zero (8pk)",                    cat:"🥤 Drinks",       icon:"🥤",prices:sp(3.95,[0,-3.95,-3.95,-3.95,-3.95,-3.95])},
+  {id:2620,name:"Co-op Sweet & Sour Egg Rice",        cat:"🥗 Deli & Salads",icon:"🍚",prices:sp(4.50,[0,-4.50,-4.50,-4.50,-4.50,-4.50])},
+  {id:2621,name:"Co-op Unsmoked Back Bacon (Thick Cut)",cat:"🥩 Meat & Fish",icon:"🥓",prices:sp(3.49,[0,-3.49,-3.49,-3.49,-3.49,-3.49])},
   {id:700,name:"Jersey Green Fat Reduced Milk",     cat:"🥛 Dairy & Eggs", icon:"🥛",prices:sp(1.64,[0,-1.64,-1.64,-1.64,-1.64,-1.64])},
   {id:701,name:"Carte D'Or Vanilla Ice Cream (900ml)",cat:"🧊 Frozen",    icon:"🍦",prices:sp(2.90,[0,-2.90,-2.90,-2.90,-2.90,-2.90])},
 
@@ -1314,7 +1330,7 @@ const BASE_PRODUCTS = [
   {id:1097,name:"Jersey Pouring/Single Cream",                 cat:"🥛 Dairy & Eggs",         icon:"🥛", prices:sp(1.45,[0,-1.45,-1.45,-1.45,-1.45,-1.45])},
   {id:1098,name:"Sprite No Sugar (500ml)",                     cat:"🥤 Drinks",               icon:"🥤", prices:sp(2.10,[0,-2.10,-2.10,-2.10,-2.10,-2.10])},
   {id:1099,name:"CP Still Mineral Water",                      cat:"🥤 Drinks",               icon:"💧", prices:sp(0.75,[0,-0.75,-0.75,-0.75,-0.75,-0.75])},
-  {id:1100,name:"CP Cheese Coleslaw",                          cat:"🥗 Deli & Salads",        icon:"🥗", prices:sp(2.63,[0,-2.63,-2.63,-2.63,-2.63,-2.63])},
+  {id:1100,name:"CP Cheese Coleslaw",                          cat:"🥗 Deli & Salads",        icon:"🥗", prices:sp(2.90,[0,-2.90,-2.90,-2.90,-2.90,-2.90])},
   {id:1101,name:"CP Potato Salad",                             cat:"🥗 Deli & Salads",        icon:"🥔", prices:sp(1.65,[0,-1.65,-1.65,-1.65,-1.65,-1.65])},
   {id:1102,name:"Leerdammer Original Mild-Nutty 160g",          cat:"🥛 Dairy & Eggs", icon:"🧀", prices:sp(3.55,[-3.55,-3.55,-3.55,-3.55,0,-3.55])},
   {id:1103,name:"Olympus Halloumi Original 225g",               cat:"🥛 Dairy & Eggs", icon:"🧀", prices:sp(3.90,[-3.90,-3.90,-3.90,-3.90,0,-3.90])},
