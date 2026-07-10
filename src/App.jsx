@@ -30,6 +30,10 @@
  *            truncating itself first) — so hovering silently stopped showing anything. Reverted
  *            the inner div back to its original styling; the existing Tooltip component was
  *            never broken and needed no changes.
+ * Changes:   BUG FIX: the "Basket" nav tab never showed an item count, unlike "Saved (N)" for
+ *            favourites — the count variable (basketCount) already existed in the code, it just
+ *            wasn't wired into the tab label. Fixed so Basket now shows "Basket (N)" the same way
+ *            Saved does.
  *            2,574 total products.
  *            Added Islands Choice Custard at £3.45 Co-op, per Eamonn's confirmation. The other
  *            unclear item from the same receipt ("Engchco Bscf 484G") was left out — Eamonn
@@ -3325,7 +3329,7 @@ export default function JerseyGroceryApp() {
           </div>
           {/* ── ROW 2: nav tabs + add button ── */}
           <div style={{ display:"flex",gap:3,paddingBottom:9,alignItems:"center" }}>
-            {[["shop","🛒 Shop"],["basket","🧺 Basket"],["favourites",`♥ Saved${favCount>0?" ("+favCount+")":""}`],["compare","📊 Stores"]].map(([v,lbl])=>{
+            {[["shop","🛒 Shop"],["basket",`🧺 Basket${basketCount>0?" ("+basketCount+")":""}`],["favourites",`♥ Saved${favCount>0?" ("+favCount+")":""}`],["compare","📊 Stores"]].map(([v,lbl])=>{
               const isActive = view===v;
               const isFav = v==="favourites";
               return (
