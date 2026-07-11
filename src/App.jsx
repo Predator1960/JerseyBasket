@@ -15,123 +15,20 @@
  *
  * Version:   v88
  * Updated:   11 July 2026
- * Changes:   Added 1,028 new products from Co-op's official live catalogue (Fresh Food
- *            department, all 18 pages/1,074 items reconciled against the existing database).
- *            Also corrected/filled in 25 existing products that previously had no Co-op price
- *            (or a stale one), now matched to live Co-op data: Jersey Salted Butter (250g),
- *            English Cheesecake Company Vanilla & Biscoff Cheesecake (484g), Utterly Butterly
- *            (500g + Lightly), Leerdammer Original Mild-Nutty 160g, Philadelphia Original/Garlic
- *            & Herbs Soft Cheese 165g, Boursin Garlic & Herbs 150g, Cathedral City Mature Cheddar
- *            Grated 180g + Lighter Mature Cheddar 350g, Lurpak Slightly Salted Spreadable 400g +
- *            Lighter Slightly Salted 400g, Jersey Dairy Spreadable Salted 500g, Jersey Butter Very
- *            Low Salt / Unsalted 250g, Jersey Organic Fat Reduced Milk 1L, Hamptonne Farm Medium/
- *            Large Eggs 6pk, Attack a Snak Ham 'N Cheese Wrap Kit 86g, Myprotein Firecracker/
- *            Japanese Style/Chilli Chipotle ready meals, Richmond Meat-Free 8 Tasty Sausages +
- *            8 Thick Pork Sausages, The Bury Black Pudding Co. 4 Traditional Black Pudding Slices.
- *            All 1,028 new items and the 25 corrected prices are tagged with upd:"11 Jul" so the
- *            product card shows an "· 11 Jul" freshness indicator next to the category — this is
- *            the first batch to use that tag; the rest of the catalogue has no confirmed update
- *            date so intentionally shows no tag. New items only have a confirmed Co-op price;
- *            the other 5 stores show as unavailable (£0, excluded from price comparison) until
- *            gathered separately. Bakery, Frozen Food, and 14 other Co-op departments not yet
- *            covered — Fresh Food only. 3,608 total products.
- * Changes:   Added Grove Mill Sauvignon Blanc (75cl) at £9.75 Co-op, from a Co-op receipt.
- *            Updated Beef Meatballs 12pk price from £5.22 to £5.40 (same receipt) — assumed same
- *            product/pack size since receipt didn't specify count, worth double-checking.
- *            Two items from the same receipt not yet added pending name clarification from
- *            Eamonn: "Islands Choice Custa..." £3.45 (uncertain if custard or the Islands Choice
- *            spirits brand) and "Engchco Bscf 484G" £4.15 (couldn't confidently decode this
- *            abbreviation). CORRECTION (10 July): the "title truncation bug fix" logged below was
- *            a mistake — the product card already had a working Tooltip component handling
- *            truncation and the hover/long-press "see full name" popup correctly. Adding
- *            duplicate overflow/ellipsis styling directly to the inner title div broke that
- *            tooltip's truncation detection (it measures the OUTER wrapper's scrollWidth vs
- *            clientWidth, which no longer showed an overflow once the inner div started
- *            truncating itself first) — so hovering silently stopped showing anything. Reverted
- *            the inner div back to its original styling; the existing Tooltip component was
- *            never broken and needed no changes.
- * Changes:   BUG FIX: the "Basket" nav tab never showed an item count, unlike "Saved (N)" for
- *            favourites — the count variable (basketCount) already existed in the code, it just
- *            wasn't wired into the tab label. Fixed so Basket now shows "Basket (N)" the same way
- *            Saved does.
- *            2,574 total products.
- *            Added Islands Choice Custard at £3.45 Co-op, per Eamonn's confirmation. The other
- *            unclear item from the same receipt ("Engchco Bscf 484G") was left out — Eamonn
- *            wasn't sure what it was either, so not added rather than guess. 2,575 total products.
- * Changes:   (v87, 10 July) Identified "Engchco Bscf" as English Cheesecake Company Vanilla &
- *            Biscoff Cheesecake (484g) — added at £4.15 Co-op. Added 3 more items from Co-op
- *            receipts: Double Pepperoni Stonebaked Pizza £1.95, 7UP Zero (8pk) £3.95, Sweet &
- *            Sour Egg Rice £4.50, Unsmoked Back Bacon (Thick Cut) £3.49. Updated CP Cheese
- *            Coleslaw price from £2.63 to £2.90. Flagged for later cleanup: two identically-named
- *            "Unsmoked Back Bacon (300g)" entries exist at different prices (£2.80 and £2.20) —
- *            not touched this round, worth deduplicating separately. 2,580 total products.
- * Changes:   Added 26 items from two receipts sent by Karen Scott on 30 June (Waitrose and
- *            Morrisons) — too late for the June competition itself, but the products were worth
- *            capturing. Waitrose: Smoked Lardons, Cumberland Sausages, British Chicken Wings,
- *            Sweet & Sticky Pork Ribs, Garlic Kyivs, Pepperoni Pizza, Garlic Breadsticks, Ham &
- *            Pineapple Pizza, Charlotte Potato Salad, Betty Crocker Vanilla Cake Mix + Lemon
- *            Icing, Essential Strawberry Jam, Coca-Cola (Bottles), Always Discreet Sensitive
- *            (2 sizes), J20 Orange & Passionfruit, Essential Still Water, Fusilli, Essential
- *            Table Salt, Greek Yogurt with Honey, Lindt Dark Sea Salt, Lindt Mint Dark. Morrisons:
- *            Yazoo Milk Strawberry, Flavoured Milk Banana + Strawberry, Youngs Scampi. Also
- *            corrected New York Bakery Plain Bagels price from £1.85 to £2.32 (existing product,
- *            confirmed price change from receipt). CORRECTION: Lindt Mint Dark was misread from
- *            the receipt as £9.99 — actual price is £3.48 (same as Lindt Dark Sea Salt); £9.99
- *            was actually "Voices of Victory", an unrelated non-grocery item, correctly excluded.
- *            Cross-checked a baking ingredients price list against the database: confirmed exact
- *            matches on Baking Powder, Bicarbonate of Soda, Carnation Caramel, Carnation
- *            Condensed Milk, Cocoa Powder, Free Range Eggs 12pk, and all 6 stores of Caster Sugar
- *            1kg. Added Butter (1kg) at £5.80 Iceland — was previously missing (only 250g/500g
- *            sizes existed). BUG FIX: search was a literal exact substring match, so punctuation
- *            broke it silently — "Butter 1kg" found nothing because the real entry is
- *            "Butter (1kg)", same problem with hyphens e.g. "Coca Cola" vs "Coca-Cola". Added a
- *            normalizeSearch() helper that strips all punctuation and collapses whitespace before
- *            comparing, so brackets/hyphens/spacing no longer matter on either side of the search.
- *            FOLLOW-UP BUG FIX: search still failed on word order — "bread wholemeal" found
- *            nothing because the actual product is "Wholemeal Bread 800g" (opposite word order),
- *            since the original fix still matched the query as one exact phrase. Search now
- *            splits the query into separate words and requires each one to appear somewhere in
- *            the product name, in any order — so "bread wholemeal", "wholemeal bread", and
- *            "bread wholemeal 800g" all now find the same product.
- *            2,573 total products.
- * Changes:   Added 4 Waitrose items from receipt: WR Diced Chicken Breast £6.38, Robinsons
- *            Creations £1.75, Hellmann's Light Mayo £2.60, Fanta Orange Zero (8x330ml) £3.75.
- *            Confirmed Waitrose Frozen Quarter Pounder price unchanged at £4.60. Removed the
- *            (closed) June Price Hunt competition banner from the home screen and onboarding
- *            carousel, replaced with a "Watch this space" teaser. FEATURE: teaser banner is now
- *            tappable and opens a new swipeable Tips carousel (TipsModal) — 6 slides covering
- *            cheapest-price-first, pinning a store, the smart basket, favourites, search/sort,
- *            and PWA install. Added 4 more Waitrose items from a second receipt: WR Durafold Bag
- *            £1.00, Dr Pepper Zero (330ml) £2.09, Sprite (8x330ml) £3.75, Budweiser Budvar Lager
- *            (500ml) £2.14. BUG FIX: 10 products from Kate's original Waitrose receipt (IDs
- *            931-940, e.g. WR Linguine, Cirio Chopped Tomatoes, McVities Fig Rolls) had a data
- *            entry error where Waitrose price was accidentally doubled (base price + full price
- *            added again) while all other stores wrongly showed the same non-doubled price —
- *            corrected to proper Waitrose-only entries. 2,546 total products.
- * Changes:   FEATURE: When multiple stores share the exact same lowest price for an item, the
- *            product card now shows "🔀 X stores tied" instead of arbitrarily picking one store
- *            to feature. Opening the dropdown shows all tied stores marked CHEAPEST. Picking a
- *            store manually (or having a global pinned store) still shows that specific store as
- *            before — the tied display only applies when nothing has been explicitly chosen.
- * Changes:   Added Iceland Non Food category from Snappy Shopper (20 products, IDs 2547-2566) —
- *            completes all Snappy Shopper Iceland categories. Includes Daewoo Dual Air Fryer and
- *            Duracell Plus AA 8 Pack, both marked available soon (currently out of stock at source).
- *            Added Coca-Cola Zero Sugar 4-pack (£2.90) and 12-pack (£5.25), confirmed from Co-op
- *            receipts. Corrected 4 Co-op prices from live receipts: Lucozade Pink Lemonade 500ml
- *            £1.30, White Choc Cookies 5pk £1.85, Cadbury Raspberry Ruffle Rolls £4.35, Warburtons
- *            Farmhouse 800g £2.00 (Co-op price added). Added 11 more items from receipts
- *            (IDs 2569-2579): Extra Thick Foil, Cadbury Daim Bar, Garlic & Coriander Naan,
- *            Sausage & Bean Slice, Chocolate Twist, Pear Drops, Bakers Small Dog Beef & Veg,
- *            Youngs Cod Cakes, Salted Caramel Chocolate Bar, Patak's Korma Curry Paste Pot,
- *            WR Essential Salted Butter (Waitrose). Also corrected Cheese Singles 10pk to £1.50
- *            and Garlic Kiev 260g to £3.59 (both existing items, prices updated from receipt).
- *            BUG FIXES: Product list now correctly excludes items priced £0.00 at every enabled
- *            store — fixes Iceland-only view showing unavailable products (confirmed working).
- *            Settings modal (store picker) rebuilt with sticky header outside the scroll
- *            container — close button now always visible regardless of scroll position, and
- *            removed the oversized bottom padding that was pushing the Done button off-screen.
- *            2,538 total products.
- * ============================================================
+ * Changes:   Full day's Co-op catalogue harvest (11 July): Fresh Food (all 18 pages/1,074
+ *            items), Bakery (Bread + Rolls Cakes & More, 147 items), and Frozen Food (7
+ *            subcategories, 130 items) all gathered from Co-op's official live catalogue and
+ *            reconciled against the existing database. In total: 1,232 new products added,
+ *            52 existing products corrected/filled with a real Co-op price for the first time,
+ *            and "Daewoo Dual Air Fryer 9ltr" removed entirely (an appliance, not a grocery
+ *            item, didn't belong in the database). All new/corrected items tagged
+ *            upd:"11 Jul" so the product card shows a "· 11 Jul" freshness indicator next to
+ *            the category — nothing else in the catalogue is tagged. New items only have a
+ *            confirmed Co-op price; the other 5 stores show as unavailable (£0, excluded from
+ *            price comparison) until gathered separately. 14 Co-op departments not yet
+ *            covered (Food Cupboard, Drinks, Household, and others) — Fresh Food, Bakery, and
+ *            Frozen Food only. 3,811 total products (down from 3,812 due to the Daewoo removal,
+ *            up from 2,580 at the start of the day).
  */
 import React, { useState, useMemo, useRef, useEffect, useCallback } from "react";
 
@@ -1504,39 +1401,39 @@ const BASE_PRODUCTS = [
   {id:1245,name:"Warburtons Soft White Farmhouse Thick 800g",         cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(2.45,[-2.45,-2.45,-2.45,-2.45,0,-2.45])},
   {id:1246,name:"Warburtons Medium Soft White 400g",                  cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(1.45,[-1.45,-1.45,-1.45,-1.45,0,-1.45])},
   {id:1247,name:"Warburtons 12 Protein Power Seeds & Grains 500g",    cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(2.35,[-2.35,-2.35,-2.35,-2.35,0,-2.35])},
-  {id:1248,name:"Warburtons 9 Seeds & Grain Fibre Fix 500g",          cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(2.30,[-2.30,-2.30,-2.30,-2.30,0,-2.30])},
-  {id:1249,name:"Warburtons Danish Lighter White Bread 400g",         cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(1.70,[-1.70,-1.70,-1.70,-1.70,0,-1.70])},
+  {id:1248, name:"Warburtons 9 Seeds & Grain Fibre Fix 500g", cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(2.3,[-0.45,-2.30,-2.30,-2.30,0,-2.30]), upd:"11 Jul"},
+  {id:1249, name:"Warburtons Danish Lighter White Bread 400g", cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(1.7,[-0.21,-1.70,-1.70,-1.70,0,-1.70]), upd:"11 Jul"},
   {id:1250,name:"Warburtons Farmhouse 800g",                          cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(2.25,[-0.25,-2.25,-2.25,-2.25,0,-2.25])},
-  {id:1251,name:"Warburtons Medium Half & Half 800g",                 cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(2.10,[-2.10,-2.10,-2.10,-2.10,0,-2.10])},
-  {id:1252,name:"Warburtons Thick Half & Half 800g",                  cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(2.10,[-2.10,-2.10,-2.10,-2.10,0,-2.10])},
+  {id:1251, name:"Warburtons Medium Half & Half 800g", cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(2.1,[-0.35,-2.10,-2.10,-2.10,0,-2.10]), upd:"11 Jul"},
+  {id:1252, name:"Warburtons Thick Half & Half 800g", cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(2.1,[-0.35,-2.10,-2.10,-2.10,0,-2.10]), upd:"11 Jul"},
   {id:1253,name:"Warburtons Medium Soft White 800g",                  cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(2.10,[-2.10,-2.10,-2.10,-2.10,0,-2.10])},
-  {id:1254,name:"Warburtons Medium Sliced Wholemeal 400g",            cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(1.45,[-1.45,-1.45,-1.45,-1.45,0,-1.45])},
-  {id:1255,name:"Warburtons Original Seeded Batch 800g",              cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(2.55,[-2.55,-2.55,-2.55,-2.55,0,-2.55])},
-  {id:1256,name:"Warburtons Thick Slice Soft Tiger Bloomer 600g",     cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(2.30,[-2.30,-2.30,-2.30,-2.30,0,-2.30])},
-  {id:1257,name:"Warburtons The True Taste of Wholemeal 800g",        cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(2.10,[-2.10,-2.10,-2.10,-2.10,0,-2.10])},
+  {id:1254, name:"Warburtons Medium Sliced Wholemeal 400g", cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(1.45,[-0.2,-1.45,-1.45,-1.45,0,-1.45]), upd:"11 Jul"},
+  {id:1255, name:"Warburtons Original Seeded Batch 800g", cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(2.55,[-0.25,-2.55,-2.55,-2.55,0,-2.55]), upd:"11 Jul"},
+  {id:1256, name:"Warburtons Thick Slice Soft Tiger Bloomer 600g", cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(2.3,[-0.25,-2.30,-2.30,-2.30,0,-2.30]), upd:"11 Jul"},
+  {id:1257, name:"Warburtons The True Taste of Wholemeal 800g", cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(2.1,[-0.35,-2.10,-2.10,-2.10,0,-2.10]), upd:"11 Jul"},
   {id:1258,name:"Warburtons Toastie Soft Thick White 400g",           cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(1.45,[-1.45,-1.45,-1.45,-1.45,0,-1.45])},
   {id:1259,name:"Warburtons Soft Thick White Toastie 800g",           cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(2.10,[-2.10,-2.10,-2.10,-2.10,0,-2.10])},
-  {id:1260,name:"Warburtons 4 White Soft Pittas",                     cat:"🍞 Bread & Bakery", icon:"🫓", prices:sp(1.85,[-1.85,-1.85,-1.85,-1.85,0,-1.85])},
+  {id:1260, name:"Warburtons 4 White Soft Pittas", cat:"🍞 Bread & Bakery", icon:"🫓", prices:sp(1.85,[-0.25,-1.85,-1.85,-1.85,0,-1.85]), upd:"11 Jul"},
   {id:1261,name:"Warburtons 4 Wholemeal Soft Pittas",                 cat:"🍞 Bread & Bakery", icon:"🫓", prices:sp(1.90,[-1.90,-1.90,-1.90,-1.90,0,-1.90])},
   {id:1262,name:"Warburtons Fruit Loaf with Cinnamon & Raisin 400g",  cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(2.50,[-2.50,-2.50,-2.50,-2.50,0,-2.50])},
-  {id:1263,name:"Warburtons 8 Crumpet Thins",                         cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(1.70,[-1.70,-1.70,-1.70,-1.70,0,-1.70])},
-  {id:1264,name:"Warburtons 4 Protein Flatbreads",                    cat:"🍞 Bread & Bakery", icon:"🫓", prices:sp(2.25,[-2.25,-2.25,-2.25,-2.25,0,-2.25])},
+  {id:1263, name:"Warburtons 8 Crumpet Thins", cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(1.7,[-0.21,-1.70,-1.70,-1.70,0,-1.70]), upd:"11 Jul"},
+  {id:1264, name:"Warburtons 4 Protein Flatbreads", cat:"🍞 Bread & Bakery", icon:"🫓", prices:sp(2.25,[-0.35,-2.25,-2.25,-2.25,0,-2.25]), upd:"11 Jul"},
   {id:1265,name:"Warburtons 6 Pancakes",                              cat:"🍞 Bread & Bakery", icon:"🥞", prices:sp(1.45,[-1.45,-1.45,-1.45,-1.45,0,-1.45])},
-  {id:1266,name:"Warburtons 4 Breakfast Muffins",                     cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(1.65,[-1.65,-1.65,-1.65,-1.65,0,-1.65])},
-  {id:1267,name:"Warburtons 4 Fruity Teacakes",                       cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(2.25,[-2.25,-2.25,-2.25,-2.25,0,-2.25])},
+  {id:1266, name:"Warburtons 4 Breakfast Muffins", cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(1.65,[-0.1,-1.65,-1.65,-1.65,0,-1.65]), upd:"11 Jul"},
+  {id:1267, name:"Warburtons 4 Fruity Teacakes", cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(2.25,[-0.4,-2.25,-2.25,-2.25,0,-2.25]), upd:"11 Jul"},
   {id:1268,name:"Warburtons 4 Large Sliced Rolls",                    cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(2.25,[-2.25,-2.25,-2.25,-2.25,0,-2.25])},
   {id:1269,name:"Warburtons 4 Seeded Protein Thin Bagels",            cat:"🍞 Bread & Bakery", icon:"🥯", prices:sp(2.40,[-2.40,-2.40,-2.40,-2.40,0,-2.40])},
   {id:1270,name:"Warburtons 6 Crumpets",                              cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(1.45,[-1.45,-1.45,-1.45,-1.45,0,-1.45])},
   {id:1271,name:"Warburtons 6 Thin Bagels Original",                  cat:"🍞 Bread & Bakery", icon:"🥯", prices:sp(2.40,[-2.40,-2.40,-2.40,-2.40,0,-2.40])},
   {id:1272,name:"Warburtons 6 Potato Cakes",                          cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(1.65,[-1.65,-1.65,-1.65,-1.65,0,-1.65])},
-  {id:1273,name:"Warburtons 6 Sliced Hotdog Rolls",                   cat:"🍞 Bread & Bakery", icon:"🌭", prices:sp(2.10,[-2.10,-2.10,-2.10,-2.10,0,-2.10])},
-  {id:1274,name:"Warburtons 6 Soft & Sliced White Rolls",             cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(1.95,[-1.95,-1.95,-1.95,-1.95,0,-1.95])},
+  {id:1273, name:"Warburtons 6 Sliced Hotdog Rolls", cat:"🍞 Bread & Bakery", icon:"🌭", prices:sp(2.1,[-0.35,-2.10,-2.10,-2.10,0,-2.10]), upd:"11 Jul"},
+  {id:1274, name:"Warburtons 6 Soft & Sliced White Rolls", cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(1.95,[-0.3,-1.95,-1.95,-1.95,0,-1.95]), upd:"11 Jul"},
   {id:1275,name:"Warburtons 6 Sliced Wholemeal Rolls",                cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(1.95,[-1.95,-1.95,-1.95,-1.95,0,-1.95])},
   {id:1276,name:"Warburtons 6 Thins Soft Brown Sliced",               cat:"🍞 Bread & Bakery", icon:"🫓", prices:sp(2.10,[-2.10,-2.10,-2.10,-2.10,0,-2.10])},
   {id:1277,name:"Warburtons 6 Thins Soft White Sliced",               cat:"🍞 Bread & Bakery", icon:"🫓", prices:sp(2.10,[-2.10,-2.10,-2.10,-2.10,0,-2.10])},
-  {id:1278,name:"Warburtons 9 Original Crumpets",                     cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(2.00,[-2.00,-2.00,-2.00,-2.00,0,-2.00])},
-  {id:1279,name:"Warburtons 5 Original Bagels",                       cat:"🍞 Bread & Bakery", icon:"🥯", prices:sp(2.40,[-2.40,-2.40,-2.40,-2.40,0,-2.40])},
-  {id:1280,name:"Warburtons Soft Round White Bread Milk Roll 400g",   cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(1.90,[-1.90,-1.90,-1.90,-1.90,0,-1.90])},
+  {id:1278, name:"Warburtons 9 Original Crumpets", cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(2.0,[-0.31,-2.00,-2.00,-2.00,0,-2.00]), upd:"11 Jul"},
+  {id:1279, name:"Warburtons 5 Original Bagels", cat:"🍞 Bread & Bakery", icon:"🥯", prices:sp(2.4,[-0.21,-2.40,-2.40,-2.40,0,-2.40]), upd:"11 Jul"},
+  {id:1280, name:"Warburtons Soft Round White Bread Milk Roll 400g", cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(1.9,[-0.2,-1.90,-1.90,-1.90,0,-1.90]), upd:"11 Jul"},
   {id:1281,name:"Baker Street 6 Pre-Sliced Burger Buns",              cat:"🍞 Bread & Bakery", icon:"🍔", prices:sp(2.15,[-2.15,-2.15,-2.15,-2.15,0,-2.15])},
   {id:1282,name:"Baker Street 4 Hot Dog Rolls Pre-Cut",               cat:"🍞 Bread & Bakery", icon:"🌭", prices:sp(2.15,[-2.15,-2.15,-2.15,-2.15,0,-2.15])},
   {id:1283,name:"Baker Street 6 Pre-Sliced Seeded Burger Buns",       cat:"🍞 Bread & Bakery", icon:"🍔", prices:sp(2.15,[-2.15,-2.15,-2.15,-2.15,0,-2.15])},
@@ -1590,17 +1487,17 @@ const BASE_PRODUCTS = [
   {id:1331,name:"Mycakes Madeira Cake",                               cat:"🍰 Cakes & Bakery", icon:"🍰", prices:sp(2.10,[-2.10,-2.10,-2.10,-2.10,0,-2.10])},
   {id:1332,name:"Mr Kipling Manor House 390g",                        cat:"🍰 Cakes & Bakery", icon:"🍰", prices:sp(4.00,[-4.00,-4.00,-4.00,-4.00,0,-4.00])},
   {id:1333,name:"Mr Kipling 8 Angel Slices",                          cat:"🍰 Cakes & Bakery", icon:"🍰", prices:sp(3.35,[-3.35,-3.35,-3.35,-3.35,0,-3.35])},
-  {id:1334,name:"Mr Kipling 6 Bakewell Slices",                       cat:"🍰 Cakes & Bakery", icon:"🍰", prices:sp(3.35,[-3.35,-3.35,-3.35,-3.35,0,-3.35])},
+  {id:1334, name:"Mr Kipling 6 Bakewell Slices", cat:"🍰 Cakes & Bakery", icon:"🍰", prices:sp(3.35,[-1.77,-3.35,-3.35,-3.35,0,-3.35]), upd:"11 Jul"},
   {id:1335,name:"Mr Kipling 6 Bramley Apple & Blackcurrant Pies",     cat:"🍰 Cakes & Bakery", icon:"🥧", prices:sp(3.35,[-3.35,-3.35,-3.35,-3.35,0,-3.35])},
-  {id:1336,name:"Mr Kipling 6 Viennese Whirls",                       cat:"🍰 Cakes & Bakery", icon:"🍰", prices:sp(3.55,[-3.55,-3.55,-3.55,-3.55,0,-3.55])},
-  {id:1337,name:"Mr Kipling 6 Cherry Bakewells",                      cat:"🍰 Cakes & Bakery", icon:"🍰", prices:sp(3.55,[-3.55,-3.55,-3.55,-3.55,0,-3.55])},
-  {id:1338,name:"Mr Kipling 6 Bramley Apple Pies",                    cat:"🍰 Cakes & Bakery", icon:"🥧", prices:sp(3.55,[-3.55,-3.55,-3.55,-3.55,0,-3.55])},
+  {id:1336, name:"Mr Kipling 6 Viennese Whirls", cat:"🍰 Cakes & Bakery", icon:"🍰", prices:sp(3.55,[-0.4,-3.55,-3.55,-3.55,0,-3.55]), upd:"11 Jul"},
+  {id:1337, name:"Mr Kipling 6 Cherry Bakewells", cat:"🍰 Cakes & Bakery", icon:"🍰", prices:sp(3.55,[-0.85,-3.55,-3.55,-3.55,0,-3.55]), upd:"11 Jul"},
+  {id:1338, name:"Mr Kipling 6 Bramley Apple Pies", cat:"🍰 Cakes & Bakery", icon:"🥧", prices:sp(3.55,[-0.4,-3.55,-3.55,-3.55,0,-3.55]), upd:"11 Jul"},
   {id:1339,name:"Mr Kipling 8 Chocolate Slices",                      cat:"🍰 Cakes & Bakery", icon:"🍰", prices:sp(3.35,[-3.35,-3.35,-3.35,-3.35,0,-3.35])},
   {id:1340,name:"Mr Kipling 4 Birthday Cake Tarts",                   cat:"🍰 Cakes & Bakery", icon:"🍰", prices:sp(2.40,[-2.40,-2.40,-2.40,-2.40,0,-2.40])},
   {id:1341,name:"Mr Kipling Lunchbox 4 Raspberry Slices",             cat:"🍰 Cakes & Bakery", icon:"🍰", prices:sp(2.15,[-2.15,-2.15,-2.15,-2.15,0,-2.15])},
   {id:1342,name:"Mr Kipling Lunchbox 4 Banana Slices",                cat:"🍰 Cakes & Bakery", icon:"🍰", prices:sp(2.15,[-2.15,-2.15,-2.15,-2.15,0,-2.15])},
   {id:1343,name:"Cadbury 5 Cake Bars Fudge",                          cat:"🍰 Cakes & Bakery", icon:"🍫", prices:sp(2.95,[-2.95,-2.95,-2.95,-2.95,0,-2.95])},
-  {id:1344,name:"Cadbury 10 Milk Chocolate Mini Rolls",               cat:"🍰 Cakes & Bakery", icon:"🍫", prices:sp(4.25,[-4.25,-4.25,-4.25,-4.25,0,-4.25])},
+  {id:1344, name:"Cadbury 10 Milk Chocolate Mini Rolls", cat:"🍰 Cakes & Bakery", icon:"🍫", prices:sp(4.25,[0.1,-4.25,-4.25,-4.25,0,-4.25]), upd:"11 Jul"},
   {id:1345,name:"Nutella Muffin 172g",                                cat:"🍰 Cakes & Bakery", icon:"🧁", prices:sp(3.35,[-3.35,-3.35,-3.35,-3.35,0,-3.35])},
   {id:1346,name:"Nutella Donut 120g",                                 cat:"🍰 Cakes & Bakery", icon:"🍩", prices:sp(3.35,[-3.35,-3.35,-3.35,-3.35,0,-3.35])},
   {id:1347,name:"Dunkin Rocky Road 2pk",                              cat:"🍰 Cakes & Bakery", icon:"🍫", prices:sp(3.30,[-3.30,-3.30,-3.30,-3.30,0,-3.30])},
@@ -1617,7 +1514,7 @@ const BASE_PRODUCTS = [
   {id:1358,name:"Dulcesol Plain Madeira Slices 370g",                  cat:"🍰 Cakes & Bakery", icon:"🍰", prices:sp(2.35,[-2.35,-2.35,-2.35,-2.35,0,-2.35])},
   {id:1359,name:"Lago Party Wafer Strawberry 250g",                   cat:"🍰 Cakes & Bakery", icon:"🍰", prices:sp(2.40,[-2.40,-2.40,-2.40,-2.40,0,-2.40])},
   {id:1360,name:"Milka Choc Chip Cake 175g",                          cat:"🍰 Cakes & Bakery", icon:"🍫", prices:sp(2.00,[-2.00,-2.00,-2.00,-2.00,0,-2.00])},
-  {id:1361,name:"Real Lancashire Eccles Cakes",                       cat:"🍰 Cakes & Bakery", icon:"🥧", prices:sp(2.65,[-2.65,-2.65,-2.65,-2.65,0,-2.65])},
+  {id:1361, name:"Real Lancashire Eccles Cakes", cat:"🍰 Cakes & Bakery", icon:"🥧", prices:sp(2.65,[0.4,-2.65,-2.65,-2.65,0,-2.65]), upd:"11 Jul"},
   {id:1362,name:"Regal Bakery Crunchy Rusk 200g",                     cat:"🍰 Cakes & Bakery", icon:"🍞", prices:sp(1.95,[-1.95,-1.95,-1.95,-1.95,0,-1.95])},
   {id:1363,name:"The Daily Bakery White Ring Donuts 4pk 232g",        cat:"🍰 Cakes & Bakery", icon:"🍩", prices:sp(2.00,[-2.00,-2.00,-2.00,-2.00,0,-2.00])},
   {id:1364,name:"The Daily Bakery Raspberry Jam Donuts 4pk",          cat:"🍰 Cakes & Bakery", icon:"🍩", prices:sp(2.00,[-2.00,-2.00,-2.00,-2.00,0,-2.00])},
@@ -2215,7 +2112,7 @@ const BASE_PRODUCTS = [
   {id:1956,name:"Ambrosia Devon Custard 500g",                      cat:"🍝 Pantry",     icon:"🍮", prices:sp(2.35,[-2.35,-2.35,-2.35,-2.35,0,-2.35])},
   {id:1957,name:"Carnation Evaporated Milk 410g",                   cat:"🍝 Pantry",     icon:"🥛", prices:sp(2.15,[-2.15,-2.15,-2.15,-2.15,0,-2.15])},
   {id:1958,name:"Brompton House Chocolate Brownies 6x20g",          cat:"🍰 Cakes & Bakery",icon:"🍫",prices:sp(1.35,[-1.35,-1.35,-1.35,-1.35,0,-1.35])},
-  {id:1959,name:"Brompton House Fantasy Brownies 6x20g",            cat:"🍰 Cakes & Bakery",icon:"🍫",prices:sp(1.35,[-1.35,-1.35,-1.35,-1.35,0,-1.35])},
+  {id:1959, name:"Brompton House Fantasy Brownies 6x20g", cat:"🍰 Cakes & Bakery", icon:"🍫", prices:sp(1.35,[0.24,-1.35,-1.35,-1.35,0,-1.35]), upd:"11 Jul"},
   {id:1960,name:"Ambrosia Chocolate Flavour Devon Custard 400g",    cat:"🍝 Pantry",     icon:"🍮", prices:sp(1.70,[-1.70,-1.70,-1.70,-1.70,0,-1.70])},
   {id:1961,name:"Carnation Condensed Milk 397g",                    cat:"🍝 Pantry",     icon:"🥛", prices:sp(2.45,[-2.45,-2.45,-2.45,-2.45,0,-2.45])},
   {id:1962,name:"Ambrosia Rice Pudding 4x120g",                     cat:"🍝 Pantry",     icon:"🍚", prices:sp(3.35,[-3.35,-3.35,-3.35,-3.35,0,-3.35])},
@@ -2426,12 +2323,12 @@ const BASE_PRODUCTS = [
   {id:2167,name:"Rowntrees Mango Ice Lollies 4x70ml",              cat:"🧊 Frozen",     icon:"🍭", prices:sp(3.80,[-3.80,-3.80,-3.80,-3.80,0,-3.80])},
   {id:2168,name:"Iceland 8 Rocket Lollies 464g",                   cat:"🧊 Frozen",     icon:"🍭", prices:sp(2.00,[-2.00,-2.00,-2.00,-2.00,0,-2.00])},
   {id:2169,name:"Snickers Chocolate Peanut Ice Cream Bars 4pk",    cat:"🧊 Frozen",     icon:"🍫", prices:sp(3.80,[-3.80,-3.80,-3.80,-3.80,0,-3.80])},
-  {id:2170,name:"Mars Chocolate Caramel Ice Cream Bars 4pk",       cat:"🧊 Frozen",     icon:"🍫", prices:sp(3.80,[-3.80,-3.80,-3.80,-3.80,0,-3.80])},
+  {id:2170, name:"Mars Chocolate Caramel Ice Cream Bars 4pk", cat:"🧊 Frozen", icon:"🍫", prices:sp(3.8,[-0.4,-3.80,-3.80,-3.80,0,-3.80]), upd:"11 Jul"},
   {id:2171,name:"Magnum Ice Cream Sticks White Chocolate 3x100ml", cat:"🧊 Frozen",     icon:"🍦", prices:sp(4.65,[-4.65,-4.65,-4.65,-4.65,0,-4.65])},
   {id:2172,name:"Walls Mini Calippo Orange & Lemon-Lime 5x80ml",   cat:"🧊 Frozen",     icon:"🍭", prices:sp(3.80,[-3.80,-3.80,-3.80,-3.80,0,-3.80])},
   {id:2173,name:"Cornetto Classico Ice Cream Cone 6x90ml",         cat:"🧊 Frozen",     icon:"🍦", prices:sp(4.80,[-4.80,-4.80,-4.80,-4.80,0,-4.80])},
   {id:2174,name:"Mr Freeze Jubbly Cola Ice Lollies 8x62ml",        cat:"🧊 Frozen",     icon:"🍭", prices:sp(2.35,[-2.35,-2.35,-2.35,-2.35,0,-2.35])},
-  {id:2175,name:"Fab Strawberry Ice Lollies 6x58ml",               cat:"🧊 Frozen",     icon:"🍭", prices:sp(3.80,[-3.80,-3.80,-3.80,-3.80,0,-3.80])},
+  {id:2175, name:"Fab Strawberry Ice Lollies 6x58ml", cat:"🧊 Frozen", icon:"🍭", prices:sp(3.8,[-0.65,-3.80,-3.80,-3.80,0,-3.80]), upd:"11 Jul"},
   {id:2176,name:"Nobbly Bobbly Strawberry & Chocolate Lolly 4x60ml",cat:"🧊 Frozen",   icon:"🍭", prices:sp(3.80,[-3.80,-3.80,-3.80,-3.80,0,-3.80])},
   {id:2177,name:"Rowntrees Fruit Pastilles Ice Lollies 4x65ml",    cat:"🧊 Frozen",     icon:"🍭", prices:sp(3.80,[-3.80,-3.80,-3.80,-3.80,0,-3.80])},
   {id:2178,name:"Solero Ice Cream Sticks Exotic 3x90ml",           cat:"🧊 Frozen",     icon:"🍦", prices:sp(3.80,[-3.80,-3.80,-3.80,-3.80,0,-3.80])},
@@ -2821,8 +2718,7 @@ const BASE_PRODUCTS = [
   {id:2562,name:"Duracell Plus AAA 8 Pack",                           cat:"🧹 Household",icon:"🔋",prices:sp(9.25,[-9.25,-9.25,-9.25,-9.25,0,-9.25])},
   {id:2563,name:"Energizer Primary Alkaline AAA Batteries 10 Pack",   cat:"🧹 Household",icon:"🔋",prices:sp(4.10,[-4.10,-4.10,-4.10,-4.10,0,-4.10])},
   {id:2564,name:"Energizer Primary Alkaline AA Batteries 10 Pack",    cat:"🧹 Household",icon:"🔋",prices:sp(4.10,[-4.10,-4.10,-4.10,-4.10,0,-4.10])},
-  {id:2565,name:"Daewoo Dual Air Fryer 9ltr",                         cat:"🧹 Household",icon:"🔌",prices:sp(61.95,[-61.95,-61.95,-61.95,-61.95,0,-61.95])},
-  {id:2566,name:"Duracell Plus AA 8 Pack",                            cat:"🧹 Household",icon:"🔋",prices:sp(9.25,[-9.25,-9.25,-9.25,-9.25,0,-9.25])},
+    {id:2566,name:"Duracell Plus AA 8 Pack",                            cat:"🧹 Household",icon:"🔋",prices:sp(9.25,[-9.25,-9.25,-9.25,-9.25,0,-9.25])},
 
   /* ── CO-OP FRESH FOOD (added 11 July, from official live Co-op catalogue) ─── */
   {id:2622, name:"Wasabi Chicken Teriyaki with Rice 430g", cat:"🥗 Deli & Salads", icon:"🥘", prices:{coop:4.2,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
@@ -3853,6 +3749,212 @@ const BASE_PRODUCTS = [
   {id:3647, name:"Co-op Takeaway Chicken Saag Masala 350g", cat:"🥗 Deli & Salads", icon:"🥘", prices:{coop:4.8,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:3648, name:"Co-op Cheese & Chorizo Tortelloni 300g", cat:"🥗 Deli & Salads", icon:"🥘", prices:{coop:2.6,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:3649, name:"Co-op Goats Cheese 85g", cat:"🥛 Dairy & Eggs", icon:"🧀", prices:{coop:2.0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+
+  /* ── CO-OP BAKERY + FROZEN FOOD (added 11 July) ─── */
+  {id:3650, name:"Co-op Irresistible White Sourdough Toastie Loaf 500g", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3651, name:"Co-op Bakery Seeded Farmhouse 800g", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:1.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3652, name:"Sliced Tiger Bloomer 800G", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:2.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3653, name:"Warburtons Soft White Our Dough 400g", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:2.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3654, name:"Co-op Bakery Farmhouse Wholemeal 400g", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:1.1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3655, name:"Co-op Bakery Wholemeal Toastie 800g", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:1.25,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3656, name:"Co-op Bakery White Toastie 800g", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:1.25,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3657, name:"Co-op Bakery Farmhouse White 800g", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:1.25,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3658, name:"Co-op Bakery Farmhouse Wholemeal 800g", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:1.25,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3659, name:"Co-op Irresistible Hand Finished White Sourdough 500g", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:2.8,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3660, name:"Co-op Irresistible Hand Finished Seeded Sourdough 500g", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:2.8,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3661, name:"Co-op Irresistible Super Seeded Farmhouse 800g", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:2.2,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3662, name:"Co-op Irresistible Spelt & Rye Ancient Grains Farmhouse Loaf 800g", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:2.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3663, name:"Co-op Irresistible Wheat & Rye Sourdough 500g", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:2.8,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3664, name:"Co-op Irresistible Limited Edition Hot Honey & Chilli Sourdough 500g", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:2.8,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3665, name:"Warburtons 12 Pulses, Seeds & Grains Protein Power 500g", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:2.1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3666, name:"Warburtons Wholegrain & Rye Our Dough 400g", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:2.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3667, name:"Warburtons Medium Toastie Soft & Sliced White Loaf 800g", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:1.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3668, name:"Warburtons Original Toastie Soft & Sliced White Loaf 800g", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:1.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3669, name:"Warburtons Original Toastie 400g", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:1.25,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3670, name:"Warburtons Thick Toastie Soft & Sliced White Loaf 800g", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:1.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3671, name:"Warburtons Original Farmhouse 800g", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:2.0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3672, name:"Warburtons Original Seeded Batch 400g", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:1.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3673, name:"Warburtons Farmhouse 400g", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:1.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3674, name:"Warburtons Baker's White Bloomer 800g", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:2.1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3675, name:"Warburtons Mega Thick Toastie Soft & Sliced White Loaf 800g", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:1.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3676, name:"Bolands Jam Mallows 250g", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:2.5,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3677, name:"Co-op Bakery 4 All Butter Croissants 194G", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:2.25,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3678, name:"Co-op Bakery 4 Pains Au Chocolat 250G", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:2.69,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3679, name:"Co-op Irresistible All Butter Croissants 280G", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:3.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3680, name:"Co-op Bakery 4 Greek Style Folded Flatbreads 340g 4S", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:2.1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3681, name:"New York Bakery Co. 5 Original Bagels Fresher for Longer 425g 5S", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:1.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3682, name:"Co-op 4 All Butter Scones 4S", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:1.59,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3683, name:"Co-op Bakery 6 White Finger Rolls 6PACK", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:1.35,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3684, name:"Co-op Bakery 8 Sweet Pancakes 8S", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:3.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3685, name:"Co-op 2 White Baguettes 300g 2S", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:1.8,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3686, name:"Co-op Bakery 6 Soft Wholemeal Rolls 6S", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:1.25,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3687, name:"Warburtons Choc Chip Belgian Waffle 70g EACH", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:1.39,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3688, name:"Soreen Banana Loaf 260g", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:1.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3689, name:"New York Bakery Co. Bagels 425g 5PACK", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:2.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3690, name:"Co-op Party Time Charlie Chocolate Cake EACH", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:9.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3691, name:"Co-op 12 Iced Fairy Cakes 12S", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:1.6,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3692, name:"Bonne Maman 7 La Madeleine All Butter 175g", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:3.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3693, name:"Co-op Irresistible Hand Finished Chocolate Cake EACH", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:3.9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3694, name:"Co-op Teatime Treat Madeira Cake EACH", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:2.1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3695, name:"Co-op Teatime Treat Sultana & Cherry Cake EACH", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:2.1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3696, name:"Co-op Irresistible Hand Finished Victoria Sponge Cake EACH", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:3.9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3697, name:"Co-op Party Time Celebration Cupcakes 9PACK", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:6.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3698, name:"Co-op Tea Time Treat Iced Lemon Cake EACH", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:2.1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3699, name:"Co-op Celebration Chocolate Tray Bake EACH", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:6.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3700, name:"Mr Kipling 6 Almond Slices 6S", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:3.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3701, name:"Mr Kipling 6 Country Slices 6S", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:3.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3702, name:"Mr Kipling 8 French Fancies 8S", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:2.1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3703, name:"Mr Kipling 5 Mini Battenbergs 5S", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:1.58,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3704, name:"Cadbury 5 Milk Chocolate Mini Rolls 5S", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:3.05,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3705, name:"Mr Kipling 6 Angel Slices 6S", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:3.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3706, name:"Co-op Time Treat 6 Tea Bramley Apple Pies 6PACK", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:2.0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3707, name:"Co-op 6 Assorted Jam Tarts 6PK", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:1.59,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3708, name:"Mrs Crimble's 6 Big Choc Macaroons 195g", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:1.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3709, name:"Brioche Pasquier Pitch Chocolate and Hazelnut Brioche 4 x 37.5g (150g) 4PACK", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:1.89,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3710, name:"Brioche Pasquier 6 Brioche Rolls 6PACK", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:2.39,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3711, name:"Brioche Pasquier 6 Brioche Rolls Chocolate Chips 6S", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:2.39,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3712, name:"Yorkshire Baking Company Mega Loaf Cherry EACH", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:2.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3713, name:"Thorntons 10 Millionaires Bites 10PK", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:2.1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3714, name:"Thorntons 10 Brownie Bites 10PK", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:2.1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3715, name:"Warburtons 6 Original Crumpets 6S", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:0.8,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3716, name:"Co-op Bakery 4 Large White Baps 4PACK", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:1.5,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3717, name:"Co-op Bakery 6 Scotch Pancakes 6S", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:1.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3718, name:"Co-op Bakery 6 Soft White Rolls 6S", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:1.25,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3719, name:"Menissez Bake at Home 6 French Mini Pains 300g 6PACK", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:2.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3720, name:"Co-op Irresistible 4 Sultana Scones 4S", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3721, name:"Co-op Bakery 8 White Tortilla Wraps 8S", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:1.8,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3722, name:"Warburtons 4 Sliced Brioche Hot Dog Rolls 4EACH", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3723, name:"Co-op Limited Edition Irresistible Mango Cheesecake EACH", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:3.9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3724, name:"Co-op Bakery 6 White Pitta Breads 6S", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:1.2,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3725, name:"Co-op Bakery 6 Wholemeal Pitta Breads 6S", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:1.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3726, name:"Co-op 4 Protein White Rolls 4PK", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:1.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3727, name:"Co-op Bakery 2 Plain Naan Breads 2S", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:1.6,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3728, name:"Co-op Irresistible 4 Brioche Buns 4PACK", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:1.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3729, name:"Sheldon's 6 Lancashire Oven Bottom Muffins 6S", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:2.05,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3730, name:"New York Bakery Co. 5 Sesame Bagels Fresher for Longer 425g 5S", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:1.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3731, name:"Co-op Irresistible Hand Finished Carrot Cake EACH", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:3.9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3732, name:"St Pierre 6 Chocolate Filled Crêpes 6PACK", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:2.6,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3733, name:"Baker Street Seeded Rye Bread 500g", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:2.25,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3734, name:"St Pierre 4 Seeded Brioche Burger Buns 4S", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:3.5,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3735, name:"Mr Kipling 6 Lemon Layered Slices 6S", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:3.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3736, name:"Cadbury 10 Raspberry Mini Rolls 10S", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:4.35,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3737, name:"Warburtons 6 Brioche Hotdog Rolls 270G", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:2.1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3738, name:"St Pierre 4 Brioche Pre-Cut Hot Dog Rolls 4PACK", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:2.25,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3739, name:"St Pierre 6 Croissants 6PACK", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:2.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3740, name:"St Pierre 6 Pains Au Chocolat 6PACK", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:2.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3741, name:"St Pierre 4 Pre-Sliced Brioche Burger Buns 4PACK", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:2.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3742, name:"Soreen The Original Malt Loaf 260g", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:1.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3743, name:"Mission Wheat & White Tortilla Wraps 6 Pack 6PACK", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:1.42,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3744, name:"Mission Original Mini Tortilla Wraps 6 Pack 6S", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:1.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3745, name:"Warburtons 4 Large Rolls 4S", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:1.9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3746, name:"Warburtons 6 Original Pancakes 6S", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:1.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3747, name:"Warburtons 6 Wholemeal Rolls 6S", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:1.69,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3748, name:"Warburtons 6 Brown Thins 6S", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:1.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3749, name:"Warburtons 6 Original Thin Bagels 6S", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:2.19,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3750, name:"Warburtons 4 Protein Thin Bagels 4PACK", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:2.1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3751, name:"Warburtons 5 Cinnamon & Raisin Bagels 5PACK", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:2.19,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3752, name:"Warburtons 4 Square Rolls 4PACK", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:1.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3753, name:"Warburtons 4 Easy to Fill Wholemeal Soft Pittas EACH", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:1.6,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3754, name:"Warburtons 4 Protein Soft Pittas 4PACK", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:1.9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3755, name:"Warburtons Pearl Sugar Belgian Waffles 4 x 50g 4S", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3756, name:"Warburtons Pearl Sugar Belgian Waffle 70g EACH", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:1.39,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3757, name:"Warburtons 4 Brioche Burger Buns 4S", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3758, name:"Sheldon's 4 Soft Large Brown Baps 4S", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:1.45,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3759, name:"Co-op Treat Brookie EACH", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:1.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3760, name:"Co-op Treat Brownie EACH", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:1.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3761, name:"Co-op Treat Millionaire's Shortbread EACH", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:1.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3762, name:"Co-op Teatime Treat Raspberry Swiss Roll EACH", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:2.1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3763, name:"Warburtons 4 Fibre Fix Soft Sliced Rolls 4EACH", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:2.05,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3764, name:"Soreen 5 Malt Lunchbox Loaves 150g", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:2.05,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3765, name:"Soreen 5 Banana Lunchbox Loaves 150g", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:2.05,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3766, name:"Co-op Irresistible Richly Fruited Hot Cross Buns 4PACK", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:2.1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3767, name:"Co-op Irresistible Hand Finished 4 White Sourdough Rolls 4PACK", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:1.35,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3768, name:"Co-op Irresistible 4 Buttermilk Pancakes 4PACK", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:2.1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3769, name:"Co-op 4 Protein Maple Pancakes 4PK", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:2.1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3770, name:"Co-op Irresistible 2 Bake at Home White Baguettes with Sourdough 2X125PK", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:2.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3771, name:"Co-op 6 Protein Tortilla Wraps 6PK", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:2.0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3772, name:"itsu Chicken Soup' Dumplings 168g", cat:"🧊 Frozen", icon:"🧊", prices:{coop:3.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3773, name:"Co-op Beef Lasagne 400g", cat:"🧊 Frozen", icon:"🧊", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3774, name:"Young's Admiral's Pie 300g", cat:"🧊 Frozen", icon:"🧊", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3775, name:"Aunt Bessie's 10 Glorious Golden Yorkshires 190g", cat:"🧊 Frozen", icon:"🧊", prices:{coop:2.8,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3776, name:"Co-op 2 Steak & Ale Pies 400g 2X200G", cat:"🧊 Frozen", icon:"🧊", prices:{coop:3.7,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3777, name:"Co-op 12 Mozzarella Sticks 180g", cat:"🧊 Frozen", icon:"🧊", prices:{coop:2.45,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3778, name:"Co-op Stuffed Crust Pepperoni Pizza 468g", cat:"🧊 Frozen", icon:"🍕", prices:{coop:3.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3779, name:"Crosta Mollica Margherita Sourdough Pizzetta 2 x 218g (436g) 422G", cat:"🧊 Frozen", icon:"🍕", prices:{coop:4.73,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3780, name:"Co-op Meat Feast Stonebaked Pizza 335G", cat:"🧊 Frozen", icon:"🍕", prices:{coop:1.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3781, name:"Chicago Town Original Deep Dish Pepperoni Pizza 2 x 155g (310g) 2X155G", cat:"🧊 Frozen", icon:"🍕", prices:{coop:2.35,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3782, name:"Chicago Town Stuffed Crust Loaded Pepperoni Pizza 645g", cat:"🧊 Frozen", icon:"🍕", prices:{coop:6.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3783, name:"Goodfella's Stonebaked Thin Pepperoni 332g", cat:"🧊 Frozen", icon:"🍕", prices:{coop:3.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3784, name:"Goodfella's Stonebaked Thin Margherita 334g", cat:"🧊 Frozen", icon:"🍕", prices:{coop:3.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3785, name:"Co-op Stonebaked Four Cheese 330g", cat:"🧊 Frozen", icon:"🍕", prices:{coop:1.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3786, name:"Co-op Stonebaked Double Pepperoni Pizza 330g", cat:"🧊 Frozen", icon:"🍕", prices:{coop:1.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3787, name:"Co-op Freezer Favourite 2 Garlic Baguettes 310g", cat:"🧊 Frozen", icon:"🍕", prices:{coop:1.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3788, name:"Birds Eye 8 Wonderful Cod Breaded Fish Fingers 240g", cat:"🧊 Frozen", icon:"🐟", prices:{coop:4.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3789, name:"Whitby Seafoods Jumbo Wholetail Scampi 200g", cat:"🧊 Frozen", icon:"🐟", prices:{coop:4.2,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3790, name:"Young's 4 Cod Fish Cakes 200g", cat:"🧊 Frozen", icon:"🐟", prices:{coop:1.7,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3791, name:"Young's 4 Chip Shop Omega 3 Fish Fillets 400g", cat:"🧊 Frozen", icon:"🐟", prices:{coop:5.2,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3792, name:"Co-op Irresistible Jumbo King Prawns 200g", cat:"🧊 Frozen", icon:"🐟", prices:{coop:5.5,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3793, name:"Birds Eye 2 Battered Alaska Pollock Fish Fillets 200g", cat:"🧊 Frozen", icon:"🐟", prices:{coop:3.0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3794, name:"Co-op Frozen Lightly Dusted Salt and Black Pepper Sole Fillets 225g", cat:"🧊 Frozen", icon:"🐟", prices:{coop:3.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3795, name:"Birds Eye Limited Edition Chicken Shop Honey Chipotle BBQ Chicken Wings 385g 375G", cat:"🧊 Frozen", icon:"🍗", prices:{coop:3.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3796, name:"Birds Eye 2 Chicken Quarter Pounders 227g", cat:"🧊 Frozen", icon:"🍗", prices:{coop:3.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3797, name:"Birds Eye Chicken Shop Salt & Pepper Chicken Goujons 325g", cat:"🧊 Frozen", icon:"🍗", prices:{coop:4.59,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3798, name:"Richmond 12 Thick Pork Sausages 516g", cat:"🧊 Frozen", icon:"🍗", prices:{coop:3.0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3799, name:"Birds Eye 4 Chicken Burgers 200g", cat:"🧊 Frozen", icon:"🍗", prices:{coop:3.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3800, name:"Birds Eye 2 Crispy Tempura Battered Chicken 170g", cat:"🧊 Frozen", icon:"🍗", prices:{coop:3.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3801, name:"Birds Eye 2 Crunchy Southern Fried Chicken 180g", cat:"🧊 Frozen", icon:"🍗", prices:{coop:3.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3802, name:"Birds Eye 12 Chicken Dippers 220g", cat:"🧊 Frozen", icon:"🍗", prices:{coop:3.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3803, name:"Birds Eye Chicken Shop Ultimate Fillet Burgers 227g", cat:"🧊 Frozen", icon:"🍗", prices:{coop:5.0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3804, name:"Co-op 4 British Beef Quarter Pounders 454g", cat:"🧊 Frozen", icon:"🍗", prices:{coop:5.25,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3805, name:"Strong Roots Crispy Sweet Potato Fries 500g", cat:"🧊 Frozen", icon:"🥦", prices:{coop:3.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3806, name:"Co-op Potato Wedges 750g", cat:"🧊 Frozen", icon:"🥦", prices:{coop:1.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3807, name:"Co-op Carrots Cauliflower & Broccoli 800g", cat:"🧊 Frozen", icon:"🥦", prices:{coop:2.1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3808, name:"Co-op Freshly Picked Frozen Summer Fruits 400g", cat:"🧊 Frozen", icon:"🥦", prices:{coop:3.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3809, name:"McCain Air Fryer Quick & Crispy Deep Ridge Crinkle 750g", cat:"🧊 Frozen", icon:"🥦", prices:{coop:3.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3810, name:"McCain Quick Straight Chips 4 x 100g (400g) 4X100G", cat:"🧊 Frozen", icon:"🥦", prices:{coop:3.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3811, name:"Birds Eye Petits Pois 545g", cat:"🧊 Frozen", icon:"🥦", prices:{coop:3.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3812, name:"McCain 4 Slow Baked Jackets 800g 4PACK", cat:"🧊 Frozen", icon:"🥦", prices:{coop:4.25,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3813, name:"McCain Crinkle Home Chips 1kg", cat:"🧊 Frozen", icon:"🥦", prices:{coop:3.9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3814, name:"McCain Straight Home Chips 1kg", cat:"🧊 Frozen", icon:"🥦", prices:{coop:3.9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3815, name:"McCain Crispy French Fries 900g", cat:"🧊 Frozen", icon:"🥦", prices:{coop:3.9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3816, name:"McCain Crispy Hash Browns 625g", cat:"🧊 Frozen", icon:"🥦", prices:{coop:3.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3817, name:"McCain Lightly Spiced Wedges 650g", cat:"🧊 Frozen", icon:"🥦", prices:{coop:3.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3818, name:"McCain Smiles 454g", cat:"🧊 Frozen", icon:"🥦", prices:{coop:3.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3819, name:"Aunt Bessie's Crispy & Fluffy Roasties 600g", cat:"🧊 Frozen", icon:"🥦", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3820, name:"Co-op Battered Onion Rings 454g", cat:"🧊 Frozen", icon:"🥦", prices:{coop:2.2,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3821, name:"Co-op Sliced Carrots 750g", cat:"🧊 Frozen", icon:"🥦", prices:{coop:1.39,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3822, name:"Birds Eye 10 The Original Potato Waffles 567g", cat:"🧊 Frozen", icon:"🥦", prices:{coop:2.8,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3823, name:"Co-op Supersweet Sweetcorn 750g", cat:"🧊 Frozen", icon:"🥦", prices:{coop:1.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3824, name:"Birds Eye Garden Peas 800g", cat:"🧊 Frozen", icon:"🥦", prices:{coop:3.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3825, name:"Co-op French Fries 750g", cat:"🧊 Frozen", icon:"🥦", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3826, name:"Co-op Freezer Favourite Crinkle Cut Chips 750g", cat:"🧊 Frozen", icon:"🥦", prices:{coop:2.1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3827, name:"Co-op Straight Cut Chips 750g", cat:"🧊 Frozen", icon:"🥦", prices:{coop:2.1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3828, name:"Co-op Mixed Vegetables 750g", cat:"🧊 Frozen", icon:"🥦", prices:{coop:1.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3829, name:"Co-op British Garden Peas 750g", cat:"🧊 Frozen", icon:"🥦", prices:{coop:1.6,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3830, name:"Co-op Irresistible Thick Cut Chunky Chips 750g", cat:"🧊 Frozen", icon:"🥦", prices:{coop:3.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3831, name:"Co-op 22 Hash Brown Bites 400g", cat:"🧊 Frozen", icon:"🧊", prices:{coop:3.0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3832, name:"Co-op 7 Big Night in Halloumi Fries 200g", cat:"🧊 Frozen", icon:"🧊", prices:{coop:3.0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3833, name:"Linda McCartney 2 Mozzarella 1/4lb Burgers Vegetarian 227g", cat:"🧊 Frozen", icon:"🧊", prices:{coop:3.0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3834, name:"Quorn Crispy Nuggets 300g", cat:"🧊 Frozen", icon:"🧊", prices:{coop:3.2,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3835, name:"Linda McCartney 6 Vegan Sausages 270g", cat:"🧊 Frozen", icon:"🧊", prices:{coop:2.9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3836, name:"Co-op GRO The Incredible Burger 210g", cat:"🧊 Frozen", icon:"🧊", prices:{coop:2.8,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3837, name:"Co Op Meat Free 2 Cauliflower Cheese Grills 194g", cat:"🧊 Frozen", icon:"🧊", prices:{coop:1.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3838, name:"Trü Frü Nature's Strawberries Frozen Fresh in White & Milk Chocolate 200g", cat:"🧊 Frozen", icon:"🧊", prices:{coop:4.2,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3839, name:"Häagen-Dazs Vanilla Caramel Brownie Ice Cream 386g 460ML", cat:"🧊 Frozen", icon:"🧊", prices:{coop:6.35,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3840, name:"Häagen-Dazs Tiramisu Ice Cream 346g 420ML", cat:"🧊 Frozen", icon:"🧊", prices:{coop:6.35,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3841, name:"Häagen-Dazs Creamy Strawberry Ice Cream Bars 3 x 204g 3X80ML", cat:"🧊 Frozen", icon:"🧊", prices:{coop:4.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3842, name:"Co-op Irresistible Italian Vanilla & Caramel Biscuit Gelato 360g", cat:"🧊 Frozen", icon:"🧊", prices:{coop:5.25,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3843, name:"Co-op Dipped Mini Assorted Chocolate Sticks Vanilla Ice Creams 8 x 50ml (400ml) 8X50ML", cat:"🧊 Frozen", icon:"🧊", prices:{coop:4.29,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3844, name:"Co-op Blackcurrant Cheesecake 450g", cat:"🧊 Frozen", icon:"🧊", prices:{coop:3.0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3845, name:"Co-op Juice Blast Rocket Lollies 8 x 58ml (464ml)", cat:"🧊 Frozen", icon:"🧊", prices:{coop:1.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3846, name:"Ben & Jerry's  Ice Cream Tub Chocolate Fudge Brownie 465 ml 465ML", cat:"🧊 Frozen", icon:"🧊", prices:{coop:6.0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3847, name:"Ben & Jerry's  Ice Cream Phish Food 465 ml 465ML", cat:"🧊 Frozen", icon:"🧊", prices:{coop:6.0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3848, name:"Ben & Jerry's Ice Cream Tub Cookie Dough 465ml", cat:"🧊 Frozen", icon:"🧊", prices:{coop:6.0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3849, name:"Nuii Ice Cream Adventure Salted Caramel & Australian Macadamia  270ml 3X90ML", cat:"🧊 Frozen", icon:"🧊", prices:{coop:5.5,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3850, name:"Kelly's Millionaires Shortbread with Cornish Clotted Cream 425ml", cat:"🧊 Frozen", icon:"🧊", prices:{coop:3.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3851, name:"Cadbury Flake 99 Cones 4 x 125ml (500ml) 4X125ML", cat:"🧊 Frozen", icon:"🧊", prices:{coop:5.6,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3852, name:"Co-op Vanilla Flavour Ice Cream 900ml", cat:"🧊 Frozen", icon:"🧊", prices:{coop:3.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:3853, name:"Co-op Strawberry Cheesecake 450g", cat:"🧊 Frozen", icon:"🧊", prices:{coop:3.0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
 ];/* ═══════════════════════════════════════════════════════════════════════════
    HELPERS
 ═══════════════════════════════════════════════════════════════════════════ */
