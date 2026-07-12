@@ -24,9 +24,10 @@
  *            products added in total, all tagged upd:"11 Jul". 6,061 total products, up
  *            from 5,380 at the start of this batch (2,580 at the very start of the day).
  *            The app and spreadsheet are now back in sync.
- *            UI fix: the "N products" search-results count above the product list was
- *            too dim to read — now bold and bright white (dark mode) / bold dark
- *            (light mode).
+ *            UI fixes: the "N products" search-results count above the product list,
+ *            and the category name shown under each item's title on product cards
+ *            (both the main grid and the favourites list), were too dim to read — both
+ *            now bold and bright white (dark mode) / bold dark (light mode).
  */
 import React, { useState, useMemo, useRef, useEffect, useCallback } from "react";
 
@@ -6359,7 +6360,7 @@ function ProductCard({ product, onAddToBasket, pinnedStore, isFavourite, onToggl
             <Tooltip text={product.name}>
               <div style={{ fontSize:12.5, fontWeight:700, color:lightMode?"#0f172a":"#f0f4f8", lineHeight:1.3 }}>{product.name}</div>
             </Tooltip>
-            <div style={{ fontSize:9.5, color:lightMode?"#475569":"#475569", marginTop:1 }}>{product.cat.replace(/^[^\s]+\s/,"")}{product.custom?" · custom":""}{product.upd&&<span style={{ marginLeft:5, fontSize:8, color:lightMode?"#94a3b8":"#64748b" }}>· {product.upd}</span>}</div>
+            <div style={{ fontSize:9.5, fontWeight:700, color:lightMode?"#0f172a":"#ffffff", marginTop:1 }}>{product.cat.replace(/^[^\s]+\s/,"")}{product.custom?" · custom":""}{product.upd&&<span style={{ marginLeft:5, fontSize:8, color:lightMode?"#94a3b8":"#64748b" }}>· {product.upd}</span>}</div>
           </div>
           {/* heart / favourite button */}
           <button
@@ -7101,7 +7102,7 @@ export default function JerseyGroceryApp() {
                             <Tooltip text={p.name}>
                               <div style={{ fontSize:12.5,fontWeight:700,color:"#f0f4f8",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap" }}>{p.name}</div>
                             </Tooltip>
-                            <div style={{ fontSize:9.5,color:"#475569",marginTop:1 }}>{p.cat.replace(/^[^\s]+\s/,"")}</div>
+                            <div style={{ fontSize:9.5,fontWeight:700,color:"#ffffff",marginTop:1 }}>{p.cat.replace(/^[^\s]+\s/,"")}</div>
                           </div>
                         </div>
 
