@@ -93,7 +93,17 @@
  *            indigo/purple before, which read as neither gold nor anything tier-coded),
  *            Platinum a lighter, brighter silvery-blue distinct from Silver's more muted
  *            grey. Panel accent colours (checkmarks, border, CTA button) updated to match
- *            each slide's new colour too.
+ *            each slide's new colour too. (3) The "Get in touch" CTA button text was
+ *            white on light accent backgrounds (hard to read, especially Gold/Platinum)
+ *            — changed to black for proper contrast.
+ *
+ *            WELCOME SCREEN (13 Jul, same v90 build): corrected the user count on the
+ *            first Welcome slide from "Join 1,200+ Jersey shoppers" (stale/wrong) to
+ *            "Join 1,100+ Jersey shoppers" — now matches the figure used everywhere
+ *            else (app stats, Media Pack). Also reworded the survey prompt from a
+ *            plain "Take our quick survey" to "Help Us Help You — Take Our Survey"
+ *            with a small supporting line ("Your feedback shapes what we build next")
+ *            underneath, per Eamonn's request to make it more appealing/inviting.
  */
 import React, { useState, useMemo, useRef, useEffect, useCallback } from "react";
 
@@ -8849,7 +8859,7 @@ function WelcomeModal({ onDismiss, onSubmitPrice, lightMode=false }) {
     {
       emoji: "🛍️",
       title: "Welcome to JerseyBasket.je",
-      subtitle: `Join 1,200+ Jersey shoppers saving money every week`,
+      subtitle: `Join 1,100+ Jersey shoppers saving money every week`,
       body: `Compare prices across all ${BASE_PRODUCTS.length} products and growing — find the cheapest price on every item and build your shopping list before you leave the house.`,
       bodyJsx: true,
       bg: "linear-gradient(135deg,#052e16 0%,#14532d 50%,#16a34a 100%)",
@@ -8957,9 +8967,12 @@ function WelcomeModal({ onDismiss, onSubmitPrice, lightMode=false }) {
 
           {/* survey shortcut — only on slide 1 */}
           {step===0 && (
-            <button onClick={()=>setStep(6)} style={{ marginTop:14,background:"rgba(56,189,248,.15)",border:"1px solid rgba(56,189,248,.4)",borderRadius:20,padding:"7px 18px",color:"#ffffff",fontSize:12,fontWeight:700,cursor:"pointer" }}>
-              📝 Take our quick survey
-            </button>
+            <div style={{ marginTop:14, display:"flex", flexDirection:"column", alignItems:"center", gap:5 }}>
+              <button onClick={()=>setStep(6)} style={{ background:"rgba(56,189,248,.15)",border:"1px solid rgba(56,189,248,.4)",borderRadius:20,padding:"7px 18px",color:"#ffffff",fontSize:12,fontWeight:700,cursor:"pointer" }}>
+                💬 Help Us Help You — Take Our Survey
+              </button>
+              <div style={{ fontSize:10.5, color:"rgba(255,255,255,0.55)" }}>Your feedback shapes what we build next</div>
+            </div>
           )}
 
           {/* install steps — only on install slide */}
@@ -10369,7 +10382,7 @@ function AdBanner({ onEnquiry, externalPause }) {
         <button
           onClick={()=>{ setPanelOpen(false); pauseRef.current=false; setPaused(false); onEnquiry(); }}
           style={{
-            marginTop:12, background:activeSlideData.panel.accent, color:"#fff", border:"none",
+            marginTop:12, background:activeSlideData.panel.accent, color:"#1e1e1e", border:"none",
             borderRadius:10, padding:"11px 20px", fontSize:13, fontWeight:700, cursor:"pointer", alignSelf:"flex-start",
           }}
         >Get in touch about {activeSlideData.panel.tier}</button>
