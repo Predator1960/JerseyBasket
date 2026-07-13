@@ -71,6 +71,18 @@
  *            first real implementation of the tap/hover expandable-offers-panel feature
  *            promised in the Media Pack; the remaining 12 slots are still plain
  *            placeholder banners (no panel) until sold to real advertisers.
+ *
+ *            TWO FIXES to the above (13 Jul, same v90 build), per Eamonn's feedback:
+ *            (1) Fixed a real bug — moving the mouse from the banner up into the panel
+ *            used to close the panel immediately, because the panel was a sibling
+ *            element and leaving the banner's box fired mouseleave before the mouse
+ *            ever reached the panel. Restructured so the panel is now a genuine DOM
+ *            descendant of a single hover-boundary wrapper (banner + panel both live
+ *            inside it), so moving the mouse from banner straight up onto the panel no
+ *            longer triggers a close — matches natural mouse movement. (2) Simplified
+ *            the 3 demo slides' visible banner content, which was too busy/promotional
+ *            — now just a plain "Silver/Gold/Platinum Package Info" headline with a
+ *            minimal "Tap or hover for info" prompt, no separate subtitle line.
  */
 import React, { useState, useMemo, useRef, useEffect, useCallback } from "react";
 
@@ -8520,10 +8532,9 @@ const AD_SLIDES = [
   {
     id:2, group:1, slot:3, link:ENQUIRY_TRIGGER,
     bg:"linear-gradient(135deg,#0369a1 0%,#082f49 100%)",
-    eyebrow:{ text:"SLOT 3 OF 15 — SILVER PACKAGE DEMO", color:"#bae6fd" },
-    headline:{ before:"See ", highlight:"Silver", highlightColor:"#7dd3fc", after:" in Action", headlineColor:"#ffffff" },
-    sub:{ text:"Tap or hover to open the Silver offers panel", color:"#93c5fd" },
-    cta:{ label:"Claim this slot", labelColor:"#bae6fd", url:"jerseybasket.je", urlColor:"#ffffff", arrowBg:"#0284c7", arrowColor:"white", boxBg:"rgba(2,132,199,0.3)", boxBorder:"rgba(186,230,253,0.5)" },
+    eyebrow:{ text:"SILVER", color:"#bae6fd" },
+    headline:{ before:"Silver Package Info", highlight:"", highlightColor:"#7dd3fc", after:"", headlineColor:"#ffffff" },
+    cta:{ label:"", labelColor:"#bae6fd", url:"Tap or hover for info", urlColor:"#ffffff", arrowBg:"#0284c7", arrowColor:"white", boxBg:"rgba(2,132,199,0.3)", boxBorder:"rgba(186,230,253,0.5)" },
     stats:[{ val:"3/15", label:"slot" },{ val:"£249", label:"per month" }], statColor:"#bae6fd",
     panel:{
       size:"quarter", tier:"Silver", price:"£249/month", accent:"#0284c7",
@@ -8575,10 +8586,9 @@ const AD_SLIDES = [
   {
     id:7, group:2, slot:8, link:ENQUIRY_TRIGGER,
     bg:"linear-gradient(135deg,#4338ca 0%,#1e1b4b 100%)",
-    eyebrow:{ text:"SLOT 8 OF 15 — GOLD PACKAGE DEMO", color:"#c7d2fe" },
-    headline:{ before:"See ", highlight:"Gold", highlightColor:"#a5b4fc", after:" in Action", headlineColor:"#ffffff" },
-    sub:{ text:"Tap or hover to open the Gold offers panel", color:"#818cf8" },
-    cta:{ label:"Claim this slot", labelColor:"#c7d2fe", url:"jerseybasket.je", urlColor:"#ffffff", arrowBg:"#4f46e5", arrowColor:"white", boxBg:"rgba(79,70,229,0.3)", boxBorder:"rgba(199,210,254,0.5)" },
+    eyebrow:{ text:"GOLD", color:"#c7d2fe" },
+    headline:{ before:"Gold Package Info", highlight:"", highlightColor:"#a5b4fc", after:"", headlineColor:"#ffffff" },
+    cta:{ label:"", labelColor:"#c7d2fe", url:"Tap or hover for info", urlColor:"#ffffff", arrowBg:"#4f46e5", arrowColor:"white", boxBg:"rgba(79,70,229,0.3)", boxBorder:"rgba(199,210,254,0.5)" },
     stats:[{ val:"8/15", label:"slot" },{ val:"£499", label:"per month" }], statColor:"#c7d2fe",
     panel:{
       size:"full", tier:"Gold", price:"£499/month", accent:"#4f46e5",
@@ -8630,10 +8640,9 @@ const AD_SLIDES = [
   {
     id:12, group:3, slot:13, link:ENQUIRY_TRIGGER,
     bg:"linear-gradient(135deg,#7e22ce 0%,#2e1065 100%)",
-    eyebrow:{ text:"SLOT 13 OF 15 — PLATINUM PACKAGE DEMO", color:"#e9d5ff" },
-    headline:{ before:"See ", highlight:"Platinum", highlightColor:"#d8b4fe", after:" in Action", headlineColor:"#ffffff" },
-    sub:{ text:"Tap or hover to open the Platinum offers panel", color:"#c084fc" },
-    cta:{ label:"Claim this slot", labelColor:"#e9d5ff", url:"jerseybasket.je", urlColor:"#ffffff", arrowBg:"#9333ea", arrowColor:"white", boxBg:"rgba(147,51,234,0.3)", boxBorder:"rgba(233,213,255,0.5)" },
+    eyebrow:{ text:"PLATINUM", color:"#e9d5ff" },
+    headline:{ before:"Platinum Package Info", highlight:"", highlightColor:"#d8b4fe", after:"", headlineColor:"#ffffff" },
+    cta:{ label:"", labelColor:"#e9d5ff", url:"Tap or hover for info", urlColor:"#ffffff", arrowBg:"#9333ea", arrowColor:"white", boxBg:"rgba(147,51,234,0.3)", boxBorder:"rgba(233,213,255,0.5)" },
     stats:[{ val:"13/15", label:"slot" },{ val:"£999", label:"per month" }], statColor:"#e9d5ff",
     panel:{
       size:"full", tier:"Platinum", price:"£999/month", accent:"#9333ea",
@@ -10142,10 +10151,8 @@ function AdBanner({ onEnquiry, externalPause }) {
   const trackX = -(offset / DISPLAY_COUNT) * 100;
 
   return (
-    <>
+    <div onMouseEnter={handleEnter} onMouseLeave={handleLeave} style={{ position:"relative" }}>
     <div
-      onMouseEnter={handleEnter}
-      onMouseLeave={handleLeave}
       onMouseDown={e=>{ mouseDownX.current = e.clientX; }}
       onClick={(e)=>{
         // Desktop click only — skip if touch (handled above)
@@ -10311,8 +10318,6 @@ function AdBanner({ onEnquiry, externalPause }) {
     {/* ── EXPANDABLE OFFERS PANEL — Silver/Gold/Platinum demo slides only ── */}
     {panelOpen && activeSlideData?.panel && (
       <div
-        onMouseEnter={()=>{ pauseRef.current=true; setPaused(true); setPanelOpen(true); }}
-        onMouseLeave={handleLeave}
         style={{
           position:"absolute", left:0, right:0, bottom:"100%",
           height: activeSlideData.panel.size==="quarter" ? "25vh" : "60vh",
@@ -10358,7 +10363,7 @@ function AdBanner({ onEnquiry, externalPause }) {
         >Get in touch about {activeSlideData.panel.tier}</button>
       </div>
     )}
-    </>
+    </div>
   );
 }
 
