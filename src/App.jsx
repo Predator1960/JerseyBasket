@@ -103,7 +103,11 @@
  *            else (app stats, Media Pack). Also reworded the survey prompt from a
  *            plain "Take our quick survey" to "Help Us Help You — Take Our Survey"
  *            with a small supporting line ("Your feedback shapes what we build next")
- *            underneath, per Eamonn's request to make it more appealing/inviting.
+ *            underneath, per Eamonn's request to make it more appealing/inviting. The
+ *            survey button now also matches the glossy gold "Next" button styling used
+ *            elsewhere in the Welcome flow — gold gradient background, black text,
+ *            glossy top-highlight overlay and a soft gold glow shadow — so it stands
+ *            out rather than blending into the background.
  */
 import React, { useState, useMemo, useRef, useEffect, useCallback } from "react";
 
@@ -8968,7 +8972,8 @@ function WelcomeModal({ onDismiss, onSubmitPrice, lightMode=false }) {
           {/* survey shortcut — only on slide 1 */}
           {step===0 && (
             <div style={{ marginTop:14, display:"flex", flexDirection:"column", alignItems:"center", gap:5 }}>
-              <button onClick={()=>setStep(6)} style={{ background:"rgba(56,189,248,.15)",border:"1px solid rgba(56,189,248,.4)",borderRadius:20,padding:"7px 18px",color:"#ffffff",fontSize:12,fontWeight:700,cursor:"pointer" }}>
+              <button onClick={()=>setStep(6)} style={{ background:"linear-gradient(180deg,#fde047 0%,#eab308 100%)",border:"none",borderRadius:20,padding:"9px 20px",color:"#1a1400",fontSize:12.5,fontWeight:800,cursor:"pointer",position:"relative",overflow:"hidden",boxShadow:"0 3px 14px rgba(234,179,8,.55), inset 0 1px 0 rgba(255,255,255,.4)" }}>
+                <span style={{ position:"absolute",top:0,left:0,right:0,height:"52%",background:"linear-gradient(180deg,rgba(255,255,255,.35) 0%,rgba(255,255,255,.05) 100%)",borderRadius:"20px 20px 0 0",pointerEvents:"none" }}/>
                 💬 Help Us Help You — Take Our Survey
               </button>
               <div style={{ fontSize:10.5, color:"rgba(255,255,255,0.55)" }}>Your feedback shapes what we build next</div>
