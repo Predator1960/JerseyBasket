@@ -108,6 +108,17 @@
  *            elsewhere in the Welcome flow — gold gradient background, black text,
  *            glossy top-highlight overlay and a soft gold glow shadow — so it stands
  *            out rather than blending into the background.
+ *
+ *            DEMO PANEL IMPROVEMENTS (13 Jul, same v90 build), per Eamonn's feedback:
+ *            (1) Gold/Platinum's "full" panel size bumped from 60vh to 82vh (max 480→680)
+ *            — previously too close to Silver's half-page size to feel meaningfully
+ *            bigger. (2) Added Prev/Next navigation INSIDE the panel itself — a small
+ *            "← Silver" / "Gold →" style button row at the top, so someone comparing
+ *            tiers (e.g. viewing Gold on slot 8) can jump straight to Silver or
+ *            Platinum's panel without closing it or manually finding the right slide.
+ *            Also fixed a pre-existing bug while in there: clicking a banner's dot
+ *            indicator was bubbling up and also triggering the enquiry modal open —
+ *            added stopPropagation so dot clicks only navigate, as intended.
  */
 import React, { useState, useMemo, useRef, useEffect, useCallback } from "react";
 
@@ -10328,7 +10339,7 @@ function AdBanner({ onEnquiry, externalPause }) {
       {/* ── dot indicators ── */}
       <div style={{ position:"absolute",bottom:5,right:"clamp(10px,2vw,20px)",display:"flex",gap:4,zIndex:10 }}>
         {ACTIVE_SLIDES.map((_,i) => (
-          <div key={i} onClick={()=>jumpTo(i)}
+          <div key={i} onClick={(e)=>{ e.stopPropagation(); jumpTo(i); }}
             style={{ width:i===current?10:4,height:4,borderRadius:i===current?2:50,
               background:i===current?"rgba(255,255,255,0.8)":"rgba(255,255,255,0.25)",
               cursor:"pointer",transition:"all 0.3s" }} />
@@ -10350,8 +10361,8 @@ function AdBanner({ onEnquiry, externalPause }) {
       <div
         style={{
           position:"absolute", left:0, right:0, bottom:"100%",
-          height: {quarter:"25vh", half:"42vh", full:"60vh"}[activeSlideData.panel.size] || "42vh",
-          maxHeight: {quarter:220, half:360, full:480}[activeSlideData.panel.size] || 360,
+          height: {quarter:"25vh", half:"42vh", full:"82vh"}[activeSlideData.panel.size] || "42vh",
+          maxHeight: {quarter:220, half:360, full:680}[activeSlideData.panel.size] || 360,
           background:"rgba(8,13,26,0.98)",
           backdropFilter:"blur(12px)",
           borderTop:`3px solid ${activeSlideData.panel.accent}`,
@@ -10362,6 +10373,28 @@ function AdBanner({ onEnquiry, externalPause }) {
           display:"flex", flexDirection:"column",
         }}
       >
+        {(() => {
+          const DEMO_INDICES = [2, 7, 12]; // Silver, Gold, Platinum slide indices
+          const demoPos  = DEMO_INDICES.indexOf(current);
+          const prevIdx  = demoPos > 0 ? DEMO_INDICES[demoPos - 1] : null;
+          const nextIdx  = demoPos >= 0 && demoPos < DEMO_INDICES.length - 1 ? DEMO_INDICES[demoPos + 1] : null;
+          const prevTier = prevIdx !== null ? ACTIVE_SLIDES[prevIdx]?.panel?.tier : null;
+          const nextTier = nextIdx !== null ? ACTIVE_SLIDES[nextIdx]?.panel?.tier : null;
+          return (prevTier || nextTier) && (
+            <div style={{ display:"flex", justifyContent:"space-between", marginBottom:10 }}>
+              {prevTier ? (
+                <button onClick={()=>slideTo(prevIdx)} style={{ background:"rgba(255,255,255,0.08)", border:"none", borderRadius:8, padding:"5px 12px", color:"rgba(255,255,255,0.85)", fontSize:11.5, fontWeight:600, cursor:"pointer" }}>
+                  ← {prevTier}
+                </button>
+              ) : <span />}
+              {nextTier && (
+                <button onClick={()=>slideTo(nextIdx)} style={{ background:"rgba(255,255,255,0.08)", border:"none", borderRadius:8, padding:"5px 12px", color:"rgba(255,255,255,0.85)", fontSize:11.5, fontWeight:600, cursor:"pointer" }}>
+                  {nextTier} →
+                </button>
+              )}
+            </div>
+          );
+        })()}
         <div style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-start", marginBottom:12 }}>
           <div>
             <div style={{ fontSize:11, fontWeight:700, letterSpacing:1, textTransform:"uppercase", color:activeSlideData.panel.accent }}>
