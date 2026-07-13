@@ -83,6 +83,17 @@
  *            the 3 demo slides' visible banner content, which was too busy/promotional
  *            — now just a plain "Silver/Gold/Platinum Package Info" headline with a
  *            minimal "Tap or hover for info" prompt, no separate subtitle line.
+ *
+ *            MORE FIXES (13 Jul, same v90 build), per Eamonn's feedback: (1) Silver's
+ *            panel bumped from quarter-page to half-page — quarter wasn't tall enough
+ *            to show all 4 bullets without scrolling. Media Pack copy updated to match
+ *            ("half-page" not "quarter-page"), both PDFs regenerated. (2) Recoloured all
+ *            three demo slides to actually look like their tier — Silver is now a true
+ *            metallic slate-grey gradient, Gold a genuine amber/gold gradient (was
+ *            indigo/purple before, which read as neither gold nor anything tier-coded),
+ *            Platinum a lighter, brighter silvery-blue distinct from Silver's more muted
+ *            grey. Panel accent colours (checkmarks, border, CTA button) updated to match
+ *            each slide's new colour too.
  */
 import React, { useState, useMemo, useRef, useEffect, useCallback } from "react";
 
@@ -8531,18 +8542,19 @@ const AD_SLIDES = [
   },
   {
     id:2, group:1, slot:3, link:ENQUIRY_TRIGGER,
-    bg:"linear-gradient(135deg,#0369a1 0%,#082f49 100%)",
-    eyebrow:{ text:"SILVER", color:"#bae6fd" },
-    headline:{ before:"Silver Package Info", highlight:"", highlightColor:"#7dd3fc", after:"", headlineColor:"#ffffff" },
-    cta:{ label:"", labelColor:"#bae6fd", url:"Tap or hover for info", urlColor:"#ffffff", arrowBg:"#0284c7", arrowColor:"white", boxBg:"rgba(2,132,199,0.3)", boxBorder:"rgba(186,230,253,0.5)" },
-    stats:[{ val:"3/15", label:"slot" },{ val:"£249", label:"per month" }], statColor:"#bae6fd",
+    bg:"linear-gradient(135deg,#64748b 0%,#1e293b 100%)",
+    eyebrow:{ text:"SILVER", color:"#e2e8f0" },
+    headline:{ before:"Silver Package Info", highlight:"", highlightColor:"#cbd5e1", after:"", headlineColor:"#ffffff" },
+    cta:{ label:"", labelColor:"#e2e8f0", url:"Tap or hover for info", urlColor:"#ffffff", arrowBg:"#64748b", arrowColor:"white", boxBg:"rgba(100,116,139,0.3)", boxBorder:"rgba(226,232,240,0.5)" },
+    stats:[{ val:"3/15", label:"slot" },{ val:"£249", label:"per month" }], statColor:"#e2e8f0",
     panel:{
-      size:"quarter", tier:"Silver", price:"£249/month", accent:"#0284c7",
+      size:"half", tier:"Silver", price:"£249/month", accent:"#64748b",
       bullets:[
-        "Tap/hover reveals an expanded offers panel (quarter-page)",
+        "Tap/hover reveals an expanded offers panel (half-page)",
         "Update banner content for promotions anytime",
         "Monthly visitor stats report",
         "All Bronze features included",
+
       ],
     },
   },
@@ -8585,13 +8597,13 @@ const AD_SLIDES = [
   },
   {
     id:7, group:2, slot:8, link:ENQUIRY_TRIGGER,
-    bg:"linear-gradient(135deg,#4338ca 0%,#1e1b4b 100%)",
-    eyebrow:{ text:"GOLD", color:"#c7d2fe" },
-    headline:{ before:"Gold Package Info", highlight:"", highlightColor:"#a5b4fc", after:"", headlineColor:"#ffffff" },
-    cta:{ label:"", labelColor:"#c7d2fe", url:"Tap or hover for info", urlColor:"#ffffff", arrowBg:"#4f46e5", arrowColor:"white", boxBg:"rgba(79,70,229,0.3)", boxBorder:"rgba(199,210,254,0.5)" },
-    stats:[{ val:"8/15", label:"slot" },{ val:"£499", label:"per month" }], statColor:"#c7d2fe",
+    bg:"linear-gradient(135deg,#ca8a04 0%,#422006 100%)",
+    eyebrow:{ text:"GOLD", color:"#fde68a" },
+    headline:{ before:"Gold Package Info", highlight:"", highlightColor:"#fbbf24", after:"", headlineColor:"#ffffff" },
+    cta:{ label:"", labelColor:"#fde68a", url:"Tap or hover for info", urlColor:"#ffffff", arrowBg:"#ca8a04", arrowColor:"white", boxBg:"rgba(202,138,4,0.3)", boxBorder:"rgba(253,230,138,0.5)" },
+    stats:[{ val:"8/15", label:"slot" },{ val:"£499", label:"per month" }], statColor:"#fde68a",
     panel:{
-      size:"full", tier:"Gold", price:"£499/month", accent:"#4f46e5",
+      size:"full", tier:"Gold", price:"£499/month", accent:"#eab308",
       bullets:[
         "Tap/hover reveals a larger expanded offers panel (near full-page)",
         "Featured in JerseyBasket social media posts",
@@ -8639,13 +8651,13 @@ const AD_SLIDES = [
   },
   {
     id:12, group:3, slot:13, link:ENQUIRY_TRIGGER,
-    bg:"linear-gradient(135deg,#7e22ce 0%,#2e1065 100%)",
-    eyebrow:{ text:"PLATINUM", color:"#e9d5ff" },
-    headline:{ before:"Platinum Package Info", highlight:"", highlightColor:"#d8b4fe", after:"", headlineColor:"#ffffff" },
-    cta:{ label:"", labelColor:"#e9d5ff", url:"Tap or hover for info", urlColor:"#ffffff", arrowBg:"#9333ea", arrowColor:"white", boxBg:"rgba(147,51,234,0.3)", boxBorder:"rgba(233,213,255,0.5)" },
-    stats:[{ val:"13/15", label:"slot" },{ val:"£999", label:"per month" }], statColor:"#e9d5ff",
+    bg:"linear-gradient(135deg,#94a3b8 0%,#1e293b 100%)",
+    eyebrow:{ text:"PLATINUM", color:"#f1f5f9" },
+    headline:{ before:"Platinum Package Info", highlight:"", highlightColor:"#e2e8f0", after:"", headlineColor:"#ffffff" },
+    cta:{ label:"", labelColor:"#f1f5f9", url:"Tap or hover for info", urlColor:"#ffffff", arrowBg:"#94a3b8", arrowColor:"white", boxBg:"rgba(148,163,184,0.3)", boxBorder:"rgba(241,245,249,0.5)" },
+    stats:[{ val:"13/15", label:"slot" },{ val:"£999", label:"per month" }], statColor:"#f1f5f9",
     panel:{
-      size:"full", tier:"Platinum", price:"£999/month", accent:"#9333ea",
+      size:"full", tier:"Platinum", price:"£999/month", accent:"#94a3b8",
       bullets:[
         "Full category exclusivity \u2014 no competitor in your industry can advertise on the app",
         "Co-branded promotions on social media",
@@ -10320,8 +10332,8 @@ function AdBanner({ onEnquiry, externalPause }) {
       <div
         style={{
           position:"absolute", left:0, right:0, bottom:"100%",
-          height: activeSlideData.panel.size==="quarter" ? "25vh" : "60vh",
-          maxHeight: activeSlideData.panel.size==="quarter" ? 220 : 480,
+          height: {quarter:"25vh", half:"42vh", full:"60vh"}[activeSlideData.panel.size] || "42vh",
+          maxHeight: {quarter:220, half:360, full:480}[activeSlideData.panel.size] || 360,
           background:"rgba(8,13,26,0.98)",
           backdropFilter:"blur(12px)",
           borderTop:`3px solid ${activeSlideData.panel.accent}`,
