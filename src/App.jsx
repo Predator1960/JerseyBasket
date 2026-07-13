@@ -134,6 +134,12 @@
  *            which size tier is used. Also dialled "full" back down to 58vh/480px as
  *            the new normal target (still clearly bigger than Silver's half/42vh) —
  *            the dvh-based cap is a safety net, not the primary sizing mechanism.
+ *
+ *            NAV BUTTON VISIBILITY (13 Jul, same v90 build): the Prev/Next tier
+ *            buttons ("← Silver" / "Gold →") were nearly transparent
+ *            (rgba(255,255,255,0.08), no border) and hard to see on mobile per
+ *            Eamonn's screenshots — changed to a solid opaque slate background
+ *            (#334155) with a visible border and bold white text.
  */
 import React, { useState, useMemo, useRef, useEffect, useCallback } from "react";
 
@@ -10398,12 +10404,12 @@ function AdBanner({ onEnquiry, externalPause }) {
           return (prevTier || nextTier) && (
             <div style={{ display:"flex", justifyContent:"space-between", marginBottom:10 }}>
               {prevTier ? (
-                <button onClick={()=>slideTo(prevIdx)} style={{ background:"rgba(255,255,255,0.08)", border:"none", borderRadius:8, padding:"5px 12px", color:"rgba(255,255,255,0.85)", fontSize:11.5, fontWeight:600, cursor:"pointer" }}>
+                <button onClick={()=>slideTo(prevIdx)} style={{ background:"#334155", border:"1px solid rgba(255,255,255,0.25)", borderRadius:8, padding:"7px 14px", color:"#ffffff", fontSize:12.5, fontWeight:700, cursor:"pointer" }}>
                   ← {prevTier}
                 </button>
               ) : <span />}
               {nextTier && (
-                <button onClick={()=>slideTo(nextIdx)} style={{ background:"rgba(255,255,255,0.08)", border:"none", borderRadius:8, padding:"5px 12px", color:"rgba(255,255,255,0.85)", fontSize:11.5, fontWeight:600, cursor:"pointer" }}>
+                <button onClick={()=>slideTo(nextIdx)} style={{ background:"#334155", border:"1px solid rgba(255,255,255,0.25)", borderRadius:8, padding:"7px 14px", color:"#ffffff", fontSize:12.5, fontWeight:700, cursor:"pointer" }}>
                   {nextTier} →
                 </button>
               )}
