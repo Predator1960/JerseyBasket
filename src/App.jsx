@@ -52,6 +52,15 @@
  *            back to 1, sliding right-to-left the whole way round like a single
  *            band, via a duplicate of slide 1 appended to the end of the track that
  *            the carousel snaps back from invisibly. Pause between slides is 4s.
+ *
+ *            AD BANNER (13 Jul, same v90 build): two more fixes. (1) The banner now
+ *            pauses entirely while the Welcome screen (first-visit or replayed via
+ *            Help) is open, so users don't miss slides while reading/dismissing it —
+ *            previously it kept advancing underneath the overlay. (2) Restored
+ *            cross-session memory: the app now remembers the last slide shown
+ *            (localStorage "jb_ad_slide") and resumes from there next time the app
+ *            opens, rather than always restarting at slide 1 — lost when the old
+ *            3-groups system (and its group-level memory) was removed earlier today.
  */
 import React, { useState, useMemo, useRef, useEffect, useCallback } from "react";
 
@@ -8429,7 +8438,7 @@ export default function JerseyGroceryApp() {
           <span style={{ color:lightMode?"#334155":"#94a3b8" }}>Always verify in-store</span>
         </div>
         {/* banner */}
-        <AdBanner onEnquiry={()=>setShowEnquiry(true)} />
+        <AdBanner onEnquiry={()=>setShowEnquiry(true)} externalPause={showWelcome} />
       </div>
 
       {/* ── WELCOME SCREEN — first visit only ── */}
@@ -9851,7 +9860,7 @@ function SubmitPriceModal({ onClose, lightMode=false }) {
 }
 
 
-function AdBanner({ onEnquiry }) {
+function AdBanner({ onEnquiry, externalPause }) {
   const PAUSE_MS  = 4000;
   const SLIDE_MS  = 620;
 
@@ -9864,12 +9873,27 @@ function AdBanner({ onEnquiry }) {
   const DISPLAY_SLIDES = [...AD_SLIDES, AD_SLIDES[0]];
   const DISPLAY_COUNT  = DISPLAY_SLIDES.length;
 
-  const [current,  setCurrent]  = useState(0);
-  const [offset,   setOffset]   = useState(0);   // 0..COUNT-1 (fractional during animation)
+  // ── Remember the last slide shown, so reopening the app doesn't always restart at slide 1 ──
+  const getStartSlide = () => {
+    try {
+      const s = parseInt(localStorage.getItem("jb_ad_slide")||"0",10);
+      return (isNaN(s)||s<0||s>=COUNT)?0:s;
+    } catch(e) { return 0; }
+  };
+  const saveSlide = (i) => {
+    try {
+      localStorage.setItem("jb_ad_slide_test","1");
+      localStorage.removeItem("jb_ad_slide_test");
+      localStorage.setItem("jb_ad_slide",String(i));
+    } catch(e) { /* storage unavailable — silently ignore */ }
+  };
+
+  const [current,  setCurrent]  = useState(() => getStartSlide());
+  const [offset,   setOffset]   = useState(() => getStartSlide());   // 0..COUNT-1 (fractional during animation)
   const [paused,   setPaused]   = useState(false);
   const [progress, setProgress] = useState(0);
 
-  const currentRef = useRef(0);
+  const currentRef = useRef(getStartSlide());
   const timerRef   = useRef(null);
   const rafRef     = useRef(null);
   const pauseRef   = useRef(false);
@@ -9895,10 +9919,12 @@ function AdBanner({ onEnquiry }) {
         setOffset(0);
         setCurrent(0);
         currentRef.current = 0;
+        saveSlide(0);
       } else {
         setOffset(target);
         setCurrent(target);
         currentRef.current = target;
+        saveSlide(target);
       }
     };
     animRef.current = requestAnimationFrame(step);
@@ -9961,6 +9987,22 @@ function AdBanner({ onEnquiry }) {
     document.addEventListener("visibilitychange", handleVisibility);
     return () => document.removeEventListener("visibilitychange", handleVisibility);
   }, [startTick, schedule]);
+
+  // ── pause while an external overlay (e.g. the Welcome screen) is open ──
+  useEffect(() => {
+    if (externalPause) {
+      pauseRef.current = true;
+      setPaused(true);
+      clearTimeout(timerRef.current);
+      cancelAnimationFrame(rafRef.current);
+      cancelAnimationFrame(animRef.current);
+    } else {
+      pauseRef.current = false;
+      setPaused(false);
+      startTick();
+      schedule();
+    }
+  }, [externalPause, startTick, schedule]);
 
   // hover pause / resume
   const handleEnter = () => {
