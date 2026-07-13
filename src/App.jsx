@@ -13,8 +13,8 @@
  * Built for Jersey, Channel Islands.
  * Contact: hello@jerseybasket.je
  *
- * Version:   v89
- * Updated:   12 July 2026
+ * Version:   v90
+ * Updated:   13 July 2026
  * Changes:   Caught the app up to the spreadsheet: added the Drinks (330 items), Health
  *            & Beauty (239 items) and Baby & Child (96 items) departments that had been
  *            gathered from Co-op's official live catalogue earlier on 11 July but never
@@ -43,6 +43,15 @@
  *            products is now complete (Home & Garden, Carrefour, and Holland & Barrett
  *            were deliberately skipped as not of interest). 7,030 total products, up
  *            from 6,061 at the start of this batch.
+ *
+ *            AD BANNER: the bottom banner carousel originally used a ping-pong bounce
+ *            animation across 3 groups of 5, which meant the last slide in each group
+ *            was shown less often than the others — fixed to a simple forward loop
+ *            per group, then simplified further (13 Jul) into ONE continuous loop
+ *            through all 15 slides (no more groups) — slides 1→15 then wrap straight
+ *            back to 1, sliding right-to-left the whole way round like a single
+ *            band, via a duplicate of slide 1 appended to the end of the track that
+ *            the carousel snaps back from invisibly. Pause between slides is 4s.
  */
 import React, { useState, useMemo, useRef, useEffect, useCallback } from "react";
 
@@ -9843,39 +9852,17 @@ function SubmitPriceModal({ onClose, lightMode=false }) {
 
 
 function AdBanner({ onEnquiry }) {
-  const PAUSE_MS  = 2000;
+  const PAUSE_MS  = 4000;
   const SLIDE_MS  = 620;
 
-  // ── Group rotation — bounces through group 1, then 2, then 3, then back ──
-  // localStorage remembers which group was active when app was closed
-  const getStartGroup = () => {
-    try {
-      const g = parseInt(localStorage.getItem("jb_ad_group")||"1",10);
-      return (isNaN(g)||g<1||g>3)?1:g;
-    } catch(e) { return 1; }
-  };
-  const saveGroup = (g) => {
-    try {
-      // Test write first — Safari private mode throws on storage quota exceeded
-      localStorage.setItem("jb_ad_group_test","1");
-      localStorage.removeItem("jb_ad_group_test");
-      localStorage.setItem("jb_ad_group",String(g));
-    } catch(e) { /* storage unavailable — silently ignore */ }
-  };
-  const [activeGroup, setActiveGroup] = useState(() => getStartGroup());
-  const activeGroupRef = useRef(activeGroup);
-
-  // When a group finishes its full bounce (reaches first slide again going forward),
-  // advance to next group
-  const advanceGroup = useCallback(() => {
-    const next = (activeGroupRef.current % 3) + 1;
-    activeGroupRef.current = next;
-    setActiveGroup(next);
-    saveGroup(next);
-  }, []);
-
-  const ACTIVE_SLIDES = AD_SLIDES.filter(s => s.group === activeGroupRef.current);
+  // ── Single continuous loop through all 15 slides ──
+  // A duplicate of slide 0 is appended to the end of the track so the
+  // 15→1 wrap slides right-to-left exactly like every other transition,
+  // then snaps invisibly back to the real slide 0 (which looks identical).
+  const ACTIVE_SLIDES = AD_SLIDES;
   const COUNT     = ACTIVE_SLIDES.length;
+  const DISPLAY_SLIDES = [...AD_SLIDES, AD_SLIDES[0]];
+  const DISPLAY_COUNT  = DISPLAY_SLIDES.length;
 
   const [current,  setCurrent]  = useState(0);
   const [offset,   setOffset]   = useState(0);   // 0..COUNT-1 (fractional during animation)
@@ -9883,7 +9870,6 @@ function AdBanner({ onEnquiry }) {
   const [progress, setProgress] = useState(0);
 
   const currentRef = useRef(0);
-  const dirRef     = useRef(1);   // +1 forward, -1 backward
   const timerRef   = useRef(null);
   const rafRef     = useRef(null);
   const pauseRef   = useRef(false);
@@ -9903,6 +9889,12 @@ function AdBanner({ onEnquiry }) {
       setOffset(from + (target - from) * ease(t));
       if (t < 1) {
         animRef.current = requestAnimationFrame(step);
+      } else if (target >= COUNT) {
+        // Reached the duplicate wrap-slide (visually identical to slide 0) —
+        // snap back to the real slide 0 invisibly so the loop continues seamlessly
+        setOffset(0);
+        setCurrent(0);
+        currentRef.current = 0;
       } else {
         setOffset(target);
         setCurrent(target);
@@ -9910,7 +9902,7 @@ function AdBanner({ onEnquiry }) {
       }
     };
     animRef.current = requestAnimationFrame(step);
-  }, []);
+  }, [COUNT]);
 
   // ── progress bar tick ────────────────────────────────────────────────────
   const startTick = useCallback(() => {
@@ -9926,28 +9918,17 @@ function AdBanner({ onEnquiry }) {
     rafRef.current = requestAnimationFrame(tick);
   }, []);
 
-  // ── schedule next advance ─────────────────────────────────────────────────
+  // ── schedule next advance — continuous forward loop through all 15 slides;
+  //    slideTo() handles the seamless 15→1 wrap via the duplicate end-slide ──
   const schedule = useCallback((after = PAUSE_MS) => {
     clearTimeout(timerRef.current);
     timerRef.current = setTimeout(() => {
       if (pauseRef.current) return;
-      const cur  = currentRef.current;
-      let next = cur + dirRef.current;
-      if (next >= COUNT) { dirRef.current = -1; next = cur - 1; }
-      else if (next < 0) {
-        // Reached start of group going backwards — advance to next group
-        dirRef.current = 1;
-        advanceGroup();
-        next = 0;
-        currentRef.current = 0;
-        setCurrent(0);
-        setOffset(0);
-      }
-      slideTo(next);
+      slideTo(currentRef.current + 1);
       startTick();
       schedule();
     }, after);
-  }, [slideTo, startTick, COUNT, advanceGroup]);
+  }, [slideTo, startTick]);
 
   // boot
   useEffect(() => {
@@ -10054,8 +10035,8 @@ function AdBanner({ onEnquiry }) {
     }
   };
 
-  // track translateX: offset=0 → 0%, offset=1 → -100%, etc.
-  const trackX = -(offset / COUNT) * 100;
+  // track translateX: offset=0 → 0%, offset=1 → -100%, etc. (against the display track, which includes the wrap-duplicate)
+  const trackX = -(offset / DISPLAY_COUNT) * 100;
 
   return (
     <div
@@ -10085,19 +10066,19 @@ function AdBanner({ onEnquiry }) {
         cursor:"pointer",
       }}
     >
-      {/* ── SLIDING TRACK ── all 15 slides sit side-by-side, track translates */}
+      {/* ── SLIDING TRACK ── all 15 slides + 1 duplicate wrap-slide sit side-by-side, track translates */}
       <div style={{
         display:"flex",
-        width:`${COUNT * 100}%`,
+        width:`${DISPLAY_COUNT * 100}%`,
         transform:`translateX(${trackX}%)`,
         transition:"none",   /* animation is driven by rAF, not CSS */
         willChange:"transform",
       }}>
-        {ACTIVE_SLIDES.map((s) => (
+        {DISPLAY_SLIDES.map((s, i) => (
           <div
-            key={s.id}
+            key={i === DISPLAY_SLIDES.length - 1 ? `${s.id}-wrap` : s.id}
             style={{
-              width:`${100/COUNT}%`,
+              width:`${100/DISPLAY_COUNT}%`,
               flexShrink:0,
               position:"relative",
               overflow:"hidden",
