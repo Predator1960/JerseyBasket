@@ -61,6 +61,16 @@
  *            (localStorage "jb_ad_slide") and resumes from there next time the app
  *            opens, rather than always restarting at slide 1 — lost when the old
  *            3-groups system (and its group-level memory) was removed earlier today.
+ *
+ *            LIVE PACKAGE DEMOS (13 Jul, same v90 build): slots 3, 8, and 13 are now
+ *            self-promotional demo banners showing the Silver, Gold, and Platinum
+ *            packages in action. Tap (mobile) or hover (desktop) opens an expandable
+ *            offers panel restating that tier's exact Media Pack copy — Silver opens a
+ *            quarter-page panel, Gold and Platinum open a larger near-full-page panel —
+ *            with a "Get in touch" button that opens the enquiry modal. This is the
+ *            first real implementation of the tap/hover expandable-offers-panel feature
+ *            promised in the Media Pack; the remaining 12 slots are still plain
+ *            placeholder banners (no panel) until sold to real advertisers.
  */
 import React, { useState, useMemo, useRef, useEffect, useCallback } from "react";
 
@@ -8510,11 +8520,20 @@ const AD_SLIDES = [
   {
     id:2, group:1, slot:3, link:ENQUIRY_TRIGGER,
     bg:"linear-gradient(135deg,#0369a1 0%,#082f49 100%)",
-    eyebrow:{ text:"SLOT 3 OF 15 — ESTATE AGENTS", color:"#bae6fd" },
-    headline:{ before:"Your Business ", highlight:"Here", highlightColor:"#7dd3fc", after:" — Jersey's Shoppers", headlineColor:"#ffffff" },
-    sub:{ text:"Platinum exclusivity — lock out every competitor in your category", color:"#93c5fd" },
+    eyebrow:{ text:"SLOT 3 OF 15 — SILVER PACKAGE DEMO", color:"#bae6fd" },
+    headline:{ before:"See ", highlight:"Silver", highlightColor:"#7dd3fc", after:" in Action", headlineColor:"#ffffff" },
+    sub:{ text:"Tap or hover to open the Silver offers panel", color:"#93c5fd" },
     cta:{ label:"Claim this slot", labelColor:"#bae6fd", url:"jerseybasket.je", urlColor:"#ffffff", arrowBg:"#0284c7", arrowColor:"white", boxBg:"rgba(2,132,199,0.3)", boxBorder:"rgba(186,230,253,0.5)" },
-    stats:[{ val:"3/15", label:"slot" },{ val:"£999", label:"per month" }], statColor:"#bae6fd",
+    stats:[{ val:"3/15", label:"slot" },{ val:"£249", label:"per month" }], statColor:"#bae6fd",
+    panel:{
+      size:"quarter", tier:"Silver", price:"£249/month", accent:"#0284c7",
+      bullets:[
+        "Tap/hover reveals an expanded offers panel (quarter-page)",
+        "Update banner content for promotions anytime",
+        "Monthly visitor stats report",
+        "All Bronze features included",
+      ],
+    },
   },
   {
     id:3, group:1, slot:4, link:ENQUIRY_TRIGGER,
@@ -8556,11 +8575,20 @@ const AD_SLIDES = [
   {
     id:7, group:2, slot:8, link:ENQUIRY_TRIGGER,
     bg:"linear-gradient(135deg,#4338ca 0%,#1e1b4b 100%)",
-    eyebrow:{ text:"SLOT 8 OF 15 — GYMS & FITNESS", color:"#c7d2fe" },
-    headline:{ before:"Your Business ", highlight:"Here", highlightColor:"#a5b4fc", after:" — Jersey's Shoppers", headlineColor:"#ffffff" },
-    sub:{ text:"Platinum exclusivity — lock out every competitor in your category", color:"#818cf8" },
+    eyebrow:{ text:"SLOT 8 OF 15 — GOLD PACKAGE DEMO", color:"#c7d2fe" },
+    headline:{ before:"See ", highlight:"Gold", highlightColor:"#a5b4fc", after:" in Action", headlineColor:"#ffffff" },
+    sub:{ text:"Tap or hover to open the Gold offers panel", color:"#818cf8" },
     cta:{ label:"Claim this slot", labelColor:"#c7d2fe", url:"jerseybasket.je", urlColor:"#ffffff", arrowBg:"#4f46e5", arrowColor:"white", boxBg:"rgba(79,70,229,0.3)", boxBorder:"rgba(199,210,254,0.5)" },
-    stats:[{ val:"8/15", label:"slot" },{ val:"£999", label:"per month" }], statColor:"#c7d2fe",
+    stats:[{ val:"8/15", label:"slot" },{ val:"£499", label:"per month" }], statColor:"#c7d2fe",
+    panel:{
+      size:"full", tier:"Gold", price:"£499/month", accent:"#4f46e5",
+      bullets:[
+        "Tap/hover reveals a larger expanded offers panel (near full-page)",
+        "Featured in JerseyBasket social media posts",
+        "Update content whenever you like",
+        "All Silver features included",
+      ],
+    },
   },
   {
     id:8, group:2, slot:9, link:ENQUIRY_TRIGGER,
@@ -8602,11 +8630,20 @@ const AD_SLIDES = [
   {
     id:12, group:3, slot:13, link:ENQUIRY_TRIGGER,
     bg:"linear-gradient(135deg,#7e22ce 0%,#2e1065 100%)",
-    eyebrow:{ text:"SLOT 13 OF 15 — PET SHOPS", color:"#e9d5ff" },
-    headline:{ before:"Your Business ", highlight:"Here", highlightColor:"#d8b4fe", after:" — Jersey's Shoppers", headlineColor:"#ffffff" },
-    sub:{ text:"Platinum exclusivity — lock out every competitor in your category", color:"#c084fc" },
+    eyebrow:{ text:"SLOT 13 OF 15 — PLATINUM PACKAGE DEMO", color:"#e9d5ff" },
+    headline:{ before:"See ", highlight:"Platinum", highlightColor:"#d8b4fe", after:" in Action", headlineColor:"#ffffff" },
+    sub:{ text:"Tap or hover to open the Platinum offers panel", color:"#c084fc" },
     cta:{ label:"Claim this slot", labelColor:"#e9d5ff", url:"jerseybasket.je", urlColor:"#ffffff", arrowBg:"#9333ea", arrowColor:"white", boxBg:"rgba(147,51,234,0.3)", boxBorder:"rgba(233,213,255,0.5)" },
     stats:[{ val:"13/15", label:"slot" },{ val:"£999", label:"per month" }], statColor:"#e9d5ff",
+    panel:{
+      size:"full", tier:"Platinum", price:"£999/month", accent:"#9333ea",
+      bullets:[
+        "Full category exclusivity \u2014 no competitor in your industry can advertise on the app",
+        "Co-branded promotions on social media",
+        "Same-day banner updates \u2014 direct line to Eamonn",
+        "All Gold features included",
+      ],
+    },
   },
   {
     id:13, group:3, slot:14, link:ENQUIRY_TRIGGER,
@@ -9892,6 +9929,7 @@ function AdBanner({ onEnquiry, externalPause }) {
   const [offset,   setOffset]   = useState(() => getStartSlide());   // 0..COUNT-1 (fractional during animation)
   const [paused,   setPaused]   = useState(false);
   const [progress, setProgress] = useState(0);
+  const [panelOpen, setPanelOpen] = useState(false); // expandable offers panel (Silver/Gold/Platinum demo slides)
 
   const currentRef = useRef(getStartSlide());
   const timerRef   = useRef(null);
@@ -9899,6 +9937,8 @@ function AdBanner({ onEnquiry, externalPause }) {
   const pauseRef   = useRef(false);
   const startRef   = useRef(null);
   const animRef    = useRef(null); // rAF for slide animation
+
+  const activeSlideData = ACTIVE_SLIDES[current];
 
   // ── smooth slide to a target index ──────────────────────────────────────
   const slideTo = useCallback((target) => {
@@ -10004,16 +10044,18 @@ function AdBanner({ onEnquiry, externalPause }) {
     }
   }, [externalPause, startTick, schedule]);
 
-  // hover pause / resume
+  // hover pause / resume (also opens the expandable offers panel on demo slides)
   const handleEnter = () => {
     pauseRef.current = true;
     setPaused(true);
     clearTimeout(timerRef.current);
     cancelAnimationFrame(rafRef.current);
+    if (ACTIVE_SLIDES[currentRef.current]?.panel) setPanelOpen(true);
   };
   const handleLeave = () => {
     pauseRef.current = false;
     setPaused(false);
+    setPanelOpen(false);
     startTick();
     schedule();
   };
@@ -10043,6 +10085,7 @@ function AdBanner({ onEnquiry, externalPause }) {
       tapPaused.current = false;
       pauseRef.current  = false;
       setPaused(false);
+      setPanelOpen(false);
       jumpTo(dx < 0 ? (current+1)%COUNT : (current-1+COUNT)%COUNT);
       return;
     }
@@ -10050,6 +10093,24 @@ function AdBanner({ onEnquiry, externalPause }) {
     e.preventDefault();
     const s = ACTIVE_SLIDES[currentRef.current];
     if (!s) return;
+    if (s.panel) {
+      // DEMO SLIDE — tap toggles the expandable offers panel
+      clearTimeout(tapTimer.current);
+      if (!panelOpen) {
+        tapPaused.current = true;
+        pauseRef.current  = true;
+        setPaused(true);
+        setPanelOpen(true);
+      } else {
+        tapPaused.current = false;
+        pauseRef.current  = false;
+        setPaused(false);
+        setPanelOpen(false);
+        schedule(500);
+        startTick();
+      }
+      return;
+    }
     if (!tapPaused.current) {
       // FIRST TAP — pause so user can read
       tapPaused.current = true;
@@ -10081,6 +10142,7 @@ function AdBanner({ onEnquiry, externalPause }) {
   const trackX = -(offset / DISPLAY_COUNT) * 100;
 
   return (
+    <>
     <div
       onMouseEnter={handleEnter}
       onMouseLeave={handleLeave}
@@ -10245,6 +10307,58 @@ function AdBanner({ onEnquiry, externalPause }) {
       )}
       <style>{`.mobile-tap-hint { display:none !important; } @media (pointer:coarse) { .mobile-tap-hint { display:inline !important; } }`}</style>
     </div>
+
+    {/* ── EXPANDABLE OFFERS PANEL — Silver/Gold/Platinum demo slides only ── */}
+    {panelOpen && activeSlideData?.panel && (
+      <div
+        onMouseEnter={()=>{ pauseRef.current=true; setPaused(true); setPanelOpen(true); }}
+        onMouseLeave={handleLeave}
+        style={{
+          position:"absolute", left:0, right:0, bottom:"100%",
+          height: activeSlideData.panel.size==="quarter" ? "25vh" : "60vh",
+          maxHeight: activeSlideData.panel.size==="quarter" ? 220 : 480,
+          background:"rgba(8,13,26,0.98)",
+          backdropFilter:"blur(12px)",
+          borderTop:`3px solid ${activeSlideData.panel.accent}`,
+          boxShadow:"0 -8px 32px rgba(0,0,0,0.5)",
+          zIndex:150,
+          overflowY:"auto",
+          padding:"20px 24px",
+          display:"flex", flexDirection:"column",
+        }}
+      >
+        <div style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-start", marginBottom:12 }}>
+          <div>
+            <div style={{ fontSize:11, fontWeight:700, letterSpacing:1, textTransform:"uppercase", color:activeSlideData.panel.accent }}>
+              {activeSlideData.panel.tier} Package
+            </div>
+            <div style={{ fontSize:22, fontWeight:800, color:"#ffffff", marginTop:2 }}>
+              {activeSlideData.panel.price}
+            </div>
+          </div>
+          <button
+            onClick={()=>{ setPanelOpen(false); pauseRef.current=false; setPaused(false); schedule(500); startTick(); }}
+            style={{ background:"rgba(255,255,255,0.1)", border:"none", borderRadius:8, width:28, height:28, color:"#fff", fontSize:16, cursor:"pointer", lineHeight:1 }}
+          >×</button>
+        </div>
+        <div style={{ flex:1 }}>
+          {activeSlideData.panel.bullets.map((b,i) => (
+            <div key={i} style={{ display:"flex", gap:8, alignItems:"flex-start", marginBottom:8 }}>
+              <span style={{ color:activeSlideData.panel.accent, fontSize:13, marginTop:1 }}>✓</span>
+              <span style={{ fontSize:13, color:"#e2e8f0", lineHeight:1.4 }}>{b}</span>
+            </div>
+          ))}
+        </div>
+        <button
+          onClick={()=>{ setPanelOpen(false); pauseRef.current=false; setPaused(false); onEnquiry(); }}
+          style={{
+            marginTop:12, background:activeSlideData.panel.accent, color:"#fff", border:"none",
+            borderRadius:10, padding:"11px 20px", fontSize:13, fontWeight:700, cursor:"pointer", alignSelf:"flex-start",
+          }}
+        >Get in touch about {activeSlideData.panel.tier}</button>
+      </div>
+    )}
+    </>
   );
 }
 
