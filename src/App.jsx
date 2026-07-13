@@ -119,6 +119,21 @@
  *            Also fixed a pre-existing bug while in there: clicking a banner's dot
  *            indicator was bubbling up and also triggering the enquiry modal open —
  *            added stopPropagation so dot clicks only navigate, as intended.
+ *
+ *            MOBILE OVERFLOW FIX (13 Jul, same v90 build) — CRITICAL: Eamonn caught via
+ *            real device screenshots that the 82vh Gold/Platinum panel was taller than
+ *            the actual visible viewport on a phone, pushing the panel's own top (tier
+ *            name, price, close button, and the new Prev/Next nav) off-screen above the
+ *            top edge — completely invisible and unreachable, only the bottom bullets +
+ *            CTA button were visible. Root cause: vh/px sizing alone doesn't account for
+ *            how much screen a phone actually has available above the banner once you
+ *            subtract browser chrome. Fixed properly with a viewport-safe cap using
+ *            CSS min(): height and maxHeight are now both wrapped in
+ *            `min(<intended size>, calc(100dvh - 160px))`, so the panel can NEVER
+ *            exceed the actually-visible screen space, on any device, regardless of
+ *            which size tier is used. Also dialled "full" back down to 58vh/480px as
+ *            the new normal target (still clearly bigger than Silver's half/42vh) —
+ *            the dvh-based cap is a safety net, not the primary sizing mechanism.
  */
 import React, { useState, useMemo, useRef, useEffect, useCallback } from "react";
 
@@ -10361,8 +10376,8 @@ function AdBanner({ onEnquiry, externalPause }) {
       <div
         style={{
           position:"absolute", left:0, right:0, bottom:"100%",
-          height: {quarter:"25vh", half:"42vh", full:"82vh"}[activeSlideData.panel.size] || "42vh",
-          maxHeight: {quarter:220, half:360, full:680}[activeSlideData.panel.size] || 360,
+          height: `min(${ {quarter:"25vh", half:"42vh", full:"58vh"}[activeSlideData.panel.size] || "42vh" }, calc(100dvh - 160px))`,
+          maxHeight: `min(${ {quarter:220, half:360, full:480}[activeSlideData.panel.size] || 360 }px, calc(100dvh - 160px))`,
           background:"rgba(8,13,26,0.98)",
           backdropFilter:"blur(12px)",
           borderTop:`3px solid ${activeSlideData.panel.accent}`,
