@@ -13,8 +13,8 @@
  * Built for Jersey, Channel Islands.
  * Contact: hello@jerseybasket.je
  *
- * Version:   v90
- * Updated:   13 July 2026
+ * Version:   v91
+ * Updated:   22 July 2026
  * Changes:   Caught the app up to the spreadsheet: added the Drinks (330 items), Health
  *            & Beauty (239 items) and Baby & Child (96 items) departments that had been
  *            gathered from Co-op's official live catalogue earlier on 11 July but never
@@ -140,6 +140,15 @@
  *            (rgba(255,255,255,0.08), no border) and hard to see on mobile per
  *            Eamonn's screenshots — changed to a solid opaque slate background
  *            (#334155) with a visible border and bold white text.
+ *
+ *            AUGUST CAMPAIGN BANNER (14 Jul, same v90 build): the home-screen
+ *            "Watch this space" teaser (shown to every shopper) now promotes
+ *            the "First 12 Jersey businesses — August FREE!" advertising
+ *            offer instead, tapping through to the enquiry modal rather than
+ *            the Tips modal. NOTE: this was the only entry point to Tips in
+ *            the app — Tips is now unreachable until this banner reverts.
+ *            Set TEASER_ACTIVE to false or restore the original banner once
+ *            the August campaign ends.
  */
 import React, { useState, useMemo, useRef, useEffect, useCallback } from "react";
 
@@ -7557,8 +7566,9 @@ const FORMSPREE_ID = "mvzyrgqj";
 /* ═══════════════════════════════════════════════════════════════════════════
    JUNE COMPETITION — CLOSED. Kept below (COMP_WINNER/LEADERBOARD) for the
    historical record — no longer shown anywhere in the app.
-   HOME SCREEN TEASER — set TEASER_ACTIVE to false to hide the "Watch this
-   space" banner entirely once the next thing is ready to announce properly.
+   HOME SCREEN TEASER — currently promoting the August free-advertising
+   campaign. Set TEASER_ACTIVE to false to hide the banner entirely once
+   the campaign ends or the next thing is ready to announce.
 ═══════════════════════════════════════════════════════════════════════════ */
 const TEASER_ACTIVE = true;
 const COMP_WINNER = ""; // e.g. "Sarah M" — leave blank while competition is live
@@ -7977,16 +7987,16 @@ export default function JerseyGroceryApp() {
               );
             })()}
 
-            {/* ── WATCH THIS SPACE TEASER BANNER (tap opens Tips) ── */}
+            {/* ── AUGUST FREE ADVERTISING TEASER BANNER (tap opens Enquiry) ── */}
             {TEASER_ACTIVE && (
-              <div onClick={()=>setShowTips(true)} style={{ marginBottom:12,background:"linear-gradient(135deg,#0f0a2e 0%,#2d1a6b 50%,#4c1d95 100%)",border:"1px solid rgba(167,139,250,.5)",borderRadius:12,padding:"12px 16px",display:"flex",alignItems:"center",justifyContent:"space-between",cursor:"pointer",gap:10,boxShadow:"0 4px 20px rgba(76,29,149,.5),inset 0 1px 0 rgba(255,255,255,.2)",position:"relative",overflow:"hidden" }}>
+              <div onClick={()=>setShowEnquiry(true)} style={{ marginBottom:12,background:"linear-gradient(135deg,#0f0a2e 0%,#2d1a6b 50%,#4c1d95 100%)",border:"1px solid rgba(167,139,250,.5)",borderRadius:12,padding:"12px 16px",display:"flex",alignItems:"center",justifyContent:"space-between",cursor:"pointer",gap:10,boxShadow:"0 4px 20px rgba(76,29,149,.5),inset 0 1px 0 rgba(255,255,255,.2)",position:"relative",overflow:"hidden" }}>
                 <span style={{ position:"absolute",top:0,left:0,right:0,height:"45%",background:"linear-gradient(180deg,rgba(255,255,255,.18) 0%,rgba(255,255,255,0) 100%)",pointerEvents:"none" }}/>
                 <span style={{ position:"absolute",top:0,left:"-60%",width:"40%",height:"100%",background:"linear-gradient(90deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.12) 50%,rgba(255,255,255,0) 100%)",pointerEvents:"none",animation:"shimmer 3s infinite" }}/>
                 <div style={{ display:"flex",alignItems:"center",gap:10 }}>
-                  <span style={{ fontSize:26 }}>👀</span>
+                  <span style={{ fontSize:26 }}>🎉</span>
                   <div>
-                    <div style={{ fontSize:13,fontWeight:800,color:"#fff",textShadow:"0 1px 4px rgba(0,0,0,.4)",letterSpacing:".01em" }}>✨ Watch this space!</div>
-                    <div style={{ fontSize:11,color:"rgba(255,255,255,.9)",marginTop:2,fontWeight:500 }}>Tap for tips on getting the most out of JerseyBasket</div>
+                    <div style={{ fontSize:13,fontWeight:800,color:"#fff",textShadow:"0 1px 4px rgba(0,0,0,.4)",letterSpacing:".01em" }}>✨ First 12 Jersey businesses — August FREE!</div>
+                    <div style={{ fontSize:11,color:"rgba(255,255,255,.9)",marginTop:2,fontWeight:500 }}>Own a Jersey business? Tap to claim a free month of advertising</div>
                   </div>
                 </div>
               </div>
