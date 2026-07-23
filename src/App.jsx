@@ -7599,6 +7599,7 @@ export default function JerseyGroceryApp() {
   const [basket, setBasket]                 = useState({});
   const [pinnedStore, setPinnedStore]       = useState(null);
   const [sortBy, setSortBy]                 = useState("bestPrice");
+  const [visibleCount, setVisibleCount]     = useState(60);
   const [view, setView]                     = useState("shop");
   const [showEnquiry,    setShowEnquiry]    = useState(false);
   const [showAddModal,   setShowAddModal]   = useState(false);
@@ -7684,6 +7685,21 @@ export default function JerseyGroceryApp() {
     if(sortBy==="cat")       return [...list].sort((a,b)=>a.cat.localeCompare(b.cat)||a.name.localeCompare(b.name));
     return list;
   },[allProducts,activeCategory,searchQuery,pinnedStore,sortBy,disabledStores]);
+
+  useEffect(() => { setVisibleCount(60); }, [filteredProducts]);
+
+  const sentinelRef = useRef(null);
+  useEffect(() => {
+    const node = sentinelRef.current;
+    if (!node) return;
+    const observer = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting) {
+        setVisibleCount(v => Math.min(v + 60, filteredProducts.length));
+      }
+    });
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, [filteredProducts.length]);
 
   const addToBasket    = useCallback((pid,sid)=>setBasket(p=>{const k=`${pid}-${sid}`;return{...p,[k]:(p[k]||0)+1};}), []);
   const removeFromBasket   = useCallback(key=>setBasket(p=>{const n={...p};n[key]>1?n[key]--:delete n[key];return n;}), []);
@@ -8006,7 +8022,7 @@ export default function JerseyGroceryApp() {
             {sortBy==="cat" && activeCategory==="All" ? (
               (() => {
                 const groupMap = {};
-                filteredProducts.forEach(p => {
+                filteredProducts.slice(0, visibleCount).forEach(p => {
                   if (!groupMap[p.cat]) groupMap[p.cat] = { cat: p.cat, products: [] };
                   groupMap[p.cat].products.push(p);
                 });
@@ -8028,8 +8044,12 @@ export default function JerseyGroceryApp() {
               })()
             ) : (
               <div style={{ display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(270px,1fr))",gap:11 }}>
-                {filteredProducts.map(p=><ProductCard key={p.id} product={p} onAddToBasket={addToBasket} pinnedStore={pinnedStore} isFavourite={favourites.has(p.id)} onToggleFavourite={toggleFavourite} disabledStores={disabledStores} lightMode={lightMode}/>)}
+                {filteredProducts.slice(0, visibleCount).map(p=><ProductCard key={p.id} product={p} onAddToBasket={addToBasket} pinnedStore={pinnedStore} isFavourite={favourites.has(p.id)} onToggleFavourite={toggleFavourite} disabledStores={disabledStores} lightMode={lightMode}/>)}
               </div>
+            )}
+
+            {visibleCount < filteredProducts.length && (
+              <div ref={sentinelRef} style={{ height:1 }} />
             )}
 
             {filteredProducts.length===0&&(
