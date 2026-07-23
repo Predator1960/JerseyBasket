@@ -8761,6 +8761,19 @@ const AD_SLIDES = [
     cta:{ label:"Claim this slot", labelColor:"#e2e8f0", url:"jerseybasket.je", urlColor:"#ffffff", arrowBg:"#475569", arrowColor:"white", boxBg:"rgba(71,85,105,0.3)", boxBorder:"rgba(226,232,240,0.5)" },
     stats:[{ val:"15/15", label:"slot" },{ val:"£999", label:"per month" }], statColor:"#e2e8f0",
   },
+  /* ── AUGUST FREE OFFER — live advertiser ── */
+  {
+    id:15, group:"free", slot:1, link:"https://dominocabs.je",
+    bg:"linear-gradient(135deg,#1a1a1a 0%,#000000 100%)",
+    eyebrow:{ text:"AUGUST FREE OFFER — SPOT 1 OF 12", color:"#e5e7eb" },
+    headline:{ before:"Domino Cabs", highlight:"", highlightColor:"#ffffff", after:"", headlineColor:"#ffffff" },
+    sub:{ text:"The Go To Cab Company", color:"#9ca3af" },
+    logo:"/domino-cabs-logo.png",
+    ctaButtons:[
+      { label:"Call Now", href:"tel:01534855555", bg:"#16a34a", color:"#ffffff", border:"rgba(255,255,255,0.25)" },
+      { label:"Visit Website", href:"https://dominocabs.je", bg:"#ffffff", color:"#111827", border:"rgba(255,255,255,0.6)" },
+    ],
+  },
 ];
 /* ═══════════════════════════════════════════════════════════════════════════
    INSTALL STEPS — reusable install instructions component
@@ -10369,17 +10382,41 @@ function AdBanner({ onEnquiry, externalPause }) {
               </div>
 
               {/* RIGHT — CTA */}
-              <div style={{ display:"flex", alignItems:"center", gap:"clamp(6px,1.2vw,14px)", flexShrink:0 }}>
-                <div style={{ fontFamily:"'DM Sans',Arial,sans-serif", fontSize:"clamp(10px,1.3vw,15px)", color:s.cta.labelColor, fontWeight:600, whiteSpace:"nowrap", opacity:0.9 }}>
-                  {s.cta.label}
+              {s.ctaButtons ? (
+                <div style={{ display:"flex", alignItems:"center", gap:"clamp(6px,1vw,10px)", flexShrink:0 }}>
+                  {s.ctaButtons.map((btn, bi) => (
+                    <a
+                      key={bi}
+                      href={btn.href}
+                      target={btn.href.startsWith("tel:") ? undefined : "_blank"}
+                      rel={btn.href.startsWith("tel:") ? undefined : "noopener noreferrer"}
+                      onClick={e=>e.stopPropagation()}
+                      onTouchEnd={e=>e.stopPropagation()}
+                      style={{
+                        display:"flex", alignItems:"center", justifyContent:"center",
+                        borderRadius:8, padding:"clamp(6px,1vh,10px) clamp(10px,1.4vw,18px)",
+                        background:btn.bg, color:btn.color, border:`1px solid ${btn.border||"rgba(255,255,255,0.3)"}`,
+                        fontFamily:"'DM Sans',Arial,sans-serif", fontSize:"clamp(10px,1.3vw,14px)", fontWeight:700,
+                        textDecoration:"none", whiteSpace:"nowrap",
+                      }}
+                    >
+                      {btn.label}
+                    </a>
+                  ))}
                 </div>
-                <div style={{ display:"flex", alignItems:"center", gap:"clamp(6px,1vw,11px)", borderRadius:8, padding:"clamp(5px,1vh,9px) clamp(9px,1.2vw,16px)", background:s.cta.boxBg, border:`1px solid ${s.cta.boxBorder}` }}>
-                  <div style={{ fontFamily:"'DM Serif Display',Georgia,serif", fontSize:"clamp(11px,1.7vw,19px)", color:s.cta.urlColor, whiteSpace:"nowrap", fontWeight:400 }}>
-                    {s.cta.url}
+              ) : (
+                <div style={{ display:"flex", alignItems:"center", gap:"clamp(6px,1.2vw,14px)", flexShrink:0 }}>
+                  <div style={{ fontFamily:"'DM Sans',Arial,sans-serif", fontSize:"clamp(10px,1.3vw,15px)", color:s.cta.labelColor, fontWeight:600, whiteSpace:"nowrap", opacity:0.9 }}>
+                    {s.cta.label}
                   </div>
-                  <div style={{ width:"clamp(20px,2.8vw,34px)", height:"clamp(20px,2.8vw,34px)", borderRadius:"50%", background:s.cta.arrowBg, color:s.cta.arrowColor, display:"flex", alignItems:"center", justifyContent:"center", fontSize:"clamp(11px,1.5vw,17px)", fontWeight:700, flexShrink:0 }}>→</div>
+                  <div style={{ display:"flex", alignItems:"center", gap:"clamp(6px,1vw,11px)", borderRadius:8, padding:"clamp(5px,1vh,9px) clamp(9px,1.2vw,16px)", background:s.cta.boxBg, border:`1px solid ${s.cta.boxBorder}` }}>
+                    <div style={{ fontFamily:"'DM Serif Display',Georgia,serif", fontSize:"clamp(11px,1.7vw,19px)", color:s.cta.urlColor, whiteSpace:"nowrap", fontWeight:400 }}>
+                      {s.cta.url}
+                    </div>
+                    <div style={{ width:"clamp(20px,2.8vw,34px)", height:"clamp(20px,2.8vw,34px)", borderRadius:"50%", background:s.cta.arrowBg, color:s.cta.arrowColor, display:"flex", alignItems:"center", justifyContent:"center", fontSize:"clamp(11px,1.5vw,17px)", fontWeight:700, flexShrink:0 }}>→</div>
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
           </div>
         ))}
