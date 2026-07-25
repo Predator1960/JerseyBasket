@@ -8182,7 +8182,7 @@ export default function JerseyGroceryApp() {
                           <span style={{ fontSize:22,flexShrink:0 }}>{p.icon}</span>
                           <div style={{ minWidth:0 }}>
                             <Tooltip text={p.name}>
-                              <div style={{ fontSize:12.5,fontWeight:700,color:"#f0f4f8",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap" }}>{p.name}</div>
+                              <div style={{ fontSize:12.5,fontWeight:700,color:"#f0f4f8" }}>{p.name}</div>
                             </Tooltip>
                             <div style={{ fontSize:9.5,fontWeight:700,color:"#ffffff",marginTop:1 }}>{p.cat.replace(/^[^\s]+\s/,"")}</div>
                           </div>
@@ -8242,7 +8242,7 @@ export default function JerseyGroceryApp() {
                                 <span style={{ fontSize:18,flexShrink:0 }}>{item.product.icon}</span>
                                 <div style={{ minWidth:0 }}>
                                   <Tooltip text={item.product.name}>
-                                    <div style={{ fontSize:11.5,fontWeight:600,color:"#f0f4f8",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap" }}>{item.product.name}</div>
+                                    <div style={{ fontSize:11.5,fontWeight:600,color:"#f0f4f8" }}>{item.product.name}</div>
                                   </Tooltip>
                                   <div style={{ fontSize:9.5,color:"#475569" }}>{item.store?.emoji} {item.store?.name} · £{item.price.toFixed(2)}{overPay>0.01&&<span style={{ color:"#f87171",marginLeft:3 }}>(+£{overPay.toFixed(2)})</span>}</div>
                                 </div>
@@ -10572,7 +10572,7 @@ function BasketItem({ item, overPay, onRemove, onAdd, onDelete, lightMode=false 
           <span style={{ fontSize:18, flexShrink:0, opacity: ticked ? 0.4 : 1, transition:"opacity .2s" }}>{item.product.icon}</span>
           <div style={{ minWidth:0 }}>
             <Tooltip text={item.product.name}>
-              <div style={{ fontSize:11.5, fontWeight:600, color: ticked ? "#475569" : lightMode?"#0f172a":"#f0f4f8", overflow:"hidden", textOverflow:"ellipsis", whiteSpace:"nowrap", textDecoration: ticked ? "line-through" : "none", transition:"all .2s" }}>
+              <div style={{ fontSize:11.5, fontWeight:600, color: ticked ? "#475569" : lightMode?"#0f172a":"#f0f4f8", textDecoration: ticked ? "line-through" : "none", transition:"all .2s" }}>
                 {item.product.name}
               </div>
             </Tooltip>
