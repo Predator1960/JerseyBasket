@@ -8562,7 +8562,7 @@ const ENQUIRY_TRIGGER = "enquiry";
 
 /* ── AD_SLIDES — 15 slots across 3 groups of 5 ──
    Group 1 (slots 1–5):  Domino Cabs (live), Builders, Estate Agents, Car Dealers, Insurance
-   Group 2 (slots 6–10): Mortgage, Removals, Gyms, Garden Centres, Pharmacies
+   Group 2 (slots 6–10): Mortgage, We Deliver (live), Gyms, Garden Centres, Pharmacies
    Group 3 (slots 11–15):Restaurants, Florists, Pet Shops, Electrical, Hotels
    Replace placeholder content with live advertiser branding when sold.
 ── */
@@ -8636,13 +8636,16 @@ const AD_SLIDES = [
     stats:[{ val:"6/15", label:"slot" },{ val:"£999", label:"per month" }], statColor:"#a5f3fc",
   },
   {
-    id:6, group:2, slot:7, link:ENQUIRY_TRIGGER,
-    bg:"linear-gradient(135deg,#c2410c 0%,#431407 100%)",
-    eyebrow:{ text:"SLOT 7 OF 15 — REMOVAL COMPANIES", color:"#fed7aa" },
-    headline:{ before:"Your Business ", highlight:"Here", highlightColor:"#fdba74", after:" — Jersey's Shoppers", headlineColor:"#ffffff" },
-    sub:{ text:"Platinum exclusivity — lock out every competitor in your category", color:"#fb923c" },
-    cta:{ label:"Claim this slot", labelColor:"#fed7aa", url:"jerseybasket.je", urlColor:"#ffffff", arrowBg:"#ea580c", arrowColor:"white", boxBg:"rgba(234,88,12,0.3)", boxBorder:"rgba(254,215,170,0.5)" },
-    stats:[{ val:"7/15", label:"slot" },{ val:"£999", label:"per month" }], statColor:"#fed7aa",
+    id:6, group:2, slot:7, link:"https://wedeliver.je",
+    bg:"linear-gradient(135deg,#2c2a5c 0%,#c0392b 100%)",
+    eyebrow:{ text:"AUGUST FREE OFFER — SPOT 2 OF 12", color:"#f5d5d0" },
+    headline:{ before:"We Deliver", highlight:"", highlightColor:"#ffffff", after:"", headlineColor:"#ffffff" },
+    sub:{ text:"Shipping Made Easy — We Will Beat Any Quote*", color:"#e2e0f0" },
+    logo:"/WeDeliver-logo.png",
+    ctaButtons:[
+      { label:"Get a Quote", href:"https://wedeliver.je", bg:"#c0392b", color:"#ffffff", border:"rgba(255,255,255,0.25)" },
+      { label:"Email Us", href:"mailto:info@wedeliver.je", bg:"#ffffff", color:"#2c2a5c", border:"rgba(255,255,255,0.6)" },
+    ],
   },
   {
     id:7, group:2, slot:8, link:ENQUIRY_TRIGGER,
