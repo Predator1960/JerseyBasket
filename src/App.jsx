@@ -8640,7 +8640,7 @@ const AD_SLIDES = [
     bg:"linear-gradient(135deg,#2c2a5c 0%,#c0392b 100%)",
     eyebrow:{ text:"AUGUST FREE OFFER — SPOT 2 OF 12", color:"#f5d5d0" },
     headline:{ before:"We Deliver", highlight:"", highlightColor:"#ffffff", after:"", headlineColor:"#ffffff" },
-    sub:{ text:"Shipping Made Easy — We Will Beat Any Quote*", color:"#e2e0f0" },
+    sub:{ text:"Shipping Made Easy — We Will Beat Any Quote*", color:"#e2e0f0", wrap:true },
     logo:"/WeDeliver-logo.png",
     ctaButtons:[
       { label:"Get a Quote", href:"https://wedeliver.je", bg:"#c0392b", color:"#ffffff", border:"rgba(255,255,255,0.25)" },
