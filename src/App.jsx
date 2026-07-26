@@ -8560,8 +8560,8 @@ export default function JerseyGroceryApp() {
 ═══════════════════════════════════════════════════════════════════════════ */
 const ENQUIRY_TRIGGER = "enquiry";
 
-/* ── AD_SLIDES — 15 placeholder slots across 3 groups of 5 ──
-   Group 1 (slots 1–5):  Taxis, Builders, Estate Agents, Car Dealers, Insurance
+/* ── AD_SLIDES — 15 slots across 3 groups of 5 ──
+   Group 1 (slots 1–5):  Domino Cabs (live), Builders, Estate Agents, Car Dealers, Insurance
    Group 2 (slots 6–10): Mortgage, Removals, Gyms, Garden Centres, Pharmacies
    Group 3 (slots 11–15):Restaurants, Florists, Pet Shops, Electrical, Hotels
    Replace placeholder content with live advertiser branding when sold.
@@ -8569,13 +8569,16 @@ const ENQUIRY_TRIGGER = "enquiry";
 const AD_SLIDES = [
   /* ── GROUP 1 ── */
   {
-    id:0, group:1, slot:1, link:ENQUIRY_TRIGGER,
-    bg:"linear-gradient(135deg,#7c3aed 0%,#4c1d95 100%)",
-    eyebrow:{ text:"SLOT 1 OF 15 — TAXIS & CABS", color:"#ede9fe" },
-    headline:{ before:"Your Business ", highlight:"Here", highlightColor:"#ddd6fe", after:" — Jersey's Shoppers", headlineColor:"#ffffff" },
-    sub:{ text:"Platinum exclusivity — lock out every competitor in your category", color:"#c4b5fd" },
-    cta:{ label:"Claim this slot", labelColor:"#ede9fe", url:"jerseybasket.je", urlColor:"#ffffff", arrowBg:"#6d28d9", arrowColor:"white", boxBg:"rgba(109,40,217,0.3)", boxBorder:"rgba(196,181,253,0.5)" },
-    stats:[{ val:"1/15", label:"slot" },{ val:"£999", label:"per month" }], statColor:"#ddd6fe",
+    id:0, group:1, slot:1, link:"https://dominocabs.je",
+    bg:"linear-gradient(135deg,#1a1a1a 0%,#000000 100%)",
+    eyebrow:{ text:"AUGUST FREE OFFER — SPOT 1 OF 12", color:"#e5e7eb" },
+    headline:{ before:"Domino Cabs", highlight:"", highlightColor:"#ffffff", after:"", headlineColor:"#ffffff" },
+    sub:{ text:"The Go To Cab Company", color:"#9ca3af" },
+    logo:"/domino-cabs-logo.png",
+    ctaButtons:[
+      { label:"Call Now", href:"tel:01534855555", bg:"#16a34a", color:"#ffffff", border:"rgba(255,255,255,0.25)" },
+      { label:"Visit Website", href:"https://dominocabs.je", bg:"#ffffff", color:"#111827", border:"rgba(255,255,255,0.6)" },
+    ],
   },
   {
     id:1, group:1, slot:2, link:ENQUIRY_TRIGGER,
@@ -8729,19 +8732,6 @@ const AD_SLIDES = [
     sub:{ text:"Platinum exclusivity — lock out every competitor in your category", color:"#94a3b8" },
     cta:{ label:"Claim this slot", labelColor:"#e2e8f0", url:"jerseybasket.je", urlColor:"#ffffff", arrowBg:"#475569", arrowColor:"white", boxBg:"rgba(71,85,105,0.3)", boxBorder:"rgba(226,232,240,0.5)" },
     stats:[{ val:"15/15", label:"slot" },{ val:"£999", label:"per month" }], statColor:"#e2e8f0",
-  },
-  /* ── AUGUST FREE OFFER — live advertiser ── */
-  {
-    id:15, group:"free", slot:1, link:"https://dominocabs.je",
-    bg:"linear-gradient(135deg,#1a1a1a 0%,#000000 100%)",
-    eyebrow:{ text:"AUGUST FREE OFFER — SPOT 1 OF 12", color:"#e5e7eb" },
-    headline:{ before:"Domino Cabs", highlight:"", highlightColor:"#ffffff", after:"", headlineColor:"#ffffff" },
-    sub:{ text:"The Go To Cab Company", color:"#9ca3af" },
-    logo:"/domino-cabs-logo.png",
-    ctaButtons:[
-      { label:"Call Now", href:"tel:01534855555", bg:"#16a34a", color:"#ffffff", border:"rgba(255,255,255,0.25)" },
-      { label:"Visit Website", href:"https://dominocabs.je", bg:"#ffffff", color:"#111827", border:"rgba(255,255,255,0.6)" },
-    ],
   },
 ];
 /* ═══════════════════════════════════════════════════════════════════════════
