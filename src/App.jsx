@@ -10265,6 +10265,10 @@ function AdBanner({ onEnquiry, externalPause }) {
               opacity: 0.92,
               display:"block",
               textDecoration:"none",
+              /* verified advertiser slides get the same glossy 3D depth as the nav tabs / free-offer banner —
+                 inset (not outer) shadow since this strip sits inside an overflow:hidden track and an outer
+                 shadow would just get clipped */
+              boxShadow: s.ctaButtons ? "inset 0 1px 0 rgba(255,255,255,.22), inset 0 -18px 26px -12px rgba(0,0,0,.45)" : "none",
             }}
           >
             {/* ── per-slide decorations ── */}
@@ -10289,6 +10293,11 @@ function AdBanner({ onEnquiry, externalPause }) {
             )}
             {s.accent      && <div style={{ position:"absolute",top:0,left:0,right:0,height:3,background:s.accent,pointerEvents:"none" }} />}
             {s.accentBottom && <div style={{ position:"absolute",bottom:2,left:0,right:0,height:3,background:s.accentBottom,pointerEvents:"none" }} />}
+            {/* glossy top sheen for verified advertiser slides — same recipe as the nav tabs / free-offer banner,
+                layered on top of each advertiser's own bg gradient rather than replacing it */}
+            {s.ctaButtons && (
+              <span style={{ position:"absolute",top:0,left:0,right:0,height:"45%",background:"linear-gradient(180deg,rgba(255,255,255,.22) 0%,rgba(255,255,255,0) 100%)",pointerEvents:"none" }} />
+            )}
 
 
             {/* ── CONTENT ── responsive: mobile stacks sub below eyebrow, desktop enlarges */}
