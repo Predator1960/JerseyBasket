@@ -10262,7 +10262,9 @@ function AdBanner({ onEnquiry, externalPause }) {
               position:"relative",
               overflow:"hidden",
               background: s.bg,
-              opacity: 0.92,
+              /* real advertiser slides render fully opaque — at .92 the near-black/saturated brand
+                 backgrounds visibly wash out against the page behind; placeholders keep the original look */
+              opacity: s.ctaButtons ? 1 : 0.92,
               display:"block",
               textDecoration:"none",
               /* verified advertiser slides get the same glossy 3D depth as the nav tabs / free-offer banner —
