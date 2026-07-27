@@ -10347,7 +10347,7 @@ function AdBanner({ onEnquiry, externalPause }) {
               <div className="jb-ad-left" style={{ display:"flex", alignItems:"center", gap:"clamp(6px,1.5vw,16px)", minWidth:0, flex:1, flexWrap: (s.sub && s.sub.wrap) || isPitchSlide ? "wrap" : "nowrap", ...(shouldCenter ? { justifyContent:"center" } : {}) }}>
                 {s.logo && <img src={s.logo} alt="advertiser logo" style={{ height:"clamp(32px,5.5vw,70px)", width:"auto", maxHeight:70, borderRadius:6, flexShrink:0, objectFit:"contain" }} />}
                 {/* Eyebrow + headline row */}
-                <div className="jb-ad-headrow" style={{ display:"flex", alignItems:"center", gap:"clamp(6px,1.2vw,14px)", flexShrink:0, ...(s.sub && s.sub.wrap ? { flexBasis:"auto" } : {}), ...(isPitchSlide ? { justifyContent:"center", flexWrap:"wrap", rowGap:2 } : shouldCenter ? { justifyContent:"center" } : {}) }}>
+                <div className="jb-ad-headrow" style={{ display:"flex", alignItems:"center", gap:"clamp(6px,1.2vw,14px)", flexShrink:0, ...(s.sub && s.sub.wrap ? { flexBasis:"auto" } : {}), ...(isPitchSlide ? { justifyContent:"center", flexWrap:"wrap", rowGap:2, flexBasis:"100%" } : shouldCenter ? { justifyContent:"center" } : {}) }}>
                   <div className="jb-ad-eyebrow" style={{ fontFamily:"'DM Sans',Arial,sans-serif", fontSize:"clamp(8px,1.4vw,13px)", fontWeight:700, letterSpacing:"1.5px", textTransform:"uppercase", color:s.eyebrow.color, borderLeft:`2px solid ${s.eyebrow.color}`, paddingLeft:6, lineHeight:1, whiteSpace:"nowrap", flexShrink:0, ...(isPitchSlide ? { flexBasis:"100%", textAlign:"center", borderLeft:"none", paddingLeft:0 } : {}) }}>
                     {s.eyebrow.text}
                   </div>
@@ -10380,6 +10380,7 @@ function AdBanner({ onEnquiry, externalPause }) {
                     } : {
                       whiteSpace:"nowrap", overflow:"hidden", textOverflow:"ellipsis",
                       ...(shouldCenter ? { textAlign:"center" } : {}),
+                      ...(isPitchSlide ? { flexBasis:"100%" } : {}),
                     })
                   }}>
                     {s.sub.text}
