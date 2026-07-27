@@ -10279,12 +10279,12 @@ function AdBanner({ onEnquiry, externalPause }) {
           /* Plain pitch slides (no ctaButtons, no panel) drop the separate "Claim this slot" CTA
              entirely — tapping the whole banner already opens the enquiry form, so it was a
              redundant duplicate click target and the main source of the mobile overflow fights.
-             Panel slides (Silver/Gold/Platinum) keep their "Tap or hover for info" cue since that
-             communicates real, distinct interaction (reveal a panel), not just "claim this slot". */
+             Panel slides (Silver/Gold/Platinum) also drop their "Tap or hover for info" CTA — same
+             reasoning, the whole banner is already the interactive surface. Only real advertiser
+             slides (ctaButtons) still show an explicit CTA. */
           const isPitchSlide = !s.ctaButtons && !s.panel;
-          // Real advertiser slides (Domino Cabs, We Deliver) keep their logo + CTA buttons, but
-          // should still centre their own text block — panels keep their original left-aligned look.
-          const shouldCenter = isPitchSlide || !!s.ctaButtons;
+          // Every slide type centres its text block now — pitch, panel, and real-advertiser alike.
+          const shouldCenter = true;
           return (
           <div
             key={i === DISPLAY_SLIDES.length - 1 ? `${s.id}-wrap` : s.id}
@@ -10388,9 +10388,11 @@ function AdBanner({ onEnquiry, externalPause }) {
                 )}
               </div>
 
-              {/* RIGHT — CTA (pitch slides skip this entirely; the whole banner is already tappable) */}
-              {!isPitchSlide && (s.ctaButtons ? (
-                <div className="jb-ad-ctas" style={{ display:"flex", alignItems:"center", gap:"clamp(6px,1vw,10px)", flexShrink:0 }}>
+              {/* RIGHT — CTA. Only real advertiser slides (ctaButtons) show one now; pitch and panel
+                  slides rely on the whole banner already being tappable. Centered by default so any
+                  future ctaButtons slide inherits the same treatment automatically. */}
+              {s.ctaButtons && (
+                <div className="jb-ad-ctas" style={{ display:"flex", alignItems:"center", justifyContent:"center", gap:"clamp(6px,1vw,10px)", flexShrink:0 }}>
                   {s.ctaButtons.map((btn, bi) => (
                     <a
                       key={bi}
@@ -10411,19 +10413,7 @@ function AdBanner({ onEnquiry, externalPause }) {
                     </a>
                   ))}
                 </div>
-              ) : (
-                <div className="jb-ad-ctas" style={{ display:"flex", alignItems:"center", gap:"clamp(6px,1.2vw,14px)", flexShrink:0 }}>
-                  <div style={{ fontFamily:"'DM Sans',Arial,sans-serif", fontSize:"clamp(10px,1.3vw,15px)", color:s.cta.labelColor, fontWeight:600, whiteSpace:"nowrap", opacity:0.9 }}>
-                    {s.cta.label}
-                  </div>
-                  <div style={{ display:"flex", alignItems:"center", gap:"clamp(6px,1vw,11px)", borderRadius:8, padding:"clamp(5px,1vh,9px) clamp(9px,1.2vw,16px)", background:s.cta.boxBg, border:`1px solid ${s.cta.boxBorder}` }}>
-                    <div style={{ fontFamily:"'DM Serif Display',Georgia,serif", fontSize:"clamp(11px,1.7vw,19px)", color:s.cta.urlColor, whiteSpace:"nowrap", fontWeight:400 }}>
-                      {s.cta.url}
-                    </div>
-                    <div style={{ width:"clamp(20px,2.8vw,34px)", height:"clamp(20px,2.8vw,34px)", borderRadius:"50%", background:s.cta.arrowBg, color:s.cta.arrowColor, display:"flex", alignItems:"center", justifyContent:"center", fontSize:"clamp(11px,1.5vw,17px)", fontWeight:700, flexShrink:0 }}>→</div>
-                  </div>
-                </div>
-              ))}
+              )}
             </div>
           </div>
           );
