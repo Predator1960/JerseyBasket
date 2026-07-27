@@ -10226,9 +10226,12 @@ function AdBanner({ onEnquiry, externalPause }) {
         full-width row on narrow screens so nothing overlaps. */}
     <style>{`
       @media (max-width:640px){
-        .jb-ad-outer{ max-height:168px !important; }
+        .jb-ad-outer{ max-height:188px !important; }
         .jb-ad-content{ flex-wrap:wrap; }
-        .jb-ad-left{ flex-basis:100% !important; }
+        .jb-ad-left{ flex-basis:100% !important; flex-wrap:wrap !important; row-gap:2px; }
+        .jb-ad-headrow{ flex-basis:100% !important; }
+        .jb-ad-eyebrow{ flex-shrink:1 !important; overflow:hidden; text-overflow:ellipsis; max-width:100%; }
+        .jb-ad-sub{ flex-basis:100% !important; white-space:normal !important; overflow:visible !important; text-overflow:clip !important; }
         .jb-ad-ctas{ flex-basis:100% !important; }
       }
     `}</style>
@@ -10328,8 +10331,8 @@ function AdBanner({ onEnquiry, externalPause }) {
               <div className="jb-ad-left" style={{ display:"flex", alignItems:"center", gap:"clamp(6px,1.5vw,16px)", minWidth:0, flex:1, flexWrap: s.sub && s.sub.wrap ? "wrap" : "nowrap" }}>
                 {s.logo && <img src={s.logo} alt="advertiser logo" style={{ height:"clamp(32px,5.5vw,70px)", width:"auto", maxHeight:70, borderRadius:6, flexShrink:0, objectFit:"contain" }} />}
                 {/* Eyebrow + headline row */}
-                <div style={{ display:"flex", alignItems:"center", gap:"clamp(6px,1.2vw,14px)", flexShrink:0, ...(s.sub && s.sub.wrap ? { flexBasis:"auto" } : {}) }}>
-                  <div style={{ fontFamily:"'DM Sans',Arial,sans-serif", fontSize:"clamp(8px,1.4vw,13px)", fontWeight:700, letterSpacing:"1.5px", textTransform:"uppercase", color:s.eyebrow.color, borderLeft:`2px solid ${s.eyebrow.color}`, paddingLeft:6, lineHeight:1, whiteSpace:"nowrap", flexShrink:0 }}>
+                <div className="jb-ad-headrow" style={{ display:"flex", alignItems:"center", gap:"clamp(6px,1.2vw,14px)", flexShrink:0, ...(s.sub && s.sub.wrap ? { flexBasis:"auto" } : {}) }}>
+                  <div className="jb-ad-eyebrow" style={{ fontFamily:"'DM Sans',Arial,sans-serif", fontSize:"clamp(8px,1.4vw,13px)", fontWeight:700, letterSpacing:"1.5px", textTransform:"uppercase", color:s.eyebrow.color, borderLeft:`2px solid ${s.eyebrow.color}`, paddingLeft:6, lineHeight:1, whiteSpace:"nowrap", flexShrink:0 }}>
                     {s.eyebrow.text}
                   </div>
                   <div style={{ fontFamily:"'DM Serif Display',Georgia,serif", fontSize:"clamp(13px,2.8vw,30px)", lineHeight:1.2, letterSpacing:"-0.3px", color:s.headline.headlineColor||"#f0f4f8", whiteSpace:"nowrap", overflow:"hidden", textOverflow:"ellipsis" }}>
@@ -10347,7 +10350,7 @@ function AdBanner({ onEnquiry, externalPause }) {
                 </div>
                 {/* Sub text — full-width centred row when wrap:true */}
                 {s.sub && s.sub.text && (
-                  <div style={{ fontFamily:"'DM Sans',Arial,sans-serif", fontSize:"clamp(9px,1.3vw,15px)", color:s.sub.color, opacity:0.85, fontWeight:700, textDecoration:"underline", textDecorationThickness:1.5, textUnderlineOffset:2,
+                  <div className="jb-ad-sub" style={{ fontFamily:"'DM Sans',Arial,sans-serif", fontSize:"clamp(9px,1.3vw,15px)", color:s.sub.color, opacity:0.85, fontWeight:700, textDecoration:"underline", textDecorationThickness:1.5, textUnderlineOffset:2,
                     ...(s.sub.wrap ? {
                       flexBasis:"100%",
                       textAlign:"center",
