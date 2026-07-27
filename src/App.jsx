@@ -10275,7 +10275,14 @@ function AdBanner({ onEnquiry, externalPause }) {
         transition:"none",   /* animation is driven by rAF, not CSS */
         willChange:"transform",
       }}>
-        {DISPLAY_SLIDES.map((s, i) => (
+        {DISPLAY_SLIDES.map((s, i) => {
+          /* Plain pitch slides (no ctaButtons, no panel) drop the separate "Claim this slot" CTA
+             entirely — tapping the whole banner already opens the enquiry form, so it was a
+             redundant duplicate click target and the main source of the mobile overflow fights.
+             Panel slides (Silver/Gold/Platinum) keep their "Tap or hover for info" cue since that
+             communicates real, distinct interaction (reveal a panel), not just "claim this slot". */
+          const isPitchSlide = !s.ctaButtons && !s.panel;
+          return (
           <div
             key={i === DISPLAY_SLIDES.length - 1 ? `${s.id}-wrap` : s.id}
             style={{
@@ -10334,10 +10341,10 @@ function AdBanner({ onEnquiry, externalPause }) {
               width:"100%",
             }}>
               {/* LEFT */}
-              <div className="jb-ad-left" style={{ display:"flex", alignItems:"center", gap:"clamp(6px,1.5vw,16px)", minWidth:0, flex:1, flexWrap: s.sub && s.sub.wrap ? "wrap" : "nowrap" }}>
+              <div className="jb-ad-left" style={{ display:"flex", alignItems:"center", gap:"clamp(6px,1.5vw,16px)", minWidth:0, flex:1, flexWrap: s.sub && s.sub.wrap ? "wrap" : "nowrap", ...(isPitchSlide ? { justifyContent:"center" } : {}) }}>
                 {s.logo && <img src={s.logo} alt="advertiser logo" style={{ height:"clamp(32px,5.5vw,70px)", width:"auto", maxHeight:70, borderRadius:6, flexShrink:0, objectFit:"contain" }} />}
                 {/* Eyebrow + headline row */}
-                <div className="jb-ad-headrow" style={{ display:"flex", alignItems:"center", gap:"clamp(6px,1.2vw,14px)", flexShrink:0, ...(s.sub && s.sub.wrap ? { flexBasis:"auto" } : {}) }}>
+                <div className="jb-ad-headrow" style={{ display:"flex", alignItems:"center", gap:"clamp(6px,1.2vw,14px)", flexShrink:0, ...(s.sub && s.sub.wrap ? { flexBasis:"auto" } : {}), ...(isPitchSlide ? { justifyContent:"center" } : {}) }}>
                   <div className="jb-ad-eyebrow" style={{ fontFamily:"'DM Sans',Arial,sans-serif", fontSize:"clamp(8px,1.4vw,13px)", fontWeight:700, letterSpacing:"1.5px", textTransform:"uppercase", color:s.eyebrow.color, borderLeft:`2px solid ${s.eyebrow.color}`, paddingLeft:6, lineHeight:1, whiteSpace:"nowrap", flexShrink:0 }}>
                     {s.eyebrow.text}
                   </div>
@@ -10369,6 +10376,7 @@ function AdBanner({ onEnquiry, externalPause }) {
                       WebkitBoxOrient:"vertical",
                     } : {
                       whiteSpace:"nowrap", overflow:"hidden", textOverflow:"ellipsis",
+                      ...(isPitchSlide ? { textAlign:"center" } : {}),
                     })
                   }}>
                     {s.sub.text}
@@ -10376,8 +10384,8 @@ function AdBanner({ onEnquiry, externalPause }) {
                 )}
               </div>
 
-              {/* RIGHT — CTA */}
-              {s.ctaButtons ? (
+              {/* RIGHT — CTA (pitch slides skip this entirely; the whole banner is already tappable) */}
+              {!isPitchSlide && (s.ctaButtons ? (
                 <div className="jb-ad-ctas" style={{ display:"flex", alignItems:"center", gap:"clamp(6px,1vw,10px)", flexShrink:0 }}>
                   {s.ctaButtons.map((btn, bi) => (
                     <a
@@ -10411,10 +10419,11 @@ function AdBanner({ onEnquiry, externalPause }) {
                     <div style={{ width:"clamp(20px,2.8vw,34px)", height:"clamp(20px,2.8vw,34px)", borderRadius:"50%", background:s.cta.arrowBg, color:s.cta.arrowColor, display:"flex", alignItems:"center", justifyContent:"center", fontSize:"clamp(11px,1.5vw,17px)", fontWeight:700, flexShrink:0 }}>→</div>
                   </div>
                 </div>
-              )}
+              ))}
             </div>
           </div>
-        ))}
+          );
+        })}
       </div>
 
       {/* ── progress bar ── */}
