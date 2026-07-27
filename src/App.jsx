@@ -10223,14 +10223,20 @@ function AdBanner({ onEnquiry, externalPause }) {
     {/* Below this width the CTA block (flexShrink:0) leaves less room than the LEFT block
         (logo+eyebrow+headline, also flexShrink:0) needs — LEFT overflows rightward and paints
         underneath the CTAs instead of ever getting its own line. Force both onto their own
-        full-width row on narrow screens so nothing overlaps. */}
+        full-width row on narrow screens so nothing overlaps.
+        Note: flex-shrink:1 alone does nothing on a white-space:nowrap item — its min-content
+        width still equals its full unshrunk width unless min-width:0 is also set. That gap is
+        why the "Claim this slot" pitch slides (long eyebrow + long headline) still overflowed
+        even after the row-level fix — the panel/real-advertiser slides just have short enough
+        text to hide the same latent bug. */}
     <style>{`
       @media (max-width:640px){
         .jb-ad-outer{ max-height:188px !important; }
         .jb-ad-content{ flex-wrap:wrap; }
         .jb-ad-left{ flex-basis:100% !important; flex-wrap:wrap !important; row-gap:2px; }
-        .jb-ad-headrow{ flex-basis:100% !important; }
-        .jb-ad-eyebrow{ flex-shrink:1 !important; overflow:hidden; text-overflow:ellipsis; max-width:100%; }
+        .jb-ad-headrow{ flex-basis:100% !important; flex-shrink:1 !important; min-width:0 !important; }
+        .jb-ad-eyebrow{ flex-shrink:1 !important; min-width:0 !important; overflow:hidden; text-overflow:ellipsis; max-width:100%; }
+        .jb-ad-headline{ min-width:0 !important; }
         .jb-ad-sub{ flex-basis:100% !important; white-space:normal !important; overflow:visible !important; text-overflow:clip !important; }
         .jb-ad-ctas{ flex-basis:100% !important; }
       }
@@ -10335,7 +10341,7 @@ function AdBanner({ onEnquiry, externalPause }) {
                   <div className="jb-ad-eyebrow" style={{ fontFamily:"'DM Sans',Arial,sans-serif", fontSize:"clamp(8px,1.4vw,13px)", fontWeight:700, letterSpacing:"1.5px", textTransform:"uppercase", color:s.eyebrow.color, borderLeft:`2px solid ${s.eyebrow.color}`, paddingLeft:6, lineHeight:1, whiteSpace:"nowrap", flexShrink:0 }}>
                     {s.eyebrow.text}
                   </div>
-                  <div style={{ fontFamily:"'DM Serif Display',Georgia,serif", fontSize:"clamp(13px,2.8vw,30px)", lineHeight:1.2, letterSpacing:"-0.3px", color:s.headline.headlineColor||"#f0f4f8", whiteSpace:"nowrap", overflow:"hidden", textOverflow:"ellipsis" }}>
+                  <div className="jb-ad-headline" style={{ fontFamily:"'DM Serif Display',Georgia,serif", fontSize:"clamp(13px,2.8vw,30px)", lineHeight:1.2, letterSpacing:"-0.3px", color:s.headline.headlineColor||"#f0f4f8", whiteSpace:"nowrap", overflow:"hidden", textOverflow:"ellipsis" }}>
                     {s.headline.before}
                     <span style={{
                       color: s.headline.highlightGold||s.headline.highlightGreen ? "transparent" : s.headline.highlightColor,
