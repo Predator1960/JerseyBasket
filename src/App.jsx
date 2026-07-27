@@ -10282,6 +10282,9 @@ function AdBanner({ onEnquiry, externalPause }) {
              Panel slides (Silver/Gold/Platinum) keep their "Tap or hover for info" cue since that
              communicates real, distinct interaction (reveal a panel), not just "claim this slot". */
           const isPitchSlide = !s.ctaButtons && !s.panel;
+          // Real advertiser slides (Domino Cabs, We Deliver) keep their logo + CTA buttons, but
+          // should still centre their own text block — panels keep their original left-aligned look.
+          const shouldCenter = isPitchSlide || !!s.ctaButtons;
           return (
           <div
             key={i === DISPLAY_SLIDES.length - 1 ? `${s.id}-wrap` : s.id}
@@ -10341,14 +10344,14 @@ function AdBanner({ onEnquiry, externalPause }) {
               width:"100%",
             }}>
               {/* LEFT */}
-              <div className="jb-ad-left" style={{ display:"flex", alignItems:"center", gap:"clamp(6px,1.5vw,16px)", minWidth:0, flex:1, flexWrap: s.sub && s.sub.wrap ? "wrap" : "nowrap", ...(isPitchSlide ? { justifyContent:"center" } : {}) }}>
+              <div className="jb-ad-left" style={{ display:"flex", alignItems:"center", gap:"clamp(6px,1.5vw,16px)", minWidth:0, flex:1, flexWrap: (s.sub && s.sub.wrap) || isPitchSlide ? "wrap" : "nowrap", ...(shouldCenter ? { justifyContent:"center" } : {}) }}>
                 {s.logo && <img src={s.logo} alt="advertiser logo" style={{ height:"clamp(32px,5.5vw,70px)", width:"auto", maxHeight:70, borderRadius:6, flexShrink:0, objectFit:"contain" }} />}
                 {/* Eyebrow + headline row */}
-                <div className="jb-ad-headrow" style={{ display:"flex", alignItems:"center", gap:"clamp(6px,1.2vw,14px)", flexShrink:0, ...(s.sub && s.sub.wrap ? { flexBasis:"auto" } : {}), ...(isPitchSlide ? { justifyContent:"center" } : {}) }}>
-                  <div className="jb-ad-eyebrow" style={{ fontFamily:"'DM Sans',Arial,sans-serif", fontSize:"clamp(8px,1.4vw,13px)", fontWeight:700, letterSpacing:"1.5px", textTransform:"uppercase", color:s.eyebrow.color, borderLeft:`2px solid ${s.eyebrow.color}`, paddingLeft:6, lineHeight:1, whiteSpace:"nowrap", flexShrink:0 }}>
+                <div className="jb-ad-headrow" style={{ display:"flex", alignItems:"center", gap:"clamp(6px,1.2vw,14px)", flexShrink:0, ...(s.sub && s.sub.wrap ? { flexBasis:"auto" } : {}), ...(isPitchSlide ? { justifyContent:"center", flexWrap:"wrap", rowGap:2 } : shouldCenter ? { justifyContent:"center" } : {}) }}>
+                  <div className="jb-ad-eyebrow" style={{ fontFamily:"'DM Sans',Arial,sans-serif", fontSize:"clamp(8px,1.4vw,13px)", fontWeight:700, letterSpacing:"1.5px", textTransform:"uppercase", color:s.eyebrow.color, borderLeft:`2px solid ${s.eyebrow.color}`, paddingLeft:6, lineHeight:1, whiteSpace:"nowrap", flexShrink:0, ...(isPitchSlide ? { flexBasis:"100%", textAlign:"center", borderLeft:"none", paddingLeft:0 } : {}) }}>
                     {s.eyebrow.text}
                   </div>
-                  <div className="jb-ad-headline" style={{ fontFamily:"'DM Serif Display',Georgia,serif", fontSize:"clamp(13px,2.8vw,30px)", lineHeight:1.2, letterSpacing:"-0.3px", color:s.headline.headlineColor||"#f0f4f8", whiteSpace:"nowrap", overflow:"hidden", textOverflow:"ellipsis" }}>
+                  <div className="jb-ad-headline" style={{ fontFamily:"'DM Serif Display',Georgia,serif", fontSize:"clamp(13px,2.8vw,30px)", lineHeight:1.2, letterSpacing:"-0.3px", color:s.headline.headlineColor||"#f0f4f8", whiteSpace:"nowrap", overflow:"hidden", textOverflow:"ellipsis", ...(isPitchSlide ? { flexBasis:"100%", textAlign:"center" } : {}) }}>
                     {s.headline.before}
                     <span style={{
                       color: s.headline.highlightGold||s.headline.highlightGreen ? "transparent" : s.headline.highlightColor,
@@ -10376,7 +10379,7 @@ function AdBanner({ onEnquiry, externalPause }) {
                       WebkitBoxOrient:"vertical",
                     } : {
                       whiteSpace:"nowrap", overflow:"hidden", textOverflow:"ellipsis",
-                      ...(isPitchSlide ? { textAlign:"center" } : {}),
+                      ...(shouldCenter ? { textAlign:"center" } : {}),
                     })
                   }}>
                     {s.sub.text}
