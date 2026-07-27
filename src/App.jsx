@@ -10220,7 +10220,20 @@ function AdBanner({ onEnquiry, externalPause }) {
 
   return (
     <div onMouseEnter={handleEnter} onMouseLeave={handleLeave} style={{ position:"relative" }}>
+    {/* Below this width the CTA block (flexShrink:0) leaves less room than the LEFT block
+        (logo+eyebrow+headline, also flexShrink:0) needs — LEFT overflows rightward and paints
+        underneath the CTAs instead of ever getting its own line. Force both onto their own
+        full-width row on narrow screens so nothing overlaps. */}
+    <style>{`
+      @media (max-width:640px){
+        .jb-ad-outer{ max-height:168px !important; }
+        .jb-ad-content{ flex-wrap:wrap; }
+        .jb-ad-left{ flex-basis:100% !important; }
+        .jb-ad-ctas{ flex-basis:100% !important; }
+      }
+    `}</style>
     <div
+      className="jb-ad-outer"
       onMouseDown={e=>{ mouseDownX.current = e.clientX; }}
       onClick={(e)=>{
         // Desktop click only — skip if touch (handled above)
@@ -10303,7 +10316,7 @@ function AdBanner({ onEnquiry, externalPause }) {
 
 
             {/* ── CONTENT ── responsive: mobile stacks sub below eyebrow, desktop enlarges */}
-            <div style={{
+            <div className="jb-ad-content" style={{
               position:"relative", zIndex:2,
               display:"flex", alignItems:"center", justifyContent:"space-between",
               padding:"clamp(10px,1.5vh,18px) clamp(10px,3vw,32px)",
@@ -10312,7 +10325,7 @@ function AdBanner({ onEnquiry, externalPause }) {
               width:"100%",
             }}>
               {/* LEFT */}
-              <div style={{ display:"flex", alignItems:"center", gap:"clamp(6px,1.5vw,16px)", minWidth:0, flex:1, flexWrap: s.sub && s.sub.wrap ? "wrap" : "nowrap" }}>
+              <div className="jb-ad-left" style={{ display:"flex", alignItems:"center", gap:"clamp(6px,1.5vw,16px)", minWidth:0, flex:1, flexWrap: s.sub && s.sub.wrap ? "wrap" : "nowrap" }}>
                 {s.logo && <img src={s.logo} alt="advertiser logo" style={{ height:"clamp(32px,5.5vw,70px)", width:"auto", maxHeight:70, borderRadius:6, flexShrink:0, objectFit:"contain" }} />}
                 {/* Eyebrow + headline row */}
                 <div style={{ display:"flex", alignItems:"center", gap:"clamp(6px,1.2vw,14px)", flexShrink:0, ...(s.sub && s.sub.wrap ? { flexBasis:"auto" } : {}) }}>
@@ -10356,7 +10369,7 @@ function AdBanner({ onEnquiry, externalPause }) {
 
               {/* RIGHT — CTA */}
               {s.ctaButtons ? (
-                <div style={{ display:"flex", alignItems:"center", gap:"clamp(6px,1vw,10px)", flexShrink:0 }}>
+                <div className="jb-ad-ctas" style={{ display:"flex", alignItems:"center", gap:"clamp(6px,1vw,10px)", flexShrink:0 }}>
                   {s.ctaButtons.map((btn, bi) => (
                     <a
                       key={bi}
@@ -10378,7 +10391,7 @@ function AdBanner({ onEnquiry, externalPause }) {
                   ))}
                 </div>
               ) : (
-                <div style={{ display:"flex", alignItems:"center", gap:"clamp(6px,1.2vw,14px)", flexShrink:0 }}>
+                <div className="jb-ad-ctas" style={{ display:"flex", alignItems:"center", gap:"clamp(6px,1.2vw,14px)", flexShrink:0 }}>
                   <div style={{ fontFamily:"'DM Sans',Arial,sans-serif", fontSize:"clamp(10px,1.3vw,15px)", color:s.cta.labelColor, fontWeight:600, whiteSpace:"nowrap", opacity:0.9 }}>
                     {s.cta.label}
                   </div>
