@@ -7897,25 +7897,7 @@ export default function JerseyGroceryApp() {
                   by luck). colorScheme is set explicitly per-mode too, since the page-wide
                   <meta name="color-scheme" content="dark"> in public/index.html never reflects the
                   in-app light/dark toggle and would otherwise fight the light-mode popup styling. */}
-              <select value={sortBy} onChange={e=>setSortBy(e.target.value)} onClick={e=>{
-                /* TEMP DEBUG — remove once the dark-mode option-list bug is diagnosed */
-                const sel = e.currentTarget;
-                requestAnimationFrame(()=>{
-                  const selCS = getComputedStyle(sel);
-                  console.log("[SORT-DEBUG] <select>", {
-                    backgroundColor: selCS.backgroundColor,
-                    color: selCS.color,
-                    colorScheme: selCS.colorScheme,
-                  });
-                  sel.querySelectorAll("option").forEach((opt,i)=>{
-                    const cs = getComputedStyle(opt);
-                    console.log(`[SORT-DEBUG] <option ${i}> "${opt.value}"`, {
-                      backgroundColor: cs.backgroundColor,
-                      color: cs.color,
-                    });
-                  });
-                });
-              }} style={{ padding:"8px 12px",background:lightMode?"#d7dee5":"#0b1526",border:lightMode?"1px solid rgba(0,0,0,.2)":"1px solid rgba(255,255,255,.10)",borderRadius:9,color:lightMode?"#0f172a":"#fff",fontSize:11,cursor:"pointer",outline:"none",colorScheme:lightMode?"light":"dark" }}>
+              <select value={sortBy} onChange={e=>setSortBy(e.target.value)} style={{ padding:"8px 12px",background:lightMode?"#d7dee5":"#0b1526",border:lightMode?"1px solid rgba(0,0,0,.2)":"1px solid rgba(255,255,255,.10)",borderRadius:9,color:lightMode?"#0f172a":"#fff",fontSize:11,cursor:"pointer",outline:"none",colorScheme:lightMode?"light":"dark" }}>
                 <option value="bestPrice" style={{ background:lightMode?"#d7dee5":"#0b1526",color:lightMode?"#0f172a":"#fff" }}>Sort: Cheapest First</option>
                 <option value="savings" style={{ background:lightMode?"#d7dee5":"#0b1526",color:lightMode?"#0f172a":"#fff" }}>Sort: Biggest Saving</option>
                 <option value="az" style={{ background:lightMode?"#d7dee5":"#0b1526",color:lightMode?"#0f172a":"#fff" }}>Sort: A–Z</option>
