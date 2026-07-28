@@ -1057,7 +1057,7 @@ const BASE_PRODUCTS = [
   {id:762,name:"M&S Classic Scotch Eggs",             cat:"🥩 Meat & Fish",   icon:"🥚",prices:sp(2.40,[-2.40,-2.40,0,-2.40,-2.40,-2.40])},
   {id:763,name:"M&S Honey Roast Ham Slices",          cat:"🥩 Meat & Fish",   icon:"🥩",prices:sp(3.00,[-3.00,-3.00,0,-3.00,-3.00,-3.00])},
   {id:764,name:"M&S 9 Mini Mixed Rolls",              cat:"🍞 Bread & Bakery",icon:"🍞",prices:sp(3.30,[-3.30,-3.30,0,-3.30,-3.30,-3.30])},
-  {id:765,name:"M&S British Butter",                  cat:"🥛 Dairy & Eggs",  icon:"🧈",prices:sp(2.40,[-2.40,-2.40,0,-2.40,-2.40,-2.40])},
+  {id:765,name:"M&S British Butter",                  cat:"🥛 Dairy & Eggs",  icon:"🧈",prices:sp(2.45,[-2.45,-2.45,0,-2.45,-2.45,-2.45])},
   {id:766,name:"M&S Donkey Fig Cheese",               cat:"🥛 Dairy & Eggs",  icon:"🧀",prices:sp(4.85,[-4.85,-4.85,0,-4.85,-4.85,-4.85])},
   {id:767,name:"M&S Pork Sausage Roll",               cat:"🥩 Meat & Fish",   icon:"🌭",prices:sp(4.70,[-4.70,-4.70,0,-4.70,-4.70,-4.70])},
   {id:768,name:"M&S Donkey Manchego Pork Pate",       cat:"🥩 Meat & Fish",   icon:"🫙",prices:sp(4.85,[-4.85,-4.85,0,-4.85,-4.85,-4.85])},
