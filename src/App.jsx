@@ -7890,11 +7890,36 @@ export default function JerseyGroceryApp() {
                   >✕</button>
                 )}
               </div>
-              <select value={sortBy} onChange={e=>setSortBy(e.target.value)} style={{ padding:"8px 12px",background:lightMode?"rgba(0,0,0,.06)":"rgba(255,255,255,.06)",border:lightMode?"1px solid rgba(0,0,0,.2)":"1px solid rgba(255,255,255,.10)",borderRadius:9,color:lightMode?"#0f172a":"#fff",fontSize:11,cursor:"pointer",outline:"none" }}>
-                <option value="bestPrice">Sort: Cheapest First</option>
-                <option value="savings">Sort: Biggest Saving</option>
-                <option value="az">Sort: A–Z</option>
-                <option value="cat">Sort: Category</option>
+              {/* Background must be a SOLID color, not the app's usual translucent rgba overlay: the
+                  native option popup is a separate OS-level surface, not composited over the page,
+                  so a near-transparent background renders as a plain white surface underneath it —
+                  invisible white-on-white text in dark mode (light mode's dark text stayed readable
+                  by luck). colorScheme is set explicitly per-mode too, since the page-wide
+                  <meta name="color-scheme" content="dark"> in public/index.html never reflects the
+                  in-app light/dark toggle and would otherwise fight the light-mode popup styling. */}
+              <select value={sortBy} onChange={e=>setSortBy(e.target.value)} onClick={e=>{
+                /* TEMP DEBUG — remove once the dark-mode option-list bug is diagnosed */
+                const sel = e.currentTarget;
+                requestAnimationFrame(()=>{
+                  const selCS = getComputedStyle(sel);
+                  console.log("[SORT-DEBUG] <select>", {
+                    backgroundColor: selCS.backgroundColor,
+                    color: selCS.color,
+                    colorScheme: selCS.colorScheme,
+                  });
+                  sel.querySelectorAll("option").forEach((opt,i)=>{
+                    const cs = getComputedStyle(opt);
+                    console.log(`[SORT-DEBUG] <option ${i}> "${opt.value}"`, {
+                      backgroundColor: cs.backgroundColor,
+                      color: cs.color,
+                    });
+                  });
+                });
+              }} style={{ padding:"8px 12px",background:lightMode?"#d7dee5":"#0b1526",border:lightMode?"1px solid rgba(0,0,0,.2)":"1px solid rgba(255,255,255,.10)",borderRadius:9,color:lightMode?"#0f172a":"#fff",fontSize:11,cursor:"pointer",outline:"none",colorScheme:lightMode?"light":"dark" }}>
+                <option value="bestPrice" style={{ background:lightMode?"#d7dee5":"#0b1526",color:lightMode?"#0f172a":"#fff" }}>Sort: Cheapest First</option>
+                <option value="savings" style={{ background:lightMode?"#d7dee5":"#0b1526",color:lightMode?"#0f172a":"#fff" }}>Sort: Biggest Saving</option>
+                <option value="az" style={{ background:lightMode?"#d7dee5":"#0b1526",color:lightMode?"#0f172a":"#fff" }}>Sort: A–Z</option>
+                <option value="cat" style={{ background:lightMode?"#d7dee5":"#0b1526",color:lightMode?"#0f172a":"#fff" }}>Sort: Category</option>
               </select>
             </div>
 
