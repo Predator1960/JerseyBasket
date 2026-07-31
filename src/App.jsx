@@ -1450,7 +1450,7 @@ const BASE_PRODUCTS = [
   {id:1181,name:"Iceland Red Leicester Cheese 250g",             cat:"🥛 Dairy & Eggs", icon:"🧀", prices:sp(3.35,[-3.35,-3.35,-3.35,-3.35,0,-3.35])},
   {id:1182,name:"Philadelphia Light Soft Cream Cheese 165g",     cat:"🥛 Dairy & Eggs", icon:"🧀", prices:sp(3.00,[-3.00,-3.00,-3.00,-3.00,0,-3.00])},
   {id:1183,name:"Bertolli Spread 450g",                          cat:"🥛 Dairy & Eggs", icon:"🧈", prices:sp(3.75,[-3.75,-3.75,-3.75,-3.75,0,-3.75])},
-  {id:1184, name:"Lurpak Slightly Salted Spreadable 400g", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:5.25,morrisons:0,ms:0,waitrose:3.00,iceland:0,alliance:0}, upd:"30 Jul"},
+  {id:1184, name:"Lurpak Slightly Salted Spreadable 400g", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:5.25,morrisons:0,ms:0,waitrose:3.00,iceland:6.25,alliance:0}, upd:"30 Jul"},
   {id:1185,name:"Country Life Salted Butter 200g",               cat:"🥛 Dairy & Eggs", icon:"🧈", prices:sp(2.95,[-2.95,-2.95,-2.95,-2.95,0,-2.95])},
   {id:1186,name:"Flora Buttery 1kg",                             cat:"🥛 Dairy & Eggs", icon:"🧈", prices:sp(5.70,[-5.70,-5.70,-5.70,-5.70,0,-5.70])},
   {id:1187,name:"Anchor Spreadable 750g",                        cat:"🥛 Dairy & Eggs", icon:"🧈", prices:sp(9.20,[-9.20,-9.20,-9.20,-9.20,0,-9.20])},
