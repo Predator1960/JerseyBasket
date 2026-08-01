@@ -9319,13 +9319,16 @@ const AD_SLIDES = [
     ],
   },
   {
-    id:1, group:1, slot:2, link:ENQUIRY_TRIGGER,
-    bg:"linear-gradient(135deg,#b45309 0%,#78350f 100%)",
-    eyebrow:{ text:"SLOT 2 OF 15 — BUILDERS MERCHANTS", color:"#fde68a" },
-    headline:{ before:"Your Business ", highlight:"Here", highlightColor:"#fbbf24", after:" — Jersey's Shoppers", headlineColor:"#ffffff" },
-    sub:{ text:"Platinum exclusivity — lock out every competitor in your category", color:"#fcd34d" },
-    cta:{ label:"Claim this slot", labelColor:"#fde68a", url:"jerseybasket.je", urlColor:"#ffffff", arrowBg:"#d97706", arrowColor:"white", boxBg:"rgba(217,119,6,0.3)", boxBorder:"rgba(253,230,138,0.5)" },
-    stats:[{ val:"2/15", label:"slot" },{ val:"£999", label:"per month" }], statColor:"#fde68a",
+    id:1, group:1, slot:2, link:"https://www.facebook.com/profile.php?id=61556135253874",
+    bg:"linear-gradient(135deg,#1a1a1a 0%,#000000 100%)",
+    eyebrow:{ text:"AUGUST FREE OFFER — SPOT 3 OF 12", color:"#93c5fd" },
+    headline:{ before:"Dirt", highlight:"Blasterz", highlightColor:"#3b82f6", after:"", headlineColor:"#ffffff" },
+    sub:{ text:"Pressure Washing & Exterior Cleaning", color:"#93c5fd" },
+    logo:"/DirtBlasterz-logo.png",
+    ctaButtons:[
+      { label:"Call Now", href:"tel:+447797939113", bg:"#3b82f6", color:"#ffffff", border:"rgba(255,255,255,0.25)" },
+      { label:"Facebook", href:"https://www.facebook.com/profile.php?id=61556135253874", bg:"#ffffff", color:"#111827", border:"rgba(255,255,255,0.6)" },
+    ],
   },
   {
     id:2, group:1, slot:3, link:ENQUIRY_TRIGGER,
