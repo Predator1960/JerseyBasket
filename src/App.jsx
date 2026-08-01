@@ -8272,8 +8272,19 @@ export default function JerseyGroceryApp() {
   const [lightMode, setLightMode] = useState(()=>{ try{ return localStorage.getItem("jb_lightmode")==="true"; }catch{ return false; } });
   const toggleLight = () => setLightMode(m=>{ try{ localStorage.setItem("jb_lightmode",String(!m)); }catch{} return !m; });
 
+  const [showPwaRefreshNotice, setShowPwaRefreshNotice] = useState(false);
   const dismissWelcome = () => {
     setShowWelcome(false);
+    try {
+      const isStandalone = window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone === true;
+      if (isStandalone && !localStorage.getItem("jb_seen_pwa_refresh_notice_v1")) {
+        setShowPwaRefreshNotice(true);
+      }
+    } catch {}
+  };
+  const dismissPwaRefreshNotice = () => {
+    setShowPwaRefreshNotice(false);
+    try { localStorage.setItem("jb_seen_pwa_refresh_notice_v1","true"); } catch {}
   };
   const [newItem, setNewItem]               = useState({ name:"", cat:"➕ Custom", icon:"🛒", prices:{coop:"",morrisons:"",ms:"",waitrose:"",iceland:"",alliance:""} });
   const [iconPickerOpen, setIconPickerOpen] = useState(false);
@@ -8433,14 +8444,24 @@ export default function JerseyGroceryApp() {
   );
 
   return (
-    <div className={`jb-app-root${lightMode?" jb-light":""}`} style={{ minHeight:"100vh", background: lightMode ? "linear-gradient(160deg,#e8edf2 0%,#dde4eb 55%,#e2e8f0 100%)" : "linear-gradient(160deg,#050d1a 0%,#0b1c35 55%,#061220 100%)", fontFamily:"'Georgia',serif", color: lightMode ? "#0f172a" : "#f0f4f8" }}>
+    <div className={`jb-app-root${lightMode?" jb-light":""}`} style={{ height:"100vh", display:"flex", flexDirection:"column", overflow:"hidden", background: lightMode ? "linear-gradient(160deg,#e8edf2 0%,#dde4eb 55%,#e2e8f0 100%)" : "linear-gradient(160deg,#050d1a 0%,#0b1c35 55%,#061220 100%)", fontFamily:"'Georgia',serif", color: lightMode ? "#0f172a" : "#f0f4f8" }}>
 
-      {/* dvh keeps the fixed footer/banner flush with the true visible bottom on mobile —
-          plain 100vh is set from the layout viewport and leaves a gap under the toolbar
-          hide/show, exposing page content below the fixed bar */}
-      <style>{`@supports (min-height:100dvh){ .jb-app-root{ min-height:100dvh !important; } }`}</style>
+      {/* dvh matches the true visible viewport on mobile (plain vh is set from the
+          layout viewport and drifts from the real screen height as iOS recalculates
+          it during scroll/standalone-mode transitions) — this is what keeps the
+          footer/banner (now a normal flex child, not position:fixed — iOS is known
+          to intermittently mis-anchor fixed bottom bars in standalone PWAs, floating
+          them above the true bottom edge with page content visible in the gap) flush
+          with the real bottom of the screen instead of a fixed-position hack fighting it */}
+      <style>{`@supports (height:100dvh){ .jb-app-root{ height:100dvh !important; } }`}</style>
 
       <div style={{ position:"fixed",inset:0,pointerEvents:"none",zIndex:0, background:"radial-gradient(ellipse 80% 60% at 15% 5%,rgba(0,180,100,.05) 0%,transparent 60%),radial-gradient(ellipse 60% 80% at 85% 95%,rgba(0,100,220,.06) 0%,transparent 60%)" }} />
+
+      {/* ── SCROLLABLE APP CONTENT — everything above the footer/banner now scrolls in
+          its own pane instead of the document, so the footer/banner below can be a
+          normal flex child (always exactly at the bottom of the 100dvh column) rather
+          than position:fixed ── */}
+      <div style={{ flex:1, minHeight:0, overflowY:"auto", WebkitOverflowScrolling:"touch" }}>
 
       {/* ══ HEADER ══ */}
       <header style={{ position:"sticky",top:0,zIndex:100, background: lightMode ? "rgba(210,218,226,.97)" : "rgba(5,13,26,.96)", backdropFilter:"blur(20px)", borderBottom: lightMode ? "1px solid rgba(0,0,0,.12)" : "1px solid rgba(255,255,255,.07)", padding:"0 12px",paddingTop:"env(safe-area-inset-top,0px)" }}>
@@ -9212,8 +9233,11 @@ export default function JerseyGroceryApp() {
         </div>
       )}
 
-      {/* ── FOOTER + BANNER — single fixed stack, footer always flush above banner ── */}
-      <div style={{ position:"fixed", bottom:0, left:0, right:0, zIndex:200, display:"flex", flexDirection:"column" }}>
+      </div>{/* end scrollable app content */}
+
+      {/* ── FOOTER + BANNER — normal flex child, always flush against the true bottom
+          of the 100dvh column (see note above on why this isn't position:fixed) ── */}
+      <div style={{ flexShrink:0, zIndex:200, display:"flex", flexDirection:"column" }}>
         {/* footer */}
         <div style={{ background:lightMode?"rgba(210,218,226,.97)":"rgba(5,13,26,.97)",backdropFilter:"blur(16px)",borderTop:lightMode?"1px solid rgba(0,0,0,.12)":"1px solid rgba(255,255,255,.09)",padding:"6px 20px",display:"flex",justifyContent:"center",alignItems:"center",fontSize:10,color:lightMode?"#334155":"#475569",gap:12,flexWrap:"wrap",minHeight:28 }}>
           <span>🇯🇪 Jersey, Channel Islands</span>
@@ -9234,6 +9258,9 @@ export default function JerseyGroceryApp() {
 
       {/* ── WELCOME SCREEN — first visit only ── */}
       {showWelcome && <WelcomeModal onDismiss={dismissWelcome} onSubmitPrice={()=>setShowSubmitPrice(true)} lightMode={lightMode} />}
+
+      {/* ── PWA REFRESH NOTICE — one-time, standalone-only ── */}
+      {showPwaRefreshNotice && <PwaRefreshNotice onClose={dismissPwaRefreshNotice} lightMode={lightMode} />}
 
       {/* ── REPORT MODAL ── */}
       {showReport && <ReportModal onClose={()=>setShowReport(false)} lightMode={lightMode} />}
@@ -9851,6 +9878,45 @@ function WelcomeModal({ onDismiss, onSubmitPrice, lightMode=false }) {
             🇯🇪 Built for Jersey · Free forever · jerseybasket.je
           </div>
         </div>
+      </div>
+    </div>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   PWA REFRESH NOTICE — one-time, standalone-mode-only nudge shown after the
+   welcome screen closes. Covers the gap the service worker itself can't:
+   an icon that's fully stuck on a pre-service-worker snapshot may never
+   fetch fresh HTML on its own to pick up the new auto-update code, so
+   existing installs need one manual reset before they self-heal.
+═══════════════════════════════════════════════════════════════════════════ */
+function PwaRefreshNotice({ onClose, lightMode=false }) {
+  return (
+    <div style={{ position:"fixed",inset:0,zIndex:500,display:"flex",alignItems:"center",justifyContent:"center",background:"rgba(0,0,0,.75)",backdropFilter:"blur(8px)",padding:16 }}
+      onClick={e=>{ if(e.target===e.currentTarget) onClose(); }}>
+      <div style={{ width:"100%",maxWidth:420,background:lightMode?"rgba(240,244,248,.98)":"#0a1a30",border:lightMode?"1px solid rgba(0,0,0,.12)":"1px solid rgba(255,255,255,.12)",borderRadius:20,padding:"22px 20px 20px" }}>
+        <div style={{ fontSize:34,textAlign:"center",marginBottom:10 }}>📲</div>
+        <div style={{ fontSize:16,fontWeight:700,color:lightMode?"#0f172a":"#f0f4f8",textAlign:"center",marginBottom:8 }}>
+          One-time home screen refresh
+        </div>
+        <div style={{ fontSize:12.5,color:"#64748b",lineHeight:1.6,textAlign:"center",marginBottom:16 }}>
+          JerseyBasket keeps growing fast, and your home screen icon may be a version or two behind. Do this once and it'll stay current automatically from now on:
+        </div>
+        <div style={{ display:"flex",flexDirection:"column",gap:10,marginBottom:18 }}>
+          {[
+            ["1","Delete the JerseyBasket icon from your home screen"],
+            ["2","Open jerseybasket.je fresh in Safari (iPhone) or Chrome (Android)"],
+            ["3","Add it to your home screen again"],
+          ].map(([n,text])=>(
+            <div key={n} style={{ display:"flex",gap:10,alignItems:"flex-start" }}>
+              <div style={{ width:22,height:22,borderRadius:"50%",background:"rgba(34,197,94,.15)",border:"1px solid rgba(34,197,94,.35)",color:"#22c55e",fontSize:11,fontWeight:700,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0 }}>{n}</div>
+              <div style={{ fontSize:12.5,color:lightMode?"#1e293b":"#e2e8f0",lineHeight:1.5 }}>{text}</div>
+            </div>
+          ))}
+        </div>
+        <button onClick={onClose} style={{ width:"100%",padding:"12px",background:"linear-gradient(180deg,#4ade80 0%,#15803d 100%)",boxShadow:"0 3px 10px rgba(34,197,94,.5),inset 0 1px 0 rgba(255,255,255,.3)",border:"none",borderRadius:11,color:"#fff",cursor:"pointer",fontSize:13,fontWeight:700 }}>
+          Got it
+        </button>
       </div>
     </div>
   );
