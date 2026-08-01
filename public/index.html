@@ -42,17 +42,31 @@
       margin: 0; padding: 0;
       background: #050d1a;
       min-height: 100vh;
-    }
-    @supports (min-height: 100dvh) {
-      html, body, #root {
-        min-height: 100dvh;
-      }
+      min-height: 100dvh;
+      min-height: calc(var(--app-height, 100vh));
     }
   </style>
 </head>
 <body>
   <div id="root"></div>
   <script>
+    // CSS vh/dvh units are unreliable for the true visible height in iOS
+    // standalone (home-screen) PWAs — dvh in particular doesn't reliably
+    // track the real visible area in that context. Measuring it directly
+    // via visualViewport and feeding it in as a px custom property is the
+    // one technique that's actually correct everywhere; runs before React
+    // mounts and on every resize/orientation change so it stays accurate.
+    function setAppHeight() {
+      var h = (window.visualViewport && window.visualViewport.height) || window.innerHeight;
+      document.documentElement.style.setProperty('--app-height', h + 'px');
+    }
+    setAppHeight();
+    window.addEventListener('resize', setAppHeight);
+    window.addEventListener('orientationchange', setAppHeight);
+    if (window.visualViewport) {
+      window.visualViewport.addEventListener('resize', setAppHeight);
+    }
+
     function isIos() {
       return /iphone|ipad|ipod/.test(navigator.userAgent.toLowerCase());
     }

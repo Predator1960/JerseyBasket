@@ -8444,16 +8444,15 @@ export default function JerseyGroceryApp() {
   );
 
   return (
-    <div className={`jb-app-root${lightMode?" jb-light":""}`} style={{ height:"100vh", display:"flex", flexDirection:"column", overflow:"hidden", background: lightMode ? "linear-gradient(160deg,#e8edf2 0%,#dde4eb 55%,#e2e8f0 100%)" : "linear-gradient(160deg,#050d1a 0%,#0b1c35 55%,#061220 100%)", fontFamily:"'Georgia',serif", color: lightMode ? "#0f172a" : "#f0f4f8" }}>
+    <div className={`jb-app-root${lightMode?" jb-light":""}`} style={{ height:"var(--app-height, 100vh)", display:"flex", flexDirection:"column", overflow:"hidden", background: lightMode ? "linear-gradient(160deg,#e8edf2 0%,#dde4eb 55%,#e2e8f0 100%)" : "linear-gradient(160deg,#050d1a 0%,#0b1c35 55%,#061220 100%)", fontFamily:"'Georgia',serif", color: lightMode ? "#0f172a" : "#f0f4f8" }}>
 
-      {/* dvh matches the true visible viewport on mobile (plain vh is set from the
-          layout viewport and drifts from the real screen height as iOS recalculates
-          it during scroll/standalone-mode transitions) — this is what keeps the
-          footer/banner (now a normal flex child, not position:fixed — iOS is known
-          to intermittently mis-anchor fixed bottom bars in standalone PWAs, floating
-          them above the true bottom edge with page content visible in the gap) flush
-          with the real bottom of the screen instead of a fixed-position hack fighting it */}
-      <style>{`@supports (height:100dvh){ .jb-app-root{ height:100dvh !important; } }`}</style>
+      {/* --app-height is measured in JS (see public/index.html) from
+          window.visualViewport.height and kept live on resize — CSS vh/dvh
+          units alone aren't reliably correct for the true visible height in
+          iOS standalone PWAs, which is what let the footer/banner (a normal
+          flex child, not position:fixed — iOS is also known to mis-anchor
+          fixed bottom bars in standalone mode) sit short of the real bottom
+          edge with page content visible in the gap underneath it */}
 
       <div style={{ position:"fixed",inset:0,pointerEvents:"none",zIndex:0, background:"radial-gradient(ellipse 80% 60% at 15% 5%,rgba(0,180,100,.05) 0%,transparent 60%),radial-gradient(ellipse 60% 80% at 85% 95%,rgba(0,100,220,.06) 0%,transparent 60%)" }} />
 
