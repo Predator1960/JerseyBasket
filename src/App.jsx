@@ -9290,13 +9290,16 @@ const AD_SLIDES = [
     },
   },
   {
-    id:3, group:1, slot:4, link:ENQUIRY_TRIGGER,
-    bg:"linear-gradient(135deg,#be123c 0%,#4c0519 100%)",
-    eyebrow:{ text:"SLOT 4 OF 15 — CAR DEALERSHIPS", color:"#fecdd3" },
-    headline:{ before:"Your Business ", highlight:"Here", highlightColor:"#fda4af", after:" — Jersey's Shoppers", headlineColor:"#ffffff" },
-    sub:{ text:"Platinum exclusivity — lock out every competitor in your category", color:"#fb7185" },
-    cta:{ label:"Claim this slot", labelColor:"#fecdd3", url:"jerseybasket.je", urlColor:"#ffffff", arrowBg:"#e11d48", arrowColor:"white", boxBg:"rgba(225,29,72,0.3)", boxBorder:"rgba(254,205,211,0.5)" },
-    stats:[{ val:"4/15", label:"slot" },{ val:"£999", label:"per month" }], statColor:"#fecdd3",
+    id:3, group:1, slot:4, link:"https://primescapesconstructionjersey.com/",
+    bg:"linear-gradient(135deg,#ffffff 0%,#f4f4f2 100%)",
+    eyebrow:{ text:"AUGUST FREE OFFER — SPOT 4 OF 12", color:"#5c8a3e" },
+    headline:{ before:"PrimeScapes", highlight:"", highlightColor:"#2f4a24", after:"", headlineColor:"#2f4a24" },
+    sub:{ text:"Construction", color:"#5c8a3e" },
+    logo:"/PrimeScapes-Construction-logo.png",
+    ctaButtons:[
+      { label:"Call Now", href:"tel:07700334868", bg:"#2f4a24", color:"#ffffff", border:"rgba(0,0,0,0.15)" },
+      { label:"Visit Website", href:"https://primescapesconstructionjersey.com/", bg:"#ffffff", color:"#2f4a24", border:"rgba(0,0,0,0.2)" },
+    ],
   },
   {
     id:4, group:1, slot:5, link:ENQUIRY_TRIGGER,
