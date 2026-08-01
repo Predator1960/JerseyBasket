@@ -13,9 +13,27 @@ root.render(<App />);
 // to the user tapping the update banner. ──
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
+    // Only interrupt the user for deploys the SW itself flags as
+    // significant (NOTIFY_VERSION, bumped by hand — see
+    // public/service-worker.js) — routine content-only pushes still
+    // install and take over normally, just silently on the next full
+    // close+reopen instead of showing the banner.
+    const getNotifyVersion = worker => new Promise(resolve => {
+      const channel = new MessageChannel();
+      channel.port1.onmessage = e => resolve(e.data);
+      worker.postMessage({ type: 'GET_NOTIFY_VERSION' }, [channel.port2]);
+    });
+
     navigator.serviceWorker.register('/service-worker.js').then(reg => {
       const notifyIfWaiting = () => {
-        if (reg.waiting) window.dispatchEvent(new CustomEvent('jb-sw-update-available'));
+        if (!reg.waiting) return;
+        getNotifyVersion(reg.waiting).then(v => {
+          const seen = parseInt(localStorage.getItem('jb_sw_notify_seen') || '0', 10);
+          if (v > seen) {
+            localStorage.setItem('jb_sw_notify_seen', String(v));
+            window.dispatchEvent(new CustomEvent('jb-sw-update-available'));
+          }
+        }).catch(() => {});
       };
       notifyIfWaiting();
 
