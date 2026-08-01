@@ -8287,6 +8287,17 @@ export default function JerseyGroceryApp() {
     setTimeout(()=>setToast(null), 3000);
   };
 
+  /* new deployment detected by the service worker (see src/index.js) — prompt
+     rather than auto-reload, since yanking the page out from under someone
+     mid-basket would be worse than a stale layout for a few more minutes */
+  const [updateAvailable, setUpdateAvailable] = useState(false);
+  useEffect(()=>{
+    const onUpdate = () => setUpdateAvailable(true);
+    window.addEventListener('jb-sw-update-available', onUpdate);
+    return () => window.removeEventListener('jb-sw-update-available', onUpdate);
+  },[]);
+  const applyUpdate = () => window.dispatchEvent(new CustomEvent('jb-sw-apply-update'));
+
   /* persist basket + favourites to localStorage (survives app restart) */
   useEffect(()=>{
     try {
@@ -9175,6 +9186,20 @@ export default function JerseyGroceryApp() {
             )}
             </div>{/* end scrollable body */}
           </div>
+        </div>
+      )}
+
+      {/* ── UPDATE AVAILABLE BANNER ── */}
+      {updateAvailable&&(
+        <div style={{ position:"fixed",top:0,left:0,right:0,zIndex:400,
+          background:"#16a34a",color:"#fff",padding:"10px 16px",
+          display:"flex",alignItems:"center",justifyContent:"center",gap:12,flexWrap:"wrap",
+          fontSize:13,fontWeight:600,boxShadow:"0 2px 12px rgba(0,0,0,.35)" }}>
+          <span>🔄 A new version of JerseyBasket is available</span>
+          <button onClick={applyUpdate}
+            style={{ background:"#fff",color:"#15803d",border:"none",borderRadius:8,padding:"5px 14px",fontWeight:700,fontSize:12,cursor:"pointer" }}>
+            Update now
+          </button>
         </div>
       )}
 
