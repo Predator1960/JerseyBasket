@@ -8422,7 +8422,12 @@ export default function JerseyGroceryApp() {
   );
 
   return (
-    <div className={lightMode?"jb-light":""} style={{ minHeight:"100vh", background: lightMode ? "linear-gradient(160deg,#e8edf2 0%,#dde4eb 55%,#e2e8f0 100%)" : "linear-gradient(160deg,#050d1a 0%,#0b1c35 55%,#061220 100%)", fontFamily:"'Georgia',serif", color: lightMode ? "#0f172a" : "#f0f4f8" }}>
+    <div className={`jb-app-root${lightMode?" jb-light":""}`} style={{ minHeight:"100vh", background: lightMode ? "linear-gradient(160deg,#e8edf2 0%,#dde4eb 55%,#e2e8f0 100%)" : "linear-gradient(160deg,#050d1a 0%,#0b1c35 55%,#061220 100%)", fontFamily:"'Georgia',serif", color: lightMode ? "#0f172a" : "#f0f4f8" }}>
+
+      {/* dvh keeps the fixed footer/banner flush with the true visible bottom on mobile —
+          plain 100vh is set from the layout viewport and leaves a gap under the toolbar
+          hide/show, exposing page content below the fixed bar */}
+      <style>{`@supports (min-height:100dvh){ .jb-app-root{ min-height:100dvh !important; } }`}</style>
 
       <div style={{ position:"fixed",inset:0,pointerEvents:"none",zIndex:0, background:"radial-gradient(ellipse 80% 60% at 15% 5%,rgba(0,180,100,.05) 0%,transparent 60%),radial-gradient(ellipse 60% 80% at 85% 95%,rgba(0,100,220,.06) 0%,transparent 60%)" }} />
 
@@ -9377,15 +9382,13 @@ const AD_SLIDES = [
     stats:[{ val:"11/15", label:"slot" },{ val:"£999", label:"per month" }], statColor:"#fde68a",
   },
   {
-    id:11, group:3, slot:12, link:"mailto:admin@admasphalt.co.uk",
-    bg:"linear-gradient(135deg,#2a2a28 0%,#000000 100%)",
-    eyebrow:{ text:"AUGUST FREE OFFER — SPOT 3 OF 12", color:"#f5be0b" },
-    headline:{ before:"ADM Asphalt", highlight:"", highlightColor:"#ffffff", after:"", headlineColor:"#ffffff" },
-    sub:{ text:"Road Surfacing You Can Trust", color:"#f5be0b" },
-    logo:"/ADM-Asphalt-logo.png",
-    ctaButtons:[
-      { label:"Email Us", href:"mailto:admin@admasphalt.co.uk", bg:"#f5be0b", color:"#000000", border:"rgba(255,255,255,0.25)" },
-    ],
+    id:11, group:3, slot:12, link:ENQUIRY_TRIGGER,
+    bg:"linear-gradient(135deg,#0f766e 0%,#042f2e 100%)",
+    eyebrow:{ text:"SLOT 12 OF 15 — FLORISTS", color:"#99f6e4" },
+    headline:{ before:"Your Business ", highlight:"Here", highlightColor:"#5eead4", after:" — Jersey's Shoppers", headlineColor:"#ffffff" },
+    sub:{ text:"Platinum exclusivity — lock out every competitor in your category", color:"#2dd4bf" },
+    cta:{ label:"Claim this slot", labelColor:"#99f6e4", url:"jerseybasket.je", urlColor:"#ffffff", arrowBg:"#0d9488", arrowColor:"white", boxBg:"rgba(13,148,136,0.3)", boxBorder:"rgba(153,246,228,0.5)" },
+    stats:[{ val:"12/15", label:"slot" },{ val:"£999", label:"per month" }], statColor:"#99f6e4",
   },
   {
     id:12, group:3, slot:13, link:ENQUIRY_TRIGGER,
