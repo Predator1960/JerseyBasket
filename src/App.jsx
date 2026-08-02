@@ -9311,7 +9311,7 @@ const AD_SLIDES = [
     bg:"linear-gradient(135deg,#1a1a1a 0%,#000000 100%)",
     eyebrow:{ text:"AUGUST FREE OFFER — SPOT 1 OF 12", color:"#e5e7eb" },
     headline:{ before:"Domino Cabs", highlight:"", highlightColor:"#ffffff", after:"", headlineColor:"#ffffff" },
-    sub:{ text:"The Go To Cab Company", color:"#9ca3af" },
+    sub:{ text:"The Go To Cab Company", color:"#9ca3af", wrap:true },
     logo:"/domino-cabs-logo.png",
     ctaButtons:[
       { label:"Call Now", href:"tel:01534855555", bg:"#16a34a", color:"#ffffff", border:"rgba(255,255,255,0.25)" },
@@ -9323,7 +9323,7 @@ const AD_SLIDES = [
     bg:"linear-gradient(135deg,#1a1a1a 0%,#000000 100%)",
     eyebrow:{ text:"AUGUST FREE OFFER — SPOT 3 OF 12", color:"#93c5fd" },
     headline:{ before:"Dirt", highlight:"Blasterz", highlightColor:"#3b82f6", after:"", headlineColor:"#ffffff" },
-    sub:{ text:"Pressure Washing & Exterior Cleaning", color:"#93c5fd" },
+    sub:{ text:"Pressure Washing & Exterior Cleaning", color:"#93c5fd", wrap:true },
     logo:"/DirtBlasterz-logo.png",
     ctaButtons:[
       { label:"Call Now", href:"tel:+447797939113", bg:"#3b82f6", color:"#ffffff", border:"rgba(255,255,255,0.25)" },
@@ -9353,7 +9353,7 @@ const AD_SLIDES = [
     bg:"linear-gradient(135deg,#ffffff 0%,#f4f4f2 100%)",
     eyebrow:{ text:"AUGUST FREE OFFER — SPOT 4 OF 12", color:"#5c8a3e" },
     headline:{ before:"PrimeScapes", highlight:"", highlightColor:"#2f4a24", after:"", headlineColor:"#2f4a24" },
-    sub:{ text:"Construction", color:"#5c8a3e" },
+    sub:{ text:"Construction", color:"#5c8a3e", wrap:true },
     logo:"/PrimeScapes-Construction-logo.png",
     ctaButtons:[
       { label:"Call Now", href:"tel:07700334868", bg:"#2f4a24", color:"#ffffff", border:"rgba(0,0,0,0.15)" },
@@ -9384,7 +9384,7 @@ const AD_SLIDES = [
     bg:"linear-gradient(135deg,#2c2a5c 0%,#c0392b 100%)",
     eyebrow:{ text:"AUGUST FREE OFFER — SPOT 2 OF 12", color:"#f5d5d0" },
     headline:{ before:"We Deliver", highlight:"", highlightColor:"#ffffff", after:"", headlineColor:"#ffffff" },
-    sub:{ text:"Shipping Made Easy", color:"#e2e0f0" },
+    sub:{ text:"Shipping Made Easy", color:"#e2e0f0", wrap:true },
     logo:"/WeDeliver-logo.png",
     ctaButtons:[
       { label:"Visit Website", href:"https://wedeliver.je", bg:"#ffffff", color:"#2c2a5c", border:"rgba(255,255,255,0.6)" },
