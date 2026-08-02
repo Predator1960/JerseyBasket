@@ -9440,7 +9440,7 @@ const AD_SLIDES = [
     bg:"linear-gradient(135deg,#0f766e 0%,#042f2e 100%)",
     eyebrow:{ text:"AUGUST FREE OFFER — SPOT 5 OF 12", color:"#99f6e4" },
     headline:{ before:"Crystal ", highlight:"Carpet", highlightColor:"#5eead4", after:" Cleaning", headlineColor:"#ffffff" },
-    sub:{ text:"Professional Cleaning for Every Space", color:"#2dd4bf" },
+    sub:{ text:"Professional Cleaning for Every Space", color:"#2dd4bf", wrap:true },
     logo:"/CrystalCarpet-logo.png",
     ctaButtons:[
       { label:"Call Now", href:"tel:+447700349321", bg:"#0d9488", color:"#ffffff", border:"rgba(255,255,255,0.25)" },
