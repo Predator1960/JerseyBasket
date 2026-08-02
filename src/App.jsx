@@ -9436,13 +9436,16 @@ const AD_SLIDES = [
     stats:[{ val:"11/15", label:"slot" },{ val:"£999", label:"per month" }], statColor:"#fde68a",
   },
   {
-    id:11, group:3, slot:12, link:ENQUIRY_TRIGGER,
+    id:11, group:3, slot:12, link:"https://crystalcarpetjersey.com",
     bg:"linear-gradient(135deg,#0f766e 0%,#042f2e 100%)",
-    eyebrow:{ text:"SLOT 12 OF 15 — FLORISTS", color:"#99f6e4" },
-    headline:{ before:"Your Business ", highlight:"Here", highlightColor:"#5eead4", after:" — Jersey's Shoppers", headlineColor:"#ffffff" },
-    sub:{ text:"Platinum exclusivity — lock out every competitor in your category", color:"#2dd4bf" },
-    cta:{ label:"Claim this slot", labelColor:"#99f6e4", url:"jerseybasket.je", urlColor:"#ffffff", arrowBg:"#0d9488", arrowColor:"white", boxBg:"rgba(13,148,136,0.3)", boxBorder:"rgba(153,246,228,0.5)" },
-    stats:[{ val:"12/15", label:"slot" },{ val:"£999", label:"per month" }], statColor:"#99f6e4",
+    eyebrow:{ text:"AUGUST FREE OFFER — SPOT 5 OF 12", color:"#99f6e4" },
+    headline:{ before:"Crystal ", highlight:"Carpet", highlightColor:"#5eead4", after:" Cleaning", headlineColor:"#ffffff" },
+    sub:{ text:"Professional Cleaning for Every Space", color:"#2dd4bf" },
+    logo:"/CrystalCarpet-logo.png",
+    ctaButtons:[
+      { label:"Call Now", href:"tel:+447700349321", bg:"#0d9488", color:"#ffffff", border:"rgba(255,255,255,0.25)" },
+      { label:"Visit Website", href:"https://crystalcarpetjersey.com", bg:"#ffffff", color:"#0f766e", border:"rgba(255,255,255,0.6)" },
+    ],
   },
   {
     id:12, group:3, slot:13, link:ENQUIRY_TRIGGER,
