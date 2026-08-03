@@ -9577,7 +9577,7 @@ const ENQUIRY_TRIGGER = "enquiry";
 const AD_SLIDES = [
   /* ── GROUP 1 ── */
   {
-    id:0, group:1, slot:1, link:"https://dominocabs.je",
+    id:0, group:1, slot:1, link:"https://dominocabs.je", advertiser:"Domino Cabs",
     bg:"linear-gradient(135deg,#1a1a1a 0%,#000000 100%)",
     eyebrow:{ text:"AUGUST FREE OFFER — SPOT 1 OF 12", color:"#e5e7eb" },
     headline:{ before:"Domino Cabs", highlight:"", highlightColor:"#ffffff", after:"", headlineColor:"#ffffff" },
@@ -9589,7 +9589,7 @@ const AD_SLIDES = [
     ],
   },
   {
-    id:1, group:1, slot:2, link:"https://www.facebook.com/profile.php?id=61556135253874",
+    id:1, group:1, slot:2, link:"https://www.facebook.com/profile.php?id=61556135253874", advertiser:"Dirt Blasterz",
     bg:"linear-gradient(135deg,#1a1a1a 0%,#000000 100%)",
     eyebrow:{ text:"AUGUST FREE OFFER — SPOT 3 OF 12", color:"#93c5fd" },
     headline:{ before:"Dirt", highlight:"Blasterz", highlightColor:"#3b82f6", after:"", headlineColor:"#ffffff" },
@@ -9619,7 +9619,7 @@ const AD_SLIDES = [
     },
   },
   {
-    id:3, group:1, slot:4, link:"https://primescapesconstructionjersey.com/",
+    id:3, group:1, slot:4, link:"https://primescapesconstructionjersey.com/", advertiser:"PrimeScapes Construction",
     bg:"linear-gradient(135deg,#ffffff 0%,#f4f4f2 100%)",
     eyebrow:{ text:"AUGUST FREE OFFER — SPOT 4 OF 12", color:"#5c8a3e" },
     headline:{ before:"PrimeScapes", highlight:"", highlightColor:"#2f4a24", after:"", headlineColor:"#2f4a24" },
@@ -9650,7 +9650,7 @@ const AD_SLIDES = [
     stats:[{ val:"6/15", label:"slot" },{ val:"£999", label:"per month" }], statColor:"#a5f3fc",
   },
   {
-    id:6, group:2, slot:7, link:"https://wedeliver.je",
+    id:6, group:2, slot:7, link:"https://wedeliver.je", advertiser:"We Deliver",
     bg:"linear-gradient(135deg,#2c2a5c 0%,#c0392b 100%)",
     eyebrow:{ text:"AUGUST FREE OFFER — SPOT 2 OF 12", color:"#f5d5d0" },
     headline:{ before:"We Deliver", highlight:"", highlightColor:"#ffffff", after:"", headlineColor:"#ffffff" },
@@ -9706,7 +9706,7 @@ const AD_SLIDES = [
     stats:[{ val:"11/15", label:"slot" },{ val:"£999", label:"per month" }], statColor:"#fde68a",
   },
   {
-    id:11, group:3, slot:12, link:"https://crystalcarpetjersey.com",
+    id:11, group:3, slot:12, link:"https://crystalcarpetjersey.com", advertiser:"Crystal Carpet Cleaning",
     bg:"linear-gradient(135deg,#0f766e 0%,#042f2e 100%)",
     eyebrow:{ text:"AUGUST FREE OFFER — SPOT 5 OF 12", color:"#99f6e4" },
     headline:{ before:"Crystal ", highlight:"Carpet", highlightColor:"#5eead4", after:" Cleaning", headlineColor:"#ffffff" },
@@ -11072,6 +11072,22 @@ function AdBanner({ onEnquiry, externalPause }) {
 
   const activeSlideData = ACTIVE_SLIDES[current];
 
+  // ── GA4 event tracking for advertiser engagement — wrapped defensively
+  // since gtag may not exist yet (blocked, still loading) and analytics
+  // must never be able to break the click it's trying to measure ──
+  const trackAdvertiserClick = (s, source, buttonLabel, url) => {
+    try {
+      if (window.gtag) {
+        window.gtag('event', 'advertiser_click', {
+          advertiser: s.advertiser || 'unknown',
+          click_source: source, // 'banner_tap' | 'cta_button'
+          button_label: buttonLabel || null,
+          link_url: url,
+        });
+      }
+    } catch (e) { /* never let analytics break the click */ }
+  };
+
   // ── smooth slide to a target index ──────────────────────────────────────
   const slideTo = useCallback((target) => {
     cancelAnimationFrame(animRef.current);
@@ -11264,7 +11280,7 @@ function AdBanner({ onEnquiry, externalPause }) {
       pauseRef.current  = false;
       setPaused(false);
       if (s.link === ENQUIRY_TRIGGER) { onEnquiry(); }
-      else { window.open(s.link, "_blank", "noopener,noreferrer"); }
+      else { trackAdvertiserClick(s, 'banner_tap', null, s.link); window.open(s.link, "_blank", "noopener,noreferrer"); }
       schedule(500);
       startTick();
     }
@@ -11306,7 +11322,7 @@ function AdBanner({ onEnquiry, externalPause }) {
         const s = ACTIVE_SLIDES[current];
         if(!s) return;
         if(s.link===ENQUIRY_TRIGGER){ onEnquiry(); }
-        else { window.open(s.link,"_blank","noopener,noreferrer"); }
+        else { trackAdvertiserClick(s, 'banner_tap', null, s.link); window.open(s.link,"_blank","noopener,noreferrer"); }
       }}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
@@ -11454,7 +11470,7 @@ function AdBanner({ onEnquiry, externalPause }) {
                       href={btn.href}
                       target={btn.href.startsWith("tel:") ? undefined : "_blank"}
                       rel={btn.href.startsWith("tel:") ? undefined : "noopener noreferrer"}
-                      onClick={e=>e.stopPropagation()}
+                      onClick={e=>{ e.stopPropagation(); trackAdvertiserClick(s, 'cta_button', btn.label, btn.href); }}
                       onTouchEnd={e=>e.stopPropagation()}
                       style={{
                         display:"flex", alignItems:"center", justifyContent:"center",
