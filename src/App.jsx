@@ -9638,6 +9638,8 @@ const AD_SLIDES = [
     sub:{ text:"If it grows, I want to know!", color:"#34d399", wrap:true },
     logo:"/TommyGreenThumb-logo.jpg",
     ctaButtons:[
+      { label:"Call Now", href:"tel:+447481816798", bg:"#059669", color:"#ffffff", border:"rgba(255,255,255,0.25)" },
+      { label:"Email Us", href:"mailto:tommartindale789@hotmail.co.uk", bg:"#ffffff", color:"#022c22", border:"rgba(255,255,255,0.6)" },
       { label:"Facebook", href:"https://www.facebook.com/profile.php?id=61592319622806", bg:"#ffffff", color:"#022c22", border:"rgba(255,255,255,0.6)" },
     ],
   },
