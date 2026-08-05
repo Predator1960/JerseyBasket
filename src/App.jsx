@@ -9631,13 +9631,15 @@ const AD_SLIDES = [
     ],
   },
   {
-    id:4, group:1, slot:5, link:ENQUIRY_TRIGGER,
+    id:4, group:1, slot:5, link:"https://www.facebook.com/profile.php?id=61592319622806", advertiser:"Tommy Green Thumb",
     bg:"linear-gradient(135deg,#047857 0%,#022c22 100%)",
-    eyebrow:{ text:"SLOT 5 OF 15 — INSURANCE BROKERS", color:"#a7f3d0" },
-    headline:{ before:"Your Business ", highlight:"Here", highlightColor:"#6ee7b7", after:" — Jersey's Shoppers", headlineColor:"#ffffff" },
-    sub:{ text:"Platinum exclusivity — lock out every competitor in your category", color:"#34d399" },
-    cta:{ label:"Claim this slot", labelColor:"#a7f3d0", url:"jerseybasket.je", urlColor:"#ffffff", arrowBg:"#059669", arrowColor:"white", boxBg:"rgba(5,150,105,0.3)", boxBorder:"rgba(167,243,208,0.5)" },
-    stats:[{ val:"5/15", label:"slot" },{ val:"£999", label:"per month" }], statColor:"#a7f3d0",
+    eyebrow:{ text:"AUGUST FREE OFFER — SPOT 6 OF 12", color:"#a7f3d0" },
+    headline:{ before:"Tommy ", highlight:"Green Thumb", highlightColor:"#6ee7b7", after:"", headlineColor:"#ffffff" },
+    sub:{ text:"If it grows, I want to know!", color:"#34d399", wrap:true },
+    logo:"/TommyGreenThumb-logo.jpg",
+    ctaButtons:[
+      { label:"Facebook", href:"https://www.facebook.com/profile.php?id=61592319622806", bg:"#ffffff", color:"#022c22", border:"rgba(255,255,255,0.6)" },
+    ],
   },
   /* ── GROUP 2 ── */
   {
