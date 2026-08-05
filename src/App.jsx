@@ -9668,13 +9668,13 @@ const AD_SLIDES = [
   /* ── GROUP 2 ── */
   {
     id:5, group:2, slot:6, link:"tel:+447797764508", advertiser:"Kyle Simon Mobile Mechanic",
-    bg:"linear-gradient(135deg,#3f3f3f 0%,#0a0a0a 100%)",
-    eyebrow:{ text:"AUGUST FREE OFFER — SPOT 7 OF 12", color:"#d4d4d4" },
-    headline:{ before:"Kyle Simon", highlight:"", highlightColor:"#ffffff", after:"", headlineColor:"#ffffff" },
-    sub:{ text:"Quality Used VW/AUDI Parts", color:"#a3a3a3", wrap:true },
+    bg:"linear-gradient(135deg,#ffffff 0%,#f4f4f4 100%)",
+    eyebrow:{ text:"AUGUST FREE OFFER — SPOT 7 OF 12", color:"#404040" },
+    headline:{ before:"Kyle Simon", highlight:"", highlightColor:"#000000", after:"", headlineColor:"#000000" },
+    sub:{ text:"Mobile Mechanic — Quality Used VW/AUDI Parts", color:"#525252", wrap:true },
     logo:"/KyleSimon-logo.jpg",
     ctaButtons:[
-      { label:"Call Now", href:"tel:+447797764508", bg:"#ffffff", color:"#111827", border:"rgba(255,255,255,0.25)" },
+      { label:"Call Now", href:"tel:+447797764508", bg:"#000000", color:"#ffffff", border:"rgba(0,0,0,0.2)" },
     ],
   },
   {
