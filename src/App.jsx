@@ -11313,7 +11313,7 @@ function AdBanner({ onEnquiry, externalPause }) {
         .jb-ad-eyebrow{ flex-shrink:1 !important; min-width:0 !important; overflow:hidden; text-overflow:ellipsis; max-width:100%; }
         .jb-ad-headline{ min-width:0 !important; }
         .jb-ad-sub{ flex-basis:100% !important; white-space:normal !important; overflow:visible !important; text-overflow:clip !important; }
-        .jb-ad-ctas{ flex-basis:100% !important; }
+        .jb-ad-ctas{ flex-basis:100% !important; flex-wrap:wrap !important; row-gap:6px; }
       }
     `}</style>
     <div
