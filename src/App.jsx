@@ -9667,13 +9667,15 @@ const AD_SLIDES = [
   },
   /* ── GROUP 2 ── */
   {
-    id:5, group:2, slot:6, link:ENQUIRY_TRIGGER,
-    bg:"linear-gradient(135deg,#0e7490 0%,#083344 100%)",
-    eyebrow:{ text:"SLOT 6 OF 15 — MORTGAGE BROKERS", color:"#a5f3fc" },
-    headline:{ before:"Your Business ", highlight:"Here", highlightColor:"#67e8f9", after:" — Jersey's Shoppers", headlineColor:"#ffffff" },
-    sub:{ text:"Platinum exclusivity — lock out every competitor in your category", color:"#22d3ee" },
-    cta:{ label:"Claim this slot", labelColor:"#a5f3fc", url:"jerseybasket.je", urlColor:"#ffffff", arrowBg:"#0891b2", arrowColor:"white", boxBg:"rgba(8,145,178,0.3)", boxBorder:"rgba(165,243,252,0.5)" },
-    stats:[{ val:"6/15", label:"slot" },{ val:"£999", label:"per month" }], statColor:"#a5f3fc",
+    id:5, group:2, slot:6, link:"tel:+447797764508", advertiser:"Kyle Simon Mobile Mechanic",
+    bg:"linear-gradient(135deg,#3f3f3f 0%,#0a0a0a 100%)",
+    eyebrow:{ text:"AUGUST FREE OFFER — SPOT 7 OF 12", color:"#d4d4d4" },
+    headline:{ before:"Kyle Simon", highlight:"", highlightColor:"#ffffff", after:"", headlineColor:"#ffffff" },
+    sub:{ text:"Quality Used VW/AUDI Parts", color:"#a3a3a3", wrap:true },
+    logo:"/KyleSimon-logo.jpg",
+    ctaButtons:[
+      { label:"Call Now", href:"tel:+447797764508", bg:"#ffffff", color:"#111827", border:"rgba(255,255,255,0.25)" },
+    ],
   },
   {
     id:6, group:2, slot:7, link:"https://wedeliver.je", advertiser:"We Deliver",
