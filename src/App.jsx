@@ -9807,13 +9807,16 @@ const AD_SLIDES = [
     stats:[{ val:"14/15", label:"slot" },{ val:"£999", label:"per month" }], statColor:"#bfdbfe",
   },
   {
-    id:14, group:3, slot:15, link:ENQUIRY_TRIGGER,
-    bg:"linear-gradient(135deg,#334155 0%,#0f172a 100%)",
-    eyebrow:{ text:"SLOT 15 OF 15 — HOTELS & SELF-CATERING", color:"#e2e8f0" },
-    headline:{ before:"Your Business ", highlight:"Here", highlightColor:"#cbd5e1", after:" — Jersey's Shoppers", headlineColor:"#ffffff" },
-    sub:{ text:"Platinum exclusivity — lock out every competitor in your category", color:"#94a3b8" },
-    cta:{ label:"Claim this slot", labelColor:"#e2e8f0", url:"jerseybasket.je", urlColor:"#ffffff", arrowBg:"#475569", arrowColor:"white", boxBg:"rgba(71,85,105,0.3)", boxBorder:"rgba(226,232,240,0.5)" },
-    stats:[{ val:"15/15", label:"slot" },{ val:"£999", label:"per month" }], statColor:"#e2e8f0",
+    id:14, group:3, slot:15, link:"https://www.4groupci.com/", advertiser:"4 Group",
+    bg:"linear-gradient(135deg,#ffffff 0%,#f4f4f2 100%)",
+    eyebrow:{ text:"AUGUST FREE OFFER — SPOT 8 OF 12", color:"#672964" },
+    headline:{ before:"4 ", highlight:"Group", highlightColor:"#672964", after:"", headlineColor:"#333E48" },
+    sub:{ text:"Vehicle, Tool, Plant & Equipment Solutions", color:"#672964", wrap:true },
+    logo:"/4Group-logo.svg",
+    ctaButtons:[
+      { label:"Call Now", href:"tel:+441534744744", bg:"#672964", color:"#ffffff", border:"rgba(0,0,0,0.15)" },
+      { label:"Visit Website", href:"https://www.4groupci.com/", bg:"#ffffff", color:"#672964", border:"rgba(0,0,0,0.2)" },
+    ],
   },
 ];
 /* ═══════════════════════════════════════════════════════════════════════════
