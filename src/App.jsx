@@ -8601,20 +8601,24 @@ export default function JerseyGroceryApp() {
   // document/body scroll — that pane is what fixed the ad-banner-off-bottom
   // bug, see .jb-app-root below), and mobile browsers' built-in "scroll the
   // focused input above the keyboard" behaviour is only reliable for
-  // document-level scrolling. Inside a nested scroll container it often
-  // does nothing, leaving the input hidden behind the keyboard. Fix: when
-  // the visualViewport actually shrinks (keyboard opening) while the search
-  // input is focused, scroll it into view ourselves.
+  // document-level scrolling — inside a nested scroll container it often
+  // does nothing. A visualViewport 'resize' listener alone isn't enough
+  // either: iOS Safari (especially in home-screen/standalone mode) often
+  // does NOT report a visualViewport size change when the keyboard opens —
+  // it just overlays the keyboard without resizing anything JS can observe.
+  // So this fires on focus itself (which always fires) with a short delay
+  // for the keyboard's open animation, AND on visualViewport resize as a
+  // second trigger for browsers where that does fire (mainly Android).
   const searchInputRef = useRef(null);
+  const scrollSearchIntoView = () => {
+    if (document.activeElement === searchInputRef.current && searchInputRef.current) {
+      searchInputRef.current.scrollIntoView({ block: "center", behavior: "smooth" });
+    }
+  };
   useEffect(() => {
     if (!window.visualViewport) return;
-    const handleViewportResize = () => {
-      if (document.activeElement === searchInputRef.current) {
-        searchInputRef.current.scrollIntoView({ block: "center", behavior: "smooth" });
-      }
-    };
-    window.visualViewport.addEventListener("resize", handleViewportResize);
-    return () => window.visualViewport.removeEventListener("resize", handleViewportResize);
+    window.visualViewport.addEventListener("resize", scrollSearchIntoView);
+    return () => window.visualViewport.removeEventListener("resize", scrollSearchIntoView);
   }, []);
 
   const toggleStore = (storeId) => {
@@ -8945,6 +8949,14 @@ export default function JerseyGroceryApp() {
                   value={searchQuery}
                   onChange={e=>setSearchQuery(e.target.value)}
                   onKeyDown={e=>{ if(e.key==="Escape") setSearchQuery(""); }}
+                  onFocus={()=>{
+                    // Staggered retries: covers slower keyboard-open animations
+                    // across devices without needing to detect exactly when
+                    // the keyboard finishes animating in.
+                    setTimeout(scrollSearchIntoView, 100);
+                    setTimeout(scrollSearchIntoView, 350);
+                    setTimeout(scrollSearchIntoView, 600);
+                  }}
                   placeholder={`Search ${allProducts.length} products…`}
                   inputMode="search"
                   autoComplete="off"
