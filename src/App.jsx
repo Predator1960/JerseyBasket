@@ -8597,6 +8597,25 @@ export default function JerseyGroceryApp() {
   const [showCompetition,  setShowCompetition]  = useState(false);
   const [showSubmitPrice,  setShowSubmitPrice]  = useState(false);
 
+  // The search input lives inside a nested overflow:auto scroll pane (not
+  // document/body scroll — that pane is what fixed the ad-banner-off-bottom
+  // bug, see .jb-app-root below), and mobile browsers' built-in "scroll the
+  // focused input above the keyboard" behaviour is only reliable for
+  // document-level scrolling. Inside a nested scroll container it often
+  // does nothing, leaving the input hidden behind the keyboard. Fix: when
+  // the visualViewport actually shrinks (keyboard opening) while the search
+  // input is focused, scroll it into view ourselves.
+  const searchInputRef = useRef(null);
+  useEffect(() => {
+    if (!window.visualViewport) return;
+    const handleViewportResize = () => {
+      if (document.activeElement === searchInputRef.current) {
+        searchInputRef.current.scrollIntoView({ block: "center", behavior: "smooth" });
+      }
+    };
+    window.visualViewport.addEventListener("resize", handleViewportResize);
+    return () => window.visualViewport.removeEventListener("resize", handleViewportResize);
+  }, []);
 
   const toggleStore = (storeId) => {
     setDisabledStores(prev => {
@@ -8922,6 +8941,7 @@ export default function JerseyGroceryApp() {
               <div style={{ flex:1,minWidth:160,position:"relative" }}>
                 <span style={{ position:"absolute",left:11,top:"50%",transform:"translateY(-50%)",fontSize:13,pointerEvents:"none" }}>🔍</span>
                 <input
+                  ref={searchInputRef}
                   value={searchQuery}
                   onChange={e=>setSearchQuery(e.target.value)}
                   onKeyDown={e=>{ if(e.key==="Escape") setSearchQuery(""); }}
