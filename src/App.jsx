@@ -8620,6 +8620,16 @@ export default function JerseyGroceryApp() {
     window.visualViewport.addEventListener("resize", scrollSearchIntoView);
     return () => window.visualViewport.removeEventListener("resize", scrollSearchIntoView);
   }, []);
+  // The real cause of the search box vanishing behind the keyboard: the
+  // footer+AdBanner block below is flexShrink:0 (deliberately — it must
+  // stay pinned to the true bottom edge, see the note by .jb-app-root), so
+  // when the keyboard shrinks --app-height, that block keeps its full
+  // height and eats almost all the remaining space, squeezing the
+  // scrollable content pane (which holds the search box) down to almost
+  // nothing — no amount of scrolling reveals it because there's no room
+  // left to scroll into. Freeing that space while the search box is
+  // focused fixes it at the source rather than fighting for scraps of it.
+  const [searchFocused, setSearchFocused] = useState(false);
 
   const toggleStore = (storeId) => {
     setDisabledStores(prev => {
@@ -8950,6 +8960,7 @@ export default function JerseyGroceryApp() {
                   onChange={e=>setSearchQuery(e.target.value)}
                   onKeyDown={e=>{ if(e.key==="Escape") setSearchQuery(""); }}
                   onFocus={()=>{
+                    setSearchFocused(true);
                     // Staggered retries: covers slower keyboard-open animations
                     // across devices without needing to detect exactly when
                     // the keyboard finishes animating in.
@@ -8957,6 +8968,7 @@ export default function JerseyGroceryApp() {
                     setTimeout(scrollSearchIntoView, 350);
                     setTimeout(scrollSearchIntoView, 600);
                   }}
+                  onBlur={()=>setSearchFocused(false)}
                   placeholder={`Search ${allProducts.length} products…`}
                   inputMode="search"
                   autoComplete="off"
@@ -9609,7 +9621,12 @@ export default function JerseyGroceryApp() {
       </div>{/* end scrollable app content */}
 
       {/* ── FOOTER + BANNER — normal flex child, always flush against the true bottom
-          of the 100dvh column (see note above on why this isn't position:fixed) ── */}
+          of the 100dvh column (see note above on why this isn't position:fixed).
+          Hidden while the search box is focused: being flexShrink:0, it would
+          otherwise keep its full height and starve the scrollable content pane
+          of space once the keyboard shrinks --app-height, hiding the search box
+          with no room left to scroll it into view (see note by searchInputRef). ── */}
+      {!searchFocused && (
       <div style={{ flexShrink:0, zIndex:200, display:"flex", flexDirection:"column" }}>
         {/* footer */}
         <div style={{ background:lightMode?"rgba(210,218,226,.97)":"rgba(5,13,26,.97)",backdropFilter:"blur(16px)",borderTop:lightMode?"1px solid rgba(0,0,0,.12)":"1px solid rgba(255,255,255,.09)",padding:"6px 20px",display:"flex",justifyContent:"center",alignItems:"center",fontSize:10,color:lightMode?"#334155":"#475569",gap:12,flexWrap:"wrap",minHeight:28 }}>
@@ -9628,6 +9645,7 @@ export default function JerseyGroceryApp() {
         {/* banner */}
         <AdBanner onEnquiry={()=>setShowEnquiry(true)} externalPause={showWelcome} />
       </div>
+      )}
 
       {/* ── WELCOME SCREEN — first visit only ── */}
       {showWelcome && <WelcomeModal onDismiss={dismissWelcome} onSubmitPrice={()=>setShowSubmitPrice(true)} lightMode={lightMode} />}
