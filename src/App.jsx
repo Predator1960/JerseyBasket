@@ -3937,7 +3937,7 @@ const BASE_PRODUCTS = [
   {id:7597, name:"Duchy Organic Houmous 200g", cat:"🥗 Deli & Salads", icon:"🥗", prices:{coop:0,morrisons:0,ms:0,waitrose:1.60,iceland:0,alliance:0}, upd:"30 Jul"},
   {id:7598, name:"Waitrose Perfectly Ripe Kiwi 4S", cat:"🥦 Fruit & Veg", icon:"🥝", prices:{coop:0,morrisons:0,ms:0,waitrose:2.85,iceland:0,alliance:0}, upd:"30 Jul"},
   {id:7599, name:"Duchy Organic Ripe Avocados 2S", cat:"🥦 Fruit & Veg", icon:"🥑", prices:{coop:0,morrisons:0,ms:0,waitrose:2.75,iceland:0,alliance:0}, upd:"30 Jul"},
-  {id:7600, name:"Waitrose ASC Extra Large King Prawns 150g", cat:"🥩 Meat & Fish", icon:"🍤", prices:{coop:0,morrisons:0,ms:0,waitrose:4.51,iceland:0,alliance:0}, upd:"30 Jul"},
+  {id:7600, name:"Waitrose ASC Extra Large King Prawns 150g", cat:"🥩 Meat & Fish", icon:"🍤", prices:{coop:0,morrisons:0,ms:0,waitrose:4.51,iceland:0,alliance:0}, upd:"23 Aug"},
   {id:7601, name:"Waitrose Mini Watermelon", cat:"🥦 Fruit & Veg", icon:"🍉", prices:{coop:0,morrisons:0,ms:0,waitrose:3.00,iceland:0,alliance:0}, upd:"30 Jul"},
   {id:7602, name:"Waitrose Butterhead Salad 120g", cat:"🥦 Fruit & Veg", icon:"🥬", prices:{coop:0,morrisons:0,ms:0,waitrose:1.50,iceland:0,alliance:0}, upd:"30 Jul"},
   {id:7603, name:"Essential Free Range Double Cream Large 600ml", cat:"🥛 Dairy & Eggs", icon:"🍦", prices:{coop:0,morrisons:0,ms:0,waitrose:3.15,iceland:0,alliance:0}, upd:"30 Jul"},
