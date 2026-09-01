@@ -9871,7 +9871,7 @@ const AD_SLIDES = [
   {
     id:13, group:3, slot:14, link:"https://www.facebook.com/profile.php?id=61564369564570", advertiser:"Zia IT Support",
     bg:"linear-gradient(135deg,#ffffff 0%,#f4f4f4 100%)",
-    eyebrow:{ text:"AUGUST FREE OFFER — SPOT 9 OF 12", color:"#c2255c" },
+    eyebrow:{ text:"FEATURED ADVERTISER", color:"#c2255c" },
     headline:{ before:"Zia ", highlight:"IT Support", highlightColor:"#c2255c", after:"", headlineColor:"#1a1a1a" },
     sub:{ text:"Holistic I.T. support for homes and businesses", color:"#c2255c", wrap:true },
     logo:"/Zia-logo.jpg",
