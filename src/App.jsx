@@ -149,6 +149,17 @@
  *            the app — Tips is now unreachable until this banner reverts.
  *            Set TEASER_ACTIVE to false or restore the original banner once
  *            the August campaign ends.
+ *
+ *            SUBMIT-A-RECEIPT BANNER (3 Sep): August campaign has ended, so the
+ *            banner no longer promotes the advertising offer — it now reads
+ *            "Spotted a price we're missing?" and taps straight through to
+ *            SubmitPriceModal (setShowSubmitPrice(true)) instead of the enquiry
+ *            modal, so shoppers can submit a receipt photo any time, not just
+ *            once from the Welcome screen. Cleared the leftover "June
+ *            competition"/leaderboard/prize wording inside SubmitPriceModal
+ *            since that competition is over but the submission flow itself
+ *            still works fine. NOTE: Tips is still unreachable — this banner
+ *            slot remains its only entry point, now repurposed again.
  */
 import React, { useState, useMemo, useRef, useEffect, useCallback } from "react";
 
@@ -9119,17 +9130,17 @@ export default function JerseyGroceryApp() {
               );
             })()}
 
-            {/* ── AUGUST FREE ADVERTISING TEASER BANNER (tap opens Enquiry) ── */}
+            {/* ── SUBMIT-A-RECEIPT TEASER BANNER (tap opens SubmitPriceModal) ── */}
             {TEASER_ACTIVE && <style>{`@keyframes shimmer{0%{left:-60%}100%{left:120%}}@keyframes bannerGrow{0%{transform:scale(1)}50%{transform:scale(1.12)}100%{transform:scale(1)}}`}</style>}
 		{TEASER_ACTIVE && (
-              <div onClick={()=>setShowEnquiry(true)} style={{ marginBottom:12,background:"linear-gradient(135deg,#0f0a2e 0%,#2d1a6b 50%,#4c1d95 100%)",border:"1px solid rgba(167,139,250,.5)",borderRadius:12,padding:"12px 16px",display:"flex",alignItems:"center",justifyContent:"center",cursor:"pointer",gap:10,boxShadow:"0 4px 20px rgba(76,29,149,.5),inset 0 1px 0 rgba(255,255,255,.2)",position:"relative",overflow:"hidden" }}>
+              <div onClick={()=>setShowSubmitPrice(true)} style={{ marginBottom:12,background:"linear-gradient(135deg,#0f0a2e 0%,#2d1a6b 50%,#4c1d95 100%)",border:"1px solid rgba(167,139,250,.5)",borderRadius:12,padding:"12px 16px",display:"flex",alignItems:"center",justifyContent:"center",cursor:"pointer",gap:10,boxShadow:"0 4px 20px rgba(76,29,149,.5),inset 0 1px 0 rgba(255,255,255,.2)",position:"relative",overflow:"hidden" }}>
                 <span style={{ position:"absolute",top:0,left:0,right:0,height:"45%",background:"linear-gradient(180deg,rgba(255,255,255,.18) 0%,rgba(255,255,255,0) 100%)",pointerEvents:"none" }}/>
                 <span style={{ position:"absolute",top:0,left:"-60%",width:"40%",height:"100%",background:"linear-gradient(90deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.12) 50%,rgba(255,255,255,0) 100%)",pointerEvents:"none",animation:"shimmer 3s infinite" }}/>
                 <div key={showWelcome ? "before" : "after"} style={{ display:"flex",alignItems:"center",gap:10,...(showWelcome ? {} : { animation:"bannerGrow 0.9s ease-in-out 3" }),transformOrigin:"center center" }}>
-                  <span style={{ fontSize:26 }}>🎉</span>
+                  <span style={{ fontSize:26 }}>📸</span>
                   <div>
-                    <div style={{ fontSize:13,fontWeight:800,color:"#fff",textShadow:"0 1px 4px rgba(0,0,0,.4)",letterSpacing:".01em" }}>✨ First 12 Jersey businesses — August FREE!</div>
-                    <div style={{ fontSize:11,color:"rgba(255,255,255,.9)",marginTop:2,fontWeight:500 }}>Own a Jersey business? Tap to claim a free month of advertising</div>
+                    <div style={{ fontSize:13,fontWeight:800,color:"#fff",textShadow:"0 1px 4px rgba(0,0,0,.4)",letterSpacing:".01em" }}>✨ Spotted a price we're missing?</div>
+                    <div style={{ fontSize:11,color:"rgba(255,255,255,.9)",marginTop:2,fontWeight:500 }}>Snap your receipt — tap to help keep JerseyBasket accurate</div>
                   </div>
                 </div>
               </div>
@@ -11078,12 +11089,12 @@ function SubmitPriceModal({ onClose, lightMode=false }) {
         method: "POST",
         headers: { "Content-Type": "application/json", "Accept": "application/json" },
         body: JSON.stringify({
-          _subject: `🏆 June Competition Receipt — ${form.name}`,
+          _subject: `📸 Receipt Submission — ${form.name}`,
           name:    form.name,
           mobile:  form.mobile,
           email:   form.email,
           receipt: photo ? photo.name : "No photo attached",
-          message: `JUNE COMPETITION ENTRY\n\nName: ${form.name}\nMobile: ${form.mobile}\nEmail: ${form.email}\nReceipt: ${photo ? photo.name : "No photo attached"}`,
+          message: `RECEIPT SUBMISSION\n\nName: ${form.name}\nMobile: ${form.mobile}\nEmail: ${form.email}\nReceipt: ${photo ? photo.name : "No photo attached"}`,
         })
       });
       if (res.ok) { setStatus("sent"); }
@@ -11101,11 +11112,11 @@ function SubmitPriceModal({ onClose, lightMode=false }) {
         {status==="sent" ? (
           <div style={{ textAlign:"center",padding:"30px 20px" }}>
             <div style={{ fontSize:48,marginBottom:14 }}>🏆</div>
-            <div style={{ fontSize:18,fontWeight:700,color:"#fb923c",marginBottom:8 }}>Entry submitted!</div>
+            <div style={{ fontSize:18,fontWeight:700,color:"#fb923c",marginBottom:8 }}>Receipt submitted!</div>
             <div style={{ fontSize:12,color:lightMode?"#475569":"#94a3b8",lineHeight:1.8,marginBottom:24 }}>
-              Thanks {form.name.split(" ")[0]}! We'll verify your receipt and add the prices<br/>
-              to the leaderboard within 24 hours.<br/>
-              If you win, we'll be in touch! 🎉
+              Thanks {form.name.split(" ")[0]}! We'll verify your receipt and add<br/>
+              the prices to JerseyBasket within 24 hours.<br/>
+              Thanks for helping keep it accurate! 🙌
             </div>
             <button onClick={onClose} style={{ padding:"11px 28px",background:"linear-gradient(180deg,#fb923c 0%,#b45309 100%)",boxShadow:"0 3px 10px rgba(194,65,12,.5),inset 0 1px 0 rgba(255,255,255,.25)",border:"none",borderRadius:11,color:"#fff",cursor:"pointer",fontSize:13,fontWeight:700 }}>
               Back to App
@@ -11117,7 +11128,7 @@ function SubmitPriceModal({ onClose, lightMode=false }) {
             <div style={{ display:"flex",justifyContent:"space-between",alignItems:"center",padding:"18px 20px 14px",borderBottom:`1px solid ${lightMode?"rgba(251,146,60,.25)":"rgba(251,146,60,.15)"}`,flexShrink:0 }}>
               <div>
                 <div style={{ fontSize:17,fontWeight:700,color:lightMode?"#7c2d12":"#fed7aa" }}>📸 Submit a Receipt</div>
-                <div style={{ fontSize:11,color:lightMode?"#92400e":"#9a3412",marginTop:2 }}>June competition · Every receipt counts!</div>
+                <div style={{ fontSize:11,color:lightMode?"#92400e":"#9a3412",marginTop:2 }}>Help keep JerseyBasket's prices accurate</div>
               </div>
               <button onClick={onClose} style={{ background:lightMode?"rgba(0,0,0,.07)":"rgba(255,255,255,.07)",border:"none",borderRadius:7,width:32,height:32,color:lightMode?"#475569":"#94a3b8",cursor:"pointer",fontSize:16,flexShrink:0 }}>✕</button>
             </div>
@@ -11130,7 +11141,7 @@ function SubmitPriceModal({ onClose, lightMode=false }) {
                 <div style={{ fontSize:10,color:lightMode?"#7c2d12":"#9a3412",fontWeight:700,letterSpacing:".5px",marginBottom:6 }}>YOUR NAME <span style={{ color:"#f43f5e" }}>*</span></div>
                 <input value={form.name} onChange={e=>setForm(p=>({...p,name:e.target.value}))} placeholder="First name, nickname or alias e.g. IslandShopper"
                   style={{ width:"100%",padding:"9px 12px",background:lightMode?"rgba(0,0,0,.05)":"rgba(255,255,255,.07)",border:lightMode?"1px solid rgba(0,0,0,.15)":"1px solid rgba(255,255,255,.11)",borderRadius:9,color:lightMode?"#0f172a":"#fff",fontSize:12,outline:"none",boxSizing:"border-box",fontFamily:"inherit" }} />
-                <div style={{ fontSize:10,color:lightMode?"#475569":"#94a3b8",marginTop:4 }}>Any name or alias is fine — only this appears on the leaderboard, never your real details</div>
+                <div style={{ fontSize:10,color:lightMode?"#475569":"#94a3b8",marginTop:4 }}>Any name or alias is fine — never shared or shown publicly</div>
               </div>
 
               {/* mobile */}
@@ -11145,7 +11156,7 @@ function SubmitPriceModal({ onClose, lightMode=false }) {
                 <div style={{ fontSize:10,color:lightMode?"#7c2d12":"#9a3412",fontWeight:700,letterSpacing:".5px",marginBottom:6 }}>EMAIL ADDRESS <span style={{ color:lightMode?"#64748b":"#94a3b8",fontWeight:400 }}>(optional if mobile provided)</span></div>
                 <input value={form.email} onChange={e=>setForm(p=>({...p,email:e.target.value}))} placeholder="e.g. yourname@email.com"
                   style={{ width:"100%",padding:"9px 12px",background:lightMode?"rgba(0,0,0,.05)":"rgba(255,255,255,.07)",border:lightMode?"1px solid rgba(0,0,0,.15)":"1px solid rgba(255,255,255,.11)",borderRadius:9,color:lightMode?"#0f172a":"#fff",fontSize:12,outline:"none",boxSizing:"border-box",fontFamily:"inherit" }} />
-                <div style={{ fontSize:10,color:lightMode?"#475569":"#94a3b8",marginTop:4 }}>Never shared or sold — only used to contact you if you win 🏆</div>
+                <div style={{ fontSize:10,color:lightMode?"#475569":"#94a3b8",marginTop:4 }}>Never shared or sold — only used if we need to check something with you</div>
               </div>
 
               {/* photo picker */}
