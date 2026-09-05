@@ -9131,13 +9131,16 @@ export default function JerseyGroceryApp() {
             })()}
 
             {/* ── SUBMIT-A-RECEIPT TEASER BANNER (tap opens SubmitPriceModal) ── */}
-            {TEASER_ACTIVE && <style>{`@keyframes shimmer{0%{left:-60%}100%{left:120%}}@keyframes bannerGrow{0%{transform:scale(1)}50%{transform:scale(1.12)}100%{transform:scale(1)}}`}</style>}
+            {TEASER_ACTIVE && <style>{`@keyframes shimmer{0%{left:-60%}100%{left:120%}}@keyframes bannerGrow{0%{transform:scale(1)}50%{transform:scale(1.12)}100%{transform:scale(1)}}@keyframes cameraFlash{0%{opacity:0}10%{opacity:1}25%{opacity:0}100%{opacity:0}}`}</style>}
 		{TEASER_ACTIVE && (
               <div onClick={()=>setShowSubmitPrice(true)} style={{ marginBottom:12,background:"linear-gradient(135deg,#FF8A00 0%,#FF6A00 50%,#FF5400 100%)",border:"1px solid rgba(255,140,0,.6)",borderRadius:12,padding:"12px 16px",display:"flex",alignItems:"center",justifyContent:"center",cursor:"pointer",gap:10,boxShadow:"0 4px 20px rgba(255,90,0,.5),inset 0 1px 0 rgba(255,255,255,.25)",position:"relative",overflow:"hidden" }}>
                 <span style={{ position:"absolute",top:0,left:0,right:0,height:"45%",background:"linear-gradient(180deg,rgba(255,255,255,.22) 0%,rgba(255,255,255,0) 100%)",pointerEvents:"none" }}/>
                 <span style={{ position:"absolute",top:0,left:"-60%",width:"40%",height:"100%",background:"linear-gradient(90deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.18) 50%,rgba(255,255,255,0) 100%)",pointerEvents:"none",animation:"shimmer 3s infinite" }}/>
                 <div key={showWelcome ? "before" : "after"} style={{ display:"flex",alignItems:"center",gap:10,...(showWelcome ? {} : { animation:"bannerGrow 0.9s ease-in-out 3" }),transformOrigin:"center center" }}>
-                  <span style={{ fontSize:26 }}>📸</span>
+                  <span style={{ fontSize:26,position:"relative",display:"inline-block" }}>
+                    📸
+                    {!showWelcome && <span style={{ position:"absolute",top:-6,left:-6,right:-6,bottom:-6,borderRadius:"50%",background:"radial-gradient(circle,rgba(255,255,255,.95) 0%,rgba(255,255,255,0) 70%)",animation:"cameraFlash 0.9s ease-in-out 3",pointerEvents:"none" }}/>}
+                  </span>
                   <div>
                     <div style={{ fontSize:13,fontWeight:800,color:"#1a1200",letterSpacing:".01em" }}>✨ Spotted a price we're missing?</div>
                     <div style={{ fontSize:11,color:"rgba(0,0,0,.75)",marginTop:2,fontWeight:500 }}>Snap your receipt — tap to help keep JerseyBasket accurate</div>
