@@ -10105,7 +10105,7 @@ function WelcomeModal({ onDismiss, onSubmitPrice, lightMode=false }) {
     {
       emoji: "🛍️",
       title: "Welcome to JerseyBasket.je",
-      subtitle: `Join 1,100+ Jersey shoppers saving money every week`,
+      subtitle: `Join 1,500+ Jersey shoppers saving money every week`,
       body: `Compare prices across all ${BASE_PRODUCTS.length} products and growing — find the cheapest price on every item and build your shopping list before you leave the house.`,
       bodyJsx: true,
       bg: "linear-gradient(135deg,#052e16 0%,#14532d 50%,#16a34a 100%)",
