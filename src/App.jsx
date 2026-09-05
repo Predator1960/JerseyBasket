@@ -8921,7 +8921,7 @@ export default function JerseyGroceryApp() {
               <button onClick={()=>{
                 const shareData = { title:"JerseyBasket.je", text:"Compare grocery prices across all Jersey supermarkets! 🇯🇪", url:"https://jerseybasket.je" };
                 if (navigator.share) { navigator.share(shareData).catch(()=>{}); }
-                else { navigator.clipboard.writeText("https://jerseybasket.je").then(()=>showToast("🔗 Link copied!")); }
+                else { navigator.clipboard.writeText("https://jerseybasket.je").then(()=>showToast("🔗 Link copied!")).catch(()=>showToast("Couldn't copy link")); }
               }} title="Share JerseyBasket"
               style={{ WebkitAppearance:"none",appearance:"none",background:lightMode?"linear-gradient(180deg,#cbd5e1 0%,#94a3b8 100%)":"linear-gradient(180deg,#1e3a5f 0%,#0f1f3d 100%)",border:lightMode?"1px solid rgba(0,0,0,.2)":"1px solid rgba(125,211,252,0.18)",borderRadius:9,width:32,height:32,color:lightMode?"#1e293b":"#7dd3fc",cursor:"pointer",fontSize:14,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,padding:0,boxShadow:"0 2px 6px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.1)",position:"relative",overflow:"hidden" }}>
                 <span style={{ position:"absolute",top:0,left:0,right:0,height:"52%",background:"linear-gradient(180deg,rgba(255,255,255,.12) 0%,rgba(255,255,255,.02) 100%)",borderRadius:"9px 9px 0 0",pointerEvents:"none" }}/>
@@ -9288,6 +9288,25 @@ export default function JerseyGroceryApp() {
                       ✅ You're already buying every item at its best price!
                     </div>
                   )}
+                </div>
+
+                {/* invite a friend */}
+                <div style={{ marginTop:14,background:"linear-gradient(135deg,rgba(34,197,94,.14) 0%,rgba(13,148,136,.10) 100%)",border:"1px solid rgba(34,197,94,.28)",borderRadius:13,padding:"14px 16px",display:"flex",alignItems:"center",gap:12 }}>
+                  <span style={{ fontSize:26,flexShrink:0 }}>📣</span>
+                  <div style={{ flex:1,minWidth:0 }}>
+                    <div style={{ fontSize:12.5,fontWeight:700,color:lightMode?"#14532d":"#bbf7d0" }}>Know someone who'd like this?</div>
+                    <div style={{ fontSize:10.5,color:lightMode?"#166534":"#86efac",marginTop:1 }}>Share JerseyBasket — free, no ads, no catch.</div>
+                  </div>
+                  <button onClick={()=>{
+                    const savingLine = potentialSave>0.01
+                      ? `I just found I could save £${potentialSave.toFixed(2)} on my grocery basket comparing prices with JerseyBasket!`
+                      : `I use JerseyBasket to compare grocery prices across all 6 Jersey supermarkets before I shop.`;
+                    const shareData = { title:"JerseyBasket.je", text:`${savingLine} Free app for Jersey shoppers:`, url:"https://jerseybasket.je" };
+                    if (navigator.share) { navigator.share(shareData).catch(()=>{}); }
+                    else { navigator.clipboard.writeText(`${savingLine} Free app for Jersey shoppers: https://jerseybasket.je`).then(()=>showToast("🔗 Link copied!")).catch(()=>showToast("Couldn't copy link")); }
+                  }} style={{ WebkitAppearance:"none",appearance:"none",flexShrink:0,background:"linear-gradient(180deg,#4ade80 0%,#15803d 100%)",border:"none",borderRadius:10,padding:"9px 16px",color:"#052e16",cursor:"pointer",fontSize:12,fontWeight:700,boxShadow:"0 3px 10px rgba(34,197,94,.4),inset 0 1px 0 rgba(255,255,255,.3)",whiteSpace:"nowrap" }}>
+                    Share →
+                  </button>
                 </div>
               </div>
             )}
