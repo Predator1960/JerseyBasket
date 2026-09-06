@@ -633,7 +633,6 @@ const BASE_PRODUCTS = [
   {id:370,name:"Local Honey (250g)",           cat:"🥔 Local Jersey", icon:"🍯",prices:sp(5.50,[0,0.5,1.5,1.2,0.25])},
   {id:371,name:"Jersey Elderflower Cordial",   cat:"🥔 Local Jersey", icon:"🌸",prices:sp(4.80,[0,0.44,1.3,1,0.22])},
   {id:372,name:"Local Free Range Eggs (6pk)",  cat:"🥔 Local Jersey", icon:"🥚",prices:sp(2.20,[-0.3,-0.2,-0.4,-0.46,0.25])},
-  {id:373,name:"Jersey Woollen Jumper",        cat:"🥔 Local Jersey", icon:"🧶",prices:sp(45.0,[0,4,12,10,2])},
   {id:374,name:"Halloumi (225g)",cat:"🥛 Dairy & Eggs",icon:"🧀",prices:sp(2.5,[0.35,-0.11,1.0,0.7,0.18])},
   {id:376,name:"Vine Tomatoes (220g)",cat:"🥦 Fruit & Veg",icon:"🍅",prices:sp(1.20,[0.25,0.95,1.30,0.67,0.08])},
   {id:378,name:"Florette Salad (125g)",cat:"🥦 Fruit & Veg",icon:"🥗",prices:sp(1.2,[0.15,0.05,0.4,0.25,0.08])},
