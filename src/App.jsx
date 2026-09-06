@@ -8394,8 +8394,8 @@ const ESSENTIALS_IDS = new Set([
   148,  // Orange Juice (1L)
   201,  // Cornflakes (500g)
   207,  // Sugar White (1kg)
-  239,  // Crisps Multipack (6pk)
-  244,  // Digestive Biscuits (400g)
+  107,  // Onions (3pk)
+  195,  // Vegetable Oil (1L)
   491,  // Toilet Rolls (4pk) — cheapest variant (was 9pk id:269 @ £4.40; 4pk is £1.55 at Iceland)
 ]);
 
