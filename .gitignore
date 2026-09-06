@@ -1,0 +1,38 @@
+node_modules/
+build/
+build/
+
+.vercel/output
+build
+service-worker.js
+
+install_*.py
+JerseyBasket.je*
+
+install_*.py
+JerseyBasket.je — Promotional Video Guide/
+.vercel/output
+
+# Countdown/marketing graphics generated for social posts
+*DAY LEFT*
+*DAYS LEFT*
+
+# Working documents / assets that live alongside the code but aren't part of it
+*.txt
+*.md
+*.mp4
+*.jpg
+*.jpeg
+*.png
+*.xlsx
+
+# Exceptions — keep these tracked even though the rules above would hide them
+!src/**/*.jpg
+!src/**/*.jpeg
+!src/**/*.png
+!public/**/*.jpg
+!public/**/*.jpeg
+!public/**/*.png
+
+# Working export used by sync_products.py - regenerated each time, not tracked
+product-full-export.csv
