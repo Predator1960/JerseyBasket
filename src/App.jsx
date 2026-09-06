@@ -506,7 +506,7 @@ const BASE_PRODUCTS = [
   {id:586,name:"Cadbury Caramel Nibbles (120g)", cat:"🥨 Snacks & Treats",icon:"🍫",prices:sp(3.35,[0,-3.35,-3.35,-3.35,-3.35])},
   {id:587,name:"Werthers Original Soft (145g)",  cat:"🥨 Snacks & Treats",icon:"🍬",prices:sp(4.56,[0,-4.56,-4.56,-4.56,-4.56])},
   {id:588,name:"Revels Large Pouch (159g)",      cat:"🥨 Snacks & Treats",icon:"🍫",prices:sp(4.00,[-1.37,-4.00,-4.00,-4.00,-4.00]), upd:"20 Aug"},
-  {id:589,name:"Mr Kipling Apple Pies (6pk)",    cat:"🥨 Snacks & Treats",icon:"🥧",prices:sp(1.84,[0,-1.84,-1.84,-1.84,-1.84])},
+  {id:589,name:"Mr Kipling Apple Pies (6pk)",    cat:"🍞 Bread & Bakery",icon:"🥧",prices:sp(1.84,[0,-1.84,-1.84,-1.84,-1.84])},
   {id:590,name:"Triple Choc Sundae",             cat:"🥨 Snacks & Treats",icon:"🍫",prices:sp(3.15,[0,-3.15,-3.15,-3.15,-3.15])},
   {id:261,name:"Kettle Chips (150g)",          cat:"🥨 Snacks & Treats",icon:"🥨",prices:sp(1.80,[1.0,0.18,0.7,0.54,0.09])},
   {id:262,name:"Pretzels (175g)",              cat:"🥨 Snacks & Treats",icon:"🥨",prices:sp(1.60,[0,0.16,0.64,0.49,0.08])},
