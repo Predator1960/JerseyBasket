@@ -8836,7 +8836,11 @@ export default function JerseyGroceryApp() {
     }
     if(pinnedStore) list = list.filter(p=>p.prices[pinnedStore]>0);
     list = list.filter(p=>STORES.some(s=>!disabledStores.has(s.id) && p.prices[s.id]>0));
-    if(sortBy==="essentials") return list.filter(p=>ESSENTIALS_IDS.has(p.id)).sort((a,b)=>a.cat.localeCompare(b.cat)||a.name.localeCompare(b.name));
+    if(sortBy==="essentials") {
+      const essentials = list.filter(p=>ESSENTIALS_IDS.has(p.id)).sort((a,b)=>a.cat.localeCompare(b.cat)||a.name.localeCompare(b.name));
+      const rest = list.filter(p=>!ESSENTIALS_IDS.has(p.id)).sort((a,b)=>getBestPrice(a,disabledStores)-getBestPrice(b,disabledStores));
+      return [...essentials, ...rest];
+    }
     if(sortBy==="bestPrice") return [...list].sort((a,b)=>getBestPrice(a,disabledStores)-getBestPrice(b,disabledStores));
     if(sortBy==="savings")   return [...list].sort((a,b)=>(getWorstPrice(b,disabledStores)-getBestPrice(b,disabledStores))-(getWorstPrice(a,disabledStores)-getBestPrice(a,disabledStores)));
     if(sortBy==="az")        return [...list].sort((a,b)=>a.name.localeCompare(b.name));
@@ -9238,7 +9242,25 @@ export default function JerseyGroceryApp() {
               })()
             ) : (
               <div style={{ display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(270px,1fr))",gap:11 }}>
-                {filteredProducts.slice(0, visibleCount).map(p=><ProductCard key={p.id} product={p} onAddToBasket={addToBasket} pinnedStore={pinnedStore} isFavourite={favourites.has(p.id)} onToggleFavourite={toggleFavourite} disabledStores={disabledStores} lightMode={lightMode}/>)}
+                {sortBy==="essentials" ? (() => {
+                  const visible = filteredProducts.slice(0, visibleCount);
+                  const splitIdx = visible.findIndex(p=>!ESSENTIALS_IDS.has(p.id));
+                  const essentialsVisible = splitIdx===-1 ? visible : visible.slice(0, splitIdx);
+                  const restVisible = splitIdx===-1 ? [] : visible.slice(splitIdx);
+                  return (
+                    <>
+                      {essentialsVisible.map(p=><ProductCard key={p.id} product={p} onAddToBasket={addToBasket} pinnedStore={pinnedStore} isFavourite={favourites.has(p.id)} onToggleFavourite={toggleFavourite} disabledStores={disabledStores} lightMode={lightMode}/>)}
+                      {restVisible.length>0 && (
+                        <div style={{ gridColumn:"1 / -1", display:"flex", alignItems:"center", gap:10, margin:"8px 0 4px" }}>
+                          <div style={{ flex:1, height:1, background:lightMode?"rgba(0,0,0,.12)":"rgba(255,255,255,.1)" }}/>
+                          <div style={{ fontSize:10.5, fontWeight:700, color:lightMode?"#64748b":"#94a3b8", letterSpacing:".04em", textTransform:"uppercase", whiteSpace:"nowrap" }}>🛒 All {allProducts.length}+ products — cheapest first</div>
+                          <div style={{ flex:1, height:1, background:lightMode?"rgba(0,0,0,.12)":"rgba(255,255,255,.1)" }}/>
+                        </div>
+                      )}
+                      {restVisible.map(p=><ProductCard key={p.id} product={p} onAddToBasket={addToBasket} pinnedStore={pinnedStore} isFavourite={favourites.has(p.id)} onToggleFavourite={toggleFavourite} disabledStores={disabledStores} lightMode={lightMode}/>)}
+                    </>
+                  );
+                })() : filteredProducts.slice(0, visibleCount).map(p=><ProductCard key={p.id} product={p} onAddToBasket={addToBasket} pinnedStore={pinnedStore} isFavourite={favourites.has(p.id)} onToggleFavourite={toggleFavourite} disabledStores={disabledStores} lightMode={lightMode}/>)}
               </div>
             )}
 
