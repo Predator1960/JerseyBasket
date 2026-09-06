@@ -425,7 +425,7 @@ const BASE_PRODUCTS = [
   {id:521,name:"Tinned Tuna (160g)",           cat:"🍝 Pantry",       icon:"🐟", prices:sp(0.80,[0.40,0,0.15,0.65,0])},
   {id:193,name:"Olive Oil Extra Virgin (500ml)",cat:"🍝 Pantry",      icon:"🫒", prices:sp(3.40,[3.35,4.00,3.85,2.40,0,3.60])},
   {id:194,name:"Sunflower Oil (1L)",           cat:"🍝 Pantry",       icon:"🌻", prices:sp(2.45,[0.10,2.15,0,0.34,1.60,0.54])},
-  {id:195,name:"Vegetable Oil (1L)",           cat:"🍝 Pantry",       icon:"🌻", prices:sp(1.90,[2.49,0.16,0.78,0.6,0.08])},
+  {id:195,name:"Vegetable Oil (1L)",           cat:"🍝 Pantry",       icon:"🌻", prices:sp(1.90,[0.65,0.16,0.78,0.6,0.08])},
   {id:196,name:"Basmati Rice (1kg)",           cat:"🍝 Pantry",       icon:"🍚", prices:sp(0.87,[0.93,0.08,0.83,0,0.93])},
   {id:197,name:"Long Grain Rice (1kg)",        cat:"🍝 Pantry",       icon:"🍚", prices:sp(1.60,[0,0.14,0.65,0.48,0.07])},
   {id:198,name:"Microwave Rice (3pk)",         cat:"🍝 Pantry",       icon:"🍚", prices:sp(2.40,[0,0.22,0.88,0.68,0.11])},
