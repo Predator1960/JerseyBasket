@@ -8364,6 +8364,42 @@ const BASE_PRODUCTS = [
   {id:8155, name:"The Daily Bakery 4 Millionaire Handmade Slices", cat:"🍞 Bread & Bakery", icon:"🍰", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:2.00,alliance:0}, upd:"6 Sep"},
   {id:8156, name:"The Daily Bakery 12 Choc Chip Muffins 340g", cat:"🍞 Bread & Bakery", icon:"🧁", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:2.35,alliance:0}, upd:"6 Sep"},
 ];/* ═══════════════════════════════════════════════════════════════════════════
+   WEEKLY ESSENTIALS — a relatable 25-item "typical weekly shop" basket, used
+   as the default landing sort so new visitors see a real comparison (milk,
+   bread, chicken, etc.) instead of "Cheapest First" surfacing an oddball
+   16p item as the very first thing they see. All 25 are original seed
+   products with genuine prices at all 6 stores, so every comparison here
+   is real and meaningful. Added 6 Sep 2026.
+═══════════════════════════════════════════════════════════════════════════ */
+const ESSENTIALS_IDS = new Set([
+  1,    // Full Fat Milk (2L)
+  8,    // Free Range Eggs (6pk)
+  16,   // Butter Salted (250g)
+  10,   // Cheddar Mature (400g)
+  19,   // Greek Yoghurt (500g)
+  29,   // White Sliced Bread 800g
+  48,   // Chicken Breast (500g)
+  52,   // Minced Beef (500g)
+  61,   // Back Bacon (200g)
+  63,   // Sausages Pork (8pk)
+  80,   // Bananas (1kg)
+  105,  // Carrots (1kg)
+  124,  // White Potatoes (2.5kg)
+  112,  // Tomatoes (6pk)
+  180,  // Pasta Penne (500g)
+  196,  // Basmati Rice (1kg)
+  190,  // Tinned Baked Beans (415g)
+  164,  // Tea Bags (80pk)
+  162,  // Instant Coffee (200g)
+  148,  // Orange Juice (1L)
+  201,  // Cornflakes (500g)
+  207,  // Sugar White (1kg)
+  239,  // Crisps Multipack (6pk)
+  244,  // Digestive Biscuits (400g)
+  269,  // Toilet Rolls (9pk)
+]);
+
+/* ═══════════════════════════════════════════════════════════════════════════
    HELPERS
 ═══════════════════════════════════════════════════════════════════════════ */
 // Strips punctuation (brackets, hyphens, etc.) and collapses whitespace so search
@@ -8664,7 +8700,7 @@ export default function JerseyGroceryApp() {
   const [searchQuery, setSearchQuery]       = useState("");
   const [basket, setBasket]                 = useState({});
   const [pinnedStore, setPinnedStore]       = useState(null);
-  const [sortBy, setSortBy]                 = useState("bestPrice");
+  const [sortBy, setSortBy]                 = useState("essentials");
   const [visibleCount, setVisibleCount]     = useState(60);
   const [view, setView]                     = useState("shop");
   const [showEnquiry,    setShowEnquiry]    = useState(false);
@@ -8800,6 +8836,7 @@ export default function JerseyGroceryApp() {
     }
     if(pinnedStore) list = list.filter(p=>p.prices[pinnedStore]>0);
     list = list.filter(p=>STORES.some(s=>!disabledStores.has(s.id) && p.prices[s.id]>0));
+    if(sortBy==="essentials") return list.filter(p=>ESSENTIALS_IDS.has(p.id)).sort((a,b)=>a.cat.localeCompare(b.cat)||a.name.localeCompare(b.name));
     if(sortBy==="bestPrice") return [...list].sort((a,b)=>getBestPrice(a,disabledStores)-getBestPrice(b,disabledStores));
     if(sortBy==="savings")   return [...list].sort((a,b)=>(getWorstPrice(b,disabledStores)-getBestPrice(b,disabledStores))-(getWorstPrice(a,disabledStores)-getBestPrice(a,disabledStores)));
     if(sortBy==="az")        return [...list].sort((a,b)=>a.name.localeCompare(b.name));
@@ -9094,6 +9131,7 @@ export default function JerseyGroceryApp() {
                   <meta name="color-scheme" content="dark"> in public/index.html never reflects the
                   in-app light/dark toggle and would otherwise fight the light-mode popup styling. */}
               <select value={sortBy} onChange={e=>setSortBy(e.target.value)} style={{ padding:"8px 12px",background:lightMode?"#d7dee5":"#0b1526",border:lightMode?"1px solid rgba(0,0,0,.2)":"1px solid rgba(255,255,255,.10)",borderRadius:9,color:lightMode?"#0f172a":"#fff",fontSize:11,cursor:"pointer",outline:"none",colorScheme:lightMode?"light":"dark" }}>
+                <option value="essentials" style={{ background:lightMode?"#d7dee5":"#0b1526",color:lightMode?"#0f172a":"#fff" }}>🛒 Weekly Essentials</option>
                 <option value="bestPrice" style={{ background:lightMode?"#d7dee5":"#0b1526",color:lightMode?"#0f172a":"#fff" }}>Sort: Cheapest First</option>
                 <option value="savings" style={{ background:lightMode?"#d7dee5":"#0b1526",color:lightMode?"#0f172a":"#fff" }}>Sort: Biggest Saving</option>
                 <option value="az" style={{ background:lightMode?"#d7dee5":"#0b1526",color:lightMode?"#0f172a":"#fff" }}>Sort: A–Z</option>
