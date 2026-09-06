@@ -9194,11 +9194,17 @@ export default function JerseyGroceryApp() {
               ))}
             </div>
 
-            <div style={{ fontSize:10.5,fontWeight:700,color:lightMode?"#0f172a":"#ffffff",marginBottom:10 }}>
-              {filteredProducts.length} product{filteredProducts.length!==1?"s":""}
-              {searchQuery&&` · "${searchQuery}"`}
-              {activeCategory!=="All"&&` · ${activeCategory.replace(/^[^\s]+\s/,"")}`}
-            </div>
+            {sortBy==="essentials" && !searchQuery && activeCategory==="All" ? (
+              <div style={{ fontSize:16,fontWeight:800,color:"#4ade80",letterSpacing:".04em",marginBottom:10 }}>
+                FIRST 25 ITEMS — FAMILY WEEKLY ESSENTIALS
+              </div>
+            ) : (
+              <div style={{ fontSize:10.5,fontWeight:700,color:lightMode?"#0f172a":"#ffffff",marginBottom:10 }}>
+                {filteredProducts.length} product{filteredProducts.length!==1?"s":""}
+                {searchQuery&&` · "${searchQuery}"`}
+                {activeCategory!=="All"&&` · ${activeCategory.replace(/^[^\s]+\s/,"")}`}
+              </div>
+            )}
 
             {/* active store banner */}
             {pinnedStore && (() => {
