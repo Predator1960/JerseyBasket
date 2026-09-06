@@ -8396,7 +8396,7 @@ const ESSENTIALS_IDS = new Set([
   207,  // Sugar White (1kg)
   239,  // Crisps Multipack (6pk)
   244,  // Digestive Biscuits (400g)
-  269,  // Toilet Rolls (9pk)
+  491,  // Toilet Rolls (4pk) — cheapest variant (was 9pk id:269 @ £4.40; 4pk is £1.55 at Iceland)
 ]);
 
 /* ═══════════════════════════════════════════════════════════════════════════
