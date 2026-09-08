@@ -11234,7 +11234,7 @@ function SubmitPriceModal({ onClose, lightMode=false }) {
   };
 
   const handleSubmit = async () => {
-    if (!form.name.trim() || (!form.mobile.trim() && !form.email.trim())) return;
+    if (!photo) return;
     setStatus("sending");
     try {
       // Goes to a small Google Apps Script Web App (not Formspree — its free
@@ -11260,7 +11260,7 @@ function SubmitPriceModal({ onClose, lightMode=false }) {
     } catch { setStatus("error"); }
   };
 
-  const required = !form.name.trim() || (!form.mobile.trim() && !form.email.trim());
+  const required = !photo;
 
   return (
     <div style={{ position:"fixed",inset:0,zIndex:600,display:"flex",alignItems:"flex-end",justifyContent:"center",paddingTop:60,background:"rgba(0,0,0,.8)",backdropFilter:"blur(8px)" }}
@@ -11272,7 +11272,7 @@ function SubmitPriceModal({ onClose, lightMode=false }) {
             <div style={{ fontSize:48,marginBottom:14 }}>🏆</div>
             <div style={{ fontSize:18,fontWeight:700,color:"#fb923c",marginBottom:8 }}>Receipt submitted!</div>
             <div style={{ fontSize:12,color:lightMode?"#475569":"#94a3b8",lineHeight:1.8,marginBottom:24 }}>
-              Thanks {form.name.split(" ")[0]}! We'll verify your receipt and add<br/>
+              {form.name.trim() ? `Thanks ${form.name.trim().split(" ")[0]}! ` : "Thanks! "}We'll verify your receipt and add<br/>
               the prices to JerseyBasket within 24 hours.<br/>
               Thanks for helping keep it accurate! 🙌
             </div>
@@ -11296,7 +11296,7 @@ function SubmitPriceModal({ onClose, lightMode=false }) {
 
               {/* name */}
               <div style={{ marginBottom:12 }}>
-                <div style={{ fontSize:10,color:lightMode?"#7c2d12":"#9a3412",fontWeight:700,letterSpacing:".5px",marginBottom:6 }}>YOUR NAME <span style={{ color:"#f43f5e" }}>*</span></div>
+                <div style={{ fontSize:10,color:lightMode?"#7c2d12":"#9a3412",fontWeight:700,letterSpacing:".5px",marginBottom:6 }}>YOUR NAME <span style={{ color:lightMode?"#64748b":"#94a3b8",fontWeight:400 }}>(optional)</span></div>
                 <input value={form.name} onChange={e=>setForm(p=>({...p,name:e.target.value}))} placeholder="First name, nickname or alias e.g. IslandShopper"
                   style={{ width:"100%",padding:"9px 12px",background:lightMode?"rgba(0,0,0,.05)":"rgba(255,255,255,.07)",border:lightMode?"1px solid rgba(0,0,0,.15)":"1px solid rgba(255,255,255,.11)",borderRadius:9,color:lightMode?"#0f172a":"#fff",fontSize:12,outline:"none",boxSizing:"border-box",fontFamily:"inherit" }} />
                 <div style={{ fontSize:10,color:lightMode?"#475569":"#94a3b8",marginTop:4 }}>Any name or alias is fine — never shared or shown publicly</div>
@@ -11304,14 +11304,14 @@ function SubmitPriceModal({ onClose, lightMode=false }) {
 
               {/* mobile */}
               <div style={{ marginBottom:12 }}>
-                <div style={{ fontSize:10,color:lightMode?"#7c2d12":"#9a3412",fontWeight:700,letterSpacing:".5px",marginBottom:6 }}>MOBILE NUMBER <span style={{ color:lightMode?"#64748b":"#94a3b8",fontWeight:400 }}>(optional if email provided)</span></div>
+                <div style={{ fontSize:10,color:lightMode?"#7c2d12":"#9a3412",fontWeight:700,letterSpacing:".5px",marginBottom:6 }}>MOBILE NUMBER <span style={{ color:lightMode?"#64748b":"#94a3b8",fontWeight:400 }}>(optional)</span></div>
                 <input value={form.mobile} onChange={e=>setForm(p=>({...p,mobile:e.target.value}))} placeholder="e.g. 07797 123456"
                   style={{ width:"100%",padding:"9px 12px",background:lightMode?"rgba(0,0,0,.05)":"rgba(255,255,255,.07)",border:lightMode?"1px solid rgba(0,0,0,.15)":"1px solid rgba(255,255,255,.11)",borderRadius:9,color:lightMode?"#0f172a":"#fff",fontSize:12,outline:"none",boxSizing:"border-box",fontFamily:"inherit" }} />
               </div>
 
               {/* email */}
               <div style={{ marginBottom:16 }}>
-                <div style={{ fontSize:10,color:lightMode?"#7c2d12":"#9a3412",fontWeight:700,letterSpacing:".5px",marginBottom:6 }}>EMAIL ADDRESS <span style={{ color:lightMode?"#64748b":"#94a3b8",fontWeight:400 }}>(optional if mobile provided)</span></div>
+                <div style={{ fontSize:10,color:lightMode?"#7c2d12":"#9a3412",fontWeight:700,letterSpacing:".5px",marginBottom:6 }}>EMAIL ADDRESS <span style={{ color:lightMode?"#64748b":"#94a3b8",fontWeight:400 }}>(optional)</span></div>
                 <input value={form.email} onChange={e=>setForm(p=>({...p,email:e.target.value}))} placeholder="e.g. yourname@email.com"
                   style={{ width:"100%",padding:"9px 12px",background:lightMode?"rgba(0,0,0,.05)":"rgba(255,255,255,.07)",border:lightMode?"1px solid rgba(0,0,0,.15)":"1px solid rgba(255,255,255,.11)",borderRadius:9,color:lightMode?"#0f172a":"#fff",fontSize:12,outline:"none",boxSizing:"border-box",fontFamily:"inherit" }} />
                 <div style={{ fontSize:10,color:lightMode?"#475569":"#94a3b8",marginTop:4 }}>Never shared or sold — only used if we need to check something with you</div>
