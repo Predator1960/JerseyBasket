@@ -8980,7 +8980,7 @@ export default function JerseyGroceryApp() {
           its own pane instead of the document, so the footer/banner below can be a
           normal flex child (always exactly at the bottom of the 100dvh column) rather
           than position:fixed ── */}
-      <div style={{ flex:1, minHeight:0, overflowY:"auto", WebkitOverflowScrolling:"touch" }}>
+      <div style={{ flex:1, minHeight:0, overflowY:"auto", overflowX:"hidden", WebkitOverflowScrolling:"touch", touchAction:"pan-y", overscrollBehaviorX:"none" }}>
 
       {/* ══ HEADER ══ */}
       <header style={{ position:"sticky",top:0,zIndex:100, background: lightMode ? "rgba(210,218,226,.97)" : "rgba(5,13,26,.96)", backdropFilter:"blur(20px)", borderBottom: lightMode ? "1px solid rgba(0,0,0,.12)" : "1px solid rgba(255,255,255,.07)", padding:"0 12px",paddingTop:"env(safe-area-inset-top,0px)" }}>
