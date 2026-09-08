@@ -8679,6 +8679,16 @@ function ProductCard({ product, onAddToBasket, pinnedStore, isFavourite, onToggl
 // ── Formspree form ID ───────────────────────────────────────────────────────
 const FORMSPREE_ID = "mvzyrgqj";
 
+// ── Receipt photos go straight to a Google Drive folder via a small Apps
+// Script Web App (Formspree's free tier doesn't allow file attachments).
+// SHARED_SECRET is only a light deterrent, not real security — this is a
+// client-side app, so anything here is visible in the shipped JS bundle to
+// anyone who looks. It stops casual discovery/abuse of the endpoint, not a
+// determined one. See RECEIPT_WEBAPP_URL's own Apps Script for the other
+// half of this check. ──────────────────────────────────────────────────────
+const RECEIPT_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbwf8Jwd-dnlmf29O4LLgkCKjd1xz0LVNMXoDsVLRdjMH2hIViFIDJ4IGwtEg-WXzogo/exec";
+const RECEIPT_SHARED_SECRET = "2bf2c87b3d5bd1bd57bcc8dee5818ab8f75f238d509471b1";
+
 /* ═══════════════════════════════════════════════════════════════════════════
    JUNE COMPETITION — CLOSED. Kept below (COMP_WINNER/LEADERBOARD) for the
    historical record — no longer shown anywhere in the app.
@@ -11197,15 +11207,29 @@ function CompetitionModal({ onClose, onSubmit, lightMode=false }) {
 ═══════════════════════════════════════════════════════════════════════════ */
 function SubmitPriceModal({ onClose, lightMode=false }) {
   const [form,   setForm]   = useState({ name:"", mobile:"", email:"" });
-  const [photo,  setPhoto]  = useState(null);  // { name, dataUrl }
+  const [photo,  setPhoto]  = useState(null);  // { name, mimeType, base64 }
   const [status, setStatus] = useState("idle");
+  const [photoError, setPhotoError] = useState("");
   const fileRef = useRef(null);
+
+  const MAX_PHOTO_BYTES = 8 * 1024 * 1024; // 8MB — comfortably covers a phone photo
 
   const handlePhoto = (e) => {
     const file = e.target.files[0];
     if (!file) return;
+    if (file.size > MAX_PHOTO_BYTES) {
+      setPhotoError("That photo's a bit large — please choose one under 8MB.");
+      setPhoto(null);
+      return;
+    }
+    setPhotoError("");
     const reader = new FileReader();
-    reader.onload = (ev) => setPhoto({ name: file.name, dataUrl: ev.target.result });
+    reader.onload = (ev) => {
+      const dataUrl = ev.target.result || "";
+      const base64 = dataUrl.split(",")[1] || "";
+      setPhoto({ name: file.name, mimeType: file.type || "image/jpeg", base64 });
+    };
+    reader.onerror = () => setPhotoError("Couldn't read that photo — please try again.");
     reader.readAsDataURL(file);
   };
 
@@ -11213,19 +11237,25 @@ function SubmitPriceModal({ onClose, lightMode=false }) {
     if (!form.name.trim() || (!form.mobile.trim() && !form.email.trim())) return;
     setStatus("sending");
     try {
-      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+      // Goes to a small Google Apps Script Web App (not Formspree — its free
+      // tier doesn't allow file attachments), which saves the photo straight
+      // into a Drive folder. text/plain avoids a CORS preflight the Apps
+      // Script endpoint doesn't handle.
+      const res = await fetch(RECEIPT_WEBAPP_URL, {
         method: "POST",
-        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
         body: JSON.stringify({
-          _subject: `📸 Receipt Submission — ${form.name}`,
-          name:    form.name,
-          mobile:  form.mobile,
-          email:   form.email,
-          receipt: photo ? photo.name : "No photo attached",
-          message: `RECEIPT SUBMISSION\n\nName: ${form.name}\nMobile: ${form.mobile}\nEmail: ${form.email}\nReceipt: ${photo ? photo.name : "No photo attached"}`,
+          secret:        RECEIPT_SHARED_SECRET,
+          name:          form.name,
+          mobile:        form.mobile,
+          email:         form.email,
+          photoName:     photo ? photo.name : "",
+          photoMimeType: photo ? photo.mimeType : "",
+          photoBase64:   photo ? photo.base64 : "",
         })
       });
-      if (res.ok) { setStatus("sent"); }
+      const json = await res.json().catch(() => null);
+      if (res.ok && json && json.ok) { setStatus("sent"); }
       else { setStatus("error"); }
     } catch { setStatus("error"); }
   };
@@ -11304,6 +11334,7 @@ function SubmitPriceModal({ onClose, lightMode=false }) {
                 <div style={{ fontSize:10,color:lightMode?"#475569":"#94a3b8",marginTop:6,lineHeight:1.6 }}>
                   Make sure the store name, date and prices are clearly visible on the receipt.
                 </div>
+                {photoError && <div style={{ fontSize:11,color:"#fca5a5",marginTop:6 }}>{photoError}</div>}
               </div>
 
               {status==="error" && <div style={{ background:"rgba(239,68,68,.1)",border:"1px solid rgba(239,68,68,.28)",borderRadius:8,padding:"7px 12px",fontSize:11,color:"#fca5a5",marginBottom:12 }}>Something went wrong. Please email hello@jerseybasket.je</div>}
