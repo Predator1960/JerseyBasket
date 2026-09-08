@@ -2,7 +2,7 @@ node_modules/
 build/
 build/
 
-.vercel/output
+.vercel/
 build
 service-worker.js
 
@@ -11,7 +11,7 @@ JerseyBasket.je*
 
 install_*.py
 JerseyBasket.je — Promotional Video Guide/
-.vercel/output
+.vercel/
 
 # Countdown/marketing graphics generated for social posts
 *DAY LEFT*
