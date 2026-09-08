@@ -9201,7 +9201,7 @@ export default function JerseyGroceryApp() {
             </div>
 
             {/* category pills */}
-            <div style={{ display:"flex",gap:5,overflowX:"auto",paddingBottom:9,marginBottom:7 }}>
+            <div style={{ display:"flex",gap:5,overflowX:"auto",paddingBottom:9,marginBottom:7,touchAction:"pan-x" }}>
               {CATS.filter(c=>catCounts[c]).map(cat=>(
                 <button key={cat} onClick={()=>setActiveCategory(cat)} style={{
                   WebkitAppearance:"none",appearance:"none",
@@ -9355,7 +9355,7 @@ export default function JerseyGroceryApp() {
                 </div>
 
                 {/* store totals strip */}
-                <div style={{ display:"flex",gap:7,overflowX:"auto",paddingBottom:11,marginBottom:13 }}>
+                <div style={{ display:"flex",gap:7,overflowX:"auto",paddingBottom:11,marginBottom:13,touchAction:"pan-x" }}>
                   {storeBasketTotals.map(({store,total},i)=>(
                     <div key={store.id} style={{ flex:"0 0 auto",background:i===0?"rgba(34,197,94,.11)":lightMode?"rgba(0,0,0,.04)":"rgba(255,255,255,.04)", border:i===0?"1px solid rgba(34,197,94,.28)":lightMode?"1px solid rgba(0,0,0,.08)":"1px solid rgba(255,255,255,.07)", borderRadius:11,padding:"8px 12px",minWidth:95,textAlign:"center" }}>
                       {i===0&&<div style={{ fontSize:7.5,color:"#22c55e",fontWeight:700,marginBottom:2 }}>CHEAPEST</div>}
@@ -11657,7 +11657,7 @@ function AdBanner({ onEnquiry, externalPause }) {
         paddingBottom:"env(safe-area-inset-bottom,0px)",
         paddingLeft:"env(safe-area-inset-left,0px)",
         paddingRight:"env(safe-area-inset-right,0px)",
-        overflow:"hidden",
+        overflow:"hidden", touchAction:"pan-x",
         boxShadow:"0 -2px 16px rgba(0,0,0,0.35)",
         borderTop:"1px solid rgba(255,255,255,0.06)",
         cursor:"pointer",
@@ -11968,7 +11968,7 @@ function BasketItem({ item, overPay, onRemove, onAdd, onDelete, lightMode=false 
         style={{
           display:"flex", alignItems:"center", justifyContent:"space-between",
           background: ticked ? (lightMode?"#dcfce7":"#0d2818") : (lightMode?"#f8fafc":"#0f172a"),
-          borderRadius:12, padding:"9px 13px",
+          borderRadius:12, padding:"9px 13px", touchAction:"pan-x",
           border: ticked ? "1px solid rgba(34,197,94,.2)" : lightMode?"1px solid rgba(0,0,0,.1)":"1px solid rgba(255,255,255,.07)",
           transform:`translateX(${swipeX}px)`,
           transition: swiping ? "none" : "transform .3s ease, background .2s, border .2s, opacity .3s",
