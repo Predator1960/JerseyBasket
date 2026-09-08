@@ -4,6 +4,35 @@ import App from './App';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<App />);
 
+// ── Block iOS Safari's native horizontal "rubber-band" swipe/bounce at the
+// document level. CSS alone (overscroll-behavior-x / touch-action on
+// html/body — see public/index.html) isn't reliably honoured by every iOS
+// Safari version for this, so this is the belt-and-braces JS fallback:
+// track each touch's start point, and on the first clearly-horizontal move
+// (|dx| > |dy|) call preventDefault() to stop the native pan/bounce dead.
+// Skipped entirely for touches that start inside an element carrying
+// data-allow-hswipe="true" (category/store scroll strips, the ad banner's
+// swipe-between-slides, basket swipe-to-delete) so those keep working. ──
+(() => {
+  let startX = 0, startY = 0, blocking = false, decided = false;
+  document.addEventListener('touchstart', (e) => {
+    if (e.touches.length !== 1) return;
+    startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
+    decided = false;
+    blocking = !e.target.closest('[data-allow-hswipe]');
+  }, { passive: true });
+
+  document.addEventListener('touchmove', (e) => {
+    if (!blocking || decided || e.touches.length !== 1) return;
+    const dx = e.touches[0].clientX - startX;
+    const dy = e.touches[0].clientY - startY;
+    if (Math.abs(dx) < 5 && Math.abs(dy) < 5) return; // too small to tell yet
+    decided = true;
+    if (Math.abs(dx) > Math.abs(dy)) e.preventDefault();
+  }, { passive: false });
+})();
+
 // ── Service worker: caches the app shell for fast/offline loads and tells
 // App.jsx when a new deployment is ready, so it can prompt the user to
 // refresh instead of silently staying on stale content — this matters most
