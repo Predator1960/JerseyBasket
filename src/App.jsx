@@ -160,6 +160,15 @@
  *            since that competition is over but the submission flow itself
  *            still works fine. NOTE: Tips is still unreachable — this banner
  *            slot remains its only entry point, now repurposed again.
+ *
+ *            REMOVE COMPETITION (8 Sep): the June Price Hunt competition was
+ *            long over and had already been unreachable in practice (nothing
+ *            ever set showCompetition true, and no onboarding slide still had
+ *            competition:true) — but the dead code was still sitting in the
+ *            file: the whole CompetitionModal component, its state and modal
+ *            render, the unused leaderboard block + button branch inside
+ *            WelcomeModal, and the COMP_WINNER/LEADERBOARD constants
+ *            (including placeholder-looking fake entrant names). All removed.
  */
 import React, { useState, useMemo, useRef, useEffect, useCallback } from "react";
 
@@ -8690,29 +8699,14 @@ const RECEIPT_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbwf8Jwd-dnlm
 const RECEIPT_SHARED_SECRET = "2bf2c87b3d5bd1bd57bcc8dee5818ab8f75f238d509471b1";
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   JUNE COMPETITION — CLOSED. Kept below (COMP_WINNER/LEADERBOARD) for the
-   historical record — no longer shown anywhere in the app.
    HOME SCREEN TEASER — currently promoting the August free-advertising
    campaign. Set TEASER_ACTIVE to false to hide the banner entirely once
    the campaign ends or the next thing is ready to announce.
 ═══════════════════════════════════════════════════════════════════════════ */
 const TEASER_ACTIVE = true;
-const COMP_WINNER = ""; // e.g. "Sarah M" — leave blank while competition is live
 
 /* ─── MAINTENANCE MODE — set to true to show "back shortly" screen ─── */
 const MAINTENANCE = false;
-const LEADERBOARD = [
-  // ── TOP 10 — update these entries with real submissions ─────────────────
-  { name: "Jason S",       store: "Iceland",   count: 117, date: "29 Jun" },
-  { name: "Kate",          store: "Waitrose",  count: 93, date: "27 Jun" },
-  { name: "Leticia",       store: "CI Co-op",  count: 85, date: "26 Jun" },
-  { name: "Carmen1971",    store: "CI Co-op",  count: 34, date: "23 Jun" },
-  { name: "19Margaret37",  store: "CI Co-op",  count: 14, date: "13 Jun" },
-  { name: "Nicole1",       store: "Waitrose",  count: 12, date: "11 Jun" },
-  { name: "Sharon",        store: "Morrisons", count: 9,  date: "07 Jun" },
-  { name: "dreamer1977",   store: "CI Co-op",  count: 9,  date: "06 Jun" },
-  // ── Remove the // at the start of each line above to activate ────────────
-];
 
 /* ═══════════════════════════════════════════════════════════════════════════
    MAIN APP
@@ -8734,7 +8728,6 @@ export default function JerseyGroceryApp() {
   const [showReport,     setShowReport]     = useState(false);
   const [showSettings,   setShowSettings]   = useState(false);
   const [disabledStores, setDisabledStores] = useState(new Set());
-  const [showCompetition,  setShowCompetition]  = useState(false);
   const [showSubmitPrice,  setShowSubmitPrice]  = useState(false);
 
   // The search input lives inside a nested overflow:auto scroll pane (not
@@ -9840,7 +9833,7 @@ export default function JerseyGroceryApp() {
       )}
 
       {/* ── WELCOME SCREEN — first visit only ── */}
-      {showWelcome && <WelcomeModal onDismiss={dismissWelcome} onSubmitPrice={()=>setShowSubmitPrice(true)} lightMode={lightMode} />}
+      {showWelcome && <WelcomeModal onDismiss={dismissWelcome} lightMode={lightMode} />}
 
       {/* ── PWA REFRESH NOTICE — one-time, standalone-only ── */}
       {showPwaRefreshNotice && <PwaRefreshNotice onClose={dismissPwaRefreshNotice} lightMode={lightMode} />}
@@ -9866,9 +9859,6 @@ export default function JerseyGroceryApp() {
 
       {/* ── SETTINGS MODAL ── */}
       {showSettings && <SettingsModal disabledStores={disabledStores} onToggleStore={toggleStore} onClose={()=>setShowSettings(false)} lightMode={lightMode} />}
-
-      {/* ── COMPETITION MODAL ── */}
-      {showCompetition && <CompetitionModal onClose={()=>setShowCompetition(false)} onSubmit={()=>{setShowCompetition(false);setShowSubmitPrice(true);}} lightMode={lightMode} />}
 
       {/* ── SUBMIT PRICE MODAL ── */}
       {showSubmitPrice && <SubmitPriceModal onClose={()=>setShowSubmitPrice(false)} lightMode={lightMode} />}
@@ -10187,7 +10177,7 @@ function InstallSteps({ accent = "#22c55e", compact = false }) {
 /* ═══════════════════════════════════════════════════════════════════════════
    WELCOME SCREEN — shown once to first-time visitors
 ═══════════════════════════════════════════════════════════════════════════ */
-function WelcomeModal({ onDismiss, onSubmitPrice, lightMode=false }) {
+function WelcomeModal({ onDismiss, lightMode=false }) {
   const [step, setStep] = useState(0);
   const [surveyAnswers, setSurveyAnswers] = useState({ q1: "", q2: "", q3: "", q4: "", q5: "" });
   const [surveySubmitted, setSurveySubmitted] = useState(false);
@@ -10341,42 +10331,6 @@ function WelcomeModal({ onDismiss, onSubmitPrice, lightMode=false }) {
           {/* install steps — only on install slide */}
           {s.installSteps && <InstallSteps accent={s.accent} />}
 
-          {/* competition leaderboard — only on competition slide */}
-          {s.competition && (
-            <div style={{ width:"100%",marginTop:16 }}>
-              {COMP_WINNER && (
-                <div style={{ background:"rgba(251,146,60,.2)",border:"1px solid rgba(251,146,60,.4)",borderRadius:10,padding:"10px 14px",marginBottom:12,textAlign:"center" }}>
-                  <div style={{ fontSize:11,color:"#fed7aa",fontWeight:700,letterSpacing:".05em",textTransform:"uppercase" }}>🎉 June Winner</div>
-                  <div style={{ fontSize:18,fontWeight:900,color:"#fff",marginTop:2 }}>{COMP_WINNER}</div>
-                </div>
-              )}
-              {LEADERBOARD.length > 0 ? (
-                <div style={{ background:"rgba(0,0,0,.3)",borderRadius:10,overflow:"hidden" }}>
-                  <div style={{ padding:"8px 14px",fontSize:10,fontWeight:700,color:"#9a3412",letterSpacing:".08em",textTransform:"uppercase",borderBottom:"1px solid rgba(255,255,255,.07)" }}>
-                    🏆 Top Shoppers — June 2026
-                  </div>
-                  <div style={{ maxHeight:280,overflowY:"auto" }}>
-                  {[...LEADERBOARD].sort((a,b)=>b.count-a.count).slice(0,10).map((entry,i)=>(
-                    <div key={i} style={{ display:"flex",alignItems:"center",gap:10,padding:"8px 14px",borderBottom:i<Math.min(LEADERBOARD.length,10)-1?"1px solid rgba(255,255,255,.05)":"none",background:i===0?"rgba(251,146,60,.1)":"transparent" }}>
-                      <div style={{ fontSize:14,width:20,textAlign:"center",flexShrink:0 }}>{["🥇","🥈","🥉","4️⃣","5️⃣","6️⃣","7️⃣","8️⃣","9️⃣","🔟"][i]}</div>
-                      <div style={{ flex:1,fontSize:11,fontWeight:700,color:"#f0f4f8",minWidth:0,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap" }}>{entry.name}</div>
-                      <div style={{ fontSize:10,color:"#94a3b8",flexShrink:0,marginRight:4 }}>{entry.store}</div>
-                      <div style={{ fontSize:11,color:"#fb923c",fontWeight:700,flexShrink:0 }}>{entry.count}</div>
-                    </div>
-                  ))}
-                  </div>
-                </div>
-              ) : (
-                <div style={{ background:"rgba(0,0,0,.3)",borderRadius:10,padding:"16px",textAlign:"center" }}>
-                  <div style={{ fontSize:12,color:"rgba(255,255,255,.5)",lineHeight:1.6 }}>Leaderboard opens 1 June 2026.<br/>Be the first to submit! 🚀</div>
-                </div>
-              )}
-              <div style={{ fontSize:10,color:"rgba(255,255,255,.35)",textAlign:"center",marginTop:10,lineHeight:1.6 }}>
-                Submit prices via receipt photo · 1–30 June midnight · Winner announced 1st July 12:00pm · 🥇£15 🥈£10 🥉£5 gift vouchers
-              </div>
-            </div>
-          )}
-
           {/* survey — only on survey slide */}
           {s.survey && (
             <div style={{ width:"100%",marginTop:8,textAlign:"left" }}>
@@ -10445,10 +10399,10 @@ function WelcomeModal({ onDismiss, onSubmitPrice, lightMode=false }) {
               </button>
             )}
             <button
-              onClick={isLast ? (s.competition ? ()=>{onDismiss();onSubmitPrice&&onSubmitPrice();} : onDismiss) : ()=>setStep(s=>s+1)}
+              onClick={isLast ? onDismiss : ()=>setStep(s=>s+1)}
               style={{ flex:2,padding:"12px",background:`linear-gradient(180deg,${s.accent} 0%,${s.accent}99 100%)`,border:"none",borderRadius:12,color:"#052e16",cursor:"pointer",fontSize:14,fontWeight:700,position:"relative",overflow:"hidden",boxShadow:`0 3px 12px ${s.accent}66, inset 0 1px 0 rgba(255,255,255,.3)` }}>
               <span style={{ position:"absolute",top:0,left:0,right:0,height:"52%",background:"linear-gradient(180deg,rgba(255,255,255,.28) 0%,rgba(255,255,255,.04) 100%)",borderRadius:"12px 12px 0 0",pointerEvents:"none" }}/>
-              {isLast ? (s.competition ? "🏆 Enter Competition →" : "🛒 Start Saving Now →") : "Next →"}
+              {isLast ? "🛒 Start Saving Now →" : "Next →"}
             </button>
           </div>
 
@@ -11087,123 +11041,7 @@ function SettingsModal({ disabledStores, onToggleStore, onClose, lightMode=false
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   COMPETITION MODAL — June Price Hunt leaderboard + info
-═══════════════════════════════════════════════════════════════════════════ */
-function CompetitionModal({ onClose, onSubmit, lightMode=false }) {
-  return (
-    <div style={{ position:"fixed",inset:0,zIndex:500,display:"flex",alignItems:"flex-end",justifyContent:"center",paddingTop:60,background:"rgba(0,0,0,.8)",backdropFilter:"blur(8px)" }}
-      onClick={e=>{ if(e.target===e.currentTarget) onClose(); }}>
-      <div style={{ width:"100%",maxWidth:520,background:lightMode?"rgba(255,252,248,.98)":"#120800",border:lightMode?"1px solid rgba(251,146,60,.35)":"1px solid rgba(251,146,60,.25)",borderRadius:"20px 20px 0 0",maxHeight:"88vh",display:"flex",flexDirection:"column" }}>
-
-        {/* sticky header */}
-        <div style={{ display:"flex",justifyContent:"space-between",alignItems:"center",padding:"18px 20px 14px",borderBottom:"1px solid rgba(251,146,60,.15)",flexShrink:0 }}>
-          <div>
-            <div style={{ fontSize:17,fontWeight:700,color:lightMode?"#7c2d12":"#fed7aa" }}>🏆 June Price Hunt</div>
-            <div style={{ fontSize:11,color:lightMode?"#92400e":"#fb923c",marginTop:2 }}>1st June – 30th June 2026 midnight · Winner announced 1st July 12:00pm</div>
-          </div>
-          <button onClick={onClose} style={{ background:lightMode?"rgba(0,0,0,.07)":"rgba(255,255,255,.07)",border:"none",borderRadius:7,width:32,height:32,color:lightMode?"#475569":"#94a3b8",cursor:"pointer",fontSize:16,flexShrink:0 }}>✕</button>
-        </div>
-
-        {/* scrollable body */}
-        <div style={{ overflowY:"auto",padding:"16px 20px",paddingBottom:"calc(132px + 24px)",flex:1 }}>
-
-        {/* winner banner */}
-        {COMP_WINNER && (
-          <div style={{ background:"linear-gradient(135deg,rgba(251,146,60,.2),rgba(234,88,12,.15))",border:"1px solid rgba(251,146,60,.4)",borderRadius:12,padding:"14px 18px",marginBottom:16,textAlign:"center" }}>
-            <div style={{ fontSize:11,color:"#fed7aa",fontWeight:700,letterSpacing:".08em",textTransform:"uppercase" }}>🎉 June 2026 Winner</div>
-            <div style={{ fontSize:24,fontWeight:900,color:"#fff",margin:"6px 0 2px" }}>{COMP_WINNER}</div>
-            <div style={{ fontSize:11,color:"#fb923c" }}>Congratulations! 🎊</div>
-          </div>
-        )}
-
-        {/* how it works */}
-        <div style={{ background:"rgba(255,255,255,.03)",border:"1px solid rgba(255,255,255,.07)",borderRadius:12,padding:"14px 16px",marginBottom:16 }}>
-          <div style={{ fontSize:10,color:lightMode?"#92400e":"#fb923c",fontWeight:700,letterSpacing:".08em",textTransform:"uppercase",marginBottom:10 }}>HOW IT WORKS</div>
-          {[
-            ["📸","Take a photo of your receipt","From any of Jersey's 6 supermarkets"],
-            ["📤","Submit it via the form below","Include your name and which store"],
-            ["✅","We manually check every receipt","Store name, date & prices must be clearly visible — duplicates rejected"],
-            ["🏆","Top 5 shown on the leaderboard","Updated weekly throughout June"],
-            ["🎁","Win up to £15 in gift vouchers","🥇£15 · 🥈£10 · 🥉£5 — Announced 1st July 2026 at 12:00pm"],
-          ].map(([icon,title,sub],i)=>(
-            <div key={i} style={{ display:"flex",gap:12,marginBottom:i<4?10:0 }}>
-              <span style={{ fontSize:18,flexShrink:0 }}>{icon}</span>
-              <div>
-                <div style={{ fontSize:12,fontWeight:700,color:lightMode?"#1e293b":"#f0f4f8" }}>{title}</div>
-                <div style={{ fontSize:10,color:lightMode?"#64748b":"#94a3b8",marginTop:1 }}>{sub}</div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* rules */}
-        <div style={{ background:lightMode?"rgba(0,0,0,.04)":"rgba(255,255,255,.02)",borderRadius:10,padding:"10px 14px",marginBottom:16,fontSize:10,color:lightMode?"#334155":"#94a3b8",lineHeight:1.8 }}>
-          <div style={{ fontWeight:700,color:lightMode?"#1e293b":"#cbd5e1",marginBottom:4 }}>Rules</div>
-          • Each receipt can only be submitted once<br/>
-          • Receipt must show the store name and date clearly<br/>
-          • All receipts are manually checked before prices are counted<br/>
-          • Only receipts dated within June 2026 are valid<br/>
-          • Prices must be from Jersey stores only<br/>
-          • Only new prices not already in the app count<br/>
-          • Any name or alias shown on leaderboard — your real details are never shared<br/>
-          • Competition closes 30th June 2026 at midnight<br/>
-          • Winner announced 1st July 2026 at 12:00pm<br/>
-          • Winner contacted via the email or phone provided<br/>
-          • £15 prize 1st place, £10 prize 2nd place, £5 prize 3rd place — store of winner's choice<br/>
-          • JerseyBasket decision is final
-        </div>
-
-        {/* leaderboard */}
-        <div style={{ marginBottom:20 }}>
-          <div style={{ fontSize:10,color:lightMode?"#92400e":"#fb923c",fontWeight:700,letterSpacing:".08em",textTransform:"uppercase",marginBottom:10 }}>
-            🏆 TOP SHOPPERS — JUNE 2026
-            {LEADERBOARD.length > 0 && <span style={{ fontWeight:400,color:"#475569",marginLeft:8,textTransform:"none",letterSpacing:0 }}>{LEADERBOARD.length} entr{LEADERBOARD.length===1?"y":"ies"}</span>}
-          </div>
-          {LEADERBOARD.length > 0 ? (
-            <div style={{ display:"flex",flexDirection:"column",gap:5,maxHeight:320,overflowY:"auto",paddingRight:2 }}>
-              {[...LEADERBOARD].sort((a,b)=>b.count-a.count).slice(0,10).map((entry,i)=>{
-                const medal = ["🥇","🥈","🥉"][i];
-                const pos = medal || `${i+1}`;
-                const isTop = i < 3;
-                return (
-                  <div key={i} style={{
-                    display:"flex",alignItems:"center",gap:10,padding:"10px 14px",borderRadius:10,
-                    background:i===0?"rgba(251,146,60,.15)":isTop?"rgba(255,255,255,.06)":"rgba(255,255,255,.03)",
-                    border:`1px solid ${i===0?"rgba(251,146,60,.35)":isTop?"rgba(255,255,255,.1)":"rgba(255,255,255,.05)"}`,
-                  }}>
-                    <div style={{ fontSize:medal?16:12,fontWeight:700,width:24,textAlign:"center",color:i===0?"#fb923c":i===1?"#cbd5e1":i===2?"#f59e0b":"#475569",flexShrink:0 }}>{pos}</div>
-                    <div style={{ flex:1,minWidth:0 }}>
-                      <div style={{ fontSize:12.5,fontWeight:700,color:i===0?lightMode?"#7c2d12":"#ffffff":isTop?lightMode?"#1e293b":"#ffffff":"#94a3b8",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap" }}>{entry.name}</div>
-                      {entry.store && <div style={{ fontSize:9.5,color:"#475569",marginTop:1 }}>{entry.store} · {entry.date}</div>}
-                    </div>
-                    <div style={{ fontSize:12,color:i===0?"#fb923c":isTop?"#fcd34d":"#64748b",fontWeight:700,flexShrink:0 }}>{entry.count} prices</div>
-                  </div>
-                );
-              })}
-            </div>
-          ) : (
-            <div style={{ background:"rgba(255,255,255,.03)",borderRadius:10,padding:"20px",textAlign:"center" }}>
-              <div style={{ fontSize:24,marginBottom:8 }}>🚀</div>
-              <div style={{ fontSize:12,color:"rgba(255,255,255,.4)",lineHeight:1.6 }}>Leaderboard opens 1 June 2026.<br/>Be the first to submit a price!</div>
-            </div>
-          )}
-        </div>
-
-        </div>{/* end scrollable body */}
-
-        <button onClick={onSubmit} style={{ padding:"14px",background:"linear-gradient(180deg,#fb923c 0%,#b45309 100%)",boxShadow:"0 3px 10px rgba(194,65,12,.5),inset 0 1px 0 rgba(255,255,255,.25)",border:"none",borderRadius:12,color:"#fff",cursor:"pointer",fontSize:14,fontWeight:700,margin:"0 20px 10px",width:"calc(100% - 40px)" }}>
-          📸 Submit a Price Now →
-        </button>
-        <button onClick={onClose} style={{ width:"calc(100% - 40px)",margin:"0 20px 20px",padding:"12px",background:"rgba(255,255,255,.06)",border:"1px solid rgba(255,255,255,.1)",borderRadius:12,color:"#94a3b8",cursor:"pointer",fontSize:13,fontWeight:600 }}>
-          Back to App
-        </button>
-      </div>
-    </div>
-  );
-}
-
-/* ═══════════════════════════════════════════════════════════════════════════
-   SUBMIT PRICE MODAL — competition price submission via Formspree
+   SUBMIT PRICE MODAL — receipt-photo price submission
 ═══════════════════════════════════════════════════════════════════════════ */
 function SubmitPriceModal({ onClose, lightMode=false }) {
   const [form,   setForm]   = useState({ name:"", mobile:"", email:"" });
