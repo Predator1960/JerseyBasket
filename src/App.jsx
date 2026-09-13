@@ -9472,7 +9472,10 @@ export default function JerseyGroceryApp() {
                                 <span style={{ fontSize:15,flexShrink:0 }}>{"🏬".repeat(n)}</span>
                                 <div style={{ minWidth:0 }}>
                                   <div style={{ fontSize:12.5,fontWeight:700,color:lightMode?"#0f172a":"#f0f4f8" }}>{n} store{n>1?"s":""}{isBest?" 🏆":""}</div>
-                                  <div style={{ fontSize:9.5,color:lightMode?"#64748b":"#94a3b8",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap" }}>{data.byStore.map(b=>b.store.short).join(" + ")}</div>
+                                  <div style={{ fontSize:9.5,color:lightMode?"#64748b":"#94a3b8",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap" }}>
+                                    {data.byStore.map(b=>b.store.short).join(" + ")}
+                                    {data.uncovered.length>0 && <span style={{ color:"#f87171",fontWeight:700 }}> · ⚠️ {data.uncovered.length} not available here</span>}
+                                  </div>
                                 </div>
                               </div>
                               <div style={{ display:"flex",alignItems:"center",gap:8,flexShrink:0 }}>
