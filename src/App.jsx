@@ -11973,8 +11973,8 @@ function BasketItem({ item, overPay, onRemove, onAdd, onDelete, lightMode=false 
           title={ticked ? "Mark as not collected" : "Mark as collected"}
           style={{
             flexShrink:0, width:24, height:24, borderRadius:6,
-            background: ticked ? "#16a34a" : "rgba(255,255,255,.08)",
-            border: ticked ? "none" : "1px solid rgba(255,255,255,.15)",
+            background: ticked ? "#16a34a" : lightMode?"rgba(0,0,0,.04)":"rgba(255,255,255,.08)",
+            border: ticked ? "none" : lightMode?"1.5px solid rgba(0,0,0,.28)":"1px solid rgba(255,255,255,.15)",
             color:"white", cursor:"pointer", fontSize:12, fontWeight:700,
             display:"flex", alignItems:"center", justifyContent:"center",
             marginRight:8, transition:"all .2s",
