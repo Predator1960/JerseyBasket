@@ -9436,7 +9436,7 @@ export default function JerseyGroceryApp() {
               <div>
                 {/* smart tip */}
                 <div style={{ background:lightMode?"linear-gradient(135deg,rgba(34,197,94,.15),rgba(21,128,61,.08))":"linear-gradient(135deg,rgba(34,197,94,.12),rgba(21,128,61,.07))",border:"1px solid rgba(34,197,94,.24)",borderRadius:12,padding:13,marginBottom:14 }}>
-                  <div style={{ fontSize:10.5,color:"#86efac",fontWeight:700,marginBottom:3 }}>💡 SMART TIP</div>
+                  <div style={{ fontSize:10.5,color:lightMode?"#14532d":"#86efac",fontWeight:700,marginBottom:3 }}>💡 SMART TIP</div>
                   <div style={{ fontSize:11.5,color:lightMode?"#14532d":"#d1fae5",lineHeight:1.65 }}>
                     {fullCoverageTotals.length>0 ? (
                       <>Buying everything from <strong>{fullCoverageTotals[0].store.name}</strong> costs <strong style={{ color:"#22c55e" }}>£{fullCoverageTotals[0].total.toFixed(2)}</strong>
@@ -9449,17 +9449,18 @@ export default function JerseyGroceryApp() {
 
                 {/* store totals strip */}
                 <div data-allow-hswipe="true" style={{ display:"flex",gap:7,overflowX:"auto",paddingBottom:11,marginBottom:13,touchAction:"pan-x" }}>
-                  {storeBasketTotals.map(({store,total,fullyCovers,missing},i)=>{
+                  {storeBasketTotals.map(({store,total,fullyCovers,missing,covered},i)=>{
                     const isCheapest = fullyCovers && i===0;
                     const isPriciest = fullyCovers && fullCoverageTotals.length>1 && i===fullCoverageTotals.length-1;
                     return (
                       <div key={store.id} style={{ flex:"0 0 auto",opacity:fullyCovers?1:0.6,background:isCheapest?"rgba(34,197,94,.11)":lightMode?"rgba(0,0,0,.04)":"rgba(255,255,255,.04)", border:isCheapest?"1px solid rgba(34,197,94,.28)":lightMode?"1px solid rgba(0,0,0,.08)":"1px solid rgba(255,255,255,.07)", borderRadius:11,padding:"8px 12px",minWidth:95,textAlign:"center" }}>
                         {isCheapest&&<div style={{ fontSize:7.5,color:"#22c55e",fontWeight:700,marginBottom:2 }}>CHEAPEST</div>}
                         {isPriciest&&<div style={{ fontSize:7.5,color:"#f87171",fontWeight:700,marginBottom:2 }}>PRICIEST</div>}
-                        {!fullyCovers&&<div style={{ fontSize:7.5,color:"#f87171",fontWeight:700,marginBottom:2 }}>⚠️ MISSING {missing}</div>}
+                        {!fullyCovers&&<div style={{ fontSize:7.5,color:"#f87171",fontWeight:700,marginBottom:2 }}>⚠️ ONLY {covered}/{basketItems.length}</div>}
                         <div style={{ fontSize:15 }}>{store.emoji}</div>
                         <div style={{ fontSize:9.5,fontWeight:600,color:isCheapest?"#22c55e":lightMode?"#475569":"#94a3b8",marginTop:2 }}>{store.short}</div>
                         <div style={{ fontSize:15,fontWeight:700,color:isCheapest?"#22c55e":isPriciest?"#f87171":lightMode?"#0f172a":"#f0f4f8",marginTop:3 }}>£{total.toFixed(2)}</div>
+                        {!fullyCovers&&<div style={{ fontSize:7,color:"#f87171",marginTop:1 }}>for {covered} item{covered!==1?"s":""} only</div>}
                       </div>
                     );
                   })}
