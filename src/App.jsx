@@ -8772,6 +8772,12 @@ export default function JerseyGroceryApp() {
   const [activeCategory, setActiveCategory] = useState("All");
   const [searchQuery, setSearchQuery]       = useState("");
   const [basket, setBasket]                 = useState({});
+  const [collectedItems, setCollectedItems] = useState(new Set()); // basket item keys ticked "collected"
+  const toggleCollected = useCallback(key=>setCollectedItems(prev=>{
+    const n = new Set(prev);
+    n.has(key) ? n.delete(key) : n.add(key);
+    return n;
+  }), []);
   const [expandedSplit, setExpandedSplit]   = useState(null); // 1 | 2 | 3 | null — which Split & Save card is open
   const [pinnedStore, setPinnedStore]       = useState(null);
   const [sortBy, setSortBy]                 = useState("essentials");
@@ -9423,7 +9429,7 @@ export default function JerseyGroceryApp() {
           <div style={{ marginTop:18 }}>
             <div style={{ display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:14 }}>
               <h2 style={{ fontSize:18,fontWeight:700,margin:0,color:lightMode?"#0f172a":"#f0f4f8" }}>🧺 Your Basket</h2>
-              {basketItems.length>0&&<button onClick={()=>setBasket({})} style={{ background:lightMode?"rgba(239,68,68,.12)":"linear-gradient(180deg,rgba(239,68,68,.25) 0%,rgba(185,28,28,.2) 100%)",border:lightMode?"1px solid rgba(185,28,28,.35)":"1px solid rgba(239,68,68,.4)",color:lightMode?"#b91c1c":"#fca5a5",borderRadius:22,boxShadow:"0 2px 6px rgba(239,68,68,.25),inset 0 1px 0 rgba(255,255,255,.1)",padding:"4px 11px",cursor:"pointer",fontSize:10.5,fontWeight:600 }}>Clear All</button>}
+              {basketItems.length>0&&<button onClick={()=>{ setBasket({}); setCollectedItems(new Set()); }} style={{ background:lightMode?"rgba(239,68,68,.12)":"linear-gradient(180deg,rgba(239,68,68,.25) 0%,rgba(185,28,28,.2) 100%)",border:lightMode?"1px solid rgba(185,28,28,.35)":"1px solid rgba(239,68,68,.4)",color:lightMode?"#b91c1c":"#fca5a5",borderRadius:22,boxShadow:"0 2px 6px rgba(239,68,68,.25),inset 0 1px 0 rgba(255,255,255,.1)",padding:"4px 11px",cursor:"pointer",fontSize:10.5,fontWeight:600 }}>Clear All</button>}
             </div>
 
             {basketItems.length===0?(
@@ -9534,6 +9540,20 @@ export default function JerseyGroceryApp() {
                   </div>
                 )}
 
+                {/* bulk tick controls */}
+                <div style={{ display:"flex",gap:8,marginBottom:10 }}>
+                  <button onClick={()=>setCollectedItems(new Set(basketItems.map(i=>i.key)))} style={{
+                    background:lightMode?"rgba(34,197,94,.12)":"rgba(34,197,94,.14)",
+                    border:lightMode?"1px solid rgba(21,128,61,.3)":"1px solid rgba(34,197,94,.3)",
+                    color:lightMode?"#14532d":"#86efac",borderRadius:20,padding:"5px 12px",cursor:"pointer",fontSize:10.5,fontWeight:600,
+                  }}>✓ Tick All</button>
+                  <button onClick={()=>setCollectedItems(new Set())} style={{
+                    background:lightMode?"rgba(0,0,0,.04)":"rgba(255,255,255,.05)",
+                    border:lightMode?"1px solid rgba(0,0,0,.12)":"1px solid rgba(255,255,255,.1)",
+                    color:lightMode?"#334155":"#94a3b8",borderRadius:20,padding:"5px 12px",cursor:"pointer",fontSize:10.5,fontWeight:600,
+                  }}>Untick All</button>
+                </div>
+
                 {/* line items */}
                 <div style={{ display:"flex",flexDirection:"column",gap:6,marginBottom:14 }}>
                   {basketItems.map(item=>{
@@ -9543,9 +9563,11 @@ export default function JerseyGroceryApp() {
                         key={item.key}
                         item={item}
                         overPay={overPay}
-                        onRemove={()=>removeFromBasket(item.key)}
+                        onRemove={()=>{ removeFromBasket(item.key); if(item.qty<=1) setCollectedItems(c=>{ if(!c.has(item.key)) return c; const n=new Set(c); n.delete(item.key); return n; }); }}
                         onAdd={()=>addToBasket(item.product.id,item.store?.id)}
-                        onDelete={()=>deleteFromBasket(item.key)}
+                        onDelete={()=>{ deleteFromBasket(item.key); setCollectedItems(c=>{ if(!c.has(item.key)) return c; const n=new Set(c); n.delete(item.key); return n; }); }}
+                        ticked={collectedItems.has(item.key)}
+                        onToggleTicked={()=>toggleCollected(item.key)}
                         lightMode={lightMode}
                       />
                     );
@@ -11929,8 +11951,7 @@ function AdBanner({ onEnquiry, externalPause }) {
 /* ═══════════════════════════════════════════════════════════════════════════
    BASKET ITEM — swipe to delete on mobile, ✕ button on desktop, tick off
 ═══════════════════════════════════════════════════════════════════════════ */
-function BasketItem({ item, overPay, onRemove, onAdd, onDelete, lightMode=false }) {
-  const [ticked,     setTicked]     = useState(false);
+function BasketItem({ item, overPay, onRemove, onAdd, onDelete, ticked=false, onToggleTicked, lightMode=false }) {
   const [swipeX,     setSwipeX]     = useState(0);
   const [swiping,    setSwiping]    = useState(false);
   const [deleted,    setDeleted]    = useState(false);
@@ -11993,7 +12014,7 @@ function BasketItem({ item, overPay, onRemove, onAdd, onDelete, lightMode=false 
       >
         {/* Tick off button */}
         <button
-          onClick={()=>setTicked(t=>!t)}
+          onClick={onToggleTicked}
           title={ticked ? "Mark as not collected" : "Mark as collected"}
           style={{
             flexShrink:0, width:24, height:24, borderRadius:6,
