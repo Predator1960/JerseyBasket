@@ -8434,6 +8434,61 @@ const getWorstPrice  = (p, disabled=new Set()) => { const vals=Object.entries(p.
 const getBestStoreId = (p, disabled=new Set()) => { const b=getBestPrice(p,disabled); return Object.entries(p.prices).find(([k,v])=>!disabled.has(k)&&v===b&&v>0)?.[0]; };
 const getSortedPrices= (p, disabled=new Set()) => Object.entries(p.prices).filter(([k,v])=>!disabled.has(k)&&v>0).sort(([,a],[,b])=>a-b);
 
+/* ═══════════════════════════════════════════════════════════════════════════
+   SPLIT & SAVE — "cheapest 1/2/3-store split" for a basket.
+   Deliberately simple: with only 6 stores, brute-forcing every combination of
+   N of them (max 20 combos for N=3) is cheap enough to just always find the
+   true best split rather than approximate it with a heuristic.
+═══════════════════════════════════════════════════════════════════════════ */
+// All k-element combinations of arr (arr is tiny here — at most 6 stores).
+const combinations = (arr, k) => {
+  if (k === 0) return [[]];
+  if (arr.length < k) return [];
+  const [first, ...rest] = arr;
+  const withFirst = combinations(rest, k - 1).map(c => [first, ...c]);
+  return [...withFirst, ...combinations(rest, k)];
+};
+
+// Assigns every basket item to whichever store in storeSubset sells it
+// cheapest. Items not stocked by ANY store in the subset land in `uncovered`
+// rather than being silently dropped or mispriced, so a basket that spans
+// more stores than the subset size never quietly under-reports its total.
+const splitAcrossStores = (items, storeSubset) => {
+  const byStore = {};
+  storeSubset.forEach(s => { byStore[s.id] = { store: s, items: [], subtotal: 0 }; });
+  let total = 0;
+  const uncovered = [];
+  for (const item of items) {
+    let bestStore = null, bestPrice = Infinity;
+    for (const s of storeSubset) {
+      const price = item.product.prices[s.id];
+      if (price > 0 && price < bestPrice) { bestPrice = price; bestStore = s; }
+    }
+    if (!bestStore) { uncovered.push(item); continue; }
+    byStore[bestStore.id].items.push({ ...item, price: bestPrice });
+    byStore[bestStore.id].subtotal += bestPrice * item.qty;
+    total += bestPrice * item.qty;
+  }
+  return { total, uncovered, byStore: Object.values(byStore).filter(b => b.items.length > 0) };
+};
+
+// The cheapest way to cover `items` using exactly n stores drawn from
+// `stores`. Prefers full coverage over a lower total — a split that misses
+// an item isn't a real option even if its partial total looks smaller.
+const bestSplitForN = (items, stores, n) => {
+  if (items.length === 0 || stores.length < n) return null;
+  let best = null;
+  for (const combo of combinations(stores, n)) {
+    const result = splitAcrossStores(items, combo);
+    if (!best
+        || result.uncovered.length < best.uncovered.length
+        || (result.uncovered.length === best.uncovered.length && result.total < best.total)) {
+      best = result;
+    }
+  }
+  return best;
+};
+
 const ICON_OPTIONS = ["🛒","🥛","🥚","🧀","🧈","🍞","🥖","🥐","🍗","🥩","🥓","🐟","🍌","🍎","🥦","🥬","🫑","🥕","🍅","🥑","🍊","💧","☕","🍷","🍺","🍝","🍚","🫒","🧴","🧻","🪥","💊","🧹","🥔","🦀","🍦","🍯","🍕","🍟","🍨","🥨","🍫","🥜","🫧","🧼","💨","🍶","🌾","🫘","🌭","🥤","🍸","🧅","🧄","🥒","🍋","🍄","🍓","🫐","🍾","🥂","🍩","🦞","🍏","🍇","🌻","🐶","🐱","🦴","🍼","🩸","💊","🩹","🌸","🏷️","⚡","🥂","🥃","🌮","🥙","🍬","🍿","🥝","🍍","🥭","🌶️","🍠","🍈","🍆","🎃","🌽","🧇","🥞","🥯","🍳"
 ];
 /* ═══════════════════════════════════════════════════════════════════════════
@@ -8717,6 +8772,7 @@ export default function JerseyGroceryApp() {
   const [activeCategory, setActiveCategory] = useState("All");
   const [searchQuery, setSearchQuery]       = useState("");
   const [basket, setBasket]                 = useState({});
+  const [expandedSplit, setExpandedSplit]   = useState(null); // 1 | 2 | 3 | null — which Split & Save card is open
   const [pinnedStore, setPinnedStore]       = useState(null);
   const [sortBy, setSortBy]                 = useState("essentials");
   const [visibleCount, setVisibleCount]     = useState(60);
@@ -8901,6 +8957,35 @@ export default function JerseyGroceryApp() {
   const storeBasketTotals = useMemo(()=>STORES.map(store=>({
     store, total:basketItems.reduce((s,item)=>s+(item.product.prices[store.id]??0)*item.qty,0)
   })).sort((a,b)=>a.total-b.total),[basketItems]);
+
+  // ── Split & Save — cheapest 1/2/3-store way to buy this exact basket ──────
+  const enabledStoreList = useMemo(()=>STORES.filter(s=>!disabledStores.has(s.id)),[disabledStores]);
+  const split1 = useMemo(()=>bestSplitForN(basketItems, enabledStoreList, 1),[basketItems, enabledStoreList]);
+  const split2 = useMemo(()=>bestSplitForN(basketItems, enabledStoreList, 2),[basketItems, enabledStoreList]);
+  const split3 = useMemo(()=>bestSplitForN(basketItems, enabledStoreList, 3),[basketItems, enabledStoreList]);
+  // Only claim a saving vs the 1-store baseline when that baseline actually
+  // covers every item — comparing against a partial (cheaper-looking but
+  // incomplete) total would misrepresent the saving.
+  const splitBaselineComplete = !!split1 && split1.uncovered.length === 0;
+  const save2 = (splitBaselineComplete && split2 && split2.uncovered.length===0) ? split1.total - split2.total : null;
+  const save3 = (splitBaselineComplete && split3 && split3.uncovered.length===0) ? split1.total - split3.total : null;
+
+  // GA4: fire once per real basket change (not on every render) so we can see
+  // the real-world distribution of savings in Analytics — no personal data,
+  // just the numbers. Wrapped defensively so analytics can never break the basket.
+  useEffect(() => {
+    if (basketItems.length === 0) return;
+    try {
+      if (window.gtag) {
+        window.gtag('event', 'savings_calculated', {
+          basket_size: basketItems.length,
+          save_2_store: save2 != null ? +save2.toFixed(2) : 0,
+          save_3_store: save3 != null ? +save3.toFixed(2) : 0,
+        });
+      }
+    } catch (e) { /* never let analytics break the basket */ }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [basket]);
 
   const catCounts = useMemo(()=>{
     const m={All:allProducts.length};
@@ -9359,6 +9444,71 @@ export default function JerseyGroceryApp() {
                     </div>
                   ))}
                 </div>
+
+                {/* Split & Save — cheapest 1/2/3-store way to buy this exact basket */}
+                {split1 && (
+                  <div style={{ marginBottom:14 }}>
+                    <div style={{ fontSize:13,fontWeight:700,color:lightMode?"#0f172a":"#f0f4f8",marginBottom:3 }}>🧠 Split &amp; Save</div>
+                    <div style={{ fontSize:10.5,color:lightMode?"#475569":"#94a3b8",marginBottom:9,lineHeight:1.5 }}>
+                      How real shoppers actually save — splitting a basket across a couple of stores instead of buying everything in one.
+                    </div>
+                    <div style={{ display:"flex",flexDirection:"column",gap:7 }}>
+                      {[
+                        { n:1, data:split1, save:null },
+                        { n:2, data:split2, save:save2 },
+                        { n:3, data:split3, save:save3 },
+                      ].filter(o=>o.data).map(({ n, data, save }) => {
+                        const isOpen = expandedSplit===n;
+                        const allTotals = [split1,split2,split3].filter(Boolean).map(d=>d.total);
+                        const isBest = n>1 && save!=null && save>0.01 && data.total===Math.min(...allTotals);
+                        return (
+                          <div key={n} style={{
+                            background:isBest?"rgba(34,197,94,.10)":lightMode?"rgba(0,0,0,.03)":"rgba(255,255,255,.04)",
+                            border:isBest?"1px solid rgba(34,197,94,.3)":lightMode?"1px solid rgba(0,0,0,.08)":"1px solid rgba(255,255,255,.08)",
+                            borderRadius:12,overflow:"hidden",
+                          }}>
+                            <button onClick={()=>setExpandedSplit(isOpen?null:n)} style={{ width:"100%",display:"flex",alignItems:"center",justifyContent:"space-between",background:"none",border:"none",padding:"11px 13px",cursor:"pointer",textAlign:"left" }}>
+                              <div style={{ display:"flex",alignItems:"center",gap:9,minWidth:0 }}>
+                                <span style={{ fontSize:15,flexShrink:0 }}>{"🏬".repeat(n)}</span>
+                                <div style={{ minWidth:0 }}>
+                                  <div style={{ fontSize:12.5,fontWeight:700,color:lightMode?"#0f172a":"#f0f4f8" }}>{n} store{n>1?"s":""}{isBest?" 🏆":""}</div>
+                                  <div style={{ fontSize:9.5,color:lightMode?"#64748b":"#94a3b8",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap" }}>{data.byStore.map(b=>b.store.short).join(" + ")}</div>
+                                </div>
+                              </div>
+                              <div style={{ display:"flex",alignItems:"center",gap:8,flexShrink:0 }}>
+                                <div style={{ textAlign:"right" }}>
+                                  <div style={{ fontSize:16,fontWeight:800,color:isBest?"#22c55e":lightMode?"#0f172a":"#f0f4f8" }}>£{data.total.toFixed(2)}</div>
+                                  {save!=null && save>0.01 && <div style={{ fontSize:9.5,color:"#22c55e",fontWeight:700 }}>save £{save.toFixed(2)}</div>}
+                                </div>
+                                <span style={{ fontSize:11,color:"#64748b",transform:isOpen?"rotate(180deg)":"none",transition:"transform .2s" }}>▾</span>
+                              </div>
+                            </button>
+                            {isOpen && (
+                              <div style={{ padding:"0 13px 12px",borderTop:lightMode?"1px solid rgba(0,0,0,.06)":"1px solid rgba(255,255,255,.06)" }}>
+                                {data.uncovered.length>0 && (
+                                  <div style={{ fontSize:9.5,color:"#f87171",marginTop:9 }}>
+                                    ⚠️ {data.uncovered.length} item{data.uncovered.length>1?"s aren't":" isn't"} sold at any of these store{n>1?"s":""} — not included in this total.
+                                  </div>
+                                )}
+                                {data.byStore.map(b=>(
+                                  <div key={b.store.id} style={{ marginTop:9 }}>
+                                    <div style={{ fontSize:11,fontWeight:700,color:lightMode?"#334155":"#cbd5e1",marginBottom:4 }}>{b.store.emoji} {b.store.name} — £{b.subtotal.toFixed(2)}</div>
+                                    {b.items.map(it=>(
+                                      <div key={it.key} style={{ display:"flex",justifyContent:"space-between",gap:8,fontSize:10.5,color:lightMode?"#475569":"#94a3b8",padding:"2px 0 2px 20px" }}>
+                                        <span style={{ overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap" }}>{it.qty>1?`${it.qty}× `:""}{it.product.name}</span>
+                                        <span style={{ flexShrink:0 }}>£{(it.price*it.qty).toFixed(2)}</span>
+                                      </div>
+                                    ))}
+                                  </div>
+                                ))}
+                              </div>
+                            )}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
 
                 {/* line items */}
                 <div style={{ display:"flex",flexDirection:"column",gap:6,marginBottom:14 }}>
