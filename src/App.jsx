@@ -8954,9 +8954,19 @@ export default function JerseyGroceryApp() {
   const optimalTotal   = basketItems.reduce((s,i)=>s+getBestPrice(i.product,disabledStores)*i.qty,0);
   const potentialSave  = basketTotal-optimalTotal;
 
-  const storeBasketTotals = useMemo(()=>STORES.map(store=>({
-    store, total:basketItems.reduce((s,item)=>s+(item.product.prices[store.id]??0)*item.qty,0)
-  })).sort((a,b)=>a.total-b.total),[basketItems]);
+  // A store that doesn't stock every basket item shouldn't get to look
+  // artificially cheap (or even "free") just because the missing items
+  // silently contributed £0 — track coverage and rank full-coverage stores
+  // first, so "cheapest" always means "actually buyable there in full."
+  const storeBasketTotals = useMemo(()=>STORES.map(store=>{
+    let total=0, covered=0;
+    basketItems.forEach(item=>{
+      const price = item.product.prices[store.id];
+      if (price>0) { total += price*item.qty; covered++; }
+    });
+    return { store, total, covered, missing: basketItems.length-covered, fullyCovers: covered===basketItems.length };
+  }).sort((a,b)=> a.fullyCovers!==b.fullyCovers ? (a.fullyCovers?-1:1) : a.total-b.total),[basketItems]);
+  const fullCoverageTotals = storeBasketTotals.filter(s=>s.fullyCovers);
 
   // ── Split & Save — cheapest 1/2/3-store way to buy this exact basket ──────
   const enabledStoreList = useMemo(()=>STORES.filter(s=>!disabledStores.has(s.id)),[disabledStores]);
@@ -9428,21 +9438,31 @@ export default function JerseyGroceryApp() {
                 <div style={{ background:lightMode?"linear-gradient(135deg,rgba(34,197,94,.15),rgba(21,128,61,.08))":"linear-gradient(135deg,rgba(34,197,94,.12),rgba(21,128,61,.07))",border:"1px solid rgba(34,197,94,.24)",borderRadius:12,padding:13,marginBottom:14 }}>
                   <div style={{ fontSize:10.5,color:"#86efac",fontWeight:700,marginBottom:3 }}>💡 SMART TIP</div>
                   <div style={{ fontSize:11.5,color:lightMode?"#14532d":"#d1fae5",lineHeight:1.65 }}>
-                    Buying everything from <strong>{storeBasketTotals[0]?.store.name}</strong> costs <strong style={{ color:"#22c55e" }}>£{storeBasketTotals[0]?.total.toFixed(2)}</strong> — saving <strong style={{ color:"#fbbf24" }}>£{(storeBasketTotals[storeBasketTotals.length-1]?.total-storeBasketTotals[0]?.total).toFixed(2)}</strong> vs the most expensive option.
+                    {fullCoverageTotals.length>0 ? (
+                      <>Buying everything from <strong>{fullCoverageTotals[0].store.name}</strong> costs <strong style={{ color:"#22c55e" }}>£{fullCoverageTotals[0].total.toFixed(2)}</strong>
+                      {fullCoverageTotals.length>1 && <> — saving <strong style={{ color:"#fbbf24" }}>£{(fullCoverageTotals[fullCoverageTotals.length-1].total-fullCoverageTotals[0].total).toFixed(2)}</strong> vs the most expensive single-store option</>}.</>
+                    ) : (
+                      <>No single store stocks everything in this basket — see <strong>Split &amp; Save</strong> below for the cheapest way to buy it all.</>
+                    )}
                   </div>
                 </div>
 
                 {/* store totals strip */}
                 <div data-allow-hswipe="true" style={{ display:"flex",gap:7,overflowX:"auto",paddingBottom:11,marginBottom:13,touchAction:"pan-x" }}>
-                  {storeBasketTotals.map(({store,total},i)=>(
-                    <div key={store.id} style={{ flex:"0 0 auto",background:i===0?"rgba(34,197,94,.11)":lightMode?"rgba(0,0,0,.04)":"rgba(255,255,255,.04)", border:i===0?"1px solid rgba(34,197,94,.28)":lightMode?"1px solid rgba(0,0,0,.08)":"1px solid rgba(255,255,255,.07)", borderRadius:11,padding:"8px 12px",minWidth:95,textAlign:"center" }}>
-                      {i===0&&<div style={{ fontSize:7.5,color:"#22c55e",fontWeight:700,marginBottom:2 }}>CHEAPEST</div>}
-                      {i===storeBasketTotals.length-1&&<div style={{ fontSize:7.5,color:"#f87171",fontWeight:700,marginBottom:2 }}>PRICIEST</div>}
-                      <div style={{ fontSize:15 }}>{store.emoji}</div>
-                      <div style={{ fontSize:9.5,fontWeight:600,color:i===0?"#22c55e":lightMode?"#475569":"#94a3b8",marginTop:2 }}>{store.short}</div>
-                      <div style={{ fontSize:15,fontWeight:700,color:i===0?"#22c55e":i===storeBasketTotals.length-1?"#f87171":lightMode?"#0f172a":"#f0f4f8",marginTop:3 }}>£{total.toFixed(2)}</div>
-                    </div>
-                  ))}
+                  {storeBasketTotals.map(({store,total,fullyCovers,missing},i)=>{
+                    const isCheapest = fullyCovers && i===0;
+                    const isPriciest = fullyCovers && fullCoverageTotals.length>1 && i===fullCoverageTotals.length-1;
+                    return (
+                      <div key={store.id} style={{ flex:"0 0 auto",opacity:fullyCovers?1:0.6,background:isCheapest?"rgba(34,197,94,.11)":lightMode?"rgba(0,0,0,.04)":"rgba(255,255,255,.04)", border:isCheapest?"1px solid rgba(34,197,94,.28)":lightMode?"1px solid rgba(0,0,0,.08)":"1px solid rgba(255,255,255,.07)", borderRadius:11,padding:"8px 12px",minWidth:95,textAlign:"center" }}>
+                        {isCheapest&&<div style={{ fontSize:7.5,color:"#22c55e",fontWeight:700,marginBottom:2 }}>CHEAPEST</div>}
+                        {isPriciest&&<div style={{ fontSize:7.5,color:"#f87171",fontWeight:700,marginBottom:2 }}>PRICIEST</div>}
+                        {!fullyCovers&&<div style={{ fontSize:7.5,color:"#f87171",fontWeight:700,marginBottom:2 }}>⚠️ MISSING {missing}</div>}
+                        <div style={{ fontSize:15 }}>{store.emoji}</div>
+                        <div style={{ fontSize:9.5,fontWeight:600,color:isCheapest?"#22c55e":lightMode?"#475569":"#94a3b8",marginTop:2 }}>{store.short}</div>
+                        <div style={{ fontSize:15,fontWeight:700,color:isCheapest?"#22c55e":isPriciest?"#f87171":lightMode?"#0f172a":"#f0f4f8",marginTop:3 }}>£{total.toFixed(2)}</div>
+                      </div>
+                    );
+                  })}
                 </div>
 
                 {/* Split & Save — cheapest 1/2/3-store way to buy this exact basket */}
