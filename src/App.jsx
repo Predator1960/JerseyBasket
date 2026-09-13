@@ -8675,7 +8675,7 @@ function ProductCard({ product, onAddToBasket, pinnedStore, isFavourite, onToggl
                     </>
                   )}
                 </div>
-                <span style={{ fontSize:16, color:sc, display:"inline-block", transition:"transform .2s", transform:open?"rotate(180deg)":"none", lineHeight:1 }}>▾</span>
+                <span style={{ fontSize:16, color: lightMode ? `rgb(${Math.max(0,r-80)},${Math.max(0,g-80)},${Math.max(0,b-80)})` : sc, display:"inline-block", transition:"transform .2s", transform:open?"rotate(180deg)":"none", lineHeight:1 }}>▾</span>
               </button>
             );
           })()}
@@ -9126,7 +9126,7 @@ export default function JerseyGroceryApp() {
                   WebkitAppearance:"none",appearance:"none",
                   background: isActive ? (isFav?"linear-gradient(180deg,#fb7185 0%,#be123c 100%)":"linear-gradient(180deg,#4ade80 0%,#15803d 100%)") : lightMode?"rgba(0,0,0,.07)":"linear-gradient(180deg,#1e3a5f 0%,#0f1f3d 100%)",
                   border: isActive ? (isFav?"1px solid rgba(251,113,133,.5)":"1px solid rgba(74,222,128,.5)") : lightMode?"1px solid rgba(0,0,0,.15)":"1px solid rgba(125,211,252,0.15)",
-                  color: isActive ? (isFav?"#fff":"#052e16") : "#7dd3fc",
+                  color: isActive ? (isFav?"#fff":"#052e16") : lightMode?"#1e3a5f":"#7dd3fc",
                   borderRadius:22, padding:"6px 11px", cursor:"pointer", fontSize:11, fontWeight:700,
                   flexShrink:0, position:"relative", overflow:"hidden",
                   boxShadow: isActive ? (isFav?"0 3px 10px rgba(190,18,60,.5),inset 0 1px 0 rgba(255,255,255,.25)":"0 3px 10px rgba(34,197,94,.5),inset 0 1px 0 rgba(255,255,255,.25)") : "0 2px 6px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.07)",
@@ -9413,7 +9413,7 @@ export default function JerseyGroceryApp() {
           <div style={{ marginTop:18 }}>
             <div style={{ display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:14 }}>
               <h2 style={{ fontSize:18,fontWeight:700,margin:0,color:lightMode?"#0f172a":"#f0f4f8" }}>🧺 Your Basket</h2>
-              {basketItems.length>0&&<button onClick={()=>setBasket({})} style={{ background:"linear-gradient(180deg,rgba(239,68,68,.25) 0%,rgba(185,28,28,.2) 100%)",border:"1px solid rgba(239,68,68,.4)",color:"#fca5a5",borderRadius:22,boxShadow:"0 2px 6px rgba(239,68,68,.25),inset 0 1px 0 rgba(255,255,255,.1)",padding:"4px 11px",cursor:"pointer",fontSize:10.5,fontWeight:600 }}>Clear All</button>}
+              {basketItems.length>0&&<button onClick={()=>setBasket({})} style={{ background:lightMode?"rgba(239,68,68,.12)":"linear-gradient(180deg,rgba(239,68,68,.25) 0%,rgba(185,28,28,.2) 100%)",border:lightMode?"1px solid rgba(185,28,28,.35)":"1px solid rgba(239,68,68,.4)",color:lightMode?"#b91c1c":"#fca5a5",borderRadius:22,boxShadow:"0 2px 6px rgba(239,68,68,.25),inset 0 1px 0 rgba(255,255,255,.1)",padding:"4px 11px",cursor:"pointer",fontSize:10.5,fontWeight:600 }}>Clear All</button>}
             </div>
 
             {basketItems.length===0?(
@@ -9480,7 +9480,7 @@ export default function JerseyGroceryApp() {
                                   <div style={{ fontSize:16,fontWeight:800,color:isBest?"#22c55e":lightMode?"#0f172a":"#f0f4f8" }}>£{data.total.toFixed(2)}</div>
                                   {save!=null && save>0.01 && <div style={{ fontSize:9.5,color:"#22c55e",fontWeight:700 }}>save £{save.toFixed(2)}</div>}
                                 </div>
-                                <span style={{ fontSize:11,color:"#64748b",transform:isOpen?"rotate(180deg)":"none",transition:"transform .2s" }}>▾</span>
+                                <span style={{ fontSize:11,color:lightMode?"#334155":"#64748b",transform:isOpen?"rotate(180deg)":"none",transition:"transform .2s" }}>▾</span>
                               </div>
                             </button>
                             {isOpen && (
@@ -9592,7 +9592,7 @@ export default function JerseyGroceryApp() {
                   <span style={{ color:"#f43f5e" }}>♥</span> Saved Items
                   <span style={{ fontSize:12,fontWeight:400,color:"#64748b" }}>{favCount} item{favCount!==1?"s":""}</span>
                 </h2>
-                {favCount>0&&<button onClick={()=>setFavourites(new Set())} style={{ background:"linear-gradient(180deg,rgba(244,63,94,.25) 0%,rgba(190,18,60,.2) 100%)",border:"1px solid rgba(244,63,94,.4)",color:"#fda4af",borderRadius:22,boxShadow:"0 2px 6px rgba(244,63,94,.25),inset 0 1px 0 rgba(255,255,255,.1)",padding:"4px 10px",cursor:"pointer",fontSize:10.5,fontWeight:600 }}>Clear All ♡</button>}
+                {favCount>0&&<button onClick={()=>setFavourites(new Set())} style={{ background:lightMode?"rgba(244,63,94,.12)":"linear-gradient(180deg,rgba(244,63,94,.25) 0%,rgba(190,18,60,.2) 100%)",border:lightMode?"1px solid rgba(190,18,60,.35)":"1px solid rgba(244,63,94,.4)",color:lightMode?"#be123c":"#fda4af",borderRadius:22,boxShadow:"0 2px 6px rgba(244,63,94,.25),inset 0 1px 0 rgba(255,255,255,.1)",padding:"4px 10px",cursor:"pointer",fontSize:10.5,fontWeight:600 }}>Clear All ♡</button>}
               </div>
               <p style={{ color:lightMode?"#334155":"#475569",fontSize:11,marginBottom:18 }}>Items you've hearted. Add them to your favourites basket or your main basket.</p>
 
@@ -12000,14 +12000,14 @@ function BasketItem({ item, overPay, onRemove, onAdd, onDelete, lightMode=false 
 
         {/* Quantity controls + price + delete */}
         <div style={{ display:"flex", flexDirection:"column", alignItems:"flex-end", gap:4, flexShrink:0 }}>
-          <span style={{ fontSize:12.5, fontWeight:700, color: ticked ? "#475569" : "#f0f4f8", textDecoration: ticked ? "line-through" : "none" }}>
+          <span style={{ fontSize:12.5, fontWeight:700, color: ticked ? "#475569" : lightMode?"#0f172a":"#f0f4f8", textDecoration: ticked ? "line-through" : "none" }}>
             £{(item.price*item.qty).toFixed(2)}
           </span>
           <div style={{ display:"flex", alignItems:"flex-start", gap:5 }}>
             <div style={{ display:"flex", alignItems:"center", gap:5, background:lightMode?"rgba(0,0,0,.06)":"rgba(255,255,255,.06)", borderRadius:8, padding:"3px 7px" }}>
-              <button onClick={onRemove} style={{ background:"rgba(255,255,255,.9)", border:"none", borderRadius:5, width:20, height:20, color:"#dc2626", cursor:"pointer", fontSize:14, fontWeight:700, lineHeight:1, display:"flex", alignItems:"center", justifyContent:"center" }}>−</button>
+              <button onClick={onRemove} style={{ background:lightMode?"#fff":"rgba(255,255,255,.9)", border:lightMode?"1px solid rgba(0,0,0,.15)":"none", borderRadius:5, width:20, height:20, color:"#dc2626", cursor:"pointer", fontSize:14, fontWeight:700, lineHeight:1, display:"flex", alignItems:"center", justifyContent:"center" }}>−</button>
               <span style={{ fontSize:12, fontWeight:700, minWidth:16, textAlign:"center", color:lightMode?"#0f172a":"#f0f4f8" }}>{item.qty}</span>
-              <button onClick={onAdd} style={{ background:"rgba(255,255,255,.9)", border:"none", borderRadius:5, width:20, height:20, color:"#16a34a", cursor:"pointer", fontSize:14, fontWeight:700, lineHeight:1, display:"flex", alignItems:"center", justifyContent:"center" }}>+</button>
+              <button onClick={onAdd} style={{ background:lightMode?"#fff":"rgba(255,255,255,.9)", border:lightMode?"1px solid rgba(0,0,0,.15)":"none", borderRadius:5, width:20, height:20, color:"#16a34a", cursor:"pointer", fontSize:14, fontWeight:700, lineHeight:1, display:"flex", alignItems:"center", justifyContent:"center" }}>+</button>
             </div>
             {/* ✕ delete button */}
             <button
