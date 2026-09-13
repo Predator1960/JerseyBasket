@@ -9456,11 +9456,11 @@ export default function JerseyGroceryApp() {
                       <div key={store.id} style={{ flex:"0 0 auto",opacity:fullyCovers?1:0.6,background:isCheapest?"rgba(34,197,94,.11)":lightMode?"rgba(0,0,0,.04)":"rgba(255,255,255,.04)", border:isCheapest?"1px solid rgba(34,197,94,.28)":lightMode?"1px solid rgba(0,0,0,.08)":"1px solid rgba(255,255,255,.07)", borderRadius:11,padding:"8px 12px",minWidth:95,textAlign:"center" }}>
                         {isCheapest&&<div style={{ fontSize:7.5,color:"#22c55e",fontWeight:700,marginBottom:2 }}>CHEAPEST</div>}
                         {isPriciest&&<div style={{ fontSize:7.5,color:"#f87171",fontWeight:700,marginBottom:2 }}>PRICIEST</div>}
-                        {!fullyCovers&&<div style={{ fontSize:7.5,color:"#f87171",fontWeight:700,marginBottom:2 }}>⚠️ ONLY {covered}/{basketItems.length}</div>}
+                        {!fullyCovers&&<div style={{ fontSize:7.5,color:lightMode?"#14532d":"#f87171",fontWeight:700,marginBottom:2 }}>⚠️ ONLY {covered}/{basketItems.length}</div>}
                         <div style={{ fontSize:15 }}>{store.emoji}</div>
                         <div style={{ fontSize:9.5,fontWeight:600,color:isCheapest?"#22c55e":lightMode?"#475569":"#94a3b8",marginTop:2 }}>{store.short}</div>
                         <div style={{ fontSize:15,fontWeight:700,color:isCheapest?"#22c55e":isPriciest?"#f87171":lightMode?"#0f172a":"#f0f4f8",marginTop:3 }}>£{total.toFixed(2)}</div>
-                        {!fullyCovers&&<div style={{ fontSize:7,color:"#f87171",marginTop:1 }}>for {covered} item{covered!==1?"s":""} only</div>}
+                        {!fullyCovers&&<div style={{ fontSize:7,color:lightMode?"#166534":"#f87171",marginTop:1 }}>for {covered} item{covered!==1?"s":""} only</div>}
                       </div>
                     );
                   })}
