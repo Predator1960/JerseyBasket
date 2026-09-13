@@ -9446,7 +9446,7 @@ export default function JerseyGroceryApp() {
                   <div style={{ fontSize:11.5,color:lightMode?"#14532d":"#d1fae5",lineHeight:1.65 }}>
                     {fullCoverageTotals.length>0 ? (
                       <>Buying everything from <strong>{fullCoverageTotals[0].store.name}</strong> costs <strong style={{ color:"#22c55e" }}>£{fullCoverageTotals[0].total.toFixed(2)}</strong>
-                      {fullCoverageTotals.length>1 && <> — saving <strong style={{ color:"#fbbf24" }}>£{(fullCoverageTotals[fullCoverageTotals.length-1].total-fullCoverageTotals[0].total).toFixed(2)}</strong> vs the most expensive single-store option</>}.</>
+                      {fullCoverageTotals.length>1 && <> — saving <strong style={{ color:lightMode?"#92400e":"#fbbf24" }}>£{(fullCoverageTotals[fullCoverageTotals.length-1].total-fullCoverageTotals[0].total).toFixed(2)}</strong> vs the most expensive single-store option</>}.</>
                     ) : (
                       <>No single store stocks everything in this basket — see <strong>Split &amp; Save</strong> below for the cheapest way to buy it all.</>
                     )}
