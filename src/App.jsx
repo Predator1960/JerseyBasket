@@ -10222,6 +10222,7 @@ const AD_SLIDES = [
   },
   {
     id:13, group:3, slot:14, link:"https://www.facebook.com/profile.php?id=61564369564570", advertiser:"Zia IT Support",
+    endDate:"2026-10-01",
     bg:"linear-gradient(135deg,#ffffff 0%,#f4f4f4 100%)",
     eyebrow:{ text:"FEATURED ADVERTISER", color:"#c2255c" },
     headline:{ before:"Zia ", highlight:"IT Support", highlightColor:"#c2255c", after:"", headlineColor:"#1a1a1a" },
@@ -10232,6 +10233,16 @@ const AD_SLIDES = [
       { label:"Email Us", href:"mailto:support@zia.je", bg:"#ffffff", color:"#c2255c", border:"rgba(0,0,0,0.2)" },
       { label:"Facebook", href:"https://www.facebook.com/profile.php?id=61564369564570", bg:"#ffffff", color:"#c2255c", border:"rgba(0,0,0,0.2)" },
     ],
+  },
+  {
+    id:16, group:3, slot:14, link:ENQUIRY_TRIGGER,
+    startDate:"2026-10-02",
+    bg:"linear-gradient(135deg,#4338ca 0%,#1e1b4b 100%)",
+    eyebrow:{ text:"SLOT 14 OF 15 — GYMS & FITNESS", color:"#c7d2fe" },
+    headline:{ before:"Your Business ", highlight:"Here", highlightColor:"#a5b4fc", after:" — Jersey's Shoppers", headlineColor:"#ffffff" },
+    sub:{ text:"Platinum exclusivity — lock out every competitor in your category", color:"#818cf8" },
+    cta:{ label:"Claim this slot", labelColor:"#c7d2fe", url:"jerseybasket.je", urlColor:"#ffffff", arrowBg:"#4f46e5", arrowColor:"white", boxBg:"rgba(79,70,229,0.3)", boxBorder:"rgba(199,210,254,0.5)" },
+    stats:[{ val:"14/15", label:"slot" },{ val:"£999", label:"per month" }], statColor:"#c7d2fe",
   },
   {
     id:14, group:3, slot:15, link:ENQUIRY_TRIGGER,
