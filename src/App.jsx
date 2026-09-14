@@ -10242,6 +10242,19 @@ const AD_SLIDES = [
     cta:{ label:"Claim this slot", labelColor:"#e2e8f0", url:"jerseybasket.je", urlColor:"#ffffff", arrowBg:"#475569", arrowColor:"white", boxBg:"rgba(71,85,105,0.3)", boxBorder:"rgba(226,232,240,0.5)" },
     stats:[{ val:"15/15", label:"slot" },{ val:"£999", label:"per month" }], statColor:"#e2e8f0",
   },
+  {
+    id:15, group:3, slot:16, link:"https://www.facebook.com/RichLinkAutomotive/", advertiser:"RichLink Automotive",
+    startDate:"2026-09-14", endDate:"2026-10-01",
+    bg:"linear-gradient(135deg,#1a1a1a 0%,#000000 100%)",
+    eyebrow:{ text:"FREE FEATURED ADVERTISER", color:"#dc2626" },
+    headline:{ before:"", highlight:"Rich", highlightColor:"#dc2626", after:"Link Automotive", headlineColor:"#f5f5f5" },
+    sub:{ text:"Trusted local car mechanic — honest work, fair prices", color:"#d4d4d4", wrap:true },
+    ctaButtons:[
+      { label:"Call Now", href:"tel:+447829917883", bg:"#dc2626", color:"#ffffff", border:"rgba(255,255,255,0.15)" },
+      { label:"Email Us", href:"mailto:info@richlink.je", bg:"#1a1a1a", color:"#f5f5f5", border:"rgba(255,255,255,0.25)" },
+      { label:"Facebook", href:"https://www.facebook.com/RichLinkAutomotive/", bg:"#1a1a1a", color:"#f5f5f5", border:"rgba(255,255,255,0.25)" },
+    ],
+  },
 ];
 /* ═══════════════════════════════════════════════════════════════════════════
    INSTALL STEPS — reusable install instructions component
@@ -11396,9 +11409,12 @@ function AdBanner({ onEnquiry, externalPause }) {
   // A duplicate of slide 0 is appended to the end of the track so the
   // 15→1 wrap slides right-to-left exactly like every other transition,
   // then snaps invisibly back to the real slide 0 (which looks identical).
-  const ACTIVE_SLIDES = AD_SLIDES;
+  const todayStr = new Date().toISOString().slice(0,10);
+  const ACTIVE_SLIDES = AD_SLIDES.filter(s =>
+    (!s.startDate || todayStr >= s.startDate) && (!s.endDate || todayStr <= s.endDate)
+  );
   const COUNT     = ACTIVE_SLIDES.length;
-  const DISPLAY_SLIDES = [...AD_SLIDES, AD_SLIDES[0]];
+  const DISPLAY_SLIDES = [...ACTIVE_SLIDES, ACTIVE_SLIDES[0]];
   const DISPLAY_COUNT  = DISPLAY_SLIDES.length;
 
   // ── Remember the last slide shown, so reopening the app doesn't always restart at slide 1 ──
