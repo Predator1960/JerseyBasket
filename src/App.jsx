@@ -8386,6 +8386,9 @@ const BASE_PRODUCTS = [
   {id:8154, name:"7 Days Max Croissant with Cocoa Flavoured Filling 80g", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:1.10,alliance:0}, upd:"6 Sep"},
   {id:8155, name:"The Daily Bakery 4 Millionaire Handmade Slices", cat:"🍞 Bread & Bakery", icon:"🍰", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:2.00,alliance:0}, upd:"6 Sep"},
   {id:8156, name:"The Daily Bakery 12 Choc Chip Muffins 340g", cat:"🍞 Bread & Bakery", icon:"🧁", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:2.35,alliance:0}, upd:"6 Sep"},
+  /* ── M&S RECEIPT IMPORT — 15 Sep 2026 ── */
+  {id:8171, name:"M&S Ultimate Crumpets", cat:"🍞 Bread & Bakery", icon:"🫓", prices:{coop:0,morrisons:0,ms:1.85,waitrose:0,iceland:0,alliance:0}, upd:"15 Sep"},
+  {id:8172, name:"M&S Butterscotch Sweets", cat:"🥨 Snacks & Treats", icon:"🍬", prices:{coop:0,morrisons:0,ms:2.00,waitrose:0,iceland:0,alliance:0}, upd:"15 Sep"},
 ];/* ═══════════════════════════════════════════════════════════════════════════
    WEEKLY ESSENTIALS — a relatable 25-item "typical weekly shop" basket, used
    as the default landing sort so new visitors see a real comparison (milk,
