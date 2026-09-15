@@ -235,7 +235,7 @@ const BASE_PRODUCTS = [
   {id:22, name:"Sour Cream (300ml)",           cat:"🥛 Dairy & Eggs", icon:"🫙", prices:sp(1.40,[0,0.15,0.6,0.45,0.07])},
   {id:23, name:"Crème Fraîche (300ml)",        cat:"🥛 Dairy & Eggs", icon:"🫙", prices:sp(1.85,[0,0.18,0.65,0.5,0.09])},
   {id:24, name:"Double Cream (300ml)",         cat:"🥛 Dairy & Eggs", icon:"🍦", prices:sp(2.26,[-0.46,0.20,0,0,0,1.49])},
-  {id:25, name:"Single Cream (300ml)",         cat:"🥛 Dairy & Eggs", icon:"🍦", prices:sp(1.45,[0.04,0.18,0.65,0.5,0.09])},
+  {id:25, name:"Single Cream (300ml)",         cat:"🥛 Dairy & Eggs", icon:"🍦", prices:sp(1.45,[0.04,0.18,0.35,0.5,0.09]), upd:"14 Sep"},
   {id:26, name:"Cottage Cheese (300g)",        cat:"🥛 Dairy & Eggs", icon:"🫙", prices:sp(1.50,[0,1.10,0.6,0.25,0.07])},
   {id:27, name:"Cream Cheese (200g)",          cat:"🥛 Dairy & Eggs", icon:"🧀", prices:sp(1.80,[0.85,0.18,0.7,0.52,0.09])},
   {id:28, name:"Clotted Cream (113g)",         cat:"🥛 Dairy & Eggs", icon:"🍦", prices:sp(2.00,[0,0.22,0.8,0.6,0.11])},
