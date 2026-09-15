@@ -49,6 +49,7 @@ NORMAL_FILL = {
 }
 CHEAPEST_FILL = "FFBBF7D0"
 CHEAPEST_FONT_COLOR = "FF14532D"
+CURRENCY_FORMAT = r"\£#,##0.00"
 
 def norm(s):
     return re.sub(r'\s+', ' ', str(s).strip().lower())
@@ -128,14 +129,20 @@ def main():
         ws.cell(row=r, column=11, value=prices["Waitrose"])
         ws.cell(row=r, column=13, value=prices["Iceland"])
         ws.cell(row=r, column=15, value=prices["Alliance"])
+        lowest_cell = ws.cell(row=r, column=17)
         ws.cell(row=r, column=17, value=lowest_price)
         ws.cell(row=r, column=18, value=cheapest_store)
         ws.cell(row=r, column=19, value=today_str)
+        if lowest_price is not None:
+            lowest_cell.number_format = CURRENCY_FORMAT
 
         # Re-derive each price cell's highlight from today's actual prices,
         # instead of leaving behind whichever store used to be cheapest.
         # Every store within half a penny of the row's lowest price is
         # highlighted (ties are common and all deserve the highlight).
+        # Also re-apply the £ currency format, since many cells were left
+        # on "General" (plain number, no £) from whenever they were last
+        # touched by hand.
         for store, col in STORE_COLS.items():
             cell = ws.cell(row=r, column=col)
             val = prices[store]
@@ -147,6 +154,8 @@ def main():
             else:
                 cell.font = Font(name=existing_font.name, size=existing_font.size, bold=False, color=None)
                 cell.fill = PatternFill(fill_type="solid", fgColor=NORMAL_FILL[store])
+            if val is not None:
+                cell.number_format = CURRENCY_FORMAT
 
     wb.save(XLSX_PATH)
     print(f"Done. Products sheet rebuilt with {len(rows)} products, dated {today_str}.")
