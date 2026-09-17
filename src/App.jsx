@@ -5278,7 +5278,7 @@ const BASE_PRODUCTS = [
   {id:4470, name:"Little Rolo 103g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.35,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:4471, name:"Cadbury Dairy Milk Marvellous Creations Jelly Popping Candy Chocolate 56g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.59,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:4472, name:"Cadbury Dairy Milk Milk Chocolate Bar 45 g 45G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.2,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
-  {id:4473, name:"Reese's 2 Peanut Butter Cups 42g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.19,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:4473, name:"Reese's 2 Peanut Butter Cups 42g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.19,morrisons:0,ms:0,waitrose:1.15,iceland:0,alliance:0}, upd:"17 Sep"},
   {id:4474, name:"Lindt Lindor Milk Chocolate Treat Bar 38g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.16,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:4475, name:"Twix Caramel Biscuit Chocolate Bar 50g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:4476, name:"Maltesers Milk Chocolate & Honeycomb Snack Bag 37g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
@@ -8389,6 +8389,10 @@ const BASE_PRODUCTS = [
   /* ── M&S RECEIPT IMPORT — 15 Sep 2026 ── */
   {id:8171, name:"M&S Ultimate Crumpets", cat:"🍞 Bread & Bakery", icon:"🫓", prices:{coop:0,morrisons:0,ms:1.85,waitrose:0,iceland:0,alliance:0}, upd:"15 Sep"},
   {id:8172, name:"M&S Butterscotch Sweets", cat:"🥨 Snacks & Treats", icon:"🍬", prices:{coop:0,morrisons:0,ms:2.00,waitrose:0,iceland:0,alliance:0}, upd:"15 Sep"},
+  /* ── WAITROSE RECEIPT IMPORT — 17 Sep 2026 ── */
+  {id:8173, name:"WR Strawberry & Grape", cat:"🥦 Fruit & Veg", icon:"🍇", prices:{coop:0,morrisons:0,ms:0,waitrose:2.03,iceland:0,alliance:0}, upd:"17 Sep"},
+  {id:8174, name:"WR White Chocolate Cookies", cat:"🥨 Snacks & Treats", icon:"🍪", prices:{coop:0,morrisons:0,ms:0,waitrose:2.79,iceland:0,alliance:0}, upd:"17 Sep"},
+  {id:8175, name:"WR Deli Style Cheese Coleslaw", cat:"🥗 Deli & Salads", icon:"🥗", prices:{coop:0,morrisons:0,ms:0,waitrose:2.56,iceland:0,alliance:0}, upd:"17 Sep"},
 ];/* ═══════════════════════════════════════════════════════════════════════════
    WEEKLY ESSENTIALS — a relatable 25-item "typical weekly shop" basket, used
    as the default landing sort so new visitors see a real comparison (milk,
