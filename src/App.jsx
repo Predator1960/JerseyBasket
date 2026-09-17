@@ -1368,7 +1368,7 @@ const BASE_PRODUCTS = [
   {id:1081,name:"Morrisons Kitty Sticks Chicken & Liver",       cat:"🐾 Pet",                 icon:"🐱", prices:sp(1.30,[-1.30,-1.30,-1.30,-1.30,0,-1.30])},
   {id:1082,name:"Morrisons Cheese Cat Snack Pillows",           cat:"🐾 Pet",                 icon:"🐱", prices:sp(1.10,[-1.10,-1.10,-1.10,-1.10,0,-1.10])},
   {id:1083,name:"Morrisons Salmon Cat Snack Pillows",           cat:"🐾 Pet",                 icon:"🐱", prices:sp(1.10,[-1.10,-1.10,-1.10,-1.10,0,-1.10])},
-  {id:1084,name:"Fanta Zero Orange (500ml)",                    cat:"🥤 Drinks",              icon:"🍊", prices:sp(2.10,[0,-2.10,-2.10,-2.10,0,-2.10]), upd:"10 Sep"},
+  {id:1084,name:"Fanta Zero Orange (500ml)",                    cat:"🥤 Drinks",              icon:"🍊", prices:sp(2.10,[0,-2.10,-2.10,-0.01,0,-2.10]), upd:"17 Sep"},
   {id:1085,name:"Crispy French Fries Crisps",                   cat:"🍿 Snacks",              icon:"🍟", prices:sp(1.85,[0,-1.85,-1.85,-1.85,-1.85,-1.85])},
   {id:1086,name:"Jersey Dairy 1% Fat Milk",                     cat:"🥛 Dairy & Eggs",        icon:"🥛", prices:sp(1.64,[0,-1.64,-1.64,-1.64,-1.64,-1.64])},
   {id:1087,name:"Pepsi Max 4pk (4x330ml)",                      cat:"🥤 Drinks",              icon:"🥤", prices:sp(3.15,[-0.50,-3.15,-3.15,-3.15,-3.15,-3.15])},
@@ -8393,6 +8393,7 @@ const BASE_PRODUCTS = [
   {id:8173, name:"WR Strawberry & Grape", cat:"🥦 Fruit & Veg", icon:"🍇", prices:{coop:0,morrisons:0,ms:0,waitrose:2.03,iceland:0,alliance:0}, upd:"17 Sep"},
   {id:8174, name:"WR White Chocolate Cookies", cat:"🥨 Snacks & Treats", icon:"🍪", prices:{coop:0,morrisons:0,ms:0,waitrose:2.79,iceland:0,alliance:0}, upd:"17 Sep"},
   {id:8175, name:"WR Deli Style Cheese Coleslaw", cat:"🥗 Deli & Salads", icon:"🥗", prices:{coop:0,morrisons:0,ms:0,waitrose:2.56,iceland:0,alliance:0}, upd:"17 Sep"},
+  {id:8176, name:"WR Bacon, Chicken & Onion Bhaji Wrap", cat:"🥗 Deli & Salads", icon:"🌯", prices:{coop:0,morrisons:0,ms:0,waitrose:4.64,iceland:0,alliance:0}, upd:"17 Sep"},
 ];/* ═══════════════════════════════════════════════════════════════════════════
    WEEKLY ESSENTIALS — a relatable 25-item "typical weekly shop" basket, used
    as the default landing sort so new visitors see a real comparison (milk,
