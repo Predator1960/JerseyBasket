@@ -10625,9 +10625,9 @@ const AD_SLIDES = [
     endDate:"2026-10-01",
     bg:"linear-gradient(135deg,#ffffff 0%,#f4f4f4 100%)",
     eyebrow:{ text:"FEATURED ADVERTISER", color:"#c2255c" },
-    headline:{ before:"Zia ", highlight:"IT Support", highlightColor:"#c2255c", after:"", headlineColor:"#1a1a1a" },
+    headline:{ before:"", highlight:"", highlightColor:"#c2255c", after:"", headlineColor:"#1a1a1a" },
     sub:{ text:"Holistic I.T. support for homes and businesses", color:"#c2255c", wrap:true },
-    logo:"/Zia-logo.jpg",
+    logo:"/Zia-logo.png",
     ctaButtons:[
       { label:"Call Now", href:"tel:+447797834544", bg:"#c2255c", color:"#ffffff", border:"rgba(0,0,0,0.15)" },
       { label:"Email Us", href:"mailto:support@zia.je", bg:"#ffffff", color:"#c2255c", border:"rgba(0,0,0,0.2)" },
