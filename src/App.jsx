@@ -10658,8 +10658,9 @@ const AD_SLIDES = [
     startDate:"2026-09-14", endDate:"2026-10-01",
     bg:"linear-gradient(135deg,#1a1a1a 0%,#000000 100%)",
     eyebrow:{ text:"FREE FEATURED ADVERTISER", color:"#dc2626" },
-    headline:{ before:"", highlight:"Rich", highlightColor:"#dc2626", after:"Link Automotive", headlineColor:"#f5f5f5" },
+    headline:{ before:"", highlight:"", highlightColor:"#dc2626", after:"", headlineColor:"#f5f5f5" },
     sub:{ text:"Trusted local car mechanic — honest work, fair prices", color:"#d4d4d4", wrap:true },
+    logo:"/RichLink-logo.png",
     ctaButtons:[
       { label:"Call Now", href:"tel:+447829917883", bg:"#dc2626", color:"#ffffff", border:"rgba(255,255,255,0.15)" },
       { label:"Email Us", href:"mailto:info@richlink.je", bg:"#1a1a1a", color:"#f5f5f5", border:"rgba(255,255,255,0.25)" },
