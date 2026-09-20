@@ -1081,7 +1081,7 @@ const BASE_PRODUCTS = [
   {id:768,name:"M&S Donkey Manchego Pork Pate",       cat:"🥩 Meat & Fish",   icon:"🫙",prices:sp(4.85,[-4.85,-4.85,0,-4.85,-4.85,-4.85])},
   /* ── Carmen1971 Co-op receipt 19 Jun 2026 ── */
   {id:769,name:"Ariel Pods Original",                 cat:"🧴 Household",     icon:"🧺",prices:sp(3.65,[0,-3.65,-3.65,-3.65,1.90,-3.65])},
-  {id:771,name:"Andrex Toilet Tissue",                cat:"🧴 Household",     icon:"🧻",prices:{coop:3.29,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"31 Jul"},
+  {id:771,name:"Andrex Toilet Tissue",                cat:"🧴 Household",     icon:"🧻",prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"19 Sep"},
   {id:775,name:"Bakers Rewards Dog Food",             cat:"🐾 Pet",           icon:"🐶",prices:sp(1.49,[0,-1.49,-1.49,-1.49,-1.49,-1.49])},
   {id:776,name:"Bakers Sizzlers Bacon Dog Food",      cat:"🐾 Pet",           icon:"🐶",prices:sp(1.49,[0,-1.49,-1.49,-1.49,-1.49,-1.49]), upd:"12 Sep"},
   /* ── j.acottjsy Waitrose receipt 21 Jun 2026 ── */
@@ -8767,6 +8767,21 @@ const BASE_PRODUCTS = [
   {id:8547, name:"Iceland Little Gem Lettuce 2 Pack", cat:"🥦 Fruit & Veg", icon:"🥬", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:1.4,alliance:0}, upd:"19 Sep"},
   {id:8548, name:"Iceland Broccoli Florettes 160g", cat:"🥦 Fruit & Veg", icon:"🥦", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:2,alliance:0}, upd:"19 Sep", oos:["iceland"]},
   {id:8549, name:"Iceland Chestnut Mushroom 250g", cat:"🥦 Fruit & Veg", icon:"🍄", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:1.5,alliance:0}, upd:"19 Sep", oos:["iceland"]},
+  /* ── CO-OP RECEIPT 19 Sep 2026 — lines with no pack size on the receipt, added as named ── */
+  {id:8550, name:"Coca-Cola Zero Sugar", cat:"🥤 Drinks", icon:"🥤", prices:{coop:3.68,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"19 Sep"},
+  {id:8551, name:"Mars Bounty Milk", cat:"🥨 Snacks & Treats", icon:"🍫", prices:{coop:1.84,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"19 Sep"},
+  {id:8552, name:"Maynards Liquorice Allsorts", cat:"🥨 Snacks & Treats", icon:"🍬", prices:{coop:1.5,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"19 Sep"},
+  {id:8553, name:"Cadbury Dairy Milk Bar", cat:"🥨 Snacks & Treats", icon:"🍫", prices:{coop:2.5,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"19 Sep"},
+  {id:8554, name:"Cadbury Caramel Nibbles", cat:"🥨 Snacks & Treats", icon:"🍫", prices:{coop:1.58,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"19 Sep"},
+  {id:8555, name:"Co-op Lily White Flour", cat:"🍝 Pantry", icon:"🌾", prices:{coop:1.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"19 Sep"},
+  {id:8556, name:"Co-op Golden Vegetable Microwave Rice", cat:"🍝 Pantry", icon:"🍚", prices:{coop:1.05,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"19 Sep"},
+  {id:8557, name:"Td Vg Long Grain Rice", cat:"🍝 Pantry", icon:"🍚", prices:{coop:1.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"19 Sep"},
+  {id:8558, name:"Robinsons Double Concentrate Orange & Pineapple", cat:"🥤 Drinks", icon:"🍊", prices:{coop:1.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"19 Sep"},
+  {id:8559, name:"McVitie's Dark Choc Digestives", cat:"🥨 Snacks & Treats", icon:"🍪", prices:{coop:1.94,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"19 Sep"},
+  {id:8560, name:"Fresh Fingers Rolls", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:4.45,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"19 Sep"},
+  {id:8561, name:"Richmond 8 Thick Sausages", cat:"🥩 Meat & Fish", icon:"🌭", prices:{coop:2.1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"19 Sep"},
+  {id:8562, name:"Gaviscon Double Action", cat:"💊 Health & Beauty", icon:"💊", prices:{coop:4.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"19 Sep"},
+  {id:8563, name:"Bold Gel Spring Awakening", cat:"🧹 Household", icon:"🧺", prices:{coop:4.2,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"19 Sep"},
 ];/* ═══════════════════════════════════════════════════════════════════════════
    WEEKLY ESSENTIALS — a relatable 25-item "typical weekly shop" basket, used
    as the default landing sort so new visitors see a real comparison (milk,
