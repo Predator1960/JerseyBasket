@@ -5164,7 +5164,7 @@ const BASE_PRODUCTS = [
   {id:4375, name:"Co-op Chocolate Hazelnut Pillows 375g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:4376, name:"Kellogg's Frosties 470g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.15,morrisons:0,ms:0,waitrose:0,iceland:4.65,alliance:0}, upd:"21 Sep"},
   {id:4377, name:"Special K The Original 440g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.15,morrisons:0,ms:0,waitrose:0,iceland:4.55,alliance:0}, upd:"21 Sep"},
-  {id:4378, name:"Kellogg's Corn Flakes 450g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:4378, name:"Kellogg's Corn Flakes 450g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.1,morrisons:0,ms:0,waitrose:2.6,iceland:0,alliance:0}, upd:"21 Sep"},
   {id:4379, name:"Kellogg's 8 Variety Packs 196g 8PACK", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:3.75,alliance:0}, upd:"21 Sep"},
   {id:4380, name:"Shreddies The Original 460g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.36,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:4381, name:"Cheerios Honey 370g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.36,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
