@@ -8362,7 +8362,7 @@ const BASE_PRODUCTS = [
   {id:8156, name:"The Daily Bakery 12 Choc Chip Muffins 340g", cat:"🍞 Bread & Bakery", icon:"🧁", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:2.35,alliance:0}, upd:"6 Sep"},
   /* ── M&S RECEIPT IMPORT — 15 Sep 2026 ── */
   {id:8171, name:"M&S Ultimate Crumpets", cat:"🍞 Bread & Bakery", icon:"🫓", prices:{coop:0,morrisons:0,ms:1.85,waitrose:0,iceland:0,alliance:0}, upd:"15 Sep"},
-  {id:8172, name:"M&S Butterscotch Sweets", cat:"🥨 Snacks & Treats", icon:"🍬", prices:{coop:0,morrisons:0,ms:2.00,waitrose:0,iceland:0,alliance:0}, upd:"15 Sep"},
+  {id:8172, name:"M&S Sugar Free Butterscotch Sweets", cat:"🥨 Snacks & Treats", icon:"🍬", prices:{coop:0,morrisons:0,ms:2.00,waitrose:0,iceland:0,alliance:0}, upd:"23 Sep"},
   /* ── WAITROSE RECEIPT IMPORT — 17 Sep 2026 ── */
   {id:8173, name:"WR Strawberry & Grape", cat:"🥦 Fruit & Veg", icon:"🍇", prices:{coop:0,morrisons:0,ms:0,waitrose:2.03,iceland:0,alliance:0}, upd:"17 Sep"},
   {id:8174, name:"WR White Chocolate Cookies", cat:"🥨 Snacks & Treats", icon:"🍪", prices:{coop:0,morrisons:0,ms:0,waitrose:2.79,iceland:0,alliance:0}, upd:"17 Sep"},
@@ -9802,6 +9802,9 @@ const BASE_PRODUCTS = [
   {id:9603, name:"Barebells Cinnamon Bun Soft Protein Bar 55g", cat:"💪 Sports Nutrition", icon:"💪", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:3,alliance:0}, upd:"22 Sep", oos:["iceland"]},
   {id:9604, name:"Grenade High Protein Low Sugar Bar Soft Core Double Chocolate 50g", cat:"💪 Sports Nutrition", icon:"💪", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:3,alliance:0}, upd:"22 Sep", oos:["iceland"]},
   {id:9605, name:"Kind Dark Chocolate Nuts & Sea Salt 40g", cat:"💪 Sports Nutrition", icon:"💪", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:1.7,alliance:0}, upd:"22 Sep", oos:["iceland"]},
+  /* ── M&S receipt, St Johns, 23 Sep 2026 ── */
+  {id:9606, name:"M&S Sugar Free Rhubarb & Custard Sweets", cat:"🥨 Snacks & Treats", icon:"🍬", prices:{coop:0,morrisons:0,ms:2.00,waitrose:0,iceland:0,alliance:0}, upd:"23 Sep"},
+  {id:9607, name:"M&S 70:30 Loaf", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:0,morrisons:0,ms:0.95,waitrose:0,iceland:0,alliance:0}, upd:"23 Sep"},
 ];/* ═══════════════════════════════════════════════════════════════════════════
    WEEKLY ESSENTIALS — a relatable 25-item "typical weekly shop" basket, used
    as the default landing sort so new visitors see a real comparison (milk,
