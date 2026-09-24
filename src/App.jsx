@@ -1166,7 +1166,7 @@ const BASE_PRODUCTS = [
   {id:882,name:"M&S Reduced Fat Coleslaw",           cat:"🥗 Deli & Salads", icon:"🥗",prices:sp(1.60,[-1.60,-1.60,0,-1.60,-1.60,-1.60])},
   /* ── Carmen1971 Waitrose 24 Jun 2026 ── */
   {id:883,name:"Oat Flaked Rolls",                   cat:"🍞 Bread & Bakery",icon:"🥖",prices:sp(2.85,[-2.85,-2.85,-2.85,0,-2.85,-2.85])},
-  {id:884,name:"Pepsi Max Cans (multipack)",          cat:"🥤 Drinks",        icon:"🥤",prices:sp(5.12,[-5.12,-5.12,-5.12,-1.64,-5.12,-5.12]), upd:"24 Sep"},
+  {id:884,name:"Pepsi Max Cans (multipack)",          cat:"🥤 Drinks",        icon:"🥤",prices:sp(5.12,[-5.12,-5.12,-5.12,-5.12,-5.12,-5.12])},
   {id:885,name:"Tony's Caramel Chocolate Bar",        cat:"🥨 Snacks & Treats",icon:"🍫",prices:sp(3.83,[-3.83,-3.83,-3.83,0,-3.83,-3.83])},
   {id:886,name:"WR CI White Fondant Icing",           cat:"🍝 Pantry",        icon:"🎂",prices:sp(2.32,[-2.32,-2.32,-2.32,0,-2.32,-2.32])},
   {id:887,name:"WR Salted Danish Butter (250g)",      cat:"🥛 Dairy & Eggs",  icon:"🧈",prices:sp(3.88,[-3.88,-3.88,-3.88,0,-3.88,-3.88])},
@@ -5258,7 +5258,7 @@ const BASE_PRODUCTS = [
   {id:4469, name:"Cadbury Wispa Milk Chocolate Bar 36 g 36G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.2,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:4470, name:"Little Rolo 103g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.35,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:4471, name:"Cadbury Dairy Milk Marvellous Creations Jelly Popping Candy Chocolate 56g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.59,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
-  {id:4472, name:"Cadbury Dairy Milk Milk Chocolate Bar 45 g 45G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.2,morrisons:0,ms:0,waitrose:1.44,iceland:0,alliance:0}, upd:"24 Sep"},
+  {id:4472, name:"Cadbury Dairy Milk Milk Chocolate Bar 45 g 45G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.2,morrisons:0,ms:0,waitrose:1.44,iceland:0,alliance:0}, upd:"24 Sep"}, // waitrose £1.44 was a special offer 24 Sep — re-verify normal shelf price
   {id:4473, name:"Reese's 2 Peanut Butter Cups 42g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.19,morrisons:0,ms:0,waitrose:1.15,iceland:0,alliance:0}, upd:"17 Sep"},
   {id:4474, name:"Lindt Lindor Milk Chocolate Treat Bar 38g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.16,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:4475, name:"Twix Caramel Biscuit Chocolate Bar 50g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
@@ -6453,7 +6453,7 @@ const BASE_PRODUCTS = [
   {id:5676, name:"Red Bull Cherry Edition Cherry Sakura Energy Drink 250ml 4 Pack 4X250ML", cat:"🥤 Drinks", icon:"🥤", prices:{coop:4.2,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:5677, name:"Red Bull The Cherry Edition Cherry Sakura Energy Drink 355ml", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:5678, name:"Diet Coke Cola 4 x 330ml Cans 4X330ML", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
-  {id:5679, name:"Pepsi Max 4 x 330ml 4X330ML", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.63,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:5679, name:"Pepsi Max 4 x 330ml 4X330ML", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.63,morrisons:0,ms:0,waitrose:3.48,iceland:0,alliance:0}, upd:"24 Sep"},
   {id:5680, name:"Pepsi 1.25 Litres 1.25LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:1.79,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:5681, name:"Coca-Cola Original Taste 4 x 330ml 4X330ML", cat:"🥤 Drinks", icon:"🥤", prices:{coop:3.69,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:5682, name:"Red Bull The Apple Edition Sugarfree Fuji Apple & Ginger Energy Drink 4 x 250ml 4X250ML", cat:"🥤 Drinks", icon:"🥤", prices:{coop:4.2,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
@@ -8247,7 +8247,7 @@ const BASE_PRODUCTS = [
   {id:8061, name:"Maynards Bassetts Liquorice Allsorts", cat:"🍝 Pantry", icon:"🍬", prices:{coop:3.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"28 Aug"},
   {id:8062, name:"Taylor & Colledge Fine Vanilla Bean Extract", cat:"🍝 Pantry", icon:"🍝", prices:{coop:5.25,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"7 Aug"},
   {id:8063, name:"Cadbury White Buttons", cat:"🍝 Pantry", icon:"🍫", prices:{coop:1.84,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"7 Aug"},
-  {id:8064, name:"Cadbury Biscoff", cat:"🍝 Pantry", icon:"🍫", prices:{coop:2.5,morrisons:0,ms:0,waitrose:1.44,iceland:0,alliance:0}, upd:"24 Sep"},
+  {id:8064, name:"Cadbury Biscoff", cat:"🍝 Pantry", icon:"🍫", prices:{coop:2.5,morrisons:0,ms:0,waitrose:1.44,iceland:0,alliance:0}, upd:"24 Sep"}, // waitrose £1.44 was a special offer 24 Sep — re-verify normal shelf price
   {id:8065, name:"Hula Hoops BBQ Beef", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.60,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"7 Aug"},
   {id:8066, name:"Co-op Spaghetti Bolognese", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.30,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"7 Aug"},
   {id:8067, name:"Peperami Original Multipack", cat:"🥩 Meat & Fish", icon:"🍖", prices:{coop:2.10,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"7 Aug"},
@@ -9578,7 +9578,7 @@ const BASE_PRODUCTS = [
   {id:9379, name:"Cadbury Dairy Milk Little Bar Chocolate 18g", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:0.55,alliance:0}, upd:"22 Sep"},
   {id:9380, name:"Cadbury Double Decker Chocolate Bar 54.5g", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:1.1,alliance:0}, upd:"22 Sep"},
   {id:9381, name:"Cadbury Flake Chocolate Bar 32g", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:1.1,alliance:0}, upd:"22 Sep"},
-  {id:9382, name:"Cadbury Fruit & Nut 49g", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:0,morrisons:0,ms:0,waitrose:1.44,iceland:1.1,alliance:0}, upd:"24 Sep"},
+  {id:9382, name:"Cadbury Fruit & Nut 49g", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:0,morrisons:0,ms:0,waitrose:1.44,iceland:1.1,alliance:0}, upd:"24 Sep"}, // waitrose £1.44 was a special offer 24 Sep — re-verify normal shelf price
   {id:9383, name:"Cadbury Picnic Chocolate Bar 48g", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:1.1,alliance:0}, upd:"22 Sep"},
   {id:9384, name:"Kind Peanut Butter Dark Chocolate 40g", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:1.7,alliance:0}, upd:"22 Sep"},
   {id:9385, name:"Oreo Fresh Milk-Snack 27g", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:1.1,alliance:0}, upd:"22 Sep"},
