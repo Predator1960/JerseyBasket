@@ -1370,7 +1370,6 @@ const BASE_PRODUCTS = [
   {id:1084,name:"Fanta Zero Orange (500ml)",                    cat:"🥤 Drinks",              icon:"🍊", prices:sp(2.10,[0,-2.10,-2.10,-0.01,0,-2.10]), upd:"17 Sep"},
   {id:1085,name:"Crispy French Fries Crisps",                   cat:"🍿 Snacks",              icon:"🍟", prices:sp(1.85,[0,-1.85,-1.85,-1.85,-1.85,-1.85])},
   {id:1086,name:"Jersey Dairy 1% Fat Milk",                     cat:"🥛 Dairy & Eggs",        icon:"🥛", prices:sp(1.64,[0,-1.64,-1.64,-1.64,-1.64,-1.64])},
-  {id:1087,name:"Pepsi Max 4pk (4x330ml)",                      cat:"🥤 Drinks",              icon:"🥤", prices:sp(3.15,[-0.50,-3.15,-3.15,-3.15,-3.15,-3.15])},
   {id:1088,name:"CP Iceberg Lettuce",                           cat:"🥦 Fruit & Veg",         icon:"🥬", prices:sp(1.60,[0,-1.60,-1.60,-1.60,-1.60,-1.60])},
   {id:1089,name:"KitKat Chunky Peanut Butter",                  cat:"🍫 Confectionery",       icon:"🍫", prices:sp(0.95,[0.10,-0.95,-0.95,-0.95,-0.95,-0.95])},
   {id:1090,name:"CP Deli Chicken Stuffing Sandwich",            cat:"🥪 Food To Go",          icon:"🥪", prices:sp(3.60,[0,-3.60,-3.60,-3.60,-3.60,-3.60])},
