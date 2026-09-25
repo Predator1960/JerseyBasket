@@ -10792,7 +10792,7 @@ export default function JerseyGroceryApp() {
                   <div style={{ display:"flex", alignItems:"center", gap:8 }}>
                     <span style={{ fontSize:18 }}>{s.emoji}</span>
                     <div>
-                      <div style={{ fontSize:12, fontWeight:700, color:lightMode?"#0f172a":"#f0f4f8" }}>Showing <span style={{ color:s.color }}>{s.name}</span> prices for all items</div>
+                      <div style={{ fontSize:12, fontWeight:700, color:lightMode?"#0f172a":"#f0f4f8" }}>Showing <span style={{ color:s.color }}>{s.name}</span> prices for all items <span style={{ fontWeight:600, color:lightMode?"#334155":"#94a3b8" }}>· {filteredProducts.length} product{filteredProducts.length!==1?"s":""} stocked</span></div>
                       <div style={{ fontSize:10, color:lightMode?"#334155":"#64748b", marginTop:1 }}>Tap any store pill on a card to override that item individually</div>
                     </div>
                   </div>
