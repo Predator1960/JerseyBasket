@@ -6493,7 +6493,7 @@ const BASE_PRODUCTS = [
   {id:5717, name:"Rubicon Still Pineapple Juice Drink 1 Litre 1LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:5718, name:"Bottlegreen Wild Elderflower Cordial 500ml", cat:"🥤 Drinks", icon:"🥤", prices:{coop:4.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:5719, name:"Bottlegreen Ginger & Lemongrass Cordial 500ml", cat:"🥤 Drinks", icon:"🥤", prices:{coop:4.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
-  {id:5720, name:"Buxton Still Natural Mineral Water 1.5L 1.5LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:1.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:5720, name:"Buxton Still Natural Mineral Water 1.5L 1.5LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:1.29,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"25 Sep"},
   {id:5721, name:"Buxton Still Natural Mineral Water 6 x 1.5L 6X1.5LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:4.2,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:5722, name:"Dr Pepper 2L 2LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.5,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:5723, name:"Vimto No Added Sugar Real Fruit Squash 1 Litre 1LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:1.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
@@ -8216,7 +8216,7 @@ const BASE_PRODUCTS = [
   {id:8031, name:"Galaxy Minstrels Large Pouch", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.84,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"20 Aug"},
   {id:8032, name:"Rice Krispies Squares Chocolate", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.80,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"31 Jul"},
   {id:8033, name:"Co-op Tiramisu 2 x 85g", cat:"🥨 Snacks & Treats", icon:"🍰", prices:{coop:2.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"31 Jul"},
-  {id:8034, name:"Co-op Stonebaked Meat Feast Pizza", cat:"🥗 Deli & Salads", icon:"🍕", prices:{coop:3.40,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"20 Aug"},
+  {id:8034, name:"Co-op Stonebaked Meat Feast Pizza", cat:"🥗 Deli & Salads", icon:"🍕", prices:{coop:4.45,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"25 Sep"}, // near-duplicate of id 581/3088 "Stonebaked Meat Feast Pizza" — consider merging
   {id:8035, name:"Co-op Orange Juice Smooth 1L", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"28 Aug"},
   {id:8036, name:"Horlicks Instant Sachet", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0.42,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"7 Aug"},
   {id:8037, name:"Cadbury Instant Hot Chocolate Sachet", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"31 Jul"},
@@ -9806,6 +9806,10 @@ const BASE_PRODUCTS = [
   {id:9607, name:"M&S 70:30 Loaf", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:0,morrisons:0,ms:0.95,waitrose:0,iceland:0,alliance:0}, upd:"23 Sep"},
   /* ── Waitrose receipt, Red Houses, 24 Sep 2026 ── */
   {id:9608, name:"Waitrose Cooks' Ingredients Garlic Granules", cat:"🍝 Pantry", icon:"🧄", prices:{coop:0,morrisons:0,ms:0,waitrose:2.09,iceland:0,alliance:0}, upd:"24 Sep"},
+  /* ── Co-op receipt, Millennium Park, 25 Sep 2026 ── */
+  {id:9609, name:"Mackie's Ice Cream", cat:"🧊 Frozen", icon:"🍨", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"25 Sep"},
+  {id:9610, name:"Häagen-Dazs Salted Caramel Ice Cream 460ml", cat:"🧊 Frozen", icon:"🍨", prices:{coop:3.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"25 Sep"},
+  {id:9611, name:"Müller Rice Strawberry", cat:"🥛 Dairy & Eggs", icon:"🍚", prices:{coop:1.05,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"25 Sep"},
 ];/* ═══════════════════════════════════════════════════════════════════════════
    WEEKLY ESSENTIALS — a relatable 25-item "typical weekly shop" basket, used
    as the default landing sort so new visitors see a real comparison (milk,
