@@ -9811,6 +9811,9 @@ const BASE_PRODUCTS = [
   {id:9610, name:"Häagen-Dazs Salted Caramel Ice Cream 460ml", cat:"🧊 Frozen", icon:"🍨", prices:{coop:3.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"25 Sep"},
   {id:9611, name:"Müller Rice Strawberry", cat:"🥛 Dairy & Eggs", icon:"🍚", prices:{coop:1.05,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"25 Sep"},
   {id:9612, name:"Co-op Biodegradable Face Wipes", cat:"💊 Health & Beauty", icon:"🧻", prices:{coop:1.20,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"25 Sep"},
+  {id:9613, name:"Tropicana Orange Smooth", cat:"🥤 Drinks", icon:"🍊", prices:{coop:2.10,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"25 Sep"},
+  {id:9614, name:"Vienna Seeded Rolls", cat:"🍞 Bread & Bakery", icon:"🥖", prices:{coop:2.35,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"25 Sep"},
+  {id:9615, name:"Co-op Mince Pies", cat:"🍰 Cakes & Desserts", icon:"🥧", prices:{coop:1.60,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"25 Sep"},
 ];/* ═══════════════════════════════════════════════════════════════════════════
    WEEKLY ESSENTIALS — a relatable 25-item "typical weekly shop" basket, used
    as the default landing sort so new visitors see a real comparison (milk,
