@@ -11499,7 +11499,7 @@ export default function JerseyGroceryApp() {
             🕐 Prices updated: {new Date().toLocaleDateString("en-GB", { day:"numeric", month:"long", year:"numeric" })}
           </span>
           <span style={{ color:lightMode?"#94a3b8":"#1e293b" }}>·</span>
-          <span style={{ color:lightMode?"#334155":"#94a3b8" }}>Always verify in-store</span>
+          <span style={{ color:lightMode?"#0f172a":"#f0f4f8",fontWeight:600 }}>Always verify in-store</span>
         </div>
         {/* banner */}
         <AdBanner onEnquiry={()=>setShowEnquiry(true)} externalPause={showWelcome} />
