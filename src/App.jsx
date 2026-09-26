@@ -11489,9 +11489,9 @@ export default function JerseyGroceryApp() {
       <div style={{ flexShrink:0, zIndex:200, display:"flex", flexDirection:"column" }}>
         {/* footer */}
         <div style={{ background:lightMode?"rgba(210,218,226,.97)":"rgba(5,13,26,.97)",backdropFilter:"blur(16px)",borderTop:lightMode?"1px solid rgba(0,0,0,.12)":"1px solid rgba(255,255,255,.09)",padding:"6px 20px",display:"flex",justifyContent:"center",alignItems:"center",fontSize:10,color:lightMode?"#334155":"#475569",gap:12,flexWrap:"wrap",minHeight:28 }}>
-          <span>🇯🇪 Jersey, Channel Islands</span>
+          <span style={{ color:lightMode?"#0f172a":"#f0f4f8",fontWeight:600 }}>🇯🇪 Jersey, Channel Islands</span>
           <span style={{ color:lightMode?"#94a3b8":"#1e293b" }}>·</span>
-          <span>© 2026 Eamonn O'Shea</span>
+          <span style={{ color:lightMode?"#0f172a":"#f0f4f8",fontWeight:600 }}>© 2026 Eamonn O'Shea</span>
           <span style={{ color:lightMode?"#94a3b8":"#1e293b" }}>·</span>
           <a href="mailto:hello@jerseybasket.je" style={{ color:"#22c55e",textDecoration:"none",fontWeight:600 }}>hello@jerseybasket.je</a>
           <span style={{ color:lightMode?"#94a3b8":"#1e293b" }}>·</span>
