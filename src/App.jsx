@@ -11881,6 +11881,7 @@ function WelcomeModal({ onDismiss, lightMode=false }) {
   const [surveyAnswers, setSurveyAnswers] = useState({ q1: "", q2: "", q3: "", q4: "", q5: "" });
   const [surveySubmitted, setSurveySubmitted] = useState(false);
   const [surveySubmitting, setSurveySubmitting] = useState(false);
+  const [qrZoomed, setQrZoomed] = useState(false);
 
   const handleSurveySelect = (q, val) => setSurveyAnswers(prev => ({ ...prev, [q]: prev[q] === val ? "" : val }));
 
@@ -11916,6 +11917,16 @@ function WelcomeModal({ onDismiss, lightMode=false }) {
       bg: "linear-gradient(135deg,#052e16 0%,#14532d 50%,#16a34a 100%)",
       bottomBg: "#052e16",
       accent: "#22c55e",
+    },
+    {
+      emoji: "📲",
+      title: "Scan & Share JerseyBasket",
+      subtitle: "Show a friend in seconds",
+      body: "Point your phone's camera at this code to open JerseyBasket.je instantly — perfect for showing a friend, family member, or fellow shopper in the queue.",
+      bg: "linear-gradient(135deg,#0c2a1f 0%,#065f46 50%,#0d9488 100%)",
+      bottomBg: "#0c2a1f",
+      accent: "#5eead4",
+      qr: true,
     },
     {
       emoji: "🏆",
@@ -11989,8 +12000,17 @@ function WelcomeModal({ onDismiss, lightMode=false }) {
             Skip
           </button>
 
-          {/* emoji */}
-          <div style={{ fontSize:64,marginBottom:20,lineHeight:1 }}>{s.emoji}</div>
+          {/* emoji / QR code */}
+          {s.qr ? (
+            <img
+              src="/qr-jerseybasket.png"
+              alt="Scan to open JerseyBasket.je"
+              onClick={()=>setQrZoomed(z=>!z)}
+              style={{ width:qrZoomed?220:130,height:qrZoomed?220:130,marginBottom:20,borderRadius:14,background:"#fff",padding:qrZoomed?12:8,cursor:"pointer",transition:"all .25s ease",boxShadow:"0 8px 24px rgba(0,0,0,.35)" }}
+            />
+          ) : (
+            <div style={{ fontSize:64,marginBottom:20,lineHeight:1 }}>{s.emoji}</div>
+          )}
 
           {/* title */}
           <div style={{ fontSize:22,fontWeight:700,color:"#fff",marginBottom:6,fontFamily:"'DM Serif Display',Georgia,serif",lineHeight:1.2 }}>
@@ -12019,7 +12039,7 @@ function WelcomeModal({ onDismiss, lightMode=false }) {
           {/* survey shortcut — only on slide 1 */}
           {step===0 && (
             <div style={{ marginTop:14, display:"flex", flexDirection:"column", alignItems:"center", gap:5 }}>
-              <button onClick={()=>setStep(6)} style={{ background:"linear-gradient(180deg,#fde047 0%,#eab308 100%)",border:"none",borderRadius:20,padding:"9px 20px",color:"#1a1400",fontSize:12.5,fontWeight:800,cursor:"pointer",position:"relative",overflow:"hidden",boxShadow:"0 3px 14px rgba(234,179,8,.55), inset 0 1px 0 rgba(255,255,255,.4)" }}>
+              <button onClick={()=>setStep(steps.length-1)} style={{ background:"linear-gradient(180deg,#fde047 0%,#eab308 100%)",border:"none",borderRadius:20,padding:"9px 20px",color:"#1a1400",fontSize:12.5,fontWeight:800,cursor:"pointer",position:"relative",overflow:"hidden",boxShadow:"0 3px 14px rgba(234,179,8,.55), inset 0 1px 0 rgba(255,255,255,.4)" }}>
                 <span style={{ position:"absolute",top:0,left:0,right:0,height:"52%",background:"linear-gradient(180deg,rgba(255,255,255,.35) 0%,rgba(255,255,255,.05) 100%)",borderRadius:"20px 20px 0 0",pointerEvents:"none" }}/>
                 💬 Help Us Help You — Take Our Survey
               </button>
