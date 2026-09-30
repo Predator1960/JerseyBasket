@@ -794,7 +794,7 @@ const BASE_PRODUCTS = [
   {id:578,name:"Plain Microwave Rice (250g)",  cat:"🍝 Pantry",       icon:"🍚",prices:sp(1.00,[0,-1.00,-1.00,-1.00,-1.00])},
   {id:579,name:"Brussels Pate (125g)",          cat:"🍝 Pantry",       icon:"🫙",prices:sp(1.35,[0,-1.35,-1.35,-1.35,-1.35])},
   {id:580,name:"Orange Marmalade (454g)",       cat:"🍝 Pantry",       icon:"🍊",prices:sp(1.19,[0,-1.19,-1.19,-1.19,-1.19])},
-  {id:581,name:"Stonebaked Meat Feast Pizza",   cat:"🍝 Pantry",       icon:"🍕",prices:sp(4.45,[0,-4.45,-4.45,-4.45,-4.45])},
+  {id:581,name:"Stonebaked Meat Feast Pizza",   cat:"🍝 Pantry",       icon:"🍕",prices:sp(4.45,[0,-4.45,-4.45,-1.18,-4.45]), upd:"30 Sep"}, // waitrose £3.27 was a "Reduced item" clearance price 30 Sep — re-verify normal shelf price
   {id:507,name:"Fruit Shoot Blackcurrant (6pk)",cat:"🥤 Drinks",       icon:"🥤",prices:sp(3.83,[0,0,0,0,0])},
   {id:508,name:"Rolo Creme Dessert (4pk)",      cat:"🥨 Snacks & Treats",icon:"🍮",prices:sp(1.16,[0,0,0,0,0])},
   {id:509,name:"Cathedral City Grated Cheddar", cat:"🥛 Dairy & Eggs", icon:"🧀",prices:sp(2.30,[0,0,0,0,0])},
@@ -9617,7 +9617,7 @@ const BASE_PRODUCTS = [
   {id:9419, name:"Maltesers White Chocolate & Honeycomb More to Share Pouch 126g", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:4.15,alliance:0}, upd:"22 Sep"},
   {id:9420, name:"KitKat Hazelnut 99g", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:2.15,alliance:0}, upd:"22 Sep"},
   {id:9421, name:"Toblerone Caramilk Chocolate Bar 340g", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:7.9,alliance:0}, upd:"22 Sep"},
-  {id:9422, name:"Cadbury Twirl Xtra Duo Chocolate Bar 54g", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:1.45,alliance:0}, upd:"22 Sep"},
+  {id:9422, name:"Cadbury Twirl Xtra Duo Chocolate Bar 54g", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:0,morrisons:0,ms:0,waitrose:1.39,iceland:1.45,alliance:0}, upd:"30 Sep"},
   {id:9423, name:"M&Ms Minis Funsize Packets", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:3.85,alliance:0}, upd:"22 Sep"},
   {id:9424, name:"Cadbury Bournville Old Jamaica Dark Chocolate Bar 100g", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:2.6,alliance:0}, upd:"22 Sep"},
   {id:9425, name:"Cadbury Dairy Milk Caramel Chocolate Bar 180g", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:2.65,alliance:0}, upd:"22 Sep"},
@@ -9836,6 +9836,8 @@ const BASE_PRODUCTS = [
   {id:9633, name:"M&S Loose Easy Peel (each)", cat:"🥦 Fruit & Veg", icon:"🍊", prices:{coop:0,morrisons:0,ms:0.45,waitrose:0,iceland:0,alliance:0}, upd:"30 Sep"},
   {id:9634, name:"M&S Banana (each)", cat:"🥦 Fruit & Veg", icon:"🍌", prices:{coop:0,morrisons:0,ms:0.2,waitrose:0,iceland:0,alliance:0}, upd:"30 Sep"},
   {id:9635, name:"M&S Pastel de Nata", cat:"🍰 Cakes & Desserts", icon:"🥧", prices:{coop:0,morrisons:0,ms:1.35,waitrose:0,iceland:0,alliance:0}, upd:"30 Sep"},
+  /* ── Waitrose receipt, St Saviour, 30 Sep 2026 ── */
+  {id:9636, name:"Waitrose Essential Cheese & Onion Sandwich", cat:"🥗 Deli & Salads", icon:"🥪", prices:{coop:0,morrisons:0,ms:0,waitrose:2.27,iceland:0,alliance:0}, upd:"30 Sep"},
 ];/* ═══════════════════════════════════════════════════════════════════════════
    WEEKLY ESSENTIALS — a relatable 25-item "typical weekly shop" basket, used
    as the default landing sort so new visitors see a real comparison (milk,
