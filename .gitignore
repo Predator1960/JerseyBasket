@@ -36,3 +36,8 @@ JerseyBasket.je — Promotional Video Guide/
 
 # Working export used by sync_products.py - regenerated each time, not tracked
 product-full-export.csv
+
+# Handover notes for future developers / AI assistants - keep tracked
+!HANDOVER.md
+!.github/
+!.github/copilot-instructions.md
