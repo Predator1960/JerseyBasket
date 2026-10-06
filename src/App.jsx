@@ -11395,9 +11395,9 @@ export default function JerseyGroceryApp() {
 
       {/* ══ ADD ITEM MODAL ══ */}
       {showAddModal&&(
-        <div style={{ position:"fixed",inset:0,zIndex:500,display:"flex",alignItems:"flex-end",justifyContent:"center",paddingTop:60,background:"rgba(0,0,0,.72)",backdropFilter:"blur(8px)" }}
+        <div style={{ position:"fixed",top:0,left:0,right:0,height:"var(--app-height, 100%)",zIndex:500,display:"flex",alignItems:"flex-end",justifyContent:"center",paddingTop:60,boxSizing:"border-box",background:"rgba(0,0,0,.72)",backdropFilter:"blur(8px)" }}
           onClick={e=>{if(e.target===e.currentTarget){setShowAddModal(false);setAddError("");}}}>
-          <div style={{ width:"100%",maxWidth:580,background:lightMode?"#f0f4f8":"#0a1a30",border:lightMode?"1px solid rgba(0,0,0,.12)":"1px solid rgba(255,255,255,.11)",borderRadius:"20px 20px 0 0",maxHeight:"82vh",display:"flex",flexDirection:"column",position:"relative" }}>
+          <div style={{ width:"100%",maxWidth:580,background:lightMode?"#f0f4f8":"#0a1a30",border:lightMode?"1px solid rgba(0,0,0,.12)":"1px solid rgba(255,255,255,.11)",borderRadius:"20px 20px 0 0",maxHeight:"min(82vh, calc(var(--app-height, 100vh) - 60px))",display:"flex",flexDirection:"column",position:"relative" }}>
             {/* ── FIXED HEADER — always visible, never scrolls away ── */}
             <div style={{ padding:"18px 52px 12px 20px",borderBottom:lightMode?"1px solid rgba(0,0,0,.08)":"1px solid rgba(255,255,255,.07)",flexShrink:0,borderRadius:"20px 20px 0 0",background:lightMode?"#f0f4f8":"#0a1a30" }}>
               <div style={{ fontSize:16,fontWeight:700,color:lightMode?"#0f172a":"#f0f4f8" }}>➕ Add Custom Item</div>

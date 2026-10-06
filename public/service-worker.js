@@ -21,7 +21,7 @@ const PRECACHE_URLS = __PRECACHE_URLS__;
 // and takes over normally, it just does so silently on the next full
 // close+reopen instead of showing the "Update now" banner. See the
 // 'message' handler below and src/index.js for how the client reads it.
-const NOTIFY_VERSION = 1;
+const NOTIFY_VERSION = 2;
 
 self.addEventListener('install', event => {
   event.waitUntil(
