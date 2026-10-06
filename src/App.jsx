@@ -10406,12 +10406,32 @@ export default function JerseyGroceryApp() {
      rather than auto-reload, since yanking the page out from under someone
      mid-basket would be worse than a stale layout for a few more minutes */
   const [updateAvailable, setUpdateAvailable] = useState(false);
+  const [updating, setUpdating] = useState(false);
+  const [justUpdated, setJustUpdated] = useState(false);
   useEffect(()=>{
     const onUpdate = () => setUpdateAvailable(true);
     window.addEventListener('jb-sw-update-available', onUpdate);
     return () => window.removeEventListener('jb-sw-update-available', onUpdate);
   },[]);
-  const applyUpdate = () => window.dispatchEvent(new CustomEvent('jb-sw-apply-update'));
+  /* after the update reloads the page, confirm it worked */
+  useEffect(()=>{
+    try {
+      if (localStorage.getItem("jb_just_updated")) {
+        localStorage.removeItem("jb_just_updated");
+        setJustUpdated(true);
+        const t = setTimeout(()=>setJustUpdated(false), 4000);
+        return () => clearTimeout(t);
+      }
+    } catch {}
+  },[]);
+  const applyUpdate = () => {
+    try { localStorage.setItem("jb_just_updated","1"); } catch {}
+    setUpdating(true);
+    window.dispatchEvent(new CustomEvent('jb-sw-apply-update'));
+    // If no waiting worker exists (already activated) or iOS never fires
+    // controllerchange, reload anyway so the banner never just sits there.
+    setTimeout(()=>window.location.reload(), 2500);
+  };
 
   /* persist basket + favourites to localStorage (survives app restart) */
   useEffect(()=>{
@@ -11511,16 +11531,24 @@ export default function JerseyGroceryApp() {
       )}
 
       {/* ── UPDATE AVAILABLE BANNER ── */}
-      {updateAvailable&&(
+      {(updateAvailable||justUpdated)&&(
         <div style={{ position:"fixed",top:0,left:0,right:0,zIndex:400,
-          background:"#16a34a",color:"#fff",padding:"10px 16px",
+          background:"#16a34a",color:"#fff",padding:"10px 16px",paddingTop:"calc(10px + env(safe-area-inset-top,0px))",
           display:"flex",alignItems:"center",justifyContent:"center",gap:12,flexWrap:"wrap",
           fontSize:13,fontWeight:600,boxShadow:"0 2px 12px rgba(0,0,0,.35)" }}>
-          <span>🔄 A new version of JerseyBasket is available</span>
-          <button onClick={applyUpdate}
-            style={{ background:"#fff",color:"#15803d",border:"none",borderRadius:8,padding:"5px 14px",fontWeight:700,fontSize:12,cursor:"pointer" }}>
-            Update now
-          </button>
+          {justUpdated ? (
+            <span>✅ You're up to date — the latest version is installed</span>
+          ) : updating ? (
+            <span>⏳ Updating JerseyBasket… one moment</span>
+          ) : (
+            <>
+              <span>🔄 A new version of JerseyBasket is available</span>
+              <button onClick={applyUpdate}
+                style={{ background:"#fff",color:"#15803d",border:"none",borderRadius:8,padding:"5px 14px",fontWeight:700,fontSize:12,cursor:"pointer" }}>
+                Update now
+              </button>
+            </>
+          )}
         </div>
       )}
 
