@@ -11395,7 +11395,7 @@ export default function JerseyGroceryApp() {
 
       {/* ══ ADD ITEM MODAL ══ */}
       {showAddModal&&(
-        <div style={{ position:"fixed",inset:0,zIndex:200,display:"flex",alignItems:"flex-end",justifyContent:"center",paddingTop:60,background:"rgba(0,0,0,.72)",backdropFilter:"blur(8px)" }}
+        <div style={{ position:"fixed",inset:0,zIndex:500,display:"flex",alignItems:"flex-end",justifyContent:"center",paddingTop:60,background:"rgba(0,0,0,.72)",backdropFilter:"blur(8px)" }}
           onClick={e=>{if(e.target===e.currentTarget){setShowAddModal(false);setAddError("");}}}>
           <div style={{ width:"100%",maxWidth:580,background:lightMode?"#f0f4f8":"#0a1a30",border:lightMode?"1px solid rgba(0,0,0,.12)":"1px solid rgba(255,255,255,.11)",borderRadius:"20px 20px 0 0",maxHeight:"82vh",display:"flex",flexDirection:"column",position:"relative" }}>
             {/* ── FIXED HEADER — always visible, never scrolls away ── */}
@@ -11406,7 +11406,7 @@ export default function JerseyGroceryApp() {
             {/* ── ✕ always visible, anchored top-right ── */}
             <button onClick={()=>{setShowAddModal(false);setAddError("");}} style={{ position:"absolute",top:14,right:14,background:lightMode?"rgba(0,0,0,.08)":"rgba(255,255,255,.1)",border:lightMode?"1px solid rgba(0,0,0,.12)":"1px solid rgba(255,255,255,.15)",borderRadius:7,width:32,height:32,color:lightMode?"#334155":"#94a3b8",cursor:"pointer",fontSize:14,fontWeight:700,display:"flex",alignItems:"center",justifyContent:"center",zIndex:10 }}>✕</button>
             {/* ── SCROLLABLE BODY ── */}
-            <div style={{ overflowY:"auto",padding:"16px 20px",paddingBottom:"calc(132px + 32px)",flex:1 }}>
+            <div style={{ overflowY:"auto",padding:"16px 20px",paddingBottom:"calc(140px + env(safe-area-inset-bottom,0px))",flex:1 }}>
 
             <div style={{ display:"flex",gap:10,marginBottom:12 }}>
               <div style={{ position:"relative",flexShrink:0 }}>
