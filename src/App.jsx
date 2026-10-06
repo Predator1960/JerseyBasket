@@ -9880,6 +9880,8 @@ const BASE_PRODUCTS = [
   {id:9679, name:"Waitrose Treacle Tart", cat:"🍰 Cakes & Desserts", icon:"🥧", prices:{coop:0,morrisons:0,ms:0,waitrose:4.47,iceland:0,alliance:0}, upd:"5 Oct"},
   {id:9680, name:"Cadbury Dairy Milk Giant Buttons", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:1.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"5 Oct"},
   {id:9681, name:"Co-op Mini Yum Yums", cat:"🍞 Bread & Bakery", icon:"🍩", prices:{coop:1.29,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"5 Oct"},
+  /* ── Customer submission, 6 Oct 2026 ── */
+  {id:9682, name:"Bakers Sliced Loaf Brown", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:0,morrisons:2.95,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"6 Oct"},
 ];/* ═══════════════════════════════════════════════════════════════════════════
    WEEKLY ESSENTIALS — a relatable 25-item "typical weekly shop" basket, used
    as the default landing sort so new visitors see a real comparison (milk,
