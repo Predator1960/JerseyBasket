@@ -11541,7 +11541,7 @@ export default function JerseyGroceryApp() {
           otherwise keep its full height and starve the scrollable content pane
           of space once the keyboard shrinks --app-height, hiding the search box
           with no room left to scroll it into view (see note by searchInputRef). ── */}
-      {!searchFocused && (
+      {!searchFocused && !showAddModal && (
       <div style={{ flexShrink:0, zIndex:200, display:"flex", flexDirection:"column" }}>
         {/* footer */}
         <div style={{ background:lightMode?"rgba(210,218,226,.97)":"rgba(5,13,26,.97)",backdropFilter:"blur(16px)",borderTop:lightMode?"1px solid rgba(0,0,0,.12)":"1px solid rgba(255,255,255,.09)",padding:"6px 20px",display:"flex",justifyContent:"center",alignItems:"center",fontSize:10,color:lightMode?"#334155":"#475569",gap:12,flexWrap:"wrap",minHeight:28 }}>
