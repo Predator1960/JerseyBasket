@@ -9884,6 +9884,7 @@ const BASE_PRODUCTS = [
   {id:9682, name:"Bakers Sliced Loaf Brown", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:0,morrisons:2.95,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"6 Oct"},
   /* ── Waitrose receipt St Helier (no date printed), received 7 Oct 2026 ── */
   {id:9683, name:"Dove Silky Velvet Body Wash", cat:"💊 Health & Beauty", icon:"🧴", prices:{coop:0,morrisons:0,ms:0,waitrose:2.83,iceland:0,alliance:0}, upd:"7 Oct"},
+  {id:9684, name:"Waitrose Essential Single Cream 150ml", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:0,morrisons:0,ms:0,waitrose:1.11,iceland:0,alliance:0}, upd:"7 Oct"},
 ];/* ═══════════════════════════════════════════════════════════════════════════
    WEEKLY ESSENTIALS — a relatable 25-item "typical weekly shop" basket, used
    as the default landing sort so new visitors see a real comparison (milk,
