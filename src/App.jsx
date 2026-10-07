@@ -8750,7 +8750,7 @@ const BASE_PRODUCTS = [
   {id:8556, name:"Co-op Golden Vegetable Microwave Rice", cat:"🍝 Pantry", icon:"🍚", prices:{coop:1.05,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"19 Sep"},
   {id:8557, name:"Td Vg Long Grain Rice", cat:"🍝 Pantry", icon:"🍚", prices:{coop:1.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"19 Sep"},
   {id:8558, name:"Robinsons Double Concentrate Orange & Pineapple", cat:"🥤 Drinks", icon:"🍊", prices:{coop:1.3,morrisons:0,ms:0,waitrose:2.59,iceland:0,alliance:0}, upd:"24 Sep"},
-  {id:8559, name:"McVitie's Dark Choc Digestives", cat:"🥨 Snacks & Treats", icon:"🍪", prices:{coop:2.1,morrisons:0,ms:1.55,waitrose:0,iceland:0,alliance:0}, upd:"1 Oct"},
+  {id:8559, name:"McVitie's Dark Choc Digestives", cat:"🥨 Snacks & Treats", icon:"🍪", prices:{coop:2.1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"1 Oct"},
   {id:8560, name:"Fresh Fingers Rolls", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:4.45,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"19 Sep"},
   {id:8561, name:"Richmond 8 Thick Sausages", cat:"🥩 Meat & Fish", icon:"🌭", prices:{coop:2.1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"1 Oct"},
   {id:8562, name:"Gaviscon Double Action", cat:"💊 Health & Beauty", icon:"💊", prices:{coop:4.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"19 Sep"},
@@ -9891,6 +9891,7 @@ const BASE_PRODUCTS = [
   {id:9687, name:"Robinsons Orange & Pineapple 1 Litre", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"7 Oct"},
   {id:9688, name:"Richmond 12 Thin Pork Sausages 340g", cat:"🥩 Meat & Fish", icon:"🌭", prices:{coop:3.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"7 Oct"},
   {id:9689, name:"Co-op Organic Fairtrade 5 Bananas", cat:"🥦 Fruit & Veg", icon:"🍌", prices:{coop:1.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"7 Oct"},
+  {id:9690, name:"M&S Dark Chocolate Digestives", cat:"🥨 Snacks & Treats", icon:"🍪", prices:{coop:0,morrisons:0,ms:1.55,waitrose:0,iceland:0,alliance:0}, upd:"2 Oct"},
 ];/* ═══════════════════════════════════════════════════════════════════════════
    WEEKLY ESSENTIALS — a relatable 25-item "typical weekly shop" basket, used
    as the default landing sort so new visitors see a real comparison (milk,
