@@ -8263,7 +8263,7 @@ const BASE_PRODUCTS = [
   {id:8078, name:"Bonne Maman Lemon Curd", cat:"🍝 Pantry", icon:"🍯", prices:{coop:0,morrisons:0,ms:0,waitrose:2.55,iceland:0,alliance:0}, upd:"10 Aug"},
   {id:8079, name:"Waitrose Essential Milk Chocolate Chips (Baking)", cat:"🍝 Pantry", icon:"🍝", prices:{coop:0,morrisons:0,ms:0,waitrose:2.32,iceland:0,alliance:0}, upd:"10 Aug"},
   {id:8080, name:"Jersey Dairy Double Cream (Large)", cat:"🥔 Local Jersey", icon:"🍦", prices:{coop:0,morrisons:0,ms:0,waitrose:4.00,iceland:0,alliance:0}, upd:"10 Aug"},
-  {id:8081, name:"Waitrose Salted Dairy Butter", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:0,morrisons:0,ms:0,waitrose:3.88,iceland:0,alliance:0}, upd:"10 Aug"},
+  {id:8081, name:"Waitrose Salted Dairy Butter", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:0,morrisons:0,ms:0,waitrose:4.5,iceland:0,alliance:0}, upd:"7 Oct"}, // waitrose £4.50 shelf price 7 Oct (receipt showed 50p off each on offer)
   {id:8082, name:"Good Boy T&T Chicken Roll (Large)", cat:"🐾 Pet Care", icon:"🐕", prices:{coop:0,morrisons:0,ms:0,waitrose:3.33,iceland:0,alliance:0}, upd:"10 Aug"},
   {id:8083, name:"Innocent Kids Smoothie", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0,morrisons:0,ms:0,waitrose:2.50,iceland:0,alliance:0}, upd:"10 Aug"},
   {id:8084, name:"Waitrose Desiccated Coconut", cat:"🍝 Pantry", icon:"🍝", prices:{coop:0,morrisons:0,ms:0,waitrose:3.19,iceland:0,alliance:0}, upd:"10 Aug"},
@@ -8741,7 +8741,7 @@ const BASE_PRODUCTS = [
   {id:8548, name:"Iceland Broccoli Florettes 160g", cat:"🥦 Fruit & Veg", icon:"🥦", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:2,alliance:0}, upd:"19 Sep", oos:["iceland"]},
   {id:8549, name:"Iceland Chestnut Mushroom 250g", cat:"🥦 Fruit & Veg", icon:"🍄", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:1.5,alliance:0}, upd:"19 Sep", oos:["iceland"]},
   /* ── CO-OP RECEIPT 19 Sep 2026 — lines with no pack size on the receipt, added as named ── */
-  {id:8550, name:"Coca-Cola Zero Sugar", cat:"🥤 Drinks", icon:"🥤", prices:{coop:3.68,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"19 Sep"},
+  {id:8550, name:"Coca-Cola Zero Sugar", cat:"🥤 Drinks", icon:"🥤", prices:{coop:3.68,morrisons:0,ms:0,waitrose:3.75,iceland:0,alliance:0}, upd:"7 Oct"},
   {id:8551, name:"Mars Bounty Milk", cat:"🥨 Snacks & Treats", icon:"🍫", prices:{coop:1.84,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"19 Sep"},
   {id:8552, name:"Maynards Liquorice Allsorts", cat:"🥨 Snacks & Treats", icon:"🍬", prices:{coop:1.5,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"19 Sep"},
   {id:8553, name:"Cadbury Dairy Milk Bar", cat:"🥨 Snacks & Treats", icon:"🍫", prices:{coop:2.5,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"19 Sep"},
@@ -9882,6 +9882,8 @@ const BASE_PRODUCTS = [
   {id:9681, name:"Co-op Mini Yum Yums", cat:"🍞 Bread & Bakery", icon:"🍩", prices:{coop:1.29,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"5 Oct"},
   /* ── Customer submission, 6 Oct 2026 ── */
   {id:9682, name:"Bakers Sliced Loaf Brown", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:0,morrisons:2.95,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"6 Oct"},
+  /* ── Waitrose receipt St Helier (no date printed), received 7 Oct 2026 ── */
+  {id:9683, name:"Dove Silky Velvet Body Wash", cat:"💊 Health & Beauty", icon:"🧴", prices:{coop:0,morrisons:0,ms:0,waitrose:2.83,iceland:0,alliance:0}, upd:"7 Oct"},
 ];/* ═══════════════════════════════════════════════════════════════════════════
    WEEKLY ESSENTIALS — a relatable 25-item "typical weekly shop" basket, used
    as the default landing sort so new visitors see a real comparison (milk,
