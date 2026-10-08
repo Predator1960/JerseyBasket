@@ -10406,12 +10406,18 @@ export default function JerseyGroceryApp() {
   const [iconPickerOpen, setIconPickerOpen] = useState(false);
   const [addError, setAddError]             = useState("");
   const [toast, setToast] = useState(null);
+  const [copiedBtn, setCopiedBtn] = useState(null); // "basket" | "fav" while the Copy List button shows "Copied!"
   const [favourites, setFavourites]         = useState(new Set());
   const [favBasket,  setFavBasket]          = useState({});
 
   const showToast = (msg) => {
     setToast(msg);
     setTimeout(()=>setToast(null), 3000);
+  };
+
+  const flashCopied = (which) => {
+    setCopiedBtn(which);
+    setTimeout(()=>setCopiedBtn(null), 2200);
   };
 
   /* copy plain text to the clipboard; textarea fallback for older browsers. Returns true on success */
@@ -10555,6 +10561,7 @@ export default function JerseyGroceryApp() {
     });
     out.push(`${basketCount} item${basketCount!==1?"s":""} · Total £${basketTotal.toFixed(2)}`);
     const ok = await copyText(out.join("\n"));
+    if(ok) flashCopied("basket");
     showToast(ok ? `📋 List copied — ${basketCount} item${basketCount!==1?"s":""}` : "Couldn't copy — please try again");
   };
 
@@ -11029,7 +11036,9 @@ export default function JerseyGroceryApp() {
               <h2 style={{ fontSize:18,fontWeight:700,margin:0,color:lightMode?"#0f172a":"#f0f4f8" }}>🧺 Your Basket</h2>
               {basketItems.length>0&&(
                 <div style={{ display:"flex",gap:8,alignItems:"center" }}>
-                  <button onClick={copyBasketList} style={{ background:lightMode?"rgba(14,116,144,.12)":"linear-gradient(180deg,rgba(56,189,248,.25) 0%,rgba(14,116,144,.25) 100%)",border:lightMode?"1px solid rgba(14,116,144,.4)":"1px solid rgba(56,189,248,.45)",color:lightMode?"#0e7490":"#7dd3fc",borderRadius:22,boxShadow:"0 2px 6px rgba(14,116,144,.3),inset 0 1px 0 rgba(255,255,255,.12)",padding:"4px 11px",cursor:"pointer",fontSize:10.5,fontWeight:600 }}>📋 Copy List</button>
+                  <button onClick={copyBasketList} style={copiedBtn==="basket"
+                    ? { background:"linear-gradient(180deg,#4ade80 0%,#15803d 100%)",border:"1px solid #16a34a",color:"#fff",borderRadius:22,boxShadow:"0 2px 8px rgba(34,197,94,.5),inset 0 1px 0 rgba(255,255,255,.3)",padding:"4px 11px",cursor:"pointer",fontSize:10.5,fontWeight:700 }
+                    : { background:lightMode?"rgba(14,116,144,.12)":"linear-gradient(180deg,rgba(56,189,248,.25) 0%,rgba(14,116,144,.25) 100%)",border:lightMode?"1px solid rgba(14,116,144,.4)":"1px solid rgba(56,189,248,.45)",color:lightMode?"#0e7490":"#7dd3fc",borderRadius:22,boxShadow:"0 2px 6px rgba(14,116,144,.3),inset 0 1px 0 rgba(255,255,255,.12)",padding:"4px 11px",cursor:"pointer",fontSize:10.5,fontWeight:600 }}>{copiedBtn==="basket"?"✅ Copied!":"📋 Copy List"}</button>
                   <button onClick={()=>{ setBasket({}); setCollectedItems(new Set()); }} style={{ background:lightMode?"rgba(239,68,68,.12)":"linear-gradient(180deg,rgba(239,68,68,.25) 0%,rgba(185,28,28,.2) 100%)",border:lightMode?"1px solid rgba(185,28,28,.35)":"1px solid rgba(239,68,68,.4)",color:lightMode?"#b91c1c":"#fca5a5",borderRadius:22,boxShadow:"0 2px 6px rgba(239,68,68,.25),inset 0 1px 0 rgba(255,255,255,.1)",padding:"4px 11px",cursor:"pointer",fontSize:10.5,fontWeight:600 }}>Clear All</button>
                 </div>
               )}
@@ -11250,6 +11259,7 @@ export default function JerseyGroceryApp() {
             });
             out.push(`${favCount} item${favCount!==1?"s":""}`);
             const ok = await copyText(out.join("\n"));
+            if(ok) flashCopied("fav");
             showToast(ok ? `📋 List copied — ${favCount} item${favCount!==1?"s":""}` : "Couldn't copy — please try again");
           };
 
@@ -11333,8 +11343,10 @@ export default function JerseyGroceryApp() {
                       🧺 Add All to Main Basket
                     </button>
                     <button onClick={copyFavList}
-                      style={{ padding:"9px 18px",background:lightMode?"rgba(14,116,144,.12)":"linear-gradient(180deg,rgba(56,189,248,.25) 0%,rgba(14,116,144,.25) 100%)",border:lightMode?"1px solid rgba(14,116,144,.4)":"1px solid rgba(56,189,248,.45)",boxShadow:"0 3px 10px rgba(14,116,144,.3),inset 0 1px 0 rgba(255,255,255,.12)",borderRadius:10,color:lightMode?"#0e7490":"#7dd3fc",cursor:"pointer",fontSize:12,fontWeight:700 }}>
-                      📋 Copy List
+                      style={copiedBtn==="fav"
+                        ? { padding:"9px 18px",background:"linear-gradient(180deg,#4ade80 0%,#15803d 100%)",border:"1px solid #16a34a",boxShadow:"0 3px 10px rgba(34,197,94,.5),inset 0 1px 0 rgba(255,255,255,.3)",borderRadius:10,color:"#fff",cursor:"pointer",fontSize:12,fontWeight:700 }
+                        : { padding:"9px 18px",background:lightMode?"rgba(14,116,144,.12)":"linear-gradient(180deg,rgba(56,189,248,.25) 0%,rgba(14,116,144,.25) 100%)",border:lightMode?"1px solid rgba(14,116,144,.4)":"1px solid rgba(56,189,248,.45)",boxShadow:"0 3px 10px rgba(14,116,144,.3),inset 0 1px 0 rgba(255,255,255,.12)",borderRadius:10,color:lightMode?"#0e7490":"#7dd3fc",cursor:"pointer",fontSize:12,fontWeight:700 }}>
+                      {copiedBtn==="fav"?"✅ Copied!":"📋 Copy List"}
                     </button>
                   </div>
 
