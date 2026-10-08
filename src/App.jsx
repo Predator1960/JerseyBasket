@@ -11196,6 +11196,37 @@ export default function JerseyGroceryApp() {
           const favBasketTotal = favBasketItems.reduce((s,i)=>s+i.price*i.qty,0);
           const favOptimal     = favBasketItems.reduce((s,i)=>s+getBestPrice(i.product,disabledStores)*i.qty,0);
 
+          /* plain-text shopping list, grouped by category, to paste into notes / WhatsApp / a store's own site */
+          const copyFavList = async () => {
+            const qtyByProduct = {};
+            favBasketItems.forEach(i=>{ qtyByProduct[i.product.id]=(qtyByProduct[i.product.id]||0)+i.qty; });
+            const groups = {};
+            favProducts.forEach(p=>{ const c=p.cat.replace(/^[^\s]+\s/,""); (groups[c]=groups[c]||[]).push(p); });
+            const out = ["My shopping list (from jerseybasket.je)",""];
+            Object.keys(groups).sort().forEach(c=>{
+              out.push(c.toUpperCase());
+              groups[c].sort((a,b)=>a.name.localeCompare(b.name)).forEach(p=>{
+                const q = qtyByProduct[p.id];
+                out.push(`${q>1?q+" x ":""}${p.name}`);
+              });
+              out.push("");
+            });
+            out.push(`${favCount} item${favCount!==1?"s":""}`);
+            const text = out.join("\n");
+            let ok = false;
+            try { await navigator.clipboard.writeText(text); ok = true; } catch {}
+            if(!ok){
+              try {
+                const ta = document.createElement("textarea");
+                ta.value = text; ta.style.position="fixed"; ta.style.opacity="0";
+                document.body.appendChild(ta); ta.select();
+                ok = document.execCommand("copy");
+                document.body.removeChild(ta);
+              } catch {}
+            }
+            showToast(ok ? `📋 List copied — ${favCount} item${favCount!==1?"s":""}` : "Couldn't copy — please try again");
+          };
+
           return (
             <div style={{ marginTop:18 }}>
               {/* header */}
@@ -11274,6 +11305,10 @@ export default function JerseyGroceryApp() {
                     <button onClick={()=>{ favProducts.forEach(p=>addToBasket(p.id,getBestStoreId(p,disabledStores))); showToast(`🧺 All ${favCount} items added to Main Basket`); }}
                       style={{ padding:"9px 18px",background:"linear-gradient(180deg,#4ade80 0%,#15803d 100%)",border:"none",borderRadius:10,color:"#052e16",cursor:"pointer",fontSize:12,fontWeight:700,boxShadow:"0 3px 10px rgba(34,197,94,.5),inset 0 1px 0 rgba(255,255,255,.3)",position:"relative",overflow:"hidden" }}>
                       🧺 Add All to Main Basket
+                    </button>
+                    <button onClick={copyFavList}
+                      style={{ padding:"9px 18px",background:lightMode?"rgba(14,116,144,.12)":"linear-gradient(180deg,rgba(56,189,248,.25) 0%,rgba(14,116,144,.25) 100%)",border:lightMode?"1px solid rgba(14,116,144,.4)":"1px solid rgba(56,189,248,.45)",boxShadow:"0 3px 10px rgba(14,116,144,.3),inset 0 1px 0 rgba(255,255,255,.12)",borderRadius:10,color:lightMode?"#0e7490":"#7dd3fc",cursor:"pointer",fontSize:12,fontWeight:700 }}>
+                      📋 Copy List
                     </button>
                   </div>
 
