@@ -10414,6 +10414,19 @@ export default function JerseyGroceryApp() {
     setTimeout(()=>setToast(null), 3000);
   };
 
+  /* copy plain text to the clipboard; textarea fallback for older browsers. Returns true on success */
+  const copyText = async (text) => {
+    try { await navigator.clipboard.writeText(text); return true; } catch {}
+    try {
+      const ta = document.createElement("textarea");
+      ta.value = text; ta.style.position="fixed"; ta.style.opacity="0";
+      document.body.appendChild(ta); ta.select();
+      const ok = document.execCommand("copy");
+      document.body.removeChild(ta);
+      return ok;
+    } catch { return false; }
+  };
+
   /* new deployment detected by the service worker (see src/index.js) — prompt
      rather than auto-reload, since yanking the page out from under someone
      mid-basket would be worse than a stale layout for a few more minutes */
@@ -10525,6 +10538,25 @@ export default function JerseyGroceryApp() {
   const favBasketCount = Object.values(favBasket).reduce((a,b)=>a+b,0);
   const optimalTotal   = basketItems.reduce((s,i)=>s+getBestPrice(i.product,disabledStores)*i.qty,0);
   const potentialSave  = basketTotal-optimalTotal;
+
+  /* plain-text list of the main basket grouped by the store each item is set to, with prices */
+  const copyBasketList = async () => {
+    const byStore = {};
+    basketItems.forEach(i=>{ const n=i.store?.name||"Other"; (byStore[n]=byStore[n]||[]).push(i); });
+    const out = ["My shopping list (from jerseybasket.je)",""];
+    Object.keys(byStore).sort().forEach(n=>{
+      const items = byStore[n].sort((a,b)=>a.product.name.localeCompare(b.product.name));
+      out.push(n.toUpperCase());
+      items.forEach(i=>{
+        out.push(i.qty>1 ? `${i.qty} x ${i.product.name} (£${i.price.toFixed(2)} each)` : `${i.product.name} £${i.price.toFixed(2)}`);
+      });
+      out.push(`Subtotal £${items.reduce((s,i)=>s+i.price*i.qty,0).toFixed(2)}`);
+      out.push("");
+    });
+    out.push(`${basketCount} item${basketCount!==1?"s":""} · Total £${basketTotal.toFixed(2)}`);
+    const ok = await copyText(out.join("\n"));
+    showToast(ok ? `📋 List copied — ${basketCount} item${basketCount!==1?"s":""}` : "Couldn't copy — please try again");
+  };
 
   // A store that doesn't stock every basket item shouldn't get to look
   // artificially cheap (or even "free") just because the missing items
@@ -10995,7 +11027,12 @@ export default function JerseyGroceryApp() {
           <div style={{ marginTop:18 }}>
             <div style={{ display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:14 }}>
               <h2 style={{ fontSize:18,fontWeight:700,margin:0,color:lightMode?"#0f172a":"#f0f4f8" }}>🧺 Your Basket</h2>
-              {basketItems.length>0&&<button onClick={()=>{ setBasket({}); setCollectedItems(new Set()); }} style={{ background:lightMode?"rgba(239,68,68,.12)":"linear-gradient(180deg,rgba(239,68,68,.25) 0%,rgba(185,28,28,.2) 100%)",border:lightMode?"1px solid rgba(185,28,28,.35)":"1px solid rgba(239,68,68,.4)",color:lightMode?"#b91c1c":"#fca5a5",borderRadius:22,boxShadow:"0 2px 6px rgba(239,68,68,.25),inset 0 1px 0 rgba(255,255,255,.1)",padding:"4px 11px",cursor:"pointer",fontSize:10.5,fontWeight:600 }}>Clear All</button>}
+              {basketItems.length>0&&(
+                <div style={{ display:"flex",gap:8,alignItems:"center" }}>
+                  <button onClick={copyBasketList} style={{ background:lightMode?"rgba(14,116,144,.12)":"linear-gradient(180deg,rgba(56,189,248,.25) 0%,rgba(14,116,144,.25) 100%)",border:lightMode?"1px solid rgba(14,116,144,.4)":"1px solid rgba(56,189,248,.45)",color:lightMode?"#0e7490":"#7dd3fc",borderRadius:22,boxShadow:"0 2px 6px rgba(14,116,144,.3),inset 0 1px 0 rgba(255,255,255,.12)",padding:"4px 11px",cursor:"pointer",fontSize:10.5,fontWeight:600 }}>📋 Copy List</button>
+                  <button onClick={()=>{ setBasket({}); setCollectedItems(new Set()); }} style={{ background:lightMode?"rgba(239,68,68,.12)":"linear-gradient(180deg,rgba(239,68,68,.25) 0%,rgba(185,28,28,.2) 100%)",border:lightMode?"1px solid rgba(185,28,28,.35)":"1px solid rgba(239,68,68,.4)",color:lightMode?"#b91c1c":"#fca5a5",borderRadius:22,boxShadow:"0 2px 6px rgba(239,68,68,.25),inset 0 1px 0 rgba(255,255,255,.1)",padding:"4px 11px",cursor:"pointer",fontSize:10.5,fontWeight:600 }}>Clear All</button>
+                </div>
+              )}
             </div>
 
             {basketItems.length===0?(
@@ -11212,18 +11249,7 @@ export default function JerseyGroceryApp() {
               out.push("");
             });
             out.push(`${favCount} item${favCount!==1?"s":""}`);
-            const text = out.join("\n");
-            let ok = false;
-            try { await navigator.clipboard.writeText(text); ok = true; } catch {}
-            if(!ok){
-              try {
-                const ta = document.createElement("textarea");
-                ta.value = text; ta.style.position="fixed"; ta.style.opacity="0";
-                document.body.appendChild(ta); ta.select();
-                ok = document.execCommand("copy");
-                document.body.removeChild(ta);
-              } catch {}
-            }
+            const ok = await copyText(out.join("\n"));
             showToast(ok ? `📋 List copied — ${favCount} item${favCount!==1?"s":""}` : "Couldn't copy — please try again");
           };
 
