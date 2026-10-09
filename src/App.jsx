@@ -10341,6 +10341,7 @@ const BASE_PRODUCTS = [
   {id:10129, name:"Pringles Sour Cream & Onion (small can)", cat:"🥨 Snacks & Treats", icon:"🥔", prices:{coop:1.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"9 Oct"},
   {id:10130, name:"Cadbury Caramilk Buttons", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:2.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"9 Oct"},
   {id:10131, name:"Sellotape Gold Tape 24mm x 50m", cat:"🧹 Household", icon:"📎", prices:{coop:1.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"9 Oct"},
+  {id:10132, name:"Co-op Frozen French Fries", cat:"🧊 Frozen", icon:"🍟", prices:{coop:1.40,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"9 Oct"}, // receipt line "French Fries" 1.40, pack size not shown; differs from the 3.00 "French Fries" on 5 Oct
 ];/* ═══════════════════════════════════════════════════════════════════════════
    WEEKLY ESSENTIALS — a relatable 25-item "typical weekly shop" basket, used
    as the default landing sort so new visitors see a real comparison (milk,
