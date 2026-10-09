@@ -6514,7 +6514,7 @@ const BASE_PRODUCTS = [
   {id:5738, name:"Fanta Orange 2L Bottle 2LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.45,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:5739, name:"Sprite Lemon Lime 2L Bottle 2LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:1.6,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:5740, name:"Fanta Orange 8 x 330ml 8X330ML", cat:"🥤 Drinks", icon:"🥤", prices:{coop:3.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
-  {id:5741, name:"Coca-Cola Zero Sugar 8 x 330ml Cans 8X330ML", cat:"🥤 Drinks", icon:"🥤", prices:{coop:6.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
+  {id:5741, name:"Coca-Cola Zero Sugar 8 x 330ml Cans 8X330ML", cat:"🥤 Drinks", icon:"🥤", prices:{coop:6.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"9 Oct"},
   {id:5742, name:"Coca-Cola Original Taste 8 x 330ml Cans 8X330ML", cat:"🥤 Drinks", icon:"🥤", prices:{coop:5.9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"5 Oct"},
   {id:5743, name:"Dr Pepper 8 x 330ml 8X330ML", cat:"🥤 Drinks", icon:"🥤", prices:{coop:4.9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:5744, name:"Coca-Cola Original Taste 1.75L Bottle 1.75LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.99,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
