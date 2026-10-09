@@ -6420,7 +6420,7 @@ const BASE_PRODUCTS = [
   {id:5643, name:"Pepsi Max 1.25 Litres 1.25LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:1.79,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:5644, name:"Pepsi Max Cherry 1.25 Litres 1.25LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:1.79,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:5645, name:"7Up Zero Sugar 2 Litres 2LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:1.58,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
-  {id:5646, name:"7Up Zero Sugar 8 x 330ml 8X330ML", cat:"🥤 Drinks", icon:"🥤", prices:{coop:3.95,morrisons:0,ms:0,waitrose:3.00,iceland:0,alliance:0}, upd:"7 Oct"},
+  {id:5646, name:"7Up Zero Sugar 8 x 330ml 8X330ML", cat:"🥤 Drinks", icon:"🥤", prices:{coop:3.95,morrisons:0,ms:0,waitrose:3.00,iceland:0,alliance:0}, upd:"7 Oct"}, // special offer £2.10 seen 8 Oct 2026 (receipt), expiry unknown
   {id:5647, name:"Co-op Diet Sparkling Lemonade 2 Litre 2LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0.99,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:5648, name:"Co-op Diet Indian Tonic Water 1 Litre 1LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0.89,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:5649, name:"Co-op Natural Mineral Water Still 4 x 2 Litre 4X2LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
