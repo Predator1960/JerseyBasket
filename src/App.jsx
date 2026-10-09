@@ -6420,7 +6420,7 @@ const BASE_PRODUCTS = [
   {id:5643, name:"Pepsi Max 1.25 Litres 1.25LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:1.79,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:5644, name:"Pepsi Max Cherry 1.25 Litres 1.25LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:1.79,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:5645, name:"7Up Zero Sugar 2 Litres 2LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:1.58,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
-  {id:5646, name:"7Up Zero Sugar 8 x 330ml 8X330ML", cat:"🥤 Drinks", icon:"🥤", prices:{coop:3.95,morrisons:0,ms:0,waitrose:3.00,iceland:0,alliance:0}, upd:"7 Oct"}, // special offer £2.10 seen 8 Oct 2026 (receipt), expiry unknown
+  {id:5646, name:"7Up Zero Sugar 8 x 330ml 8X330ML", cat:"🥤 Drinks", icon:"🥤", prices:{coop:3.95,morrisons:0,ms:0,waitrose:3.00,iceland:0,alliance:0}, upd:"7 Oct"},
   {id:5647, name:"Co-op Diet Sparkling Lemonade 2 Litre 2LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0.99,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:5648, name:"Co-op Diet Indian Tonic Water 1 Litre 1LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0.89,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:5649, name:"Co-op Natural Mineral Water Still 4 x 2 Litre 4X2LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
@@ -10341,6 +10341,7 @@ const BASE_PRODUCTS = [
   {id:10129, name:"Pringles Sour Cream & Onion (small can)", cat:"🥨 Snacks & Treats", icon:"🥔", prices:{coop:1.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"9 Oct"},
   {id:10130, name:"Cadbury Caramilk Buttons", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:2.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"9 Oct"},
   {id:10131, name:"Sellotape Gold Tape 24mm x 50m", cat:"🧹 Household", icon:"📎", prices:{coop:1.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"9 Oct"},
+  {id:10133, name:"7UP Zero Sugar 330ml Bottle", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.10,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"8 Oct"},
   {id:10132, name:"Co-op Frozen French Fries", cat:"🧊 Frozen", icon:"🍟", prices:{coop:1.40,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"9 Oct"}, // receipt line "French Fries" 1.40, pack size not shown; differs from the 3.00 "French Fries" on 5 Oct
 ];/* ═══════════════════════════════════════════════════════════════════════════
    WEEKLY ESSENTIALS — a relatable 25-item "typical weekly shop" basket, used
