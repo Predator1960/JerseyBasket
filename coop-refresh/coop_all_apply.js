@@ -14,7 +14,7 @@ let lines = text.split('\n');
 const idLine = new Map();
 lines.forEach((l, i) => { const m = l.match(/^\s*\{id:(\d+)/); if (m) idLine.set(+m[1], i); });
 
-const norm = s => s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[®™©]/g, '').replace(/&/g, ' and ').replace(/[’']/g, '').replace(/(\d)\s+(g|kg|ml|l|gr)\b/g, '$1$2').replace(/(\d)gr\b/g, '$1g').replace(/[^a-z0-9. ]/g, ' ');
+const norm = s => s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[®™©]/g, '').replace(/(\d)\s*(litres?|liters?|ltr)\b/g, '$1l').replace(/&/g, ' and ').replace(/[’']/g, '').replace(/(\d)\s+(g|kg|ml|l|gr)\b/g, '$1$2').replace(/(\d)gr\b/g, '$1g').replace(/[^a-z0-9. ]/g, ' ');
 const toks = s => norm(s).split(/\s+/).filter(t => t && !['the', 'of'].includes(t));
 const key = a => a.slice().sort().join(' ');
 const SIZE = /^\d+(\.\d+)?(g|kg|ml|l|ltr|pack|pk)$|^\d+x\d+(\.\d+)?(g|ml|pack)?$/;
