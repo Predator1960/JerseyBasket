@@ -1,0 +1,14 @@
+﻿const fs = require('fs');
+let text = fs.readFileSync('src/App.jsx', 'utf8');
+const spMatch = text.match(/const sp = \(base,\[c,m,ms2,w,i,a=0\]\) => \(\{[\s\S]*?\}\);/);
+const start = text.indexOf('const BASE_PRODUCTS = [');
+const endRel = text.indexOf('\n];', start);
+const P = new Function(`${spMatch[0]}\n${text.slice(start, endRel + 3)}\nreturn BASE_PRODUCTS;`)();
+const ids = new Set(); let dup = 0; P.forEach(p => { if (ids.has(p.id)) dup++; ids.add(p.id); });
+const n = {}; P.forEach(p => { const k = p.name.toLowerCase(); n[k] = (n[k]||0)+1; });
+console.log('dup ids', dup, 'exact-name dups', Object.values(n).filter(v=>v>1).length);
+const f = v => { const s = String(v); return /[",\n]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s; };
+const rows = [['ID','Product Name','Category','Co-op Price','Morrisons Price','M&S Price','Waitrose Price','Iceland Price','Alliance Price'].join(',')];
+for (const p of P) rows.push([p.id, p.name, p.cat, p.prices.coop, p.prices.morrisons, p.prices.ms, p.prices.waitrose, p.prices.iceland, p.prices.alliance].map(f).join(','));
+fs.writeFileSync('product-full-export.csv', rows.join('\n') + '\n', 'utf8');
+console.log('Wrote', P.length);
