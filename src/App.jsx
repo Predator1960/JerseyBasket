@@ -3909,7 +3909,7 @@ const BASE_PRODUCTS = [
   {id:7559, name:"Essential British Free Range Skimmed Milk 4 Pints", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:0,morrisons:0,ms:0,waitrose:1.75,iceland:0,alliance:0}, upd:"30 Jul"},
   {id:7560, name:"Waitrose Large British Blacktail Free Range Eggs 12S", cat:"🥛 Dairy & Eggs", icon:"🥚", prices:{coop:0,morrisons:0,ms:0,waitrose:4.40,iceland:0,alliance:0}, upd:"30 Jul"},
   {id:7561, name:"Essential British Free Range Semi-Skimmed Milk 1 Pint", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:0,morrisons:0,ms:0,waitrose:0.95,iceland:0,alliance:0}, upd:"30 Jul"},
-  {id:7562, name:"Essential Free Range Double Cream 300ml", cat:"🥛 Dairy & Eggs", icon:"🍦", prices:{coop:0,morrisons:0,ms:0,waitrose:2.09,iceland:0,alliance:0}, upd:"10 Oct"}, // size not on receipt, assumed 300ml
+  {id:7562, name:"Essential Free Range Double Cream 300ml", cat:"🥛 Dairy & Eggs", icon:"🍦", prices:{coop:0,morrisons:0,ms:0,waitrose:2.09,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:7563, name:"Waitrose British Wiltshire Cured Ham 4 Slices 130g", cat:"🥩 Meat & Fish", icon:"🥓", prices:{coop:0,morrisons:0,ms:0,waitrose:3.90,iceland:0,alliance:0}, upd:"30 Jul"},
   {id:7564, name:"Waitrose Royal Gala Apples 6S", cat:"🥦 Fruit & Veg", icon:"🍏", prices:{coop:0,morrisons:0,ms:0,waitrose:1.50,iceland:0,alliance:0}, upd:"30 Jul"},
   {id:7565, name:"Essential Green Celery", cat:"🥦 Fruit & Veg", icon:"🥬", prices:{coop:0,morrisons:0,ms:0,waitrose:0.90,iceland:0,alliance:0}, upd:"30 Jul"},
@@ -4564,7 +4564,7 @@ const BASE_PRODUCTS = [
   {id:7508, name:"Chocolate & Caramel Loaded Cookie", cat:"🍞 Bread & Bakery", icon:"🍪", prices:{coop:0,morrisons:0,ms:0,waitrose:1.50,iceland:0,alliance:0}, upd:"30 Jul"},
   {id:7509, name:"Fiona Cairns 4 Buttercream Topped Cupcakes 4S", cat:"🍞 Bread & Bakery", icon:"🧁", prices:{coop:0,morrisons:0,ms:0,waitrose:7.30,iceland:0,alliance:0}, upd:"30 Jul"},
   {id:7510, name:"Waitrose Free From Victoria Sandwich", cat:"🍞 Bread & Bakery", icon:"🍰", prices:{coop:0,morrisons:0,ms:0,waitrose:4.00,iceland:0,alliance:0}, upd:"30 Jul"},
-  {id:7511, name:"Cadbury 10 Caramel Mini Rolls 10S", cat:"🍞 Bread & Bakery", icon:"🍰", prices:{coop:0,morrisons:0,ms:0,waitrose:3.5,iceland:4.35,alliance:0}, upd:"10 Oct"},
+  {id:7511, name:"Cadbury 10 Caramel Mini Rolls 10S", cat:"🍞 Bread & Bakery", icon:"🍰", prices:{coop:0,morrisons:0,ms:0,waitrose:4.25,iceland:4.35,alliance:0}, upd:"10 Oct"}, // waitrose offer £3.50 seen 10 Oct (end date unknown)
   {id:7512, name:"Mr Kipling Cherry Bakewell Cake Bites 220g", cat:"🍞 Bread & Bakery", icon:"🍫", prices:{coop:0,morrisons:0,ms:0,waitrose:3.90,iceland:0,alliance:0}, upd:"30 Jul"},
   {id:7513, name:"No.1 All Butter Belgian Waffle Biscuits 250g", cat:"🍞 Bread & Bakery", icon:"🍪", prices:{coop:0,morrisons:0,ms:0,waitrose:7.00,iceland:0,alliance:0}, upd:"30 Jul"},
   {id:7514, name:"OLE & STEEN Chocolate Swirl 115g", cat:"🍞 Bread & Bakery", icon:"🍰", prices:{coop:0,morrisons:0,ms:0,waitrose:3.95,iceland:0,alliance:0}, upd:"30 Jul"},
