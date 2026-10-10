@@ -13752,6 +13752,92 @@ function OosDot({ storeName }) {
   );
 }
 
+/* ── "Estimated price" label + pop-out asking shoppers for an updated price ── */
+function EstimateNote({ product, lightMode=false }) {
+  const [show, setShow]     = useState(false);
+  const [mode, setMode]     = useState("ask"); // ask | form | sending | sent | error
+  const [store, setStore]   = useState(STORES[0].id);
+  const [price, setPrice]   = useState("");
+  const [err, setErr]       = useState("");
+  const close = () => { setShow(false); setMode("ask"); setErr(""); setPrice(""); };
+
+  const send = async () => {
+    const v = parseFloat(price);
+    if (isNaN(v) || v <= 0) { setErr("Please enter a price, e.g. 1.85"); return; }
+    setErr(""); setMode("sending");
+    const storeName = STORES.find(s => s.id === store)?.name || store;
+    try {
+      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+        method:"POST",
+        headers:{ "Content-Type":"application/json", "Accept":"application/json" },
+        body: JSON.stringify({
+          _subject: "Updated Price Suggestion — JerseyBasket.je",
+          product_name: product.name,
+          product_id: product.id,
+          store: storeName,
+          price: `£${v.toFixed(2)}`,
+          message: `A customer has suggested an updated price.\n\nProduct: ${product.name} (id ${product.id})\nStore: ${storeName}\nPrice: £${v.toFixed(2)}\n\nPlease verify before adding to the app.`,
+        })
+      });
+      setMode(res.ok ? "sent" : "error");
+    } catch { setMode("error"); }
+  };
+
+  const txt   = lightMode ? "#0f172a" : "#f0f4f8";
+  const muted = lightMode ? "#475569" : "#94a3b8";
+  const inputStyle = { width:"100%", padding:"9px 10px", background:lightMode?"rgba(0,0,0,.05)":"rgba(255,255,255,.07)", border:lightMode?"1px solid rgba(0,0,0,.15)":"1px solid rgba(255,255,255,.14)", borderRadius:9, color:txt, fontSize:16, outline:"none", boxSizing:"border-box", fontFamily:"inherit" };
+  const btn = (bg) => ({ flex:1, padding:"10px 8px", background:bg, border:"none", borderRadius:10, color:"#fff", cursor:"pointer", fontSize:12.5, fontWeight:700 });
+
+  return (
+    <>
+      <span onClick={(e)=>{ e.stopPropagation(); setShow(true); }} style={{ marginLeft:5, fontSize:8, color:lightMode?"#94a3b8":"#64748b", cursor:"pointer", textDecoration:"underline dotted" }}>· Estimated price ⓘ</span>
+      {show && (
+        <div onClick={(e)=>{ e.stopPropagation(); if (e.target === e.currentTarget) close(); }}
+          style={{ position:"fixed", top:0, left:0, right:0, height:"var(--app-height, 100%)", zIndex:700, display:"flex", alignItems:"center", justifyContent:"center", padding:20, background:"rgba(0,0,0,.55)" }}>
+          <div style={{ width:"100%", maxWidth:340, background:lightMode?"#ffffff":"#0b1526", border:lightMode?"1px solid rgba(0,0,0,.12)":"1px solid rgba(255,255,255,.14)", borderRadius:16, padding:"18px 18px 16px", boxShadow:"0 12px 40px rgba(0,0,0,.5)", textAlign:"left" }}>
+            {mode === "sent" ? (
+              <div style={{ textAlign:"center" }}>
+                <div style={{ fontSize:34, marginBottom:8 }}>🙌</div>
+                <div style={{ fontSize:15, fontWeight:700, color:txt, marginBottom:6 }}>Thank you!</div>
+                <div style={{ fontSize:12, color:muted, lineHeight:1.6, marginBottom:14 }}>We'll check your price and update the app.</div>
+                <button onClick={close} style={{ ...btn("linear-gradient(180deg,#22c55e,#15803d)"), width:"100%", flex:"none" }}>Close</button>
+              </div>
+            ) : (
+              <>
+                <div style={{ fontSize:11, fontWeight:700, color:muted, letterSpacing:".4px", marginBottom:4 }}>{product.name}</div>
+                <div style={{ fontSize:15, fontWeight:700, color:txt, lineHeight:1.35, marginBottom:6 }}>Do you have an updated price for this item?</div>
+                <div style={{ fontSize:11.5, color:muted, lineHeight:1.55, marginBottom:12 }}>This price is an estimate and hasn't been checked recently. Help keep JerseyBasket accurate. 💚</div>
+                {mode === "ask" ? (
+                  <>
+                    <div style={{ display:"flex", gap:8, marginBottom:8 }}>
+                      <button onClick={()=>setMode("form")} style={btn("linear-gradient(180deg,#22c55e,#15803d)")}>💷 Yes, send a price</button>
+                      <button onClick={()=>{ close(); window.dispatchEvent(new Event("jb-open-receipt")); }} style={btn("linear-gradient(180deg,#fb923c,#b45309)")}>📸 Send a receipt</button>
+                    </div>
+                    <button onClick={close} style={{ width:"100%", padding:"8px", background:"transparent", border:"none", color:muted, cursor:"pointer", fontSize:12 }}>Not now</button>
+                  </>
+                ) : (
+                  <>
+                    <select value={store} onChange={e=>setStore(e.target.value)} style={{ ...inputStyle, marginBottom:8 }}>
+                      {STORES.map(s => <option key={s.id} value={s.id}>{s.name}</option>)}
+                    </select>
+                    <input value={price} onChange={e=>setPrice(e.target.value)} inputMode="decimal" placeholder="Price you saw, e.g. 1.85" style={{ ...inputStyle, marginBottom:6 }} />
+                    {err && <div style={{ fontSize:11, color:"#ef4444", marginBottom:6 }}>{err}</div>}
+                    {mode === "error" && <div style={{ fontSize:11, color:"#ef4444", marginBottom:6 }}>Couldn't send, please try again.</div>}
+                    <div style={{ display:"flex", gap:8, marginTop:4 }}>
+                      <button onClick={send} disabled={mode==="sending"} style={btn("linear-gradient(180deg,#22c55e,#15803d)")}>{mode==="sending" ? "Sending…" : "Send price"}</button>
+                      <button onClick={close} style={btn("rgba(100,116,139,.6)")}>Cancel</button>
+                    </div>
+                  </>
+                )}
+              </>
+            )}
+          </div>
+        </div>
+      )}
+    </>
+  );
+}
+
 function ProductCard({ product, onAddToBasket, pinnedStore, isFavourite, onToggleFavourite, disabledStores=new Set(), lightMode=false }) {
   const [open, setOpen]             = useState(false);
   // manualOverride tracks if the user explicitly picked a store via the dropdown
@@ -13797,7 +13883,7 @@ function ProductCard({ product, onAddToBasket, pinnedStore, isFavourite, onToggl
             <Tooltip text={product.name}>
               <div style={{ fontSize:12.5, fontWeight:700, color:lightMode?"#0f172a":"#f0f4f8", lineHeight:1.3 }}>{product.name}</div>
             </Tooltip>
-            <div style={{ fontSize:9.5, fontWeight:700, color:lightMode?"#0f172a":"#ffffff", marginTop:1 }}>{product.cat.replace(/^[^\s]+\s/,"")}{product.custom?" · custom":""}<span style={{ marginLeft:5, fontSize:8, color:lightMode?"#94a3b8":"#64748b" }}>· {product.upd ? product.upd : "Catalog price"}</span></div>
+            <div style={{ fontSize:9.5, fontWeight:700, color:lightMode?"#0f172a":"#ffffff", marginTop:1 }}>{product.cat.replace(/^[^\s]+\s/,"")}{product.custom?" · custom":""}{product.upd ? <span style={{ marginLeft:5, fontSize:8, color:lightMode?"#94a3b8":"#64748b" }}>· {product.upd}</span> : <EstimateNote product={product} lightMode={lightMode} />}</div>
           </div>
           {Array.isArray(product.oos) && product.oos.includes(chosenStoreId) && <OosDot storeName={chosenStore?.name} />}
           {/* heart / favourite button */}
@@ -13958,6 +14044,12 @@ export default function JerseyGroceryApp() {
   const [showSettings,   setShowSettings]   = useState(false);
   const [disabledStores, setDisabledStores] = useState(new Set());
   const [showSubmitPrice,  setShowSubmitPrice]  = useState(false);
+  // "Estimated price" pop-out on a product card asks for a receipt via this event
+  useEffect(() => {
+    const open = () => setShowSubmitPrice(true);
+    window.addEventListener("jb-open-receipt", open);
+    return () => window.removeEventListener("jb-open-receipt", open);
+  }, []);
 
   // The search input lives inside a nested overflow:auto scroll pane (not
   // document/body scroll — that pane is what fixed the ad-banner-off-bottom
