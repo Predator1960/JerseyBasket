@@ -109,7 +109,8 @@ def main():
         prices = {}
         for label, val in zip(STORE_DISPLAY, [coop, morr, ms, wait, ice, alli]):
             val = val.strip() if val else ''
-            prices[label] = float(val) if val else None
+            # the CSV export uses 0 for "not sold / no price at this store"
+            prices[label] = float(val) if val and float(val) > 0 else None
 
         valid_prices = {k: v for k, v in prices.items() if v is not None}
         if valid_prices:
