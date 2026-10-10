@@ -166,6 +166,26 @@ def main():
                 for wc in wrow:
                     if isinstance(wc.value, str) and wc.value.startswith("=") and "10000" in wc.value:
                         wc.value = wc.value.replace("10000", "40000")
+    # Overlap breakdown: how many stores price each product (rows 12-15 of Summary)
+    if "Summary" in wb.sheetnames:
+        sm = wb["Summary"]
+        n = "((Products!E4:E40000>0)+(Products!G4:G40000>0)+(Products!I4:I40000>0)+(Products!K4:K40000>0)+(Products!M4:M40000>0)+(Products!O4:O40000>0))"
+        has = '(Products!B4:B40000<>"")'
+        extra = [
+            ("Products priced at exactly 1 store", f"=SUMPRODUCT({has}*({n}=1))"),
+            ("Products priced at 2 or more stores", f"=SUMPRODUCT({has}*({n}>=2))"),
+            ("Products priced at all 6 stores", f"=SUMPRODUCT({has}*({n}=6))"),
+            ("Products with no price at any store", f"=SUMPRODUCT({has}*({n}=0))"),
+        ]
+        for k, (label, formula) in enumerate(extra):
+            rr = 12 + k
+            for col in (1, 2):
+                src, dst = sm.cell(row=9, column=col), sm.cell(row=rr, column=col)
+                dst.font, dst.fill, dst.border = src.font.copy(), src.fill.copy(), src.border.copy()
+                dst.alignment, dst.number_format = src.alignment.copy(), src.number_format
+            sm.cell(row=rr, column=1, value=label)
+            sm.cell(row=rr, column=2, value=formula)
+
     if ws.auto_filter.ref:
         ws.auto_filter.ref = f"A3:T{3 + len(rows)}"
 
