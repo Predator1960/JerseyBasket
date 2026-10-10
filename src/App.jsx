@@ -218,18 +218,18 @@ const BASE_PRODUCTS = [
   {id:5,  name:"Almond Milk (1L)",             cat:"🥛 Dairy & Eggs", icon:"🥛", prices:sp(1.73,[0.97,1.22,0.94,0,1.07,0.12])},
   {id:6,  name:"Soya Milk (1L)",               cat:"🥛 Dairy & Eggs", icon:"🥛", prices:sp(1.45,[0,0.18,0.65,0.48,0.09])},
   {id:7,  name:"Coconut Milk Drink (1L)",      cat:"🥛 Dairy & Eggs", icon:"🥛", prices:sp(1.65,[0,0.22,0.72,0.52,0.11])},
-  {id:8,  name:"Free Range Eggs (6pk)",        cat:"🥛 Dairy & Eggs", icon:"🥚", prices:sp(1.74,[0.16,0.26,0.06,-0.34,0.71,0.11]), upd:"10 Sep"},
+  {id:8,  name:"Free Range Eggs (6pk)",        cat:"🥛 Dairy & Eggs", icon:"🥚", prices:sp(1.74,[0.36,0.26,0.06,-0.34,0.71,0.11]), upd:"10 Oct"}, // coop re-checked vs Co-op 6 Free Range British Medium Eggs
   {id:9,  name:"Free Range Eggs (12pk)",       cat:"🥛 Dairy & Eggs", icon:"🥚", prices:sp(3.40,[0,0.3,1,0,0.75]), upd:"10 Sep"},
-  {id:10, name:"Cheddar Mature (400g)",        cat:"🥛 Dairy & Eggs", icon:"🧀", prices:sp(3.17,[0.53,0.13,0.23,0,1.08,0.13]), upd:"7 Sep"},
+  {id:10, name:"Cheddar Mature (400g)",        cat:"🥛 Dairy & Eggs", icon:"🧀", prices:sp(3.17,[0.53,0.13,0.23,0,1.08,0.13]), upd:"10 Oct"}, // coop re-checked vs Co-op Mature Cheddar 400g; iceland re-checked vs Iceland Mature White Cheddar 400g
   {id:11, name:"Cheddar Mild (400g)",          cat:"🥛 Dairy & Eggs", icon:"🧀", prices:sp(2.60,[1.10,0.14,0.55,0.38,0.07])},
   {id:12, name:"Mozzarella (125g)",            cat:"🥛 Dairy & Eggs", icon:"🧀", prices:sp(1.10,[0,0.15,0.45,0.35,0.07])},
   {id:13, name:"Brie (200g)",                  cat:"🥛 Dairy & Eggs", icon:"🧀", prices:sp(3.19,[0,0.2,0.8,0.6,0.1])},
   {id:14, name:"Parmesan (100g)",              cat:"🥛 Dairy & Eggs", icon:"🧀", prices:sp(2.50,[0,-0.40,0.95,0.75,0.12])},
   {id:15, name:"Feta Cheese (200g)",           cat:"🥛 Dairy & Eggs", icon:"🧀", prices:sp(2.00,[0.49,0.2,0.8,0.43,0.1])},
-  {id:16, name:"Butter Salted (250g)",         cat:"🥛 Dairy & Eggs", icon:"🧈", prices:sp(1.05,[1.15,3.93,3.45,1.15,0]), upd:"12 Sep"},
+  {id:16, name:"Butter Salted (250g)",         cat:"🥛 Dairy & Eggs", icon:"🧈", prices:sp(1.05,[1.15,3.93,3.45,1.15,1.45,0]), upd:"10 Oct"}, // coop re-checked vs Co-op British Milk Salted Butter 250g; iceland re-checked vs Jersey Butter Salted 250g
   {id:17, name:"Butter Unsalted (250g)",       cat:"🥛 Dairy & Eggs", icon:"🧈", prices:sp(3.40,[-0.90,0.15,0.6,-1.40,0.07,0])},
   {id:18, name:"Spreadable Butter (500g)",     cat:"🥛 Dairy & Eggs", icon:"🧈", prices:sp(3.10,[1.45,0.22,0.85,0.65,0.11])},
-  {id:19, name:"Greek Yoghurt (500g)",         cat:"🥛 Dairy & Eggs", icon:"🫙", prices:sp(1.25,[0.40,0.30,0.15,0.09,0,0.65])},
+  {id:19, name:"Greek Yoghurt (500g)",         cat:"🥛 Dairy & Eggs", icon:"🫙", prices:sp(1.25,[0.45,0.30,0.15,0.09,0,0.65]), upd:"10 Oct"}, // coop re-checked vs Co-op Greek Style Natural Yogurt 500g
   {id:20, name:"Natural Yoghurt (500g)",       cat:"🥛 Dairy & Eggs", icon:"🫙", prices:sp(2.65,[0,0.15,0.55,0.4,0.07])},
   {id:21, name:"Fruit Yoghurts 4pk",           cat:"🥛 Dairy & Eggs", icon:"🫙", prices:sp(1.80,[0,0.18,0.7,0.52,0.09])},
   {id:22, name:"Sour Cream (300ml)",           cat:"🥛 Dairy & Eggs", icon:"🫙", prices:sp(1.40,[0,0.15,0.6,0.45,0.07])},
@@ -241,7 +241,7 @@ const BASE_PRODUCTS = [
   {id:28, name:"Clotted Cream (113g)",         cat:"🥛 Dairy & Eggs", icon:"🍦", prices:sp(2.00,[0,0.22,0.8,0.6,0.11])},
 
   /* ── BREAD & BAKERY ───────────────────────────────────────────── */
-  {id:29, name:"White Sliced Bread 800g",      cat:"🍞 Bread & Bakery",icon:"🍞", prices:sp(1.25,[0.50,-0.51,0.55,-0.50,0.05]), upd:"7 Sep"},
+  {id:29, name:"White Sliced Bread 800g",      cat:"🍞 Bread & Bakery",icon:"🍞", prices:sp(1.25,[0.5,-0.51,0.55,-0.50,0.85,0]), upd:"10 Oct"}, // coop re-checked vs Warburtons Original Toastie White Loaf 800g; iceland re-checked vs Warburtons Medium Soft White 800g
   {id:30, name:"Wholemeal Bread 800g",         cat:"🍞 Bread & Bakery",icon:"🥖", prices:sp(0.90,[0.35,0.35,0,0.84,1.05,0.90])},
   {id:31, name:"Seeded Batch Loaf",            cat:"🍞 Bread & Bakery",icon:"🥖", prices:sp(1.75,[-0.20,0.15,0.65,0.5,0.07])},
   {id:32, name:"Sourdough Loaf",               cat:"🍞 Bread & Bakery",icon:"🥖", prices:sp(2.50,[0,0.25,0.95,0.75,0.12])},
@@ -266,7 +266,7 @@ const BASE_PRODUCTS = [
   {id:49, name:"Chicken Thighs (1kg)",         cat:"🥩 Meat & Fish",   icon:"🍗", prices:sp(3.20,[0,0.2,0.9,0.65,0.1])},
   {id:50, name:"Chicken Drumsticks (1kg)",     cat:"🥩 Meat & Fish",   icon:"🍗", prices:sp(2.80,[0,1.18,0.8,0.58,0.09])},
   {id:51, name:"Whole Chicken (~1.4kg)",       cat:"🥩 Meat & Fish",   icon:"🍗", prices:sp(4.95,[1.15,0.85,5.02,2.30,0,1.55])},
-  {id:52, name:"Minced Beef (500g)",           cat:"🥩 Meat & Fish",   icon:"🥩", prices:sp(2.63,[1.30,0,1.25,1.72,1.30,1.10]), upd:"12 Sep"},
+  {id:52, name:"Minced Beef (500g)",           cat:"🥩 Meat & Fish",   icon:"🥩", prices:sp(2.63,[2.97,0,1.25,1.72,1.30,1.10]), upd:"10 Oct"}, // coop re-checked vs Co-op 15% Fat Beef Mince 500g
   {id:53, name:"Minced Beef (750g)",           cat:"🥩 Meat & Fish",   icon:"🥩", prices:sp(5.00,[0,0.2,1.3,1,0.1])},
   {id:54, name:"Beef Steak (200g)",            cat:"🥩 Meat & Fish",   icon:"🥩", prices:sp(5.50,[0,0.4,1.8,1.3,0.2])},
   {id:55, name:"Beef Burgers (4pk)",           cat:"🥩 Meat & Fish",   icon:"🥩", prices:sp(3.20,[0.0,0.22,0.98,1.4,0.11])},
@@ -277,7 +277,7 @@ const BASE_PRODUCTS = [
   {id:60, name:"Lamb Chops (2pk)",             cat:"🥩 Meat & Fish",   icon:"🥩", prices:sp(4.80,[0,0.35,1.3,1,0.17])},
   {id:61, name:"Back Bacon (200g)",            cat:"🥩 Meat & Fish",   icon:"🥓", prices:sp(2.50,[0,-1.01,0.7,0.5,0.07])},
   {id:62, name:"Streaky Bacon (200g)",         cat:"🥩 Meat & Fish",   icon:"🥓", prices:sp(2.30,[0,0.14,0.65,0.47,0.07])},
-  {id:63, name:"Sausages Pork (8pk)",          cat:"🥩 Meat & Fish",   icon:"🌭", prices:sp(2.07,[0.83,0.43,0.13,0,0.43,1.38])},
+  {id:63, name:"Sausages Pork (8pk)",          cat:"🥩 Meat & Fish",   icon:"🌭", prices:sp(2.07,[0.82,0.43,0.13,0,0.88,1.38]), upd:"10 Oct"}, // coop re-checked vs Co-op Butcher's Choice 8 British Pork Sausages 454g; iceland re-checked vs Iceland 8 Pork Sausages
   {id:591,name:"Rich Pork Sausages (12pk)",     cat:"🥩 Meat & Fish",   icon:"🌭", prices:sp(3.00,[0,-3.00,-3.00,-3.00,-3.00])},
   {id:592,name:"Deep Fill Pepper Steak Slice",  cat:"🥩 Meat & Fish",   icon:"🥩", prices:sp(2.80,[0,-2.80,-2.80,-2.80,-2.80]), upd:"20 Aug"},
   {id:593,name:"Breaded Ham (125g)",             cat:"🥩 Meat & Fish",   icon:"🥩", prices:sp(1.94,[0,-1.94,-1.94,-1.94,-1.94])},
@@ -326,16 +326,16 @@ const BASE_PRODUCTS = [
   {id:102,name:"Rocket (100g)",               cat:"🥦 Fruit & Veg",  icon:"🥗", prices:sp(1.20,[0,0.12,0.48,0.36,0.06])},
   {id:103,name:"Mixed Peppers (3pk)",          cat:"🥦 Fruit & Veg",  icon:"🫑", prices:sp(2.00,[0,0.25,0.60,-0.20,0.40,0.75])},
   {id:104,name:"Red Pepper (each)",            cat:"🥦 Fruit & Veg",  icon:"🫑", prices:sp(0.65,[0,0.07,0.28,0.2,0.04])},
-  {id:105,name:"Carrots (1kg)",                cat:"🥦 Fruit & Veg",  icon:"🥕", prices:sp(0.75,[0,0.54,0.10,0.07,0.40,0.35])},
+  {id:105,name:"Carrots (1kg)",                cat:"🥦 Fruit & Veg",  icon:"🥕", prices:sp(0.75,[0,0.54,0.10,0.07,0.6,0.35]), upd:"10 Oct"}, // iceland re-checked vs Iceland Carrots 1kg
   {id:106,name:"Parsnips (500g)",              cat:"🥦 Fruit & Veg",  icon:"🥕", prices:sp(0.90,[0,0.09,0.35,0.26,0.04])},
-  {id:107,name:"Onions (3pk)",                 cat:"🥦 Fruit & Veg",  icon:"🧅", prices:sp(1.05,[0.05,0.20,0.42,0.46,0.22,0.45]), upd:"12 Sep"},
+  {id:107,name:"Onions (3pk)",                 cat:"🥦 Fruit & Veg",  icon:"🧅", prices:sp(1.05,[0.05,0.20,0.42,0.46,0.3,0.45]), upd:"10 Oct"}, // coop re-checked vs Co-op Brown Onions 3S; iceland re-checked vs Brown Onion 3pk
   {id:108,name:"Spring Onions (bunch)",        cat:"🥦 Fruit & Veg",  icon:"🧅", prices:sp(0.60,[0,0.07,0.28,0.2,0.04])},
   {id:109,name:"Red Onions (3pk)",             cat:"🥦 Fruit & Veg",  icon:"🧅", prices:sp(0.90,[0.39,0.09,0.35,0.10,0.04])},
   {id:110,name:"Garlic (bulb)",                cat:"🥦 Fruit & Veg",  icon:"🧄", prices:sp(0.60,[0.05,0,0,0.04,0])},
   {id:111,name:"Cherry Tomatoes (250g)",       cat:"🥦 Fruit & Veg",  icon:"🍅", prices:sp(1.20,[0.4,0.05,0.0,0.05,0.05])},
   {id:563,name:"Green Grapes (500g)",           cat:"🥦 Fruit & Veg",  icon:"🍇", prices:sp(3.15,[-0.15,-3.15,-3.15,-3.15,-3.15])},
   {id:564,name:"Plums Punnet (400g)",           cat:"🥦 Fruit & Veg",  icon:"🍑", prices:sp(1.78,[0,-1.78,-1.78,-1.78,-1.78])},
-  {id:112,name:"Tomatoes (6pk)",               cat:"🥦 Fruit & Veg",  icon:"🍅", prices:sp(1.20,[0.40,0.05,0,1.20,0.05,0.15])},
+  {id:112,name:"Tomatoes (6pk)",               cat:"🥦 Fruit & Veg",  icon:"🍅", prices:sp(1.20,[0.4,0.05,0,1.20,0.05,0.15]), upd:"10 Oct"}, // coop re-checked vs Jsy Tomatoes 6s
   {id:113,name:"Cucumber (each)",              cat:"🥦 Fruit & Veg",  icon:"🥒", prices:sp(1.00,[0.50,0.20,0,0,0.25,0.30])},
   {id:114,name:"Courgette (2pk)",              cat:"🥦 Fruit & Veg",  icon:"🥒", prices:sp(0.90,[0,0.1,0.4,0.3,0.05])},
   {id:115,name:"Aubergine (each)",             cat:"🥦 Fruit & Veg",  icon:"🍆", prices:sp(0.80,[0,0.08,0.32,0.24,0.04])},
@@ -378,7 +378,7 @@ const BASE_PRODUCTS = [
   {id:147,name:"Frozen Yorkshire Puddings 9pk",cat:"🧊 Frozen",       icon:"🍳", prices:sp(1.50,[0,0.15,0.58,0.44,0.07])},
 
   /* ── DRINKS ───────────────────────────────────────────────────── */
-  {id:148,name:"Orange Juice (1L)",            cat:"🥤 Drinks",       icon:"🍊", prices:sp(1.65,[0.90,0.1,0.5,0.55,0.05]), upd:"7 Sep"},
+  {id:148,name:"Orange Juice (1L)",            cat:"🥤 Drinks",       icon:"🍊", prices:sp(1.65,[0.9,0.1,0.5,0.55,0.05,0]), upd:"10 Oct"}, // coop re-checked vs Co-op Smooth Orange Juice 1L
   {id:149,name:"Apple Juice (1L)",             cat:"🥤 Drinks",       icon:"🍏", prices:sp(3.65,[-1.10,0.1,0.5,0.64,0.05])},
   {id:544,name:"Apple Elderflower Cordial",    cat:"🥤 Drinks",       icon:"🌸", prices:sp(2.19,[-2.19,-2.19,-2.19,0,-2.19])},
   {id:545,name:"Orange & Mango Juice (1L)",    cat:"🥤 Drinks",       icon:"🥭", prices:sp(2.19,[-2.19,-2.19,-2.19,0,-2.19])},
@@ -396,9 +396,9 @@ const BASE_PRODUCTS = [
   {id:159,name:"Lucozade Sport (500ml)",       cat:"🥤 Drinks",       icon:"🥤", prices:sp(1.20,[0,0.12,0.5,0.38,1.35,0])},
   {id:160,name:"Energy Drink 250ml (4pk)",     cat:"🥤 Drinks",       icon:"⚡", prices:sp(3.20,[0,0.3,1.15,0.88,0.15])},
   {id:161,name:"Filter Coffee (227g)",         cat:"🥤 Drinks",       icon:"☕", prices:sp(3.20,[0,0.2,1,0.75,0.1])},
-  {id:162,name:"Instant Coffee (200g)",        cat:"🥤 Drinks",       icon:"☕", prices:sp(5.35,[2.85,0,3.40,4.72,2.15])},
+  {id:162,name:"Instant Coffee (200g)",        cat:"🥤 Drinks",       icon:"☕", prices:sp(5.35,[0.4,0,3.40,4.72,2.15,0]), upd:"10 Oct"}, // coop re-checked vs Co-op Fairtrade Gold Roast Instant Coffee 200g
   {id:163,name:"Coffee Pods (16pk)",           cat:"🥤 Drinks",       icon:"☕", prices:sp(4.50,[0,0.4,1.45,1.12,0.2])},
-  {id:164,name:"Tea Bags (80pk)",              cat:"🥤 Drinks",       icon:"🫖", prices:sp(1.25,[0.55,0,0.55,0.33,0.55,0.70])},
+  {id:164,name:"Tea Bags (80pk)",              cat:"🥤 Drinks",       icon:"🫖", prices:sp(1.25,[0.55,0,0.55,0.33,0.55,0.70]), upd:"10 Oct"}, // coop re-checked vs Co-op Fairtrade 99 Blend 80 Tea Bags 250g
   {id:165,name:"Tea Bags (160pk)",             cat:"🥤 Drinks",       icon:"🫖", prices:sp(4.50,[0,0.38,1.45,1.12,0.19])},
   {id:166,name:"Green Tea Bags (40pk)",        cat:"🥤 Drinks",       icon:"🍵", prices:sp(2.20,[0,0.22,0.85,0.65,0.11])},
   {id:167,name:"Herbal Tea Variety (20pk)",    cat:"🥤 Drinks",       icon:"🍵", prices:sp(2.00,[0,0.2,0.8,0.6,0.1])},
@@ -416,7 +416,7 @@ const BASE_PRODUCTS = [
   {id:179,name:"Squash (1L)",                  cat:"🥤 Drinks",       icon:"🥤", prices:sp(1.50,[0.6,0.15,0.6,0.46,0.07])},
 
   /* ── PANTRY ───────────────────────────────────────────────────── */
-  {id:180,name:"Pasta Penne (500g)",           cat:"🍝 Pantry",       icon:"🍝", prices:sp(0.89,[0.06,-0.24,0.01,0.03,0.71])},
+  {id:180,name:"Pasta Penne (500g)",           cat:"🍝 Pantry",       icon:"🍝", prices:sp(0.89,[0.06,-0.24,0.01,0.03,0.71,0]), upd:"10 Oct"}, // coop re-checked vs Co-op Italian Menu Penne 500g
   {id:181,name:"Spaghetti (500g)",             cat:"🍝 Pantry",       icon:"🍝", prices:sp(0.50,[0.45,0,0.40,1.23,1.10,0.85])},
   {id:182,name:"Fusilli (500g)",               cat:"🍝 Pantry",       icon:"🍝", prices:sp(0.89,[0.06,0.06,0.41,0.26,0.03])},
   {id:183,name:"Tagliatelle (500g)",           cat:"🍝 Pantry",       icon:"🍝", prices:sp(0.95,[0.0,0.08,0.42,0.28,0.04])},
@@ -426,7 +426,7 @@ const BASE_PRODUCTS = [
   {id:187,name:"Tinned Chickpeas (400g)",      cat:"🍝 Pantry",       icon:"🫘", prices:sp(0.65,[0.24,0,0.15,0.22,0])},
   {id:188,name:"Tinned Kidney Beans (400g)",   cat:"🍝 Pantry",       icon:"🫘", prices:sp(0.70,[0,0.07,0.36,0.26,0.04])},
   {id:189,name:"Tinned Lentils (400g)",        cat:"🍝 Pantry",       icon:"🫘", prices:sp(0.80,[0,0.08,0.38,0.28,0.04])},
-  {id:190,name:"Tinned Baked Beans (415g)",    cat:"🍝 Pantry",       icon:"🫘", prices:sp(0.50,[0.20,0,0,0.34,1.15])},
+  {id:190,name:"Tinned Baked Beans (415g)",    cat:"🍝 Pantry",       icon:"🫘", prices:sp(0.50,[0.2,0,0,0.34,0.75,0]), upd:"10 Oct"}, // coop re-checked vs Co-op Baked Beans in Tomato Sauce 400g; iceland re-checked vs Branston Baked Beans 410g
   {id:191,name:"Tinned Sweetcorn (340g)",      cat:"🍝 Pantry",       icon:"🌽", prices:sp(0.65,[0,0.08,0.32,0.24,0.04])},
   {id:192,name:"Tinned Coconut Milk (400ml)",  cat:"🍝 Pantry",       icon:"🥥", prices:sp(1.10,[0,0.1,0.45,0.15,0.05])},
   {id:519,name:"Heinz Tomato Soup (400g)",     cat:"🍝 Pantry",       icon:"🥣", prices:sp(1.89,[0.26,0,0.26,0.14,0.26])},
@@ -434,19 +434,19 @@ const BASE_PRODUCTS = [
   {id:521,name:"Tinned Tuna (160g)",           cat:"🍝 Pantry",       icon:"🐟", prices:sp(0.80,[0.40,0,0.15,0.65,0])},
   {id:193,name:"Olive Oil Extra Virgin (500ml)",cat:"🍝 Pantry",      icon:"🫒", prices:sp(3.40,[3.20,4.00,3.85,2.40,0,3.60])},
   {id:194,name:"Sunflower Oil (1L)",           cat:"🍝 Pantry",       icon:"🌻", prices:sp(2.45,[0.10,2.15,0,0.34,1.60,0.54])},
-  {id:195,name:"Vegetable Oil (1L)",           cat:"🍝 Pantry",       icon:"🌻", prices:sp(1.90,[0.65,0.16,0.78,0.6,0.08]), upd:"6 Sep"},
-  {id:196,name:"Basmati Rice (1kg)",           cat:"🍝 Pantry",       icon:"🍚", prices:sp(0.87,[1.58,0.08,0.83,0,0.93]), upd:"6 Sep"},
+  {id:195,name:"Vegetable Oil (1L)",           cat:"🍝 Pantry",       icon:"🌻", prices:sp(1.90,[0.65,0.16,0.78,0.6,1.45,0]), upd:"10 Oct"}, // coop re-checked vs Co-op Vegetable Oil 1 Litre; iceland re-checked vs Pura Vegetable Oil 1L
+  {id:196,name:"Basmati Rice (1kg)",           cat:"🍝 Pantry",       icon:"🍚", prices:sp(0.87,[1.58,0.08,0.83,0,1.78,0]), upd:"10 Oct"}, // coop re-checked vs Co-op Basmati Rice 1kg; iceland re-checked vs Tilda Everyday Basmati Rice 1kg
   {id:197,name:"Long Grain Rice (1kg)",        cat:"🍝 Pantry",       icon:"🍚", prices:sp(1.60,[0.35,0.14,0.65,0.48,0.07])},
   {id:198,name:"Microwave Rice (3pk)",         cat:"🍝 Pantry",       icon:"🍚", prices:sp(2.40,[0,0.22,0.88,0.68,0.11])},
   {id:199,name:"Porridge Oats (500g)",         cat:"🍝 Pantry",       icon:"🌾", prices:sp(1.30,[-0.30,-0.8,-0.47,-0.58,0.5])},
   {id:200,name:"Porridge Oats (1kg)",          cat:"🍝 Pantry",       icon:"🌾", prices:sp(1.00,[0.70,0,0.65,0.25,2.60,0.75])},
-  {id:201,name:"Cornflakes (500g)",            cat:"🍝 Pantry",       icon:"🌽", prices:sp(1.60,[0,0.15,0.6,-0.3,0.07]), upd:"21 Sep"},
+  {id:201,name:"Cornflakes (500g)",            cat:"🍝 Pantry",       icon:"🌽", prices:sp(1.60,[0.05,0.15,0.6,-0.3,0.07,0]), upd:"10 Oct"}, // coop re-checked vs Co-op Corn Flakes 500g
   {id:202,name:"Weetabix (24pk)",              cat:"🍝 Pantry",       icon:"🌾", prices:sp(2.42,[0,0.25,0.98,0,-0.30])},
   {id:203,name:"Muesli (500g)",                cat:"🍝 Pantry",       icon:"🌾", prices:sp(2.10,[0,1.35,0,1.58,1.15,2.05])},
   {id:204,name:"Granola (500g)",               cat:"🍝 Pantry",       icon:"🌾", prices:sp(2.80,[0,0.25,0.98,0.76,0.12])},
   {id:205,name:"Plain Flour (1kg)",            cat:"🍝 Pantry",       icon:"🌾", prices:sp(0.95,[1.15,0,0.10,0.04,1.20,0.70])},
   {id:206,name:"Self Raising Flour (1.5kg)",   cat:"🍝 Pantry",       icon:"🌾", prices:sp(1.84,[-0.79,0.12,0.5,0.38,0.06])},
-  {id:207,name:"Sugar White (1kg)",            cat:"🍝 Pantry",       icon:"🍬", prices:sp(1.35,[0,0,0,0.10,0.15,0.15])},
+  {id:207,name:"Sugar White (1kg)",            cat:"🍝 Pantry",       icon:"🍬", prices:sp(1.35,[0,0,0,0.10,0.25,0.15]), upd:"10 Oct"}, // coop re-checked vs Tate & Lyle Granulated Sugar 1kg; iceland re-checked vs Whitworths Granulated Sugar 1kg
   {id:208,name:"Caster Sugar (1kg)",           cat:"🍝 Pantry",       icon:"🍬", prices:sp(1.10,[1.25,0.1,0.4,0.3,0.05])},
   {id:209,name:"Icing Sugar (500g)",           cat:"🍝 Pantry",       icon:"🍬", prices:sp(0.90,[0.0,0.09,2.20,0.26,0.04])},
   {id:527,name:"White Marzipan (500g)",        cat:"🍝 Pantry",       icon:"🍰", prices:sp(3.20,[-3.20,-3.20,0,-3.20,-3.20])},
@@ -773,7 +773,7 @@ const BASE_PRODUCTS = [
   {id:489,name:"White Bread (800g)",                 cat:"🍞 Bread & Bakery",icon:"🍞",prices:sp(0.80,[0.45,0,0.10,0.36,1.15,0.65])},
   {id:551,name:"Brown Bloomer Loaf",                 cat:"🍞 Bread & Bakery",icon:"🍞",prices:sp(1.19,[-1.19,-1.19,-1.19,0,-1.19])},
   {id:490,name:"Potatoes (1.5kg)",                   cat:"🥦 Fruit & Veg",  icon:"🥔",prices:sp(1.40,[0,1.20,0.25,0.69,1.10,1.39])},
-  {id:491,name:"Toilet Rolls (4pk)",                 cat:"🧹 Household",    icon:"🧻",prices:sp(1.55,[0.94,0.45,1.45,0.54,0,1.20])},
+  {id:491,name:"Toilet Rolls (4pk)",                 cat:"🧹 Household",    icon:"🧻",prices:sp(1.55,[0.94,0.45,1.45,0.54,0.1,1.20]), upd:"10 Oct"}, // iceland re-checked vs Little Duck 4 Luxe Toilet Tissue
   {id:497,name:"Ginger Nuts (400g)",           cat:"🥨 Snacks & Treats",icon:"🍪",prices:sp(0.90,[1.19,0.15,0,0,1.10,0.50])},
   {id:498,name:"Cream Cleaner (500ml)",         cat:"🧹 Household",    icon:"🧴",prices:sp(1.65,[0,0.18,0,0.09,0.30,0.50])},
   {id:499,name:"Furniture Polish (300ml)",       cat:"🧹 Household",    icon:"🧹",prices:sp(1.80,[0.29,0.40,0,0,0,0.70])},
