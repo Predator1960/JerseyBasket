@@ -171,6 +171,7 @@
  *            (including placeholder-looking fake entrant names). All removed.
  */
 import React, { useState, useMemo, useRef, useEffect, useCallback } from "react";
+import { createPortal } from "react-dom";
 
 /* ═══════════════════════════════════════════════════════════════════════════
    STORES
@@ -13761,6 +13762,21 @@ function EstimateNote({ product, lightMode=false }) {
   const [err, setErr]       = useState("");
   const close = () => { setShow(false); setMode("ask"); setErr(""); setPrice(""); };
 
+  // Desktop hover: small card beside the label (fixed so card edges can't clip it)
+  const [hover, setHover] = useState(null); // {left, top} or null
+  const hoverTimer = useRef(null);
+  const openHover = (e) => {
+    clearTimeout(hoverTimer.current);
+    const r = e.currentTarget.getBoundingClientRect();
+    const w = 230;
+    const left = Math.max(8, Math.min(r.left, window.innerWidth - w - 8));
+    const below = r.bottom + 6;
+    const top = below + 120 > window.innerHeight ? Math.max(8, r.top - 118) : below;
+    setHover({ left, top, w });
+  };
+  const closeHoverSoon = () => { clearTimeout(hoverTimer.current); hoverTimer.current = setTimeout(() => setHover(null), 250); };
+  const keepHover = () => clearTimeout(hoverTimer.current);
+
   const send = async () => {
     const v = parseFloat(price);
     if (isNaN(v) || v <= 0) { setErr("Please enter a price, e.g. 1.85"); return; }
@@ -13790,8 +13806,20 @@ function EstimateNote({ product, lightMode=false }) {
 
   return (
     <>
-      <span onClick={(e)=>{ e.stopPropagation(); setShow(true); }} style={{ marginLeft:5, fontSize:8, color:lightMode?"#94a3b8":"#64748b", cursor:"pointer", textDecoration:"underline dotted" }}>· Estimated price ⓘ</span>
-      {show && (
+      <span onClick={(e)=>{ e.stopPropagation(); setHover(null); setShow(true); }} onMouseEnter={openHover} onMouseLeave={closeHoverSoon} style={{ marginLeft:5, fontSize:8, color:lightMode?"#94a3b8":"#64748b", cursor:"pointer", textDecoration:"underline dotted" }}>· Estimated price ⓘ</span>
+      {hover && !show && createPortal(
+        <div onMouseEnter={keepHover} onMouseLeave={closeHoverSoon} onClick={(e)=>e.stopPropagation()}
+          style={{ position:"fixed", left:hover.left, top:hover.top, width:hover.w, boxSizing:"border-box", zIndex:650, background:lightMode?"#ffffff":"#0b1526", border:lightMode?"1px solid rgba(0,0,0,.14)":"1px solid rgba(255,255,255,.18)", borderRadius:12, padding:"10px 12px", boxShadow:"0 8px 28px rgba(0,0,0,.5)", textAlign:"left", fontWeight:400 }}>
+          <div style={{ fontSize:12, fontWeight:700, color:txt, lineHeight:1.35, marginBottom:3 }}>Do you have an updated price for this item?</div>
+          <div style={{ fontSize:10.5, color:muted, lineHeight:1.45, marginBottom:8 }}>This price is an estimate and hasn't been checked recently.</div>
+          <div style={{ display:"flex", gap:6 }}>
+            <button onClick={()=>{ setHover(null); setMode("form"); setShow(true); }} style={{ ...btn("linear-gradient(180deg,#22c55e,#15803d)"), padding:"7px 6px", fontSize:11 }}>💷 Send a price</button>
+            <button onClick={()=>{ setHover(null); window.dispatchEvent(new Event("jb-open-receipt")); }} style={{ ...btn("linear-gradient(180deg,#fb923c,#b45309)"), padding:"7px 6px", fontSize:11 }}>📸 Receipt</button>
+          </div>
+        </div>,
+        document.body
+      )}
+      {show && createPortal(
         <div onClick={(e)=>{ e.stopPropagation(); if (e.target === e.currentTarget) close(); }}
           style={{ position:"fixed", top:0, left:0, right:0, height:"var(--app-height, 100%)", zIndex:700, display:"flex", alignItems:"center", justifyContent:"center", padding:20, background:"rgba(0,0,0,.55)" }}>
           <div style={{ width:"100%", maxWidth:340, background:lightMode?"#ffffff":"#0b1526", border:lightMode?"1px solid rgba(0,0,0,.12)":"1px solid rgba(255,255,255,.14)", borderRadius:16, padding:"18px 18px 16px", boxShadow:"0 12px 40px rgba(0,0,0,.5)", textAlign:"left" }}>
@@ -13832,7 +13860,8 @@ function EstimateNote({ product, lightMode=false }) {
               </>
             )}
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </>
   );
