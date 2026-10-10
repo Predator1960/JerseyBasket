@@ -157,6 +157,17 @@ def main():
             if val is not None:
                 cell.number_format = CURRENCY_FORMAT
 
+    # Summary / Update Template formulas were capped at row 10000, which cut the
+    # count off at 9,997 products. Widen them so the catalogue can keep growing.
+    for sheet in ("Summary", "Update Template"):
+        if sheet in wb.sheetnames:
+            for wrow in wb[sheet].iter_rows():
+                for wc in wrow:
+                    if isinstance(wc.value, str) and wc.value.startswith("=") and "10000" in wc.value:
+                        wc.value = wc.value.replace("10000", "40000")
+    if ws.auto_filter.ref:
+        ws.auto_filter.ref = f"A3:T{3 + len(rows)}"
+
     wb.save(XLSX_PATH)
     print(f"Done. Products sheet rebuilt with {len(rows)} products, dated {today_str}.")
     print("NOTE: open the file in Excel once to let it recalculate the Summary sheet formulas.")
