@@ -446,9 +446,9 @@ const BASE_PRODUCTS = [
   {id:203,name:"Muesli (500g)",                cat:"🍝 Pantry",       icon:"🌾", prices:sp(2.10,[0,1.35,0,1.58,1.15,2.05])},
   {id:204,name:"Granola (500g)",               cat:"🍝 Pantry",       icon:"🌾", prices:sp(2.80,[0,0.25,0.98,0.76,0.12])},
   {id:205,name:"Plain Flour (1kg)",            cat:"🍝 Pantry",       icon:"🌾", prices:sp(0.95,[1.15,0,0.10,0.04,1.20,0.70])},
-  {id:206,name:"Self Raising Flour (1.5kg)",   cat:"🍝 Pantry",       icon:"🌾", prices:sp(1.84,[-0.79,0.12,0.5,0.38,0.06])},
+  {id:206,name:"Self Raising Flour (1.5kg)",   cat:"🍝 Pantry",       icon:"🌾", prices:sp(1.84,[-0.79,0.12,-0.84,0.38,0.06]), upd:"11 Oct"}, // M&S 1.00 from receipt (value-range pack BPBV), other stores still estimates
   {id:207,name:"Sugar White (1kg)",            cat:"🍝 Pantry",       icon:"🍬", prices:sp(1.35,[0,0,0,0.10,0.25,0.15]), upd:"10 Oct"}, // coop re-checked vs Tate & Lyle Granulated Sugar 1kg; iceland re-checked vs Whitworths Granulated Sugar 1kg
-  {id:208,name:"Caster Sugar (1kg)",           cat:"🍝 Pantry",       icon:"🍬", prices:sp(1.10,[1.25,0.1,0.4,0.3,0.05])},
+  {id:208,name:"Caster Sugar (1kg)",           cat:"🍝 Pantry",       icon:"🍬", prices:sp(1.10,[1.25,0.1,1.7,0.3,0.05]), upd:"11 Oct"}, // M&S 2.80 from receipt (British caster sugar), other stores still estimates
   {id:209,name:"Icing Sugar (500g)",           cat:"🍝 Pantry",       icon:"🍬", prices:sp(0.90,[0.0,0.09,2.20,0.26,0.04])},
   {id:527,name:"White Marzipan (500g)",        cat:"🍝 Pantry",       icon:"🍰", prices:sp(3.20,[-3.20,-3.20,0,-3.20,-3.20])},
   {id:210,name:"Tomato Ketchup (460g)",        cat:"🍝 Pantry",       icon:"🍅", prices:sp(1.00,[0.30,0,0.80,0.16,1.50,0.70])},
@@ -9877,7 +9877,7 @@ const BASE_PRODUCTS = [
   {id:9675, name:"M&S Red Pesto", cat:"🍝 Pantry", icon:"🍝", prices:{coop:0,morrisons:0,ms:2.7,waitrose:0,iceland:0,alliance:0}, upd:"5 Oct"},
   {id:9676, name:"M&S Garlic Baguette", cat:"🍞 Bread & Bakery", icon:"🥖", prices:{coop:0,morrisons:0,ms:1.55,waitrose:0,iceland:0,alliance:0}, upd:"5 Oct"},
   {id:9677, name:"M&S Conference Pears", cat:"🥦 Fruit & Veg", icon:"🍐", prices:{coop:0,morrisons:0,ms:3.4,waitrose:0,iceland:0,alliance:0}, upd:"5 Oct"},
-  {id:9678, name:"M&S Free Range Large Eggs", cat:"🥛 Dairy & Eggs", icon:"🥚", prices:{coop:0,morrisons:0,ms:3.1,waitrose:0,iceland:0,alliance:0}, upd:"5 Oct"},
+  {id:9678, name:"M&S Free Range Large Eggs", cat:"🥛 Dairy & Eggs", icon:"🥚", prices:{coop:0,morrisons:0,ms:3.1,waitrose:0,iceland:0,alliance:0}, upd:"11 Oct"},
   {id:9679, name:"Waitrose Treacle Tart", cat:"🍰 Cakes & Desserts", icon:"🥧", prices:{coop:0,morrisons:0,ms:0,waitrose:4.47,iceland:0,alliance:0}, upd:"5 Oct"},
   {id:9680, name:"Cadbury Dairy Milk Giant Buttons", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:1.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"5 Oct"},
   {id:9681, name:"Co-op Mini Yum Yums", cat:"🍞 Bread & Bakery", icon:"🍩", prices:{coop:1.29,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"5 Oct"},
@@ -13514,6 +13514,8 @@ const BASE_PRODUCTS = [
   {id:13298, name:"Batchelors Sweetcorn in Water 3 x 180g", cat:"🥦 Fruit & Veg", icon:"🥦", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:2.55,alliance:0}, upd:"10 Oct"},
   {id:13299, name:"Pickle & Co. Burger Gherkins 670g", cat:"🥦 Fruit & Veg", icon:"🥦", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:3.15,alliance:0}, upd:"10 Oct"},
   {id:13300, name:"Kesar Mango Pulp 850g 850g", cat:"🥦 Fruit & Veg", icon:"🥦", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:2.9,alliance:0}, upd:"10 Oct"},
+  {id:13301, name:"M&S 2 Vanilla Slices", cat:"🍞 Bread & Bakery", icon:"🍰", prices:{coop:0,morrisons:0,ms:2.7,waitrose:0,iceland:0,alliance:0}, upd:"11 Oct"},
+  {id:13302, name:"M&S Touch of Butter 500g", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:0,morrisons:0,ms:2.7,waitrose:0,iceland:0,alliance:0}, upd:"11 Oct"},
 ];/* ═══════════════════════════════════════════════════════════════════════════
    WEEKLY ESSENTIALS — a relatable 25-item "typical weekly shop" basket, used
    as the default landing sort so new visitors see a real comparison (milk,
