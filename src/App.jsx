@@ -219,18 +219,18 @@ const BASE_PRODUCTS = [
   {id:5,  name:"Almond Milk (1L)",             cat:"🥛 Dairy & Eggs", icon:"🥛", prices:sp(1.73,[0.97,1.22,0.94,0,1.07,0.12])},
   {id:6,  name:"Soya Milk (1L)",               cat:"🥛 Dairy & Eggs", icon:"🥛", prices:sp(1.45,[0,0.18,0.65,0.48,0.09])},
   {id:7,  name:"Coconut Milk Drink (1L)",      cat:"🥛 Dairy & Eggs", icon:"🥛", prices:sp(1.65,[0,0.22,0.72,0.52,0.11])},
-  {id:8,  name:"Free Range Eggs (6pk)",        cat:"🥛 Dairy & Eggs", icon:"🥚", prices:sp(1.74,[0.36,0.26,0.06,-0.34,0.71,0.11]), upd:"10 Oct"}, // coop re-checked vs Co-op 6 Free Range British Medium Eggs
+  {id:8,  name:"Free Range Eggs (6pk)",        cat:"🥛 Dairy & Eggs", icon:"🥚", prices:sp(1.74,[0.36,0.26,0.06,-0.34,0.71,0.11]), upd:"10 Oct", upds:{coop:"10 Oct"}}, // coop re-checked vs Co-op 6 Free Range British Medium Eggs
   {id:9,  name:"Free Range Eggs (12pk)",       cat:"🥛 Dairy & Eggs", icon:"🥚", prices:sp(3.40,[0,0.3,1,0,0.75]), upd:"10 Sep"},
-  {id:10, name:"Cheddar Mature (400g)",        cat:"🥛 Dairy & Eggs", icon:"🧀", prices:sp(3.17,[0.53,0.13,0.23,0,1.08,0.13]), upd:"10 Oct"}, // coop re-checked vs Co-op Mature Cheddar 400g; iceland re-checked vs Iceland Mature White Cheddar 400g
+  {id:10, name:"Cheddar Mature (400g)",        cat:"🥛 Dairy & Eggs", icon:"🧀", prices:sp(3.17,[0.53,0.13,0.23,0,1.08,0.13]), upd:"10 Oct", upds:{coop:"10 Oct",iceland:"10 Oct"}}, // coop re-checked vs Co-op Mature Cheddar 400g; iceland re-checked vs Iceland Mature White Cheddar 400g
   {id:11, name:"Cheddar Mild (400g)",          cat:"🥛 Dairy & Eggs", icon:"🧀", prices:sp(2.60,[1.10,0.14,0.55,0.38,0.07])},
   {id:12, name:"Mozzarella (125g)",            cat:"🥛 Dairy & Eggs", icon:"🧀", prices:sp(1.10,[0,0.15,0.45,0.35,0.07])},
   {id:13, name:"Brie (200g)",                  cat:"🥛 Dairy & Eggs", icon:"🧀", prices:sp(3.19,[0,0.2,0.8,0.6,0.1])},
   {id:14, name:"Parmesan (100g)",              cat:"🥛 Dairy & Eggs", icon:"🧀", prices:sp(2.50,[0,-0.40,0.95,0.75,0.12])},
   {id:15, name:"Feta Cheese (200g)",           cat:"🥛 Dairy & Eggs", icon:"🧀", prices:sp(2.00,[0.49,0.2,0.8,0.43,0.1])},
-  {id:16, name:"Butter Salted (250g)",         cat:"🥛 Dairy & Eggs", icon:"🧈", prices:sp(1.05,[1.15,3.93,3.45,1.15,1.45,0]), upd:"10 Oct"}, // coop re-checked vs Co-op British Milk Salted Butter 250g; iceland re-checked vs Jersey Butter Salted 250g
+  {id:16, name:"Butter Salted (250g)",         cat:"🥛 Dairy & Eggs", icon:"🧈", prices:sp(1.05,[1.15,3.93,3.45,1.15,1.45,0]), upd:"10 Oct", upds:{coop:"10 Oct",iceland:"10 Oct"}}, // coop re-checked vs Co-op British Milk Salted Butter 250g; iceland re-checked vs Jersey Butter Salted 250g
   {id:17, name:"Butter Unsalted (250g)",       cat:"🥛 Dairy & Eggs", icon:"🧈", prices:sp(3.40,[-0.90,0.15,0.6,-1.40,0.07,0])},
   {id:18, name:"Spreadable Butter (500g)",     cat:"🥛 Dairy & Eggs", icon:"🧈", prices:sp(3.10,[1.45,0.22,0.85,0.65,0.11])},
-  {id:19, name:"Greek Yoghurt (500g)",         cat:"🥛 Dairy & Eggs", icon:"🫙", prices:sp(1.25,[0.45,0.30,0.15,0.09,0,0.65]), upd:"10 Oct"}, // coop re-checked vs Co-op Greek Style Natural Yogurt 500g
+  {id:19, name:"Greek Yoghurt (500g)",         cat:"🥛 Dairy & Eggs", icon:"🫙", prices:sp(1.25,[0.45,0.30,0.15,0.09,0,0.65]), upd:"10 Oct", upds:{coop:"10 Oct"}}, // coop re-checked vs Co-op Greek Style Natural Yogurt 500g
   {id:20, name:"Natural Yoghurt (500g)",       cat:"🥛 Dairy & Eggs", icon:"🫙", prices:sp(2.65,[0,0.15,0.55,0.4,0.07])},
   {id:21, name:"Fruit Yoghurts 4pk",           cat:"🥛 Dairy & Eggs", icon:"🫙", prices:sp(1.80,[0,0.18,0.7,0.52,0.09])},
   {id:22, name:"Sour Cream (300ml)",           cat:"🥛 Dairy & Eggs", icon:"🫙", prices:sp(1.40,[0,0.15,0.6,0.45,0.07])},
@@ -242,7 +242,7 @@ const BASE_PRODUCTS = [
   {id:28, name:"Clotted Cream (113g)",         cat:"🥛 Dairy & Eggs", icon:"🍦", prices:sp(2.00,[0,0.22,0.8,0.6,0.11])},
 
   /* ── BREAD & BAKERY ───────────────────────────────────────────── */
-  {id:29, name:"White Sliced Bread 800g",      cat:"🍞 Bread & Bakery",icon:"🍞", prices:sp(1.25,[0.5,-0.51,0.55,-0.50,0.85,0]), upd:"10 Oct"}, // coop re-checked vs Warburtons Original Toastie White Loaf 800g; iceland re-checked vs Warburtons Medium Soft White 800g
+  {id:29, name:"White Sliced Bread 800g",      cat:"🍞 Bread & Bakery",icon:"🍞", prices:sp(1.25,[0.5,-0.51,0.55,-0.50,0.85,0]), upd:"10 Oct", upds:{coop:"10 Oct",iceland:"10 Oct"}}, // coop re-checked vs Warburtons Original Toastie White Loaf 800g; iceland re-checked vs Warburtons Medium Soft White 800g
   {id:30, name:"Wholemeal Bread 800g",         cat:"🍞 Bread & Bakery",icon:"🥖", prices:sp(0.90,[0.35,0.35,0,0.84,1.05,0.90])},
   {id:31, name:"Seeded Batch Loaf",            cat:"🍞 Bread & Bakery",icon:"🥖", prices:sp(1.75,[-0.20,0.15,0.65,0.5,0.07])},
   {id:32, name:"Sourdough Loaf",               cat:"🍞 Bread & Bakery",icon:"🥖", prices:sp(2.50,[0,0.25,0.95,0.75,0.12])},
@@ -267,7 +267,7 @@ const BASE_PRODUCTS = [
   {id:49, name:"Chicken Thighs (1kg)",         cat:"🥩 Meat & Fish",   icon:"🍗", prices:sp(3.20,[0,0.2,0.9,0.65,0.1])},
   {id:50, name:"Chicken Drumsticks (1kg)",     cat:"🥩 Meat & Fish",   icon:"🍗", prices:sp(2.80,[0,1.18,0.8,0.58,0.09])},
   {id:51, name:"Whole Chicken (~1.4kg)",       cat:"🥩 Meat & Fish",   icon:"🍗", prices:sp(4.95,[1.15,0.85,5.02,2.30,0,1.55])},
-  {id:52, name:"Minced Beef (500g)",           cat:"🥩 Meat & Fish",   icon:"🥩", prices:sp(2.63,[2.97,0,1.25,1.72,1.30,1.10]), upd:"10 Oct"}, // coop re-checked vs Co-op 15% Fat Beef Mince 500g
+  {id:52, name:"Minced Beef (500g)",           cat:"🥩 Meat & Fish",   icon:"🥩", prices:sp(2.63,[2.97,0,1.25,1.72,1.30,1.10]), upd:"10 Oct", upds:{coop:"10 Oct"}}, // coop re-checked vs Co-op 15% Fat Beef Mince 500g
   {id:53, name:"Minced Beef (750g)",           cat:"🥩 Meat & Fish",   icon:"🥩", prices:sp(5.00,[0,0.2,1.3,1,0.1])},
   {id:54, name:"Beef Steak (200g)",            cat:"🥩 Meat & Fish",   icon:"🥩", prices:sp(5.50,[0,0.4,1.8,1.3,0.2])},
   {id:55, name:"Beef Burgers (4pk)",           cat:"🥩 Meat & Fish",   icon:"🥩", prices:sp(3.20,[0.0,0.22,0.98,1.4,0.11])},
@@ -278,7 +278,7 @@ const BASE_PRODUCTS = [
   {id:60, name:"Lamb Chops (2pk)",             cat:"🥩 Meat & Fish",   icon:"🥩", prices:sp(4.80,[0,0.35,1.3,1,0.17])},
   {id:61, name:"Back Bacon (200g)",            cat:"🥩 Meat & Fish",   icon:"🥓", prices:sp(2.50,[0,-1.01,0.7,0.5,0.07])},
   {id:62, name:"Streaky Bacon (200g)",         cat:"🥩 Meat & Fish",   icon:"🥓", prices:sp(2.30,[0,0.14,0.65,0.47,0.07])},
-  {id:63, name:"Sausages Pork (8pk)",          cat:"🥩 Meat & Fish",   icon:"🌭", prices:sp(2.07,[0.82,0.43,0.13,0,0.88,1.38]), upd:"10 Oct"}, // coop re-checked vs Co-op Butcher's Choice 8 British Pork Sausages 454g; iceland re-checked vs Iceland 8 Pork Sausages
+  {id:63, name:"Sausages Pork (8pk)",          cat:"🥩 Meat & Fish",   icon:"🌭", prices:sp(2.07,[0.82,0.43,0.13,0,0.88,1.38]), upd:"10 Oct", upds:{coop:"10 Oct",iceland:"10 Oct"}}, // coop re-checked vs Co-op Butcher's Choice 8 British Pork Sausages 454g; iceland re-checked vs Iceland 8 Pork Sausages
   {id:591,name:"Rich Pork Sausages (12pk)",     cat:"🥩 Meat & Fish",   icon:"🌭", prices:sp(3.00,[0,-3.00,-3.00,-3.00,-3.00])},
   {id:592,name:"Deep Fill Pepper Steak Slice",  cat:"🥩 Meat & Fish",   icon:"🥩", prices:sp(2.80,[0,-2.80,-2.80,-2.80,-2.80]), upd:"20 Aug"},
   {id:593,name:"Breaded Ham (125g)",             cat:"🥩 Meat & Fish",   icon:"🥩", prices:sp(1.94,[0,-1.94,-1.94,-1.94,-1.94])},
@@ -327,16 +327,16 @@ const BASE_PRODUCTS = [
   {id:102,name:"Rocket (100g)",               cat:"🥦 Fruit & Veg",  icon:"🥗", prices:sp(1.20,[0,0.12,0.48,0.36,0.06])},
   {id:103,name:"Mixed Peppers (3pk)",          cat:"🥦 Fruit & Veg",  icon:"🫑", prices:sp(2.00,[0,0.25,0.60,-0.20,0.40,0.75])},
   {id:104,name:"Red Pepper (each)",            cat:"🥦 Fruit & Veg",  icon:"🫑", prices:sp(0.65,[0,0.07,0.28,0.2,0.04])},
-  {id:105,name:"Carrots (1kg)",                cat:"🥦 Fruit & Veg",  icon:"🥕", prices:sp(0.75,[0,0.54,0.10,0.07,0.6,0.35]), upd:"10 Oct"}, // iceland re-checked vs Iceland Carrots 1kg
+  {id:105,name:"Carrots (1kg)",                cat:"🥦 Fruit & Veg",  icon:"🥕", prices:sp(0.75,[0,0.54,0.10,0.07,0.6,0.35]), upd:"10 Oct", upds:{iceland:"10 Oct"}}, // iceland re-checked vs Iceland Carrots 1kg
   {id:106,name:"Parsnips (500g)",              cat:"🥦 Fruit & Veg",  icon:"🥕", prices:sp(0.90,[0,0.09,0.35,0.26,0.04])},
-  {id:107,name:"Onions (3pk)",                 cat:"🥦 Fruit & Veg",  icon:"🧅", prices:sp(1.05,[0.05,0.20,0.42,0.46,0.3,0.45]), upd:"10 Oct"}, // coop re-checked vs Co-op Brown Onions 3S; iceland re-checked vs Brown Onion 3pk
+  {id:107,name:"Onions (3pk)",                 cat:"🥦 Fruit & Veg",  icon:"🧅", prices:sp(1.05,[0.05,0.20,0.42,0.46,0.3,0.45]), upd:"10 Oct", upds:{coop:"10 Oct",iceland:"10 Oct"}}, // coop re-checked vs Co-op Brown Onions 3S; iceland re-checked vs Brown Onion 3pk
   {id:108,name:"Spring Onions (bunch)",        cat:"🥦 Fruit & Veg",  icon:"🧅", prices:sp(0.60,[0,0.07,0.28,0.2,0.04])},
   {id:109,name:"Red Onions (3pk)",             cat:"🥦 Fruit & Veg",  icon:"🧅", prices:sp(0.90,[0.39,0.09,0.35,0.10,0.04])},
   {id:110,name:"Garlic (bulb)",                cat:"🥦 Fruit & Veg",  icon:"🧄", prices:sp(0.60,[0.05,0,0,0.04,0])},
   {id:111,name:"Cherry Tomatoes (250g)",       cat:"🥦 Fruit & Veg",  icon:"🍅", prices:sp(1.20,[0.4,0.05,0.0,0.05,0.05])},
   {id:563,name:"Green Grapes (500g)",           cat:"🥦 Fruit & Veg",  icon:"🍇", prices:sp(3.15,[-0.15,-3.15,-3.15,-3.15,-3.15])},
   {id:564,name:"Plums Punnet (400g)",           cat:"🥦 Fruit & Veg",  icon:"🍑", prices:sp(1.78,[0,-1.78,-1.78,-1.78,-1.78])},
-  {id:112,name:"Tomatoes (6pk)",               cat:"🥦 Fruit & Veg",  icon:"🍅", prices:sp(1.20,[0.4,0.05,0,1.20,0.05,0.15]), upd:"10 Oct"}, // coop re-checked vs Jsy Tomatoes 6s
+  {id:112,name:"Tomatoes (6pk)",               cat:"🥦 Fruit & Veg",  icon:"🍅", prices:sp(1.20,[0.4,0.05,0,1.20,0.05,0.15]), upd:"10 Oct", upds:{coop:"10 Oct"}}, // coop re-checked vs Jsy Tomatoes 6s
   {id:113,name:"Cucumber (each)",              cat:"🥦 Fruit & Veg",  icon:"🥒", prices:sp(1.00,[0.50,0.20,0,0,0.25,0.30])},
   {id:114,name:"Courgette (2pk)",              cat:"🥦 Fruit & Veg",  icon:"🥒", prices:sp(0.90,[0,0.1,0.4,0.3,0.05])},
   {id:115,name:"Aubergine (each)",             cat:"🥦 Fruit & Veg",  icon:"🍆", prices:sp(0.80,[0,0.08,0.32,0.24,0.04])},
@@ -379,7 +379,7 @@ const BASE_PRODUCTS = [
   {id:147,name:"Frozen Yorkshire Puddings 9pk",cat:"🧊 Frozen",       icon:"🍳", prices:sp(1.50,[0,0.15,0.58,0.44,0.07])},
 
   /* ── DRINKS ───────────────────────────────────────────────────── */
-  {id:148,name:"Orange Juice (1L)",            cat:"🥤 Drinks",       icon:"🍊", prices:sp(1.65,[0.9,0.1,0.5,0.55,0.05,0]), upd:"10 Oct"}, // coop re-checked vs Co-op Smooth Orange Juice 1L
+  {id:148,name:"Orange Juice (1L)",            cat:"🥤 Drinks",       icon:"🍊", prices:sp(1.65,[0.9,0.1,0.5,0.55,0.05,0]), upd:"10 Oct", upds:{coop:"10 Oct"}}, // coop re-checked vs Co-op Smooth Orange Juice 1L
   {id:149,name:"Apple Juice (1L)",             cat:"🥤 Drinks",       icon:"🍏", prices:sp(3.65,[-1.10,0.1,0.5,0.64,0.05])},
   {id:544,name:"Apple Elderflower Cordial",    cat:"🥤 Drinks",       icon:"🌸", prices:sp(2.19,[-2.19,-2.19,-2.19,0,-2.19])},
   {id:545,name:"Orange & Mango Juice (1L)",    cat:"🥤 Drinks",       icon:"🥭", prices:sp(2.19,[-2.19,-2.19,-2.19,0,-2.19])},
@@ -397,9 +397,9 @@ const BASE_PRODUCTS = [
   {id:159,name:"Lucozade Sport (500ml)",       cat:"🥤 Drinks",       icon:"🥤", prices:sp(1.20,[0,0.12,0.5,0.38,1.35,0])},
   {id:160,name:"Energy Drink 250ml (4pk)",     cat:"🥤 Drinks",       icon:"⚡", prices:sp(3.20,[0,0.3,1.15,0.88,0.15])},
   {id:161,name:"Filter Coffee (227g)",         cat:"🥤 Drinks",       icon:"☕", prices:sp(3.20,[0,0.2,1,0.75,0.1])},
-  {id:162,name:"Instant Coffee (200g)",        cat:"🥤 Drinks",       icon:"☕", prices:sp(5.35,[0.4,0,3.40,4.72,2.15,0]), upd:"10 Oct"}, // coop re-checked vs Co-op Fairtrade Gold Roast Instant Coffee 200g
+  {id:162,name:"Instant Coffee (200g)",        cat:"🥤 Drinks",       icon:"☕", prices:sp(5.35,[0.4,0,3.40,4.72,2.15,0]), upd:"10 Oct", upds:{coop:"10 Oct"}}, // coop re-checked vs Co-op Fairtrade Gold Roast Instant Coffee 200g
   {id:163,name:"Coffee Pods (16pk)",           cat:"🥤 Drinks",       icon:"☕", prices:sp(4.50,[0,0.4,1.45,1.12,0.2])},
-  {id:164,name:"Tea Bags (80pk)",              cat:"🥤 Drinks",       icon:"🫖", prices:sp(1.25,[0.55,0,0.55,0.33,0.55,0.70]), upd:"10 Oct"}, // coop re-checked vs Co-op Fairtrade 99 Blend 80 Tea Bags 250g
+  {id:164,name:"Tea Bags (80pk)",              cat:"🥤 Drinks",       icon:"🫖", prices:sp(1.25,[0.55,0,0.55,0.33,0.55,0.70]), upd:"10 Oct", upds:{coop:"10 Oct"}}, // coop re-checked vs Co-op Fairtrade 99 Blend 80 Tea Bags 250g
   {id:165,name:"Tea Bags (160pk)",             cat:"🥤 Drinks",       icon:"🫖", prices:sp(4.50,[0,0.38,1.45,1.12,0.19])},
   {id:166,name:"Green Tea Bags (40pk)",        cat:"🥤 Drinks",       icon:"🍵", prices:sp(2.20,[0,0.22,0.85,0.65,0.11])},
   {id:167,name:"Herbal Tea Variety (20pk)",    cat:"🥤 Drinks",       icon:"🍵", prices:sp(2.00,[0,0.2,0.8,0.6,0.1])},
@@ -417,7 +417,7 @@ const BASE_PRODUCTS = [
   {id:179,name:"Squash (1L)",                  cat:"🥤 Drinks",       icon:"🥤", prices:sp(1.50,[0.6,0.15,0.6,0.46,0.07])},
 
   /* ── PANTRY ───────────────────────────────────────────────────── */
-  {id:180,name:"Pasta Penne (500g)",           cat:"🍝 Pantry",       icon:"🍝", prices:sp(0.89,[0.06,-0.24,0.01,0.03,0.71,0]), upd:"10 Oct"}, // coop re-checked vs Co-op Italian Menu Penne 500g
+  {id:180,name:"Pasta Penne (500g)",           cat:"🍝 Pantry",       icon:"🍝", prices:sp(0.89,[0.06,-0.24,0.01,0.03,0.71,0]), upd:"10 Oct", upds:{coop:"10 Oct"}}, // coop re-checked vs Co-op Italian Menu Penne 500g
   {id:181,name:"Spaghetti (500g)",             cat:"🍝 Pantry",       icon:"🍝", prices:sp(0.50,[0.45,0,0.40,1.23,1.10,0.85])},
   {id:182,name:"Fusilli (500g)",               cat:"🍝 Pantry",       icon:"🍝", prices:sp(0.89,[0.06,0.06,0.41,0.26,0.03])},
   {id:183,name:"Tagliatelle (500g)",           cat:"🍝 Pantry",       icon:"🍝", prices:sp(0.95,[0.0,0.08,0.42,0.28,0.04])},
@@ -427,7 +427,7 @@ const BASE_PRODUCTS = [
   {id:187,name:"Tinned Chickpeas (400g)",      cat:"🍝 Pantry",       icon:"🫘", prices:sp(0.65,[0.24,0,0.15,0.22,0])},
   {id:188,name:"Tinned Kidney Beans (400g)",   cat:"🍝 Pantry",       icon:"🫘", prices:sp(0.70,[0,0.07,0.36,0.26,0.04])},
   {id:189,name:"Tinned Lentils (400g)",        cat:"🍝 Pantry",       icon:"🫘", prices:sp(0.80,[0,0.08,0.38,0.28,0.04])},
-  {id:190,name:"Tinned Baked Beans (415g)",    cat:"🍝 Pantry",       icon:"🫘", prices:sp(0.50,[0.2,0,0,0.34,0.75,0]), upd:"10 Oct"}, // coop re-checked vs Co-op Baked Beans in Tomato Sauce 400g; iceland re-checked vs Branston Baked Beans 410g
+  {id:190,name:"Tinned Baked Beans (415g)",    cat:"🍝 Pantry",       icon:"🫘", prices:sp(0.50,[0.2,0,0,0.34,0.75,0]), upd:"10 Oct", upds:{coop:"10 Oct",iceland:"10 Oct"}}, // coop re-checked vs Co-op Baked Beans in Tomato Sauce 400g; iceland re-checked vs Branston Baked Beans 410g
   {id:191,name:"Tinned Sweetcorn (340g)",      cat:"🍝 Pantry",       icon:"🌽", prices:sp(0.65,[0,0.08,0.32,0.24,0.04])},
   {id:192,name:"Tinned Coconut Milk (400ml)",  cat:"🍝 Pantry",       icon:"🥥", prices:sp(1.10,[0,0.1,0.45,0.15,0.05])},
   {id:519,name:"Heinz Tomato Soup (400g)",     cat:"🍝 Pantry",       icon:"🥣", prices:sp(1.89,[0.26,0,0.26,0.14,0.26])},
@@ -435,20 +435,20 @@ const BASE_PRODUCTS = [
   {id:521,name:"Tinned Tuna (160g)",           cat:"🍝 Pantry",       icon:"🐟", prices:sp(0.80,[0.40,0,0.15,0.65,0])},
   {id:193,name:"Olive Oil Extra Virgin (500ml)",cat:"🍝 Pantry",      icon:"🫒", prices:sp(3.40,[3.20,4.00,3.85,2.40,0,3.60])},
   {id:194,name:"Sunflower Oil (1L)",           cat:"🍝 Pantry",       icon:"🌻", prices:sp(2.45,[0.10,2.15,0,0.34,1.60,0.54])},
-  {id:195,name:"Vegetable Oil (1L)",           cat:"🍝 Pantry",       icon:"🌻", prices:sp(1.90,[0.65,0.16,0.78,0.6,1.45,0]), upd:"10 Oct"}, // coop re-checked vs Co-op Vegetable Oil 1 Litre; iceland re-checked vs Pura Vegetable Oil 1L
-  {id:196,name:"Basmati Rice (1kg)",           cat:"🍝 Pantry",       icon:"🍚", prices:sp(0.87,[1.58,0.08,0.83,0,1.78,0]), upd:"10 Oct"}, // coop re-checked vs Co-op Basmati Rice 1kg; iceland re-checked vs Tilda Everyday Basmati Rice 1kg
+  {id:195,name:"Vegetable Oil (1L)",           cat:"🍝 Pantry",       icon:"🌻", prices:sp(1.90,[0.65,0.16,0.78,0.6,1.45,0]), upd:"10 Oct", upds:{coop:"10 Oct",iceland:"10 Oct"}}, // coop re-checked vs Co-op Vegetable Oil 1 Litre; iceland re-checked vs Pura Vegetable Oil 1L
+  {id:196,name:"Basmati Rice (1kg)",           cat:"🍝 Pantry",       icon:"🍚", prices:sp(0.87,[1.58,0.08,0.83,0,1.78,0]), upd:"10 Oct", upds:{coop:"10 Oct",iceland:"10 Oct"}}, // coop re-checked vs Co-op Basmati Rice 1kg; iceland re-checked vs Tilda Everyday Basmati Rice 1kg
   {id:197,name:"Long Grain Rice (1kg)",        cat:"🍝 Pantry",       icon:"🍚", prices:sp(1.60,[0.35,0.14,0.65,0.48,0.07])},
   {id:198,name:"Microwave Rice (3pk)",         cat:"🍝 Pantry",       icon:"🍚", prices:sp(2.40,[0,0.22,0.88,0.68,0.11])},
   {id:199,name:"Porridge Oats (500g)",         cat:"🍝 Pantry",       icon:"🌾", prices:sp(1.30,[-0.30,-0.8,-0.47,-0.58,0.5])},
   {id:200,name:"Porridge Oats (1kg)",          cat:"🍝 Pantry",       icon:"🌾", prices:sp(1.00,[0.70,0,0.65,0.25,2.60,0.75])},
-  {id:201,name:"Cornflakes (500g)",            cat:"🍝 Pantry",       icon:"🌽", prices:sp(1.60,[0.05,0.15,0.6,-0.3,0.07,0]), upd:"10 Oct"}, // coop re-checked vs Co-op Corn Flakes 500g
+  {id:201,name:"Cornflakes (500g)",            cat:"🍝 Pantry",       icon:"🌽", prices:sp(1.60,[0.05,0.15,0.6,-0.3,0.07,0]), upd:"10 Oct", upds:{coop:"10 Oct"}}, // coop re-checked vs Co-op Corn Flakes 500g
   {id:202,name:"Weetabix (24pk)",              cat:"🍝 Pantry",       icon:"🌾", prices:sp(2.42,[0,0.25,0.98,0,-0.30])},
   {id:203,name:"Muesli (500g)",                cat:"🍝 Pantry",       icon:"🌾", prices:sp(2.10,[0,1.35,0,1.58,1.15,2.05])},
   {id:204,name:"Granola (500g)",               cat:"🍝 Pantry",       icon:"🌾", prices:sp(2.80,[0,0.25,0.98,0.76,0.12])},
   {id:205,name:"Plain Flour (1kg)",            cat:"🍝 Pantry",       icon:"🌾", prices:sp(0.95,[1.15,0,0.10,0.04,1.20,0.70])},
-  {id:206,name:"Self Raising Flour (1.5kg)",   cat:"🍝 Pantry",       icon:"🌾", prices:sp(1.84,[-0.79,0.12,-0.84,0.38,0.06]), upd:"11 Oct"}, // M&S 1.00 from receipt (value-range pack BPBV), other stores still estimates
-  {id:207,name:"Sugar White (1kg)",            cat:"🍝 Pantry",       icon:"🍬", prices:sp(1.35,[0,0,0,0.10,0.25,0.15]), upd:"10 Oct"}, // coop re-checked vs Tate & Lyle Granulated Sugar 1kg; iceland re-checked vs Whitworths Granulated Sugar 1kg
-  {id:208,name:"Caster Sugar (1kg)",           cat:"🍝 Pantry",       icon:"🍬", prices:sp(1.10,[1.25,0.1,1.7,0.3,0.05]), upd:"11 Oct"}, // M&S 2.80 from receipt (British caster sugar), other stores still estimates
+  {id:206,name:"Self Raising Flour (1.5kg)",   cat:"🍝 Pantry",       icon:"🌾", prices:sp(1.84,[-0.79,0.12,-0.84,0.38,0.06]), upd:"11 Oct", upds:{ms:"11 Oct"}}, // M&S 1.00 from receipt (value-range pack BPBV), other stores still estimates
+  {id:207,name:"Sugar White (1kg)",            cat:"🍝 Pantry",       icon:"🍬", prices:sp(1.35,[0,0,0,0.10,0.25,0.15]), upd:"10 Oct", upds:{coop:"10 Oct",iceland:"10 Oct"}}, // coop re-checked vs Tate & Lyle Granulated Sugar 1kg; iceland re-checked vs Whitworths Granulated Sugar 1kg
+  {id:208,name:"Caster Sugar (1kg)",           cat:"🍝 Pantry",       icon:"🍬", prices:sp(1.10,[1.25,0.1,1.7,0.3,0.05]), upd:"11 Oct", upds:{ms:"11 Oct"}}, // M&S 2.80 from receipt (British caster sugar), other stores still estimates
   {id:209,name:"Icing Sugar (500g)",           cat:"🍝 Pantry",       icon:"🍬", prices:sp(0.90,[0.0,0.09,2.20,0.26,0.04])},
   {id:527,name:"White Marzipan (500g)",        cat:"🍝 Pantry",       icon:"🍰", prices:sp(3.20,[-3.20,-3.20,0,-3.20,-3.20])},
   {id:210,name:"Tomato Ketchup (460g)",        cat:"🍝 Pantry",       icon:"🍅", prices:sp(1.00,[0.30,0,0.80,0.16,1.50,0.70])},
@@ -730,7 +730,7 @@ const BASE_PRODUCTS = [
 
   // ── Added 6 June 2026 from receipts ──
   {id:454,name:"Jersey Full Fat Milk (1ltr)",         cat:"🥛 Dairy & Eggs", icon:"🥛",prices:sp(1.64,[0,0,0.01,0.01,0,0])},
-  {id:455, name:"Jersey Salted Butter (250g)", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:2.35,morrisons:2.35,ms:1.90,waitrose:1.90,iceland:2.5,alliance:1.90}, upd:"10 Oct"},
+  {id:455, name:"Jersey Salted Butter (250g)", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:2.35,morrisons:2.35,ms:1.90,waitrose:1.90,iceland:2.5,alliance:1.90}, upd:"10 Oct", upds:{coop:"10 Oct",iceland:"10 Oct"}},
   {id:456,name:"Tortilla Wraps Large (8pk)",          cat:"🍞 Bread & Bakery",icon:"🌯",prices:sp(1.80,[0,0,0,-0.35,0])},
   {id:555,name:"White Toastie Loaf",                  cat:"🍞 Bread & Bakery",icon:"🍞",prices:sp(1.25,[0,-1.25,-1.25,-1.25,-1.25])},
   {id:556,name:"Cheese Baps (4pk)",                   cat:"🍞 Bread & Bakery",icon:"🍞",prices:sp(1.89,[0,-1.89,-1.89,-1.89,-1.89]), upd:"20 Aug"},
@@ -774,7 +774,7 @@ const BASE_PRODUCTS = [
   {id:489,name:"White Bread (800g)",                 cat:"🍞 Bread & Bakery",icon:"🍞",prices:sp(0.80,[0.45,0,0.10,0.36,1.15,0.65])},
   {id:551,name:"Brown Bloomer Loaf",                 cat:"🍞 Bread & Bakery",icon:"🍞",prices:sp(1.19,[-1.19,-1.19,-1.19,0,-1.19])},
   {id:490,name:"Potatoes (1.5kg)",                   cat:"🥦 Fruit & Veg",  icon:"🥔",prices:sp(1.40,[0,1.20,0.25,0.69,1.10,1.39])},
-  {id:491,name:"Toilet Rolls (4pk)",                 cat:"🧹 Household",    icon:"🧻",prices:sp(1.55,[0.94,0.45,1.45,0.54,0.1,1.20]), upd:"10 Oct"}, // iceland re-checked vs Little Duck 4 Luxe Toilet Tissue
+  {id:491,name:"Toilet Rolls (4pk)",                 cat:"🧹 Household",    icon:"🧻",prices:sp(1.55,[0.94,0.45,1.45,0.54,0.1,1.20]), upd:"10 Oct", upds:{iceland:"10 Oct"}}, // iceland re-checked vs Little Duck 4 Luxe Toilet Tissue
   {id:497,name:"Ginger Nuts (400g)",           cat:"🥨 Snacks & Treats",icon:"🍪",prices:sp(0.90,[1.19,0.15,0,0,1.10,0.50])},
   {id:498,name:"Cream Cleaner (500ml)",         cat:"🧹 Household",    icon:"🧴",prices:sp(1.65,[0,0.18,0,0.09,0.30,0.50])},
   {id:499,name:"Furniture Polish (300ml)",       cat:"🧹 Household",    icon:"🧹",prices:sp(1.80,[0.29,0.40,0,0,0,0.70])},
@@ -790,7 +790,7 @@ const BASE_PRODUCTS = [
   {id:506,name:"White Rice (1kg)",             cat:"🍝 Pantry",       icon:"🍚",prices:sp(1.50,[0.45,0.09,0,0.36,1.00,0.85])},
   {id:529,name:"Arborio Risotto Rice (500g)",  cat:"🍝 Pantry",       icon:"🍚",prices:sp(3.08,[-3.08,-3.08,-3.08,0,-3.08])},
   {id:535,name:"Rigatoni Pasta (500g)",        cat:"🍝 Pantry",       icon:"🍝",prices:sp(1.00,[-1.00,-1.00,-1.00,0,-1.00])},
-  {id:536, name:"Ambrosia Rice Pudding (400g)", cat:"🍝 Pantry", icon:"🍮", prices:sp(1.25,[0.85,-1.25,-1.25,0,1.4,0]), upd:"10 Oct"},
+  {id:536, name:"Ambrosia Rice Pudding (400g)", cat:"🍝 Pantry", icon:"🍮", prices:sp(1.25,[0.85,-1.25,-1.25,0,1.4,0]), upd:"10 Oct", upds:{coop:"10 Oct",iceland:"10 Oct"}},
   {id:577,name:"Basmati Microwave Rice (250g)",cat:"🍝 Pantry",       icon:"🍚",prices:sp(2.10,[0,-2.10,-2.10,-2.10,-2.10])},
   {id:578,name:"Plain Microwave Rice (250g)",  cat:"🍝 Pantry",       icon:"🍚",prices:sp(1.00,[0,-1.00,-1.00,-1.00,-1.00])},
   {id:579,name:"Brussels Pate (125g)",          cat:"🍝 Pantry",       icon:"🫙",prices:sp(1.35,[0,-1.35,-1.35,-1.35,-1.35])},
@@ -804,7 +804,7 @@ const BASE_PRODUCTS = [
   {id:570,name:"Yeo Valley Raspberry Yogurt",   cat:"🥛 Dairy & Eggs", icon:"🍓",prices:sp(1.80,[-1.80,-1.80,-1.80,0,-1.80])},
   {id:571,name:"Cheese Singles (10pk)",         cat:"🥛 Dairy & Eggs", icon:"🧀",prices:sp(1.50,[0,-1.50,-1.50,-1.50,-1.50])},
   {id:510,name:"Albert Bartlett Bake Pot (4pk)",cat:"🥦 Fruit & Veg",  icon:"🥔",prices:sp(2.96,[0,0,0,0,0]), upd:"10 Aug"},
-  {id:511,name:"Lucozade Energy Orange (500ml)", cat:"🥤 Drinks",       icon:"⚡",prices:sp(2.73,[0,0,0,0,-0.63]), upd:"10 Oct"},
+  {id:511,name:"Lucozade Energy Orange (500ml)", cat:"🥤 Drinks",       icon:"⚡",prices:sp(2.73,[0,0,0,0,-0.63]), upd:"10 Oct", upds:{iceland:"10 Oct"}},
   {id:523,name:"Capri-Sun Juice Drink (10pk)",  cat:"🥤 Drinks",       icon:"🧃",prices:{coop:0,morrisons:0,ms:0,waitrose:1.50,iceland:0,alliance:0}, upd:"10 Jun"},
   {id:595,name:"Lucozade Pink Lemonade (500ml)", cat:"🥤 Drinks",       icon:"⚡", prices:sp(1.35,[0,-1.35,-1.35,-1.35,-1.35]), upd:"20 Aug"},
   {id:596,name:"Robinsons Double Strength Orange (1L)", cat:"🥤 Drinks", icon:"🍊", prices:{coop:1.3,morrisons:0,ms:0,waitrose:0,iceland:2.10,alliance:0}, upd:"19 Sep"},
@@ -1040,7 +1040,7 @@ const BASE_PRODUCTS = [
   {id:730,name:"Co-op Spinach Salad",              cat:"🥦 Fruit & Veg",  icon:"🥗",prices:sp(1.50,[0,-1.50,-1.50,-1.50,-1.50,-1.50])},
   {id:731,name:"Philadelphia Light",               cat:"🥛 Dairy & Eggs", icon:"🧀",prices:sp(0.28,[0,-0.28,-0.28,-0.28,-0.28,-0.28])},
   {id:732,name:"Co-op Chicken Breast Fillets (850g)",cat:"🥩 Meat & Fish",icon:"🍗",prices:sp(7.90,[0,-7.90,-7.90,-7.90,-7.90,-7.90])},
-  {id:733,name:"Iceland Large Eggs (10pk)",        cat:"🥛 Dairy & Eggs", icon:"🥚",prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:3.1,alliance:2.65}, upd:"10 Oct"},
+  {id:733,name:"Iceland Large Eggs (10pk)",        cat:"🥛 Dairy & Eggs", icon:"🥚",prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:3.1,alliance:2.65}, upd:"10 Oct", upds:{iceland:"10 Oct"}},
   {id:734,name:"Iceland Whole Chicken (1.5kg)",    cat:"🥩 Meat & Fish",  icon:"🍗",prices:sp(10.50,[-10.50,-10.50,-10.50,-10.50,-10.50,0])},
   /* ── Kate receipts 17 Jun 2026 — 7 new items ── */
   {id:735,name:"WR Choc Chip Brioche",             cat:"🍞 Bread & Bakery",icon:"🥐",prices:sp(1.74,[-1.74,-1.74,-1.74,0,-1.74,-1.74])},
@@ -1368,7 +1368,7 @@ const BASE_PRODUCTS = [
   {id:1081,name:"Morrisons Kitty Sticks Chicken & Liver",       cat:"🐾 Pet",                 icon:"🐱", prices:sp(1.30,[-1.30,-1.30,-1.30,-1.30,0,-1.30])},
   {id:1082,name:"Morrisons Cheese Cat Snack Pillows",           cat:"🐾 Pet",                 icon:"🐱", prices:sp(1.10,[-1.10,-1.10,-1.10,-1.10,0,-1.10])},
   {id:1083,name:"Morrisons Salmon Cat Snack Pillows",           cat:"🐾 Pet",                 icon:"🐱", prices:sp(1.10,[-1.10,-1.10,-1.10,-1.10,0,-1.10])},
-  {id:1084,name:"Fanta Zero Orange (500ml)",                    cat:"🥤 Drinks",              icon:"🍊", prices:sp(2.10,[0,-2.10,-2.10,-0.01,0,-2.10]), upd:"10 Oct"},
+  {id:1084,name:"Fanta Zero Orange (500ml)",                    cat:"🥤 Drinks",              icon:"🍊", prices:sp(2.10,[0,-2.10,-2.10,-0.01,0,-2.10]), upd:"10 Oct", upds:{iceland:"10 Oct"}},
   {id:1085,name:"Crispy French Fries Crisps",                   cat:"🍿 Snacks",              icon:"🍟", prices:sp(1.85,[0,-1.85,-1.85,-1.85,-1.85,-1.85])},
   {id:1086,name:"Jersey Dairy 1% Fat Milk",                     cat:"🥛 Dairy & Eggs",        icon:"🥛", prices:sp(1.64,[0,-1.64,-1.64,-1.64,-1.64,-1.64])},
   {id:1088,name:"CP Iceberg Lettuce",                           cat:"🥦 Fruit & Veg",         icon:"🥬", prices:sp(1.60,[0,-1.60,-1.60,-1.60,-1.60,-1.60])},
@@ -1467,7 +1467,7 @@ const BASE_PRODUCTS = [
   {id:1181,name:"Iceland Red Leicester Cheese 250g",             cat:"🥛 Dairy & Eggs", icon:"🧀", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:3.65,alliance:0}, upd:"10 Oct"},
   {id:1182,name:"Philadelphia Light Soft Cream Cheese 165g",     cat:"🥛 Dairy & Eggs", icon:"🧀", prices:sp(3.00,[-3.00,-3.00,-3.00,-3.00,0,-3.00])},
   {id:1183,name:"Bertolli Spread 450g",                          cat:"🥛 Dairy & Eggs", icon:"🧈", prices:sp(3.75,[-3.75,-3.75,-3.75,-3.75,0,-3.75])},
-  {id:1184, name:"Lurpak Slightly Salted Spreadable 400g", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:5.25,morrisons:0,ms:0,waitrose:3.00,iceland:6.25,alliance:0}, upd:"10 Oct"},
+  {id:1184, name:"Lurpak Slightly Salted Spreadable 400g", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:5.25,morrisons:0,ms:0,waitrose:3.00,iceland:6.25,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct",iceland:"10 Oct"}},
   {id:1185,name:"Country Life Salted Butter 200g",               cat:"🥛 Dairy & Eggs", icon:"🧈", prices:sp(2.95,[-2.95,-2.95,-2.95,-2.95,0,-2.95]), upd:"10 Oct"},
   {id:1186,name:"Flora Buttery 1kg",                             cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:5.8,alliance:0}, upd:"10 Oct"},
   {id:1187,name:"Anchor Spreadable 750g",                        cat:"🥛 Dairy & Eggs", icon:"🧈", prices:sp(9.20,[-9.20,-9.20,-9.20,-9.20,0,-9.20])},
@@ -1479,11 +1479,11 @@ const BASE_PRODUCTS = [
   {id:1193,name:"Stork 1kg",                                     cat:"🥛 Dairy & Eggs", icon:"🧈", prices:sp(5.80,[-5.80,-5.80,-5.80,-5.80,0,-5.80]), upd:"10 Oct"},
   {id:1194, name:"Utterly Butterly Lightly 500g", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:sp(2.15,[0.05,-2.15,-2.15,-2.15,0,-2.15]), upd:"10 Oct"}, // members £1.30 until 27/10/26
   {id:1195,name:"Utterly Butterly 1kg",                          cat:"🥛 Dairy & Eggs", icon:"🧈", prices:sp(4.15,[-4.15,-4.15,-4.15,-4.15,0,-4.15]), upd:"10 Oct"},
-  {id:1196,name:"Vitalite Dairy Free 500g",                      cat:"🥛 Dairy & Eggs", icon:"🧈", prices:sp(2.50,[-0.05,-2.50,-2.50,-2.50,0,-2.50]), upd:"10 Oct"},
+  {id:1196,name:"Vitalite Dairy Free 500g",                      cat:"🥛 Dairy & Eggs", icon:"🧈", prices:sp(2.50,[-0.05,-2.50,-2.50,-2.50,0,-2.50]), upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:1197,name:"Flora Original 1kg",                            cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:5.8,alliance:0}, upd:"10 Oct"},
   {id:1198,name:"Flora Natural Ingredients Lighter 1kg",         cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:5.8,alliance:0}, upd:"10 Oct"},
-  {id:1199, name:"Jersey Dairy Spreadable Salted 500g", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:sp(4.8,[-0.25,-4.80,-4.80,-4.80,0,-4.80]), upd:"10 Oct"},
-  {id:1200, name:"Jersey Butter Very Low Salt 250g", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:sp(2.5,[-0.15,-2.50,-2.50,-2.50,0,-2.50]), upd:"10 Oct"},
+  {id:1199, name:"Jersey Dairy Spreadable Salted 500g", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:sp(4.8,[-0.25,-4.80,-4.80,-4.80,0,-4.80]), upd:"10 Oct", upds:{iceland:"10 Oct"}},
+  {id:1200, name:"Jersey Butter Very Low Salt 250g", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:sp(2.5,[-0.15,-2.50,-2.50,-2.50,0,-2.50]), upd:"10 Oct", upds:{iceland:"10 Oct"}},
   {id:1201, name:"Jersey Butter Unsalted 250g", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:sp(2.5,[-0.15,-2.50,-2.50,-2.50,0,-2.50]), upd:"10 Oct"},
   {id:1202,name:"Jersey Butter Salted 250g",                     cat:"🥛 Dairy & Eggs", icon:"🧈", prices:sp(2.50,[-0.15,-2.50,-2.50,-2.50,0,-2.50]), upd:"10 Oct"},
   {id:1203, name:"Lurpak Lighter Slightly Salted 400g", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:sp(6.25,[-1.0,-6.25,-6.25,-6.25,0,-6.25]), upd:"10 Oct"},
@@ -1497,7 +1497,7 @@ const BASE_PRODUCTS = [
   {id:1211,name:"Jersey Lactose Free Milk 2.5% 1L",              cat:"🥛 Dairy & Eggs", icon:"🥛", prices:sp(1.95,[-1.95,-1.95,-1.95,-1.95,0,-1.95]), upd:"10 Oct"},
   {id:1212,name:"Alpro Almond No Sugar Chilled 1L",              cat:"🥛 Dairy & Eggs", icon:"🥛", prices:sp(2.95,[-2.95,-2.95,-2.95,-2.95,0,-2.95])},
   {id:1213,name:"Krasnystaw Kefir 500g",                         cat:"🥛 Dairy & Eggs", icon:"🥛", prices:sp(1.40,[-1.40,-1.40,-1.40,-1.40,0,-1.40]), upd:"10 Oct"},
-  {id:1214, name:"Jersey Organic Fat Reduced Milk 1L", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:sp(2.25,[-0.13,-2.25,-2.25,-2.25,0,-2.25]), upd:"10 Oct"},
+  {id:1214, name:"Jersey Organic Fat Reduced Milk 1L", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:sp(2.25,[-0.13,-2.25,-2.25,-2.25,0,-2.25]), upd:"10 Oct", upds:{iceland:"10 Oct"}},
   {id:1215,name:"Jersey Milk Skimmed 500ml",                     cat:"🥛 Dairy & Eggs", icon:"🥛", prices:sp(0.95,[-0.95,-0.95,-0.95,-0.95,0,-0.95]), upd:"10 Oct", oos:["iceland"]},
   {id:1216,name:"Jersey Milk Fat Reduced 1L",                    cat:"🥛 Dairy & Eggs", icon:"🥛", prices:sp(1.75,[-1.75,-1.75,-1.75,-1.75,0,-1.75]), upd:"10 Oct"},
   {id:1217,name:"Jersey Milk 1% 500ml",                          cat:"🥛 Dairy & Eggs", icon:"🥛", prices:sp(0.95,[-0.95,-0.95,-0.95,-0.95,0,-0.95]), upd:"10 Oct"},
@@ -1532,13 +1532,13 @@ const BASE_PRODUCTS = [
   {id:1247,name:"Warburtons 12 Protein Power Seeds & Grains 500g",    cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(2.35,[-2.35,-2.35,-2.35,-2.35,0,-2.35])},
   {id:1248, name:"Warburtons 9 Seeds & Grain Fibre Fix 500g", cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(2.3,[-0.45,-2.30,-2.30,-2.30,0,-2.30]), upd:"10 Oct", oos:["iceland"]},
   {id:1249, name:"Warburtons Danish Lighter White Bread 400g", cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(1.7,[-0.21,-1.70,-1.70,-1.70,0,-1.70]), upd:"10 Oct"},
-  {id:1250,name:"Warburtons Farmhouse 800g",                          cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(2.25,[-0.25,-2.25,-2.25,-2.25,0,-2.25]), upd:"10 Oct"},
+  {id:1250,name:"Warburtons Farmhouse 800g",                          cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(2.25,[-0.25,-2.25,-2.25,-2.25,0,-2.25]), upd:"10 Oct", upds:{iceland:"10 Oct"}},
   {id:1251, name:"Warburtons Medium Half & Half 800g", cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(2.1,[-0.35,-2.10,-2.10,-2.10,0,-2.10]), upd:"10 Oct", oos:["iceland"]},
   {id:1252, name:"Warburtons Thick Half & Half 800g", cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(2.1,[-0.35,-2.10,-2.10,-2.10,0,-2.10]), upd:"10 Oct"},
   {id:1253,name:"Warburtons Medium Soft White 800g",                  cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(2.10,[-2.10,-2.10,-2.10,-2.10,0,-2.10]), upd:"10 Oct"},
   {id:1254, name:"Warburtons Medium Sliced Wholemeal 400g", cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(1.45,[-0.2,-1.45,-1.45,-1.45,0,-1.45]), upd:"10 Oct"},
   {id:1255, name:"Warburtons Original Seeded Batch 800g", cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(2.55,[-0.25,-2.55,-2.55,-2.55,0,-2.55]), upd:"10 Oct"},
-  {id:1256, name:"Warburtons Thick Slice Soft Tiger Bloomer 600g", cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(2.3,[-0.25,-2.30,-2.30,-2.30,0,-2.30]), upd:"10 Oct", oos:["iceland"]},
+  {id:1256, name:"Warburtons Thick Slice Soft Tiger Bloomer 600g", cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(2.3,[-0.25,-2.30,-2.30,-2.30,0,-2.30]), upd:"10 Oct", upds:{iceland:"10 Oct"}, oos:["iceland"]},
   {id:1257, name:"Warburtons The True Taste of Wholemeal 800g", cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(2.1,[-0.35,-2.10,-2.10,-2.10,0,-2.10]), upd:"10 Oct"},
   {id:1258,name:"Warburtons Toastie Soft Thick White 400g",           cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(1.45,[-1.45,-1.45,-1.45,-1.45,0,-1.45]), upd:"10 Oct", oos:["iceland"]},
   {id:1259,name:"Warburtons Soft Thick White Toastie 800g",           cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(2.10,[-2.10,-2.10,-2.10,-2.10,0,-2.10]), upd:"10 Oct", oos:["iceland"]},
@@ -1548,20 +1548,20 @@ const BASE_PRODUCTS = [
   {id:1263, name:"Warburtons 8 Crumpet Thins", cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(1.7,[-0.21,-1.70,-1.70,-1.70,0,-1.70]), upd:"10 Oct"},
   {id:1264, name:"Warburtons 4 Protein Flatbreads", cat:"🍞 Bread & Bakery", icon:"🫓", prices:sp(2.25,[-0.35,-2.25,-2.25,-2.25,0,-2.25]), upd:"10 Oct", oos:["iceland"]},
   {id:1265,name:"Warburtons 6 Pancakes",                              cat:"🍞 Bread & Bakery", icon:"🥞", prices:sp(1.45,[-1.45,-1.45,-1.45,-1.45,0,-1.45]), upd:"10 Oct"},
-  {id:1266, name:"Warburtons 4 Breakfast Muffins", cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(1.65,[-0.1,-1.65,-1.65,-1.65,0,-1.65]), upd:"10 Oct"},
+  {id:1266, name:"Warburtons 4 Breakfast Muffins", cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(1.65,[-0.1,-1.65,-1.65,-1.65,0,-1.65]), upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:1267, name:"Warburtons 4 Fruity Teacakes", cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(2.25,[-0.4,-2.25,-2.25,-2.25,0,-2.25]), upd:"10 Oct"},
   {id:1268,name:"Warburtons 4 Large Sliced Rolls",                    cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(2.25,[-2.25,-2.25,-2.25,-2.25,0,-2.25]), upd:"10 Oct"},
   {id:1269,name:"Warburtons 4 Seeded Protein Thin Bagels",            cat:"🍞 Bread & Bakery", icon:"🥯", prices:sp(2.40,[-2.40,-2.40,-2.40,-2.40,0,-2.40])},
-  {id:1270,name:"Warburtons 6 Crumpets",                              cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(1.45,[-0.15,-1.45,-1.45,-1.45,0,-1.45]), upd:"10 Oct"},
-  {id:1271,name:"Warburtons 6 Thin Bagels Original",                  cat:"🍞 Bread & Bakery", icon:"🥯", prices:sp(2.40,[-0.21,-2.40,-2.40,-2.40,0,-2.40]), upd:"10 Oct"},
+  {id:1270,name:"Warburtons 6 Crumpets",                              cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(1.45,[-0.15,-1.45,-1.45,-1.45,0,-1.45]), upd:"10 Oct", upds:{iceland:"10 Oct"}},
+  {id:1271,name:"Warburtons 6 Thin Bagels Original",                  cat:"🍞 Bread & Bakery", icon:"🥯", prices:sp(2.40,[-0.21,-2.40,-2.40,-2.40,0,-2.40]), upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:1272,name:"Warburtons 6 Potato Cakes",                          cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(1.65,[-0.3,-1.65,-1.65,-1.65,0,-1.65]), upd:"10 Oct", oos:["iceland"]},
-  {id:1273, name:"Warburtons 6 Sliced Hotdog Rolls", cat:"🍞 Bread & Bakery", icon:"🌭", prices:sp(2.1,[-0.35,-2.10,-2.10,-2.10,0,-2.10]), upd:"10 Oct"},
+  {id:1273, name:"Warburtons 6 Sliced Hotdog Rolls", cat:"🍞 Bread & Bakery", icon:"🌭", prices:sp(2.1,[-0.35,-2.10,-2.10,-2.10,0,-2.10]), upd:"10 Oct", upds:{iceland:"10 Oct"}},
   {id:1274, name:"Warburtons 6 Soft & Sliced White Rolls", cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(1.95,[-0.3,-1.95,-1.95,-1.95,0,-1.95]), upd:"10 Oct"},
   {id:1275,name:"Warburtons 6 Sliced Wholemeal Rolls",                cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(1.95,[-1.95,-1.95,-1.95,-1.95,0,-1.95]), upd:"10 Oct"},
   {id:1276,name:"Warburtons 6 Thins Soft Brown Sliced",               cat:"🍞 Bread & Bakery", icon:"🫓", prices:sp(2.10,[-2.10,-2.10,-2.10,-2.10,0,-2.10])},
   {id:1277,name:"Warburtons 6 Thins Soft White Sliced",               cat:"🍞 Bread & Bakery", icon:"🫓", prices:sp(2.10,[-2.10,-2.10,-2.10,-2.10,0,-2.10]), upd:"10 Oct"},
   {id:1278, name:"Warburtons 9 Original Crumpets", cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(2.0,[-0.31,-2.00,-2.00,-2.00,0,-2.00]), upd:"10 Oct"},
-  {id:1279, name:"Warburtons 5 Original Bagels", cat:"🍞 Bread & Bakery", icon:"🥯", prices:sp(2.4,[-0.21,-2.40,-2.40,-2.40,0,-2.40]), upd:"10 Oct"},
+  {id:1279, name:"Warburtons 5 Original Bagels", cat:"🍞 Bread & Bakery", icon:"🥯", prices:sp(2.4,[-0.21,-2.40,-2.40,-2.40,0,-2.40]), upd:"10 Oct", upds:{iceland:"10 Oct"}},
   {id:1280, name:"Warburtons Soft Round White Bread Milk Roll 400g", cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(1.9,[-0.2,-1.90,-1.90,-1.90,0,-1.90]), upd:"10 Oct"},
   {id:1281,name:"Baker Street 6 Pre-Sliced Burger Buns",              cat:"🍞 Bread & Bakery", icon:"🍔", prices:sp(2.15,[-2.15,-2.15,-2.15,-2.15,0,-2.15]), upd:"10 Oct"},
   {id:1282,name:"Baker Street 4 Hot Dog Rolls Pre-Cut",               cat:"🍞 Bread & Bakery", icon:"🌭", prices:sp(2.15,[-2.15,-2.15,-2.15,-2.15,0,-2.15]), upd:"10 Oct"},
@@ -1576,7 +1576,7 @@ const BASE_PRODUCTS = [
   {id:1291, name:"Schär Gluten-Free Brown Ciabatta Rolls 200g", cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(3.0,[0.15,-3.00,-3.00,-3.00,0,-3.00]), upd:"10 Oct"},
   {id:1292, name:"Schär Wholesome White Loaf 300g", cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(3.85,[0.05,-3.85,-3.85,-3.85,0,-3.85]), upd:"10 Oct"},
   {id:1293, name:"Schär Wholesome Seeded Loaf 300g", cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(3.85,[0.05,-3.85,-3.85,-3.85,0,-3.85]), upd:"10 Oct"},
-  {id:1294, name:"BFree Tiger Rolls 165g", cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(3.4,[0.0,-3.40,-3.40,-3.40,0,-3.40]), upd:"10 Oct"},
+  {id:1294, name:"BFree Tiger Rolls 165g", cat:"🍞 Bread & Bakery", icon:"🍞", prices:sp(3.4,[0.0,-3.40,-3.40,-3.40,0,-3.40]), upd:"10 Oct", upds:{iceland:"10 Oct"}},
   {id:1295, name:"Sharwoods 4 Plain Mini Naans", cat:"🍞 Bread & Bakery", icon:"🫓", prices:{coop:2.45,morrisons:0,ms:0,waitrose:0,iceland:2.75,alliance:0}, upd:"10 Oct"}, // special offer £1.58 until 20/10/26
   {id:1296,name:"Sharwoods 4 Garlic & Coriander Mini Naans",          cat:"🍞 Bread & Bakery", icon:"🫓", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:2.35,alliance:0}, upd:"10 Oct"},
   {id:1297,name:"Sharwoods 8 Plain Poppadoms",                        cat:"🍞 Bread & Bakery", icon:"🫓", prices:sp(3.10,[-3.10,-3.10,-3.10,-3.10,0,-3.10]), upd:"10 Oct"},
@@ -1620,7 +1620,7 @@ const BASE_PRODUCTS = [
   {id:1335,name:"Mr Kipling 6 Bramley Apple & Blackcurrant Pies",     cat:"🍞 Bread & Bakery", icon:"🥧", prices:sp(3.35,[-0.2,-3.35,-3.35,-3.35,0,-3.35]), upd:"10 Oct"},
   {id:1336, name:"Mr Kipling 6 Viennese Whirls", cat:"🍞 Bread & Bakery", icon:"🍰", prices:sp(3.55,[-0.4,-3.55,-3.55,-3.55,0,-3.55]), upd:"10 Oct"},
   {id:1337, name:"Mr Kipling 6 Cherry Bakewells", cat:"🍞 Bread & Bakery", icon:"🍰", prices:sp(3.55,[-0.85,-3.55,-3.55,-3.55,0,-3.55]), upd:"10 Oct"},
-  {id:1338, name:"Mr Kipling 6 Bramley Apple Pies", cat:"🍞 Bread & Bakery", icon:"🥧", prices:{coop:3.15,morrisons:0,ms:0,waitrose:0,iceland:3.55,alliance:0}, upd:"10 Oct"},
+  {id:1338, name:"Mr Kipling 6 Bramley Apple Pies", cat:"🍞 Bread & Bakery", icon:"🥧", prices:{coop:3.15,morrisons:0,ms:0,waitrose:0,iceland:3.55,alliance:0}, upd:"10 Oct", upds:{iceland:"10 Oct"}},
   {id:1339,name:"Mr Kipling 8 Chocolate Slices",                      cat:"🍞 Bread & Bakery", icon:"🍰", prices:sp(3.35,[-3.35,-3.35,-3.35,-3.35,0,-3.35])},
   {id:1340,name:"Mr Kipling 4 Birthday Cake Tarts",                   cat:"🍞 Bread & Bakery", icon:"🍰", prices:sp(2.40,[-0.2,-2.40,-2.40,-2.40,0,-2.40]), upd:"10 Oct"}, // special offer £1.31 until 20/10/26
   {id:1341,name:"Mr Kipling Lunchbox 4 Raspberry Slices",             cat:"🍞 Bread & Bakery", icon:"🍰", prices:sp(2.15,[-2.15,-2.15,-2.15,-2.15,0,-2.15]), upd:"10 Oct"},
@@ -1728,7 +1728,7 @@ const BASE_PRODUCTS = [
   {id:1443,name:"KWV Classic Collection Shiraz 750ml",             cat:"🍷 Wine & Beer", icon:"🍷", prices:sp(6.85,[-6.85,-6.85,-6.85,-6.85,0.8,-6.85]), upd:"10 Oct"},
   {id:1444,name:"Mad Fish Shiraz 750ml",                           cat:"🍷 Wine & Beer", icon:"🍷", prices:sp(10.00,[-10,-10,-10,-10,-2.65,-10]), upd:"10 Oct", oos:["iceland"]},
   {id:1445,name:"Campo Viejo Tempranillo 750ml",                   cat:"🍷 Wine & Beer", icon:"🍷", prices:sp(8.40,[-8.4,-8.4,-8.4,-8.4,1.35,-8.4]), upd:"10 Oct"},
-  {id:1446,name:"Campo Viejo Tempranillo 187ml",                   cat:"🍷 Wine & Beer", icon:"🍷", prices:sp(3.45,[-0.95,-3.45,-3.45,-3.45,0,-3.45]), upd:"10 Oct"},
+  {id:1446,name:"Campo Viejo Tempranillo 187ml",                   cat:"🍷 Wine & Beer", icon:"🍷", prices:sp(3.45,[-0.95,-3.45,-3.45,-3.45,0,-3.45]), upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:1447,name:"KWV Classic Merlot 75cl",                         cat:"🍷 Wine & Beer", icon:"🍷", prices:sp(6.85,[-6.85,-6.85,-6.85,-6.85,0.8,-6.85]), upd:"10 Oct"},
   {id:1448,name:"KWV Classic Collection Cabernet Sauvignon 750ml", cat:"🍷 Wine & Beer", icon:"🍷", prices:sp(6.85,[-6.85,-6.85,-6.85,-6.85,0.8,-6.85]), upd:"10 Oct"},
   {id:1449,name:"Terre Di Faiano Primitivo Organic Wine 75cl",     cat:"🍷 Wine & Beer", icon:"🍷", prices:sp(11.10,[-11.10,-11.10,-11.10,-11.10,0,-11.10]), upd:"10 Oct", oos:["iceland"]},
@@ -1777,7 +1777,7 @@ const BASE_PRODUCTS = [
   {id:1492,name:"Mateus The Original Rose 75cl",                   cat:"🍷 Wine & Beer", icon:"🌹", prices:sp(7.90,[-7.90,-7.90,-7.90,-7.90,0,-7.90])},
   {id:1493,name:"Mirabeau Belle Annee Rose 75cl",                  cat:"🍷 Wine & Beer", icon:"🌹", prices:sp(11.55,[-11.55,-11.55,-11.55,-11.55,0,-11.55])},
   {id:1494,name:"Kylie Minogue Signature Rose 75cl",               cat:"🍷 Wine & Beer", icon:"🌹", prices:sp(9.45,[-9.45,-9.45,-9.45,-9.45,0,-9.45]), upd:"10 Oct"},
-  {id:1495,name:"La Vieille Ferme Rose 750ml",                     cat:"🍷 Wine & Beer", icon:"🌹", prices:sp(10.50,[-2,-10.50,-10.50,-10.50,0,-10.50]), upd:"10 Oct"}, // special offer £6.50 until 13/10/26
+  {id:1495,name:"La Vieille Ferme Rose 750ml",                     cat:"🍷 Wine & Beer", icon:"🌹", prices:sp(10.50,[-2,-10.50,-10.50,-10.50,0,-10.50]), upd:"10 Oct", upds:{coop:"10 Oct"}}, // special offer £6.50 until 13/10/26
   {id:1496,name:"Isla Negra Seashore Rose 75cl",                   cat:"🍷 Wine & Beer", icon:"🌹", prices:sp(6.85,[-6.85,-6.85,-6.85,-6.85,0,-6.85]), upd:"10 Oct"},
   {id:1497,name:"Echo Falls White Zinfandel Rose 75cl",            cat:"🍷 Wine & Beer", icon:"🌹", prices:sp(8.95,[-8.95,-8.95,-8.95,-8.95,0,-8.95])},
   {id:1498,name:"Echo Falls White Grenache 750ml",                 cat:"🍷 Wine & Beer", icon:"🌹", prices:sp(8.95,[-8.95,-8.95,-8.95,-8.95,0,-8.95]), upd:"10 Oct"},
@@ -1787,7 +1787,7 @@ const BASE_PRODUCTS = [
   {id:1502,name:"Esprit de Buganay Cotes de Provence 75cl",        cat:"🍷 Wine & Beer", icon:"🌹", prices:sp(15.75,[-15.75,-15.75,-15.75,-15.75,0,-15.75]), upd:"10 Oct"},
   {id:1503,name:"Bijou Grenache Rose 250ml",                       cat:"🍷 Wine & Beer", icon:"🌹", prices:sp(3.70,[-3.70,-3.70,-3.70,-3.70,0,-3.70]), upd:"10 Oct"},
   {id:1504,name:"La Gioiosa Alcohol Free Rose 75cl",               cat:"🍷 Wine & Beer", icon:"🌹", prices:sp(6.30,[-6.30,-6.30,-6.30,-6.30,0,-6.30])},
-  {id:1505,name:"Blossom Hill White Zinfandel 750ml",              cat:"🍷 Wine & Beer", icon:"🌹", prices:sp(8.40,[-1.4,-8.40,-8.40,-8.40,0,-8.40]), upd:"10 Oct"},
+  {id:1505,name:"Blossom Hill White Zinfandel 750ml",              cat:"🍷 Wine & Beer", icon:"🌹", prices:sp(8.40,[-1.4,-8.40,-8.40,-8.40,0,-8.40]), upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:1506,name:"Yellow Tail Jammy Rose Roo 750ml",                cat:"🍷 Wine & Beer", icon:"🌹", prices:sp(9.25,[-9.25,-9.25,-9.25,-9.25,0,-9.25])},
   {id:1507,name:"Most Wanted Malbec 187ml",                        cat:"🍷 Wine & Beer", icon:"🍷", prices:sp(3.45,[-3.45,-3.45,-3.45,-3.45,0,-3.45]), upd:"10 Oct"},
   {id:1508,name:"JP Chenet Colombard-Chardonnay 25cl",             cat:"🍷 Wine & Beer", icon:"🍷", prices:sp(3.70,[-3.70,-3.70,-3.70,-3.70,0,-3.70])},
@@ -1909,7 +1909,7 @@ const BASE_PRODUCTS = [
   {id:1624,name:"Bells Blended Scotch Whisky 20cl",                cat:"🍷 Wine & Beer", icon:"🥃", prices:sp(10.30,[-10.30,-10.30,-10.30,-10.30,0,-10.30]), upd:"10 Oct"},
   {id:1625,name:"Jack Daniels Old No.7 Tennessee Whiskey 70cl",    cat:"🍷 Wine & Beer", icon:"🥃", prices:sp(33.60,[-33.6,-33.6,-33.6,-33.6,-33.6,-33.6])},
   {id:1626,name:"High Commissioner Blended Scotch Whisky 70cl",    cat:"🍷 Wine & Beer", icon:"🥃", prices:sp(22.10,[-22.10,-22.10,-22.10,-22.10,0,-22.10]), upd:"10 Oct"},
-  {id:1627,name:"Bells Original Blended Scotch Whisky 70cl",       cat:"🍷 Wine & Beer", icon:"🥃", prices:sp(24.15,[1.85,-24.15,-24.15,-24.15,1.6,-24.15]), upd:"10 Oct"},
+  {id:1627,name:"Bells Original Blended Scotch Whisky 70cl",       cat:"🍷 Wine & Beer", icon:"🥃", prices:sp(24.15,[1.85,-24.15,-24.15,-24.15,1.6,-24.15]), upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:1628,name:"The Famous Grouse Finest Scotch Whisky 5cl",      cat:"🍷 Wine & Beer", icon:"🥃", prices:sp(3.45,[-3.45,-3.45,-3.45,-3.45,0,-3.45])},
   {id:1629,name:"Bells Blended Scotch Whisky 5cl",                 cat:"🍷 Wine & Beer", icon:"🥃", prices:sp(3.45,[-3.45,-3.45,-3.45,-3.45,0,-3.45]), upd:"10 Oct"},
   {id:1630,name:"High Commissioner Blended Scotch Whisky 35cl",    cat:"🍷 Wine & Beer", icon:"🥃", prices:sp(13.15,[-13.15,-13.15,-13.15,-13.15,0,-13.15]), upd:"10 Oct"},
@@ -1929,7 +1929,7 @@ const BASE_PRODUCTS = [
   {id:1644,name:"Disaronno Originale 500ml",                       cat:"🍷 Wine & Beer", icon:"🍹", prices:sp(23.95,[0.05,-23.95,-23.95,-23.95,0,-23.95]), upd:"10 Oct", oos:["iceland"]},
   {id:1646,name:"Harveys Solera Sherry 1L",                        cat:"🍷 Wine & Beer", icon:"🍷", prices:sp(19.95,[-19.95,-19.95,-19.95,-19.95,0,-19.95]), upd:"10 Oct", oos:["iceland"]},
   {id:1647,name:"Glens Dark Rum 70cl",                             cat:"🍷 Wine & Beer", icon:"🍹", prices:sp(22.10,[-22.10,-22.10,-22.10,-22.10,0,-22.10]), upd:"10 Oct"},
-  {id:1648,name:"Bacardi Carta Blanca Superior White Rum 70cl",    cat:"🍷 Wine & Beer", icon:"🍹", prices:sp(26.80,[-0.8,-26.80,-26.80,-26.80,0,-26.80]), upd:"10 Oct"},
+  {id:1648,name:"Bacardi Carta Blanca Superior White Rum 70cl",    cat:"🍷 Wine & Beer", icon:"🍹", prices:sp(26.80,[-0.8,-26.80,-26.80,-26.80,0,-26.80]), upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:1649,name:"Three Barrels Brandy 70cl",                       cat:"🍷 Wine & Beer", icon:"🍹", prices:sp(28.90,[-28.90,-28.90,-28.90,-28.90,0,-28.90])},
   {id:1650,name:"7UP Zero Sugar 2L",                               cat:"🥤 Drinks",      icon:"🥤", prices:sp(2.65,[-2.65,-2.65,-2.65,-2.65,0,-2.65]), upd:"10 Oct"},
   {id:1651,name:"Kingsley Cola 2L",                                cat:"🥤 Drinks",      icon:"🥤", prices:sp(1.10,[-1.10,-1.10,-1.10,-1.10,0,-1.10]), upd:"10 Oct"},
@@ -1952,7 +1952,7 @@ const BASE_PRODUCTS = [
   {id:1668,name:"Fanta Fruit Twist 2L",                            cat:"🥤 Drinks",      icon:"🥤", prices:sp(2.65,[-2.65,-2.65,-2.65,-2.65,0,-2.65]), upd:"10 Oct"},
   {id:1669,name:"Fanta Fruit Twist Zero 2L",                       cat:"🥤 Drinks",      icon:"🥤", prices:sp(2.50,[-2.50,-2.50,-2.50,-2.50,0,-2.50]), upd:"10 Oct"},
   {id:1670,name:"Fanta Orange 2L",                                 cat:"🥤 Drinks",      icon:"🥤", prices:sp(2.65,[-2.65,-2.65,-2.65,-2.65,0,-2.65])},
-  {id:1671,name:"Fanta Orange Zero 2L",                            cat:"🥤 Drinks",      icon:"🥤", prices:sp(2.65,[-2.65,-2.65,-2.65,0.40,0,-2.65]), upd:"10 Oct"},
+  {id:1671,name:"Fanta Orange Zero 2L",                            cat:"🥤 Drinks",      icon:"🥤", prices:sp(2.65,[-2.65,-2.65,-2.65,0.40,0,-2.65]), upd:"10 Oct", upds:{iceland:"10 Oct"}},
   {id:1672,name:"Irn-Bru 2L",                                      cat:"🥤 Drinks",      icon:"🥤", prices:sp(3.00,[-3.00,-3.00,-3.00,-3.00,0,-3.00]), upd:"10 Oct"},
   {id:1673,name:"Irn-Bru Xtra Sugar Free 2L",                      cat:"🥤 Drinks",      icon:"🥤", prices:sp(2.95,[-2.95,-2.95,-2.95,-2.95,0,-2.95])},
   {id:1674,name:"Lipton Ice Tea Peach 1.25L",                      cat:"🥤 Drinks",      icon:"🥤", prices:sp(2.50,[0.2,-2.50,-2.50,-2.50,0.1,-2.50]), upd:"10 Oct"},
@@ -2074,8 +2074,8 @@ const BASE_PRODUCTS = [
   {id:1790, name:"Attack a Snak Ham N Cheese Wrap Kit 86g", cat:"🌡️ Chilled", icon:"🌯", prices:sp(2.0,[-0.05,-2.00,-2.00,-2.00,0,-2.00]), upd:"11 Jul"},
   {id:1791,name:"BBQ Chicken Toastie",                             cat:"🌡️ Chilled",    icon:"🥪", prices:sp(4.20,[-4.20,-4.20,-4.20,-4.20,0,-4.20]), upd:"10 Oct"},
   {id:1792, name:"Myprotein Firecracker Chicken with Rice 325g", cat:"🌡️ Chilled", icon:"🍱", prices:sp(4.5,[0.25,-4.50,-4.50,-4.50,0,-4.50]), upd:"10 Oct"}, // special offer £3.65 until 27/10/26
-  {id:1793, name:"Myprotein Japanese Style Chicken Curry with Rice 325g", cat:"🌡️ Chilled", icon:"🍱", prices:sp(4.5,[0.25,-4.50,-4.50,-4.50,0,-4.50]), upd:"10 Oct"}, // special offer £3.65 until 27/10/26
-  {id:1794, name:"Myprotein Chilli Chipotle Beef with Rice 310g", cat:"🌡️ Chilled", icon:"🍱", prices:sp(4.5,[0.25,-4.50,-4.50,-4.50,0,-4.50]), upd:"10 Oct"}, // special offer £3.65 until 27/10/26
+  {id:1793, name:"Myprotein Japanese Style Chicken Curry with Rice 325g", cat:"🌡️ Chilled", icon:"🍱", prices:sp(4.5,[0.25,-4.50,-4.50,-4.50,0,-4.50]), upd:"10 Oct", upds:{iceland:"10 Oct"}}, // special offer £3.65 until 27/10/26
+  {id:1794, name:"Myprotein Chilli Chipotle Beef with Rice 310g", cat:"🌡️ Chilled", icon:"🍱", prices:sp(4.5,[0.25,-4.50,-4.50,-4.50,0,-4.50]), upd:"10 Oct", upds:{iceland:"10 Oct"}}, // special offer £3.65 until 27/10/26
   {id:1795,name:"Cathedral City Cottage Pie Meal For One 400g",    cat:"🌡️ Chilled",    icon:"🥧", prices:sp(5.55,[-5.55,-5.55,-5.55,-5.55,0.35,-5.55]), upd:"10 Oct"},
   {id:1796,name:"Myprotein Panang Chicken with Rice 325g",         cat:"🌡️ Chilled",    icon:"🍱", prices:sp(4.50,[-4.50,-4.50,-4.50,-4.50,0,-4.50]), upd:"10 Oct"},
   {id:1797,name:"Mash Direct Champ 400g",                          cat:"🌡️ Chilled",    icon:"🥔", prices:sp(2.15,[-2.15,-2.15,-2.15,-2.15,0,-2.15]), upd:"10 Oct"},
@@ -2093,7 +2093,7 @@ const BASE_PRODUCTS = [
   {id:1809,name:"Pastry Pantry Cheese & Bacon Quiche 375g",        cat:"🌡️ Chilled",    icon:"🥧", prices:sp(3.40,[-3.40,-3.40,-3.40,-3.40,0,-3.40]), upd:"10 Oct"},
   {id:1810,name:"Pukka 2 Microwaveable Chicken Pies",              cat:"🌡️ Chilled",    icon:"🥧", prices:sp(4.65,[-4.65,-4.65,-4.65,-4.65,0.3,-4.65]), upd:"10 Oct"},
   {id:1811,name:"Tulip Bacon Grill 250g",                          cat:"🌡️ Chilled",    icon:"🥓", prices:{coop:2.1,morrisons:0,ms:0,waitrose:0,iceland:2.55,alliance:0}, upd:"10 Oct"},
-  {id:1812, name:"Richmond 8 Thick Pork Sausages", cat:"🌡️ Chilled", icon:"🌭", prices:sp(3.65,[-0.5,-3.65,-3.65,-3.65,0,-3.65]), upd:"10 Oct"},
+  {id:1812, name:"Richmond 8 Thick Pork Sausages", cat:"🌡️ Chilled", icon:"🌭", prices:sp(3.65,[-0.5,-3.65,-3.65,-3.65,0,-3.65]), upd:"10 Oct", upds:{iceland:"10 Oct"}},
   {id:1813,name:"Mattessons Smoked Pork Sausage Original 130g",    cat:"🌡️ Chilled",    icon:"🌭", prices:sp(2.40,[-2.40,-2.40,-2.40,-2.40,0,-2.40]), upd:"10 Oct"},
   {id:1814,name:"Richmond 8 Skinless Pork Sausages 213g",          cat:"🌡️ Chilled",    icon:"🌭", prices:sp(2.40,[-2.40,-2.40,-2.40,-2.40,0.05,-2.40]), upd:"10 Oct"},
   {id:1815,name:"Sokolow Hunter Sausage",                          cat:"🌡️ Chilled",    icon:"🌭", prices:sp(3.45,[-3.45,-3.45,-3.45,-3.45,0,-3.45]), upd:"10 Oct"},
@@ -2164,7 +2164,7 @@ const BASE_PRODUCTS = [
   {id:1881,name:"Iceland Little Gem Lettuce 2pk",                  cat:"🥦 Fruit & Veg", icon:"🥬", prices:sp(1.40,[-1.40,-1.40,-1.40,-1.40,0,-1.40])},
   {id:1882,name:"Iceland Carrots 1kg",                             cat:"🥦 Fruit & Veg", icon:"🥕", prices:sp(1.25,[-1.25,-1.25,-1.25,-1.25,0.1,-1.25]), upd:"10 Oct"},
   {id:1883,name:"Iceland Green Beans 160g",                        cat:"🥦 Fruit & Veg", icon:"🫘", prices:sp(1.95,[-1.95,-1.95,-1.95,-1.95,0.2,-1.95]), upd:"10 Oct"},
-  {id:1884,name:"Pink Lady 4 Apples",                              cat:"🥦 Fruit & Veg", icon:"🍎", prices:sp(3.10,[-3.10,-3.10,0.3,-3.10,0,-3.10]), upd:"10 Oct"},
+  {id:1884,name:"Pink Lady 4 Apples",                              cat:"🥦 Fruit & Veg", icon:"🍎", prices:sp(3.10,[-3.10,-3.10,0.3,-3.10,0,-3.10]), upd:"10 Oct", upds:{iceland:"10 Oct"}},
   {id:1885,name:"Fyffes Premium Bananas",                          cat:"🥦 Fruit & Veg", icon:"🍌", prices:sp(2.10,[-2.10,-2.10,-2.10,-2.10,0,-2.10]), upd:"10 Oct"},
   {id:1886,name:"Fyffes 5 Premium Bananas",                        cat:"🥦 Fruit & Veg", icon:"🍌", prices:sp(1.35,[-1.35,-1.35,-1.35,-1.35,0,-1.35]), upd:"10 Oct"},
   {id:1887,name:"Iceland Strawberries 227g",                       cat:"🥦 Fruit & Veg", icon:"🍓", prices:sp(3.40,[-3.40,-3.40,-3.40,-3.40,-0.3,-3.40]), upd:"10 Oct"},
@@ -2219,7 +2219,7 @@ const BASE_PRODUCTS = [
   {id:1936,name:"Gourmet Mon Petit Turkey Chicken & Duck 6x50g",   cat:"🐾 Pet",         icon:"🐱", prices:sp(2.10,[-2.10,-2.10,-2.10,-2.10,0,-2.10])},
   {id:1937,name:"Go-Cat Chicken & Duck Dry Cat Food 2kg",          cat:"🐾 Pet",         icon:"🐱", prices:sp(7.10,[0.05,-7.10,-7.10,-7.10,-1.55,-7.10]), upd:"10 Oct", oos:["iceland"]},
   {id:1938,name:"Whiskas 1+ Poultry Feasts Wet Cat Food 12x85g",   cat:"🐾 Pet",         icon:"🐱", prices:sp(5.95,[-5.95,-5.95,-5.95,-5.95,0,-5.95])},
-  {id:1939,name:"Whiskas 1+ Dry Chicken Cat Food 1.9kg",           cat:"🐾 Pet",         icon:"🐱", prices:sp(6.95,[-1.45,-6.95,-6.95,-6.95,0,-6.95]), upd:"10 Oct"},
+  {id:1939,name:"Whiskas 1+ Dry Chicken Cat Food 1.9kg",           cat:"🐾 Pet",         icon:"🐱", prices:sp(6.95,[-1.45,-6.95,-6.95,-6.95,0,-6.95]), upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:1940,name:"Whiskas Senior 7+ Poultry Feasts Wet Cat Food 40x85g",cat:"🐾 Pet",     icon:"🐱", prices:sp(12.75,[-12.75,-12.75,-12.75,-12.75,0,-12.75])},
   {id:1941,name:"Felix Original Mixed Selection in Jelly 7+ Years 12x85g",cat:"🐾 Pet",  icon:"🐱", prices:sp(5.20,[-5.20,-5.20,-5.20,-5.20,0,-5.20])},
   {id:1942,name:"Whiskas 1+ Fish Favourites Wet Cat Food 12x85g",  cat:"🐾 Pet",         icon:"🐱", prices:sp(6.10,[-6.10,-6.10,-6.10,-6.10,0,-6.10])},
@@ -2292,12 +2292,12 @@ const BASE_PRODUCTS = [
   {id:2011,name:"Heinz Beanz Tikka Creamy 390g",                    cat:"🍝 Pantry",     icon:"🫘", prices:sp(1.40,[-1.40,-1.40,-1.40,-1.40,0.45,-1.40]), upd:"21 Sep"},
   {id:2012,name:"Heinz Beanz Cheesy 390g",                          cat:"🍝 Pantry",     icon:"🫘", prices:sp(2.55,[-2.55,-2.55,-2.55,-2.55,0.1,-2.55]), upd:"10 Oct"},
   {id:2013,name:"Heinz Beanz with Richmond Pork Sausages 415g",     cat:"🍝 Pantry",     icon:"🫘", prices:sp(2.65,[-2.65,-2.65,-2.65,-2.65,0,-2.65])},
-  {id:2014,name:"Heinz Beanz Barbecue 390g",                        cat:"🍝 Pantry",     icon:"🫘", prices:{coop:1.9,morrisons:0,ms:0,waitrose:0,iceland:1.85,alliance:0}, upd:"10 Oct"}, // members buy any 2 for £2.45 until 20/10/26
+  {id:2014,name:"Heinz Beanz Barbecue 390g",                        cat:"🍝 Pantry",     icon:"🫘", prices:{coop:1.9,morrisons:0,ms:0,waitrose:0,iceland:1.85,alliance:0}, upd:"10 Oct", upds:{iceland:"10 Oct"}}, // members buy any 2 for £2.45 until 20/10/26
   {id:2015,name:"Branston Baked Beans with Sausages 405g",          cat:"🍝 Pantry",     icon:"🫘", prices:{coop:1.69,morrisons:0,ms:0,waitrose:0,iceland:1.75,alliance:0}, upd:"10 Oct"},
   {id:2016,name:"Heinz Beanz Family Pack 6x415g",                   cat:"🍝 Pantry",     icon:"🫘", prices:sp(5.95,[-5.95,-5.95,-5.95,-5.95,0,-5.95])},
   {id:2017,name:"Heinz Beanz Richmond Pork Sausages 3x200g",        cat:"🍝 Pantry",     icon:"🫘", prices:sp(3.95,[-3.95,-3.95,-3.95,-3.95,0,-3.95])},
   {id:2018,name:"Heinz Baked Beans 3x200g",                         cat:"🍝 Pantry",     icon:"🫘", prices:sp(3.35,[-3.35,-3.35,-3.35,-3.35,0,-3.35])},
-  {id:2019, name:"Batchelors Original Mushy Peas 300g", cat:"🍝 Pantry", icon:"🫛", prices:sp(1.0,[0.05,-1.00,-1.00,-1.00,0.25,-1.00]), upd:"10 Oct"},
+  {id:2019, name:"Batchelors Original Mushy Peas 300g", cat:"🍝 Pantry", icon:"🫛", prices:sp(1.0,[0.05,-1.00,-1.00,-1.00,0.25,-1.00]), upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:2020, name:"Green Giant Original 198g", cat:"🍝 Pantry", icon:"🌽", prices:sp(1.35,[0.15,-1.35,-1.35,-1.35,0.2,-1.35]), upd:"10 Oct"},
   {id:2021,name:"Green Giant Original 3x198g",                      cat:"🍝 Pantry",     icon:"🌽", prices:sp(3.65,[-3.65,-3.65,-3.65,-3.65,0,-3.65])},
   {id:2022,name:"Batchelors Sweetcorn in Water 3x180g",             cat:"🍝 Pantry",     icon:"🌽", prices:sp(2.55,[-2.55,-2.55,-2.55,-2.55,0,-2.55])},
@@ -2346,7 +2346,7 @@ const BASE_PRODUCTS = [
   {id:2066,name:"Batchelors Cup a Soup Cream of Vegetable 90g",     cat:"🍝 Pantry",     icon:"🍲", prices:sp(1.65,[-1.65,-1.65,-1.65,-1.65,0,-1.65])},
   {id:2067,name:"Batchelors Cup a Soup Chicken 3 Sachets 56g",      cat:"🍝 Pantry",     icon:"🍲", prices:sp(1.65,[-1.65,-1.65,-1.65,-1.65,0,-1.65]), upd:"10 Oct"},
   {id:2068, name:"Heinz Cream of Mushroom Soup 400g", cat:"🍝 Pantry", icon:"🍲", prices:sp(2.3,[-0.15,-2.30,-2.30,-2.30,0,-2.30]), upd:"10 Oct"}, // members buy any 3 for £4.75 until 20/10/26
-  {id:2069,name:"Heinz Oxtail Soup 400g",                           cat:"🍝 Pantry",     icon:"🍲", prices:sp(2.30,[-0.15,-2.30,-2.30,-2.30,0,-2.30]), upd:"10 Oct"},
+  {id:2069,name:"Heinz Oxtail Soup 400g",                           cat:"🍝 Pantry",     icon:"🍲", prices:sp(2.30,[-0.15,-2.30,-2.30,-2.30,0,-2.30]), upd:"10 Oct", upds:{iceland:"10 Oct"}},
   {id:2070,name:"Heinz Minestrone Soup 400g",                       cat:"🍝 Pantry",     icon:"🍲", prices:sp(2.30,[-2.30,-2.30,-2.30,-2.30,0,-2.30]), upd:"10 Oct"},
   {id:2071,name:"Heinz Cream of Tomato Soup 4x400g",                cat:"🍝 Pantry",     icon:"🍲", prices:sp(5.80,[-5.80,-5.80,-5.80,-5.80,0.3,-5.80]), oos:["iceland"], upd:"21 Sep"},
   {id:2072,name:"Heinz Chicken Noodle Soup 400g",                   cat:"🍝 Pantry",     icon:"🍲", prices:sp(2.30,[-2.30,-2.30,-2.30,-2.30,0,-2.30]), upd:"10 Oct"},
@@ -2388,16 +2388,16 @@ const BASE_PRODUCTS = [
   {id:2108,name:"Hazella Hazelnut Chocolate Spread 400g",           cat:"🍝 Pantry",     icon:"🍫", prices:sp(2.45,[-2.45,-2.45,-2.45,-2.45,0.2,-2.45]), upd:"10 Oct"},
   {id:2109,name:"Cadbury Milk Chocolate Spread 700g",               cat:"🍝 Pantry",     icon:"🍫", prices:sp(5.95,[-5.95,-5.95,-5.95,-5.95,0,-5.95]), upd:"10 Oct"},
   {id:2110,name:"Batchelors Golden Vegetable Super Rice 90g",       cat:"🍝 Pantry",     icon:"🍚", prices:sp(1.75,[-1.75,-1.75,-1.75,-1.75,-0.15,-1.75]), upd:"21 Sep"},
-  {id:2111, name:"Bens Original Egg Fried Microwave Rice 220g", cat:"🍝 Pantry", icon:"🍚", prices:sp(1.85,[-0.2,-1.85,-1.85,-1.85,0,-1.85]), upd:"10 Oct"},
+  {id:2111, name:"Bens Original Egg Fried Microwave Rice 220g", cat:"🍝 Pantry", icon:"🍚", prices:sp(1.85,[-0.2,-1.85,-1.85,-1.85,0,-1.85]), upd:"10 Oct", upds:{iceland:"10 Oct"}},
   {id:2112, name:"Bens Original Peri Peri Microwave Rice 220g", cat:"🍝 Pantry", icon:"🍚", prices:sp(1.85,[-0.2,-1.85,-1.85,-1.85,0,-1.85]), upd:"11 Jul"},
   {id:2113,name:"Bens Original Spicy Mexican Style Rice 220g",      cat:"🍝 Pantry",     icon:"🍚", prices:sp(1.85,[-1.85,-1.85,-1.85,-1.85,0,-1.85])},
   {id:2114,name:"Bens Original Classic Sticky Rice 220g",           cat:"🍝 Pantry",     icon:"🍚", prices:sp(1.85,[-1.85,-1.85,-1.85,-1.85,0,-1.85]), upd:"10 Oct"},
   {id:2115, name:"Bens Original Classic Wholegrain Rice 220g", cat:"🍝 Pantry", icon:"🍚", prices:sp(1.85,[-0.2,-1.85,-1.85,-1.85,0,-1.85]), upd:"11 Jul"},
-  {id:2116, name:"Bens Original Basmati Microwave Rice 220g", cat:"🍝 Pantry", icon:"🍚", prices:sp(1.85,[-0.2,-1.85,-1.85,-1.85,0,-1.85]), upd:"10 Oct"},
-  {id:2117, name:"Bens Original Long Grain Microwave Rice 220g", cat:"🍝 Pantry", icon:"🍚", prices:sp(1.85,[-0.2,-1.85,-1.85,-1.85,0,-1.85]), upd:"10 Oct"},
-  {id:2118, name:"Bens Original Savoury Chicken Microwave Rice 220g", cat:"🍝 Pantry", icon:"🍚", prices:sp(1.85,[-0.2,-1.85,-1.85,-1.85,0,-1.85]), upd:"10 Oct"},
-  {id:2119, name:"Bens Original Golden Vegetable Microwave Rice 220g", cat:"🍝 Pantry", icon:"🍚", prices:sp(1.85,[-0.2,-1.85,-1.85,-1.85,0,-1.85]), upd:"10 Oct"},
-  {id:2120, name:"Bens Original Pilau Microwave Rice 220g", cat:"🍝 Pantry", icon:"🍚", prices:sp(1.85,[-0.8,-1.85,-1.85,-1.85,0,-1.85]), upd:"10 Oct"},
+  {id:2116, name:"Bens Original Basmati Microwave Rice 220g", cat:"🍝 Pantry", icon:"🍚", prices:sp(1.85,[-0.2,-1.85,-1.85,-1.85,0,-1.85]), upd:"10 Oct", upds:{iceland:"10 Oct"}},
+  {id:2117, name:"Bens Original Long Grain Microwave Rice 220g", cat:"🍝 Pantry", icon:"🍚", prices:sp(1.85,[-0.2,-1.85,-1.85,-1.85,0,-1.85]), upd:"10 Oct", upds:{iceland:"10 Oct"}},
+  {id:2118, name:"Bens Original Savoury Chicken Microwave Rice 220g", cat:"🍝 Pantry", icon:"🍚", prices:sp(1.85,[-0.2,-1.85,-1.85,-1.85,0,-1.85]), upd:"10 Oct", upds:{iceland:"10 Oct"}},
+  {id:2119, name:"Bens Original Golden Vegetable Microwave Rice 220g", cat:"🍝 Pantry", icon:"🍚", prices:sp(1.85,[-0.2,-1.85,-1.85,-1.85,0,-1.85]), upd:"10 Oct", upds:{iceland:"10 Oct"}},
+  {id:2120, name:"Bens Original Pilau Microwave Rice 220g", cat:"🍝 Pantry", icon:"🍚", prices:sp(1.85,[-0.8,-1.85,-1.85,-1.85,0,-1.85]), upd:"10 Oct", upds:{iceland:"10 Oct"}},
   {id:2121,name:"Bens Original Classic Jasmine Rice 220g",          cat:"🍝 Pantry",     icon:"🍚", prices:sp(1.85,[-1.85,-1.85,-1.85,-1.85,0,-1.85])},
   {id:2122,name:"Tilda Everyday Long Grain Rice 1kg",               cat:"🍝 Pantry",     icon:"🍚", prices:sp(2.65,[-2.65,-2.65,-2.65,-2.65,0.15,-2.65]), upd:"10 Oct"},
   {id:2123,name:"Tilda Pure Original Basmati 500g",                 cat:"🍝 Pantry",     icon:"🍚", prices:sp(3.70,[-0.6,-3.70,-3.70,-3.70,0,-3.70]), upd:"10 Oct"},
@@ -2630,7 +2630,7 @@ const BASE_PRODUCTS = [
   {id:2350,name:"Gaviscon Peppermint Flavour Tablets 12pk",           cat:"💊 Health & Beauty",icon:"💊",prices:sp(2.65,[-2.65,-2.65,-2.65,-2.65,0,-2.65])},
   {id:2351,name:"Jakemans Throat & Chest Soothing Menthol Sweets 41g",cat:"💊 Health & Beauty",icon:"💊",prices:sp(1.00,[-1.00,-1.00,-1.00,-1.00,0,-1.00]), upd:"10 Oct"},
   {id:2352,name:"Lemsip Max Cold & Flu Blackcurrant 10 Sachets",      cat:"💊 Health & Beauty",icon:"💊",prices:sp(5.25,[2.25,-5.25,-5.25,-5.25,0,-5.25]), upd:"10 Oct"},
-  {id:2353,name:"Lemsip Max Cold & Flu 16 Capsules",                  cat:"💊 Health & Beauty",icon:"💊",prices:sp(5.00,[1,-5.00,-5.00,-5.00,0,-5.00]), upd:"10 Oct"},
+  {id:2353,name:"Lemsip Max Cold & Flu 16 Capsules",                  cat:"💊 Health & Beauty",icon:"💊",prices:sp(5.00,[1,-5.00,-5.00,-5.00,0,-5.00]), upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:2354,name:"Nurofen 200mg Tablets 6pk",                          cat:"💊 Health & Beauty",icon:"💊",prices:sp(2.90,[-2.90,-2.90,-2.90,-2.90,0,-2.90])},
   {id:2355,name:"Nurofen Express Pain Relief 200mg Liquid Capsules 16pk",cat:"💊 Health & Beauty",icon:"💊",prices:sp(5.25,[-5.25,-5.25,-5.25,-5.25,0.3,-5.25]), upd:"22 Sep"},
   {id:2356,name:"Nurofen Express Pain Relief 200mg Liquid Capsules 10pk",cat:"💊 Health & Beauty",icon:"💊",prices:sp(3.60,[-3.60,-3.60,-3.60,-3.60,0,-3.60])},
@@ -2691,9 +2691,9 @@ const BASE_PRODUCTS = [
   {id:2411,name:"Colgate Max Fresh Cooling Crystals 75ml",            cat:"💊 Health & Beauty",icon:"🪥",prices:sp(3.10,[-3.10,-3.10,-3.10,-3.10,0.2,-3.10]), upd:"10 Oct"},
   {id:2412,name:"Corsodyl Medicated Antibacterial Mouthwash 300ml",   cat:"💊 Health & Beauty",icon:"🪥",prices:sp(6.25,[-6.25,-6.25,-6.25,-6.25,0.35,-6.25]), upd:"22 Sep"},
   {id:2413,name:"Listerine Total Care Mouthwash 1L",                  cat:"💊 Health & Beauty",icon:"🪥",prices:sp(5.80,[-5.80,-5.80,-5.80,-5.80,0,-5.80])},
-  {id:2414,name:"Colgate Triple Action Toothpaste 75ml",              cat:"💊 Health & Beauty",icon:"🪥",prices:sp(1.55,[0.15,-1.55,-1.55,-1.55,0,-1.55]), upd:"10 Oct"},
-  {id:2415,name:"Colgate White Teeth Whitening Toothpaste 75ml",      cat:"💊 Health & Beauty",icon:"🪥",prices:sp(1.35,[-0.3,-1.35,-1.35,-1.35,0,-1.35]), upd:"10 Oct"},
-  {id:2416,name:"Colgate Maximum Cavity Protection Toothpaste 75ml",  cat:"💊 Health & Beauty",icon:"🪥",prices:{coop:1.89,morrisons:0,ms:0,waitrose:0,iceland:2.10,alliance:0}, upd:"10 Oct"},
+  {id:2414,name:"Colgate Triple Action Toothpaste 75ml",              cat:"💊 Health & Beauty",icon:"🪥",prices:sp(1.55,[0.15,-1.55,-1.55,-1.55,0,-1.55]), upd:"10 Oct", upds:{coop:"10 Oct"}},
+  {id:2415,name:"Colgate White Teeth Whitening Toothpaste 75ml",      cat:"💊 Health & Beauty",icon:"🪥",prices:sp(1.35,[-0.3,-1.35,-1.35,-1.35,0,-1.35]), upd:"10 Oct", upds:{coop:"10 Oct"}},
+  {id:2416,name:"Colgate Maximum Cavity Protection Toothpaste 75ml",  cat:"💊 Health & Beauty",icon:"🪥",prices:{coop:1.89,morrisons:0,ms:0,waitrose:0,iceland:2.10,alliance:0}, upd:"10 Oct", upds:{iceland:"10 Oct"}},
   {id:2417,name:"Colgate Extra Clean Medium Toothbrush 3pk",          cat:"💊 Health & Beauty",icon:"🪥",prices:sp(2.00,[-2.00,-2.00,-2.00,-2.00,0,-2.00])},
   {id:2418,name:"Always Ultra Sanitary Towels Long Size 2 Wings 20pk",cat:"💊 Health & Beauty",icon:"🌸",prices:sp(3.90,[-3.90,-3.90,-3.90,-3.90,0.75,-3.90]), upd:"22 Sep"},
   {id:2419,name:"TENA Lights Long Liner 40pk",                        cat:"💊 Health & Beauty",icon:"🌸",prices:sp(4.25,[-4.25,-4.25,-4.25,-4.25,0.4,-4.25]), oos:["iceland"], upd:"22 Sep"},
@@ -2809,7 +2809,7 @@ const BASE_PRODUCTS = [
   {id:2529, name:"Lindt Lindor Milk Chocolate Truffles 200g", cat:"🍫 Confectionery", icon:"🍫", prices:sp(6.3,[1.6,-6.30,-6.30,-6.30,0.3,-6.30]), upd:"22 Sep"},
   {id:2530,name:"Lindt Lindor Salted Caramel Chocolate Truffles 200g",cat:"🍫 Confectionery",icon:"🍫",prices:sp(6.30,[-6.30,-6.30,-6.30,-6.30,0.3,-6.30]), upd:"22 Sep"},
   {id:2531,name:"Lindt Lindor Strawberries & Cream Truffles 200g",    cat:"🍫 Confectionery",icon:"🍫",prices:sp(6.30,[-6.30,-6.30,-6.30,-6.30,1.95,-6.30]), upd:"22 Sep"},
-  {id:2532,name:"Maltesers Milk Chocolate Gift Box 310g",             cat:"🍫 Confectionery",icon:"🎁",prices:sp(6.30,[1.05,-6.30,-6.30,-6.30,0,-6.30]), upd:"10 Oct"},
+  {id:2532,name:"Maltesers Milk Chocolate Gift Box 310g",             cat:"🍫 Confectionery",icon:"🎁",prices:sp(6.30,[1.05,-6.30,-6.30,-6.30,0,-6.30]), upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:2533,name:"Ferrero Rocher Chocolate Pralines Gift Box 16pk 200g",cat:"🍫 Confectionery",icon:"🎁",prices:sp(6.30,[-6.30,-6.30,-6.30,-6.30,0,-6.30])},
   {id:2534,name:"Quality Street Matchmakers Cool Mint 120g",          cat:"🍫 Confectionery",icon:"🍫",prices:sp(2.35,[-2.35,-2.35,-2.35,-2.35,-0.6,-2.35]), upd:"22 Sep"},
   {id:2535,name:"Candy Realms Peach Rings 190g",                      cat:"🍫 Confectionery",icon:"🍬",prices:sp(1.35,[-1.35,-1.35,-1.35,-1.35,0,-1.35]), oos:["iceland"], upd:"22 Sep"},
@@ -2818,7 +2818,7 @@ const BASE_PRODUCTS = [
   {id:2538,name:"Bebeto Wacky Sticks Strawberry 180g",                cat:"🍫 Confectionery",icon:"🍬",prices:sp(1.35,[-1.35,-1.35,-1.35,-1.35,0,-1.35]), oos:["iceland"], upd:"22 Sep"},
   {id:2539,name:"Bebeto Wacky Sticks Fizzy Strawberry 180g",          cat:"🍫 Confectionery",icon:"🍬",prices:sp(1.35,[-1.35,-1.35,-1.35,-1.35,0,-1.35]), oos:["iceland"], upd:"22 Sep"},
   {id:2540,name:"Haribo Original Happy Cola 100g",                    cat:"🍫 Confectionery",icon:"🍬",prices:sp(1.00,[-1.00,-1.00,-1.00,-1.00,0,-1.00]), upd:"10 Oct"},
-  {id:2541,name:"Juicy Drop Pop 26g",                                 cat:"🍫 Confectionery",icon:"🍬",prices:sp(1.80,[-0.4,-1.80,-1.80,-1.80,0,-1.80]), upd:"10 Oct"},
+  {id:2541,name:"Juicy Drop Pop 26g",                                 cat:"🍫 Confectionery",icon:"🍬",prices:sp(1.80,[-0.4,-1.80,-1.80,-1.80,0,-1.80]), upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:2542,name:"Millions Bubblegum Flavour 45g",                     cat:"🍫 Confectionery",icon:"🍬",prices:sp(0.85,[-0.85,-0.85,-0.85,-0.85,0,-0.85]), upd:"10 Oct"},
   {id:2543,name:"Millions Strawberry 45g",                            cat:"🍫 Confectionery",icon:"🍬",prices:sp(0.85,[0.1,-0.85,-0.85,-0.85,0,-0.85]), upd:"10 Oct"},
   {id:2544,name:"Refresher Chews",                                    cat:"🍫 Confectionery",icon:"🍬",prices:sp(1.60,[-1.60,-1.60,-1.60,-1.60,0,-1.60])},
@@ -2847,8 +2847,8 @@ const BASE_PRODUCTS = [
   /* ── CO-OP FRESH FOOD (added 11 July, from official live Co-op catalogue) ─── */
   {id:2622, name:"Wasabi Chicken Teriyaki with Rice 430g", cat:"🥗 Deli & Salads", icon:"🥘", prices:{coop:5.8,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:2623, name:"Alpro Greek Style Mango Dairy Free Yoghurt Alternative 150g", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:1.49,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:2624, name:"Jersey Creme Fraiche 250M", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:1.99,morrisons:0,ms:0,waitrose:0,iceland:2.1,alliance:0}, upd:"10 Oct"},
-  {id:2625, name:"Jersey Lux Bio Natural Yogurt 500G", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:1.99,morrisons:0,ms:0,waitrose:0,iceland:2.1,alliance:0}, upd:"10 Oct", oos:["iceland"]},
+  {id:2624, name:"Jersey Creme Fraiche 250M", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:1.99,morrisons:0,ms:0,waitrose:0,iceland:2.1,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
+  {id:2625, name:"Jersey Lux Bio Natural Yogurt 500G", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:1.99,morrisons:0,ms:0,waitrose:0,iceland:2.1,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}, oos:["iceland"]},
   {id:2626, name:"Jersey Lux Bio Peach Yogurt 50 500G", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:2.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:2627, name:"All Things Butter Garlic & Herb 115g", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:2.9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:2628, name:"Yeo Valley Organic Natural Live Smooth & Light Yogurt 150g", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -2864,16 +2864,16 @@ const BASE_PRODUCTS = [
   {id:2638, name:"Jersey Dairy 2.5% Fat Reduced 500ML", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:0.87,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:2639, name:"Jersey Dairy 1% Fat Milk 500ml", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:0.87,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:2640, name:"Pukka All Steak Pie 209G", cat:"🥗 Deli & Salads", icon:"🥧", prices:{coop:2.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
-  {id:2641, name:"Jersey Dairy 2.5% Fat Reduced LTR", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:1.64,morrisons:1.54,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
+  {id:2641, name:"Jersey Dairy 2.5% Fat Reduced LTR", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:1.64,morrisons:1.54,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:2642, name:"Pukka Chicken & Mushroom Pie 212G", cat:"🥗 Deli & Salads", icon:"🥧", prices:{coop:2.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:2643, name:"Jersey Dairy 1% Fat Milk Blue LTR", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:1.64,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:2644, name:"Jersey Skimmed Milk Orange 500 500ML", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:0.87,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:2645, name:"Co-op British Cream Toffee Sundae 125g", cat:"🥨 Snacks & Treats", icon:"🍰", prices:{coop:1.9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:2646, name:"Jersey Lux Bio Strawberry Yog1 150g", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:1.09,morrisons:0,ms:0,waitrose:0,iceland:1.1,alliance:0}, upd:"10 Oct", oos:["iceland"]},
-  {id:2647, name:"Jersey Lux Bio Peach Yogurt 15 150G", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:1.09,morrisons:0,ms:0,waitrose:0,iceland:1.1,alliance:0}, upd:"10 Oct", oos:["iceland"]},
-  {id:2648, name:"Jersey Lux Bio Toffee Yogurt 1 150G", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:1.09,morrisons:0,ms:0,waitrose:0,iceland:1.1,alliance:0}, upd:"10 Oct"},
+  {id:2646, name:"Jersey Lux Bio Strawberry Yog1 150g", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:1.09,morrisons:0,ms:0,waitrose:0,iceland:1.1,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}, oos:["iceland"]},
+  {id:2647, name:"Jersey Lux Bio Peach Yogurt 15 150G", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:1.09,morrisons:0,ms:0,waitrose:0,iceland:1.1,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}, oos:["iceland"]},
+  {id:2648, name:"Jersey Lux Bio Toffee Yogurt 1 150G", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:1.09,morrisons:0,ms:0,waitrose:0,iceland:1.1,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:2649, name:"Orange Pepper EACH", cat:"🥦 Fruit & Veg", icon:"🥗", prices:{coop:0.84,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:2650, name:"Jersey Lux Bio Natural Yogurt 150G", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:1.09,morrisons:0,ms:0,waitrose:0,iceland:1.1,alliance:0}, upd:"10 Oct", oos:["iceland"]},
+  {id:2650, name:"Jersey Lux Bio Natural Yogurt 150G", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:1.09,morrisons:0,ms:0,waitrose:0,iceland:1.1,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}, oos:["iceland"]},
   {id:2651, name:"Jersey Dairy Fresh Double Cream 250ml", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:2.06,morrisons:0,ms:0,waitrose:0,iceland:2.2,alliance:0}, upd:"10 Oct"},
   {id:2652, name:"Jersey Whipping Cream 250ml", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:2,morrisons:0,ms:0,waitrose:0,iceland:2.1,alliance:0}, upd:"6 Sep"},
   {id:2653, name:"Happy Hens Free Range Large 6S", cat:"🥛 Dairy & Eggs", icon:"🥚", prices:{coop:2.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -2894,7 +2894,7 @@ const BASE_PRODUCTS = [
   {id:2668, name:"Pineapple - Large", cat:"🥦 Fruit & Veg", icon:"🍏", prices:{coop:2.99,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:2669, name:"Coconut EACH", cat:"🥦 Fruit & Veg", icon:"🍏", prices:{coop:1.0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:2670, name:"Anchor Salted Butter 200g", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:3.05,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct", oos:["coop"]}, // special offer £2.00 until 27/10/26
-  {id:2671, name:"Anchor Salted Spreadable 400g", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:5,morrisons:0,ms:0,waitrose:0,iceland:4.5,alliance:0}, upd:"10 Oct"}, // special offer £2.90 until 27/10/26
+  {id:2671, name:"Anchor Salted Spreadable 400g", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:5,morrisons:0,ms:0,waitrose:0,iceland:4.5,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}}, // special offer £2.90 until 27/10/26
   {id:2672, name:"The Coconut Collab Natural 350g", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:2.9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:2673, name:"Lindahls Kvarg Raspberry Flavoured 150g", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:1.45,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:2674, name:"Lindahls Chocolate Protein Pudding 140g", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:1.69,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -2983,7 +2983,7 @@ const BASE_PRODUCTS = [
   {id:2757, name:"Biotiful Gut Health Kefir Yogurt Rubie Raspberry 350g", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:1.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:2758, name:"Onken Vanilla 450g", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:2.2,morrisons:0,ms:0,waitrose:0,iceland:2.1,alliance:0}, upd:"10 Oct"}, // members £1.30 until 27/10/26
   {id:2759, name:"Onken Set Natural 450g", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:2.25,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:2760, name:"Stork 500g", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:2.75,morrisons:3.30,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
+  {id:2760, name:"Stork 500g", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:2.75,morrisons:3.30,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:2761, name:"ProActiv Buttery Taste 450g", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:5.45,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £3.65 until 27/10/26
   {id:2762, name:"Flora Plant Butter Salted 200g", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:2.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:2763, name:"Co-op Organic Brown Onions 3S", cat:"🥦 Fruit & Veg", icon:"🌿", prices:{coop:1.6,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £1.40 until 27/10/26
@@ -3024,12 +3024,12 @@ const BASE_PRODUCTS = [
   {id:2797, name:"Petits Filous Kids Strawberry & Raspberry Yoghurt Pots 4 x 85g 4X85G", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:2.05,morrisons:0,ms:0,waitrose:0,iceland:2.45,alliance:0}, upd:"10 Oct"},
   {id:2798, name:"Co-op Bistro Salad 150g", cat:"🥦 Fruit & Veg", icon:"🥗", prices:{coop:1.8,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £1.50 until 27/10/26
   {id:2799, name:"Wildlife Variety Choobs Strawberry, Raspberry and Apricot Flavour 6 x 37g 6X37G", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:1.39,morrisons:0,ms:0,waitrose:0,iceland:1.6,alliance:0}, upd:"10 Oct"},
-  {id:2800, name:"Yoplait Wildlife Strawberry Flavour Choobs Yoghurt 222g (6 x 37g) 6X37G", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:1.39,morrisons:0,ms:0,waitrose:0,iceland:1.6,alliance:0}, upd:"10 Oct"},
+  {id:2800, name:"Yoplait Wildlife Strawberry Flavour Choobs Yoghurt 222g (6 x 37g) 6X37G", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:1.39,morrisons:0,ms:0,waitrose:0,iceland:1.6,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:2801, name:"Petits Filous Kids Strawberry Yoghurt Drink 4 x 100g 4X100G", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:2802, name:"Saint Agur Blue 125g", cat:"🥛 Dairy & Eggs", icon:"🧀", prices:{coop:3.25,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:2803, name:"Co-op Fish Pie with a Cheese Sauce 400g", cat:"🥗 Deli & Salads", icon:"🥘", prices:{coop:4.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct", oos:["coop"]},
   {id:2804, name:"Shaken Udder Chocolush Milkshake 750ml", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:3.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:2805, name:"Dairylea Dunkers Jumbo Tubes Cheese Snack 6 pack Multipack (6 x 41g) 246 g 246G", cat:"🥛 Dairy & Eggs", icon:"🧀", prices:{coop:4.2,morrisons:0,ms:0,waitrose:0,iceland:4.4,alliance:0}, upd:"10 Oct"},
+  {id:2805, name:"Dairylea Dunkers Jumbo Tubes Cheese Snack 6 pack Multipack (6 x 41g) 246 g 246G", cat:"🥛 Dairy & Eggs", icon:"🧀", prices:{coop:4.2,morrisons:0,ms:0,waitrose:0,iceland:4.4,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:2806, name:"Babybel Mini Light 6 x 20g (120g)", cat:"🥛 Dairy & Eggs", icon:"🧀", prices:{coop:2.89,morrisons:0,ms:0,waitrose:0,iceland:3.35,alliance:0}, upd:"10 Oct"},
   {id:2807, name:"Co-op Irresistible Wood Fired Chorizo & Manchego 441g", cat:"🥗 Deli & Salads", icon:"🍕", prices:{coop:6.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:2808, name:"Co-op Irresistible Wood Fired Prosciutto Cotto, Garlic Mushroom & Mascarpone 491g", cat:"🥗 Deli & Salads", icon:"🍕", prices:{coop:6.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -3069,7 +3069,7 @@ const BASE_PRODUCTS = [
   {id:2842, name:"Co-op Irresistible British Baby Potatoes 750g", cat:"🥦 Fruit & Veg", icon:"🥕", prices:{coop:1.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £1.30 until 27/10/26
   {id:2843, name:"Co-op Irresistible British Sweet Pioneer Strawberries 227G", cat:"🥦 Fruit & Veg", icon:"🍏", prices:{coop:3.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:2844, name:"Co-op Ripe and Ready Twin Pack Hass Avocados 8X2S", cat:"🥦 Fruit & Veg", icon:"🥗", prices:{coop:2.2,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £1.95 until 27/10/26
-  {id:2845, name:"Cully & Sully A Hearty Chicken & Vegetable Soup 400g", cat:"🥗 Deli & Salads", icon:"🥘", prices:{coop:3,morrisons:0,ms:0,waitrose:0,iceland:4.4,alliance:0}, upd:"10 Oct", oos:["iceland","coop"]},
+  {id:2845, name:"Cully & Sully A Hearty Chicken & Vegetable Soup 400g", cat:"🥗 Deli & Salads", icon:"🥘", prices:{coop:3,morrisons:0,ms:0,waitrose:0,iceland:4.4,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}, oos:["iceland","coop"]},
   {id:2846, name:"Babybel Mini Original Cheese 6 x 20g (120g)", cat:"🥛 Dairy & Eggs", icon:"🧀", prices:{coop:2.89,morrisons:0,ms:0,waitrose:0,iceland:3.3,alliance:0}, upd:"10 Oct"},
   {id:2847, name:"Port Salut® Traditional French Cheese 185g", cat:"🥛 Dairy & Eggs", icon:"🧀", prices:{coop:3.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:2848, name:"Le Rustique Jean Verrier Fromager Camembert 250g", cat:"🥛 Dairy & Eggs", icon:"🧀", prices:{coop:3.7,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -3082,7 +3082,7 @@ const BASE_PRODUCTS = [
   {id:2855, name:"Co-op Irresistible Chicken & Portobello Mushroom Pie 250g", cat:"🥗 Deli & Salads", icon:"🥧", prices:{coop:5.0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:2856, name:"Co-op Irresistible Purple Sprouting Broccoli 200G", cat:"🥦 Fruit & Veg", icon:"🥕", prices:{coop:2.7,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £2.30 until 27/10/26
   {id:2857, name:"Co-op Space to Thrive British Tikka Chicken Chunks 80g", cat:"🥩 Meat & Fish", icon:"🍖", prices:{coop:2.39,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:2858, name:"Dairylea Lunchers Chicken 'N' Cheese Snack 60 g 60G", cat:"🥛 Dairy & Eggs", icon:"🧀", prices:{coop:1.85,morrisons:0,ms:0,waitrose:0,iceland:2.25,alliance:0}, upd:"10 Oct"},
+  {id:2858, name:"Dairylea Lunchers Chicken 'N' Cheese Snack 60 g 60G", cat:"🥛 Dairy & Eggs", icon:"🧀", prices:{coop:1.85,morrisons:0,ms:0,waitrose:0,iceland:2.25,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:2859, name:"Co-op Irresistible All Butter Pastry 4 Sausage Rolls 188g", cat:"🥗 Deli & Salads", icon:"🥧", prices:{coop:3.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £2.35 until 27/10/26
   {id:2860, name:"Gü Zillionaire Cheesecake 2 x 84.5g (169g) 2X84.5G", cat:"🥨 Snacks & Treats", icon:"🍰", prices:{coop:3.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:2861, name:"Co-op Irresistible 4 Mini Melton Mowbray Pork Pies 200g", cat:"🥗 Deli & Salads", icon:"🥧", prices:{coop:2.1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -3102,9 +3102,9 @@ const BASE_PRODUCTS = [
   {id:2875, name:"itsu Restaurant'Ramen Flat Noodles 200g", cat:"🥦 Fruit & Veg", icon:"🥗", prices:{coop:1.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:2876, name:"Co-op Puff Pastry 320g", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:1.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:2877, name:"Co-op Chestnut Mushrooms 250g", cat:"🥦 Fruit & Veg", icon:"🥕", prices:{coop:1.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £1.15 until 27/10/26
-  {id:2878, name:"Actimel Strawberry Immune Support Yoghurt Drink Multipack, 8x100g", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:4.05,morrisons:0,ms:0,waitrose:0,iceland:4.95,alliance:0}, upd:"10 Oct", oos:["iceland"]}, // special offer £3.15 until 17/11/26
-  {id:2879, name:"Actimel Multifruit Immune Support Yoghurt Drink Multipack, 8x100g", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:4.05,morrisons:0,ms:0,waitrose:0,iceland:4.95,alliance:0}, upd:"10 Oct"}, // special offer £3.15 until 17/11/26
-  {id:2880, name:"Müller Corner Delicious, Creamy Yogurt Family Pack 4 x 124g (496g) 4X124G", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:3.5,morrisons:0,ms:0,waitrose:0,iceland:3.5,alliance:0}, upd:"10 Oct"},
+  {id:2878, name:"Actimel Strawberry Immune Support Yoghurt Drink Multipack, 8x100g", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:4.05,morrisons:0,ms:0,waitrose:0,iceland:4.95,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}, oos:["iceland"]}, // special offer £3.15 until 17/11/26
+  {id:2879, name:"Actimel Multifruit Immune Support Yoghurt Drink Multipack, 8x100g", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:4.05,morrisons:0,ms:0,waitrose:0,iceland:4.95,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}}, // special offer £3.15 until 17/11/26
+  {id:2880, name:"Müller Corner Delicious, Creamy Yogurt Family Pack 4 x 124g (496g) 4X124G", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:3.5,morrisons:0,ms:0,waitrose:0,iceland:3.5,alliance:0}, upd:"10 Oct", upds:{iceland:"10 Oct"}},
   {id:2881, name:"Müller Corner Strawberry, Peach & Apricot Family Pack 4 x 136g (544g) 4X136G", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:3.5,morrisons:0,ms:0,waitrose:0,iceland:3.5,alliance:0}, upd:"10 Oct"},
   {id:2882, name:"Co-op Pak Choi 200G", cat:"🥦 Fruit & Veg", icon:"🥕", prices:{coop:1.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £1.60 until 27/10/26
   {id:2883, name:"Oatly! The Original Chocolate Deluxe Oat Drink 1L 1LTR", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:2.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £1.60 until 27/10/26
@@ -3147,7 +3147,7 @@ const BASE_PRODUCTS = [
   {id:2920, name:"Co-op Irresistible Vintage Cheddar Mac & Cheese 700g", cat:"🥗 Deli & Salads", icon:"🥘", prices:{coop:8.25,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:2921, name:"Co-op Big Cheese Feast Stuffed Crust 590g", cat:"🥗 Deli & Salads", icon:"🍕", prices:{coop:6.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £5.30 until 27/10/26
   {id:2922, name:"Dairylea Snackers Cheese & Crackers with Oreo Cheese Snack 56.5 g 56.5G", cat:"🥛 Dairy & Eggs", icon:"🧀", prices:{coop:1.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:2923, name:"Strings & Things Cheestrings 8 x 20g (160g)", cat:"🥛 Dairy & Eggs", icon:"🧀", prices:{coop:3.7,morrisons:0,ms:0,waitrose:2.67,iceland:0,alliance:0}, upd:"10 Oct"},
+  {id:2923, name:"Strings & Things Cheestrings 8 x 20g (160g)", cat:"🥛 Dairy & Eggs", icon:"🧀", prices:{coop:3.7,morrisons:0,ms:0,waitrose:2.67,iceland:0,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:2924, name:"Co-op Goats Cheese 125g", cat:"🥛 Dairy & Eggs", icon:"🧀", prices:{coop:2.79,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:2925, name:"Co-op Snacking Cheese & Pepperoni 114g", cat:"🥗 Deli & Salads", icon:"🍕", prices:{coop:1.05,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members buy any 2 for £1.50 until 27/10/26
   {id:2926, name:"Co-op Snacking Cheese & Tomato 101g", cat:"🥗 Deli & Salads", icon:"🍕", prices:{coop:1.05,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members buy any 2 for £1.50 until 27/10/26
@@ -3207,7 +3207,7 @@ const BASE_PRODUCTS = [
   {id:2980, name:"Co-op Mild & Melting Mozzarella Slices 200g", cat:"🥛 Dairy & Eggs", icon:"🧀", prices:{coop:3.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:2981, name:"Co-op 4 Juicy & Tender Beef Quarter Pounders 454g", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:4.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:2982, name:"YAMAS! Reduced Fat Greek Salad Cheese 200g", cat:"🥛 Dairy & Eggs", icon:"🧀", prices:{coop:2.8,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:2983, name:"Cathedral City Our Mature Cheddar 6 x 20g 6X20G", cat:"🥛 Dairy & Eggs", icon:"🧀", prices:{coop:2.55,morrisons:0,ms:0,waitrose:0,iceland:3.1,alliance:0}, upd:"10 Oct"},
+  {id:2983, name:"Cathedral City Our Mature Cheddar 6 x 20g 6X20G", cat:"🥛 Dairy & Eggs", icon:"🧀", prices:{coop:2.55,morrisons:0,ms:0,waitrose:0,iceland:3.1,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:2984, name:"Castello Creamy Blue 150g", cat:"🥛 Dairy & Eggs", icon:"🧀", prices:{coop:3.59,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:2985, name:"Co-op Tempura Battered Fish Goujons 200g", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:3.25,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:2986, name:"Co-op Served Slow Cooked BBQ Pulled Pork 425g", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:5.8,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -3230,11 +3230,11 @@ const BASE_PRODUCTS = [
   {id:3003, name:"The Laughing Cow 8 Light Creamy Spreadable Cheese Triangles 120g 0.12KG", cat:"🥛 Dairy & Eggs", icon:"🧀", prices:{coop:2.49,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £1.60 until 27/10/26
   {id:3004, name:"Bertolli 450g", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:3.45,morrisons:0,ms:0,waitrose:0,iceland:3.75,alliance:0}, upd:"10 Oct"},
   {id:3005, name:"Onken Cherry 450g", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:2.2,morrisons:0,ms:0,waitrose:0,iceland:2.1,alliance:0}, upd:"10 Oct"}, // members £1.30 until 27/10/26
-  {id:3006, name:"Dairylea Dunkers Jumbo Tubes Cheese Snack 3 pack Multipack (3 x 41g) 123 g 123G", cat:"🥛 Dairy & Eggs", icon:"🧀", prices:{coop:2.75,morrisons:0,ms:0,waitrose:0,iceland:2.25,alliance:0}, upd:"10 Oct"},
-  {id:3007, name:"Activia Strawberry Gut Health Fruit Yoghurt Multipack 4x115g", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:3.1,morrisons:0,ms:0,waitrose:0,iceland:3.55,alliance:0}, upd:"10 Oct", oos:["iceland"]}, // special offer £1.85 until 27/10/26
-  {id:3008, name:"Activia Rhubarb Gut Health Fruit Yoghurt Multipack 4x115g", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:3.1,morrisons:0,ms:0,waitrose:0,iceland:3.55,alliance:0}, upd:"10 Oct", oos:["iceland"]}, // special offer £1.85 until 27/10/26
+  {id:3006, name:"Dairylea Dunkers Jumbo Tubes Cheese Snack 3 pack Multipack (3 x 41g) 123 g 123G", cat:"🥛 Dairy & Eggs", icon:"🧀", prices:{coop:2.75,morrisons:0,ms:0,waitrose:0,iceland:2.25,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
+  {id:3007, name:"Activia Strawberry Gut Health Fruit Yoghurt Multipack 4x115g", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:3.1,morrisons:0,ms:0,waitrose:0,iceland:3.55,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}, oos:["iceland"]}, // special offer £1.85 until 27/10/26
+  {id:3008, name:"Activia Rhubarb Gut Health Fruit Yoghurt Multipack 4x115g", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:3.1,morrisons:0,ms:0,waitrose:0,iceland:3.55,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}, oos:["iceland"]}, // special offer £1.85 until 27/10/26
   {id:3009, name:"Activia Cherry Fat Free No Added Sugar Gut Health Fruit Yoghurt Multipack 4x115g", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:3.1,morrisons:0,ms:0,waitrose:0,iceland:3.55,alliance:0}, upd:"10 Oct", oos:["iceland"]}, // special offer £1.85 until 27/10/26 | iceland offer £2.3 seen 10 Oct
-  {id:3010, name:"Activia Peach Fat Free No Added Sugar Gut Health Fruit Yoghurt Multipack 4x115g", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:3.1,morrisons:0,ms:0,waitrose:0,iceland:3.55,alliance:0}, upd:"10 Oct", oos:["iceland"]}, // special offer £1.85 until 27/10/26
+  {id:3010, name:"Activia Peach Fat Free No Added Sugar Gut Health Fruit Yoghurt Multipack 4x115g", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:3.1,morrisons:0,ms:0,waitrose:0,iceland:3.55,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}, oos:["iceland"]}, // special offer £1.85 until 27/10/26
   {id:3011, name:"Activia Raspberry Fat Free No Added Sugar Gut Health Fruit Yoghurt Multipack, 4x115g", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:3.1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £1.85 until 27/10/26
   {id:3012, name:"Frubes Kids Strawberry, Red Berry & Peach Flavour Yoghurt Tubes 9 x 37g 9X37G", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:3013, name:"Co-op Irresistible Triple Cook Thick Cut Chunky Chips 360g", cat:"🥦 Fruit & Veg", icon:"🥗", prices:{coop:3.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -3341,7 +3341,7 @@ const BASE_PRODUCTS = [
   {id:3114, name:"Bonne Maman Chocolate Mousse 2 x 70g 2X70G", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:3115, name:"Müller Light Smooth Toffee Flavour 160g", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:1.05,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:3116, name:"Bonne Maman Strawberry Mousse with Strawberry Pieces 2 x 70g 2X70G", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
-  {id:3117, name:"Müller Light Greek Style Lemon 4 x 115g (460g) 4X115G", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:2.9,alliance:0}, upd:"10 Oct"},
+  {id:3117, name:"Müller Light Greek Style Lemon 4 x 115g (460g) 4X115G", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:2.9,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:3118, name:"Co-op Strawberry Jam & Cream Doughnuts 2PACK", cat:"🥨 Snacks & Treats", icon:"🍰", prices:{coop:2.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:3119, name:"Müller Light Greek Style Strawberry 4 x 115g (460g) 4X115G", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:2.9,alliance:0}, upd:"10 Oct"},
   {id:3120, name:"Bonne Maman Salted Caramel Crème 2 x 90g 2X90G", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -3598,8 +3598,8 @@ const BASE_PRODUCTS = [
   {id:3370, name:"Nomadic Clusters Yogurt & Oats & Strawberry 169g", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:1.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:3371, name:"Nomadic Clusters Yogurt & Oats & Double Choc 169g", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:1.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:3372, name:"Dairylea Dunkers Jumbo Tubes Cheese Snack Single pack 41 g 41G", cat:"🥛 Dairy & Eggs", icon:"🧀", prices:{coop:1.49,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
-  {id:3373, name:"Peperami Original Salami 22.5g", cat:"🥩 Meat & Fish", icon:"🍖", prices:{coop:1.3,morrisons:0,ms:0,waitrose:0,iceland:1.25,alliance:0}, upd:"10 Oct"},
-  {id:3374, name:"Peperami Hot Salami 22.5g", cat:"🥩 Meat & Fish", icon:"🍖", prices:{coop:1.3,morrisons:0,ms:0,waitrose:0,iceland:1.25,alliance:0}, upd:"10 Oct"},
+  {id:3373, name:"Peperami Original Salami 22.5g", cat:"🥩 Meat & Fish", icon:"🍖", prices:{coop:1.3,morrisons:0,ms:0,waitrose:0,iceland:1.25,alliance:0}, upd:"10 Oct", upds:{iceland:"10 Oct"}},
+  {id:3374, name:"Peperami Hot Salami 22.5g", cat:"🥩 Meat & Fish", icon:"🍖", prices:{coop:1.3,morrisons:0,ms:0,waitrose:0,iceland:1.25,alliance:0}, upd:"10 Oct", upds:{iceland:"10 Oct"}},
   {id:3375, name:"Co-op Chicken Poppers Seasoned Chicken in a Spicy Crumb 70g", cat:"🥗 Deli & Salads", icon:"🥧", prices:{coop:1.49,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:3376, name:"Co-op Veggie Samosa 95g", cat:"🥗 Deli & Salads", icon:"🥧", prices:{coop:1.89,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:3377, name:"Co-op Free Range Scotch Egg 113g", cat:"🥗 Deli & Salads", icon:"🥧", prices:{coop:1.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
@@ -3707,15 +3707,15 @@ const BASE_PRODUCTS = [
   {id:3479, name:"Stork 250g", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:1.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:3480, name:"ProActiv Light 250g", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:3.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:3481, name:"Anchor Unsalted Butter 200g", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:3.05,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £2.00 until 27/10/26
-  {id:3482, name:"Kerrygold Salted Pure Irish Butter 200g", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:2.95,morrisons:0,ms:0,waitrose:2.25,iceland:0,alliance:0}, upd:"10 Oct"},
+  {id:3482, name:"Kerrygold Salted Pure Irish Butter 200g", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:2.95,morrisons:0,ms:0,waitrose:2.25,iceland:0,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:3483, name:"Oykos Blueberry Luxury Greek Style Yoghurt Dessert 4x110g", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:3.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £2.10 until 17/11/26
   {id:3484, name:"GetPro Strawberry Yoghurt 160g", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:1.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:3485, name:"Danone Skyr High Protein 0% Fat Natural Yoghurt 800g", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:5.25,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £3.15 until 27/10/26
   {id:3486, name:"Danone Skyr Icelandic Style Yoghurt 450g", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:3.09,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:3487, name:"Actimel Blueberry Immune Support Yoghurt Drink Multipack, 8x100g", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:4.05,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £3.15 until 17/11/26
-  {id:3488, name:"Müller Myprotein Chocolate Flavor Mousse 200g", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:2.65,alliance:0}, upd:"10 Oct"},
+  {id:3488, name:"Müller Myprotein Chocolate Flavor Mousse 200g", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:2.65,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:3489, name:"Müller Myprotein Chocolate Flavour Pudding 200g", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:2.05,morrisons:0,ms:0,waitrose:0,iceland:2.65,alliance:0}, upd:"10 Oct"},
-  {id:3490, name:"Müller Myprotein Crunch Strawberry Yogurt 180g", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:2.05,morrisons:0,ms:0,waitrose:0,iceland:1.35,alliance:0}, upd:"10 Oct", oos:["iceland"]},
+  {id:3490, name:"Müller Myprotein Crunch Strawberry Yogurt 180g", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:2.05,morrisons:0,ms:0,waitrose:0,iceland:1.35,alliance:0}, upd:"10 Oct", upds:{iceland:"10 Oct"}, oos:["iceland"]},
   {id:3491, name:"Co-op Chocolate Mousse 6 x 55g (330g) 6X55G", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:1.99,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:3492, name:"Co-op Irresistible 'Nduja & Burrata Cappellacci 250g", cat:"🥗 Deli & Salads", icon:"🥘", prices:{coop:4.5,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:3493, name:"Co-op Takeaway Chicken Saag Masala 350g", cat:"🥗 Deli & Salads", icon:"🥘", prices:{coop:4.79,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -3942,7 +3942,7 @@ const BASE_PRODUCTS = [
   {id:7591, name:"Waitrose Peaches Min 4", cat:"🥦 Fruit & Veg", icon:"🍑", prices:{coop:0,morrisons:0,ms:0,waitrose:3.50,iceland:0,alliance:0}, upd:"30 Jul"},
   {id:7592, name:"Waitrose Tenderstem Broccoli Spears 330g", cat:"🥦 Fruit & Veg", icon:"🥦", prices:{coop:0,morrisons:0,ms:0,waitrose:2.75,iceland:0,alliance:0}, upd:"30 Jul"},
   {id:7593, name:"Waitrose Conference Pears Loose", cat:"🥦 Fruit & Veg", icon:"🍐", prices:{coop:0,morrisons:0,ms:0,waitrose:0.54,iceland:0,alliance:0}, upd:"30 Jul"},
-  {id:7594, name:"Yeo Valley Organic Salted Butter 200g", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:3.4,morrisons:0,ms:0,waitrose:2.25,iceland:0,alliance:0}, upd:"10 Oct"},
+  {id:7594, name:"Yeo Valley Organic Salted Butter 200g", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:3.4,morrisons:0,ms:0,waitrose:2.25,iceland:0,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:7595, name:"Essential Coleslaw 300g", cat:"🥦 Fruit & Veg", icon:"🥗", prices:{coop:0,morrisons:0,ms:0,waitrose:1.30,iceland:0,alliance:0}, upd:"30 Jul"},
   {id:7596, name:"Waitrose Maris Piper Potatoes 2kg", cat:"🥦 Fruit & Veg", icon:"🥔", prices:{coop:0,morrisons:0,ms:0,waitrose:2.20,iceland:0,alliance:0}, upd:"30 Jul"},
   {id:7597, name:"Duchy Organic Houmous 200g", cat:"🥗 Deli & Salads", icon:"🥗", prices:{coop:0,morrisons:0,ms:0,waitrose:1.60,iceland:0,alliance:0}, upd:"30 Jul"},
@@ -4061,10 +4061,10 @@ const BASE_PRODUCTS = [
   {id:3698, name:"Co-op Tea Time Treat Iced Lemon Cake EACH", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:2.1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:3699, name:"Co-op Celebration Chocolate Tray Bake EACH", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:7.35,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:3700, name:"Mr Kipling 6 Almond Slices 6S", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:3.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:3701, name:"Mr Kipling 6 Country Slices 6S", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:3.15,morrisons:0,ms:0,waitrose:2.25,iceland:3.35,alliance:0}, upd:"10 Oct"}, // special offer £1.57 until 20/10/26
+  {id:3701, name:"Mr Kipling 6 Country Slices 6S", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:3.15,morrisons:0,ms:0,waitrose:2.25,iceland:3.35,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct",iceland:"10 Oct"}}, // special offer £1.57 until 20/10/26
   {id:3702, name:"Mr Kipling 8 French Fancies 8S", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:3.15,morrisons:0,ms:0,waitrose:0,iceland:3.35,alliance:0}, upd:"10 Oct"},
   {id:3703, name:"Mr Kipling 5 Mini Battenbergs 5S", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:3.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £1.58 until 20/10/26
-  {id:3704, name:"Cadbury 5 Milk Chocolate Mini Rolls 5S", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:3.05,morrisons:0,ms:0,waitrose:2.50,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £1.84 until 20/10/26
+  {id:3704, name:"Cadbury 5 Milk Chocolate Mini Rolls 5S", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:3.05,morrisons:0,ms:0,waitrose:2.50,iceland:0,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}}, // special offer £1.84 until 20/10/26
   {id:3705, name:"Mr Kipling 6 Angel Slices 6S", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:3.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:3706, name:"Co-op Time Treat 6 Tea Bramley Apple Pies 6PACK", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:2.0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:3707, name:"Co-op 6 Assorted Jam Tarts 6PK", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:1.59,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
@@ -4095,14 +4095,14 @@ const BASE_PRODUCTS = [
   {id:3732, name:"St Pierre 6 Chocolate Filled Crêpes 6PACK", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:2.6,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:3733, name:"Baker Street Seeded Rye Bread 500g", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:2.25,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £1.68 until 20/10/26
   {id:3734, name:"St Pierre 4 Seeded Brioche Burger Buns 4S", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:3.5,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:3735, name:"Mr Kipling 6 Lemon Layered Slices 6S", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:3.15,morrisons:0,ms:0,waitrose:2,iceland:3.35,alliance:0}, upd:"10 Oct"},
+  {id:3735, name:"Mr Kipling 6 Lemon Layered Slices 6S", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:3.15,morrisons:0,ms:0,waitrose:2,iceland:3.35,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct",iceland:"10 Oct"}},
   {id:3736, name:"Cadbury 10 Raspberry Mini Rolls 10S", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:4.35,morrisons:0,ms:0,waitrose:0,iceland:4.25,alliance:0}, upd:"10 Oct", oos:["iceland"]},
   {id:3737, name:"Warburtons 6 Brioche Hotdog Rolls 270G", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £2.10 until 20/10/26
   {id:3738, name:"St Pierre 4 Brioche Pre-Cut Hot Dog Rolls 4PACK", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:2.25,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:3739, name:"St Pierre 6 Croissants 6PACK", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:2.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:3740, name:"St Pierre 6 Pains Au Chocolat 6PACK", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:2.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:3741, name:"St Pierre 4 Pre-Sliced Brioche Burger Buns 4PACK", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:2.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:3742, name:"Soreen The Original Malt Loaf 260g", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:1.85,morrisons:0,ms:0,waitrose:1.80,iceland:0,alliance:0}, upd:"10 Oct"},
+  {id:3742, name:"Soreen The Original Malt Loaf 260g", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:1.85,morrisons:0,ms:0,waitrose:1.80,iceland:0,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:3743, name:"Mission Wheat & White Tortilla Wraps 6 Pack 6PACK", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:2.1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:3744, name:"Mission Original Mini Tortilla Wraps 6 Pack 6S", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:1.45,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:3745, name:"Warburtons 4 Large Rolls 4S", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:1.9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -4303,7 +4303,7 @@ const BASE_PRODUCTS = [
   {id:7246, name:"Light Rye Boule", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:0,morrisons:0,ms:0,waitrose:2.50,iceland:0,alliance:0}, upd:"30 Jul"},
   {id:7247, name:"Fitzgeralds 4 Bake at Home Stonebaked Rustic Rolls 4S", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:0,morrisons:0,ms:0,waitrose:2.10,iceland:0,alliance:0}, upd:"30 Jul"},
   {id:7248, name:"Flute 400g", cat:"🍞 Bread & Bakery", icon:"🥖", prices:{coop:0,morrisons:0,ms:0,waitrose:1.80,iceland:0,alliance:0}, upd:"30 Jul"},
-  {id:7249, name:"Real Lancashire Eccles Cakes 4S", cat:"🍞 Bread & Bakery", icon:"🍰", prices:{coop:3.05,morrisons:0,ms:0,waitrose:2.75,iceland:2.65,alliance:0}, upd:"10 Oct"},
+  {id:7249, name:"Real Lancashire Eccles Cakes 4S", cat:"🍞 Bread & Bakery", icon:"🍰", prices:{coop:3.05,morrisons:0,ms:0,waitrose:2.75,iceland:2.65,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct",iceland:"10 Oct"}},
   {id:7250, name:"Waitrose 4 Vanilla Cupcakes 4S", cat:"🍞 Bread & Bakery", icon:"🧁", prices:{coop:0,morrisons:0,ms:0,waitrose:4.00,iceland:0,alliance:0}, upd:"30 Jul"},
   {id:7251, name:"Tan Y Castell Welshcakes 6S", cat:"🍞 Bread & Bakery", icon:"🍰", prices:{coop:0,morrisons:0,ms:0,waitrose:1.45,iceland:0,alliance:0}, upd:"30 Jul"},
   {id:7252, name:"Waitrose Rich Fruit Cake", cat:"🍞 Bread & Bakery", icon:"🍰", prices:{coop:0,morrisons:0,ms:0,waitrose:2.95,iceland:0,alliance:0}, upd:"30 Jul"},
@@ -4358,14 +4358,14 @@ const BASE_PRODUCTS = [
   {id:7301, name:"Jacksons Multiseed Bloomer 400g", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:0,morrisons:0,ms:0,waitrose:1.60,iceland:0,alliance:0}, upd:"30 Jul"},
   {id:7302, name:"5 Sugared Ring Doughnuts 5S", cat:"🍞 Bread & Bakery", icon:"🍩", prices:{coop:0,morrisons:0,ms:0,waitrose:1.35,iceland:0,alliance:0}, upd:"30 Jul"},
   {id:7303, name:"Waitrose Mini Chocolate Cupcakes 9S", cat:"🍞 Bread & Bakery", icon:"🧁", prices:{coop:0,morrisons:0,ms:0,waitrose:4.00,iceland:0,alliance:0}, upd:"30 Jul"},
-  {id:7304, name:"St Pierre 6 Croissants 6S", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:2.55,morrisons:0,ms:0,waitrose:2.30,iceland:0,alliance:0}, upd:"10 Oct"},
+  {id:7304, name:"St Pierre 6 Croissants 6S", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:2.55,morrisons:0,ms:0,waitrose:2.30,iceland:0,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:7305, name:"Mr Kipling Mini Battenbergs 5S", cat:"🍞 Bread & Bakery", icon:"🍰", prices:{coop:0,morrisons:0,ms:0,waitrose:3.00,iceland:0,alliance:0}, upd:"30 Jul"},
   {id:7306, name:"New York Bakery Wholemeal Bagels 5S", cat:"🍞 Bread & Bakery", icon:"🥯", prices:{coop:0,morrisons:0,ms:0,waitrose:2.00,iceland:0,alliance:0}, upd:"30 Jul"},
   {id:7307, name:"Warburtons Gluten Free 4 Super Soft Sliced Square Rolls 240g", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:0,morrisons:0,ms:0,waitrose:3.25,iceland:0,alliance:0}, upd:"30 Jul"},
   {id:7308, name:"Bonne Maman 7 Madeleines with Lemon 175g", cat:"🍞 Bread & Bakery", icon:"🍰", prices:{coop:0,morrisons:0,ms:0,waitrose:3.35,iceland:0,alliance:0}, upd:"30 Jul"},
   {id:7309, name:"Essential 5 Chocolate Chip Cake Bars 5S", cat:"🍞 Bread & Bakery", icon:"🍫", prices:{coop:0,morrisons:0,ms:0,waitrose:1.00,iceland:0,alliance:0}, upd:"30 Jul"},
   {id:7310, name:"Waitrose Banana Loaf Cake", cat:"🍞 Bread & Bakery", icon:"🍰", prices:{coop:0,morrisons:0,ms:0,waitrose:2.80,iceland:0,alliance:0}, upd:"30 Jul"},
-  {id:7311, name:"Mr Kipling 8 Angel Slices 8S", cat:"🍞 Bread & Bakery", icon:"🍰", prices:{coop:0,morrisons:0,ms:0,waitrose:3.95,iceland:3.35,alliance:0}, upd:"10 Oct"},
+  {id:7311, name:"Mr Kipling 8 Angel Slices 8S", cat:"🍞 Bread & Bakery", icon:"🍰", prices:{coop:0,morrisons:0,ms:0,waitrose:3.95,iceland:3.35,alliance:0}, upd:"10 Oct", upds:{iceland:"10 Oct"}},
   {id:7312, name:"Schär Gluten Free Brown Ciabatta Rolls 4x50g", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:0,morrisons:0,ms:0,waitrose:2.50,iceland:0,alliance:0}, upd:"30 Jul"},
   {id:7313, name:"Malted Mixed Seeds Bloomer", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:0,morrisons:0,ms:0,waitrose:2.35,iceland:0,alliance:0}, upd:"30 Jul"},
   {id:7314, name:"Waitrose Chocolate Cupcakes 4S", cat:"🍞 Bread & Bakery", icon:"🧁", prices:{coop:0,morrisons:0,ms:0,waitrose:4.00,iceland:0,alliance:0}, upd:"30 Jul"},
@@ -4406,7 +4406,7 @@ const BASE_PRODUCTS = [
   {id:7349, name:"No.1 Baklava Selection 200g", cat:"🍞 Bread & Bakery", icon:"🍰", prices:{coop:0,morrisons:0,ms:0,waitrose:4.00,iceland:0,alliance:0}, upd:"30 Jul"},
   {id:7350, name:"Apricot & Almond Pastry", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:0,morrisons:0,ms:0,waitrose:1.80,iceland:0,alliance:0}, upd:"30 Jul"},
   {id:7351, name:"Fitzgeralds Poppy Seed Bagels 5S", cat:"🍞 Bread & Bakery", icon:"🥯", prices:{coop:0,morrisons:0,ms:0,waitrose:2.20,iceland:0,alliance:0}, upd:"30 Jul"},
-  {id:7352, name:"Mr Kipling 4 Birthday Cake Tarts 4S", cat:"🍞 Bread & Bakery", icon:"🥧", prices:{coop:2.2,morrisons:0,ms:0,waitrose:2.50,iceland:2.4,alliance:0}, upd:"10 Oct"}, // special offer £1.31 until 20/10/26
+  {id:7352, name:"Mr Kipling 4 Birthday Cake Tarts 4S", cat:"🍞 Bread & Bakery", icon:"🥧", prices:{coop:2.2,morrisons:0,ms:0,waitrose:2.50,iceland:2.4,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct",iceland:"10 Oct"}}, // special offer £1.31 until 20/10/26
   {id:7353, name:"Waitrose Carrot Cake", cat:"🍞 Bread & Bakery", icon:"🍰", prices:{coop:0,morrisons:0,ms:0,waitrose:3.20,iceland:0,alliance:0}, upd:"30 Jul"},
   {id:7354, name:"Waitrose Lemon Swiss Roll", cat:"🍞 Bread & Bakery", icon:"🍰", prices:{coop:0,morrisons:0,ms:0,waitrose:2.10,iceland:0,alliance:0}, upd:"30 Jul"},
   {id:7355, name:"Essential Plain Fairy Cakes 12S", cat:"🍞 Bread & Bakery", icon:"🧁", prices:{coop:0,morrisons:0,ms:0,waitrose:1.75,iceland:0,alliance:0}, upd:"30 Jul"},
@@ -4458,7 +4458,7 @@ const BASE_PRODUCTS = [
   {id:7401, name:"Waitrose Rocky Road Mini Bites 234g", cat:"🍞 Bread & Bakery", icon:"🍫", prices:{coop:0,morrisons:0,ms:0,waitrose:3.50,iceland:0,alliance:0}, upd:"30 Jul"},
   {id:7402, name:"Jason's Everyday Protein Rolls 4S", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:0,morrisons:0,ms:0,waitrose:1.90,iceland:0,alliance:0}, upd:"30 Jul"},
   {id:7403, name:"Waitrose Pizza Mix with Semolina 500g", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:0,morrisons:0,ms:0,waitrose:1.40,iceland:0,alliance:0}, upd:"30 Jul"},
-  {id:7404, name:"Mr Kipling Battenberg 230g", cat:"🍞 Bread & Bakery", icon:"🍰", prices:{coop:2.95,morrisons:0,ms:0,waitrose:3.00,iceland:0,alliance:0}, upd:"10 Oct"},
+  {id:7404, name:"Mr Kipling Battenberg 230g", cat:"🍞 Bread & Bakery", icon:"🍰", prices:{coop:2.95,morrisons:0,ms:0,waitrose:3.00,iceland:0,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:7405, name:"Mr Kipling Almond Slices 6S", cat:"🍞 Bread & Bakery", icon:"🍰", prices:{coop:0,morrisons:0,ms:0,waitrose:2.25,iceland:0,alliance:0}, upd:"30 Jul"},
   {id:7406, name:"Waitrose Triple Chocolate Brownies 4S", cat:"🍞 Bread & Bakery", icon:"🍫", prices:{coop:0,morrisons:0,ms:0,waitrose:3.75,iceland:0,alliance:0}, upd:"30 Jul"},
   {id:7407, name:"Leckford Seeded Baguette", cat:"🍞 Bread & Bakery", icon:"🥖", prices:{coop:0,morrisons:0,ms:0,waitrose:2.05,iceland:0,alliance:0}, upd:"30 Jul"},
@@ -4581,7 +4581,7 @@ const BASE_PRODUCTS = [
   {id:3778, name:"Co-op Stuffed Crust Pepperoni Pizza 468g", cat:"🧊 Frozen", icon:"🍕", prices:{coop:3.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:3779, name:"Crosta Mollica Margherita Sourdough Pizzetta 2 x 218g (436g) 422G", cat:"🧊 Frozen", icon:"🍕", prices:{coop:6.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct", oos:["coop"]},
   {id:3780, name:"Co-op Meat Feast Stonebaked Pizza 335G", cat:"🧊 Frozen", icon:"🍕", prices:{coop:1.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:3781, name:"Chicago Town Original Deep Dish Pepperoni Pizza 2 x 155g (310g) 2X155G", cat:"🧊 Frozen", icon:"🍕", prices:{coop:2.35,morrisons:0,ms:0,waitrose:0,iceland:2.35,alliance:0}, upd:"10 Oct"}, // special offer £1.55 until 27/10/26
+  {id:3781, name:"Chicago Town Original Deep Dish Pepperoni Pizza 2 x 155g (310g) 2X155G", cat:"🧊 Frozen", icon:"🍕", prices:{coop:2.35,morrisons:0,ms:0,waitrose:0,iceland:2.35,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}}, // special offer £1.55 until 27/10/26
   {id:3782, name:"Chicago Town Stuffed Crust Loaded Pepperoni Pizza 645g", cat:"🧊 Frozen", icon:"🍕", prices:{coop:6.3,morrisons:0,ms:0,waitrose:0,iceland:6.25,alliance:0}, upd:"21 Sep"},
   {id:3783, name:"Goodfella's Stonebaked Thin Pepperoni 332g", cat:"🧊 Frozen", icon:"🍕", prices:{coop:3.4,morrisons:0,ms:0,waitrose:0,iceland:3.95,alliance:0}, upd:"10 Oct"},
   {id:3784, name:"Goodfella's Stonebaked Thin Margherita 334g", cat:"🧊 Frozen", icon:"🍕", prices:{coop:3.4,morrisons:0,ms:0,waitrose:0,iceland:3.95,alliance:0}, upd:"10 Oct"},
@@ -4602,8 +4602,8 @@ const BASE_PRODUCTS = [
   {id:3799, name:"Birds Eye 4 Chicken Burgers 200g", cat:"🧊 Frozen", icon:"🍗", prices:{coop:3.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:3800, name:"Birds Eye 2 Crispy Tempura Battered Chicken 170g", cat:"🧊 Frozen", icon:"🍗", prices:{coop:3.45,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:3801, name:"Birds Eye 2 Crunchy Southern Fried Chicken 180g", cat:"🧊 Frozen", icon:"🍗", prices:{coop:3.45,morrisons:0,ms:0,waitrose:0,iceland:3.5,alliance:0}, upd:"10 Oct"},
-  {id:3802, name:"Birds Eye 12 Chicken Dippers 220g", cat:"🧊 Frozen", icon:"🍗", prices:{coop:3.2,morrisons:0,ms:0,waitrose:0,iceland:3.7,alliance:0}, upd:"10 Oct"},
-  {id:3803, name:"Birds Eye Chicken Shop Ultimate Fillet Burgers 227g", cat:"🧊 Frozen", icon:"🍗", prices:{coop:5.0,morrisons:0,ms:0,waitrose:0,iceland:5.8,alliance:0}, upd:"10 Oct"},
+  {id:3802, name:"Birds Eye 12 Chicken Dippers 220g", cat:"🧊 Frozen", icon:"🍗", prices:{coop:3.2,morrisons:0,ms:0,waitrose:0,iceland:3.7,alliance:0}, upd:"10 Oct", upds:{iceland:"10 Oct"}},
+  {id:3803, name:"Birds Eye Chicken Shop Ultimate Fillet Burgers 227g", cat:"🧊 Frozen", icon:"🍗", prices:{coop:5.0,morrisons:0,ms:0,waitrose:0,iceland:5.8,alliance:0}, upd:"10 Oct", upds:{iceland:"10 Oct"}},
   {id:3804, name:"Co-op 4 British Beef Quarter Pounders 454g", cat:"🧊 Frozen", icon:"🍗", prices:{coop:5.25,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:3805, name:"Strong Roots Crispy Sweet Potato Fries 500g", cat:"🧊 Frozen", icon:"🥦", prices:{coop:3.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:3806, name:"Co-op Potato Wedges 750g", cat:"🧊 Frozen", icon:"🥦", prices:{coop:1.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -4696,11 +4696,11 @@ const BASE_PRODUCTS = [
   {id:3894, name:"Co-op Home Baking Evaporated Milk 170g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:0.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:3895, name:"Co-op 10 Crispy Ice Cream Cones 10PACK", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:3896, name:"Co-op Fine Cut Orange Marmalade 420g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.19,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:3897, name:"Marmite Yeast Extract Spread 250g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:4.05,morrisons:0,ms:0,waitrose:3.50,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:3898, name:"Bonne Maman Strawberry Conserve 370g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:4.15,morrisons:0,ms:0,waitrose:3.60,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £3.15 until 20/10/26
-  {id:3899, name:"Bonne Maman Apricot Conserve 370g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:4.15,morrisons:0,ms:0,waitrose:3.60,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £3.15 until 20/10/26
+  {id:3897, name:"Marmite Yeast Extract Spread 250g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:4.05,morrisons:0,ms:0,waitrose:3.50,iceland:0,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
+  {id:3898, name:"Bonne Maman Strawberry Conserve 370g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:4.15,morrisons:0,ms:0,waitrose:3.60,iceland:0,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}}, // special offer £3.15 until 20/10/26
+  {id:3899, name:"Bonne Maman Apricot Conserve 370g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:4.15,morrisons:0,ms:0,waitrose:3.60,iceland:0,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}}, // special offer £3.15 until 20/10/26
   {id:3900, name:"Bonne Maman Bitter Orange Fine Shred Marmalade 370g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:4.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
-  {id:3901, name:"Bonne Maman Raspberry Conserve 370g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:4.15,morrisons:0,ms:0,waitrose:4.00,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £3.15 until 20/10/26
+  {id:3901, name:"Bonne Maman Raspberry Conserve 370g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:4.15,morrisons:0,ms:0,waitrose:4.00,iceland:0,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}}, // special offer £3.15 until 20/10/26
   {id:3902, name:"Robertsons Golden Shredless 454g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.3,morrisons:0,ms:0,waitrose:0,iceland:2.8,alliance:0}, upd:"10 Oct"},
   {id:3903, name:"Rowse Manuka 100+ MGO 225g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:11.0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:3904, name:"Rowse Organic Honey 340g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.7,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -4756,15 +4756,15 @@ const BASE_PRODUCTS = [
   {id:3955, name:"Oatly! Oat Drink Barista Edition 500ml", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.59,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct", oos:["coop"]},
   {id:3956, name:"Co Op Unsweetened Soya Drink 1 Litre 1LTR", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.59,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:3957, name:"Co-op Skimmed Milk Powder 340g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.59,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:3958, name:"Pot Noodle Chicken & Mushroom Instant Noodles 90 g 90G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.5,morrisons:0,ms:0,waitrose:0,iceland:1.1,alliance:0}, upd:"10 Oct"},
+  {id:3958, name:"Pot Noodle Chicken & Mushroom Instant Noodles 90 g 90G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.5,morrisons:0,ms:0,waitrose:0,iceland:1.1,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:3959, name:"Pot Noodle Bombay Bad Boy King 114 g 114G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £1.05 until 20/10/26
   {id:3960, name:"Nissin Classic Wok Style Soba 109g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:3961, name:"Nissin Chilli Wok Style Soba 111g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:3962, name:"Cup Noodles Soba Wok Style Classic 90g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.3,morrisons:0,ms:0,waitrose:0,iceland:2.4,alliance:0}, upd:"10 Oct"},
   {id:3963, name:"Cup Noodles Soba Wok Style Yakitori Chicken 89g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:3964, name:"Pot Noodle Beef & Tomato King 114 g 114G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.65,morrisons:0,ms:0,waitrose:0,iceland:2,alliance:0}, upd:"10 Oct"}, // special offer £1.05 until 20/10/26
-  {id:3965, name:"Pot Noodle Chicken & Mushroom King 114 g 114G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.65,morrisons:0,ms:0,waitrose:0,iceland:2,alliance:0}, upd:"10 Oct"}, // special offer £1.05 until 20/10/26
-  {id:3966, name:"Pot Noodle Original Curry King 114 g 114G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.65,morrisons:0,ms:0,waitrose:0,iceland:2,alliance:0}, upd:"10 Oct"}, // special offer £1.05 until 20/10/26
+  {id:3964, name:"Pot Noodle Beef & Tomato King 114 g 114G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.65,morrisons:0,ms:0,waitrose:0,iceland:2,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}}, // special offer £1.05 until 20/10/26
+  {id:3965, name:"Pot Noodle Chicken & Mushroom King 114 g 114G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.65,morrisons:0,ms:0,waitrose:0,iceland:2,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}}, // special offer £1.05 until 20/10/26
+  {id:3966, name:"Pot Noodle Original Curry King 114 g 114G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.65,morrisons:0,ms:0,waitrose:0,iceland:2,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}}, // special offer £1.05 until 20/10/26
   {id:3967, name:"Pot Noodle Sticky Rib King 114 g 114G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £1.05 until 20/10/26
   {id:3968, name:"Batchelors Super Noodles Chicken Flavour 90g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.3,morrisons:0,ms:0,waitrose:0,iceland:1.6,alliance:0}, upd:"10 Oct"},
   {id:3969, name:"Batchelors Super Noodles BBQ Beef Flavour 90g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.3,morrisons:0,ms:0,waitrose:0,iceland:1.6,alliance:0}, upd:"10 Oct"},
@@ -4784,9 +4784,9 @@ const BASE_PRODUCTS = [
   {id:3983, name:"itsu Noodles & Broth Satay Style 66g 66EACH", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.45,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:3984, name:"Kallo Organic Very Low Salt Vegetable Stock Cubes 6 x 10g 60G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.49,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:3985, name:"Maldon Himalayan Pink Salt 250g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:3986, name:"Colman's Classic Comforts Cheddar Cheese Sauce Mix 40 g 40G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.3,morrisons:0,ms:0,waitrose:0,iceland:1.35,alliance:0}, upd:"10 Oct"},
-  {id:3987, name:"Colman's Midweek Meals Chilli Con Carne Recipe Mix 50 g 50G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.3,morrisons:0,ms:0,waitrose:0,iceland:1.35,alliance:0}, upd:"10 Oct"},
-  {id:3988, name:"Colman's Classic Comforts Beef Casserole Recipe Mix 40 g 40G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.3,morrisons:0,ms:0,waitrose:0,iceland:1.35,alliance:0}, upd:"10 Oct"},
+  {id:3986, name:"Colman's Classic Comforts Cheddar Cheese Sauce Mix 40 g 40G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.3,morrisons:0,ms:0,waitrose:0,iceland:1.35,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
+  {id:3987, name:"Colman's Midweek Meals Chilli Con Carne Recipe Mix 50 g 50G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.3,morrisons:0,ms:0,waitrose:0,iceland:1.35,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
+  {id:3988, name:"Colman's Classic Comforts Beef Casserole Recipe Mix 40 g 40G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.3,morrisons:0,ms:0,waitrose:0,iceland:1.35,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:3989, name:"Colman's Classic Comforts Meal Maker Chicken Casserole 40 g 40G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.3,morrisons:0,ms:0,waitrose:0,iceland:1.35,alliance:0}, upd:"10 Oct"},
   {id:3990, name:"Colman's Midweek Meals Parsley Sauce Mix 20 g 20G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:3991, name:"Co-op Sage and Onion Stuffing Mix 170G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:0.79,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -4794,11 +4794,11 @@ const BASE_PRODUCTS = [
   {id:3993, name:"Co-op Cook's Kitchen Cornflour 250g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.45,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:3994, name:"Co Op Sea Salt Mill 110g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.69,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:3995, name:"Oxo 12 Beef 71g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.0,morrisons:0,ms:0,waitrose:0,iceland:3.75,alliance:0}, upd:"10 Oct"},
-  {id:3996, name:"Paxo Sage & Onion Stuffing Mix 170g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.9,morrisons:0,ms:0,waitrose:0,iceland:3.5,alliance:0}, upd:"10 Oct"},
+  {id:3996, name:"Paxo Sage & Onion Stuffing Mix 170g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.9,morrisons:0,ms:0,waitrose:0,iceland:3.5,alliance:0}, upd:"10 Oct", upds:{iceland:"10 Oct"}},
   {id:3997, name:"Bisto The Original Gravy Powder 200g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.35,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:3998, name:"Maldon Sea Salt Flakes 250g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.75,morrisons:0,ms:0,waitrose:3.00,iceland:0,alliance:0}, upd:"10 Oct"},
+  {id:3998, name:"Maldon Sea Salt Flakes 250g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.75,morrisons:0,ms:0,waitrose:3.00,iceland:0,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:3999, name:"Bisto Gravy Granules 190g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.6,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:4000, name:"Bisto Reduced Salt Gravy Granules 190g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.6,morrisons:0,ms:0,waitrose:0,iceland:3.95,alliance:0}, upd:"10 Oct"},
+  {id:4000, name:"Bisto Reduced Salt Gravy Granules 190g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.6,morrisons:0,ms:0,waitrose:0,iceland:3.95,alliance:0}, upd:"10 Oct", upds:{iceland:"10 Oct"}},
   {id:4001, name:"Bisto for Chicken Gravy Granules 190g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.6,morrisons:0,ms:0,waitrose:0,iceland:3.95,alliance:0}, upd:"10 Oct"},
   {id:4002, name:"Bisto Onion Gravy Granules 190g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.6,morrisons:0,ms:0,waitrose:0,iceland:3.95,alliance:0}, upd:"10 Oct"},
   {id:4003, name:"BISTO Best Beef Gravy 230g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:4.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £3.85 until 20/10/26
@@ -4819,12 +4819,12 @@ const BASE_PRODUCTS = [
   {id:4020, name:"Knorr Red Wine Stock Pots 4x 26 g 4X26G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.25,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4022, name:"Co-op British Cooking Salt 1.5kg", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.39,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4023, name:"Maggi BBQ 41g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.2,morrisons:0,ms:0,waitrose:0,iceland:1.35,alliance:0}, upd:"10 Oct"},
-  {id:4024, name:"Colman's Classic Comforts Sausage Casserole Meal Maker 39 g 39G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.3,morrisons:0,ms:0,waitrose:0,iceland:1.35,alliance:0}, upd:"10 Oct"},
+  {id:4024, name:"Colman's Classic Comforts Sausage Casserole Meal Maker 39 g 39G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.3,morrisons:0,ms:0,waitrose:0,iceland:1.35,alliance:0}, upd:"10 Oct", upds:{iceland:"10 Oct"}},
   {id:4025, name:"Colman's Midweek Meals Tuna Pasta Bake Recipe Mix 44 g 44G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4026, name:"Colman's Midweek Meals Spaghetti Bolognese Recipe Mix 44 g 44G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4027, name:"Knorr Chicken Stock Pots 8x 28 g 224G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:4028, name:"Nando's Bag & Bake Medium 20g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.8,morrisons:0,ms:0,waitrose:0,iceland:1.8,alliance:0}, upd:"10 Oct"},
-  {id:4029, name:"Knorr Chicken Stock Pots 4x 28 g 4X28G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.1,morrisons:0,ms:0,waitrose:0,iceland:2.55,alliance:0}, upd:"10 Oct", oos:["iceland"]},
+  {id:4029, name:"Knorr Chicken Stock Pots 4x 28 g 4X28G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.1,morrisons:0,ms:0,waitrose:0,iceland:2.55,alliance:0}, upd:"10 Oct", upds:{iceland:"10 Oct"}, oos:["iceland"]},
   {id:4030, name:"Knorr Stock Pot Vegetable 4x 28 g 4X28G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.25,morrisons:0,ms:0,waitrose:0,iceland:2.55,alliance:0}, upd:"10 Oct"},
   {id:4031, name:"Co-op Cook's Kitchen Golden Breadcrumbs 175g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.2,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4032, name:"Colman's Classic Comforts Shepherd's Pie Recipe Mix 50 g 50G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -4859,13 +4859,13 @@ const BASE_PRODUCTS = [
   {id:4062, name:"Schwartz Parsley Flat Leaf 3g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.55,morrisons:0,ms:0,waitrose:0,iceland:2.8,alliance:0}, upd:"10 Oct", oos:["iceland"]},
   {id:4063, name:"Schwartz Cayenne Chilli Pepper 26g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4064, name:"Schwartz Chives 1g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:4065, name:"Schwartz Cinnamon Sticks 13g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.55,morrisons:0,ms:0,waitrose:0,iceland:2.65,alliance:0}, upd:"10 Oct"},
+  {id:4065, name:"Schwartz Cinnamon Sticks 13g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.55,morrisons:0,ms:0,waitrose:0,iceland:2.65,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:4066, name:"Schwartz Garam Masala 30g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4067, name:"Schwartz Medium Curry Powder 90g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.39,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4068, name:"Schwartz Bay Leaves 3g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.55,morrisons:0,ms:0,waitrose:0,iceland:2.6,alliance:0}, upd:"10 Oct"},
   {id:4069, name:"Schwartz Oregano 7g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.55,morrisons:0,ms:0,waitrose:0,iceland:2.8,alliance:0}, upd:"10 Oct"},
   {id:4070, name:"Schwartz Paprika Smoked 40g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.55,morrisons:0,ms:0,waitrose:0,iceland:2.9,alliance:0}, upd:"10 Oct"},
-  {id:4071, name:"Schwartz Ground Cinnamon 39g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.55,morrisons:0,ms:0,waitrose:0,iceland:2.9,alliance:0}, upd:"10 Oct", oos:["iceland"]},
+  {id:4071, name:"Schwartz Ground Cinnamon 39g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.55,morrisons:0,ms:0,waitrose:0,iceland:2.9,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}, oos:["iceland"]},
   {id:4072, name:"Schwartz Cumin Ground 37g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4073, name:"Schwartz Garlic Granules 50g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.55,morrisons:0,ms:0,waitrose:0,iceland:2.9,alliance:0}, upd:"10 Oct"},
   {id:4074, name:"Schwartz Mixed Herbs 11g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.55,morrisons:0,ms:0,waitrose:0,iceland:2.8,alliance:0}, upd:"10 Oct"},
@@ -4892,7 +4892,7 @@ const BASE_PRODUCTS = [
   {id:4094, name:"Schwartz Thyme 11g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.55,morrisons:0,ms:0,waitrose:0,iceland:2.4,alliance:0}, upd:"10 Oct", oos:["iceland"]},
   {id:4095, name:"Schwartz Crushed Chilli 29g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4096, name:"Schwartz Ground Coriander 24g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:4097, name:"Canderel 100 Tablets 8.5g 100S", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.69,morrisons:0,ms:0,waitrose:1.80,iceland:0,alliance:0}, upd:"10 Oct"},
+  {id:4097, name:"Canderel 100 Tablets 8.5g 100S", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.69,morrisons:0,ms:0,waitrose:1.80,iceland:0,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:4098, name:"Tate & Lyle Fairtrade Cane Sugar White Cubes 500g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.89,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4099, name:"Tate & Lyle Pure Cane Granulated Sugar 2kg", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.59,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4100, name:"Tate & Lyle Sweetener 300 Tablets 15g 300G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -4901,9 +4901,9 @@ const BASE_PRODUCTS = [
   {id:4103, name:"Tate & Lyle Fairtrade Pure Cane Granulated Sugar 1kg", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.35,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £1.10 until 03/01/27
   {id:4104, name:"Tate & Lyle Fairtrade Pure Cane Caster Sugar 1kg", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.35,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4105, name:"Tate & Lyle Fairtrade Pure Cane Granulated Sugar 500g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:4106, name:"Tate & Lyle Fairtrade Cane Icing Sugar 1kg", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.7,morrisons:0,ms:0,waitrose:2.03,iceland:0,alliance:0}, upd:"10 Oct"},
+  {id:4106, name:"Tate & Lyle Fairtrade Cane Icing Sugar 1kg", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.7,morrisons:0,ms:0,waitrose:2.03,iceland:0,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:4107, name:"Tate & Lyle Fairtrade Unrefined Demerara Pure Cane Sugar 1kg", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.89,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:4108, name:"Tate & Lyle Fairtrade Golden Caster Pure Cane Sugar 1kg", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.6,morrisons:2.35,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
+  {id:4108, name:"Tate & Lyle Fairtrade Golden Caster Pure Cane Sugar 1kg", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.6,morrisons:2.35,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:4109, name:"Tate & Lyle Fairtrade Light Brown Soft Pure Cane Sugar 500g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4110, name:"Hermesetas Mini Sweeteners 300 Tablets 3.6g 300S", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.25,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4111, name:"Co-op On the Side Tartare Sauce 170g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -4912,7 +4912,7 @@ const BASE_PRODUCTS = [
   {id:4114, name:"Hellmann's Real Squeezy Mayonnaise 750ml", cat:"🍝 Pantry", icon:"🍝", prices:{coop:4.4,morrisons:0,ms:0,waitrose:0,iceland:5.2,alliance:0}, upd:"21 Sep"},
   {id:4115, name:"Olivio 500ml", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.95,morrisons:0,ms:0,waitrose:0,iceland:3.6,alliance:0}, upd:"10 Oct"},
   {id:4117, name:"Aspall Raw Organic Apple Cyder Vinegar 500ml", cat:"🍝 Pantry", icon:"🍝", prices:{coop:4.5,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:4118, name:"Nando's Peri-Salt 70g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.45,morrisons:0,ms:0,waitrose:0,iceland:2.35,alliance:0}, upd:"10 Oct"},
+  {id:4118, name:"Nando's Peri-Salt 70g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.45,morrisons:0,ms:0,waitrose:0,iceland:2.35,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:4119, name:"Filippo Berio Special Selection Extra Virgin Olive Oil 500ml", cat:"🍝 Pantry", icon:"🍝", prices:{coop:11,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £5.50 until 20/10/26
   {id:4120, name:"Filippo Berio Extra Virgin Olive Oil 250ml", cat:"🍝 Pantry", icon:"🍝", prices:{coop:5.25,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £3.15 until 20/10/26
   {id:4121, name:"Garner's Original Pickled Onions 454g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:6.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -4920,12 +4920,12 @@ const BASE_PRODUCTS = [
   {id:4123, name:"Co-op Antipasti Pimento Stuffed Hojiblanca Olives in Brine 340g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.59,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4124, name:"Co-op Classic Dijon Mustard 185g 180G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.2,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4125, name:"Co-op Classic Wholegrain Mustard 180g 185G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.39,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:4126, name:"Heinz Salad Cream Original 425g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.99,morrisons:0,ms:0,waitrose:0,iceland:3.35,alliance:0}, upd:"10 Oct"},
+  {id:4126, name:"Heinz Salad Cream Original 425g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.99,morrisons:0,ms:0,waitrose:0,iceland:3.35,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:4127, name:"Heinz 30% Less Fat Salad Cream 415g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.99,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4128, name:"Heinz Salad Cream Original 605g 570ML", cat:"🍝 Pantry", icon:"🍝", prices:{coop:4.75,morrisons:0,ms:0,waitrose:0,iceland:4.9,alliance:0}, upd:"10 Oct", oos:["iceland"]}, // members £3.95 until 20/10/26
   {id:4129, name:"Heinz Tomato Ketchup Zero Added Sugar & Salt 400ml", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4130, name:"Co-op Pickled Gherkins in Sweet Vinegar 680g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.25,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:4131, name:"Hellmann's Light Mayonnaise Condiment 430 ml 430ML", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.15,morrisons:0,ms:0,waitrose:0,iceland:3.6,alliance:0}, upd:"10 Oct"},
+  {id:4131, name:"Hellmann's Light Mayonnaise Condiment 430 ml 430ML", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.15,morrisons:0,ms:0,waitrose:0,iceland:3.6,alliance:0}, upd:"10 Oct", upds:{iceland:"10 Oct"}},
   {id:4132, name:"Co-op Classic Cranberry Sauce 200g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.7,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4133, name:"Co Op Artichokes 280g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.89,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4134, name:"Uni-Eagle Sriracha Mayo Sauce 430ml", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.29,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -4945,14 +4945,14 @@ const BASE_PRODUCTS = [
   {id:4149, name:"Co-op Tomato Ketchup 550g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £1.00 until 03/01/27
   {id:4150, name:"Hellmann's Real J Mayonnaise 400g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.3,morrisons:0,ms:0,waitrose:3.10,iceland:0,alliance:0}, upd:"31 Jul"},
   {id:4151, name:"Filippo Berio Classic Olive Oil 500ml", cat:"🍝 Pantry", icon:"🍝", prices:{coop:9.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
-  {id:4152, name:"Hellmann's Light Mayonnaise 400g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.3,morrisons:0,ms:0,waitrose:3.10,iceland:0,alliance:0}, upd:"10 Oct"}, // members £2.10 until 20/10/26
+  {id:4152, name:"Hellmann's Light Mayonnaise 400g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.3,morrisons:0,ms:0,waitrose:3.10,iceland:0,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}}, // members £2.10 until 20/10/26
   {id:4153, name:"Filippo Berio Mild & Light in Colour Olive Oil 500ml", cat:"🍝 Pantry", icon:"🍝", prices:{coop:8.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4154, name:"Filippo Berio Extra Virgin Olive Oil 750ml", cat:"🍝 Pantry", icon:"🍝", prices:{coop:12.9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4155, name:"Blue Dragon Original Sweet Chilli Sauce 315g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.1,morrisons:0,ms:0,waitrose:0,iceland:2.9,alliance:0}, upd:"10 Oct", oos:["iceland"]},
   {id:4156, name:"Blue Dragon Reduced Sugar Sweet Chilli Sauce 295g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4157, name:"Levi Roots Reggae Reggae Jerk BBQ Marinade & Sauce Orginal 290g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £1.58 until 20/10/26
-  {id:4158, name:"Heinz Tomato Ketchup 460g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.95,morrisons:0,ms:0,waitrose:3.00,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:4159, name:"Heinz Tomato Ketchup 700g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:4.39,morrisons:0,ms:0,waitrose:3.50,iceland:4.8,alliance:0}, upd:"10 Oct"}, // members £3.95 until 20/10/26
+  {id:4158, name:"Heinz Tomato Ketchup 460g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.95,morrisons:0,ms:0,waitrose:3.00,iceland:0,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
+  {id:4159, name:"Heinz Tomato Ketchup 700g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:4.39,morrisons:0,ms:0,waitrose:3.50,iceland:4.8,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct",iceland:"10 Oct"}}, // members £3.95 until 20/10/26
   {id:4160, name:"Heinz Tomato Ketchup 50% Less Salt & Sugar 400ml 435G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct", oos:["coop"]},
   {id:4161, name:"Heinz Classic Barbecue Sauce 480g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:4.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4162, name:"Encona West Indian Original Hot Pepper Sauce 285ml", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.45,morrisons:0,ms:0,waitrose:0,iceland:1.45,alliance:0}, upd:"10 Oct", oos:["iceland"]},
@@ -4974,10 +4974,10 @@ const BASE_PRODUCTS = [
   {id:4179, name:"Frank's Red Hot Original Cayenne Pepper Sauce 160g 148ML", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.59,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4180, name:"Hellmann's Real Mayonnaise 250ml", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.45,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4181, name:"Sarson's Malt Vinegar 250ml", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.6,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:4183, name:"Sarson's Distilled Malt Vinegar 568ml", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.2,morrisons:0,ms:0,waitrose:1.90,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:4185, name:"Branston Piccalilli 360g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.89,morrisons:0,ms:0,waitrose:0,iceland:3.35,alliance:0}, upd:"10 Oct"},
+  {id:4183, name:"Sarson's Distilled Malt Vinegar 568ml", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.2,morrisons:0,ms:0,waitrose:1.90,iceland:0,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
+  {id:4185, name:"Branston Piccalilli 360g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.89,morrisons:0,ms:0,waitrose:0,iceland:3.35,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:4187, name:"Branston Original Pickle 520g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.95,morrisons:0,ms:0,waitrose:0,iceland:3.45,alliance:0}, upd:"10 Oct"},
-  {id:4189, name:"Branston Small Chunk Pickle 360g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.49,morrisons:0,ms:0,waitrose:2.40,iceland:0,alliance:0}, upd:"10 Oct"},
+  {id:4189, name:"Branston Small Chunk Pickle 360g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.49,morrisons:0,ms:0,waitrose:2.40,iceland:0,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:4191, name:"Cooks&Co Duck Fat 200g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.25,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4192, name:"Nando's Medium Peri-Peri Sauce 125g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.8,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4193, name:"Nando's Mild Peri-Peri Mayo 265g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.15,morrisons:0,ms:0,waitrose:0,iceland:3.1,alliance:0}, upd:"10 Oct"},
@@ -4991,8 +4991,8 @@ const BASE_PRODUCTS = [
   {id:4201, name:"Napolina Olive Oil 500ml", cat:"🍝 Pantry", icon:"🍝", prices:{coop:6.6,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4202, name:"Co-op Pickled Cornichons in Sweet Vinegar 340g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.5,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4203, name:"Co-op Pickled Sliced Beetroot 340g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.29,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:4204, name:"HP Brown Sauce 450g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.75,morrisons:0,ms:0,waitrose:3.50,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:4205, name:"HP Brown Sauce 600g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:4.39,morrisons:0,ms:0,waitrose:0,iceland:5,alliance:0}, upd:"10 Oct"}, // members £3.95 until 20/10/26
+  {id:4204, name:"HP Brown Sauce 450g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.75,morrisons:0,ms:0,waitrose:3.50,iceland:0,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
+  {id:4205, name:"HP Brown Sauce 600g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:4.39,morrisons:0,ms:0,waitrose:0,iceland:5,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}}, // members £3.95 until 20/10/26
   {id:4206, name:"Co-op Vegetable Oil 1 Litre 1LTR", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £1.95 until 03/01/27
   {id:4207, name:"Co-op Sunflower Oil 1 Litre 1LTR", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £1.95 until 03/01/27
   {id:4208, name:"Co-op Irresistible Rapeseed Oil 500ml", cat:"🍝 Pantry", icon:"🍝", prices:{coop:4.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -5007,7 +5007,7 @@ const BASE_PRODUCTS = [
   {id:4217, name:"Cholula Original Hot Sauce 150ml", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4218, name:"Filippo Berio Classico 250ml", cat:"🍝 Pantry", icon:"🍝", prices:{coop:5.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £3.15 until 20/10/26
   {id:4219, name:"Hellmann's Chunky Burger Sauce 250ml 258G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.45,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:4220, name:"Nutella B-Ready 6 Ferrero 132g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.89,morrisons:0,ms:0,waitrose:0,iceland:3.35,alliance:0}, upd:"10 Oct", oos:["coop"]},
+  {id:4220, name:"Nutella B-Ready 6 Ferrero 132g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.89,morrisons:0,ms:0,waitrose:0,iceland:3.35,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}, oos:["coop"]},
   {id:4221, name:"Jacob's TUC Original Snack Crackers 150g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2,morrisons:0,ms:0,waitrose:0,iceland:1.9,alliance:0}, upd:"10 Oct"},
   {id:4222, name:"McVitie's 18 Jaffa Cakes The Original Twin Pack 18S", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.8,morrisons:0,ms:0,waitrose:0,iceland:3.35,alliance:0}, upd:"10 Oct"},
   {id:4223, name:"McVitie's Digestive Milk Chocolate 266g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.95,morrisons:0,ms:0,waitrose:0,iceland:3.1,alliance:0}, upd:"10 Oct"},
@@ -5020,7 +5020,7 @@ const BASE_PRODUCTS = [
   {id:4230, name:"Maryland S'wich Choc Creme 150g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct", oos:["coop"]}, // special offer £1.00 until 20/10/26
   {id:4231, name:"Ryvita Thins Sea Salt & Cider Vinegar Flavour 125g 6X125G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.69,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4232, name:"Twix Caramel Chocolate Biscuit Bars Multipack 9 x 20 g 9PK", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.35,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
-  {id:4233, name:"McVitie's Digestives 5 Milk Chocolate Minis Snack Packs 95g 5PACK", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.85,morrisons:0,ms:0,waitrose:0,iceland:1.7,alliance:0}, upd:"10 Oct"},
+  {id:4233, name:"McVitie's Digestives 5 Milk Chocolate Minis Snack Packs 95g 5PACK", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.85,morrisons:0,ms:0,waitrose:0,iceland:1.7,alliance:0}, upd:"10 Oct", upds:{iceland:"10 Oct"}},
   {id:4234, name:"Snack a Jacks Jumbo Caramel Sharing Rice Cake Crisps 159g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.09,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct", oos:["coop"]},
   {id:4235, name:"Carr's Original Table Water 125g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4236, name:"McVitie's Rich Tea 300g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -5032,33 +5032,33 @@ const BASE_PRODUCTS = [
   {id:4242, name:"McVitie's Hobnobs The Oaty One 255g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.95,morrisons:0,ms:0,waitrose:0,iceland:2.1,alliance:0}, upd:"10 Oct"},
   {id:4243, name:"Go Ahead Fruit Slices Apple 174g 4PACK", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.1,morrisons:0,ms:0,waitrose:0,iceland:2.6,alliance:0}, upd:"10 Oct"},
   {id:4244, name:"Go Ahead Fruit Slices Forest Fruit 174g 132G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.49,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:4245, name:"McVitie's 6 The Original Jaffa Cakes 6X3PACK", cat:"🍝 Pantry", icon:"🍝", prices:{coop:4.89,morrisons:0,ms:0,waitrose:0,iceland:2.45,alliance:0}, upd:"10 Oct"},
+  {id:4245, name:"McVitie's 6 The Original Jaffa Cakes 6X3PACK", cat:"🍝 Pantry", icon:"🍝", prices:{coop:4.89,morrisons:0,ms:0,waitrose:0,iceland:2.45,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:4246, name:"McVitie's 30 The Original Jaffa Cakes PACK", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £2.47 until 20/10/26
   {id:4247, name:"McVitie's 12 Jaffa Cakes The Original 12S", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:4248, name:"McVitie's Fruit Shortcake Biscuits 200g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2,morrisons:0,ms:0,waitrose:0,iceland:2.1,alliance:0}, upd:"10 Oct"},
-  {id:4249, name:"McVitie's Ginger Nuts Biscuits 250g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.05,morrisons:0,ms:0,waitrose:1.70,iceland:2.1,alliance:0}, upd:"10 Oct"},
+  {id:4249, name:"McVitie's Ginger Nuts Biscuits 250g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.05,morrisons:0,ms:0,waitrose:1.70,iceland:2.1,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct",iceland:"10 Oct"}},
   {id:4250, name:"McVitie's the Oaty One Hobnobs Milk Chocolate 431g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £2.10 until 20/10/26
-  {id:4251, name:"McVitie's Dark Chocolate Digestive Biscuits 266g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.95,morrisons:0,ms:0,waitrose:2.35,iceland:0,alliance:0}, upd:"10 Oct"},
+  {id:4251, name:"McVitie's Dark Chocolate Digestive Biscuits 266g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.95,morrisons:0,ms:0,waitrose:2.35,iceland:0,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:4252, name:"Jacob's The Selection 8 Varieties 300g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:4.59,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:4253, name:"McVitie's Milk Chocolate Digestive Biscuits 433g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £2.10 until 20/10/26
   {id:4254, name:"McVitie's Digestives Dark Chocolate 433g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £2.10 until 20/10/26
   {id:4255, name:"McVitie's Penguin Original Bars 7 x 24.6g (172.2g) 7PACK", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:4256, name:"Ryvita Original Crackerbread 125g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:4257, name:"Ryvita Original Crispbread 250g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.85,morrisons:0,ms:0,waitrose:0,iceland:2.35,alliance:0}, upd:"10 Oct"},
+  {id:4257, name:"Ryvita Original Crispbread 250g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.85,morrisons:0,ms:0,waitrose:0,iceland:2.35,alliance:0}, upd:"10 Oct", upds:{iceland:"10 Oct"}},
   {id:4258, name:"RYVITA Dark Rye Crispbread 250g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.95,morrisons:0,ms:0,waitrose:0,iceland:2.35,alliance:0}, upd:"10 Oct"},
-  {id:4259, name:"Nairn's Cheese Oatcakes 200g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.99,morrisons:0,ms:0,waitrose:1.85,iceland:0,alliance:0}, upd:"10 Oct"},
+  {id:4259, name:"Nairn's Cheese Oatcakes 200g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.99,morrisons:0,ms:0,waitrose:1.85,iceland:0,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:4260, name:"Nairn's Fine Milled Oatcakes 218g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4261, name:"Jammie Dodgers Raspberry Flavour 140g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £0.84 until 20/10/26
   {id:4262, name:"Cadbury Dairy Milk Fingers Milk Chocolate Biscuits Tray 114 g 114G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4263, name:"Maryland Double Choc 200g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4264, name:"Maryland Choc Chip 200g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4265, name:"Maryland 6 Minis Choc Chip 118.8g 119G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.79,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:4266, name:"Fox's Milk Chocolate Viennese 120g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.9,morrisons:0,ms:0,waitrose:0,iceland:1.35,alliance:0}, upd:"10 Oct"}, // special offer £1.60 until 20/10/26
+  {id:4266, name:"Fox's Milk Chocolate Viennese 120g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.9,morrisons:0,ms:0,waitrose:0,iceland:1.35,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}}, // special offer £1.60 until 20/10/26
   {id:4267, name:"Fox's Minis Party Rings 6 x 21g 6X21G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.9,morrisons:0,ms:0,waitrose:0,iceland:2.25,alliance:0}, upd:"10 Oct"},
   {id:4268, name:"Fox's Chocolatey Milk Chocolate Viennese Dipped Fingers 105g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4269, name:"KitKat 2 Finger Original Bars 12 x 20.7g (248.4g)", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.4,morrisons:0,ms:0,waitrose:0,iceland:3.9,alliance:0}, upd:"10 Oct"}, // special offer £2.63 until 20/10/26
   {id:4270, name:"Fox's Fabulous Milk Chocolate Cookies 180g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3,morrisons:0,ms:0,waitrose:0,iceland:3.1,alliance:0}, upd:"10 Oct"},
-  {id:4271, name:"Fox's Fabulous Half-Coated Milk Chocolate Cookies 175g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.8,morrisons:0,ms:0,waitrose:0,iceland:3.3,alliance:0}, upd:"10 Oct"},
+  {id:4271, name:"Fox's Fabulous Half-Coated Milk Chocolate Cookies 175g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.8,morrisons:0,ms:0,waitrose:0,iceland:3.3,alliance:0}, upd:"10 Oct", upds:{iceland:"10 Oct"}},
   {id:4272, name:"Fox's Favourites Crunch Creams Golden 200g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £1.05 until 20/10/26
   {id:4273, name:"Lotus Biscoff Biscoff Cream 150g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:4274, name:"Lotus Biscoff 250g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -5073,7 +5073,7 @@ const BASE_PRODUCTS = [
   {id:4283, name:"OREO Original Vanilla Sandwich Cookies 14 cookies 154 g 154G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.7,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:4284, name:"Nutella 12 Biscuits 166g 173G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.59,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £2.10 until 20/10/26
   {id:4285, name:"Carr's Melts Cheese 150g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.5,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £1.58 until 20/10/26
-  {id:4286, name:"McVitie's Digestives Seriously Chocolatey 250g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.89,morrisons:0,ms:0,waitrose:0,iceland:3.1,alliance:0}, upd:"10 Oct"},
+  {id:4286, name:"McVitie's Digestives Seriously Chocolatey 250g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.89,morrisons:0,ms:0,waitrose:0,iceland:3.1,alliance:0}, upd:"10 Oct", upds:{iceland:"10 Oct"}},
   {id:4287, name:"McVitie's Signature Cocoa Truffle Gold Rounds 109g 15X109G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.7,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4288, name:"Co-op Bourbon Creams 300g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.05,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4289, name:"Co-op a Cracking Rosemary Cracker 185g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.5,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -5097,7 +5097,7 @@ const BASE_PRODUCTS = [
   {id:4307, name:"Co-op Delightfully Dunkable Nice Biscuits 250g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:0.89,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:4308, name:"Co-op Irresistible All Butter Fruity Flapjack Cookies 200g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4309, name:"Co-op Scottish Oatcakes 250g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.39,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct", oos:["coop"]},
-  {id:4310, name:"Jacob's Original Cream Crackers 300g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.05,morrisons:0,ms:0,waitrose:1.85,iceland:0,alliance:0}, upd:"10 Oct"},
+  {id:4310, name:"Jacob's Original Cream Crackers 300g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.05,morrisons:0,ms:0,waitrose:1.85,iceland:0,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:4311, name:"Co-op Crisp & Buttery Cheese Twists 125g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.59,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4312, name:"Co-op Irresistible All Butter Triple Chocolate Cookies 200g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4313, name:"Co-op Sea Salt & Black Pepper Cracker 185g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.5,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -5105,23 +5105,23 @@ const BASE_PRODUCTS = [
   {id:4315, name:"Co-op Delighfully Dunkable Malted Milk 200g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:0.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4316, name:"Jacob's Smoked Paprika Flavour Bites 125g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.45,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4317, name:"McVitie's 7 Gold Bars 124g 7PACK", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £1.27 until 20/10/26
-  {id:4318, name:"McVitie's Digestives Milk Chocolate the Caramel One 250g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.85,morrisons:0,ms:0,waitrose:0,iceland:3.1,alliance:0}, upd:"10 Oct"},
+  {id:4318, name:"McVitie's Digestives Milk Chocolate the Caramel One 250g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.85,morrisons:0,ms:0,waitrose:0,iceland:3.1,alliance:0}, upd:"10 Oct", upds:{iceland:"10 Oct"}},
   {id:4319, name:"Merba Chocolate Chip Cookies 150g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.25,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:4320, name:"Merba Nougatelli Cookie 175g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.25,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:4321, name:"McVitie's Hobnob's The Oaty One Dark Chocolate 262g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.45,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4322, name:"Tunnock's Dark Chocolate Coated Caramel Wafer Biscuits 8 x 30g 8PACK", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:4323, name:"Nairn's Rough Oatcakes 291g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.1,morrisons:0,ms:0,waitrose:1.70,iceland:0,alliance:0}, upd:"10 Oct"},
+  {id:4323, name:"Nairn's Rough Oatcakes 291g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.1,morrisons:0,ms:0,waitrose:1.70,iceland:0,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:4324, name:"KitKat 2 Finger Original (8 x 20.7g) 165.6g 8X20.7G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.84,morrisons:0,ms:0,waitrose:2.50,iceland:0,alliance:0}, upd:"15 Aug"},
   {id:4325, name:"Kellogg's High Protein Almond and Dark Chocolate 4 x 35g (140g) 4PACK", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.89,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:4326, name:"Mikado Milk Chocolate Biscuits 75g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.59,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4327, name:"McVitie's Signature Caramel Chocolate Rounds 109g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.7,morrisons:0,ms:0,waitrose:0,iceland:2.65,alliance:0}, upd:"10 Oct", oos:["iceland"]},
   {id:4328, name:"McVitie's Signature Chocolate Cream Swirls 142g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.7,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4329, name:"Flipz Strawberry Cheesecake Flavour Coated Pretzels 90g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
-  {id:4330, name:"McVitie's Hobnobs Milk Chocolate Biscuits 262g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.45,morrisons:0,ms:0,waitrose:2.35,iceland:0,alliance:0}, upd:"10 Oct"},
+  {id:4330, name:"McVitie's Hobnobs Milk Chocolate Biscuits 262g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.45,morrisons:0,ms:0,waitrose:2.35,iceland:0,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:4331, name:"Nature Valley Crunchy Dipped Milk Chocolate Flavour 8 x 20g (160g) 8X20G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:4332, name:"Crosta Mollica Black Olive Grissini Breadsticks 140g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.6,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4333, name:"Crosta Mollica Classic Torinesi Breadsticks 120g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:4334, name:"Cadbury Brunch Oats Chocolate Chip Cereal Bars, 4 Pack Multipack 112g (4 x 28g)", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.7,morrisons:0,ms:0,waitrose:0,iceland:2,alliance:0}, upd:"10 Oct"}, // special offer £1.05 until 20/10/26
+  {id:4334, name:"Cadbury Brunch Oats Chocolate Chip Cereal Bars, 4 Pack Multipack 112g (4 x 28g)", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.7,morrisons:0,ms:0,waitrose:0,iceland:2,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}}, // special offer £1.05 until 20/10/26
   {id:4335, name:"Cadbury Brunch Oats Raisin Chocolate Cereal Bars, 4 Pack Multipack 112g (4 x 28g)", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.7,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £1.05 until 20/10/26
   {id:4336, name:"Cadbury Brunch Light Orange Chocolate Cereal Bars 4 Pack Multipack 104g (4 x 26g)", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.7,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:4337, name:"Cadbury Timeout 5-pack Milk Chocolate Wafer Biscuit Bars Multipack (5x 18g bars) 90 g 90G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.9,morrisons:0,ms:0,waitrose:0,iceland:2,alliance:0}, upd:"10 Oct"}, // special offer £1.05 until 20/10/26
@@ -5138,7 +5138,7 @@ const BASE_PRODUCTS = [
   {id:4348, name:"Twix White Multipack Chocolate Bar 9 x 20g 180G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4349, name:"Co-op Irresistible All Butter Stem Ginger Cookies 200g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4350, name:"Co-op Irresistible Shortbread Rounds 180G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:4351, name:"Kellogg's Rice Krispies 430g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:4.2,morrisons:0,ms:0,waitrose:0,iceland:4.6,alliance:0}, upd:"10 Oct"},
+  {id:4351, name:"Kellogg's Rice Krispies 430g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:4.2,morrisons:0,ms:0,waitrose:0,iceland:4.6,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:4352, name:"Kellogg's Crunchy Nut Granola Fruit & Nut 380g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:4.0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4353, name:"Kellogg's Crunchy Nut Hazelnut & Chocolate Granola 380g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:4.0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4354, name:"Kellogg's Bran Flakes 500g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.6,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -5149,7 +5149,7 @@ const BASE_PRODUCTS = [
   {id:4359, name:"Surreal Granola Chocolate & Hazelnut 300g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:5.2,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4360, name:"Co-op Corn Flakes 500g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £1.25 until 03/01/27
   {id:4361, name:"Bio & Me Cocoa & Hazelnut Granola 360g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:4.2,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
-  {id:4362, name:"Quaker Rolled Porridge Oats 1kg", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.4,morrisons:0,ms:0,waitrose:3.20,iceland:3.9,alliance:0}, upd:"10 Oct"}, // special offer £2.52 until 20/10/26
+  {id:4362, name:"Quaker Rolled Porridge Oats 1kg", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.4,morrisons:0,ms:0,waitrose:3.20,iceland:3.9,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct",iceland:"10 Oct"}}, // special offer £2.52 until 20/10/26
   {id:4363, name:"Quaker Oat So Simple Golden Syrup Porridge Sachets 10x36g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:4.2,morrisons:0,ms:0,waitrose:0,iceland:4.75,alliance:0}, upd:"10 Oct"},
   {id:4364, name:"Kellogg's Fruit 'n Fibre 500g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.25,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4365, name:"Nesquik Choco Crunch 375g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £2.65 until 20/10/26
@@ -5164,13 +5164,13 @@ const BASE_PRODUCTS = [
   {id:4375, name:"Co-op Chocolate Hazelnut Pillows 375g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:4376, name:"Kellogg's Frosties 470g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:4.4,morrisons:0,ms:0,waitrose:0,iceland:4.65,alliance:0}, upd:"10 Oct"}, // members £3.15 until 20/10/26
   {id:4377, name:"Special K The Original 440g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:4.15,morrisons:0,ms:0,waitrose:0,iceland:4.55,alliance:0}, upd:"10 Oct"}, // special offer £3.15 until 20/10/26
-  {id:4378, name:"Kellogg's Corn Flakes 450g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.1,morrisons:0,ms:0,waitrose:2.6,iceland:0,alliance:0}, upd:"10 Oct"},
+  {id:4378, name:"Kellogg's Corn Flakes 450g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.1,morrisons:0,ms:0,waitrose:2.6,iceland:0,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:4379, name:"Kellogg's 8 Variety Packs 196g 8PACK", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.7,morrisons:0,ms:0,waitrose:0,iceland:3.75,alliance:0}, upd:"10 Oct"}, // special offer £2.36 until 20/10/26
   {id:4380, name:"Shreddies The Original 460g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4381, name:"Cheerios Honey 370g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.7,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £2.36 until 20/10/26
   {id:4382, name:"Up & Go Protein Energize Chocolate Breakfast Drink 500ml", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4383, name:"Mornflake Pixels Chocolate & Hazelnut 750g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:4.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
-  {id:4384, name:"Alpen Original Muesli 550g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.8,morrisons:0,ms:0,waitrose:0,iceland:4.1,alliance:0}, upd:"10 Oct"},
+  {id:4384, name:"Alpen Original Muesli 550g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.8,morrisons:0,ms:0,waitrose:0,iceland:4.1,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:4385, name:"Alpen No Added Sugar Muesli 550g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.8,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4386, name:"Fuel10K Chocolate Chunks Granola 400g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:4.2,morrisons:0,ms:0,waitrose:0,iceland:4.15,alliance:0}, upd:"10 Oct", oos:["iceland"]},
   {id:4387, name:"Fuel10K Breakfast Chocolate Flavour Milk Drink 330ml", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £1.05 until 20/10/26
@@ -5184,7 +5184,7 @@ const BASE_PRODUCTS = [
   {id:4395, name:"Fuel10K Golden Syrup Flavour Porridge 210g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.31,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:4396, name:"Jordans Protein Boost Granola Chocolate & Hazelnut 400g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:4.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £3.10 until 20/10/26
   {id:4397, name:"Kellogg's Choco Hazelnut Flavour High Protein Bites 400g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:4.05,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £3.15 until 20/10/26
-  {id:4398, name:"Huel Chocolate Fudge Brownie Complete Nutrition Bar 55g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:2.8,alliance:0}, upd:"10 Oct"},
+  {id:4398, name:"Huel Chocolate Fudge Brownie Complete Nutrition Bar 55g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:2.8,alliance:0}, upd:"10 Oct", upds:{iceland:"10 Oct"}},
   {id:4399, name:"Kellogg's Bluey Multigrain Cereal 350g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.7,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £2.99 until 20/10/26
   {id:4400, name:"Kellogg's All-Bran Fibre Plus 500g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4401, name:"Lizi's High Protein Chocolate & Peanut Granola 350g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:4.2,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -5204,7 +5204,7 @@ const BASE_PRODUCTS = [
   {id:4415, name:"Quaker Oats High Protein Chocolate Brownie Porridge Pot 61g 52.3G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.45,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4416, name:"Cheerios Very Berry 435g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £2.63 until 20/10/26
   {id:4417, name:"Quaker Oat So Simple Golden Syrup Porridge Pot 57g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.45,morrisons:0,ms:0,waitrose:0,iceland:1.75,alliance:0}, upd:"10 Oct"},
-  {id:4418, name:"Quaker Oat So Simple Original Porridge Pot 45g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.45,morrisons:0,ms:0,waitrose:0,iceland:1.75,alliance:0}, upd:"10 Oct"},
+  {id:4418, name:"Quaker Oat So Simple Original Porridge Pot 45g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.45,morrisons:0,ms:0,waitrose:0,iceland:1.75,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:4419, name:"Quaker Porridge To Go Golden Syrup Breakfast Bars 2x55g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:4420, name:"Co-op Irresistible Scottish Jumbo Rolled Oats 750g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.35,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4421, name:"Co-op Nutty & Crunchy Fruit & Fibre 500g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -5219,12 +5219,12 @@ const BASE_PRODUCTS = [
   {id:4430, name:"Weetabix Crispy Minis Chocolate Chip 500g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:4.55,morrisons:0,ms:0,waitrose:0,iceland:4.65,alliance:0}, upd:"10 Oct", oos:["coop"]},
   {id:4431, name:"Fuel10K High Protein Chocolate Porridge 70g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.6,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £1.05 until 20/10/26
   {id:4432, name:"Cookie Crisp 500g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:4433, name:"Weetabix 24 Biscuits 24S", cat:"🍝 Pantry", icon:"🍝", prices:{coop:4.2,morrisons:0,ms:0,waitrose:3.50,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £3.15 until 20/10/26
+  {id:4433, name:"Weetabix 24 Biscuits 24S", cat:"🍝 Pantry", icon:"🍝", prices:{coop:4.2,morrisons:0,ms:0,waitrose:3.50,iceland:0,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}}, // special offer £3.15 until 20/10/26
   {id:4434, name:"Co Op Porridge Oats 500g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:4435, name:"Kellogg's Krave Chocolate Hazelnut Flavour Breakfast Cereal 410g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:4.35,morrisons:0,ms:0,waitrose:0,iceland:4.4,alliance:0}, upd:"10 Oct"},
+  {id:4435, name:"Kellogg's Krave Chocolate Hazelnut Flavour Breakfast Cereal 410g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:4.35,morrisons:0,ms:0,waitrose:0,iceland:4.4,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:4436, name:"Coco Pops Chocos 430g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:4.15,morrisons:0,ms:0,waitrose:0,iceland:4.75,alliance:0}, upd:"10 Oct", oos:["iceland"]}, // members £3.15 until 20/10/26
   {id:4437, name:"Cheerios Multigrain 390g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.7,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:4438, name:"Fuel10K Golden Syrup Flavour Porridge 80g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.7,morrisons:0,ms:0,waitrose:0,iceland:1.75,alliance:0}, upd:"10 Oct", oos:["coop"]}, // special offer £1.05 until 20/10/26
+  {id:4438, name:"Fuel10K Golden Syrup Flavour Porridge 80g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.7,morrisons:0,ms:0,waitrose:0,iceland:1.75,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}, oos:["coop"]}, // special offer £1.05 until 20/10/26
   {id:4439, name:"Fuel10K Chocolate Fudge Porridge 80g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.7,morrisons:0,ms:0,waitrose:0,iceland:1.75,alliance:0}, upd:"10 Oct"}, // special offer £1.05 until 20/10/26
   {id:4440, name:"Quaker Oat So Simple Original Big Pack Porridge Sachets 12x27g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:4.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4441, name:"Kellogg's Special K Crunchy Golden Clusters 360g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:4.2,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -5245,7 +5245,7 @@ const BASE_PRODUCTS = [
   {id:4456, name:"Ring Pop 10g 2.88G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:0.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4457, name:"Mega Push Pop 30g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4458, name:"Yorkie Original 46g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.2,morrisons:0,ms:0,waitrose:0,iceland:1.1,alliance:0}, upd:"10 Oct"},
-  {id:4459, name:"KitKat 41.5g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.0,morrisons:0,ms:0,waitrose:0,iceland:1.1,alliance:0}, upd:"10 Oct"},
+  {id:4459, name:"KitKat 41.5g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.0,morrisons:0,ms:0,waitrose:0,iceland:1.1,alliance:0}, upd:"10 Oct", upds:{iceland:"10 Oct"}},
   {id:4460, name:"Ferrero Rocher Chocolate Pralines Treat Pack 3 Pieces (37.5g)", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.65,morrisons:0,ms:0,waitrose:0,iceland:1.65,alliance:0}, upd:"10 Oct"},
   {id:4461, name:"Kinder Bueno Milk Chocolate and Hazelnuts Single Bar 2 Finger x 21.5g (43g)", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.2,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4462, name:"Kinder Bueno White Milk and Hazelnuts 39g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.2,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
@@ -5254,11 +5254,11 @@ const BASE_PRODUCTS = [
   {id:4465, name:"Lindt Nocciolatte Milk Chocolate Hazelnut Treat Bar 35g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4466, name:"Co-op Natural Flavourings Sour Watermelon Slices 65g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:0.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4467, name:"Co-op Teeth and Lips 65g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:0.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:4468, name:"Cadbury Dairy Milk Marvellous Creations Chocolate Bar with Jelly Popping Candy 47 g 47G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.2,morrisons:0,ms:0,waitrose:0,iceland:1.1,alliance:0}, upd:"10 Oct"},
+  {id:4468, name:"Cadbury Dairy Milk Marvellous Creations Chocolate Bar with Jelly Popping Candy 47 g 47G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.2,morrisons:0,ms:0,waitrose:0,iceland:1.1,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:4469, name:"Cadbury Wispa Milk Chocolate Bar 36 g 36G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.2,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4470, name:"Little Rolo 103g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £1.31 until 20/10/26
   {id:4471, name:"Cadbury Dairy Milk Marvellous Creations Jelly Popping Candy Chocolate 56g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.59,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
-  {id:4472, name:"Cadbury Dairy Milk Milk Chocolate Bar 45 g 45G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.2,morrisons:0,ms:0,waitrose:1.44,iceland:0,alliance:0}, upd:"10 Oct"}, // waitrose £1.44 was a special offer 24 Sep — re-verify normal shelf price
+  {id:4472, name:"Cadbury Dairy Milk Milk Chocolate Bar 45 g 45G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.2,morrisons:0,ms:0,waitrose:1.44,iceland:0,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}}, // waitrose £1.44 was a special offer 24 Sep — re-verify normal shelf price
   {id:4473, name:"Reese's 2 Peanut Butter Cups 42g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.19,morrisons:0,ms:0,waitrose:1.15,iceland:0,alliance:0}, upd:"17 Sep"},
   {id:4474, name:"Lindt Lindor Milk Chocolate Treat Bar 38g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4475, name:"Twix Caramel Biscuit Chocolate Bar 50g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -5275,7 +5275,7 @@ const BASE_PRODUCTS = [
   {id:4486, name:"Polo Original The Mint with The Hole 4 x 34g (136g)", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.89,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:4487, name:"Trebor Extra Strong Peppermint Mints Rolls 4 Pack 145g (4 x 36.4g) 146G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4488, name:"Cadbury Twirl Milk Chocolate 3 Pack Multipack 129 g 129G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
-  {id:4489, name:"Cadbury Dairy Milk Caramel Nibbles Chocolate Large Sharing Bag 175 g 175G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:4.0,morrisons:0,ms:0,waitrose:0,iceland:4,alliance:0}, upd:"10 Oct"},
+  {id:4489, name:"Cadbury Dairy Milk Caramel Nibbles Chocolate Large Sharing Bag 175 g 175G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:4.0,morrisons:0,ms:0,waitrose:0,iceland:4,alliance:0}, upd:"10 Oct", upds:{iceland:"10 Oct"}},
   {id:4490, name:"Cadbury Dairy Milk Buttons Chocolate Large Sharing Bag 175 g 175G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.9,morrisons:0,ms:0,waitrose:0,iceland:4,alliance:0}, upd:"10 Oct", oos:["iceland"]},
   {id:4491, name:"Cadbury Dairy Milk Caramel Chocolate Bar 4 Pack Multipack 148 g 148G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:4492, name:"Cadbury Dairy Milk Wholenut Chocolate Bar 120 g 120G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.5,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £1.58 until 20/10/26
@@ -5289,7 +5289,7 @@ const BASE_PRODUCTS = [
   {id:4500, name:"Maltesers Truffles Milk Chocolate Gift Box of Chocolates 200g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:7.9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4501, name:"Celebrations Milk Chocolate Gift Box 300g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:6.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4502, name:"HARIBO Tangfastics Bag 175g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.6,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £1.05 until 20/10/26
-  {id:4503, name:"MAOAM 17 Stripes 140g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.45,morrisons:0,ms:0,waitrose:0,iceland:1.65,alliance:0}, upd:"10 Oct"},
+  {id:4503, name:"MAOAM 17 Stripes 140g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.45,morrisons:0,ms:0,waitrose:0,iceland:1.65,alliance:0}, upd:"10 Oct", upds:{iceland:"10 Oct"}},
   {id:4504, name:"Cadbury Roses Chocolate Gifting Box 275g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:5.25,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:4505, name:"Cadbury Dairy Milk Caramel Nibbles Chocolate bag 100 g 100G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4506, name:"Cadbury Crunchie Rocks Chocolate Bag 100g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -5305,7 +5305,7 @@ const BASE_PRODUCTS = [
   {id:4516, name:"Kinder Small Chocolate Bars Multipack 4 x 12.5g (50g)", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.3,morrisons:0,ms:0,waitrose:0,iceland:1,alliance:0}, upd:"10 Oct"},
   {id:4517, name:"Tic Tac Two Spearmint Flavour 38.5g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.8,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4518, name:"Yorkie Raisin & Biscuit 44g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.2,morrisons:0,ms:0,waitrose:0,iceland:1.1,alliance:0}, upd:"10 Oct"},
-  {id:4519, name:"KitKat Chunky 40g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.05,morrisons:0,ms:0,waitrose:0,iceland:1.1,alliance:0}, upd:"10 Oct"},
+  {id:4519, name:"KitKat Chunky 40g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.05,morrisons:0,ms:0,waitrose:0,iceland:1.1,alliance:0}, upd:"10 Oct", upds:{iceland:"10 Oct"}},
   {id:4520, name:"Reese's Nutrageous 47g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.2,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4521, name:"Aero Peppermint 36g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.2,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4522, name:"Tic Tac Fresh Mint 49g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.05,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £1.58 until 20/10/26
@@ -5314,12 +5314,12 @@ const BASE_PRODUCTS = [
   {id:4526, name:"Bounty Coconut Multipack Chocolate Bar 4 x 57g 228G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.69,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4527, name:"Galaxy Caramel Milk Chocolate Bar 135g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4528, name:"Munchies 104g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.9,morrisons:0,ms:0,waitrose:0,iceland:2.35,alliance:0}, upd:"10 Oct"}, // special offer £1.31 until 20/10/26
-  {id:4529, name:"M&M's Crispy Milk Chocolate Bites Pouch Bag 107g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.3,morrisons:1.30,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £1.58 until 20/10/26
+  {id:4529, name:"M&M's Crispy Milk Chocolate Bites Pouch Bag 107g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.3,morrisons:1.30,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}}, // special offer £1.58 until 20/10/26
   {id:4530, name:"M&M's Milk Chocolate Bites Pouch Bag 112g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £1.58 until 20/10/26
   {id:4531, name:"Revels Milk Chocolate with Raisins, Coffee & Orange Bites Pouch Bag 101g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.49,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £1.84 until 20/10/26
   {id:4532, name:"Galaxy Minstrels Buttons Chocolate Bag 118g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.49,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £1.84 until 20/10/26
-  {id:4533, name:"Maltesers Milk Chocolate & Honeycomb Bites Bag 93g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.84,morrisons:0,ms:0,waitrose:0,iceland:2.8,alliance:0}, upd:"10 Oct"},
-  {id:4534, name:"Swizzels Squashies Drumstick Strawberry & Cream Flavour 120g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.3,morrisons:0,ms:0,waitrose:0,iceland:1.35,alliance:0}, upd:"10 Oct"},
+  {id:4533, name:"Maltesers Milk Chocolate & Honeycomb Bites Bag 93g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.84,morrisons:0,ms:0,waitrose:0,iceland:2.8,alliance:0}, upd:"10 Oct", upds:{iceland:"10 Oct"}},
+  {id:4534, name:"Swizzels Squashies Drumstick Strawberry & Cream Flavour 120g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.3,morrisons:0,ms:0,waitrose:0,iceland:1.35,alliance:0}, upd:"10 Oct", upds:{iceland:"10 Oct"}},
   {id:4535, name:"Swizzels Squashies Drumstick Original Raspberry & Milk Flavour 120g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.3,morrisons:0,ms:0,waitrose:0,iceland:1.35,alliance:0}, upd:"10 Oct"}, // special offer £1.05 until 20/10/26
   {id:4536, name:"HARIBO Starmix 175g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.6,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £1.05 until 20/10/26
   {id:4537, name:"Haribo Supermix 175g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.6,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £1.05 until 20/10/26
@@ -5349,11 +5349,11 @@ const BASE_PRODUCTS = [
   {id:4561, name:"Cadbury Crunchie Chocolate Bar 4 Pack Multipack (4x32g) 128 g 128G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4562, name:"Cadbury Dairy Milk Fruit and Nut Chocolate Bar 110 g 110G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.5,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £1.58 until 20/10/26
   {id:4563, name:"Cadbury Heroes Chocolate Assortment Gifting Box 290 g 290G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:5.25,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
-  {id:4564, name:"Aero Peppermint Bars 4 x 27g (108g)", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.1,morrisons:0,ms:0,waitrose:0,iceland:2.6,alliance:0}, upd:"10 Oct"},
+  {id:4564, name:"Aero Peppermint Bars 4 x 27g (108g)", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.1,morrisons:0,ms:0,waitrose:0,iceland:2.6,alliance:0}, upd:"10 Oct", upds:{iceland:"10 Oct"}},
   {id:4565, name:"Cadbury Dairy Milk Caramel Chocolate Bar 120 g 120G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.5,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £1.58 until 20/10/26
-  {id:4566, name:"Rowntree's Jelly Tots 150g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.75,morrisons:0,ms:0,waitrose:0,iceland:2,alliance:0}, upd:"10 Oct"},
+  {id:4566, name:"Rowntree's Jelly Tots 150g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.75,morrisons:0,ms:0,waitrose:0,iceland:2,alliance:0}, upd:"10 Oct", upds:{iceland:"10 Oct"}},
   {id:4567, name:"Cadbury Dairy Milk Chocolate Bar 110 g 110G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.5,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £1.58 until 20/10/26
-  {id:4568, name:"Aero Peppermint 90g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.59,morrisons:0,ms:0,waitrose:0,iceland:2.15,alliance:0}, upd:"10 Oct"},
+  {id:4568, name:"Aero Peppermint 90g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.59,morrisons:0,ms:0,waitrose:0,iceland:2.15,alliance:0}, upd:"10 Oct", upds:{iceland:"10 Oct"}},
   {id:4569, name:"Aero Chocolate 90g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.59,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:4570, name:"Rowntree's Fruit Pastilles 143g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.75,morrisons:0,ms:0,waitrose:0,iceland:2,alliance:0}, upd:"10 Oct"},
   {id:4571, name:"Ferrero Rocher Gift Box of Chocolate 24 Pieces (300g)", cat:"🍝 Pantry", icon:"🍝", prices:{coop:12.6,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -5361,7 +5361,7 @@ const BASE_PRODUCTS = [
   {id:4573, name:"HARIBO Twin Snakes 175g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.6,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £1.05 until 20/10/26
   {id:4574, name:"Rowntree's Randoms Sweets Sharing Bag 150g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:4575, name:"Co-op Irresistible Single Origin 85% Cocoa Dark Chocolate 100g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:4576, name:"Twix Xtra Milk Chocolate Biscuit Twin Bars 75g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.6,morrisons:0,ms:0,waitrose:1.59,iceland:1.35,alliance:0}, upd:"10 Oct"},
+  {id:4576, name:"Twix Xtra Milk Chocolate Biscuit Twin Bars 75g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.6,morrisons:0,ms:0,waitrose:1.59,iceland:1.35,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:4577, name:"Co-op Strawberry Laces 65g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:0.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4578, name:"Co-op Fizzy Strawberry Lances 65g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:0.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4579, name:"Co-op Fizzy Rainbow Belts 65g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:0.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -5385,8 +5385,8 @@ const BASE_PRODUCTS = [
   {id:4597, name:"Toblerone Milk Chocolate Bar 100g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.25,morrisons:0,ms:0,waitrose:0,iceland:2.65,alliance:0}, upd:"10 Oct"}, // special offer £1.90 until 20/10/26
   {id:4598, name:"Snickers Duo Peanut & Caramel Chocolate Bar 69g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.6,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4599, name:"M&M's Minis Milk Chocolate Bag 115g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £1.58 until 20/10/26
-  {id:4600, name:"Lindt Excellence Dark 70% Cocoa Chocolate Bar 100g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.95,morrisons:0,ms:0,waitrose:3.50,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £3.15 until 20/10/26
-  {id:4601, name:"Lindt Excellence Dark Sea Salt Chocolate Bar 100g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.95,morrisons:0,ms:0,waitrose:3.50,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £3.15 until 20/10/26
+  {id:4600, name:"Lindt Excellence Dark 70% Cocoa Chocolate Bar 100g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.95,morrisons:0,ms:0,waitrose:3.50,iceland:0,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}}, // special offer £3.15 until 20/10/26
+  {id:4601, name:"Lindt Excellence Dark Sea Salt Chocolate Bar 100g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.95,morrisons:0,ms:0,waitrose:3.50,iceland:0,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}}, // special offer £3.15 until 20/10/26
   {id:4603, name:"Milkybar 94g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £1.31 until 20/10/26
   {id:4604, name:"Aero Peppermint Bubbles 92g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.31,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"9 Oct"},
   {id:4605, name:"Cadbury Fruit and Nut Chocolate Bar 180 g 180G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £2.10 until 20/10/26
@@ -5398,7 +5398,7 @@ const BASE_PRODUCTS = [
   {id:4611, name:"Aero Orange Bubbles 92g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.35,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:4612, name:"Grenade Oreo 60g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.15,morrisons:0,ms:0,waitrose:0,iceland:3,alliance:0}, upd:"10 Oct"},
   {id:4613, name:"Grenade Oreo White 60g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.15,morrisons:0,ms:0,waitrose:0,iceland:3,alliance:0}, upd:"10 Oct"},
-  {id:4614, name:"Grenade White Chocolate Cookie Flavour 60g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.99,morrisons:0,ms:0,waitrose:0,iceland:3,alliance:0}, upd:"10 Oct"},
+  {id:4614, name:"Grenade White Chocolate Cookie Flavour 60g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.99,morrisons:0,ms:0,waitrose:0,iceland:3,alliance:0}, upd:"10 Oct", upds:{iceland:"10 Oct"}},
   {id:4615, name:"Grenade Peanut Nutter Peanut Flavour 60g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.15,morrisons:0,ms:0,waitrose:0,iceland:3,alliance:0}, upd:"10 Oct"},
   {id:4616, name:"Grenade Chocolate Chip Salted Caramel Flavour 60g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.15,morrisons:0,ms:0,waitrose:0,iceland:3,alliance:0}, upd:"10 Oct"},
   {id:4617, name:"Barebells Protein Bar Cookies & Cream 55g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
@@ -5421,7 +5421,7 @@ const BASE_PRODUCTS = [
   {id:4634, name:"Skips Prawn Cocktail Flavour 6 x 13.1g 6X13.1G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.95,morrisons:0,ms:0,waitrose:0,iceland:2.5,alliance:0}, upd:"10 Oct"}, // special offer £1.58 until 20/10/26
   {id:4635, name:"Butterkist Deliciously Sweet & Salty Popcorn 100g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.0,morrisons:0,ms:0,waitrose:0,iceland:1.8,alliance:0}, upd:"10 Oct"},
   {id:4636, name:"McCoy's Classic Variety Multipack Crisps 6 Pack 6X25G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.65,morrisons:0,ms:0,waitrose:0,iceland:3.1,alliance:0}, upd:"18 Sep"},
-  {id:4637, name:"Pom-Bear Original Potato Snacks 6 x 13g 6PACK", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.95,morrisons:0,ms:0,waitrose:1.50,iceland:2.45,alliance:0}, upd:"10 Oct"}, // special offer £1.40 until 20/10/26
+  {id:4637, name:"Pom-Bear Original Potato Snacks 6 x 13g 6PACK", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.95,morrisons:0,ms:0,waitrose:1.50,iceland:2.45,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct",iceland:"10 Oct"}}, // special offer £1.40 until 20/10/26
   {id:4638, name:"Bear Strawberries 35g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.29,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4639, name:"Takis Intense Nacho Seasoned Cheese Flavour Fried Maize Snack 100g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.39,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4640, name:"Co-op Irresistible Hand Cooked Sea Salt & Chardonnay Wine Vinegar Crisps 150g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.8,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -5441,18 +5441,18 @@ const BASE_PRODUCTS = [
   {id:4654, name:"McCoy's Mighty Meaty Ridge Cut 6 x 25g 6X25G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.49,morrisons:0,ms:0,waitrose:0,iceland:2.3,alliance:0}, upd:"10 Oct"}, // special offer £1.60 until 20/10/26
   {id:4655, name:"Nik Naks Nice 'N' Spicy Flavour 6 x 20g 6X20G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.69,morrisons:0,ms:0,waitrose:0,iceland:2.15,alliance:0}, upd:"10 Oct"},
   {id:4656, name:"Walkers Monster Munch Pickled Onion Multipack Snacks Crisps 6x20g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.4,morrisons:0,ms:0,waitrose:0,iceland:2.4,alliance:0}, upd:"10 Oct"}, // special offer £1.40 until 20/10/26
-  {id:4657, name:"Walkers Baked Snacks Cheese & Onion Multipack Crisps 6x22g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.55,morrisons:0,ms:0,waitrose:0,iceland:2.85,alliance:0}, upd:"10 Oct"}, // special offer £1.60 until 20/10/26
-  {id:4658, name:"Walkers Baked Snacks Sea Salt Multipack Crisps 6x22g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.55,morrisons:0,ms:0,waitrose:0,iceland:2.85,alliance:0}, upd:"10 Oct"}, // special offer £1.60 until 20/10/26
+  {id:4657, name:"Walkers Baked Snacks Cheese & Onion Multipack Crisps 6x22g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.55,morrisons:0,ms:0,waitrose:0,iceland:2.85,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}}, // special offer £1.60 until 20/10/26
+  {id:4658, name:"Walkers Baked Snacks Sea Salt Multipack Crisps 6x22g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.55,morrisons:0,ms:0,waitrose:0,iceland:2.85,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}}, // special offer £1.60 until 20/10/26
   {id:4659, name:"Walkers Oven Baked 6 x 22g 6X22G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.58,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:4660, name:"Penn State Baked Original Sea Salted Pretzels 175g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4661, name:"Walkers Squares Salt & Vinegar Sharing Snacks Crisps 104g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4662, name:"Mr. Porky Original Scratchings 65g EACH", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:4663, name:"Chipsticks Salt & Vinegar Multipack Crisps 6x17g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.85,morrisons:0,ms:0,waitrose:0,iceland:2,alliance:0}, upd:"10 Oct", oos:["coop"]},
+  {id:4663, name:"Chipsticks Salt & Vinegar Multipack Crisps 6x17g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.85,morrisons:0,ms:0,waitrose:0,iceland:2,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}, oos:["coop"]},
   {id:4664, name:"SUN Bites Sweet Chilli High Fibre Snacks Multipack Crisps 6x25g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.6,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £1.60 until 20/10/26
-  {id:4665, name:"Walkers Cheese & Onion Multipack Crisps 6x25g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.5,morrisons:0,ms:0,waitrose:2.35,iceland:2.85,alliance:0}, upd:"10 Oct"},
+  {id:4665, name:"Walkers Cheese & Onion Multipack Crisps 6x25g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.5,morrisons:0,ms:0,waitrose:2.35,iceland:2.85,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct",iceland:"10 Oct"}},
   {id:4666, name:"Walkers Classic Pack 6 x 25g 6X25G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.39,morrisons:0,ms:0,waitrose:0,iceland:2.85,alliance:0}, upd:"10 Oct"}, // special offer £1.40 until 20/10/26
-  {id:4667, name:"Walkers Ready Salted Multipack Crisps 6x25g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.5,morrisons:0,ms:0,waitrose:2.35,iceland:2.85,alliance:0}, upd:"10 Oct"},
-  {id:4668, name:"Walkers Salt & Shake Multipack Crisps 6x24g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.55,morrisons:0,ms:0,waitrose:2.35,iceland:2.85,alliance:0}, upd:"10 Oct"},
+  {id:4667, name:"Walkers Ready Salted Multipack Crisps 6x25g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.5,morrisons:0,ms:0,waitrose:2.35,iceland:2.85,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct",iceland:"10 Oct"}},
+  {id:4668, name:"Walkers Salt & Shake Multipack Crisps 6x24g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.55,morrisons:0,ms:0,waitrose:2.35,iceland:2.85,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct",iceland:"10 Oct"}},
   {id:4669, name:"Cheez-It Snap'd Double Cheese Baked Snacks 4 x 30g (120g)", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.39,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4670, name:"Co-op Salted Pretzel Sticks 150g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:4671, name:"Love, Corn Sea Salt Delicious Crunchy Corn 115g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -5461,9 +5461,9 @@ const BASE_PRODUCTS = [
   {id:4674, name:"Myprotein Layered Bar Triple Chocolate Fudge Flavour 60g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.9,morrisons:0,ms:0,waitrose:0,iceland:3,alliance:0}, upd:"10 Oct"},
   {id:4675, name:"Popchips Sour Cream & Onion Flavour Potato Snacks 85g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4676, name:"Walkers Sensations Roasted Chicken & Thyme Sharing Crisps 150g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:3.3,alliance:0}, upd:"10 Oct"},
-  {id:4677, name:"Walkers Roast Chicken Multipack Crisps 6x25g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.5,morrisons:0,ms:0,waitrose:2.35,iceland:2.85,alliance:0}, upd:"10 Oct"},
+  {id:4677, name:"Walkers Roast Chicken Multipack Crisps 6x25g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.5,morrisons:0,ms:0,waitrose:2.35,iceland:2.85,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct",iceland:"10 Oct"}},
   {id:4678, name:"Walkers Prawn Cocktail Multipack Crisps 6 x 25g 6X25G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.5,morrisons:0,ms:0,waitrose:0,iceland:2.85,alliance:0}, upd:"10 Oct"},
-  {id:4679, name:"Walkers Salt & Vinegar Multipack Crisps 6x25g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.5,morrisons:0,ms:0,waitrose:2.35,iceland:2.85,alliance:0}, upd:"10 Oct"},
+  {id:4679, name:"Walkers Salt & Vinegar Multipack Crisps 6x25g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.5,morrisons:0,ms:0,waitrose:2.35,iceland:2.85,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct",iceland:"10 Oct"}},
   {id:4680, name:"Tyrrells Lightly Sea Salted 150g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.39,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £1.80 until 20/10/26
   {id:4681, name:"Tyrrells Sea Salt & Cider Vinegar Hand-Cooked English Crisps 150g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.39,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £1.80 until 20/10/26
   {id:4682, name:"Tyrrells Mature Cheddar & Chive Hand-Cooked English Crisps 150g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.39,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £1.80 until 20/10/26
@@ -5570,7 +5570,7 @@ const BASE_PRODUCTS = [
   {id:4788, name:"Co-op Free From Millionaires Crispy Stackers 150g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.39,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4789, name:"Schär Gluten Free Pretzels 60g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.49,morrisons:0,ms:0,waitrose:0,iceland:1.65,alliance:0}, upd:"10 Oct"},
   {id:4790, name:"Schär Crispbread 150g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.29,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:4791, name:"Schär Gluten-Free Custard Creams 5 x 25g (125g)", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.35,morrisons:0,ms:0,waitrose:0,iceland:2.65,alliance:0}, upd:"10 Oct", oos:["iceland"]},
+  {id:4791, name:"Schär Gluten-Free Custard Creams 5 x 25g (125g)", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.35,morrisons:0,ms:0,waitrose:0,iceland:2.65,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}, oos:["iceland"]},
   {id:4792, name:"Schär Melto 30g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.35,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4793, name:"Nairn's Gluten Free Original Oatcakes 213g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4794, name:"Nairn's Cheese Oatcakes 180g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -5631,7 +5631,7 @@ const BASE_PRODUCTS = [
   {id:4850, name:"Natural Selection Whole Chia Seeds 200g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.09,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4851, name:"Betty Crocker Chocolate Chip Cookie Mix 200g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4852, name:"Dr.Oetker Milk Chocolate Chips 100g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.49,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:4853, name:"Dr.Oetker Madagascan Vanilla Extract 95ml", cat:"🍝 Pantry", icon:"🍝", prices:{coop:5.0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:2.10}, upd:"10 Oct"},
+  {id:4853, name:"Dr.Oetker Madagascan Vanilla Extract 95ml", cat:"🍝 Pantry", icon:"🍝", prices:{coop:5.0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:2.10}, upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:4854, name:"McDougalls Pre-Sifted Self Raising Flour 1.1kg", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.2,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4855, name:"Cadbury Chocolate Icing 400g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.35,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4856, name:"Atora The Original Shredded Beef Suet 200g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -5662,11 +5662,11 @@ const BASE_PRODUCTS = [
   {id:4881, name:"Co-op British Plain White Flour 1.5kg", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.05,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4882, name:"Co Op Soft Figs 250g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4883, name:"Co-op 2 Garlic & Coriander Naan Breads 260G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.20,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"28 Aug"},
-  {id:4884, name:"Dolmio Stir in Slow Roasted Garlic & Tomato Pasta Sauce 150g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.39,morrisons:0,ms:0,waitrose:0,iceland:2.5,alliance:0}, upd:"10 Oct"},
+  {id:4884, name:"Dolmio Stir in Slow Roasted Garlic & Tomato Pasta Sauce 150g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.39,morrisons:0,ms:0,waitrose:0,iceland:2.5,alliance:0}, upd:"10 Oct", upds:{iceland:"10 Oct"}},
   {id:4885, name:"Sharwood's Korma Cooking Sauce 420g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.95,morrisons:0,ms:0,waitrose:0,iceland:3.6,alliance:0}, upd:"10 Oct"}, // special offer £1.94 until 20/10/26
   {id:4886, name:"Sharwood's Tikka Masala Cooking Sauce 420g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.95,morrisons:0,ms:0,waitrose:0,iceland:3.6,alliance:0}, upd:"10 Oct", oos:["iceland"]}, // special offer £1.94 until 20/10/26
-  {id:4887, name:"Ainsley Harriott Roasted Vegetable Couscous 100g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.15,morrisons:0,ms:0,waitrose:1.00,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:4888, name:"De Cecco Gnocchi Di Patate 500g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.9,morrisons:0,ms:0,waitrose:2.90,iceland:0,alliance:0}, upd:"10 Oct"},
+  {id:4887, name:"Ainsley Harriott Roasted Vegetable Couscous 100g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.15,morrisons:0,ms:0,waitrose:1.00,iceland:0,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
+  {id:4888, name:"De Cecco Gnocchi Di Patate 500g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.9,morrisons:0,ms:0,waitrose:2.90,iceland:0,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:4889, name:"De Cecco Tortiglioni No23 500g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.45,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4890, name:"Gallo Traditional Risotto Rice 500g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.29,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:4891, name:"Kikkoman Naturally Brewed Soy Sauce 150ml", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -5710,7 +5710,7 @@ const BASE_PRODUCTS = [
   {id:4929, name:"Patak's The Original 2 Korma Paste Pots 2 x 70g 2X70G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.35,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £1.58 until 20/10/26
   {id:4930, name:"Veetee Basmati Rice 2 x 125g (250g) 2X125G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4931, name:"Veetee Steam Filtered Thai Jasmine 2 x 140g (280g) 2X140G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.45,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
-  {id:4932, name:"Veetee Steam Sticky Rice 2 x 130g (260g) 2X130G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.55,morrisons:0,ms:0,waitrose:1.50,iceland:0,alliance:0}, upd:"10 Oct"},
+  {id:4932, name:"Veetee Steam Sticky Rice 2 x 130g (260g) 2X130G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.55,morrisons:0,ms:0,waitrose:1.50,iceland:0,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:4933, name:"Sharwood's Prawn Crackers 60g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.35,morrisons:0,ms:0,waitrose:0,iceland:2.65,alliance:0}, upd:"10 Oct", oos:["iceland"]},
   {id:4934, name:"Homepride Creamy Tomato & Herb Pasta Bake 485g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.95,morrisons:0,ms:0,waitrose:0,iceland:3.7,alliance:0}, upd:"10 Oct"},
   {id:4935, name:"Old El Paso Soured Cream 230g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.8,morrisons:0,ms:0,waitrose:0,iceland:2.4,alliance:0}, upd:"10 Oct"}, // special offer £1.84 until 20/10/26
@@ -5719,7 +5719,7 @@ const BASE_PRODUCTS = [
   {id:4938, name:"Blue Dragon Black Bean Stir Fry Sauce 120g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4939, name:"Loyd Grossman Italian Grated Cheese 80g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4940, name:"Blue Dragon Medium Wok Ready Noodles 300g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct", oos:["coop"]},
-  {id:4941, name:"Old El Paso Fajita Seasoning Mix Smoky BBQ 35g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.5,morrisons:0,ms:0,waitrose:1.30,iceland:1.65,alliance:0}, upd:"10 Oct"}, // special offer £1.16 until 20/10/26
+  {id:4941, name:"Old El Paso Fajita Seasoning Mix Smoky BBQ 35g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.5,morrisons:0,ms:0,waitrose:1.30,iceland:1.65,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct",iceland:"10 Oct"}}, // special offer £1.16 until 20/10/26
   {id:4942, name:"Blue Dragon Thai Red Curry Paste 170g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4943, name:"Old El Paso Taco Seasoning Mix 25g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.5,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £1.16 until 20/10/26
   {id:4944, name:"Blue Dragon Thai Green Curry 253g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -5729,18 +5729,18 @@ const BASE_PRODUCTS = [
   {id:4948, name:"Patak's the Original 2 Flame Baked Plain Naans 220G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £1.58 until 20/10/26
   {id:4949, name:"Patak's The Original 2 Flame Baked Peshwari Naans 220G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £1.58 until 20/10/26
   {id:4950, name:"Ben's Original Spicy Mexican Microwave Rice 220g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
-  {id:4951, name:"Tilda Pure Microwave Basmati Rice Classics 250g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.75,morrisons:0,ms:0,waitrose:1.65,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £1.05 until 20/10/26
+  {id:4951, name:"Tilda Pure Microwave Basmati Rice Classics 250g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.75,morrisons:0,ms:0,waitrose:1.65,iceland:0,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}}, // special offer £1.05 until 20/10/26
   {id:4952, name:"Tilda Microwave Egg Fried Rice 250g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:4953, name:"Tilda Wholegrain Basmati Rice 250g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.75,morrisons:0,ms:0,waitrose:1.65,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £1.05 until 20/10/26
+  {id:4953, name:"Tilda Wholegrain Basmati Rice 250g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.75,morrisons:0,ms:0,waitrose:1.65,iceland:0,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}}, // special offer £1.05 until 20/10/26
   {id:4954, name:"Tilda Microwave Pilau Basmati Rice 250g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £1.05 until 20/10/26
   {id:4955, name:"Tilda Microwave Mushroom Basmati Rice 250g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4956, name:"Patak's The Original 8 Plain Pappadums 64g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.79,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £1.58 until 20/10/26
-  {id:4957, name:"Patak's the Original Tikka Masala Cooking Sauce 450g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.09,morrisons:0,ms:0,waitrose:0,iceland:3.3,alliance:0}, upd:"10 Oct", oos:["iceland"]}, // special offer £1.94 until 20/10/26
+  {id:4957, name:"Patak's the Original Tikka Masala Cooking Sauce 450g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.09,morrisons:0,ms:0,waitrose:0,iceland:3.3,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}, oos:["iceland"]}, // special offer £1.94 until 20/10/26
   {id:4958, name:"Patak's The Original Korma Cooking Sauce 450g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.09,morrisons:0,ms:0,waitrose:0,iceland:3.3,alliance:0}, upd:"10 Oct", oos:["iceland"]}, // special offer £1.94 until 20/10/26
   {id:4959, name:"Patak's The Original Butter Chicken Cooking Sauce 450g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.09,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £1.94 until 20/10/26
   {id:4960, name:"Patak's The Original Jalfrezi Cooking Sauce 450g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.09,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £1.94 until 20/10/26
   {id:4961, name:"Sacla' Pesto Classic Basil 190g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:4962, name:"Dolmio Onion & Garlic Sauce for Bolognese 450g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.85,morrisons:0,ms:0,waitrose:0,iceland:3.45,alliance:0}, upd:"10 Oct"},
+  {id:4962, name:"Dolmio Onion & Garlic Sauce for Bolognese 450g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.85,morrisons:0,ms:0,waitrose:0,iceland:3.45,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:4963, name:"Dolmio Original Sauce for Bolognese 450g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.85,morrisons:0,ms:0,waitrose:0,iceland:3.45,alliance:0}, upd:"10 Oct"},
   {id:4964, name:"Co-op Italian Menu Fusilli 500g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:0.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £0.75 until 03/01/27
   {id:4965, name:"Co-op Italian Menu Penne 500g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:0.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £0.75 until 03/01/27
@@ -5813,7 +5813,7 @@ const BASE_PRODUCTS = [
   {id:5032, name:"Loyd Grossman Tomato & Roasted Garlic Pasta Sauce 350g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.7,morrisons:0,ms:0,waitrose:0,iceland:3.95,alliance:0}, upd:"10 Oct", oos:["iceland"]},
   {id:5033, name:"Loyd Grossman Tomato & Chilli Sauce 350g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.7,morrisons:0,ms:0,waitrose:0,iceland:3.95,alliance:0}, upd:"10 Oct"},
   {id:5034, name:"Loyd Grossman Tomato & Basil 350g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.7,morrisons:0,ms:0,waitrose:0,iceland:3.95,alliance:0}, upd:"10 Oct"},
-  {id:5035, name:"Loyd Grossman Bolognese Original Pasta Sauce 350g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.7,morrisons:0,ms:0,waitrose:0,iceland:3.95,alliance:0}, upd:"10 Oct"},
+  {id:5035, name:"Loyd Grossman Bolognese Original Pasta Sauce 350g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.7,morrisons:0,ms:0,waitrose:0,iceland:3.95,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:5036, name:"Loyd Grossman Tomato & Mascarpone 350g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.7,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5037, name:"Dolmio Stir In Smoked Bacon and Tomato Pasta Sauce 150g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.39,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5038, name:"Old El Paso Soft Taco Street Vibes Kit Barbacoa 255g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.69,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -5824,7 +5824,7 @@ const BASE_PRODUCTS = [
   {id:5044, name:"Pek Chopped Pork 300g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5045, name:"Mixed Dried Beans P/P... 500g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.2,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5046, name:"Baxters Chicken Broth 400g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:5047, name:"Ye Olde Oak 6 American Style Hot Dogs in Brine 400g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.89,morrisons:2.35,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
+  {id:5047, name:"Ye Olde Oak 6 American Style Hot Dogs in Brine 400g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.89,morrisons:2.35,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:5048, name:"Ye Olde Oak 8 Premium Hot Dogs in Brine 560g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.05,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5049, name:"Spam Chopped Pork and Ham 200g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5050, name:"Spam Chopped Pork and Ham 340g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:4.05,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -5844,7 +5844,7 @@ const BASE_PRODUCTS = [
   {id:5064, name:"Co-op Tuna Chunks in Spring Water 3 x 145g 3X145G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.49,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5065, name:"Stagg Chili Classic Beef & Beans Chili Con Carne 400g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.8,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5066, name:"Napolina Chopped Tomatoes in a Rich Tomato Juice 4 x 400g 4X400G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:4.2,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:5067, name:"Branston Baked Beans 410g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:0.84,morrisons:0,ms:0,waitrose:0,iceland:1.25,alliance:0}, upd:"10 Oct"},
+  {id:5067, name:"Branston Baked Beans 410g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:0.84,morrisons:0,ms:0,waitrose:0,iceland:1.25,alliance:0}, upd:"10 Oct", upds:{iceland:"10 Oct"}},
   {id:5068, name:"Princes Tuna Chunks in Brine 4 x 145g 4X145G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:5.25,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5069, name:"Heinz Beef Tinned Ravioli 400g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5070, name:"Heinz Baked Beans in Tomato Sauce 4 x 200g 800G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:4.0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -5875,14 +5875,14 @@ const BASE_PRODUCTS = [
   {id:5095, name:"Co-op Red Kidney Beans in Water 400g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £0.85 until 20/10/26
   {id:5096, name:"Napolina Lentils in Water 400g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.45,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5097, name:"Heinz Hoops 400g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.7,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members buy any 2 for £2.45 until 20/10/26
-  {id:5098, name:"Heinz Baked Beans 415g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.79,morrisons:0,ms:0,waitrose:1.40,iceland:0,alliance:0}, upd:"10 Oct"}, // members buy any 2 for £2.45 until 20/10/26
+  {id:5098, name:"Heinz Baked Beans 415g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.79,morrisons:0,ms:0,waitrose:1.40,iceland:0,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}}, // members buy any 2 for £2.45 until 20/10/26
   {id:5099, name:"Heinz Tinned Baked Beans 200g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.35,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5100, name:"Heinz Baked Beans 4 x 415g 4X415G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:4.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5101, name:"Heinz Spaghetti Hoops 205g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5102, name:"Heinz Potato & Leek Tinned Soup 400g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members buy any 3 for £4.75 until 20/10/26
   {id:5104, name:"Heinz Cream of Chicken Soup 400g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members buy any 3 for £4.75 until 20/10/26
   {id:5105, name:"Heinz Oxtail Tinned Soup 400g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members buy any 3 for £4.75 until 20/10/26
-  {id:5106, name:"Heinz Lentil Tinned Soup 400g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.15,morrisons:0,ms:0,waitrose:0,iceland:2.3,alliance:0}, upd:"10 Oct"}, // members buy any 3 for £4.75 until 20/10/26
+  {id:5106, name:"Heinz Lentil Tinned Soup 400g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.15,morrisons:0,ms:0,waitrose:0,iceland:2.3,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}}, // members buy any 3 for £4.75 until 20/10/26
   {id:5108, name:"Heinz BIG SOUP Chunky Chicken and Vegetable 400g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5109, name:"Heinz Beef & Vegetable Chunky Big Soup 400g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5110, name:"Heinz Chicken Noodle Tinned Soup 400g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members buy any 3 for £4.75 until 20/10/26
@@ -5964,7 +5964,7 @@ const BASE_PRODUCTS = [
   {id:5186, name:"Dettol Antibacterial Surface Cleanser Spray 750ml", cat:"🧹 Household", icon:"🧴", prices:{coop:3.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5187, name:"Zoflora All Purpose Concentrated Disinfectant Mandarin & Lime 4 in 1 Action 250ml", cat:"🧹 Household", icon:"🧴", prices:{coop:3.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5188, name:"Flash Spray Wipe Done Antibac Apple Blossom Cleaning Spray 800ml", cat:"🧹 Household", icon:"🧴", prices:{coop:3.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £2.10 until 20/10/26
-  {id:5189, name:"Fairy Skip the Soak Dish Power Spray Lemon 500ml, Dishes & Kitchen, Grease Remover", cat:"🧹 Household", icon:"🍽️", prices:{coop:3.55,morrisons:0,ms:0,waitrose:0,iceland:5.55,alliance:0}, upd:"10 Oct"}, // special offer £2.85 until 20/10/26
+  {id:5189, name:"Fairy Skip the Soak Dish Power Spray Lemon 500ml, Dishes & Kitchen, Grease Remover", cat:"🧹 Household", icon:"🍽️", prices:{coop:3.55,morrisons:0,ms:0,waitrose:0,iceland:5.55,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}}, // special offer £2.85 until 20/10/26
   {id:5190, name:"Flash Multipurpose Floor Liquid Cleaner Crisp Lemon 1L", cat:"🧹 Household", icon:"🧴", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5191, name:"Flash Spray Wipe Done Bright Mandarin Cleaning Spray 800ml", cat:"🧹 Household", icon:"🧴", prices:{coop:3.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5192, name:"Cif Ocean Floor Cleaner 950 ml", cat:"🧹 Household", icon:"🧴", prices:{coop:2.2,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -6007,7 +6007,7 @@ const BASE_PRODUCTS = [
   {id:5229, name:"Dettol Antibacterial Mould & Mildew Remover 750ml", cat:"🧹 Household", icon:"🏠", prices:{coop:4.09,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:5230, name:"Finish Ultimate All In One Dishwasher Tablets Lemon - 32 Tabs", cat:"🧹 Household", icon:"🍽️", prices:{coop:11.0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £6.30 until 20/10/26
   {id:5231, name:"Dettol Liquid Antiseptic 500ml", cat:"🧹 Household", icon:"🏠", prices:{coop:4.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:5232, name:"Dr. Beckmann Original Carpet Stain Remover 650ml", cat:"🧹 Household", icon:"🏠", prices:{coop:4.15,morrisons:0,ms:0,waitrose:0,iceland:4.95,alliance:0}, upd:"10 Oct"},
+  {id:5232, name:"Dr. Beckmann Original Carpet Stain Remover 650ml", cat:"🧹 Household", icon:"🏠", prices:{coop:4.15,morrisons:0,ms:0,waitrose:0,iceland:4.95,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:5233, name:"Mr Muscle Sink & Drain Unblocker Gel 500ml", cat:"🧹 Household", icon:"🏠", prices:{coop:4.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5234, name:"Zoflora All Purpose Concentrated Disinfectant Midnight Blooms 250ml", cat:"🧹 Household", icon:"🧴", prices:{coop:3.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5235, name:"Domestos Bleach Foam Mint Boost 450 ml", cat:"🧹 Household", icon:"🧴", prices:{coop:3.5,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -6034,8 +6034,8 @@ const BASE_PRODUCTS = [
   {id:5256, name:"Surf 3 in 1 Tropical Lily Laundry Washing Detergent Capsules 26 washes", cat:"🧹 Household", icon:"🧺", prices:{coop:6.4,morrisons:0,ms:0,waitrose:0,iceland:10.5,alliance:0}, upd:"10 Oct"}, // special offer £5.25 until 20/10/26
   {id:5257, name:"Surf Tropical Lily Laundry Washing 60 washes", cat:"🧹 Household", icon:"🧺", prices:{coop:8.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £6.85 until 20/10/26
   {id:5258, name:"Fairy Fabric Softener, Voted No1 For Sensitive Skin, 48 Washes, 1.488l", cat:"🧹 Household", icon:"🧺", prices:{coop:5.25,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £3.68 until 20/10/26
-  {id:5259, name:"Fairy Non Bio Detergent Gel, 26 Washes 858ml, For Sensitive Skin", cat:"🧹 Household", icon:"🧺", prices:{coop:7.35,morrisons:0,ms:0,waitrose:0,iceland:9.75,alliance:0}, upd:"10 Oct"}, // special offer £5.25 until 20/10/26
-  {id:5260, name:"Ariel Washing Liquid, 26 Washes, Original", cat:"🧹 Household", icon:"🧺", prices:{coop:7.35,morrisons:0,ms:0,waitrose:0,iceland:9.4,alliance:0}, upd:"10 Oct", oos:["iceland"]}, // special offer £5.25 until 20/10/26
+  {id:5259, name:"Fairy Non Bio Detergent Gel, 26 Washes 858ml, For Sensitive Skin", cat:"🧹 Household", icon:"🧺", prices:{coop:7.35,morrisons:0,ms:0,waitrose:0,iceland:9.75,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}}, // special offer £5.25 until 20/10/26
+  {id:5260, name:"Ariel Washing Liquid, 26 Washes, Original", cat:"🧹 Household", icon:"🧺", prices:{coop:7.35,morrisons:0,ms:0,waitrose:0,iceland:9.4,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}, oos:["iceland"]}, // special offer £5.25 until 20/10/26
   {id:5261, name:"Bold Lavender and Camomile Liquid Laundry Detergent Gel 26 Washes, 858ml", cat:"🧹 Household", icon:"🧺", prices:{coop:7.9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5262, name:"Persil Non Bio 4 in 1 fast-dissolving laundry capsules, 15 washes", cat:"🧹 Household", icon:"🧺", prices:{coop:7.1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £3.65 until 20/10/26
   {id:5263, name:"Comfort Fresh Sunshiny Days Fabric Conditioner 31 washes (930 ml)", cat:"🧹 Household", icon:"🧺", prices:{coop:2.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £2.10 until 20/10/26
@@ -6047,12 +6047,12 @@ const BASE_PRODUCTS = [
   {id:5269, name:"Persil Bio 4 in 1 fast-dissolving laundry capsules, 34 washes", cat:"🧹 Household", icon:"🧺", prices:{coop:9.0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5270, name:"Persil Non Bio 4 in 1 fast-dissolving laundry capsules, 34 washes", cat:"🧹 Household", icon:"🧺", prices:{coop:9.0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5271, name:"Lenor Unstoppables Fresh Scent Booster 280g", cat:"🧹 Household", icon:"🧺", prices:{coop:6.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct", oos:["coop"]},
-  {id:5272, name:"Fairy In-Wash Scent Booster 280g, Almond Milk & Manuka Honey", cat:"🧹 Household", icon:"🧺", prices:{coop:4.73,morrisons:0,ms:0,waitrose:0,iceland:7.5,alliance:0}, upd:"10 Oct"},
+  {id:5272, name:"Fairy In-Wash Scent Booster 280g, Almond Milk & Manuka Honey", cat:"🧹 Household", icon:"🧺", prices:{coop:4.73,morrisons:0,ms:0,waitrose:0,iceland:7.5,alliance:0}, upd:"10 Oct", upds:{iceland:"10 Oct"}},
   {id:5273, name:"Lenor Fabric Conditioner 29 Washes, Gold Orchid", cat:"🧹 Household", icon:"🧺", prices:{coop:3.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £2.10 until 20/10/26
   {id:5274, name:"Persil Bio Laundry Washing Liquid Detergent 648 ml (24 washes)", cat:"🧹 Household", icon:"🧺", prices:{coop:6.3,morrisons:0,ms:0,waitrose:0,iceland:9.2,alliance:0}, upd:"10 Oct"},
   {id:5275, name:"Persil Non Bio Laundry Washing Liquid Detergent 648 ml (24 washes)", cat:"🧹 Household", icon:"🧺", prices:{coop:6.3,morrisons:0,ms:0,waitrose:0,iceland:9.2,alliance:0}, upd:"10 Oct"},
   {id:5276, name:"Surf Tropical Lily Washing Powder 45 washes 2.25 kg", cat:"🧹 Household", icon:"🧺", prices:{coop:6.0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:5277, name:"Surf Tropical Lily Washing Powder 23 washes 1.15 kg", cat:"🧹 Household", icon:"🧺", prices:{coop:4.0,morrisons:0,ms:0,waitrose:0,iceland:4.65,alliance:0}, upd:"10 Oct", oos:["iceland"]},
+  {id:5277, name:"Surf Tropical Lily Washing Powder 23 washes 1.15 kg", cat:"🧹 Household", icon:"🧺", prices:{coop:4.0,morrisons:0,ms:0,waitrose:0,iceland:4.65,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}, oos:["iceland"]},
   {id:5278, name:"Persil Washing Powder Non Bio 21 washes (1.05 kg)", cat:"🧹 Household", icon:"🧺", prices:{coop:6.0,morrisons:0,ms:0,waitrose:0,iceland:6.3,alliance:0}, upd:"10 Oct"},
   {id:5279, name:"Surf 3 in 1 Tropical Lily Laundry Washing Detergent Capsules 15 washes", cat:"🧹 Household", icon:"🧺", prices:{coop:6,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5280, name:"Surf Tropical Lily Laundry Washing 24 washes", cat:"🧹 Household", icon:"🧺", prices:{coop:3.95,morrisons:0,ms:0,waitrose:0,iceland:6.85,alliance:0}, upd:"10 Oct"},
@@ -6204,7 +6204,7 @@ const BASE_PRODUCTS = [
   {id:5426, name:"Nuii Ice Cream Adventure Salted Caramel & Australian Macadamia 270ml 3X90ML", cat:"🧊 Frozen", icon:"🧊", prices:{coop:5.5,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5427, name:"Bovril Paste Beef & Yeast Extract 250 g 250G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:5.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5428, name:"Knorr Stock Pots Lamb 4x 28 g 112G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.25,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:5429, name:"Colman's Mustard Original English Mustard 170 g 170G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.7,morrisons:0,ms:0,waitrose:0,iceland:2.95,alliance:0}, upd:"10 Oct"},
+  {id:5429, name:"Colman's Mustard Original English Mustard 170 g 170G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.7,morrisons:0,ms:0,waitrose:0,iceland:2.95,alliance:0}, upd:"10 Oct", upds:{iceland:"10 Oct"}},
   {id:5430, name:"Maille Sauce Hollandaise 185 g 185G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.7,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5431, name:"Colman's Sauce Seafood 155 ml 155G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5432, name:"Colman's Sauce Apple 155 ml 155G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.4,morrisons:0,ms:0,waitrose:0,iceland:2.4,alliance:0}, upd:"10 Oct"},
@@ -6216,7 +6216,7 @@ const BASE_PRODUCTS = [
   {id:5438, name:"Heinz Cream of Tomato Tinned Soup 4 x 400g 4X400G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:5.2,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5439, name:"innocent Kids Smoothies Oranges, Mangoes & Pineapples 4 x 150ml 4X150ML", cat:"🥤 Drinks", icon:"🥤", prices:{coop:3.99,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £2.65 until 27/10/26
   {id:5440, name:"Simplee Aloe Vera Immunity with Bits 1 Litre 1LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:3.05,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:5441, name:"Tropicana Smooth Orange with No Bits 900ml", cat:"🥤 Drinks", icon:"🥤", prices:{coop:3.65,morrisons:0,ms:0,waitrose:2.55,iceland:0,alliance:0}, upd:"10 Oct"},
+  {id:5441, name:"Tropicana Smooth Orange with No Bits 900ml", cat:"🥤 Drinks", icon:"🥤", prices:{coop:3.65,morrisons:0,ms:0,waitrose:2.55,iceland:0,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:5442, name:"Tropicana Original Orange with Juicy Bits 900ml", cat:"🥤 Drinks", icon:"🥤", prices:{coop:3.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5443, name:"Innocent Strawberries Bananas & Apples Fruit Smoothie 750ml", cat:"🥤 Drinks", icon:"🥤", prices:{coop:4.2,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5444, name:"Innocent Mangoes, Apples & Passion Fruits Fruit Smoothie 750ml", cat:"🥤 Drinks", icon:"🥤", prices:{coop:4.2,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -6293,7 +6293,7 @@ const BASE_PRODUCTS = [
   {id:5515, name:"Tetley 80 Decaf Tea Bags 250g", cat:"🥤 Drinks", icon:"🥤", prices:{coop:4.35,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5516, name:"Tetley Original 160 Tea Bags 500g", cat:"🥤 Drinks", icon:"🥤", prices:{coop:5.8,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £3.68 until 20/10/26
   {id:5517, name:"Tetley 80 Original Tea Bags 250g", cat:"🥤 Drinks", icon:"🥤", prices:{coop:4.09,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:5518, name:"Tetley 240 Original Tea Bags 750g", cat:"🥤 Drinks", icon:"🥤", prices:{coop:8.65,morrisons:0,ms:0,waitrose:0,iceland:7.3,alliance:0}, upd:"10 Oct"},
+  {id:5518, name:"Tetley 240 Original Tea Bags 750g", cat:"🥤 Drinks", icon:"🥤", prices:{coop:8.65,morrisons:0,ms:0,waitrose:0,iceland:7.3,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:5519, name:"Yorkshire Tea 80 Tea Bags 250g", cat:"🥤 Drinks", icon:"🥤", prices:{coop:4.49,morrisons:0,ms:0,waitrose:0,iceland:4.95,alliance:0}, upd:"10 Oct"}, // special offer £3.15 until 20/10/26
   {id:5520, name:"Nescafé Dolce Gusto Cappuccino 186.4g", cat:"🥤 Drinks", icon:"🥤", prices:{coop:6.25,morrisons:0,ms:0,waitrose:0,iceland:6.65,alliance:0}, upd:"10 Oct"},
   {id:5521, name:"Nescafé Espresso 95g", cat:"🥤 Drinks", icon:"🥤", prices:{coop:6.65,morrisons:0,ms:0,waitrose:0,iceland:6.6,alliance:0}, upd:"10 Oct"},
@@ -6368,12 +6368,12 @@ const BASE_PRODUCTS = [
   {id:5590, name:"Cafédirect 4 Organic Machu Picchu Peru Coffee Beans 200g", cat:"🥤 Drinks", icon:"🥤", prices:{coop:7.2,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5591, name:"L'OR Espresso 10 Supremo Aluminium Capsules 52g", cat:"🥤 Drinks", icon:"🥤", prices:{coop:4.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5592, name:"Kenco Millicano Original 170g", cat:"🥤 Drinks", icon:"🥤", prices:{coop:9.5,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £7.14 until 20/10/26
-  {id:5593, name:"Tassimo Costa Coffee Cappuccino 210g", cat:"🥤 Drinks", icon:"🥤", prices:{coop:6.85,morrisons:0,ms:0,waitrose:0,iceland:3.75,alliance:0}, upd:"10 Oct", oos:["iceland"]},
+  {id:5593, name:"Tassimo Costa Coffee Cappuccino 210g", cat:"🥤 Drinks", icon:"🥤", prices:{coop:6.85,morrisons:0,ms:0,waitrose:0,iceland:3.75,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}, oos:["iceland"]},
   {id:5594, name:"Twinings Cranberry & Raspberry Fruit Blends 40g", cat:"🥤 Drinks", icon:"🥤", prices:{coop:3.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5595, name:"Kenco Smooth Instant Coffee 150g", cat:"🥤 Drinks", icon:"🥤", prices:{coop:5.25,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:5596, name:"PG Tips 160 Original Tea Bags 464g", cat:"🥤 Drinks", icon:"🥤", prices:{coop:7.35,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £4.20 until 20/10/26
   {id:5597, name:"Tassimo Costa Americano 12 x 19g (108g)", cat:"🥤 Drinks", icon:"🥤", prices:{coop:6.85,morrisons:0,ms:0,waitrose:0,iceland:7.5,alliance:0}, upd:"10 Oct"},
-  {id:5598, name:"Twinings 20 Mint Green Tea 40g", cat:"🥤 Drinks", icon:"🥤", prices:{coop:3.4,morrisons:0,ms:0,waitrose:3.45,iceland:0,alliance:0}, upd:"10 Oct"},
+  {id:5598, name:"Twinings 20 Mint Green Tea 40g", cat:"🥤 Drinks", icon:"🥤", prices:{coop:3.4,morrisons:0,ms:0,waitrose:3.45,iceland:0,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:5599, name:"Costa Coffee Smooth Medium Roast 100g", cat:"🥤 Drinks", icon:"🥤", prices:{coop:6.85,morrisons:0,ms:0,waitrose:0,iceland:8.35,alliance:0}, upd:"10 Oct", oos:["iceland","coop"]}, // special offer £3.15 until 20/10/26
   {id:5600, name:"Teapigs Chamomile Flowers Tea Temples 15 x 1.5g (22.5g) 15PACK", cat:"🥤 Drinks", icon:"🥤", prices:{coop:5.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5601, name:"Co-op Fairtrade Italian Style Coffee Beans 200g", cat:"🥤 Drinks", icon:"🥤", prices:{coop:3.7,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -6388,7 +6388,7 @@ const BASE_PRODUCTS = [
   {id:5610, name:"Nescafé Original 190g", cat:"🥤 Drinks", icon:"🥤", prices:{coop:8.9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5611, name:"Starbucks House Blend Lungo 52g 68G", cat:"🥤 Drinks", icon:"🥤", prices:{coop:4.89,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5612, name:"Nescafe Azera Americano Intense Instant Coffee with Finely Ground Beans 140g", cat:"🥤 Drinks", icon:"🥤", prices:{coop:10.1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £6.04 until 20/10/26
-  {id:5613, name:"Costa Signature Blend Ground Coffee 200g", cat:"🥤 Drinks", icon:"🥤", prices:{coop:5.8,morrisons:0,ms:0,waitrose:0,iceland:5.2,alliance:0}, upd:"10 Oct"},
+  {id:5613, name:"Costa Signature Blend Ground Coffee 200g", cat:"🥤 Drinks", icon:"🥤", prices:{coop:5.8,morrisons:0,ms:0,waitrose:0,iceland:5.2,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:5614, name:"Costa Coffee Barista Creations Iced Latte 77.5g (5x15.5g) 17G", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.05,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:5615, name:"TrueStart Barista Grade Instant Coffee 100g", cat:"🥤 Drinks", icon:"🥤", prices:{coop:6.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £4.73 until 20/10/26
   {id:5616, name:"TrueStart Barista Grade Decaf Instant Coffee 100g", cat:"🥤 Drinks", icon:"🥤", prices:{coop:6.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £4.73 until 20/10/26
@@ -6421,10 +6421,10 @@ const BASE_PRODUCTS = [
   {id:5643, name:"Pepsi Max 1.25 Litres 1.25LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:1.79,morrisons:0,ms:0,waitrose:0,iceland:1.85,alliance:0}, upd:"10 Oct", oos:["iceland"]},
   {id:5644, name:"Pepsi Max Cherry 1.25 Litres 1.25LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:1.79,morrisons:0,ms:0,waitrose:0,iceland:1.85,alliance:0}, upd:"10 Oct"},
   {id:5645, name:"7Up Zero Sugar 2 Litres 2LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.2,morrisons:0,ms:0,waitrose:0,iceland:2.65,alliance:0}, upd:"10 Oct"}, // special offer £1.40 until 20/10/26
-  {id:5646, name:"7Up Zero Sugar 8 x 330ml 8X330ML", cat:"🥤 Drinks", icon:"🥤", prices:{coop:3.95,morrisons:0,ms:0,waitrose:3.00,iceland:5.1,alliance:0}, upd:"10 Oct"},
+  {id:5646, name:"7Up Zero Sugar 8 x 330ml 8X330ML", cat:"🥤 Drinks", icon:"🥤", prices:{coop:3.95,morrisons:0,ms:0,waitrose:3.00,iceland:5.1,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct",iceland:"10 Oct"}},
   {id:5647, name:"Co-op Diet Sparkling Lemonade 2 Litre 2LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0.99,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £0.59 until 20/10/26
   {id:5648, name:"Co-op Diet Indian Tonic Water 1 Litre 1LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0.89,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £0.55 until 20/10/26
-  {id:5649, name:"Co-op Natural Mineral Water Still 4 x 2 Litre 4X2LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct", oos:["coop"]}, // members £2.00 until 20/10/26
+  {id:5649, name:"Co-op Natural Mineral Water Still 4 x 2 Litre 4X2LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct", upds:{}, oos:["coop"]}, // members £2.00 until 20/10/26
   {id:5650, name:"Co-op Diet Ginger Ale 1 Litre 1LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0.89,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £0.55 until 20/10/26
   {id:5651, name:"Co-op Diet Bitter Lemon 1 Litre 1LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0.89,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £0.55 until 20/10/26
   {id:5652, name:"Pepsi Max Cherry 8 x 330ml 8X330ML", cat:"🥤 Drinks", icon:"🥤", prices:{coop:5.6,morrisons:0,ms:0,waitrose:0,iceland:5.25,alliance:0}, upd:"10 Oct"}, // special offer £2.90 until 20/10/26
@@ -6439,30 +6439,30 @@ const BASE_PRODUCTS = [
   {id:5662, name:"Nestle Pure Life Still Spring Water 12x500ml 12X50CL", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:5663, name:"Schweppes Slimline Tonic Water 150ml", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0.79,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:5664, name:"Appletiser Sparkling Apple Juice 150ml", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0.79,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
-  {id:5665, name:"Coca-Cola Original Taste 150ml", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0.79,morrisons:0,ms:0,waitrose:0,iceland:1.10,alliance:0}, upd:"10 Oct"},
+  {id:5665, name:"Coca-Cola Original Taste 150ml", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0.79,morrisons:0,ms:0,waitrose:0,iceland:1.10,alliance:0}, upd:"10 Oct", upds:{iceland:"10 Oct"}},
   {id:5666, name:"Diet Coke Cola 150ml Can", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0.79,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:5667, name:"Sprite Lemon Lime 150ml Can", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0.79,morrisons:0,ms:0,waitrose:0,iceland:1.00,alliance:0}, upd:"10 Oct"},
+  {id:5667, name:"Sprite Lemon Lime 150ml Can", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0.79,morrisons:0,ms:0,waitrose:0,iceland:1.00,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:5668, name:"Fanta Orange 150ml Can", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0.79,morrisons:0,ms:0,waitrose:0,iceland:1.00,alliance:0}, upd:"10 Oct"},
-  {id:5669, name:"Coca-Cola Zero Sugar 150ml", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0.79,morrisons:0,ms:0,waitrose:0,iceland:1,alliance:0}, upd:"10 Oct", oos:["iceland"]},
+  {id:5669, name:"Coca-Cola Zero Sugar 150ml", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0.79,morrisons:0,ms:0,waitrose:0,iceland:1,alliance:0}, upd:"10 Oct", upds:{iceland:"10 Oct"}, oos:["iceland"]},
   {id:5670, name:"Coca-Cola Zero Sugar 2L Bottle 2LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5671, name:"Diet Coke No Caffeine Cola 2L Bottle 2LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5672, name:"Diet Coke Cola 2L Bottle 2LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5673, name:"Pepsi Max 8 x 330ml 8X330ML", cat:"🥤 Drinks", icon:"🥤", prices:{coop:5.6,morrisons:0,ms:0,waitrose:0,iceland:5.25,alliance:0}, upd:"10 Oct"}, // special offer £2.90 until 20/10/26
-  {id:5674, name:"Dr Pepper 150ml", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0.79,morrisons:0,ms:0,waitrose:0,iceland:1.00,alliance:0}, upd:"10 Oct"},
+  {id:5674, name:"Dr Pepper 150ml", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0.79,morrisons:0,ms:0,waitrose:0,iceland:1.00,alliance:0}, upd:"10 Oct", upds:{iceland:"10 Oct"}},
   {id:5675, name:"Club Orange Bottle 1.75 Litres 1.75LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5676, name:"Red Bull Cherry Edition Cherry Sakura Energy Drink 250ml 4 Pack 4X250ML", cat:"🥤 Drinks", icon:"🥤", prices:{coop:5.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £4.20 until 20/10/26
   {id:5677, name:"Red Bull The Cherry Edition Cherry Sakura Energy Drink 355ml", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.7,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £2.31 until 20/10/26
   {id:5678, name:"Diet Coke Cola 4 x 330ml Cans 4X330ML", cat:"🥤 Drinks", icon:"🥤", prices:{coop:3.99,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £2.65 until 20/10/26
-  {id:5679, name:"Pepsi Max 4 x 330ml 4X330ML", cat:"🥤 Drinks", icon:"🥤", prices:{coop:3.15,morrisons:0,ms:0,waitrose:3.48,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £2.65 until 20/10/26
+  {id:5679, name:"Pepsi Max 4 x 330ml 4X330ML", cat:"🥤 Drinks", icon:"🥤", prices:{coop:3.15,morrisons:0,ms:0,waitrose:3.48,iceland:0,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}}, // special offer £2.65 until 20/10/26
   {id:5680, name:"Pepsi 1.25 Litres 1.25LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:1.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5681, name:"Coca-Cola Original Taste 4 x 330ml 4X330ML", cat:"🥤 Drinks", icon:"🥤", prices:{coop:3.69,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:5682, name:"Red Bull The Apple Edition Sugarfree Fuji Apple & Ginger Energy Drink 4 x 250ml 4X250ML", cat:"🥤 Drinks", icon:"🥤", prices:{coop:5.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct", oos:["coop"]}, // special offer £4.20 until 20/10/26
   {id:5683, name:"Fentimans Classic Rose Lemonade 750ml", cat:"🥤 Drinks", icon:"🥤", prices:{coop:4.0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5684, name:"Tenzing Natural Energy Pineapple & Passionfruit 4 x 330ml 4X330ML", cat:"🥤 Drinks", icon:"🥤", prices:{coop:6.35,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:5685, name:"Tenzing Raspberry & Yuzu Natural Energy 4 x 330ml 4X330ML", cat:"🥤 Drinks", icon:"🥤", prices:{coop:6.35,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
-  {id:5686, name:"Monster Energy Drink Pipeline Punch 4 x 500ml 4X500ML", cat:"🥤 Drinks", icon:"🥤", prices:{coop:7.2,morrisons:0,ms:0,waitrose:0,iceland:6.3,alliance:0}, upd:"10 Oct", oos:["iceland"]},
+  {id:5686, name:"Monster Energy Drink Pipeline Punch 4 x 500ml 4X500ML", cat:"🥤 Drinks", icon:"🥤", prices:{coop:7.2,morrisons:0,ms:0,waitrose:0,iceland:6.3,alliance:0}, upd:"10 Oct", upds:{iceland:"10 Oct"}, oos:["iceland"]},
   {id:5687, name:"Co-op Pure Orange Juice 200ml 3X200ML", cat:"🥤 Drinks", icon:"🥤", prices:{coop:1.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:5688, name:"Monster Energy Drink Zero Sugar 4 x 500ml 4X500ML", cat:"🥤 Drinks", icon:"🥤", prices:{coop:7.2,morrisons:0,ms:0,waitrose:0,iceland:6.3,alliance:0}, upd:"10 Oct"},
+  {id:5688, name:"Monster Energy Drink Zero Sugar 4 x 500ml 4X500ML", cat:"🥤 Drinks", icon:"🥤", prices:{coop:7.2,morrisons:0,ms:0,waitrose:0,iceland:6.3,alliance:0}, upd:"10 Oct", upds:{iceland:"10 Oct"}},
   {id:5689, name:"Rubicon Black Cherry Raspberry Sparkling Spring Water 1.5 Litre 1.5LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5690, name:"Rubicon Orange Mango Sparkling Spring Water 1.5 Litre 1.5LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5691, name:"Lucozade Energy Zero Sugar Drink Pink Lemonade 4x380ml", cat:"🥤 Drinks", icon:"🥤", prices:{coop:3.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
@@ -6489,14 +6489,14 @@ const BASE_PRODUCTS = [
   {id:5712, name:"Robinsons Summer Fruits 1 Litre 1LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.1,morrisons:0,ms:0,waitrose:0,iceland:2.35,alliance:0}, upd:"10 Oct"},
   {id:5713, name:"Highland Spring 10 Litre Hydration Pack 10LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:6.0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £5.00 until 20/10/26
   {id:5714, name:"Highland Spring Still Spring Water 5 Litre 5LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:4.5,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £3.50 until 20/10/26
-  {id:5715, name:"Monster Energy Drink Ultra Zero Sugar 4 x 500ml 4X500ML", cat:"🥤 Drinks", icon:"🥤", prices:{coop:7.2,morrisons:0,ms:0,waitrose:0,iceland:6.3,alliance:0}, upd:"10 Oct"},
+  {id:5715, name:"Monster Energy Drink Ultra Zero Sugar 4 x 500ml 4X500ML", cat:"🥤 Drinks", icon:"🥤", prices:{coop:7.2,morrisons:0,ms:0,waitrose:0,iceland:6.3,alliance:0}, upd:"10 Oct", upds:{iceland:"10 Oct"}},
   {id:5716, name:"Irn-Bru 2 Litre 2LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.1,morrisons:0,ms:0,waitrose:0,iceland:3,alliance:0}, upd:"10 Oct"},
   {id:5717, name:"Rubicon Still Pineapple Juice Drink 1 Litre 1LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.35,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5718, name:"Bottlegreen Wild Elderflower Cordial 500ml", cat:"🥤 Drinks", icon:"🥤", prices:{coop:4.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £3.68 until 20/10/26
   {id:5719, name:"Bottlegreen Ginger & Lemongrass Cordial 500ml", cat:"🥤 Drinks", icon:"🥤", prices:{coop:4.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £3.68 until 20/10/26
   {id:5720, name:"Buxton Still Natural Mineral Water 1.5L 1.5LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:1.29,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5721, name:"Buxton Still Natural Mineral Water 6 x 1.5L 6X1.5LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:4.2,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
-  {id:5722, name:"Dr Pepper 2L 2LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.5,morrisons:0,ms:0,waitrose:0,iceland:3.15,alliance:0}, upd:"10 Oct"},
+  {id:5722, name:"Dr Pepper 2L 2LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.5,morrisons:0,ms:0,waitrose:0,iceland:3.15,alliance:0}, upd:"10 Oct", upds:{iceland:"10 Oct"}},
   {id:5723, name:"Vimto No Added Sugar Real Fruit Squash 1 Litre 1LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £1.31 until 20/10/26
   {id:5724, name:"Co-op Pure Apple Juice 200ml 3X200ML", cat:"🥤 Drinks", icon:"🥤", prices:{coop:1.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5725, name:"Ocean Spray Cranberr 1 Litre 1LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -6514,12 +6514,12 @@ const BASE_PRODUCTS = [
   {id:5737, name:"Diet Coke Cola 8 x 330ml Cans 8X330ML", cat:"🥤 Drinks", icon:"🥤", prices:{coop:6.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5738, name:"Fanta Orange 2L Bottle 2LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.45,morrisons:0,ms:0,waitrose:0,iceland:2.65,alliance:0}, upd:"10 Oct"},
   {id:5739, name:"Sprite Lemon Lime 2L Bottle 2LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.45,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:5740, name:"Fanta Orange 8 x 330ml 8X330ML", cat:"🥤 Drinks", icon:"🥤", prices:{coop:3.4,morrisons:0,ms:0,waitrose:0,iceland:5.25,alliance:0}, upd:"10 Oct"},
+  {id:5740, name:"Fanta Orange 8 x 330ml 8X330ML", cat:"🥤 Drinks", icon:"🥤", prices:{coop:3.4,morrisons:0,ms:0,waitrose:0,iceland:5.25,alliance:0}, upd:"10 Oct", upds:{iceland:"10 Oct"}},
   {id:5741, name:"Coca-Cola Zero Sugar 8 x 330ml Cans 8X330ML", cat:"🥤 Drinks", icon:"🥤", prices:{coop:6.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"9 Oct"},
   {id:5742, name:"Coca-Cola Original Taste 8 x 330ml Cans 8X330ML", cat:"🥤 Drinks", icon:"🥤", prices:{coop:5.9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:5743, name:"Dr Pepper 8 x 330ml 8X330ML", cat:"🥤 Drinks", icon:"🥤", prices:{coop:4.9,morrisons:0,ms:0,waitrose:0,iceland:5.25,alliance:0}, upd:"10 Oct"},
+  {id:5743, name:"Dr Pepper 8 x 330ml 8X330ML", cat:"🥤 Drinks", icon:"🥤", prices:{coop:4.9,morrisons:0,ms:0,waitrose:0,iceland:5.25,alliance:0}, upd:"10 Oct", upds:{iceland:"10 Oct"}},
   {id:5744, name:"Coca-Cola Original Taste 1.75L Bottle 1.75LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.99,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:5745, name:"Monster Energy Drink 4 x 500ml 4X500ML", cat:"🥤 Drinks", icon:"🥤", prices:{coop:5.25,morrisons:0,ms:0,waitrose:0,iceland:6.3,alliance:0}, upd:"10 Oct"},
+  {id:5745, name:"Monster Energy Drink 4 x 500ml 4X500ML", cat:"🥤 Drinks", icon:"🥤", prices:{coop:5.25,morrisons:0,ms:0,waitrose:0,iceland:6.3,alliance:0}, upd:"10 Oct", upds:{iceland:"10 Oct"}},
   {id:5746, name:"Schweppes Indian Tonic Water 1L Bottle 1LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.2,morrisons:0,ms:0,waitrose:0,iceland:1.45,alliance:0}, upd:"10 Oct", oos:["iceland"]}, // special offer £1.65 until 20/10/26
   {id:5747, name:"Schweppes Slimline Tonic Water 1L Bottle 1LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.2,morrisons:0,ms:0,waitrose:0,iceland:1.45,alliance:0}, upd:"10 Oct"}, // special offer £1.65 until 20/10/26
   {id:5748, name:"San Pellegrino Sparkling Natural Mineral Water 750ml", cat:"🥤 Drinks", icon:"🥤", prices:{coop:1.79,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -6668,7 +6668,7 @@ const BASE_PRODUCTS = [
   {id:5892, name:"Sanex Expert Skin Health Moisturising Shower Gel Body Wash 450ml", cat:"💊 Health & Beauty", icon:"💊", prices:{coop:4.2,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5893, name:"Dove Original Beauty Bar 2x 90 g 2X90G", cat:"💊 Health & Beauty", icon:"💊", prices:{coop:2.2,morrisons:0,ms:0,waitrose:0,iceland:2.65,alliance:0}, upd:"10 Oct"},
   {id:5894, name:"Radox Mineral Therapy Feel Awake 2-in-1 Shower Gel & Shampoo 225 ml 225ML", cat:"💊 Health & Beauty", icon:"💊", prices:{coop:1.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:5895, name:"Lynx Limited Edition FIFA Africa 3-in-1 Body Wash 225 ml 225ML", cat:"💊 Health & Beauty", icon:"💊", prices:{coop:1.6,morrisons:0,ms:0,waitrose:0,iceland:2.4,alliance:0}, upd:"10 Oct"},
+  {id:5895, name:"Lynx Limited Edition FIFA Africa 3-in-1 Body Wash 225 ml 225ML", cat:"💊 Health & Beauty", icon:"💊", prices:{coop:1.6,morrisons:0,ms:0,waitrose:0,iceland:2.4,alliance:0}, upd:"10 Oct", upds:{iceland:"10 Oct"}},
   {id:5896, name:"Original Source Tropical Coconut & Shea Butter Shower 250ml", cat:"💊 Health & Beauty", icon:"💊", prices:{coop:1.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5897, name:"Original Source Mint & Tea Tree Shower Gel 250ml", cat:"💊 Health & Beauty", icon:"💊", prices:{coop:1.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:5898, name:"Dove Nourishing Body Wash 450 ml 450ML", cat:"💊 Health & Beauty", icon:"💊", prices:{coop:3.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -6762,8 +6762,8 @@ const BASE_PRODUCTS = [
   {id:5986, name:"NIVEA SUN After Sun Moisture Lotion 200ml", cat:"💊 Health & Beauty", icon:"💊", prices:{coop:6.0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5987, name:"NIVEA SUN Kids Protect & Care Lotion 200ml", cat:"💊 Health & Beauty", icon:"💊", prices:{coop:7.6,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:5988, name:"Vaseline Intensive Care Essential Healing Body Lotion 400 ml 400ML", cat:"💊 Health & Beauty", icon:"💊", prices:{coop:4.25,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:5989, name:"Sure FIFA Limited Edition Bright Bouquet Anti-Perspirant Aerosol 200 ml 200ML", cat:"💊 Health & Beauty", icon:"💊", prices:{coop:2.4,morrisons:0,ms:0,waitrose:0,iceland:2.1,alliance:0}, upd:"10 Oct", oos:["iceland"]},
-  {id:5990, name:"Sure Men Invisible Ice Fresh Anti-Perspirant Aerosol 200 ml 200ML", cat:"💊 Health & Beauty", icon:"💊", prices:{coop:2.15,morrisons:0,ms:0,waitrose:0,iceland:3.65,alliance:0}, upd:"10 Oct", oos:["iceland"]},
+  {id:5989, name:"Sure FIFA Limited Edition Bright Bouquet Anti-Perspirant Aerosol 200 ml 200ML", cat:"💊 Health & Beauty", icon:"💊", prices:{coop:2.4,morrisons:0,ms:0,waitrose:0,iceland:2.1,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}, oos:["iceland"]},
+  {id:5990, name:"Sure Men Invisible Ice Fresh Anti-Perspirant Aerosol 200 ml 200ML", cat:"💊 Health & Beauty", icon:"💊", prices:{coop:2.15,morrisons:0,ms:0,waitrose:0,iceland:3.65,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}, oos:["iceland"]},
   {id:5991, name:"NIVEA MEN Sensitive Moisturiser 75ml", cat:"💊 Health & Beauty", icon:"💊", prices:{coop:6.0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5992, name:"Vaseline Petroleum Jelly Original 50 ml 50ML", cat:"💊 Health & Beauty", icon:"💊", prices:{coop:2.1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5993, name:"TENA Discreet Maxi Night 6 pack 6S", cat:"💊 Health & Beauty", icon:"💊", prices:{coop:3.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -6805,7 +6805,7 @@ const BASE_PRODUCTS = [
   {id:6029, name:"Co Op 40 Fabric Plasters 40S", cat:"💊 Health & Beauty", icon:"💊", prices:{coop:1.49,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:6030, name:"Co-op 40 Clear Washproof Plasters 40S", cat:"💊 Health & Beauty", icon:"💊", prices:{coop:1.49,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:6031, name:"Co-op 10 Fabric Dressing Strips 10S", cat:"💊 Health & Beauty", icon:"💊", prices:{coop:1.5,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:6032, name:"Benadryl Allergy Relief Capsules Fast-Acting Antihistamine 12 Capsules 12S", cat:"💊 Health & Beauty", icon:"💊", prices:{coop:5.75,morrisons:0,ms:0,waitrose:0,iceland:5.8,alliance:0}, upd:"10 Oct"},
+  {id:6032, name:"Benadryl Allergy Relief Capsules Fast-Acting Antihistamine 12 Capsules 12S", cat:"💊 Health & Beauty", icon:"💊", prices:{coop:5.75,morrisons:0,ms:0,waitrose:0,iceland:5.8,alliance:0}, upd:"10 Oct", upds:{iceland:"10 Oct"}},
   {id:6033, name:"Benylin Chesty Coughs Non-Drowsy Syrup 150ml", cat:"💊 Health & Beauty", icon:"💊", prices:{coop:6.25,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:6034, name:"Buttercup Bronchostop Cough Syrup 120ml", cat:"💊 Health & Beauty", icon:"💊", prices:{coop:6.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:6035, name:"Durex Play Water Base Play Lube 100ml Lubricant", cat:"💊 Health & Beauty", icon:"💊", prices:{coop:11.0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -6890,7 +6890,7 @@ const BASE_PRODUCTS = [
   {id:6114, name:"Birra Moretti Premium Lager Beer Cans 10 x 330ml", cat:"🍷 Wine & Beer", icon:"🍺", prices:{coop:10.0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"12 Jul"},
   {id:6115, name:"Guinness Draught Alcohol Free Stout Beer 0.0% vol 4x440ml Cans", cat:"🍷 Wine & Beer", icon:"🍺", prices:{coop:5.5,morrisons:0,ms:0,waitrose:0,iceland:6.3,alliance:0}, upd:"10 Oct"},
   {id:6116, name:"Kopparberg Alcohol-Free Premium Cider with Strawberry & Lime 4 x 330ml", cat:"🍷 Wine & Beer", icon:"🍺", prices:{coop:3.5,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:6117, name:"Corona Extra Beer 10 x 330ml", cat:"🍷 Wine & Beer", icon:"🍺", prices:{coop:15.0,morrisons:0,ms:0,waitrose:0,iceland:10.5,alliance:0}, upd:"10 Oct"},
+  {id:6117, name:"Corona Extra Beer 10 x 330ml", cat:"🍷 Wine & Beer", icon:"🍺", prices:{coop:15.0,morrisons:0,ms:0,waitrose:0,iceland:10.5,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:6118, name:"BACARDÍ Mango Mojito Premix Rum Cocktail, 25cl", cat:"🍷 Wine & Beer", icon:"🍺", prices:{coop:2.5,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:6119, name:"Spaten Premium Helles Craft Lager Beer Bottle 500ml", cat:"🍷 Wine & Beer", icon:"🍺", prices:{coop:3.25,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:6120, name:"Robinsons Old Tom Strong Ale 330ml", cat:"🍷 Wine & Beer", icon:"🍺", prices:{coop:2.5,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -6914,7 +6914,7 @@ const BASE_PRODUCTS = [
   {id:6138, name:"Smirnoff Raspberry Crush & Lemonade 5% vol Ready To Drink Premix 250ml Can", cat:"🍷 Wine & Beer", icon:"🍺", prices:{coop:3.0,morrisons:0,ms:0,waitrose:0,iceland:3.45,alliance:0}, upd:"10 Oct"},
   {id:6139, name:"Jack Daniel's Perfectly Mixed with Coca-Cola 330ml", cat:"🍷 Wine & Beer", icon:"🍺", prices:{coop:2.5,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:6140, name:"Guinness Draught Stout Beer 4.1% vol 8x440ml Cans", cat:"🍷 Wine & Beer", icon:"🍺", prices:{coop:11.0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:6141, name:"BuzzBallz Berry Cherry Limeade 200ml", cat:"🍷 Wine & Beer", icon:"🍺", prices:{coop:4.0,morrisons:0,ms:0,waitrose:0,iceland:4.2,alliance:0}, upd:"10 Oct", oos:["iceland"]},
+  {id:6141, name:"BuzzBallz Berry Cherry Limeade 200ml", cat:"🍷 Wine & Beer", icon:"🍺", prices:{coop:4.0,morrisons:0,ms:0,waitrose:0,iceland:4.2,alliance:0}, upd:"10 Oct", upds:{iceland:"10 Oct"}, oos:["iceland"]},
   {id:6142, name:"Rekorderlig Premium Swedish Cider Pineapple-Kiwi 500ml", cat:"🍷 Wine & Beer", icon:"🍺", prices:{coop:3.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:6143, name:"Kopparberg Sweet Vintage Pear Premium Cider 500ml", cat:"🍷 Wine & Beer", icon:"🍺", prices:{coop:3.25,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:6144, name:"Kopparberg Premium Cider with Cherry 4 x 330ml", cat:"🍷 Wine & Beer", icon:"🍺", prices:{coop:6.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -6939,8 +6939,8 @@ const BASE_PRODUCTS = [
   {id:6163, name:"San Miguel Especial Premium Lager 4 x 568ml", cat:"🍷 Wine & Beer", icon:"🍺", prices:{coop:8.5,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:6164, name:"San Miguel Especial Premium Lager 4 x 330ml", cat:"🍷 Wine & Beer", icon:"🍺", prices:{coop:7.5,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:6165, name:"Camden Pale Ale 4 x 330ml", cat:"🍷 Wine & Beer", icon:"🍺", prices:{coop:6.25,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:6166, name:"Guinness Draught Stout Beer Cans 4.1% vol 4 x 440ml", cat:"🍷 Wine & Beer", icon:"🍺", prices:{coop:6.5,morrisons:0,ms:0,waitrose:0,iceland:7.9,alliance:0}, upd:"10 Oct"},
-  {id:6167, name:"Liberation Ale 500ml", cat:"🍷 Wine & Beer", icon:"🍺", prices:{coop:3.0,morrisons:0,ms:0,waitrose:0,iceland:3.10,alliance:0}, upd:"10 Oct"},
+  {id:6166, name:"Guinness Draught Stout Beer Cans 4.1% vol 4 x 440ml", cat:"🍷 Wine & Beer", icon:"🍺", prices:{coop:6.5,morrisons:0,ms:0,waitrose:0,iceland:7.9,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
+  {id:6167, name:"Liberation Ale 500ml", cat:"🍷 Wine & Beer", icon:"🍺", prices:{coop:3.0,morrisons:0,ms:0,waitrose:0,iceland:3.10,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:6168, name:"Liberation I.P.A Ale 500ML", cat:"🍷 Wine & Beer", icon:"🍺", prices:{coop:3.0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:6169, name:"Frosty Jack's Cider 1.5 Litres", cat:"🍷 Wine & Beer", icon:"🍺", prices:{coop:7.5,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:6170, name:"Malibu Piña Colada Still Pre-Mixed Drink 250ml", cat:"🍷 Wine & Beer", icon:"🍺", prices:{coop:3.0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -7004,7 +7004,7 @@ const BASE_PRODUCTS = [
   {id:6229, name:"Absolut Cocktails Espresso Martini 200ml", cat:"🍷 Wine & Beer", icon:"🍺", prices:{coop:3.25,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:6230, name:"Kopparberg Premium Cider With Strawberry & Lime 500ml", cat:"🍷 Wine & Beer", icon:"🍺", prices:{coop:3.0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:6231, name:"Kopparberg Premium Cider with Mixed Fruit 500ml", cat:"🍷 Wine & Beer", icon:"🍺", prices:{coop:3.0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:6232, name:"Corona Extra Beer 4 x 330ml", cat:"🍷 Wine & Beer", icon:"🍺", prices:{coop:6.75,morrisons:0,ms:0,waitrose:0,iceland:5.25,alliance:0}, upd:"10 Oct"},
+  {id:6232, name:"Corona Extra Beer 4 x 330ml", cat:"🍷 Wine & Beer", icon:"🍺", prices:{coop:6.75,morrisons:0,ms:0,waitrose:0,iceland:5.25,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:6233, name:"Co-op British Apple Cider 2L", cat:"🍷 Wine & Beer", icon:"🍺", prices:{coop:5.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:6234, name:"Desperados Tequila Lager Beer 3 x 330ml Bottles", cat:"🍷 Wine & Beer", icon:"🍺", prices:{coop:7.25,morrisons:0,ms:0,waitrose:0,iceland:7.1,alliance:0}, upd:"10 Oct"},
   {id:6235, name:"Desperados Tequila Beer Bottle 65cl", cat:"🍷 Wine & Beer", icon:"🍺", prices:{coop:4.0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -7198,7 +7198,7 @@ const BASE_PRODUCTS = [
   {id:6423, name:"Co Op Imperial Vodka 70cl", cat:"🍷 Wine & Beer", icon:"🥃", prices:{coop:20.0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:6424, name:"Co Op Blended Scotch Whisky Oak Aged 3 Years 1 Litre", cat:"🍷 Wine & Beer", icon:"🥃", prices:{coop:30.0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:6425, name:"Co-op Triple Distilled Vodka 1L", cat:"🍷 Wine & Beer", icon:"🥃", prices:{coop:27.0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:6426, name:"Captain Morgan Spiced Gold 35% vol 70cl", cat:"🍷 Wine & Beer", icon:"🥃", prices:{coop:23.0,morrisons:0,ms:0,waitrose:0,iceland:27.3,alliance:0}, upd:"10 Oct"},
+  {id:6426, name:"Captain Morgan Spiced Gold 35% vol 70cl", cat:"🍷 Wine & Beer", icon:"🥃", prices:{coop:23.0,morrisons:0,ms:0,waitrose:0,iceland:27.3,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:6427, name:"Courvoisier VS Cognac 35cl", cat:"🍷 Wine & Beer", icon:"🥃", prices:{coop:23,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £18.00 until 13/10/26
   {id:6428, name:"Sierra Tequila Blanco 500ml", cat:"🍷 Wine & Beer", icon:"🥃", prices:{coop:20.0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:6429, name:"Co Op Blended Scotch Whisky Oak Aged 3 Years 35cl", cat:"🍷 Wine & Beer", icon:"🥃", prices:{coop:13.5,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -7326,7 +7326,7 @@ const BASE_PRODUCTS = [
   {id:6554, name:"Irn-Bru 12 x 330ml", cat:"🍷 Wine & Beer", icon:"🍺", prices:{coop:6.0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct", oos:["coop"]}, // special offer £4.20 until 20/10/26
   {id:6555, name:"Irn-Bru Diet 12 x 330ml", cat:"🍷 Wine & Beer", icon:"🍺", prices:{coop:6.0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct", oos:["coop"]}, // special offer £4.20 until 20/10/26
   {id:6556, name:"Irn-Bru Zero 12 x 330ml", cat:"🍷 Wine & Beer", icon:"🍺", prices:{coop:6.0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £4.20 until 20/10/26
-  {id:6557, name:"Walkers Classic Pack 20 x 25g", cat:"🥨 Snacks & Treats", icon:"🥨", prices:{coop:4.99,morrisons:0,ms:0,waitrose:0,iceland:6.9,alliance:0}, upd:"10 Oct"},
+  {id:6557, name:"Walkers Classic Pack 20 x 25g", cat:"🥨 Snacks & Treats", icon:"🥨", prices:{coop:4.99,morrisons:0,ms:0,waitrose:0,iceland:6.9,alliance:0}, upd:"10 Oct", upds:{iceland:"10 Oct"}},
   {id:6558, name:"Diet Coke Cola 18 x 330ml Cans", cat:"🥤 Drinks", icon:"🥤", prices:{coop:9.5,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £6.30 until 20/10/26
   {id:6559, name:"Walkers Favourites Mix 18 Pack", cat:"🥨 Snacks & Treats", icon:"🥨", prices:{coop:4.99,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:6560, name:"Staropramen 10 x 440ml", cat:"🍷 Wine & Beer", icon:"🍺", prices:{coop:16.0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -7883,7 +7883,7 @@ const BASE_PRODUCTS = [
   {id:7694, name:"Candy Kittens Wild Strawberry 140g", cat:"🍝 Pantry", icon:"🍬", prices:{coop:2.59,morrisons:0,ms:0,waitrose:1.80,iceland:0,alliance:0}, upd:"7 Aug"},
   {id:7695, name:"Heinz Baked Beans Single Serve 200g", cat:"🍝 Pantry", icon:"🫘", prices:{coop:0,morrisons:0,ms:0,waitrose:1.00,iceland:0,alliance:0}, upd:"31 Jul"},
   {id:7696, name:"Essential Passata 680g", cat:"🍝 Pantry", icon:"🍅", prices:{coop:0,morrisons:0,ms:0,waitrose:1.00,iceland:0,alliance:0}, upd:"31 Jul"},
-  {id:7697, name:"Candy Kittens Eton Mess 140g", cat:"🍝 Pantry", icon:"🍬", prices:{coop:2.59,morrisons:0,ms:0,waitrose:1.80,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £1.84 until 20/10/26
+  {id:7697, name:"Candy Kittens Eton Mess 140g", cat:"🍝 Pantry", icon:"🍬", prices:{coop:2.59,morrisons:0,ms:0,waitrose:1.80,iceland:0,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}}, // special offer £1.84 until 20/10/26
   {id:7698, name:"Waitrose Shortbread Fingers 200g", cat:"🍝 Pantry", icon:"🍪", prices:{coop:0,morrisons:0,ms:0,waitrose:1.20,iceland:0,alliance:0}, upd:"31 Jul"},
   {id:7699, name:"No.1 Hand-Cooked Sea Salt Crisps 150g", cat:"🍝 Pantry", icon:"🥨", prices:{coop:0,morrisons:0,ms:0,waitrose:1.60,iceland:0,alliance:0}, upd:"31 Jul"},
   {id:7700, name:"Essential Black Beans in Water 420g", cat:"🍝 Pantry", icon:"🫘", prices:{coop:0,morrisons:0,ms:0,waitrose:0.55,iceland:0,alliance:0}, upd:"31 Jul"},
@@ -8065,7 +8065,7 @@ const BASE_PRODUCTS = [
   {id:7879, name:"McVitie's Rich Tea Biscuits The Classic One 2x300g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:0,morrisons:0,ms:0,waitrose:3.15,iceland:0,alliance:0}, upd:"2 Aug"},
   {id:7880, name:"Merchant Gourmet Brown Red & Wild Wholegrain Rice 250g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:0,morrisons:0,ms:0,waitrose:1.50,iceland:0,alliance:0}, upd:"2 Aug"},
   {id:7881, name:"Merchant Gourmet Puy & Green Lentils 250g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:0,morrisons:0,ms:0,waitrose:2.30,iceland:0,alliance:0}, upd:"2 Aug"},
-  {id:7882, name:"Merchant Gourmet Red & White Quinoa 250g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.8,morrisons:0,ms:0,waitrose:2.30,iceland:0,alliance:0}, upd:"10 Oct"},
+  {id:7882, name:"Merchant Gourmet Red & White Quinoa 250g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.8,morrisons:0,ms:0,waitrose:2.30,iceland:0,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:7883, name:"Merchant Gourmet Spanish Style Grains & Rice 250g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.8,morrisons:0,ms:0,waitrose:2.30,iceland:0,alliance:0}, upd:"8 Oct"},
   {id:7884, name:"Merchant Gourmet Three Bean & Lentil Chilli 280g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:0,morrisons:0,ms:0,waitrose:2.60,iceland:0,alliance:0}, upd:"2 Aug"},
   {id:7885, name:"Miller's Toast Cranberry & Raisin 100g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:0,morrisons:0,ms:0,waitrose:2.70,iceland:0,alliance:0}, upd:"2 Aug"},
@@ -8350,7 +8350,7 @@ const BASE_PRODUCTS = [
   {id:8146, name:"Jersey Milk Full Cream 500ml", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:0.95,alliance:0}, upd:"10 Oct", oos:["iceland"]},
   {id:8147, name:"Alpro Almond No Sugar Long Life Dairy Free Drink 1L", cat:"🥛 Dairy & Eggs", icon:"🥤", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:2.80,alliance:0}, upd:"10 Oct", oos:["iceland"]}, // special offer £1.84 until 20/10/26
   {id:8148, name:"Alpro Oat Original Chilled Dairy Free Drink 1L", cat:"🥛 Dairy & Eggs", icon:"🥤", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:2.80,alliance:0}, upd:"10 Oct"},
-  {id:8149, name:"Alpro Soya Original Chilled Dairy Free Drink 1L", cat:"🥛 Dairy & Eggs", icon:"🥤", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:2.65,alliance:0}, upd:"10 Oct"},
+  {id:8149, name:"Alpro Soya Original Chilled Dairy Free Drink 1L", cat:"🥛 Dairy & Eggs", icon:"🥤", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:2.65,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:8150, name:"Cathedral City Our Lighter Mature Cheddar 6x20g", cat:"🥛 Dairy & Eggs", icon:"🧀", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:3.10,alliance:0}, upd:"6 Sep"},
   {id:8151, name:"Cathedral City Our Extra Mature Cheddar 6x20g", cat:"🥛 Dairy & Eggs", icon:"🧀", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:3.10,alliance:0}, upd:"6 Sep"},
   {id:8152, name:"Longley Farm Yorkshire Pineapple Cottage Cheese 250g", cat:"🥛 Dairy & Eggs", icon:"🧀", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:2.60,alliance:0}, upd:"10 Oct"},
@@ -8723,7 +8723,7 @@ const BASE_PRODUCTS = [
   /* ── ICELAND SNAPPY SHOPPER IMPORT #5 (fruit, salad & veg) — 19 Sep 2026 ── */
   {id:8527, name:"Iceland Watermelon Fans 200g", cat:"🥦 Fruit & Veg", icon:"🍉", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:2.25,alliance:0}, upd:"10 Oct", oos:["iceland"]},
   {id:8528, name:"Iceland Watermelon Each", cat:"🥦 Fruit & Veg", icon:"🍉", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:4.65,alliance:0}, upd:"10 Oct"},
-  {id:8529, name:"Honeydew Melon Each", cat:"🥦 Fruit & Veg", icon:"🍈", prices:{coop:0,morrisons:0,ms:0,waitrose:2.32,iceland:2.95,alliance:0}, upd:"10 Oct"},
+  {id:8529, name:"Honeydew Melon Each", cat:"🥦 Fruit & Veg", icon:"🍈", prices:{coop:0,morrisons:0,ms:0,waitrose:2.32,iceland:2.95,alliance:0}, upd:"10 Oct", upds:{iceland:"10 Oct"}},
   {id:8531, name:"Pineapple Chunks 200g", cat:"🥦 Fruit & Veg", icon:"🍎", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:2.25,alliance:0}, upd:"10 Oct", oos:["iceland"]},
   {id:8533, name:"Iceland 6 Pack Kiwi", cat:"🥦 Fruit & Veg", icon:"🥝", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:2.65,alliance:0}, upd:"10 Oct"},
   {id:8534, name:"Iceland 6 Pack Granny Smith Apples", cat:"🥦 Fruit & Veg", icon:"🍎", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:2.5,alliance:0}, upd:"10 Oct"},
@@ -8929,11 +8929,11 @@ const BASE_PRODUCTS = [
   {id:8733, name:"Cookie Crisp 450g", cat:"🍝 Pantry", icon:"🥣", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:3.95,alliance:0}, upd:"10 Oct"},
   {id:8734, name:"Kellogg's Coco Pops 650g", cat:"🍝 Pantry", icon:"🥣", prices:{coop:5.25,morrisons:0,ms:0,waitrose:0,iceland:6.65,alliance:0}, upd:"10 Oct"},
   {id:8735, name:"Nesquik 375g", cat:"🍝 Pantry", icon:"🥣", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:3.95,alliance:0}, upd:"10 Oct"},
-  {id:8736, name:"Weetos Chocolatey Hoops 420g", cat:"🍝 Pantry", icon:"🥣", prices:{coop:2.89,morrisons:0,ms:0,waitrose:0,iceland:4.25,alliance:0}, upd:"10 Oct", oos:["iceland"]},
+  {id:8736, name:"Weetos Chocolatey Hoops 420g", cat:"🍝 Pantry", icon:"🥣", prices:{coop:2.89,morrisons:0,ms:0,waitrose:0,iceland:4.25,alliance:0}, upd:"10 Oct", upds:{iceland:"10 Oct"}, oos:["iceland"]},
   {id:8737, name:"Toast'em Pop-Ups 6 Frosted Cookies & Creme Toaster Pastries 288g", cat:"🍝 Pantry", icon:"🍫", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:2.65,alliance:0}, upd:"10 Oct"},
   {id:8738, name:"Kellogg's Squares Totally Chocolatey Rice Krispies Bars 4 x 36g (144g)", cat:"🍝 Pantry", icon:"🍫", prices:{coop:2.8,morrisons:0,ms:0,waitrose:0,iceland:2.65,alliance:0}, upd:"10 Oct"},
   {id:8739, name:"Kellogg's Pop Tarts Frosted Chocotastic 8 x 48g (384g)", cat:"🍝 Pantry", icon:"🍫", prices:{coop:3.5,morrisons:0,ms:0,waitrose:0,iceland:4,alliance:0}, upd:"10 Oct", oos:["coop"]},
-  {id:8740, name:"Weetabix Chocolate Cereal 24 Pack", cat:"🍝 Pantry", icon:"🥣", prices:{coop:4.2,morrisons:0,ms:0,waitrose:0,iceland:5,alliance:0}, upd:"10 Oct"},
+  {id:8740, name:"Weetabix Chocolate Cereal 24 Pack", cat:"🍝 Pantry", icon:"🥣", prices:{coop:4.2,morrisons:0,ms:0,waitrose:0,iceland:5,alliance:0}, upd:"10 Oct", upds:{iceland:"10 Oct"}},
   {id:8741, name:"Kellogg's Krave Milk Chocolate 410g", cat:"🍝 Pantry", icon:"🥣", prices:{coop:4.35,morrisons:0,ms:0,waitrose:0,iceland:4.4,alliance:0}, upd:"10 Oct", oos:["coop"]},
   {id:8742, name:"Kellogg's Crunchy Nut 1kg", cat:"🍝 Pantry", icon:"🥣", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:7.65,alliance:0}, upd:"10 Oct", oos:["iceland"]},
   {id:8743, name:"Kellogg's Corn Flakes 670g", cat:"🍝 Pantry", icon:"🥣", prices:{coop:4.2,morrisons:0,ms:0,waitrose:0,iceland:4.65,alliance:0}, upd:"10 Oct"}, // special offer £3.15 until 20/10/26
@@ -8955,7 +8955,7 @@ const BASE_PRODUCTS = [
   {id:8759, name:"Weetabix 36", cat:"🍝 Pantry", icon:"🥣", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:5.75,alliance:0}, upd:"10 Oct"},
   {id:8760, name:"Weetabix Crispy Minis Fruit & Nut 500g", cat:"🍝 Pantry", icon:"🥣", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:4.65,alliance:0}, upd:"10 Oct", oos:["iceland"]},
   {id:8761, name:"Kellogg's Rice Krispies 4 x 20g (80g)", cat:"🍝 Pantry", icon:"🥣", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:1.6,alliance:0}, upd:"10 Oct"},
-  {id:8762, name:"Kellogg's Coco Pops 4 x 20g (80g)", cat:"🍝 Pantry", icon:"🥣", prices:{coop:2.39,morrisons:0,ms:0,waitrose:0,iceland:1.6,alliance:0}, upd:"10 Oct"},
+  {id:8762, name:"Kellogg's Coco Pops 4 x 20g (80g)", cat:"🍝 Pantry", icon:"🥣", prices:{coop:2.39,morrisons:0,ms:0,waitrose:0,iceland:1.6,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:8763, name:"Kellogg's Chocolate Flavour Corn Flakes 4 x 24g (96g)", cat:"🍝 Pantry", icon:"🥣", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:1.35,alliance:0}, upd:"10 Oct"},
   {id:8764, name:"Kellogg's Pop Tarts Frosted Strawberry Sensation 8 × 48g (384g)", cat:"🍝 Pantry", icon:"🍫", prices:{coop:3.5,morrisons:0,ms:0,waitrose:0,iceland:4,alliance:0}, upd:"10 Oct"},
   {id:8765, name:"Krave Choco Brownie Flavour 375g", cat:"🍝 Pantry", icon:"🥣", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:4.4,alliance:0}, upd:"10 Oct", oos:["iceland"]},
@@ -8997,8 +8997,8 @@ const BASE_PRODUCTS = [
   {id:8801, name:"Pot Noodle Doner Kebab Standard Snack Pot 90 g", cat:"🍝 Pantry", icon:"🍜", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:1.6,alliance:0}, upd:"10 Oct"},
   {id:8802, name:"MAGGI 3 Minute Instant Noodles Curry Flavour 4 x 59g", cat:"🍝 Pantry", icon:"🍜", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:2.35,alliance:0}, upd:"10 Oct"},
   {id:8803, name:"Koka Oriental Instant Noodles The Original Beef Flavour 85g", cat:"🍝 Pantry", icon:"🍜", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:0.75,alliance:0}, upd:"10 Oct"},
-  {id:8804, name:"Pot Noodle Flame Grilled Steak Standard Pot 90 g", cat:"🍝 Pantry", icon:"🍜", prices:{coop:1.5,morrisons:0,ms:0,waitrose:0,iceland:1.6,alliance:0}, upd:"10 Oct"},
-  {id:8805, name:"Batchelors Super Noodles Curry Flavour 90g", cat:"🍝 Pantry", icon:"🍜", prices:{coop:1.3,morrisons:0,ms:0,waitrose:0,iceland:1.6,alliance:0}, upd:"10 Oct"},
+  {id:8804, name:"Pot Noodle Flame Grilled Steak Standard Pot 90 g", cat:"🍝 Pantry", icon:"🍜", prices:{coop:1.5,morrisons:0,ms:0,waitrose:0,iceland:1.6,alliance:0}, upd:"10 Oct", upds:{iceland:"10 Oct"}},
+  {id:8805, name:"Batchelors Super Noodles Curry Flavour 90g", cat:"🍝 Pantry", icon:"🍜", prices:{coop:1.3,morrisons:0,ms:0,waitrose:0,iceland:1.6,alliance:0}, upd:"10 Oct", upds:{iceland:"10 Oct"}},
   {id:8806, name:"Ko-Lee Go Noodles Roast Chicken Flavour 65g", cat:"🍝 Pantry", icon:"🍜", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:1.35,alliance:0}, upd:"10 Oct"},
   {id:8807, name:"Ko-Lee Go Noodles Curry 65g", cat:"🍝 Pantry", icon:"🍜", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:1.35,alliance:0}, upd:"10 Oct"},
   {id:8808, name:"Ko-Lee Go Noodles Thai Hot & Spicy Tom Yum 65g", cat:"🍝 Pantry", icon:"🍜", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:1.35,alliance:0}, upd:"10 Oct"},
@@ -9008,9 +9008,9 @@ const BASE_PRODUCTS = [
   {id:8812, name:"Koka Oriental Instant Noodles The Original Spicy Stir-Fried Noodles 85g", cat:"🍝 Pantry", icon:"🍜", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:0.75,alliance:0}, upd:"10 Oct"},
   {id:8813, name:"Koka The Original Chicken Flavour Oriental Instant Noodles 70g", cat:"🍝 Pantry", icon:"🍜", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:1.85,alliance:0}, upd:"10 Oct"},
   {id:8814, name:"KTC Capellini Nests 500g", cat:"🍝 Pantry", icon:"🍜", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:1.75,alliance:0}, upd:"10 Oct"},
-  {id:8815, name:"Pot Noodle Beef & Tomato Instant Snack 90 g", cat:"🍝 Pantry", icon:"🍜", prices:{coop:1.5,morrisons:0,ms:0,waitrose:0,iceland:1.6,alliance:0}, upd:"10 Oct"},
+  {id:8815, name:"Pot Noodle Beef & Tomato Instant Snack 90 g", cat:"🍝 Pantry", icon:"🍜", prices:{coop:1.5,morrisons:0,ms:0,waitrose:0,iceland:1.6,alliance:0}, upd:"10 Oct", upds:{iceland:"10 Oct"}},
   {id:8816, name:"Pot Noodle Bombay Bad Boy Standard Pot 90 g", cat:"🍝 Pantry", icon:"🍜", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:1.6,alliance:0}, upd:"10 Oct"},
-  {id:8817, name:"Pot Noodle Standard Pot Original Curry 90 g", cat:"🍝 Pantry", icon:"🍜", prices:{coop:1.5,morrisons:0,ms:0,waitrose:0,iceland:1.6,alliance:0}, upd:"10 Oct"},
+  {id:8817, name:"Pot Noodle Standard Pot Original Curry 90 g", cat:"🍝 Pantry", icon:"🍜", prices:{coop:1.5,morrisons:0,ms:0,waitrose:0,iceland:1.6,alliance:0}, upd:"10 Oct", upds:{iceland:"10 Oct"}},
   {id:8818, name:"Pot Noodle Piri-Piri Chicken Instant Snack 90 g", cat:"🍝 Pantry", icon:"🍜", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:1.6,alliance:0}, upd:"10 Oct"},
   {id:8819, name:"Samyang Buldok Hot Chicken Flavor Ramen 140g x 5 (700g)", cat:"🍝 Pantry", icon:"🍜", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:7.95,alliance:0}, upd:"10 Oct"},
   {id:8820, name:"Batchelors Big Super Noodles Curry Flavour 100g", cat:"🍝 Pantry", icon:"🍜", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:2.35,alliance:0}, upd:"10 Oct"},
@@ -9141,7 +9141,7 @@ const BASE_PRODUCTS = [
   {id:8945, name:"Nawhal's Finest Sauces 500g", cat:"🍝 Pantry", icon:"🥫", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:4,alliance:0}, upd:"10 Oct"},
   {id:8946, name:"Old El Paso Jalapeños 215g", cat:"🍝 Pantry", icon:"🥫", prices:{coop:2.2,morrisons:0,ms:0,waitrose:0,iceland:2.3,alliance:0}, upd:"10 Oct"}, // special offer £1.58 until 20/10/26
   {id:8947, name:"Sweet Chilli Thai Sauce 500ml", cat:"🍝 Pantry", icon:"🥫", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:1.95,alliance:0}, upd:"10 Oct"},
-  {id:8948, name:"Heinz Fish & Chips Sauce 400g", cat:"🍝 Pantry", icon:"🥫", prices:{coop:3.7,morrisons:0,ms:0,waitrose:0,iceland:4.5,alliance:0}, upd:"10 Oct"},
+  {id:8948, name:"Heinz Fish & Chips Sauce 400g", cat:"🍝 Pantry", icon:"🥫", prices:{coop:3.7,morrisons:0,ms:0,waitrose:0,iceland:4.5,alliance:0}, upd:"10 Oct", upds:{iceland:"10 Oct"}},
   {id:8949, name:"Bisto Sweet & Smoky BBQ Sauce 170g", cat:"🍝 Pantry", icon:"🥫", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:3.95,alliance:0}, upd:"10 Oct"},
   {id:8950, name:"Bisto Smooth Peppercorn Sauce 170g", cat:"🍝 Pantry", icon:"🥫", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:3.95,alliance:0}, upd:"10 Oct"},
   {id:8951, name:"Heinz Classic Barbecue Sauce 665g", cat:"🍝 Pantry", icon:"🥫", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:5,alliance:0}, upd:"10 Oct", oos:["iceland"]},
@@ -9327,7 +9327,7 @@ const BASE_PRODUCTS = [
   {id:9130, name:"Iceland Stuffed Crust Cheese Feast 453g", cat:"🧊 Frozen", icon:"🍕", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:3.8,alliance:0}, upd:"10 Oct"},
   {id:9131, name:"Iceland BBQ Chicken & Bacon Cheese Filled Crust 460g", cat:"🧊 Frozen", icon:"🍕", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:3.8,alliance:0}, upd:"10 Oct"},
   {id:9132, name:"Chicago Town Stuffed Crust Takeaway Loaded Cheese Pizza 630g", cat:"🧊 Frozen", icon:"🍕", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:6.25,alliance:0}, upd:"10 Oct"},
-  {id:9133, name:"Chicago Town 2 Original Deep Dish Four Cheese Pizza 2 x 148g", cat:"🧊 Frozen", icon:"🍕", prices:{coop:2.35,morrisons:0,ms:0,waitrose:0,iceland:2.35,alliance:0}, upd:"10 Oct"}, // special offer £1.55 until 27/10/26
+  {id:9133, name:"Chicago Town 2 Original Deep Dish Four Cheese Pizza 2 x 148g", cat:"🧊 Frozen", icon:"🍕", prices:{coop:2.35,morrisons:0,ms:0,waitrose:0,iceland:2.35,alliance:0}, upd:"10 Oct", upds:{iceland:"10 Oct"}}, // special offer £1.55 until 27/10/26
   {id:9134, name:"Chicago Town Tiger Crust Cheese Medley Pizza 305g", cat:"🧊 Frozen", icon:"🍕", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:5.25,alliance:0}, upd:"10 Oct"},
   {id:9135, name:"Chicago Town Takeaway Stuffed Crust Sweet Honey BBQ Salami Pizza 635g", cat:"🧊 Frozen", icon:"🍕", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:6.65,alliance:0}, upd:"10 Oct"},
   {id:9136, name:"Chicago Town Cheese & Tomato Pizza Subs 2 x 125g (250g)", cat:"🧊 Frozen", icon:"🍕", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:2.35,alliance:0}, upd:"10 Oct"},
@@ -9554,7 +9554,7 @@ const BASE_PRODUCTS = [
   {id:9355, name:"Cadbury Dairy Milk Biscoff Chocolate Bar 95g", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:2.6,alliance:0}, upd:"10 Oct"},
   {id:9356, name:"Bebeto Fruity Twists Fruit Mix Soft Sweets 180g", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:1.35,alliance:0}, upd:"10 Oct"},
   {id:9357, name:"Cadbury Crunchie Chocolate Bar 7 Pack Multipack 182.7g (7 x 26.1g)", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:3.39,morrisons:0,ms:0,waitrose:0,iceland:4.15,alliance:0}, upd:"10 Oct"},
-  {id:9358, name:"Cadbury Dairy Milk Chocolate Bar 7 Pack Multipack 190.4g", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:3.15,morrisons:0,ms:0,waitrose:0,iceland:4.15,alliance:0}, upd:"10 Oct"},
+  {id:9358, name:"Cadbury Dairy Milk Chocolate Bar 7 Pack Multipack 190.4g", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:3.15,morrisons:0,ms:0,waitrose:0,iceland:4.15,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:9359, name:"Cadbury Wispa Milk Chocolate 175g", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:4,alliance:0}, upd:"10 Oct"},
   {id:9360, name:"Cadbury Curly Wurly Chocolate Bar 4 Pack Multipack 86g (4 x 21.5g)", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:1.75,morrisons:0,ms:0,waitrose:0,iceland:2,alliance:0}, upd:"10 Oct"}, // special offer £1.05 until 20/10/26
   {id:9361, name:"Mars Bounty Crispy Rolls 5-Pack 117g", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:1.7,alliance:0}, upd:"10 Oct"},
@@ -9578,7 +9578,7 @@ const BASE_PRODUCTS = [
   {id:9379, name:"Cadbury Dairy Milk Little Bar Chocolate 18g", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:0.55,alliance:0}, upd:"10 Oct"},
   {id:9380, name:"Cadbury Double Decker Chocolate Bar 54.5g", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:1.1,alliance:0}, upd:"22 Sep"},
   {id:9381, name:"Cadbury Flake Chocolate Bar 32g", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:1.1,alliance:0}, upd:"10 Oct"},
-  {id:9382, name:"Cadbury Fruit & Nut 49g", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:0,morrisons:0,ms:0,waitrose:1.44,iceland:1.1,alliance:0}, upd:"10 Oct"}, // waitrose £1.44 was a special offer 24 Sep — re-verify normal shelf price
+  {id:9382, name:"Cadbury Fruit & Nut 49g", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:0,morrisons:0,ms:0,waitrose:1.44,iceland:1.1,alliance:0}, upd:"10 Oct", upds:{iceland:"10 Oct"}}, // waitrose £1.44 was a special offer 24 Sep — re-verify normal shelf price
   {id:9383, name:"Cadbury Picnic Chocolate Bar 48g", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:1.1,alliance:0}, upd:"10 Oct"},
   {id:9384, name:"Kind Peanut Butter Dark Chocolate 40g", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:1.7,alliance:0}, upd:"10 Oct"},
   {id:9385, name:"Oreo Fresh Milk-Snack 27g", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:1.1,alliance:0}, upd:"10 Oct"},
@@ -9618,7 +9618,7 @@ const BASE_PRODUCTS = [
   {id:9419, name:"Maltesers White Chocolate & Honeycomb More to Share Pouch 126g", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:4.15,alliance:0}, upd:"10 Oct"},
   {id:9420, name:"KitKat Hazelnut 99g", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:2.15,alliance:0}, upd:"10 Oct"},
   {id:9421, name:"Toblerone Caramilk Chocolate Bar 340g", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:7.9,alliance:0}, upd:"10 Oct"},
-  {id:9422, name:"Cadbury Twirl Xtra Duo Chocolate Bar 54g", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:1.6,morrisons:0,ms:0,waitrose:1.39,iceland:1.45,alliance:0}, upd:"10 Oct"},
+  {id:9422, name:"Cadbury Twirl Xtra Duo Chocolate Bar 54g", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:1.6,morrisons:0,ms:0,waitrose:1.39,iceland:1.45,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct",iceland:"10 Oct"}},
   {id:9423, name:"M&Ms Minis Funsize Packets", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:3.85,alliance:0}, upd:"10 Oct"},
   {id:9424, name:"Cadbury Bournville Old Jamaica Dark Chocolate Bar 100g", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:2.6,alliance:0}, upd:"10 Oct", oos:["iceland"]},
   {id:9425, name:"Cadbury Dairy Milk Caramel Chocolate Bar 180g", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:3.15,morrisons:0,ms:0,waitrose:0,iceland:3.95,alliance:0}, upd:"10 Oct"}, // special offer £2.10 until 20/10/26
@@ -9628,15 +9628,15 @@ const BASE_PRODUCTS = [
   {id:9429, name:"Cadbury Double Decker Chocolate Bar 4 Pack Multipack 149.2g (4 x 37.3g)", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:2.65,alliance:0}, upd:"10 Oct"},
   {id:9430, name:"Daim Mini Chocolate Bag 200g", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:4.25,alliance:0}, upd:"10 Oct"},
   {id:9431, name:"Milka Choco Moo Chocolate Biscuits 200g", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:2,alliance:0}, upd:"10 Oct"},
-  {id:9432, name:"Smarties 105g", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:1.9,morrisons:0,ms:0,waitrose:0,iceland:2.35,alliance:0}, upd:"10 Oct", oos:["iceland"]}, // special offer £1.31 until 20/10/26
+  {id:9432, name:"Smarties 105g", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:1.9,morrisons:0,ms:0,waitrose:0,iceland:2.35,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}, oos:["iceland"]}, // special offer £1.31 until 20/10/26
   {id:9433, name:"Cadbury Dairy Milk Mini Chocolate Eggs Bag 77g", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:2.25,alliance:0}, upd:"10 Oct", oos:["iceland"]},
   {id:9434, name:"Twix Caramel & Milk Chocolate Fingers Biscuit Snack Bars Multipack 9 x 20g", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:3.6,alliance:0}, upd:"10 Oct"},
   {id:9435, name:"Papita Caramel 6 x 20g (120g)", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:1.35,alliance:0}, upd:"10 Oct"},
   {id:9436, name:"Papita Milky 6 x 20g (120g)", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:1.35,alliance:0}, upd:"10 Oct"},
-  {id:9437, name:"Cadbury Dairy Milk Milk Chocolate Buttons & Chunks Chocolate Desserts 4 x 75g (300g)", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:3.69,morrisons:0,ms:0,waitrose:0,iceland:4.15,alliance:0}, upd:"10 Oct"},
+  {id:9437, name:"Cadbury Dairy Milk Milk Chocolate Buttons & Chunks Chocolate Desserts 4 x 75g (300g)", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:3.69,morrisons:0,ms:0,waitrose:0,iceland:4.15,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:9438, name:"Kinder Medium Chocolate Bars 6 x 21g (126g)", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:2.45,alliance:0}, upd:"10 Oct", oos:["iceland"]},
   {id:9439, name:"Galaxy Multipack Chocolate Bars 4 x 42g", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:2.9,alliance:0}, upd:"10 Oct"},
-  {id:9440, name:"Kinder Medium Chocolate Multipack Bars 2 x 21g (42g)", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:1.1,morrisons:0,ms:0,waitrose:0,iceland:0.95,alliance:0}, upd:"10 Oct", oos:["coop"]},
+  {id:9440, name:"Kinder Medium Chocolate Multipack Bars 2 x 21g (42g)", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:1.1,morrisons:0,ms:0,waitrose:0,iceland:0.95,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}, oos:["coop"]},
   {id:9441, name:"Bounty 4 x 57g", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:2.9,alliance:0}, upd:"10 Oct"},
   {id:9442, name:"Twix Caramel & Milk Chocolate Fingers Twin Biscuit Snack Bars Multipack 9 x 40g", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:4.15,alliance:0}, upd:"10 Oct"},
   {id:9443, name:"Mars Chocolate Fun Size Bars Multipack 14 x 18g", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:3.85,alliance:0}, upd:"10 Oct"},
@@ -10256,7 +10256,7 @@ const BASE_PRODUCTS = [
   {id:10049, name:"Weetabix 48 Biscuits", cat:"🍝 Pantry", icon:"🥣", prices:{coop:6.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:10050, name:"Alpen No Added Sugar Muesli 950g", cat:"🍝 Pantry", icon:"🍬", prices:{coop:4.6,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £3.85 until 20/10/26
   {id:10051, name:"Fuel10K Strawberry Flavour Breakfast Milk Drink 330ml", cat:"🍝 Pantry", icon:"🍓", prices:{coop:2,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct", oos:["coop"]}, // special offer £1.05 until 20/10/26
-  {id:10052, name:"Kellogg's Coco Pops 420g", cat:"🍝 Pantry", icon:"🥣", prices:{coop:4.5,morrisons:0,ms:0,waitrose:0,iceland:4.8,alliance:0}, upd:"10 Oct"},
+  {id:10052, name:"Kellogg's Coco Pops 420g", cat:"🍝 Pantry", icon:"🥣", prices:{coop:4.5,morrisons:0,ms:0,waitrose:0,iceland:4.8,alliance:0}, upd:"10 Oct", upds:{iceland:"10 Oct"}},
   {id:10053, name:"Proper Barbecue Lentil Chips 31g", cat:"🥨 Snacks & Treats", icon:"🥔", prices:{coop:1.29,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:10054, name:"Proper Chips Prawn Cocktail Lentil 31G", cat:"🥨 Snacks & Treats", icon:"🥔", prices:{coop:1.29,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:10055, name:"Pringles Original 40g", cat:"🥨 Snacks & Treats", icon:"🥔", prices:{coop:1.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -11485,7 +11485,7 @@ const BASE_PRODUCTS = [
   {id:11270, name:"CRF Strawberry YAB Yoghurt 825 825g", cat:"🥗 Deli & Salads", icon:"🥗", prices:{coop:2.99,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:11271, name:"CRF Strawberry & Banana YAB Yo 825g", cat:"🥗 Deli & Salads", icon:"🥗", prices:{coop:2.99,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:11272, name:"Proper Chips Barbecue Lentil Chips 85g", cat:"🥨 Snacks & Treats", icon:"🥨", prices:{coop:2.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:11273, name:"Arla Lacto Free Semi Skimmed Milk Drink 2 Litre 2lt", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:3.09,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £2.10 until 27/10/26
+  {id:11273, name:"Arla Lacto Free Semi Skimmed Milk Drink 2 Litre 2lt", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:3.09,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct", upds:{}}, // members £2.10 until 27/10/26
   {id:11274, name:"Pure Life Still Spring Water 6 x 1.5L", cat:"🥤 Drinks", icon:"🥤", prices:{coop:3.5,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:11275, name:"Co-op 6 British Mixed Size Organic Eggs 328g", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:3.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £2.80 until 27/10/26
   {id:11276, name:"Co-op Apple Pear & Kiwi Smoothie with Cucumber 750ml", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -11716,7 +11716,7 @@ const BASE_PRODUCTS = [
   {id:11501, name:"Quaker Jumbo Porridge Oats 1kg", cat:"🍝 Pantry", icon:"🥫", prices:{coop:3.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £2.52 until 20/10/26
   {id:11502, name:"Co-op Super Soft Quilted Bathroom Tissue 4roll", cat:"🧹 Household", icon:"🧹", prices:{coop:3.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:11503, name:"Quaker Caramelised Biscuit Porridge Pot 57g", cat:"🍝 Pantry", icon:"🥫", prices:{coop:1.45,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:11504, name:"Co-op 10 Biodegradable Kerbside Caddy Liners 25 Litre 10roll", cat:"🧹 Household", icon:"🧹", prices:{coop:2.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
+  {id:11504, name:"Co-op 10 Biodegradable Kerbside Caddy Liners 25 Litre 10roll", cat:"🧹 Household", icon:"🧹", prices:{coop:2.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct", upds:{}},
   {id:11505, name:"Co-op Complete & Balanced Nutrition Dry Dog Food with Chicken & Vegetables +1 Year 3kg", cat:"🐾 Pet Care", icon:"🐾", prices:{coop:3.9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:11506, name:"Co-op Complete & Balanced Nutrition Dry Dog Food with Beef & Vegetables +1 Year 3kg", cat:"🐾 Pet Care", icon:"🐾", prices:{coop:3.9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:11507, name:"Schwartz White Sauce 25g", cat:"🍝 Pantry", icon:"🥫", prices:{coop:1.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -12677,7 +12677,7 @@ const BASE_PRODUCTS = [
   {id:12462, name:"Organix Tomato Slices 20G", cat:"🍼 Baby & Child", icon:"🍼", prices:{coop:0.8,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct", oos:["coop"]},
   {id:12463, name:"Rowntree's Pick & Mix Sweets Sharing Bag 150g", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:1.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct", oos:["coop"]},
   {id:12464, name:"Co-op Original Antiseptic Disinfectant 500ml", cat:"🧹 Household", icon:"🧹", prices:{coop:1.9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct", oos:["coop"]},
-  {id:12465, name:"Waitrose Cream Chocolate Eclairs", cat:"🍞 Bread & Bakery", icon:"🍰", prices:{coop:0,morrisons:0,ms:0,waitrose:2.9,iceland:0,alliance:0}, upd:"10 Oct"}, // pack size not on receipt
+  {id:12465, name:"Waitrose Cream Chocolate Eclairs", cat:"🍞 Bread & Bakery", icon:"🍰", prices:{coop:0,morrisons:0,ms:0,waitrose:2.9,iceland:0,alliance:0}, upd:"10 Oct", upds:{}}, // pack size not on receipt
   /* ── Iceland full catalogue (Snappy Shopper), download 10 Oct ── */
   {id:12466, name:"Dairylea Lunchers Chicken 'N' Cheese Cheese Snack 60g", cat:"🧊 Frozen", icon:"🥩", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:2.25,alliance:0}, upd:"10 Oct"},
   {id:12467, name:"Dairylea Lunchers Ham 'N' Cheese Cheese Snack 65g", cat:"🧊 Frozen", icon:"🥩", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:2.15,alliance:0}, upd:"10 Oct"},
@@ -12822,7 +12822,7 @@ const BASE_PRODUCTS = [
   {id:12606, name:"Gordon's London Dry Gin and Diet Tonic Ready to Drink 250ml Can", cat:"🍷 Wine & Beer", icon:"🍷", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:3.45,alliance:0}, upd:"10 Oct"},
   {id:12607, name:"Pimm's No. 1 Cup & Lemonade Ready to Drink 5.4% vol 250ml Can", cat:"🍷 Wine & Beer", icon:"🍷", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:3.45,alliance:0}, upd:"10 Oct"},
   {id:12608, name:"Smirnoff Ice Original Vodka Mixed Drink 4% vol 70cl", cat:"🍷 Wine & Beer", icon:"🍷", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:5.9,alliance:0}, upd:"10 Oct"},
-  {id:12609, name:"Rekorderlig Äpple & Kiwi 500ml", cat:"🍷 Wine & Beer", icon:"🍷", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:3.55,alliance:0}, upd:"10 Oct"},
+  {id:12609, name:"Rekorderlig Äpple & Kiwi 500ml", cat:"🍷 Wine & Beer", icon:"🍷", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:3.55,alliance:0}, upd:"10 Oct", upds:{}},
   {id:12610, name:"Whitley Neill Japanese Yuzu & White Strawberry and Lemonade Ready to Drink 250ml", cat:"🍷 Wine & Beer", icon:"🍷", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:3.45,alliance:0}, upd:"10 Oct"},
   {id:12611, name:"Whitley Neill Rhubarb & Ginger and Ginger Ale Ready to Drink 250ml", cat:"🍷 Wine & Beer", icon:"🍷", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:3.45,alliance:0}, upd:"10 Oct"},
   {id:12612, name:"San Pellegrino Orange 330ml", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:1.55,alliance:0}, upd:"10 Oct"},
@@ -13514,8 +13514,8 @@ const BASE_PRODUCTS = [
   {id:13298, name:"Batchelors Sweetcorn in Water 3 x 180g", cat:"🥦 Fruit & Veg", icon:"🥦", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:2.55,alliance:0}, upd:"10 Oct"},
   {id:13299, name:"Pickle & Co. Burger Gherkins 670g", cat:"🥦 Fruit & Veg", icon:"🥦", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:3.15,alliance:0}, upd:"10 Oct"},
   {id:13300, name:"Kesar Mango Pulp 850g 850g", cat:"🥦 Fruit & Veg", icon:"🥦", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:2.9,alliance:0}, upd:"10 Oct"},
-  {id:13301, name:"M&S 2 Vanilla Slices", cat:"🍞 Bread & Bakery", icon:"🍰", prices:{coop:0,morrisons:0,ms:2.7,waitrose:0,iceland:0,alliance:0}, upd:"11 Oct"},
-  {id:13302, name:"M&S Touch of Butter 500g", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:0,morrisons:0,ms:2.7,waitrose:0,iceland:0,alliance:0}, upd:"11 Oct"},
+  {id:13301, name:"M&S 2 Vanilla Slices", cat:"🍞 Bread & Bakery", icon:"🍰", prices:{coop:0,morrisons:0,ms:2.7,waitrose:0,iceland:0,alliance:0}, upd:"11 Oct", upds:{}},
+  {id:13302, name:"M&S Touch of Butter 500g", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:0,morrisons:0,ms:2.7,waitrose:0,iceland:0,alliance:0}, upd:"11 Oct", upds:{}},
 ];/* ═══════════════════════════════════════════════════════════════════════════
    WEEKLY ESSENTIALS — a relatable 25-item "typical weekly shop" basket, used
    as the default landing sort so new visitors see a real comparison (milk,
@@ -13889,6 +13889,9 @@ function ProductCard({ product, onAddToBasket, pinnedStore, isFavourite, onToggl
   const chosenStoreId = effectiveStoreId;
   const chosenPrice= product.prices[chosenStoreId] ?? 0;
   const chosenStore= STORES.find(s=>s.id===chosenStoreId);
+  // per-store "last checked" date: items with `upds` only show a date for stores whose price was really checked;
+  // everything else uses the single item date (`upd`)
+  const shownDate  = product.upds ? product.upds[chosenStoreId] : product.upd;
   const saving     = getWorstPrice(product,disabledStores)-bestPrice;
   const overBest   = chosenPrice-bestPrice;
   const isOnBest   = chosenStoreId===bestId;
@@ -13914,7 +13917,7 @@ function ProductCard({ product, onAddToBasket, pinnedStore, isFavourite, onToggl
             <Tooltip text={product.name}>
               <div style={{ fontSize:12.5, fontWeight:700, color:lightMode?"#0f172a":"#f0f4f8", lineHeight:1.3 }}>{product.name}</div>
             </Tooltip>
-            <div style={{ fontSize:9.5, fontWeight:700, color:lightMode?"#0f172a":"#ffffff", marginTop:1 }}>{product.cat.replace(/^[^\s]+\s/,"")}{product.custom?" · custom":""}{product.upd ? <span style={{ marginLeft:5, fontSize:8, color:lightMode?"#94a3b8":"#64748b" }}>· {product.upd}</span> : <EstimateNote product={product} lightMode={lightMode} />}</div>
+            <div style={{ fontSize:9.5, fontWeight:700, color:lightMode?"#0f172a":"#ffffff", marginTop:1 }}>{product.cat.replace(/^[^\s]+\s/,"")}{product.custom?" · custom":""}{shownDate ? <span style={{ marginLeft:5, fontSize:8, color:lightMode?"#94a3b8":"#64748b" }}>· {shownDate}</span> : <EstimateNote product={product} lightMode={lightMode} />}</div>
           </div>
           {Array.isArray(product.oos) && product.oos.includes(chosenStoreId) && <OosDot storeName={chosenStore?.name} />}
           {/* heart / favourite button */}
