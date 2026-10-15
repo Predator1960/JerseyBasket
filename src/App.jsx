@@ -742,7 +742,7 @@ const BASE_PRODUCTS = [
   {id:461,name:"Monster Energy Original (500ml)",     cat:"🥤 Drinks",       icon:"🟢",prices:sp(2.10,[0,0,0,0,0])},
   {id:462,name:"Chicken Dippers (20pk)",              cat:"🥩 Meat & Fish",  icon:"🍗",prices:sp(3.40,[0,0,0,0,0])},
   {id:463,name:"Garlic Chicken Kiev (2pk)",           cat:"🥩 Meat & Fish",  icon:"🍗",prices:sp(3.60,[0,0,1.20,0,0]), upd:"30 Sep"},
-  {id:464,name:"Beef Mince 20% Fat (500g)",           cat:"🥩 Meat & Fish",  icon:"🥩",prices:{coop:5.30,morrisons:4.00,ms:5.25,waitrose:4.35,iceland:5.30,alliance:4.35}, upd:"2 Sep"},
+  {id:464,name:"Beef Mince 20% Fat (500g)",           cat:"🥩 Meat & Fish",  icon:"🥩",prices:{coop:5.30,morrisons:4.00,ms:5.25,waitrose:4.35,iceland:5.30,alliance:4.35}, upd:"15 Oct", upds:{waitrose:"15 Oct"}}, // Waitrose St Helier receipt 15 Oct: ESS BEEF 20% MINCE 4.35 (matches the existing 4.35)
   {id:465,name:"Parmentier Potatoes (400g)",          cat:"🧊 Frozen",       icon:"🥔",prices:sp(2.79,[-2.79,-2.79,-2.79,0,-2.79])},
   {id:466,name:"Jacobs Cream Crackers (200g)",        cat:"🍪 Snacks",       icon:"🍘",prices:sp(1.55,[-1.55,-1.55,-1.55,0,0.2,0]), upd:"21 Sep"},
   {id:467,name:"Jam Doughnuts (5pk)",                 cat:"🍞 Bread & Bakery",icon:"🍩",prices:sp(1.57,[-1.57,-1.57,-1.57,-0.22,-1.57])},
@@ -964,8 +964,8 @@ const BASE_PRODUCTS = [
   {id:2580,name:"WR Diced Chicken Breast",           cat:"🥩 Meat & Fish",  icon:"🍗",prices:sp(6.38,[-6.38,-6.38,-6.38,0,-6.38,-6.38])},
   {id:2581,name:"Robinsons Creations",               cat:"🥤 Drinks",       icon:"🧃",prices:sp(1.75,[-1.75,-1.75,-1.75,0,-1.75,-1.75])},
   {id:2582,name:"Hellmann's Light Mayo",              cat:"🍝 Pantry",       icon:"🥫",prices:sp(2.60,[-2.60,-2.60,-2.60,0,-2.60,-2.60])},
-  {id:2583,name:"Fanta Orange Zero (8x330ml)",       cat:"🥤 Drinks",       icon:"🍊",prices:sp(3.75,[-0.34,-3.75,-3.75,0,1.50,-3.75]), upd:"19 Sep"},
-  {id:2584,name:"WR Durafold Bag",                   cat:"🧹 Household",    icon:"🛍️",prices:sp(1.00,[-1.00,-1.00,-1.00,0,-1.00,-1.00])},
+  {id:2583,name:"Fanta Orange Zero (8x330ml)",       cat:"🥤 Drinks",       icon:"🍊",prices:sp(3.75,[-0.34,-3.75,-3.75,0,1.50,-3.75]), upd:"15 Oct", upds:{waitrose:"15 Oct"}}, // Waitrose St Helier receipt 15 Oct: FANTA ORANGE ZERO 3.75 (pack size not shown, matched to 8x330ml by price)
+  {id:2584,name:"WR Durafold Bag",                   cat:"🧹 Household",    icon:"🛍️",prices:sp(1.00,[-1.00,-1.00,-1.00,0,-1.00,-1.00]), upd:"15 Oct"}, // Waitrose St Helier receipt 15 Oct: WR DURAFOLD BAG 1.00
   {id:2585,name:"Dr Pepper Zero (330ml)",             cat:"🥤 Drinks",       icon:"🥤",prices:{coop:0,morrisons:0,ms:0,waitrose:2.09,iceland:0,alliance:0}, upd:"1 Sep"},
   {id:2586,name:"Sprite (8x330ml)",                   cat:"🥤 Drinks",       icon:"🥤",prices:sp(3.75,[-3.75,-3.75,-3.75,0,-3.75,-3.75])},
   {id:2587,name:"Budweiser Budvar Lager (500ml)",     cat:"🍷 Wine & Beer",  icon:"🍺",prices:sp(2.14,[-2.14,-2.14,-2.14,0,-2.14,-2.14])},
@@ -1172,7 +1172,7 @@ const BASE_PRODUCTS = [
   {id:886,name:"WR CI White Fondant Icing",           cat:"🍝 Pantry",        icon:"🎂",prices:sp(2.32,[-2.32,-2.32,-2.32,0,-2.32,-2.32])},
   {id:887,name:"WR Salted Danish Butter (250g)",      cat:"🥛 Dairy & Eggs",  icon:"🧈",prices:sp(3.88,[-3.88,-3.88,-3.88,0,-3.88,-3.88])},
   {id:888,name:"WR Essential Single Cream",           cat:"🥛 Dairy & Eggs",  icon:"🍦",prices:sp(1.69,[-1.69,-1.69,-1.69,-0.06,-1.69,-1.69]), upd:"24 Sep"},
-  {id:889,name:"WR Essential Iceberg Lettuce",        cat:"🥦 Fruit & Veg",   icon:"🥬",prices:sp(1.00,[-1.00,-1.00,-1.00,0,-1.00,-1.00]), upd:"30 Jul"},
+  {id:889,name:"WR Essential Iceberg Lettuce",        cat:"🥦 Fruit & Veg",   icon:"🥬",prices:sp(1.00,[-1.00,-1.00,-1.00,0.05,-1.00,-1.00]), upd:"15 Oct"}, // Waitrose St Helier receipt 15 Oct: ESS ICBRG LETTUCE 1.05 (was 1.00, 30 Jul)
 
   {id:891,name:"Olde Oak Hot Dogs",                         cat:"🥩 Meat & Fish",         icon:"🌭",prices:sp(2.05,[0,-2.05,-2.05,-2.05,-2.05,-2.05])}, 
   {id:892,name:"McCain Hash Browns (600g)",                 cat:"❄️ Frozen",             icon:"🥔",prices:sp(3.40,[0,-3.40,-3.40,-3.40,-3.40,-3.40])}, 
@@ -16043,6 +16043,12 @@ const BASE_PRODUCTS = [
   {id:15826, name:"Essential Waitrose & Partners Garden Peas In Water 300g", cat:"🥦 Fruit & Veg", icon:"🥦", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:1.1}, upd:"15 Oct"},
   {id:15827, name:"Waitrose Essential Canned Chopped Mushroom 290g", cat:"🥦 Fruit & Veg", icon:"🥦", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:2.1}, upd:"15 Oct"},
   {id:15828, name:"Forest Feast Berries & Cherries 170g", cat:"🥦 Fruit & Veg", icon:"🥦", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:4.9}, upd:"15 Oct", oos:["alliance"]},
+  {id:15829, name:"Baylis & Harding Amber Hand Wash", cat:"💊 Health & Beauty", icon:"🧼", prices:{coop:0,morrisons:0,ms:0,waitrose:1.91,iceland:0,alliance:0}, upd:"15 Oct"}, // Waitrose receipt 15 Oct: BH AMBER HANDWASH (size not shown)
+  {id:15830, name:"Head & Shoulders 2in1 Classic Clean Shampoo & Conditioner", cat:"💊 Health & Beauty", icon:"🧴", prices:{coop:0,morrisons:0,ms:0,waitrose:3.13,iceland:0,alliance:0}, upd:"15 Oct"}, // Waitrose receipt 15 Oct: H&S 2IN1 CLASSIC CLN (size not shown)
+  {id:15831, name:"Fixodent Plus Food Barrier Denture Adhesive", cat:"💊 Health & Beauty", icon:"🦷", prices:{coop:0,morrisons:0,ms:0,waitrose:3.48,iceland:0,alliance:0}, upd:"15 Oct"}, // Waitrose receipt 15 Oct: FIXDNT+ FOOD BARRIER (size not shown)
+  {id:15832, name:"Waitrose Croissants", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:0,morrisons:0,ms:0,waitrose:2.9,iceland:0,alliance:0}, upd:"15 Oct"}, // Waitrose receipt 15 Oct: WR CROISSANTS (pack size not shown)
+  {id:15833, name:"M&S Banana Flavoured Milk", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:0,morrisons:0,ms:1.85,waitrose:0,iceland:0,alliance:0}, upd:"15 Oct"}, // M&S Centre Point receipt 15 Oct: BANA FLVRD MI (size not shown)
+  {id:15834, name:"M&S Strawberry Flavoured Milk", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:0,morrisons:0,ms:1.85,waitrose:0,iceland:0,alliance:0}, upd:"15 Oct"}, // M&S Centre Point receipt 15 Oct: STRWBRY MILK (size not shown)
 ];/* ═══════════════════════════════════════════════════════════════════════════
    WEEKLY ESSENTIALS — a relatable 25-item "typical weekly shop" basket, used
    as the default landing sort so new visitors see a real comparison (milk,
