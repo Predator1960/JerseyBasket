@@ -108,7 +108,7 @@ for (const f of feed) {
       stats.matchedRows++;
       const i = idLine.get(p.id); let l = lines[i];
       const cur = p.prices.coop || 0;
-      const protectedRow = p.id === 5741;
+      const protectedRow = false; // (was id 5741: the receipt that justified it was really the 12-pack)
       if (protectedRow && Math.abs(cur - regular) > 0.004) { protectedLog.push(`${p.id} ${p.name}: keep ${cur}, feed ${regular}`); continue; }
       if (Math.abs(cur - regular) > 0.004) {
         l = setCoop(l, regular); stats.priceChanged++; changeLog.push(`${p.id} ${p.name}: ${cur} -> ${regular}`);

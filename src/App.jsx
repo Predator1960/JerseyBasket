@@ -247,7 +247,7 @@ const BASE_PRODUCTS = [
   {id:31, name:"Seeded Batch Loaf",            cat:"🍞 Bread & Bakery",icon:"🥖", prices:sp(1.75,[-0.20,0.15,0.65,0.5,0.07])},
   {id:32, name:"Sourdough Loaf",               cat:"🍞 Bread & Bakery",icon:"🥖", prices:sp(2.50,[0,0.25,0.95,0.75,0.12])},
   {id:33, name:"Gluten Free White Bread",      cat:"🍞 Bread & Bakery",icon:"🍞", prices:sp(2.90,[0,0.28,1,0.8,0.14])},
-  {id:34, name:"Croissants (4pk)",             cat:"🍞 Bread & Bakery",icon:"🥐", prices:sp(1.80,[0,0.15,0.7,0.52,0.07]), upd:"25 Sep"},
+  {id:34, name:"Croissants (4pk)",             cat:"🍞 Bread & Bakery",icon:"🥐", prices:sp(1.80,[0,0.15,0.7,1.1,0.07,0]), upd:"15 Oct", upds:{waitrose:"15 Oct"}}, // Waitrose St Helier receipt 15 Oct: WR CROISSANTS 4 pack 2.90
   {id:35, name:"Pain au Chocolat (4pk)",       cat:"🍞 Bread & Bakery",icon:"🥐", prices:sp(1.95,[0,0.2,0.8,0.80,0.1])},
   {id:36, name:"Bagels (5pk)",                 cat:"🍞 Bread & Bakery",icon:"🥯", prices:sp(1.50,[0,0.2,0.7,0.55,0.1])},
   {id:37, name:"Pitta Bread (6pk)",            cat:"🍞 Bread & Bakery",icon:"🫓", prices:sp(1.20,[0,-0.70,0.65,0.5,0.07])},
@@ -949,7 +949,7 @@ const BASE_PRODUCTS = [
   {id:699,name:"Coca-Cola Zero Sugar (1.75L)",      cat:"🥤 Drinks",       icon:"🥤",prices:sp(2.30,[0.35,-2.30,-2.30,-2.30,-2.30,-2.30]), upd:"5 Oct"},
   {id:890,name:"Coca-Cola Zero Sugar (18 cans)",   cat:"🥤 Drinks",       icon:"🥤",prices:sp(4.75,[0,-4.75,-4.75,-4.75,-4.75,-4.75])},
   {id:2567,name:"Coca-Cola Zero Sugar (4 cans)",   cat:"🥤 Drinks",       icon:"🥤",prices:sp(2.90,[0,-2.90,-2.90,-2.90,-2.90,-2.90])},
-  {id:2568,name:"Coca-Cola Zero Sugar (12 cans)",   cat:"🥤 Drinks",       icon:"🥤",prices:sp(5.25,[0,-5.25,-5.25,-5.25,-5.25,-5.25])},
+  {id:2568,name:"Coca-Cola Zero Sugar (12 cans)",   cat:"🥤 Drinks",       icon:"🥤",prices:sp(5.25,[1.6,-5.25,-5.25,-5.25,-5.25,-5.25]), upd:"15 Oct", upds:{coop:"15 Oct"}}, // Co-op receipts 9 and 15 Oct: Coca-Cola Zero Sugar 12 pack 6.85
   {id:2569,name:"Co-op Extra Thick Foil",           cat:"🧹 Household",    icon:"✨",prices:sp(2.45,[0,-2.45,-2.45,-2.45,-2.45,-2.45]), upd:"17 Aug"},
   {id:2570,name:"Cadbury Daim Bar",                 cat:"🍫 Confectionery",icon:"🍫",prices:sp(1.58,[0,-1.58,-1.58,-1.58,-1.58,-1.58])},
   {id:2571,name:"Co-op Garlic & Coriander Naan",    cat:"🍞 Bread & Bakery",icon:"🫓",prices:sp(1.19,[0.01,-1.19,-1.19,-1.19,-1.19,-1.19]), upd:"19 Sep"},
@@ -964,7 +964,7 @@ const BASE_PRODUCTS = [
   {id:2580,name:"WR Diced Chicken Breast",           cat:"🥩 Meat & Fish",  icon:"🍗",prices:sp(6.38,[-6.38,-6.38,-6.38,0,-6.38,-6.38])},
   {id:2581,name:"Robinsons Creations",               cat:"🥤 Drinks",       icon:"🧃",prices:sp(1.75,[-1.75,-1.75,-1.75,0,-1.75,-1.75])},
   {id:2582,name:"Hellmann's Light Mayo",              cat:"🍝 Pantry",       icon:"🥫",prices:sp(2.60,[-2.60,-2.60,-2.60,0,-2.60,-2.60])},
-  {id:2583,name:"Fanta Orange Zero (8x330ml)",       cat:"🥤 Drinks",       icon:"🍊",prices:sp(3.75,[-0.34,-3.75,-3.75,0,1.50,-3.75]), upd:"15 Oct", upds:{waitrose:"15 Oct"}}, // Waitrose St Helier receipt 15 Oct: FANTA ORANGE ZERO 3.75 (pack size not shown, matched to 8x330ml by price)
+  {id:2583,name:"Fanta Orange Zero (8x330ml)",       cat:"🥤 Drinks",       icon:"🍊",prices:sp(3.75,[-0.34,-3.75,-3.75,0,1.50,-3.75]), upd:"15 Oct", upds:{waitrose:"15 Oct"}}, // Waitrose St Helier receipt 15 Oct: FANTA ORANGE ZERO 3.75 (confirmed 8 x 330ml)
   {id:2584,name:"WR Durafold Bag",                   cat:"🧹 Household",    icon:"🛍️",prices:sp(1.00,[-1.00,-1.00,-1.00,0,-1.00,-1.00]), upd:"15 Oct"}, // Waitrose St Helier receipt 15 Oct: WR DURAFOLD BAG 1.00
   {id:2585,name:"Dr Pepper Zero (330ml)",             cat:"🥤 Drinks",       icon:"🥤",prices:{coop:0,morrisons:0,ms:0,waitrose:2.09,iceland:0,alliance:0}, upd:"1 Sep"},
   {id:2586,name:"Sprite (8x330ml)",                   cat:"🥤 Drinks",       icon:"🥤",prices:sp(3.75,[-3.75,-3.75,-3.75,0,-3.75,-3.75])},
@@ -6515,7 +6515,7 @@ const BASE_PRODUCTS = [
   {id:5738, name:"Fanta Orange 2L Bottle 2LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.45,morrisons:0,ms:0,waitrose:0,iceland:2.65,alliance:2.75}, upd:"15 Oct", upds:{coop:"10 Oct",iceland:"10 Oct",alliance:"15 Oct"}},
   {id:5739, name:"Sprite Lemon Lime 2L Bottle 2LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.45,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5740, name:"Fanta Orange 8 x 330ml 8X330ML", cat:"🥤 Drinks", icon:"🥤", prices:{coop:3.4,morrisons:0,ms:0,waitrose:0,iceland:5.25,alliance:5.3}, upd:"15 Oct", upds:{iceland:"10 Oct"}, oos:["alliance"]},
-  {id:5741, name:"Coca-Cola Zero Sugar 8 x 330ml Cans 8X330ML", cat:"🥤 Drinks", icon:"🥤", prices:{coop:6.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"9 Oct"},
+  {id:5741, name:"Coca-Cola Zero Sugar 8 x 330ml Cans 8X330ML", cat:"🥤 Drinks", icon:"🥤", prices:{coop:6.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // was 6.85 from a 9 Oct receipt that turned out to be the 12-pack; back to the Co-op feed price
   {id:5742, name:"Coca-Cola Original Taste 8 x 330ml Cans 8X330ML", cat:"🥤 Drinks", icon:"🥤", prices:{coop:5.9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5743, name:"Dr Pepper 8 x 330ml 8X330ML", cat:"🥤 Drinks", icon:"🥤", prices:{coop:4.9,morrisons:0,ms:0,waitrose:0,iceland:5.25,alliance:0}, upd:"10 Oct", upds:{iceland:"10 Oct"}},
   {id:5744, name:"Coca-Cola Original Taste 1.75L Bottle 1.75LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.99,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -16046,9 +16046,8 @@ const BASE_PRODUCTS = [
   {id:15829, name:"Baylis & Harding Amber Hand Wash", cat:"💊 Health & Beauty", icon:"🧼", prices:{coop:0,morrisons:0,ms:0,waitrose:1.91,iceland:0,alliance:0}, upd:"15 Oct"}, // Waitrose receipt 15 Oct: BH AMBER HANDWASH (size not shown)
   {id:15830, name:"Head & Shoulders 2in1 Classic Clean Shampoo & Conditioner", cat:"💊 Health & Beauty", icon:"🧴", prices:{coop:0,morrisons:0,ms:0,waitrose:3.13,iceland:0,alliance:0}, upd:"15 Oct"}, // Waitrose receipt 15 Oct: H&S 2IN1 CLASSIC CLN (size not shown)
   {id:15831, name:"Fixodent Plus Food Barrier Denture Adhesive", cat:"💊 Health & Beauty", icon:"🦷", prices:{coop:0,morrisons:0,ms:0,waitrose:3.48,iceland:0,alliance:0}, upd:"15 Oct"}, // Waitrose receipt 15 Oct: FIXDNT+ FOOD BARRIER (size not shown)
-  {id:15832, name:"Waitrose Croissants", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:0,morrisons:0,ms:0,waitrose:2.9,iceland:0,alliance:0}, upd:"15 Oct"}, // Waitrose receipt 15 Oct: WR CROISSANTS (pack size not shown)
-  {id:15833, name:"M&S Banana Flavoured Milk", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:0,morrisons:0,ms:1.85,waitrose:0,iceland:0,alliance:0}, upd:"15 Oct"}, // M&S Centre Point receipt 15 Oct: BANA FLVRD MI (size not shown)
-  {id:15834, name:"M&S Strawberry Flavoured Milk", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:0,morrisons:0,ms:1.85,waitrose:0,iceland:0,alliance:0}, upd:"15 Oct"}, // M&S Centre Point receipt 15 Oct: STRWBRY MILK (size not shown)
+  {id:15833, name:"M&S Banana Flavoured Milk 500ml", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:0,morrisons:0,ms:1.85,waitrose:0,iceland:0,alliance:0}, upd:"15 Oct"}, // M&S Centre Point receipt 15 Oct: BANA FLVRD MI (500ml confirmed)
+  {id:15834, name:"M&S Strawberry Flavoured Milk 500ml", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:0,morrisons:0,ms:1.85,waitrose:0,iceland:0,alliance:0}, upd:"15 Oct"}, // M&S Centre Point receipt 15 Oct: STRWBRY MILK (500ml confirmed)
 ];/* ═══════════════════════════════════════════════════════════════════════════
    WEEKLY ESSENTIALS — a relatable 25-item "typical weekly shop" basket, used
    as the default landing sort so new visitors see a real comparison (milk,
