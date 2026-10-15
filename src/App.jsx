@@ -1797,7 +1797,7 @@ const BASE_PRODUCTS = [
   {id:1512,name:"Lagioiosa Prosecco Rose Millesimato 750ml",        cat:"🍷 Wine & Beer", icon:"🥂", prices:sp(12.60,[-12.60,-12.60,-12.60,-12.60,0,-12.60]), upd:"10 Oct"},
   {id:1513,name:"La Gioiosa Prosecco DOC Treviso 20cl",            cat:"🍷 Wine & Beer", icon:"🥂", prices:sp(4.20,[-4.20,-4.20,-4.20,-4.20,0,-4.20]), upd:"10 Oct"},
   {id:1514,name:"La Gioiosa Prosecco Rose DOC Millesimato 20cl",   cat:"🍷 Wine & Beer", icon:"🥂", prices:sp(4.20,[-4.20,-4.20,-4.20,-4.20,0,-4.20]), upd:"10 Oct"},
-  {id:1515,name:"Kylie Minogue Prosecco DOC 75cl",                 cat:"🍷 Wine & Beer", icon:"🥂", prices:sp(11.55,[-11.55,-11.55,-11.55,-11.55,-11.55,-11.55])},
+  {id:1515,name:"Kylie Minogue Prosecco DOC 75cl",                 cat:"🍷 Wine & Beer", icon:"🥂", prices:sp(11.55,[-11.55,-11.55,-11.55,-11.55,0,-11.55]), upd:"10 Oct"}, // filled 15 Oct from Kylie Minogue Prosecco D.O.C. 75cl (Iceland)
   {id:1516,name:"Kylie Minogue Alcohol Free Sparkling Rose 75cl",  cat:"🍷 Wine & Beer", icon:"🥂", prices:sp(7.35,[-0.85,-7.35,-7.35,-7.35,0,-7.35]), upd:"10 Oct", oos:["iceland"]},
   {id:1517,name:"MARTINI Asti Italian Sparkling Wine 75cl",        cat:"🍷 Wine & Beer", icon:"🥂", prices:sp(11.55,[-11.55,-11.55,-11.55,-11.55,0,-11.55]), upd:"10 Oct"},
   {id:1518,name:"Dolly Prosecco 75cl",                             cat:"🍷 Wine & Beer", icon:"🥂", prices:sp(11.55,[-11.55,-11.55,-11.55,-11.55,0,-11.55]), upd:"10 Oct"},
@@ -1824,12 +1824,12 @@ const BASE_PRODUCTS = [
   {id:1539,name:"Carlsberg Export Lager 10x440ml",                 cat:"🍷 Wine & Beer", icon:"🍺", prices:sp(14.70,[-14.7,-14.7,-14.7,-14.7,2.1,-14.7])},
   {id:1540,name:"Desperados Tequila Lager 3x330ml",                cat:"🍷 Wine & Beer", icon:"🍺", prices:sp(7.10,[-7.10,-7.10,-7.10,-7.10,0,-7.10])},
   {id:1541,name:"Carling Limited Edition 10x440ml",                cat:"🍷 Wine & Beer", icon:"🍺", prices:sp(12.10,[-12.1,-12.1,-12.1,-12.1,2.6,-12.1])},
-  {id:1542,name:"Peroni Nastro Azzurro 12x330ml",                  cat:"🍷 Wine & Beer", icon:"🍺", prices:sp(18.90,[-18.9,-18.9,-18.9,-18.9,-18.9,-18.9])},
+  {id:1542,name:"Peroni Nastro Azzurro 12x330ml",                  cat:"🍷 Wine & Beer", icon:"🍺", prices:sp(18.90,[-18.9,-18.9,-18.9,-18.9,2.1,-18.9]), upd:"10 Oct"}, // filled 15 Oct from Peroni Nastro Azzurro 12 x 330ml (Iceland)
   {id:1543,name:"Carling Original Lager 4x500ml",                  cat:"🍷 Wine & Beer", icon:"🍺", prices:sp(6.85,[-6.85,-6.85,-6.85,-6.85,-1.05,-6.85])},
   {id:1544,name:"Madri Excepcional 4x440ml",                       cat:"🍷 Wine & Beer", icon:"🍺", prices:sp(6.40,[-6.4,-6.4,-6.4,-6.4,0.55,-6.4])},
   {id:1545,name:"San Miguel Especial Premium Lager 4x440ml",       cat:"🍷 Wine & Beer", icon:"🍺", prices:sp(7.35,[-7.35,-7.35,-7.35,-7.35,0.55,-7.35])},
   {id:1546,name:"Birra Moretti Premium Lager Cans 4x440ml",        cat:"🍷 Wine & Beer", icon:"🍺", prices:sp(7.65,[-7.65,-7.65,-7.65,-7.65,0,-7.65])},
-  {id:1547,name:"Cruzcampo Sevilla Beer Cans 4x440ml",             cat:"🍷 Wine & Beer", icon:"🍺", prices:sp(7.65,[-7.65,-7.65,-7.65,-7.65,-7.65,-7.65])},
+  {id:1547,name:"Cruzcampo Sevilla Beer Cans 4x440ml",             cat:"🍷 Wine & Beer", icon:"🍺", prices:sp(7.65,[-7.65,-7.65,-7.65,-7.65,0,-7.65]), upd:"10 Oct"}, // filled 15 Oct from Cruzcampo Sevilla Beer 4 x 440ml (Iceland)
   {id:1548,name:"John Smiths Extra Smooth Ale Cans 4x440ml",       cat:"🍷 Wine & Beer", icon:"🍺", prices:sp(7.15,[-7.15,-7.15,-7.15,-7.15,0,-7.15])},
   {id:1549,name:"Guinness Draught Stout Beer Cans 4x440ml",        cat:"🍷 Wine & Beer", icon:"🍺", prices:sp(7.90,[-7.90,-7.90,-7.90,-7.90,0,-7.90])},
   {id:1550,name:"Guinness Draught Stout Beer 10x440ml",            cat:"🍷 Wine & Beer", icon:"🍺", prices:sp(16.80,[-16.80,-16.80,-16.80,-16.80,0,-16.80])},
@@ -1837,7 +1837,7 @@ const BASE_PRODUCTS = [
   {id:1552,name:"Doom Bar Amber Ale 4x500ml",                      cat:"🍷 Wine & Beer", icon:"🍺", prices:sp(6.85,[-6.85,-6.85,-6.85,-6.85,0,-6.85])},
   {id:1553,name:"Shipyard American Pale Ale 500ml",                cat:"🍷 Wine & Beer", icon:"🍺", prices:sp(2.60,[-2.60,-2.60,-2.60,-2.60,0,-2.60]), upd:"10 Oct"},
   {id:1554,name:"King Goblin Imperial Ruby Beer 500ml",            cat:"🍷 Wine & Beer", icon:"🍺", prices:sp(2.60,[-2.6,-2.6,-2.6,-2.6,-2.6,-2.6])},
-  {id:1555,name:"BrewDog Black Heart Draught Stout 4x440ml",       cat:"🍷 Wine & Beer", icon:"🍺", prices:sp(8.60,[-8.6,-8.6,-8.6,-8.6,-8.6,-8.6])},
+  {id:1555,name:"BrewDog Black Heart Draught Stout 4x440ml",       cat:"🍷 Wine & Beer", icon:"🍺", prices:sp(8.60,[-3.1,-8.6,-8.6,-8.6,-8.6,-8.6]), upd:"10 Oct"}, // filled 15 Oct from BrewDog Black Heart Draught Stout 4 x 440ml (Co-op)
   {id:1556,name:"Thatchers Apple & Blackcurrant Cider 4x440ml",    cat:"🍷 Wine & Beer", icon:"🍺", prices:sp(7.15,[-7.15,-7.15,-7.15,-7.15,0.75,-7.15]), upd:"10 Oct"},
   {id:1557,name:"Strongbow Original Cider Cans 4x440ml",           cat:"🍷 Wine & Beer", icon:"🍺", prices:sp(7.35,[-7.35,-7.35,-7.35,-7.35,0,-7.35])},
   {id:1558,name:"Thatchers Gold Somerset Cider 10x440ml",          cat:"🍷 Wine & Beer", icon:"🍺", prices:sp(14.70,[-14.7,-14.7,-14.7,-14.7,2.1,-14.7])},
@@ -1864,11 +1864,11 @@ const BASE_PRODUCTS = [
   {id:1579,name:"Birra Moretti Zero Alcohol Free Beer 4x330ml",    cat:"🍷 Wine & Beer", icon:"🍺", prices:sp(5.10,[-5.1,-5.1,-5.1,-5.1,-5.1,-5.1])},
   {id:1580,name:"Thatchers Zero% Somerset Cider 4x440ml",          cat:"🍷 Wine & Beer", icon:"🍺", prices:sp(5.55,[-5.55,-5.55,-5.55,-5.55,0,-5.55])},
   {id:1581,name:"San Miguel Alcohol Free Beer 4x330ml",            cat:"🍷 Wine & Beer", icon:"🍺", prices:sp(5.55,[-5.55,-5.55,-5.55,-5.55,0,-5.55])},
-  {id:1582,name:"Guinness Draught Alcohol Free Stout 4x440ml",     cat:"🍷 Wine & Beer", icon:"🍺", prices:sp(6.30,[-6.3,-6.3,-6.3,-6.3,-6.3,-6.3])},
+  {id:1582,name:"Guinness Draught Alcohol Free Stout 4x440ml",     cat:"🍷 Wine & Beer", icon:"🍺", prices:sp(6.30,[-0.8,-6.3,-6.3,-6.3,0,-6.3]), upd:"10 Oct"}, // filled 15 Oct from Guinness Draught Alcohol Free Stout 0.0% 4x440ml (Co-op, Iceland)
   {id:1583,name:"Butcombe Goram Zero 330ml",                       cat:"🍷 Wine & Beer", icon:"🍺", prices:sp(1.90,[-1.90,-1.90,-1.90,-1.90,0,-1.90]), upd:"10 Oct"},
   {id:1584,name:"Thatchers Zero% Somerset Cider 500ml",            cat:"🍷 Wine & Beer", icon:"🍺", prices:sp(2.20,[-2.20,-2.20,-2.20,-2.20,0,-2.20]), upd:"10 Oct"},
   {id:1585,name:"Kopparberg Alcohol-Free Mixed Fruit Cider 500ml", cat:"🍷 Wine & Beer", icon:"🍺", prices:sp(2.10,[-2.10,-2.10,-2.10,-2.10,0,-2.10])},
-  {id:1586,name:"Kopparberg Alcohol-Free Strawberry & Lime 500ml", cat:"🍷 Wine & Beer", icon:"🍺", prices:sp(2.10,[-2.1,-2.1,-2.1,-2.1,-2.1,-2.1])},
+  {id:1586,name:"Kopparberg Alcohol-Free Strawberry & Lime 500ml", cat:"🍷 Wine & Beer", icon:"🍺", prices:sp(2.10,[-2.1,-2.1,-2.1,-2.1,0,-2.1]), upd:"10 Oct"}, // filled 15 Oct from Kopparberg Alcohol-Free Strawberry & Lime 500ml (Iceland)
   {id:1587,name:"Becks Blue Alcohol Free Beer 6x275ml",            cat:"🍷 Wine & Beer", icon:"🍺", prices:sp(6.10,[-6.10,-6.10,-6.10,-6.10,0,-6.10])},
   {id:1588,name:"Sharps Doom Bar Zero Alcohol-Free Beer 500ml",    cat:"🍷 Wine & Beer", icon:"🍺", prices:sp(2.35,[-2.35,-2.35,-2.35,-2.35,0,-2.35])},
   {id:1589,name:"Stella Artois Alcohol Free Lager 4x330ml",        cat:"🍷 Wine & Beer", icon:"🍺", prices:sp(4.50,[-4.50,-4.50,-4.50,-4.50,0,-4.50])},
@@ -1907,7 +1907,7 @@ const BASE_PRODUCTS = [
   {id:1622,name:"Jack Daniels Tennessee Apple 5cl",                cat:"🍷 Wine & Beer", icon:"🥃", prices:sp(3.45,[-3.45,-3.45,-3.45,-3.45,0,-3.45])},
   {id:1623,name:"High Commissioner Blended Scotch Whisky 1L",      cat:"🍷 Wine & Beer", icon:"🥃", prices:sp(30.45,[-30.45,-30.45,-30.45,-30.45,0,-30.45]), upd:"10 Oct"},
   {id:1624,name:"Bells Blended Scotch Whisky 20cl",                cat:"🍷 Wine & Beer", icon:"🥃", prices:sp(10.30,[-10.30,-10.30,-10.30,-10.30,0,-10.30]), upd:"10 Oct"},
-  {id:1625,name:"Jack Daniels Old No.7 Tennessee Whiskey 70cl",    cat:"🍷 Wine & Beer", icon:"🥃", prices:sp(33.60,[-33.6,-33.6,-33.6,-33.6,-33.6,-33.6])},
+  {id:1625,name:"Jack Daniels Old No.7 Tennessee Whiskey 70cl",    cat:"🍷 Wine & Beer", icon:"🥃", prices:sp(33.60,[5.4,-33.6,-33.6,-33.6,0,-33.6]), upd:"10 Oct"}, // filled 15 Oct from Jack Daniel's Old No.7 70cl (Co-op, Iceland)
   {id:1626,name:"High Commissioner Blended Scotch Whisky 70cl",    cat:"🍷 Wine & Beer", icon:"🥃", prices:sp(22.10,[-22.10,-22.10,-22.10,-22.10,0,-22.10]), upd:"10 Oct"},
   {id:1627,name:"Bells Original Blended Scotch Whisky 70cl",       cat:"🍷 Wine & Beer", icon:"🥃", prices:sp(24.15,[1.85,-24.15,-24.15,-24.15,1.6,-24.15]), upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:1628,name:"The Famous Grouse Finest Scotch Whisky 5cl",      cat:"🍷 Wine & Beer", icon:"🥃", prices:sp(3.45,[-3.45,-3.45,-3.45,-3.45,0,-3.45])},
@@ -1922,7 +1922,7 @@ const BASE_PRODUCTS = [
   {id:1637,name:"Smirnoff No.21 Vodka 35cl",                       cat:"🍷 Wine & Beer", icon:"🍸", prices:sp(14.20,[-14.20,-14.20,-14.20,-14.20,0,-14.20])},
   {id:1638,name:"Absolut Vodka 700ml",                             cat:"🍷 Wine & Beer", icon:"🍸", prices:sp(31.50,[-6.5,-31.50,-31.50,-31.50,0,-31.50]), upd:"10 Oct", oos:["iceland"]}, // special offer £22.00 until 13/10/26
   {id:1639,name:"Kahlua Coffee Liqueur 70cl",                      cat:"🍷 Wine & Beer", icon:"🍹", prices:sp(22.10,[-1.1,-22.10,-22.10,-22.10,0,-22.10]), upd:"10 Oct"},
-  {id:1640,name:"Baileys Original Irish Cream 1L",                 cat:"🍷 Wine & Beer", icon:"🍹", prices:sp(29.40,[-29.4,-29.4,-29.4,-29.4,-29.4,-29.4])},
+  {id:1640,name:"Baileys Original Irish Cream 1L",                 cat:"🍷 Wine & Beer", icon:"🍹", prices:sp(29.40,[-29.4,-29.4,-29.4,-29.4,0,-29.4]), upd:"10 Oct"}, // filled 15 Oct from Baileys Original Irish Cream 1L (Iceland)
   {id:1641,name:"Baileys Original Irish Cream 70cl",               cat:"🍷 Wine & Beer", icon:"🍹", prices:sp(22.10,[-22.10,-22.10,-22.10,-22.10,0,-22.10])},
   {id:1642,name:"Baileys Original Irish Cream 50ml",               cat:"🍷 Wine & Beer", icon:"🍹", prices:sp(3.45,[-3.45,-3.45,-3.45,-3.45,0,-3.45]), upd:"10 Oct", oos:["iceland"]},
   {id:1643,name:"Jagermeister Herbal Liqueur 70cl",                cat:"🍷 Wine & Beer", icon:"🍹", prices:sp(33.60,[-33.6,-33.6,-33.6,-33.6,0,-33.6]), upd:"10 Oct", oos:["iceland"]},
