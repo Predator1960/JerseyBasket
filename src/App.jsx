@@ -1167,7 +1167,7 @@ const BASE_PRODUCTS = [
   {id:882,name:"M&S Reduced Fat Coleslaw",           cat:"🥗 Deli & Salads", icon:"🥗",prices:sp(1.60,[-1.60,-1.60,0,-1.60,-1.60,-1.60])},
   /* ── Carmen1971 Waitrose 24 Jun 2026 ── */
   {id:883,name:"Oat Flaked Rolls",                   cat:"🍞 Bread & Bakery",icon:"🥖",prices:sp(2.85,[-2.85,-2.85,-2.85,0,-2.85,-2.85])},
-  {id:884,name:"Pepsi Max Cans (multipack)",          cat:"🥤 Drinks",        icon:"🥤",prices:sp(5.12,[-5.12,-5.12,-5.12,-5.12,-5.12,-5.12])},
+  {id:884,name:"Pepsi Max Cans (multipack)",          cat:"🥤 Drinks",        icon:"🥤",prices:sp(5.12,[-5.12,-5.12,-5.12,-5.12,-5.12,0.38]), upd:"15 Oct"}, // alliance 5.50 = Pepsi Max 8 x 330ml on Alliance Snappy Shopper page
   {id:885,name:"Tony's Caramel Chocolate Bar",        cat:"🥨 Snacks & Treats",icon:"🍫",prices:sp(3.83,[-3.83,-3.83,-3.83,0,-3.83,-3.83])},
   {id:886,name:"WR CI White Fondant Icing",           cat:"🍝 Pantry",        icon:"🎂",prices:sp(2.32,[-2.32,-2.32,-2.32,0,-2.32,-2.32])},
   {id:887,name:"WR Salted Danish Butter (250g)",      cat:"🥛 Dairy & Eggs",  icon:"🧈",prices:sp(3.88,[-3.88,-3.88,-3.88,0,-3.88,-3.88])},
@@ -1836,7 +1836,7 @@ const BASE_PRODUCTS = [
   {id:1551,name:"Newcastle Brown Ale Bottle 550ml",                cat:"🍷 Wine & Beer", icon:"🍺", prices:sp(3.10,[-3.1,-3.1,-3.1,-3.1,0,-3.1]), upd:"10 Oct"},
   {id:1552,name:"Doom Bar Amber Ale 4x500ml",                      cat:"🍷 Wine & Beer", icon:"🍺", prices:sp(6.85,[-6.85,-6.85,-6.85,-6.85,0,-6.85])},
   {id:1553,name:"Shipyard American Pale Ale 500ml",                cat:"🍷 Wine & Beer", icon:"🍺", prices:sp(2.60,[-2.60,-2.60,-2.60,-2.60,0,-2.60]), upd:"10 Oct"},
-  {id:1554,name:"King Goblin Imperial Ruby Beer 500ml",            cat:"🍷 Wine & Beer", icon:"🍺", prices:sp(2.60,[-2.6,-2.6,-2.6,-2.6,-2.6,-2.6])},
+  {id:1554,name:"King Goblin Imperial Ruby Beer 500ml",            cat:"🍷 Wine & Beer", icon:"🍺", prices:sp(2.60,[-2.6,-2.6,-2.6,-2.6,-2.6,0.39]), upd:"15 Oct"}, // alliance 2.99 from Alliance Snappy Shopper page
   {id:1555,name:"BrewDog Black Heart Draught Stout 4x440ml",       cat:"🍷 Wine & Beer", icon:"🍺", prices:sp(8.60,[-3.1,-8.6,-8.6,-8.6,-8.6,-8.6]), upd:"10 Oct"}, // filled 15 Oct from BrewDog Black Heart Draught Stout 4 x 440ml (Co-op)
   {id:1556,name:"Thatchers Apple & Blackcurrant Cider 4x440ml",    cat:"🍷 Wine & Beer", icon:"🍺", prices:sp(7.15,[-7.15,-7.15,-7.15,-7.15,0.75,-7.15]), upd:"10 Oct"},
   {id:1557,name:"Strongbow Original Cider Cans 4x440ml",           cat:"🍷 Wine & Beer", icon:"🍺", prices:sp(7.35,[-7.35,-7.35,-7.35,-7.35,0,-7.35])},
@@ -6427,7 +6427,7 @@ const BASE_PRODUCTS = [
   {id:5649, name:"Co-op Natural Mineral Water Still 4 x 2 Litre 4X2LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct", upds:{}, oos:["coop"]}, // members £2.00 until 20/10/26
   {id:5650, name:"Co-op Diet Ginger Ale 1 Litre 1LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0.89,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £0.55 until 20/10/26
   {id:5651, name:"Co-op Diet Bitter Lemon 1 Litre 1LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0.89,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £0.55 until 20/10/26
-  {id:5652, name:"Pepsi Max Cherry 8 x 330ml 8X330ML", cat:"🥤 Drinks", icon:"🥤", prices:{coop:5.6,morrisons:0,ms:0,waitrose:0,iceland:5.25,alliance:0}, upd:"10 Oct"}, // special offer £2.90 until 20/10/26
+  {id:5652, name:"Pepsi Max Cherry 8 x 330ml 8X330ML", cat:"🥤 Drinks", icon:"🥤", prices:{coop:5.6,morrisons:0,ms:0,waitrose:0,iceland:5.25,alliance:5.5}, upd:"15 Oct", upds:{coop:"10 Oct",iceland:"10 Oct",alliance:"15 Oct"}}, // special offer £2.90 until 20/10/26
   {id:5653, name:"Co-op Pure Apple Juice 1 Litre 1LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:1.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct", oos:["coop"]},
   {id:5654, name:"Co-op Pure Orange Juice 1 Litre 1LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:1.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5656, name:"Co-op Diet Cola 2 Litre 2LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0.99,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £0.59 until 20/10/26
@@ -6447,7 +6447,7 @@ const BASE_PRODUCTS = [
   {id:5670, name:"Coca-Cola Zero Sugar 2L Bottle 2LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5671, name:"Diet Coke No Caffeine Cola 2L Bottle 2LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5672, name:"Diet Coke Cola 2L Bottle 2LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:5673, name:"Pepsi Max 8 x 330ml 8X330ML", cat:"🥤 Drinks", icon:"🥤", prices:{coop:5.6,morrisons:0,ms:0,waitrose:0,iceland:5.25,alliance:0}, upd:"10 Oct"}, // special offer £2.90 until 20/10/26
+  {id:5673, name:"Pepsi Max 8 x 330ml 8X330ML", cat:"🥤 Drinks", icon:"🥤", prices:{coop:5.6,morrisons:0,ms:0,waitrose:0,iceland:5.25,alliance:5.5}, upd:"15 Oct", upds:{coop:"10 Oct",iceland:"10 Oct",alliance:"15 Oct"}}, // special offer £2.90 until 20/10/26
   {id:5674, name:"Dr Pepper 150ml", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0.79,morrisons:0,ms:0,waitrose:0,iceland:1.00,alliance:0}, upd:"10 Oct", upds:{iceland:"10 Oct"}},
   {id:5675, name:"Club Orange Bottle 1.75 Litres 1.75LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5676, name:"Red Bull Cherry Edition Cherry Sakura Energy Drink 250ml 4 Pack 4X250ML", cat:"🥤 Drinks", icon:"🥤", prices:{coop:5.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £4.20 until 20/10/26
@@ -13066,7 +13066,7 @@ const BASE_PRODUCTS = [
   {id:12850, name:"Coca-Cola Cherry 8 x 330ml", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:6.65,alliance:0}, upd:"10 Oct"},
   {id:12851, name:"Diet Coke 24 x 330ml", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:9.45,alliance:0}, upd:"10 Oct"},
   {id:12852, name:"Pepsi Diet 24 x 330ml", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:9.45,alliance:0}, upd:"10 Oct"},
-  {id:12853, name:"Pepsi Max No Sugar Cola Can 24x330ml", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:9.45,alliance:0}, upd:"10 Oct"},
+  {id:12853, name:"Pepsi Max No Sugar Cola Can 24x330ml", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:9.45,alliance:9.9}, upd:"15 Oct", upds:{iceland:"10 Oct",alliance:"15 Oct"}},
   {id:12854, name:"Ribena Blackcurrant Juice Drink 4 x 500ml", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:4.65,alliance:0}, upd:"10 Oct"},
   {id:12855, name:"Ribena Blackcurrant Juice Drink Cartons 6x250ml", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:3.35,alliance:0}, upd:"10 Oct"},
   {id:12856, name:"Robinsons Fruit Shoot Orange 6 x 200ml", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:2.65,alliance:0}, upd:"10 Oct"},
