@@ -1,7 +1,9 @@
-// Run in the browser console on https://www.snappyshopper.co.uk/stores/iceland-5154 (public, no login needed).
+// Run in the browser console on a Snappy Shopper store page (public, no login needed), e.g.
+//   https://www.snappyshopper.co.uk/stores/iceland-5154   or   https://www.snappyshopper.co.uk/stores/alliance-supermarket-5456
+// The store is detected from the address. Downloads <store>-all.json (iceland-all.json / alliance-supermarket-all.json).
 // Walks every category page, reads the product data embedded in each page, downloads iceland-all.json.
 (async () => {
-  const STORE = '/stores/iceland-5154';
+  const STORE = location.pathname.match(/^\/stores\/[^/]+/)[0];
   const MAX = window.__MAX || 1e9; // test limit on number of category pages
   const sleep = ms => new Promise(r => setTimeout(r, ms));
   const items = new Map(), done = new Set(), queue = [STORE], problems = [];
@@ -77,6 +79,6 @@
   if (!window.__MAX) {
     const a = document.createElement('a');
     a.href = URL.createObjectURL(new Blob([JSON.stringify(window.__iceland)], { type: 'application/json' }));
-    a.download = 'iceland-all.json'; a.click();
+    a.download = STORE.split('/').pop().replace(/-\d+$/, '') + '-all.json'; a.click();
   }
 })();

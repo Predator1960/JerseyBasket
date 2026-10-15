@@ -1861,7 +1861,7 @@ const BASE_PRODUCTS = [
   {id:1576,name:"Thatchers Blood Orange Cider 500ml",              cat:"🍷 Wine & Beer", icon:"🍺", prices:sp(2.95,[-2.95,-2.95,-2.95,-2.95,0,-2.95]), upd:"10 Oct"},
   {id:1577,name:"Old Mout Cider Pineapple & Raspberry 500ml",      cat:"🍷 Wine & Beer", icon:"🍺", prices:sp(3.10,[-3.10,-3.10,-3.10,-3.10,0,-3.10])},
   {id:1578,name:"Rekorderlig Peach-Raspberry Cider 500ml",         cat:"🍷 Wine & Beer", icon:"🍺", prices:sp(3.55,[-3.55,-3.55,-3.55,-3.55,0,-3.55])},
-  {id:1579,name:"Birra Moretti Zero Alcohol Free Beer 4x330ml",    cat:"🍷 Wine & Beer", icon:"🍺", prices:sp(5.10,[-5.1,-5.1,-5.1,-5.1,-5.1,-5.1])},
+  {id:1579,name:"Birra Moretti Zero Alcohol Free Beer 4x330ml",    cat:"🍷 Wine & Beer", icon:"🍺", prices:sp(5.10,[-5.1,-5.1,-5.1,0.4,-5.1,-5.1])}, // waitrose 5.50 seen 15 Oct on a Waitrose page (probably UK online price, Jersey price unverified), so no date: shows as estimated
   {id:1580,name:"Thatchers Zero% Somerset Cider 4x440ml",          cat:"🍷 Wine & Beer", icon:"🍺", prices:sp(5.55,[-5.55,-5.55,-5.55,-5.55,0,-5.55])},
   {id:1581,name:"San Miguel Alcohol Free Beer 4x330ml",            cat:"🍷 Wine & Beer", icon:"🍺", prices:sp(5.55,[-5.55,-5.55,-5.55,-5.55,0,-5.55])},
   {id:1582,name:"Guinness Draught Alcohol Free Stout 4x440ml",     cat:"🍷 Wine & Beer", icon:"🍺", prices:sp(6.30,[-0.8,-6.3,-6.3,-6.3,0,-6.3]), upd:"10 Oct"}, // filled 15 Oct from Guinness Draught Alcohol Free Stout 0.0% 4x440ml (Co-op, Iceland)
