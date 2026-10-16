@@ -179,8 +179,8 @@ import { createPortal } from "react-dom";
 const STORES = [
   { id:"coop",      name:"CI Co-op",  short:"Co-op",    tag:"Best Value", color:"#1d4ed8", emoji:"🌿", note:"Grande Marché, St Peter & branches" },
   { id:"morrisons", name:"Morrisons", short:"Morrisons",tag:"Convenience",color:"#eab308", emoji:"🛒", note:"The Parade, Benest's & branches" },
-  { id:"ms",        name:"M&S Food",  short:"M&S",      tag:"Premium",    color:"#94a3b8", emoji:"✨", note:"St Helier (SandpiperCI · Alliance Group)" },
-  { id:"waitrose",  name:"Waitrose",  short:"Waitrose", tag:"Organic",    color:"#0d9488", emoji:"🌱", note:"St Saviour (Alliance Group)" },
+  { id:"ms",        name:"M&S Food",  short:"M&S",      tag:"Premium",    color:"#94a3b8", emoji:"✨", note:"St Helier (SandpiperCI)" },
+  { id:"waitrose",  name:"Waitrose",  short:"Waitrose", tag:"Organic",    color:"#0d9488", emoji:"🌱", note:"St Saviour" },
   { id:"iceland",   name:"Iceland",   short:"Iceland",  tag:"Frozen",     color:"#dc2626", emoji:"🧊", note:"St Ouen & Broad St (Alliance franchise)" },
   { id:"alliance",  name:"Alliance",  short:"Alliance", tag:"Great Value · Local Choice", color:"#cc0000", emoji:"🎯", note:"Multiple locations across Jersey" },
 ];
@@ -1038,7 +1038,6 @@ const BASE_PRODUCTS = [
 
   /* ── Leticia receipts 16 Jun 2026 ── */
   {id:730,name:"Co-op Spinach Salad",              cat:"🥦 Fruit & Veg",  icon:"🥗",prices:sp(1.50,[0,-1.50,-1.50,-1.50,-1.50,-1.50])},
-  {id:731,name:"Philadelphia Light",               cat:"🥛 Dairy & Eggs", icon:"🧀",prices:sp(0.28,[0,-0.28,-0.28,-0.28,-0.28,-0.28])},
   {id:732,name:"Co-op Chicken Breast Fillets (850g)",cat:"🥩 Meat & Fish",icon:"🍗",prices:sp(7.90,[0,-7.90,-7.90,-7.90,-7.90,-7.90])},
   {id:733,name:"Iceland Large Eggs (10pk)",        cat:"🥛 Dairy & Eggs", icon:"🥚",prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:3.1,alliance:2.65}, upd:"10 Oct", upds:{iceland:"10 Oct"}},
   {id:734,name:"Iceland Whole Chicken (1.5kg)",    cat:"🥩 Meat & Fish",  icon:"🍗",prices:sp(10.50,[-10.50,-10.50,-10.50,-10.50,-10.50,0])},
@@ -3877,7 +3876,6 @@ const BASE_PRODUCTS = [
   {id:7526, name:"Waitrose Baby Spinach 120g", cat:"🥦 Fruit & Veg", icon:"🥬", prices:{coop:0,morrisons:0,ms:0,waitrose:1.10,iceland:0,alliance:0}, upd:"30 Jul"},
   {id:7527, name:"Waitrose FR Mixed Size Eggs British Blacktail 12S", cat:"🥛 Dairy & Eggs", icon:"🥚", prices:{coop:0,morrisons:0,ms:0,waitrose:3.40,iceland:0,alliance:0}, upd:"30 Jul"},
   {id:7528, name:"Waitrose Chestnut Mushrooms 250g", cat:"🥦 Fruit & Veg", icon:"🍄", prices:{coop:0,morrisons:0,ms:0,waitrose:1.10,iceland:0,alliance:0}, upd:"30 Jul"},
-  {id:7529, name:"Waitrose Shallots", cat:"🥦 Fruit & Veg", icon:"🧅", prices:{coop:0,morrisons:0,ms:0,waitrose:0.16,iceland:0,alliance:0}, upd:"30 Jul"},
   {id:7530, name:"Waitrose Perfectly Ripe Medium Avocado", cat:"🥦 Fruit & Veg", icon:"🥑", prices:{coop:0,morrisons:0,ms:0,waitrose:0.90,iceland:0,alliance:0}, upd:"30 Jul"},
   {id:7531, name:"Cravendale Filtered Fresher for Longer Semi-Skimmed Milk 2litre", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:0,morrisons:0,ms:0,waitrose:2.90,iceland:0,alliance:0}, upd:"30 Jul"},
   {id:7532, name:"Cooks' Ingredients Unwaxed Lemons 4S", cat:"🥦 Fruit & Veg", icon:"🍋", prices:{coop:0,morrisons:0,ms:0,waitrose:1.90,iceland:0,alliance:0}, upd:"30 Jul"},
@@ -3885,7 +3883,6 @@ const BASE_PRODUCTS = [
   {id:7534, name:"Waitrose Eggs British Blacktail Free Range 6S", cat:"🥛 Dairy & Eggs", icon:"🥚", prices:{coop:0,morrisons:0,ms:0,waitrose:2.35,iceland:0,alliance:0}, upd:"30 Jul"},
   {id:7535, name:"Waitrose Pink Lady Apples 4S", cat:"🥦 Fruit & Veg", icon:"🍏", prices:{coop:0,morrisons:0,ms:0,waitrose:2.60,iceland:0,alliance:0}, upd:"30 Jul"},
   {id:7536, name:"Waitrose Red Onions 3S", cat:"🥦 Fruit & Veg", icon:"🧅", prices:{coop:0,morrisons:0,ms:0,waitrose:1.00,iceland:0,alliance:0}, upd:"30 Jul"},
-  {id:7537, name:"Waitrose British Large White Potatoes", cat:"🥦 Fruit & Veg", icon:"🥔", prices:{coop:0,morrisons:0,ms:0,waitrose:0.26,iceland:0,alliance:0}, upd:"30 Jul"},
   {id:7538, name:"Waitrose Wild Rocket 90g", cat:"🥦 Fruit & Veg", icon:"🥬", prices:{coop:0,morrisons:0,ms:0,waitrose:1.50,iceland:0,alliance:2.4}, upd:"15 Oct", upds:{waitrose:"30 Jul",alliance:"15 Oct"}},
   {id:7539, name:"Essential British Large Potatoes 4S", cat:"🥦 Fruit & Veg", icon:"🥔", prices:{coop:0,morrisons:0,ms:0,waitrose:0.95,iceland:0,alliance:0}, upd:"30 Jul"},
   {id:7540, name:"Essential Aubergines", cat:"🥦 Fruit & Veg", icon:"🍆", prices:{coop:0,morrisons:0,ms:0,waitrose:1.00,iceland:0,alliance:0}, upd:"30 Jul"},
@@ -17060,7 +17057,7 @@ export default function JerseyGroceryApp() {
             <div style={{ margin:"14px 0 10px",background: lightMode ? "rgba(180,120,0,.1)" : "rgba(245,158,11,.08)",border: lightMode ? "1px solid rgba(180,120,0,.35)" : "1px solid rgba(245,158,11,.28)",borderRadius:11,padding:"10px 14px",display:"flex",gap:10,alignItems:"flex-start" }}>
               <span style={{ fontSize:18,flexShrink:0,marginTop:1 }}>⚠️</span>
               <div style={{ fontSize:11,color: lightMode ? "#92400e" : "#fcd34d",lineHeight:1.6 }}>
-                <strong>Prices are for guidance only.</strong> We source prices from in-store shelf checks and Snappy Shopper (Iceland's online delivery platform) — these can differ from actual shelf prices. Prices may also change at any time.
+                <strong>Prices are for guidance only.</strong> We source prices from in-store shelf checks and Snappy Shopper (a delivery platform used by Iceland and Alliance) — these can differ from actual shelf prices. Prices may also change at any time.
                 {" "}<span style={{ color: lightMode ? "#b45309" : "#f59e0b" }}>Always verify the price in-store before you shop.</span>
               </div>
             </div>
