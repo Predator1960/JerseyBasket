@@ -220,7 +220,7 @@ const BASE_PRODUCTS = [
   {id:6,  name:"Soya Milk (1L)",               cat:"🥛 Dairy & Eggs", icon:"🥛", prices:sp(1.45,[0,0.18,0.65,0.48,0.09])},
   {id:7,  name:"Coconut Milk Drink (1L)",      cat:"🥛 Dairy & Eggs", icon:"🥛", prices:sp(1.65,[0,0.22,0.72,0.52,0.11])},
   {id:8,  name:"Free Range Eggs (6pk)",        cat:"🥛 Dairy & Eggs", icon:"🥚", prices:sp(1.74,[0.36,0.26,0.06,-0.34,0.71,0.11]), upd:"10 Oct", upds:{coop:"10 Oct"}}, // coop re-checked vs Co-op 6 Free Range British Medium Eggs
-  {id:9,  name:"Free Range Eggs (12pk)",       cat:"🥛 Dairy & Eggs", icon:"🥚", prices:sp(3.40,[0,0.3,1,0,0.75]), upd:"10 Sep"},
+  {id:9,  name:"Free Range Eggs (12pk)",       cat:"🥛 Dairy & Eggs", icon:"🥚", prices:sp(3.40,[-0.1,0.3,1,0,0.75,0]), upd:"10 Oct", upds:{coop:"10 Oct"}}, // audit 16 Oct: Co-op 3.3 checked against Co-op British 12 Medium Free Range Eggs; other stores unverified (estimates)
   {id:10, name:"Cheddar Mature (400g)",        cat:"🥛 Dairy & Eggs", icon:"🧀", prices:sp(3.17,[0.53,0.13,0.23,0,1.08,0.13]), upd:"10 Oct", upds:{coop:"10 Oct",iceland:"10 Oct"}}, // coop re-checked vs Co-op Mature Cheddar 400g; iceland re-checked vs Iceland Mature White Cheddar 400g
   {id:11, name:"Cheddar Mild (400g)",          cat:"🥛 Dairy & Eggs", icon:"🧀", prices:sp(2.60,[1.10,0.14,0.55,0.38,0.07])},
   {id:12, name:"Mozzarella (125g)",            cat:"🥛 Dairy & Eggs", icon:"🧀", prices:sp(1.10,[0,0.15,0.45,0.35,0.07])},
@@ -236,7 +236,7 @@ const BASE_PRODUCTS = [
   {id:22, name:"Sour Cream (300ml)",           cat:"🥛 Dairy & Eggs", icon:"🫙", prices:sp(1.40,[0,0.15,0.6,0.45,0.07])},
   {id:23, name:"Crème Fraîche (300ml)",        cat:"🥛 Dairy & Eggs", icon:"🫙", prices:sp(1.85,[0,0.18,0.65,0.5,0.09])},
   {id:24, name:"Double Cream (300ml)",         cat:"🥛 Dairy & Eggs", icon:"🍦", prices:sp(2.26,[-0.46,0.20,0,0,0,1.49])},
-  {id:25, name:"Single Cream (300ml)",         cat:"🥛 Dairy & Eggs", icon:"🍦", prices:sp(1.45,[0.04,0.18,0.35,0.5,0.09]), upd:"14 Sep"},
+  {id:25, name:"Single Cream (300ml)",         cat:"🥛 Dairy & Eggs", icon:"🍦", prices:sp(1.45,[-0.05,0.18,0.35,0.5,0.09,0]), upd:"10 Oct", upds:{coop:"10 Oct"}}, // audit 16 Oct: Co-op 1.4 checked against Co-op British Milk Single Cream 300ml; other stores unverified (estimates)
   {id:26, name:"Cottage Cheese (300g)",        cat:"🥛 Dairy & Eggs", icon:"🫙", prices:sp(1.50,[0,1.10,0.6,0.25,0.07])},
   {id:27, name:"Cream Cheese (200g)",          cat:"🥛 Dairy & Eggs", icon:"🧀", prices:sp(1.80,[0.85,0.18,0.7,0.52,0.09])},
   {id:28, name:"Clotted Cream (113g)",         cat:"🥛 Dairy & Eggs", icon:"🍦", prices:sp(2.00,[0,0.22,0.8,0.6,0.11])},
@@ -295,7 +295,7 @@ const BASE_PRODUCTS = [
   {id:72, name:"Haddock Fillets (2pk)",        cat:"🥩 Meat & Fish",   icon:"🐟", prices:sp(4.56,[0,0.24,1.15,0.88,0.12])},
   {id:73, name:"Tuna Steaks (2pk)",            cat:"🥩 Meat & Fish",   icon:"🐟", prices:sp(4.60,[0,0.3,1.4,1.1,0.15])},
   {id:74, name:"Prawns (200g)",                cat:"🥩 Meat & Fish",   icon:"🍤", prices:sp(3.60,[0,0.25,1.1,0.85,0.12])},
-  {id:75, name:"Tuna Canned in Brine (145g)",  cat:"🥩 Meat & Fish",   icon:"🐟", prices:sp(0.95,[-0.1,0.08,0.4,0.3,0.04]), upd:"1 Oct"},
+  {id:75, name:"Tuna Canned in Brine (145g)",  cat:"🥩 Meat & Fish",   icon:"🐟", prices:sp(0.95,[-0.1,0.08,0.4,0.3,0.04,0]), upd:"10 Oct", upds:{coop:"10 Oct"}}, // audit 16 Oct: Co-op 0.85 checked against Co-op Tuna Flakes in Brine 145g (own brand; other stores are not like-for-like); other stores unverified (estimates)
   {id:76, name:"Tuna Canned 4pk",              cat:"🥩 Meat & Fish",   icon:"🐟", prices:sp(3.50,[0,0.28,1.2,1,0.14])},
   {id:77, name:"Sardines Canned (120g)",       cat:"🥩 Meat & Fish",   icon:"🐟", prices:sp(0.85,[0,0.08,0.35,0.26,0.04])},
   {id:78, name:"Mackerel Fillets (125g)",      cat:"🥩 Meat & Fish",   icon:"🐟", prices:sp(1.20,[0,0.1,0.45,0.35,0.05])},
@@ -320,7 +320,7 @@ const BASE_PRODUCTS = [
   {id:95, name:"Pineapple (each)",             cat:"🥦 Fruit & Veg",  icon:"🍍", prices:sp(1.20,[0,0.12,0.5,0.38,0.06])},
   {id:96, name:"Kiwi Fruit (4pk)",             cat:"🥦 Fruit & Veg",  icon:"🥝", prices:sp(0.95,[1.55,0.1,0.4,0.3,0.05])},
   {id:97, name:"Broccoli (head)",              cat:"🥦 Fruit & Veg",  icon:"🥦", prices:sp(1.10,[0,0,0.50,0.47,0.15,0.45])},
-  {id:98, name:"Cauliflower (head)",           cat:"🥦 Fruit & Veg",  icon:"🥦", prices:sp(1.40,[0,0,0.05,0.17,0,0.70]), upd:"12 Sep"},
+  {id:98, name:"Cauliflower (head)",           cat:"🥦 Fruit & Veg",  icon:"🥦", prices:sp(1.40,[0,0,0.05,0.17,0,0.70]), upd:"10 Oct", upds:{coop:"10 Oct"}}, // audit 16 Oct: Co-op 1.4 checked against Co-op Cauliflower; other stores unverified (estimates)
   {id:99, name:"Bag of Spinach (200g)",        cat:"🥦 Fruit & Veg",  icon:"🥬", prices:sp(1.25,[0,0.1,0.5,0.35,0.05])},
   {id:100,name:"Kale (200g)",                  cat:"🥦 Fruit & Veg",  icon:"🥬", prices:sp(1.30,[0,0.12,0.5,0.38,0.06])},
   {id:101,name:"Mixed Salad Leaves (100g)",    cat:"🥦 Fruit & Veg",  icon:"🥗", prices:sp(1.10,[0.20,0.1,0.42,0.05,0.05])},
@@ -387,7 +387,7 @@ const BASE_PRODUCTS = [
   {id:547,name:"Actimel Blueberry (8pk)",      cat:"🥤 Drinks",       icon:"🫐", prices:sp(2.90,[-2.90,-2.90,-2.90,0,-2.90])},
   {id:150,name:"Cranberry Juice (1L)",         cat:"🥤 Drinks",       icon:"🍷", prices:sp(1.80,[0.75,0.18,0.7,0.54,0.09])},
   {id:151,name:"Pineapple Juice (1L)",         cat:"🥤 Drinks",       icon:"🍍", prices:sp(1.65,[0.90,0.16,0.65,0.5,0.08])},
-  {id:152,name:"Still Water (2L)",             cat:"🥤 Drinks",       icon:"💧", prices:sp(1.00,[0,0.45,0.10,0.05,0,0.15]), upd:"20 Aug"},
+  {id:152,name:"Still Water (2L)",             cat:"🥤 Drinks",       icon:"💧", prices:sp(1.00,[0,0.45,0.10,0.05,0,0.15]), upd:"10 Oct", upds:{coop:"10 Oct"}}, // audit 16 Oct: Co-op 1 checked against Co-op Still Natural Mineral Water 2 Litre; other stores unverified (estimates)
   {id:153,name:"Sparkling Water (2L)",         cat:"🥤 Drinks",       icon:"💧", prices:sp(0.99,[0,0.46,0.11,0.10,0.01,0.01])},
   {id:154,name:"Coca-Cola (1.75L)",            cat:"🥤 Drinks",       icon:"🥤", prices:sp(2.30,[0,0.85,0,0.44,1.30,1.00])},
   {id:155,name:"Pepsi Max (1.75L)",            cat:"🥤 Drinks",       icon:"🥤", prices:sp(3.60,[1.55,0.2,0.78,0.44,0.1])},
@@ -421,7 +421,7 @@ const BASE_PRODUCTS = [
   {id:181,name:"Spaghetti (500g)",             cat:"🍝 Pantry",       icon:"🍝", prices:sp(0.50,[0.45,0,0.40,1.23,1.10,0.85])},
   {id:182,name:"Fusilli (500g)",               cat:"🍝 Pantry",       icon:"🍝", prices:sp(0.89,[0.06,0.06,0.41,0.26,0.03])},
   {id:183,name:"Tagliatelle (500g)",           cat:"🍝 Pantry",       icon:"🍝", prices:sp(0.95,[0.0,0.08,0.42,0.28,0.04])},
-  {id:184,name:"Chopped Tomatoes (400g)",       cat:"🍝 Pantry",       icon:"🍅", prices:sp(0.70,[0.2,0.10,0.10,0.08,0.10,0]), upd:"5 Oct"},
+  {id:184,name:"Chopped Tomatoes (400g)",       cat:"🍝 Pantry",       icon:"🍅", prices:sp(0.70,[0.2,0.10,0.10,0.08,0.10,0]), upd:"10 Oct", upds:{coop:"10 Oct"}}, // audit 16 Oct: Co-op 0.9 checked against Co-op Italian Chopped Tomatoes 400g; other stores unverified (estimates)
   {id:185,name:"Tinned Tomatoes (4pk)",        cat:"🍝 Pantry",       icon:"🍅", prices:sp(2.40,[0,0.18,1.2,0.95,0.09])},
   {id:186,name:"Passata (680g)",               cat:"🍝 Pantry",       icon:"🍅", prices:sp(0.90,[0,0.09,0.36,0.10,0.04])},
   {id:187,name:"Tinned Chickpeas (400g)",      cat:"🍝 Pantry",       icon:"🫘", prices:sp(0.65,[0.24,0,0.15,0.22,0])},
@@ -568,7 +568,7 @@ const BASE_PRODUCTS = [
   {id:305,name:"Deodorant Roll-On (50ml)",     cat:"💊 Health & Beauty",icon:"💨",prices:sp(2.00,[0,0.2,0.8,0.6,0.1])},
   {id:522,name:"Deodorant Spray Women's (250ml)",cat:"💊 Health & Beauty",icon:"💨",prices:sp(1.55,[0.85,1.30,0,0.68,0])},
   {id:306,name:"Razor Cartridges (4pk)",       cat:"💊 Health & Beauty",icon:"🪒",prices:sp(5.50,[0,0.5,1.8,1.4,0.25])},
-  {id:307,name:"Shaving Gel (200ml)",          cat:"💊 Health & Beauty",icon:"🪒",prices:sp(1.59,[0.46,0.51,2.31,0.15,0.91]), upd:"24 Sep"},
+  {id:307,name:"Shaving Gel (200ml)",          cat:"💊 Health & Beauty",icon:"🪒",prices:sp(1.59,[0.61,0.51,2.31,0.15,0.91,0]), upd:"10 Oct", upds:{coop:"10 Oct"}}, // audit 16 Oct: Co-op 2.2 checked against Co Op for Men Sensitive Shave Gel 200ml; other stores unverified (estimates)
   {id:308,name:"Sun Cream SPF50 (200ml)",      cat:"💊 Health & Beauty",icon:"☀️",prices:sp(5.50,[0,0.5,1.8,1.4,0.25])},
   {id:309,name:"Paracetamol (16pk)",           cat:"💊 Health & Beauty",icon:"💊",prices:sp(0.65,[0,0.08,0.3,0.22,0.04])},
   {id:310,name:"Ibuprofen (16pk)",             cat:"💊 Health & Beauty",icon:"💊",prices:sp(1.10,[-0.63,0.12,0.45,0.34,0.06])},
@@ -663,7 +663,7 @@ const BASE_PRODUCTS = [
   {id:396,name:"Frozen Hash Browns (700g)",cat:"🧊 Frozen",icon:"🥔",prices:sp(2.0,[0.25,0.2,0.6,0.35,0.14])},
   {id:397,name:"Frozen Waffles (8pk)",cat:"🧊 Frozen",icon:"🧇",prices:sp(1.8,[0.2,-0.01,0.5,0.3,0.13])},
   {id:398,name:"Chopped Tomatoes (4pk)",cat:"🍝 Pantry",icon:"🍅",prices:sp(2.4,[0.25,-0.52,0.6,0.3,0.17])},
-  {id:399,name:"Coconut Milk (400ml)",cat:"🍝 Pantry",icon:"🥥",prices:sp(1.2,[0.2,0.1,0.4,0.05,0.08,0]), upd:"19 Sep"},
+  {id:399,name:"Coconut Milk (400ml)",cat:"🍝 Pantry",icon:"🥥",prices:sp(1.2,[0.5,0.1,0.4,0.05,0.08,0]), upd:"10 Oct", upds:{coop:"10 Oct"}}, // audit 16 Oct: Co-op 1.7 checked against Co-op Thai Menu Coconut Milk 400ml; other stores unverified (estimates)
   {id:400,name:"Gravy Granules (200g)",cat:"🍝 Pantry",icon:"🍖",prices:sp(1.16,[0.03,0.43,1.49,0,0.59,0.69])},
   {id:401,name:"Custard (400g)",cat:"🍝 Pantry",icon:"🍮",prices:sp(1.28,[0.02,0.12,0.42,0,0.11])},
   {id:402,name:"Breadcrumbs (400g)",cat:"🍝 Pantry",icon:"🍞",prices:sp(1.2,[0.15,0.05,0.4,0.25,0.08])},
@@ -678,7 +678,7 @@ const BASE_PRODUCTS = [
   {id:411,name:"Listerine Mouthwash (500ml)",cat:"💊 Health & Beauty",icon:"🦷",prices:sp(3.0,[0.15,0.33,0.8,0.45,0.21])},
   {id:412,name:"Comfort Fabric Conditioner (1L)",cat:"🧹 Household",icon:"🧺",prices:sp(2.8,[0.3,0.19,0.8,0.45,0.2])},
   {id:413,name:"Flash All Purpose Spray (500ml)",cat:"🧹 Household",icon:"🧹",prices:sp(1.8,[0.2,0.1,0.5,0.3,0.13])},
-  {id:414,name:"Domestos Bleach (750ml)",cat:"🧹 Household",icon:"🧴",prices:sp(1.2,[0.15,0.05,0.4,0.54,0.08]), upd:"10 Aug"},
+  {id:414,name:"Domestos Bleach (750ml)",cat:"🧹 Household",icon:"🧴",prices:sp(1.2,[0.5,0.05,0.4,0.54,0.08,0]), upd:"10 Oct", upds:{coop:"10 Oct"}}, // audit 16 Oct: Co-op 1.7 checked against Domestos Original Thick Bleach 750ml; other stores unverified (estimates)
   {id:415,name:"Sponge Scourers (5pk)",cat:"🧹 Household",icon:"🧽",prices:sp(1.2,[0.15,0.05,0.4,0.25,0.08])},
   {id:416,name:"Bin Bags (20pk)",cat:"🧹 Household",icon:"🗑️",prices:sp(1.5,[0.15,0.1,0.4,0.25,0.11])},
   {id:417,name:"Foil Roll (30m)",cat:"🧹 Household",icon:"✨",prices:sp(1.8,[0.2,0.1,0.5,0.3,0.13])},
@@ -715,7 +715,7 @@ const BASE_PRODUCTS = [
   {id:447,name:"Waitrose Wine Gums",                 cat:"🥨 Snacks & Treats",       icon:"🍬",prices:sp(1.34,[-1.34,-1.34,-1.34,-0.01,-1.34])},
   {id:448,name:"Waitrose No.1 Sea Salt Crisps",      cat:"🥨 Snacks & Treats",       icon:"🧂",prices:sp(0.87,[-1.64,-1.64,-1.64,0,-1.64])},
   {id:424,name:"Jersey Dairy Fresh Milk 2.5% (500ml)",cat:"🥔 Local Jersey",icon:"🥛",prices:sp(0.87,[0,-0.87,-0.87,-0.87,-0.87])},
-  {id:425,name:"Cornish Pasty",                    cat:"🍝 Pantry",       icon:"🥟",prices:sp(2.80,[-0.95,0,0,0,0,0]), upd:"19 Sep"},
+  {id:425,name:"Cornish Pasty",                    cat:"🍝 Pantry",       icon:"🥟",prices:sp(2.80,[-0.95,0,0,0,0,0]), upd:"19 Sep", upds:{}}, // audit 16 Oct: all stores unverified (no clear Co-op equivalent (list only has Ginsters))
   {id:426,name:"Chicken & Bacon Pasty",            cat:"🍝 Pantry",       icon:"🥟",prices:sp(2.80,[0,0,0,0,0])},
   {id:427,name:"Dauphinoise Potatoes (400g)",      cat:"🍝 Pantry",       icon:"🥔",prices:sp(3.65,[0,0,0,0,0])},
   {id:428,name:"Unsmoked Back Bacon (300g)",       cat:"🥩 Meat & Fish",  icon:"🥓",prices:sp(2.80,[0.60,0.20,0.20,0.39,0])},
@@ -741,7 +741,7 @@ const BASE_PRODUCTS = [
   {id:460,name:"Iceberg Lettuce",                     cat:"🥦 Fruit & Veg",  icon:"🥬",prices:sp(1.60,[0,0,0,0,0])},
   {id:461,name:"Monster Energy Original (500ml)",     cat:"🥤 Drinks",       icon:"🟢",prices:sp(2.10,[0,0,0,0,0])},
   {id:462,name:"Chicken Dippers (20pk)",              cat:"🥩 Meat & Fish",  icon:"🍗",prices:sp(3.40,[0,0,0,0,0])},
-  {id:463,name:"Garlic Chicken Kiev (2pk)",           cat:"🥩 Meat & Fish",  icon:"🍗",prices:sp(3.60,[0,0,1.20,0,0]), upd:"30 Sep"},
+  {id:463,name:"Garlic Chicken Kiev (2pk)",           cat:"🥩 Meat & Fish",  icon:"🍗",prices:sp(3.60,[-0.3,0,1.20,0,0,0]), upd:"10 Oct", upds:{coop:"10 Oct"}}, // audit 16 Oct: Co-op 3.3 checked against Birds Eye 2 Garlic & Herb Chicken Kievs 204g; other stores unverified (estimates)
   {id:464,name:"Beef Mince 20% Fat (500g)",           cat:"🥩 Meat & Fish",  icon:"🥩",prices:{coop:5.30,morrisons:4.00,ms:5.25,waitrose:4.35,iceland:5.30,alliance:4.35}, upd:"15 Oct", upds:{waitrose:"15 Oct"}}, // Waitrose St Helier receipt 15 Oct: ESS BEEF 20% MINCE 4.35 (matches the existing 4.35)
   {id:465,name:"Parmentier Potatoes (400g)",          cat:"🧊 Frozen",       icon:"🥔",prices:sp(2.79,[-2.79,-2.79,-2.79,0,-2.79])},
   {id:466,name:"Jacobs Cream Crackers (200g)",        cat:"🍪 Snacks",       icon:"🍘",prices:sp(1.55,[-1.55,-1.55,-1.55,0,0.2,0]), upd:"21 Sep"},
@@ -803,7 +803,7 @@ const BASE_PRODUCTS = [
   {id:539,name:"Whipping Cream (300ml)",        cat:"🥛 Dairy & Eggs", icon:"🍦",prices:sp(2.09,[-2.09,-2.09,-2.09,0,-2.09])},
   {id:570,name:"Yeo Valley Raspberry Yogurt",   cat:"🥛 Dairy & Eggs", icon:"🍓",prices:sp(1.80,[-1.80,-1.80,-1.80,0,-1.80])},
   {id:571,name:"Cheese Singles (10pk)",         cat:"🥛 Dairy & Eggs", icon:"🧀",prices:sp(1.50,[0,-1.50,-1.50,-1.50,-1.50])},
-  {id:510,name:"Albert Bartlett Bake Pot (4pk)",cat:"🥦 Fruit & Veg",  icon:"🥔",prices:sp(2.96,[0,0,0,0,0]), upd:"10 Aug"},
+  {id:510,name:"Albert Bartlett Bake Pot (4pk)",cat:"🥦 Fruit & Veg",  icon:"🥔",prices:sp(2.96,[0,0,0,0,0]), upd:"10 Aug", upds:{}}, // audit 16 Oct: all stores unverified (not in any store list)
   {id:511,name:"Lucozade Energy Orange (500ml)", cat:"🥤 Drinks",       icon:"⚡",prices:sp(2.73,[0,0,0,0,-0.63,-0.58]), upd:"15 Oct", upds:{iceland:"10 Oct"}},
   {id:523,name:"Capri-Sun Juice Drink (10pk)",  cat:"🥤 Drinks",       icon:"🧃",prices:{coop:0,morrisons:0,ms:0,waitrose:1.50,iceland:0,alliance:0}, upd:"10 Jun"},
   {id:595,name:"Lucozade Pink Lemonade (500ml)", cat:"🥤 Drinks",       icon:"⚡", prices:sp(1.35,[0,-1.35,-1.35,-1.35,-1.35]), upd:"20 Aug"},
