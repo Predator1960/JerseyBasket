@@ -19219,143 +19219,186 @@ function SettingsModal({ disabledStores, onToggleStore, onClose, lightMode=false
 ═══════════════════════════════════════════════════════════════════════════ */
 function SubmitPriceModal({ onClose, lightMode=false }) {
   const [form,   setForm]   = useState({ name:"", mobile:"", email:"" });
-  const [photo,  setPhoto]  = useState(null);  // { name, mimeType, base64 }
-  const [status, setStatus] = useState("idle");
+  const [photos, setPhotos] = useState([]);        // [{ name, mimeType, base64 }]
+  const [status, setStatus] = useState("idle");    // idle | sending | sent | error
   const [photoError, setPhotoError] = useState("");
+  const [showDetails, setShowDetails] = useState(false);
+  const [preparing, setPreparing] = useState(false);
+  const [sentCount, setSentCount] = useState(0);
   const fileRef = useRef(null);
 
-  const MAX_PHOTO_BYTES = 8 * 1024 * 1024; // 8MB — comfortably covers a phone photo
+  const MAX_PHOTOS = 4;
+  const MAX_PHOTO_BYTES = 8 * 1024 * 1024; // only used if a photo can't be shrunk
 
-  const handlePhoto = (e) => {
-    const file = e.target.files[0];
-    if (!file) return;
-    if (file.size > MAX_PHOTO_BYTES) {
-      setPhotoError("That photo's a bit large — please choose one under 8MB.");
-      setPhoto(null);
-      return;
-    }
-    setPhotoError("");
-    const reader = new FileReader();
-    reader.onload = (ev) => {
-      const dataUrl = ev.target.result || "";
-      const base64 = dataUrl.split(",")[1] || "";
-      setPhoto({ name: file.name, mimeType: file.type || "image/jpeg", base64 });
+  // Shrink a phone photo to a readable JPEG (about 200-500 KB) so uploads are fast and never "too large"
+  const shrink = (file) => new Promise((resolve, reject) => {
+    const url = URL.createObjectURL(file);
+    const img = new Image();
+    img.onload = () => {
+      try {
+        const MAX_SIDE = 1800;
+        const scale = Math.min(1, MAX_SIDE / Math.max(img.width, img.height));
+        const w = Math.round(img.width * scale), h = Math.round(img.height * scale);
+        const c = document.createElement("canvas"); c.width = w; c.height = h;
+        c.getContext("2d").drawImage(img, 0, 0, w, h);
+        const dataUrl = c.toDataURL("image/jpeg", 0.82);
+        URL.revokeObjectURL(url);
+        resolve({ name: (file.name || "receipt").replace(/\.[^.]+$/, "") + ".jpg", mimeType: "image/jpeg", base64: dataUrl.split(",")[1] || "" });
+      } catch (e) { URL.revokeObjectURL(url); reject(e); }
     };
-    reader.onerror = () => setPhotoError("Couldn't read that photo — please try again.");
+    img.onerror = () => { URL.revokeObjectURL(url); reject(new Error("decode")); };
+    img.src = url;
+  });
+  const readRaw = (file) => new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = (ev) => resolve({ name: file.name || "receipt", mimeType: file.type || "image/jpeg", base64: ((ev.target.result || "") + "").split(",")[1] || "" });
+    reader.onerror = reject;
     reader.readAsDataURL(file);
+  });
+
+  const handlePhotos = async (e) => {
+    const files = Array.from(e.target.files || []).slice(0, MAX_PHOTOS - photos.length);
+    e.target.value = ""; // lets the same photo be picked again
+    if (!files.length) return;
+    setPhotoError(""); setPreparing(true);
+    const added = [];
+    for (const file of files) {
+      try { added.push(await shrink(file)); }
+      catch {
+        if (file.size <= MAX_PHOTO_BYTES) { try { added.push(await readRaw(file)); } catch { setPhotoError("One photo couldn't be read, please try another."); } }
+        else setPhotoError("One photo couldn't be read, please try another.");
+      }
+    }
+    setPhotos(p => [...p, ...added].slice(0, MAX_PHOTOS));
+    setPreparing(false);
   };
 
   const handleSubmit = async () => {
-    if (!photo) return;
+    if (!photos.length) return;
     setStatus("sending");
+    let ok = 0;
     try {
-      // Goes to a small Google Apps Script Web App (not Formspree — its free
-      // tier doesn't allow file attachments), which saves the photo straight
+      // Goes to a small Google Apps Script Web App (not Formspree: its free
+      // tier doesn't allow file attachments), which saves each photo straight
       // into a Drive folder. text/plain avoids a CORS preflight the Apps
-      // Script endpoint doesn't handle.
-      const res = await fetch(RECEIPT_WEBAPP_URL, {
-        method: "POST",
-        headers: { "Content-Type": "text/plain;charset=utf-8" },
-        body: JSON.stringify({
-          secret:        RECEIPT_SHARED_SECRET,
-          name:          form.name,
-          mobile:        form.mobile,
-          email:         form.email,
-          photoName:     photo ? photo.name : "",
-          photoMimeType: photo ? photo.mimeType : "",
-          photoBase64:   photo ? photo.base64 : "",
-        })
-      });
-      const json = await res.json().catch(() => null);
-      if (res.ok && json && json.ok) { setStatus("sent"); }
-      else { setStatus("error"); }
-    } catch { setStatus("error"); }
+      // Script endpoint doesn't handle. One request per photo.
+      for (const ph of photos) {
+        const res = await fetch(RECEIPT_WEBAPP_URL, {
+          method: "POST",
+          headers: { "Content-Type": "text/plain;charset=utf-8" },
+          body: JSON.stringify({
+            secret:        RECEIPT_SHARED_SECRET,
+            name:          form.name,
+            mobile:        form.mobile,
+            email:         form.email,
+            photoName:     ph.name,
+            photoMimeType: ph.mimeType,
+            photoBase64:   ph.base64,
+          })
+        });
+        const json = await res.json().catch(() => null);
+        if (res.ok && json && json.ok) ok++; else break;
+      }
+    } catch {}
+    setSentCount(ok);
+    setStatus(ok === photos.length ? "sent" : "error");
   };
 
-  const required = !photo;
+  const sendAnother = () => { setPhotos([]); setStatus("idle"); setSentCount(0); setPhotoError(""); };
+
+  const sending  = status === "sending";
+  const disabled = !photos.length || sending || preparing;
+  const muted = lightMode ? "#475569" : "#94a3b8";
+  const label = lightMode ? "#7c2d12" : "#9a3412";
+  const inputStyle = { width:"100%",padding:"9px 12px",background:lightMode?"rgba(0,0,0,.05)":"rgba(255,255,255,.07)",border:lightMode?"1px solid rgba(0,0,0,.15)":"1px solid rgba(255,255,255,.11)",borderRadius:9,color:lightMode?"#0f172a":"#fff",fontSize:16,outline:"none",boxSizing:"border-box",fontFamily:"inherit" };
+  const orangeBtn = "linear-gradient(180deg,#fb923c 0%,#b45309 100%)";
 
   return (
-    <div style={{ position:"fixed",inset:0,zIndex:600,display:"flex",alignItems:"flex-end",justifyContent:"center",paddingTop:60,background:"rgba(0,0,0,.8)",backdropFilter:"blur(8px)" }}
+    <div style={{ position:"fixed",top:0,left:0,right:0,height:"var(--app-height, 100%)",zIndex:600,display:"flex",alignItems:"flex-end",justifyContent:"center",background:"rgba(0,0,0,.8)",backdropFilter:"blur(8px)" }}
       onClick={e=>{ if(e.target===e.currentTarget) onClose(); }}>
-      <div style={{ width:"100%",maxWidth:520,background:lightMode?"rgba(255,252,248,.98)":"#120800",border:lightMode?"1px solid rgba(251,146,60,.35)":"1px solid rgba(251,146,60,.25)",borderRadius:"20px 20px 0 0",maxHeight:"88vh",display:"flex",flexDirection:"column" }}>
+      <div style={{ width:"100%",maxWidth:520,background:lightMode?"rgba(255,252,248,.98)":"#120800",border:lightMode?"1px solid rgba(251,146,60,.35)":"1px solid rgba(251,146,60,.25)",borderRadius:"20px 20px 0 0",maxHeight:"92%",display:"flex",flexDirection:"column" }}>
 
         {status==="sent" ? (
           <div style={{ textAlign:"center",padding:"30px 20px" }}>
             <div style={{ fontSize:48,marginBottom:14 }}>🏆</div>
-            <div style={{ fontSize:18,fontWeight:700,color:"#fb923c",marginBottom:8 }}>Receipt submitted!</div>
-            <div style={{ fontSize:12,color:lightMode?"#475569":"#94a3b8",lineHeight:1.8,marginBottom:24 }}>
-              {form.name.trim() ? `Thanks ${form.name.trim().split(" ")[0]}! ` : "Thanks! "}We'll verify your receipt and add<br/>
+            <div style={{ fontSize:18,fontWeight:700,color:"#fb923c",marginBottom:8 }}>{sentCount > 1 ? "Receipts sent!" : "Receipt sent!"}</div>
+            <div style={{ fontSize:12,color:muted,lineHeight:1.8,marginBottom:22 }}>
+              {form.name.trim() ? `Thanks ${form.name.trim().split(" ")[0]}! ` : "Thanks! "}We'll check it and add<br/>
               the prices to JerseyBasket within 24 hours.<br/>
               Thanks for helping keep it accurate! 🙌
             </div>
-            <button onClick={onClose} style={{ padding:"11px 28px",background:"linear-gradient(180deg,#fb923c 0%,#b45309 100%)",boxShadow:"0 3px 10px rgba(194,65,12,.5),inset 0 1px 0 rgba(255,255,255,.25)",border:"none",borderRadius:11,color:"#fff",cursor:"pointer",fontSize:13,fontWeight:700 }}>
-              Back to App
+            <button onClick={sendAnother} style={{ width:"100%",padding:"12px",marginBottom:8,background:orangeBtn,border:"none",borderRadius:11,color:"#fff",cursor:"pointer",fontSize:14,fontWeight:700 }}>
+              📷 Send another receipt
+            </button>
+            <button onClick={onClose} style={{ width:"100%",padding:"10px",background:"transparent",border:`1px solid ${lightMode?"rgba(0,0,0,.15)":"rgba(255,255,255,.14)"}`,borderRadius:11,color:muted,cursor:"pointer",fontSize:13,fontWeight:600 }}>
+              Back to app
             </button>
           </div>
         ) : (
           <>
             {/* header */}
-            <div style={{ display:"flex",justifyContent:"space-between",alignItems:"center",padding:"18px 20px 14px",borderBottom:`1px solid ${lightMode?"rgba(251,146,60,.25)":"rgba(251,146,60,.15)"}`,flexShrink:0 }}>
+            <div style={{ display:"flex",justifyContent:"space-between",alignItems:"center",padding:"16px 20px 12px",borderBottom:`1px solid ${lightMode?"rgba(251,146,60,.25)":"rgba(251,146,60,.15)"}`,flexShrink:0 }}>
               <div>
-                <div style={{ fontSize:17,fontWeight:700,color:lightMode?"#7c2d12":"#fed7aa" }}>📸 Submit a Receipt</div>
-                <div style={{ fontSize:11,color:lightMode?"#92400e":"#9a3412",marginTop:2 }}>Help keep JerseyBasket's prices accurate</div>
+                <div style={{ fontSize:17,fontWeight:700,color:lightMode?"#7c2d12":"#fed7aa" }}>📸 Send a Receipt</div>
+                <div style={{ fontSize:11,color:lightMode?"#92400e":"#9a3412",marginTop:2 }}>One photo is all it takes. Anonymous.</div>
               </div>
-              <button onClick={onClose} style={{ background:lightMode?"rgba(0,0,0,.07)":"rgba(255,255,255,.07)",border:"none",borderRadius:7,width:32,height:32,color:lightMode?"#475569":"#94a3b8",cursor:"pointer",fontSize:16,flexShrink:0 }}>✕</button>
+              <button onClick={onClose} style={{ background:lightMode?"rgba(0,0,0,.07)":"rgba(255,255,255,.07)",border:"none",borderRadius:7,width:32,height:32,color:muted,cursor:"pointer",fontSize:16,flexShrink:0 }}>✕</button>
             </div>
 
             {/* scrollable body */}
-            <div style={{ overflowY:"auto",padding:"16px 20px",paddingBottom:"calc(132px + 24px)",flex:1 }}>
+            <div style={{ overflowY:"auto",padding:"16px 20px 22px",flex:1 }}>
 
-              {/* name */}
-              <div style={{ marginBottom:12 }}>
-                <div style={{ fontSize:10,color:lightMode?"#7c2d12":"#9a3412",fontWeight:700,letterSpacing:".5px",marginBottom:6 }}>YOUR NAME <span style={{ color:lightMode?"#64748b":"#94a3b8",fontWeight:400 }}>(optional)</span></div>
-                <input value={form.name} onChange={e=>setForm(p=>({...p,name:e.target.value}))} placeholder="First name, nickname or alias e.g. IslandShopper"
-                  style={{ width:"100%",padding:"9px 12px",background:lightMode?"rgba(0,0,0,.05)":"rgba(255,255,255,.07)",border:lightMode?"1px solid rgba(0,0,0,.15)":"1px solid rgba(255,255,255,.11)",borderRadius:9,color:lightMode?"#0f172a":"#fff",fontSize:12,outline:"none",boxSizing:"border-box",fontFamily:"inherit" }} />
-                <div style={{ fontSize:10,color:lightMode?"#475569":"#94a3b8",marginTop:4 }}>Any name or alias is fine — never shared or shown publicly</div>
-              </div>
-
-              {/* mobile */}
-              <div style={{ marginBottom:12 }}>
-                <div style={{ fontSize:10,color:lightMode?"#7c2d12":"#9a3412",fontWeight:700,letterSpacing:".5px",marginBottom:6 }}>MOBILE NUMBER <span style={{ color:lightMode?"#64748b":"#94a3b8",fontWeight:400 }}>(optional)</span></div>
-                <input value={form.mobile} onChange={e=>setForm(p=>({...p,mobile:e.target.value}))} placeholder="e.g. 07797 123456"
-                  style={{ width:"100%",padding:"9px 12px",background:lightMode?"rgba(0,0,0,.05)":"rgba(255,255,255,.07)",border:lightMode?"1px solid rgba(0,0,0,.15)":"1px solid rgba(255,255,255,.11)",borderRadius:9,color:lightMode?"#0f172a":"#fff",fontSize:12,outline:"none",boxSizing:"border-box",fontFamily:"inherit" }} />
-              </div>
-
-              {/* email */}
-              <div style={{ marginBottom:16 }}>
-                <div style={{ fontSize:10,color:lightMode?"#7c2d12":"#9a3412",fontWeight:700,letterSpacing:".5px",marginBottom:6 }}>EMAIL ADDRESS <span style={{ color:lightMode?"#64748b":"#94a3b8",fontWeight:400 }}>(optional)</span></div>
-                <input value={form.email} onChange={e=>setForm(p=>({...p,email:e.target.value}))} placeholder="e.g. yourname@email.com"
-                  style={{ width:"100%",padding:"9px 12px",background:lightMode?"rgba(0,0,0,.05)":"rgba(255,255,255,.07)",border:lightMode?"1px solid rgba(0,0,0,.15)":"1px solid rgba(255,255,255,.11)",borderRadius:9,color:lightMode?"#0f172a":"#fff",fontSize:12,outline:"none",boxSizing:"border-box",fontFamily:"inherit" }} />
-                <div style={{ fontSize:10,color:lightMode?"#475569":"#94a3b8",marginTop:4 }}>Never shared or sold — only used if we need to check something with you</div>
-              </div>
-
-              {/* photo picker */}
-              <div style={{ marginBottom:16 }}>
-                <div style={{ fontSize:10,color:lightMode?"#7c2d12":"#9a3412",fontWeight:700,letterSpacing:".5px",marginBottom:8 }}>RECEIPT PHOTO <span style={{ color:"#f43f5e" }}>*</span></div>
-                <input ref={fileRef} type="file" accept="image/*" onChange={handlePhoto} style={{ display:"none" }} />
-                <button onClick={()=>fileRef.current?.click()}
-                  style={{ width:"100%",padding:"14px",background:photo?`linear-gradient(180deg,#16a34a 0%,#14532d 100%)`:`linear-gradient(180deg,#fb923c 0%,#b45309 100%)`,border:"none",borderRadius:12,color:"#fff",cursor:"pointer",fontSize:14,fontWeight:700,boxShadow:photo?"0 3px 12px rgba(22,163,74,.5),inset 0 1px 0 rgba(255,255,255,.25)":"0 3px 12px rgba(194,65,12,.5),inset 0 1px 0 rgba(255,255,255,.25)",position:"relative",overflow:"hidden" }}>
-                  <span style={{ position:"absolute",top:0,left:0,right:0,height:"52%",background:"linear-gradient(180deg,rgba(255,255,255,.25) 0%,rgba(255,255,255,.04) 100%)",borderRadius:"12px 12px 0 0",pointerEvents:"none" }}/>
-                  {photo ? `✅ ${photo.name}` : "📷 Take / Choose Photo"}
-                </button>
-                {photo && (
-                  <button onClick={()=>setPhoto(null)} style={{ width:"100%",marginTop:6,padding:"7px",background:"transparent",border:`1px solid ${lightMode?"rgba(0,0,0,.12)":"rgba(255,255,255,.1)"}`,borderRadius:8,color:lightMode?"#475569":"#64748b",cursor:"pointer",fontSize:11 }}>
-                    ✕ Remove photo
-                  </button>
-                )}
-                <div style={{ fontSize:10,color:lightMode?"#475569":"#94a3b8",marginTop:6,lineHeight:1.6 }}>
-                  Make sure the store name, date and prices are clearly visible on the receipt.
-                </div>
-                {photoError && <div style={{ fontSize:11,color:"#fca5a5",marginTop:6 }}>{photoError}</div>}
-              </div>
-
-              {status==="error" && <div style={{ background:"rgba(239,68,68,.1)",border:"1px solid rgba(239,68,68,.28)",borderRadius:8,padding:"7px 12px",fontSize:11,color:"#fca5a5",marginBottom:12 }}>Something went wrong. Please email hello@jerseybasket.je</div>}
-
-              <button onClick={handleSubmit} disabled={required||status==="sending"}
-                style={{ width:"100%",padding:"13px",background:"linear-gradient(180deg,#fb923c 0%,#b45309 100%)",border:"none",borderRadius:12,color:"#fff",cursor:required?"not-allowed":"pointer",opacity:required||status==="sending"?0.6:1,fontSize:14,fontWeight:700,boxShadow:required||status==="sending"?"none":"0 3px 12px rgba(194,65,12,.6),inset 0 1px 0 rgba(255,255,255,.25)",position:"relative",overflow:"hidden" }}>
-                <span style={{ position:"absolute",top:0,left:0,right:0,height:"52%",background:"linear-gradient(180deg,rgba(255,255,255,.25) 0%,rgba(255,255,255,.04) 100%)",borderRadius:"12px 12px 0 0",pointerEvents:"none" }}/>
-                {status==="sending" ? "Submitting…" : "Submit Entry →"}
+              {/* photo picker first: it's the only thing that's needed */}
+              <input ref={fileRef} type="file" accept="image/*" multiple onChange={handlePhotos} style={{ display:"none" }} />
+              <button onClick={()=>fileRef.current?.click()} disabled={preparing || photos.length >= MAX_PHOTOS}
+                style={{ width:"100%",padding:"16px",background:photos.length?"linear-gradient(180deg,#16a34a 0%,#14532d 100%)":orangeBtn,border:"none",borderRadius:12,color:"#fff",cursor:"pointer",fontSize:15,fontWeight:700,opacity:preparing?0.7:1,boxShadow:"0 3px 12px rgba(194,65,12,.5),inset 0 1px 0 rgba(255,255,255,.25)" }}>
+                {preparing ? "Getting your photo ready…" : photos.length ? `✅ ${photos.length} photo${photos.length>1?"s":""} ready${photos.length < MAX_PHOTOS ? " (add another)" : ""}` : "📷 Take or choose a photo"}
               </button>
+              {photos.length > 0 && (
+                <div style={{ marginTop:8,display:"flex",flexDirection:"column",gap:6 }}>
+                  {photos.map((ph,i)=>(
+                    <div key={i} style={{ display:"flex",alignItems:"center",justifyContent:"space-between",padding:"7px 10px",borderRadius:8,border:`1px solid ${lightMode?"rgba(0,0,0,.12)":"rgba(255,255,255,.1)"}`,fontSize:11,color:muted }}>
+                      <span>🧾 Photo {i+1} · {Math.max(1,Math.round(ph.base64.length*0.75/1024))} KB</span>
+                      <button onClick={()=>setPhotos(p=>p.filter((_,j)=>j!==i))} style={{ background:"transparent",border:"none",color:muted,cursor:"pointer",fontSize:13 }}>✕</button>
+                    </div>
+                  ))}
+                </div>
+              )}
+              <div style={{ fontSize:11,color:muted,marginTop:8,lineHeight:1.6 }}>
+                Long receipt? Add up to {MAX_PHOTOS} photos. A photo of a <b>shelf price label</b> is welcome too. Make sure the store, date and prices are readable.
+              </div>
+              {photoError && <div style={{ fontSize:11,color:"#fca5a5",marginTop:6 }}>{photoError}</div>}
+
+              {status==="error" && <div style={{ background:"rgba(239,68,68,.1)",border:"1px solid rgba(239,68,68,.28)",borderRadius:8,padding:"7px 12px",fontSize:11,color:"#fca5a5",marginTop:12 }}>
+                {sentCount > 0 ? `${sentCount} of ${photos.length} photos were sent, but something went wrong. Please try again, or email hello@jerseybasket.je` : "Something went wrong. Please try again, or email hello@jerseybasket.je"}
+              </div>}
+
+              <button onClick={handleSubmit} disabled={disabled}
+                style={{ width:"100%",marginTop:14,padding:"14px",background:orangeBtn,border:"none",borderRadius:12,color:"#fff",cursor:disabled?"not-allowed":"pointer",opacity:disabled?0.5:1,fontSize:15,fontWeight:700,boxShadow:disabled?"none":"0 3px 12px rgba(194,65,12,.6),inset 0 1px 0 rgba(255,255,255,.25)" }}>
+                {sending ? "Sending…" : photos.length > 1 ? `Send ${photos.length} photos →` : "Send receipt →"}
+              </button>
+
+              {/* optional details, tucked away so they don't get in the way */}
+              <button onClick={()=>setShowDetails(s=>!s)} style={{ width:"100%",marginTop:14,padding:"8px",background:"transparent",border:"none",color:muted,cursor:"pointer",fontSize:12,textDecoration:"underline dotted" }}>
+                {showDetails ? "Hide optional details" : "Add your name or contact (optional)"}
+              </button>
+              {showDetails && (
+                <div style={{ marginTop:6 }}>
+                  <div style={{ marginBottom:10 }}>
+                    <div style={{ fontSize:10,color:label,fontWeight:700,letterSpacing:".5px",marginBottom:5 }}>YOUR NAME OR ALIAS</div>
+                    <input value={form.name} onChange={e=>setForm(p=>({...p,name:e.target.value}))} placeholder="e.g. IslandShopper" style={inputStyle} />
+                  </div>
+                  <div style={{ marginBottom:10 }}>
+                    <div style={{ fontSize:10,color:label,fontWeight:700,letterSpacing:".5px",marginBottom:5 }}>MOBILE NUMBER</div>
+                    <input value={form.mobile} onChange={e=>setForm(p=>({...p,mobile:e.target.value}))} inputMode="tel" placeholder="e.g. 07797 123456" style={inputStyle} />
+                  </div>
+                  <div style={{ marginBottom:4 }}>
+                    <div style={{ fontSize:10,color:label,fontWeight:700,letterSpacing:".5px",marginBottom:5 }}>EMAIL</div>
+                    <input value={form.email} onChange={e=>setForm(p=>({...p,email:e.target.value}))} inputMode="email" placeholder="e.g. yourname@email.com" style={inputStyle} />
+                  </div>
+                  <div style={{ fontSize:10,color:muted,marginTop:4 }}>Never shared or sold. Only used if we need to check something with you.</div>
+                </div>
+              )}
 
             </div>{/* end scrollable body */}
           </>
