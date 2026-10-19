@@ -19225,6 +19225,9 @@ function SubmitPriceModal({ onClose, lightMode=false }) {
   const [showDetails, setShowDetails] = useState(false);
   const [preparing, setPreparing] = useState(false);
   const [sentCount, setSentCount] = useState(0);
+  const todayLocal = () => new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+  const [store, setStore] = useState("");           // which store the photo is from (optional)
+  const [taken, setTaken] = useState(todayLocal()); // date the photo was taken (defaults to today)
   const fileRef = useRef(null);
 
   const MAX_PHOTOS = 4;
@@ -19291,7 +19294,9 @@ function SubmitPriceModal({ onClose, lightMode=false }) {
             name:          form.name,
             mobile:        form.mobile,
             email:         form.email,
-            photoName:     ph.name,
+            store:         store,
+            dateTaken:     taken,
+            photoName:     `${taken}_${store ? store.replace(/[^A-Za-z0-9]+/g, "-") : "store-unknown"}_${ph.name}`,
             photoMimeType: ph.mimeType,
             photoBase64:   ph.base64,
           })
@@ -19364,8 +19369,26 @@ function SubmitPriceModal({ onClose, lightMode=false }) {
                   ))}
                 </div>
               )}
+              {photos.length > 0 && (
+                <div style={{ marginTop:12 }}>
+                  <div style={{ fontSize:10,color:label,fontWeight:700,letterSpacing:".5px",marginBottom:6 }}>WHICH STORE? <span style={{ color:muted,fontWeight:400 }}>(optional, but it helps a lot)</span></div>
+                  <div style={{ display:"flex",flexWrap:"wrap",gap:6 }}>
+                    {STORES.map(s => (
+                      <button key={s.id} onClick={()=>setStore(store===s.name ? "" : s.name)}
+                        style={{ padding:"7px 11px",borderRadius:20,border:`1px solid ${store===s.name ? "#fb923c" : (lightMode?"rgba(0,0,0,.18)":"rgba(255,255,255,.18)")}`,background:store===s.name ? "rgba(251,146,60,.25)" : "transparent",color:store===s.name ? (lightMode?"#7c2d12":"#fed7aa") : muted,cursor:"pointer",fontSize:12,fontWeight:store===s.name?700:500 }}>
+                        {s.emoji} {s.short || s.name}
+                      </button>
+                    ))}
+                  </div>
+                  <div style={{ display:"flex",alignItems:"center",gap:8,marginTop:10 }}>
+                    <div style={{ fontSize:10,color:label,fontWeight:700,letterSpacing:".5px" }}>DATE TAKEN</div>
+                    <input type="date" value={taken} max={todayLocal()} onChange={e=>setTaken(e.target.value || todayLocal())}
+                      style={{ padding:"6px 9px",background:lightMode?"rgba(0,0,0,.05)":"rgba(255,255,255,.07)",border:lightMode?"1px solid rgba(0,0,0,.15)":"1px solid rgba(255,255,255,.11)",borderRadius:8,color:lightMode?"#0f172a":"#fff",fontSize:14,fontFamily:"inherit" }} />
+                  </div>
+                </div>
+              )}
               <div style={{ fontSize:11,color:muted,marginTop:8,lineHeight:1.6 }}>
-                Long receipt? Add up to {MAX_PHOTOS} photos. A photo of a <b>shelf price label</b> is welcome too. Make sure the store, date and prices are readable.
+                Long receipt? Add up to {MAX_PHOTOS} photos. A photo of a <b>shelf price label</b> is welcome too: just pick the store and date above.
               </div>
               {photoError && <div style={{ fontSize:11,color:"#fca5a5",marginTop:6 }}>{photoError}</div>}
 
