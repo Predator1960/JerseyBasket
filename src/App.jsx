@@ -19388,7 +19388,7 @@ function SubmitPriceModal({ onClose, lightMode=false }) {
                 </div>
               )}
               <div style={{ fontSize:11,color:muted,marginTop:8,lineHeight:1.6 }}>
-                Long receipt? Add up to {MAX_PHOTOS} photos. A photo of a <b>shelf price label</b> is welcome too: just pick the store and date above.
+                Long receipt? Add up to {MAX_PHOTOS} photos. A photo of a <b>shelf price label</b> is welcome too: just pick the store and date above.<br/>📌 <b>Tip:</b> lay the receipt flat, use good light, and get the whole receipt in the photo.
               </div>
               {photoError && <div style={{ fontSize:11,color:"#fca5a5",marginTop:6 }}>{photoError}</div>}
 
