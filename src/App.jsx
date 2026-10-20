@@ -16047,7 +16047,7 @@ const BASE_PRODUCTS = [
   {id:15834, name:"M&S Strawberry Flavoured Milk 500ml", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:0,morrisons:0,ms:1.85,waitrose:0,iceland:0,alliance:0}, upd:"15 Oct"}, // M&S Centre Point receipt 15 Oct: STRWBRY MILK (500ml confirmed)
   {id:15836, name:"Sula Butterscotch", cat:"🍫 Confectionery", icon:"🍬", prices:{coop:0,morrisons:0,ms:0,waitrose:1.79,iceland:0,alliance:0}, upd:"20 Oct"}, // Waitrose St Saviour receipt 20 Oct: SULA BUTTERSCOTCH (size not shown)
   {id:15838, name:"Kellogg's Rice Krispies Squares Gooey Marshmallow", cat:"🥨 Snacks & Treats", icon:"🍫", prices:{coop:0,morrisons:0,ms:0,waitrose:1.9,iceland:0,alliance:0}, upd:"20 Oct"}, // Waitrose St Saviour receipt 20 Oct: RICE KRISPIE SQUARES, bought 4 at 1.90 each (flavour confirmed gooey marshmallow, pack size not shown)
-  {id:15839, name:"Evian Natural Mineral Water Sports Cap", cat:"🥤 Drinks", icon:"💧", prices:{coop:1.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"20 Oct"}, // Co-op Five Oaks receipt 20 Oct: EVIAN SPORTS CAP (size not shown, likely 750ml)
+  {id:15839, name:"Evian Natural Mineral Water Sports Cap 1.5L", cat:"🥤 Drinks", icon:"💧", prices:{coop:1.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"20 Oct"}, // Co-op Five Oaks receipt 20 Oct: EVIAN SPORTS CAP (1.5L bottle per shopper; the plain 1.5L is 1.59 at the Co-op)
 ];/* ═══════════════════════════════════════════════════════════════════════════
    WEEKLY ESSENTIALS — a relatable 25-item "typical weekly shop" basket, used
    as the default landing sort so new visitors see a real comparison (milk,
