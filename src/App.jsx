@@ -1380,7 +1380,7 @@ const BASE_PRODUCTS = [
   {id:1095,name:"CP Chilli Chicken Pizza",                     cat:"🍝 Pantry",               icon:"🍕", prices:sp(1.95,[0,-1.95,-1.95,-1.95,-1.95,-1.95]), upd:"20 Aug"},
   {id:1096,name:"Cadbury Mint Crisp (5pk)",                    cat:"🍫 Confectionery",        icon:"🍫", prices:sp(1.50,[0,-1.50,-1.50,-1.50,-1.50,-1.50])},
   {id:1097,name:"Jersey Pouring/Single Cream",                 cat:"🥛 Dairy & Eggs",         icon:"🥛", prices:{coop:1.45,morrisons:0,ms:0,waitrose:0,iceland:1.55,alliance:0}, upd:"8 Oct"},
-  {id:1098,name:"Sprite No Sugar (500ml)",                     cat:"🥤 Drinks",               icon:"🥤", prices:sp(2.10,[0,-2.10,-2.10,-0.06,-0.25,-2.10]), upd:"20 Oct", upds:{waitrose:"20 Oct"}}, // Waitrose St Saviour receipt 20 Oct: SPRITE NO SUGAR 2.04 (small bottle per shopper, so 500ml)
+  {id:1098,name:"Sprite No Sugar (500ml)",                     cat:"🥤 Drinks",               icon:"🥤", prices:sp(2.10,[0,-2.10,-2.10,-0.06,-0.25,-2.10]), upd:"20 Oct", upds:{coop:"20 Oct",waitrose:"20 Oct"}}, // Waitrose St Saviour receipt 20 Oct: SPRITE NO SUGAR 2.04 (small bottle per shopper, so 500ml) | Co-op Five Oaks receipt 20 Oct confirms Co-op 2.10
   {id:1099,name:"CP Still Mineral Water",                      cat:"🥤 Drinks",               icon:"💧", prices:sp(0.75,[0,-0.75,-0.75,-0.75,-0.75,-0.75]), upd:"15 Aug"},
   {id:1100,name:"CP Cheese Coleslaw",                          cat:"🥗 Deli & Salads",        icon:"🥗", prices:sp(2.90,[0,-2.90,-2.90,-2.90,-2.90,-2.90])},
   {id:1101,name:"CP Potato Salad",                             cat:"🥗 Deli & Salads",        icon:"🥔", prices:sp(1.65,[0,-1.65,-1.65,-1.65,-1.65,-1.65])},
@@ -3740,7 +3740,7 @@ const BASE_PRODUCTS = [
   {id:3513, name:"Co-op Garlic Ciabatta Bread Sticks 135g", cat:"🥗 Deli & Salads", icon:"🍕", prices:{coop:2.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:3514, name:"Co-op Vegetable Samosas 100g", cat:"🥗 Deli & Salads", icon:"🥘", prices:{coop:2.5,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:3515, name:"Co-op Italian Menu Fresh Gnocchi 400g", cat:"🥗 Deli & Salads", icon:"🥘", prices:{coop:2.45,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:3516, name:"Co-op British Cream Strawberry Trifle 600g", cat:"🥨 Snacks & Treats", icon:"🍰", prices:{coop:4.2,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £3.15 until 27/10/26
+  {id:3516, name:"Co-op British Cream Strawberry Trifle 600g", cat:"🥨 Snacks & Treats", icon:"🍰", prices:{coop:4.2,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"20 Oct"}, // members £3.15 until 27/10/26 | Co-op Five Oaks receipt 20 Oct confirms 4.20 (member saving 1.05)
   {id:3517, name:"Worthy Farm Reserve Cheddar 320g", cat:"🥛 Dairy & Eggs", icon:"🧀", prices:{coop:3.99,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:3518, name:"Strings & Things Cheestrings 80g (4x20g)", cat:"🥛 Dairy & Eggs", icon:"🧀", prices:{coop:2.1,morrisons:0,ms:0,waitrose:0,iceland:2.35,alliance:2.45}, upd:"15 Oct", upds:{coop:"10 Oct",iceland:"10 Oct",alliance:"15 Oct"}},
   {id:3519, name:"Strings & Things Twisted Cheestrings 80g (4 x 20g)", cat:"🥛 Dairy & Eggs", icon:"🧀", prices:{coop:2.1,morrisons:0,ms:0,waitrose:0,iceland:2.35,alliance:2.45}, upd:"15 Oct", upds:{coop:"10 Oct",iceland:"10 Oct",alliance:"15 Oct"}},
@@ -16047,6 +16047,7 @@ const BASE_PRODUCTS = [
   {id:15834, name:"M&S Strawberry Flavoured Milk 500ml", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:0,morrisons:0,ms:1.85,waitrose:0,iceland:0,alliance:0}, upd:"15 Oct"}, // M&S Centre Point receipt 15 Oct: STRWBRY MILK (500ml confirmed)
   {id:15836, name:"Sula Butterscotch", cat:"🍫 Confectionery", icon:"🍬", prices:{coop:0,morrisons:0,ms:0,waitrose:1.79,iceland:0,alliance:0}, upd:"20 Oct"}, // Waitrose St Saviour receipt 20 Oct: SULA BUTTERSCOTCH (size not shown)
   {id:15838, name:"Kellogg's Rice Krispies Squares Gooey Marshmallow", cat:"🥨 Snacks & Treats", icon:"🍫", prices:{coop:0,morrisons:0,ms:0,waitrose:1.9,iceland:0,alliance:0}, upd:"20 Oct"}, // Waitrose St Saviour receipt 20 Oct: RICE KRISPIE SQUARES, bought 4 at 1.90 each (flavour confirmed gooey marshmallow, pack size not shown)
+  {id:15839, name:"Evian Natural Mineral Water Sports Cap", cat:"🥤 Drinks", icon:"💧", prices:{coop:1.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"20 Oct"}, // Co-op Five Oaks receipt 20 Oct: EVIAN SPORTS CAP (size not shown, likely 750ml)
 ];/* ═══════════════════════════════════════════════════════════════════════════
    WEEKLY ESSENTIALS — a relatable 25-item "typical weekly shop" basket, used
    as the default landing sort so new visitors see a real comparison (milk,
