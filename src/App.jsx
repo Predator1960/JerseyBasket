@@ -1380,7 +1380,7 @@ const BASE_PRODUCTS = [
   {id:1095,name:"CP Chilli Chicken Pizza",                     cat:"🍝 Pantry",               icon:"🍕", prices:sp(1.95,[0,-1.95,-1.95,-1.95,-1.95,-1.95]), upd:"20 Aug"},
   {id:1096,name:"Cadbury Mint Crisp (5pk)",                    cat:"🍫 Confectionery",        icon:"🍫", prices:sp(1.50,[0,-1.50,-1.50,-1.50,-1.50,-1.50])},
   {id:1097,name:"Jersey Pouring/Single Cream",                 cat:"🥛 Dairy & Eggs",         icon:"🥛", prices:{coop:1.45,morrisons:0,ms:0,waitrose:0,iceland:1.55,alliance:0}, upd:"8 Oct"},
-  {id:1098,name:"Sprite No Sugar (500ml)",                     cat:"🥤 Drinks",               icon:"🥤", prices:sp(2.10,[0,-2.10,-2.10,-2.10,-0.25,-2.10]), upd:"10 Sep"},
+  {id:1098,name:"Sprite No Sugar (500ml)",                     cat:"🥤 Drinks",               icon:"🥤", prices:sp(2.10,[0,-2.10,-2.10,-0.06,-0.25,-2.10]), upd:"20 Oct", upds:{waitrose:"20 Oct"}}, // Waitrose St Saviour receipt 20 Oct: SPRITE NO SUGAR 2.04 (size not shown, 500ml inferred from price)
   {id:1099,name:"CP Still Mineral Water",                      cat:"🥤 Drinks",               icon:"💧", prices:sp(0.75,[0,-0.75,-0.75,-0.75,-0.75,-0.75]), upd:"15 Aug"},
   {id:1100,name:"CP Cheese Coleslaw",                          cat:"🥗 Deli & Salads",        icon:"🥗", prices:sp(2.90,[0,-2.90,-2.90,-2.90,-2.90,-2.90])},
   {id:1101,name:"CP Potato Salad",                             cat:"🥗 Deli & Salads",        icon:"🥔", prices:sp(1.65,[0,-1.65,-1.65,-1.65,-1.65,-1.65])},
@@ -8302,7 +8302,7 @@ const BASE_PRODUCTS = [
   /* ── RECEIPT IMPORT — 3 Sep 2026 ──────────────────────────────── */
   {id:8118, name:"Waitrose Essential Garlic", cat:"🥦 Fruit & Veg", icon:"🧄", prices:{coop:0,morrisons:0,ms:0,waitrose:1.10,iceland:0,alliance:0}, upd:"26 Aug"},
   {id:8119, name:"Gordon's Premium Pink Gin 5cl", cat:"🍷 Wine & Beer", icon:"🥃", prices:{coop:0,morrisons:0,ms:0,waitrose:2.68,iceland:0,alliance:0}, upd:"26 Aug"},
-  {id:8120, name:"Sula Mint Humbugs", cat:"🍝 Pantry", icon:"🍬", prices:{coop:0,morrisons:0,ms:0,waitrose:1.79,iceland:0,alliance:0}, upd:"24 Sep"},
+  {id:8120, name:"Sula Mint Humbugs", cat:"🍝 Pantry", icon:"🍬", prices:{coop:0,morrisons:0,ms:0,waitrose:1.79,iceland:0,alliance:0}, upd:"20 Oct"}, // Waitrose St Saviour receipt 20 Oct confirms 1.79
   {id:8121, name:"Robinsons Double Concentrate Orange 1L", cat:"🥤 Drinks", icon:"🍊", prices:{coop:0,morrisons:0,ms:0,waitrose:1.75,iceland:0,alliance:0}, upd:"26 Aug"},
   {id:8122, name:"Duchy Organic English Breakfast Tea", cat:"🍝 Pantry", icon:"🍵", prices:{coop:0,morrisons:0,ms:0,waitrose:2.41,iceland:0,alliance:0}, upd:"1 Sep"},
   {id:8123, name:"Waitrose Essential Cheese Slices", cat:"🥛 Dairy & Eggs", icon:"🧀", prices:{coop:0,morrisons:0,ms:0,waitrose:1.79,iceland:0,alliance:0}, upd:"1 Sep"},
@@ -16045,6 +16045,8 @@ const BASE_PRODUCTS = [
   {id:15831, name:"Fixodent Plus Food Barrier Denture Adhesive", cat:"💊 Health & Beauty", icon:"🦷", prices:{coop:0,morrisons:0,ms:0,waitrose:3.48,iceland:0,alliance:0}, upd:"15 Oct"}, // Waitrose receipt 15 Oct: FIXDNT+ FOOD BARRIER (size not shown)
   {id:15833, name:"M&S Banana Flavoured Milk 500ml", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:0,morrisons:0,ms:1.85,waitrose:0,iceland:0,alliance:0}, upd:"15 Oct"}, // M&S Centre Point receipt 15 Oct: BANA FLVRD MI (500ml confirmed)
   {id:15834, name:"M&S Strawberry Flavoured Milk 500ml", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:0,morrisons:0,ms:1.85,waitrose:0,iceland:0,alliance:0}, upd:"15 Oct"}, // M&S Centre Point receipt 15 Oct: STRWBRY MILK (500ml confirmed)
+  {id:15836, name:"Sula Butterscotch", cat:"🍫 Confectionery", icon:"🍬", prices:{coop:0,morrisons:0,ms:0,waitrose:1.79,iceland:0,alliance:0}, upd:"20 Oct"}, // Waitrose St Saviour receipt 20 Oct: SULA BUTTERSCOTCH (size not shown)
+  {id:15838, name:"Kellogg's Rice Krispies Squares", cat:"🥨 Snacks & Treats", icon:"🍫", prices:{coop:0,morrisons:0,ms:0,waitrose:1.9,iceland:0,alliance:0}, upd:"20 Oct"}, // Waitrose St Saviour receipt 20 Oct: RICE KRISPIE SQUARES, bought 4 at 1.90 each (flavour/pack size not shown)
 ];/* ═══════════════════════════════════════════════════════════════════════════
    WEEKLY ESSENTIALS — a relatable 25-item "typical weekly shop" basket, used
    as the default landing sort so new visitors see a real comparison (milk,
@@ -19284,26 +19286,30 @@ function SubmitPriceModal({ onClose, lightMode=false }) {
       // Goes to a small Google Apps Script Web App (not Formspree: its free
       // tier doesn't allow file attachments), which saves each photo straight
       // into a Drive folder. text/plain avoids a CORS preflight the Apps
-      // Script endpoint doesn't handle. One request per photo.
-      for (const ph of photos) {
-        const res = await fetch(RECEIPT_WEBAPP_URL, {
-          method: "POST",
-          headers: { "Content-Type": "text/plain;charset=utf-8" },
-          body: JSON.stringify({
-            secret:        RECEIPT_SHARED_SECRET,
-            name:          form.name,
-            mobile:        form.mobile,
-            email:         form.email,
-            store:         store,
-            dateTaken:     taken,
-            photoName:     `${taken}_${store ? store.replace(/[^A-Za-z0-9]+/g, "-") : "store-unknown"}_${ph.name}`,
-            photoMimeType: ph.mimeType,
-            photoBase64:   ph.base64,
-          })
-        });
-        const json = await res.json().catch(() => null);
-        if (res.ok && json && json.ok) ok++; else break;
-      }
+      // Script endpoint doesn't handle. One request per photo, all sent at the same time
+      // so several photos take no longer than one.
+      const results = await Promise.all(photos.map(async (ph) => {
+        try {
+          const res = await fetch(RECEIPT_WEBAPP_URL, {
+            method: "POST",
+            headers: { "Content-Type": "text/plain;charset=utf-8" },
+            body: JSON.stringify({
+              secret:        RECEIPT_SHARED_SECRET,
+              name:          form.name,
+              mobile:        form.mobile,
+              email:         form.email,
+              store:         store,
+              dateTaken:     taken,
+              photoName:     `${taken}_${store ? store.replace(/[^A-Za-z0-9]+/g, "-") : "store-unknown"}_${ph.name}`,
+              photoMimeType: ph.mimeType,
+              photoBase64:   ph.base64,
+            })
+          });
+          const json = await res.json().catch(() => null);
+          return !!(res.ok && json && json.ok);
+        } catch { return false; }
+      }));
+      ok = results.filter(Boolean).length;
     } catch {}
     setSentCount(ok);
     setStatus(ok === photos.length ? "sent" : "error");
@@ -19398,7 +19404,7 @@ function SubmitPriceModal({ onClose, lightMode=false }) {
 
               <button onClick={handleSubmit} disabled={disabled}
                 style={{ width:"100%",marginTop:14,padding:"14px",background:orangeBtn,border:"none",borderRadius:12,color:"#fff",cursor:disabled?"not-allowed":"pointer",opacity:disabled?0.5:1,fontSize:15,fontWeight:700,boxShadow:disabled?"none":"0 3px 12px rgba(194,65,12,.6),inset 0 1px 0 rgba(255,255,255,.25)" }}>
-                {sending ? "Sending…" : photos.length > 1 ? `Send ${photos.length} photos →` : "Send receipt →"}
+                {sending ? `Sending ${photos.length > 1 ? photos.length + " photos" : "your receipt"}… a few seconds` : preparing ? "Getting your photo ready…" : photos.length > 1 ? `Send ${photos.length} photos →` : "Send receipt →"}
               </button>
 
               {/* optional details, tucked away so they don't get in the way */}
