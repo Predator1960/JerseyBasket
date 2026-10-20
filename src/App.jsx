@@ -1380,7 +1380,7 @@ const BASE_PRODUCTS = [
   {id:1095,name:"CP Chilli Chicken Pizza",                     cat:"🍝 Pantry",               icon:"🍕", prices:sp(1.95,[0,-1.95,-1.95,-1.95,-1.95,-1.95]), upd:"20 Aug"},
   {id:1096,name:"Cadbury Mint Crisp (5pk)",                    cat:"🍫 Confectionery",        icon:"🍫", prices:sp(1.50,[0,-1.50,-1.50,-1.50,-1.50,-1.50])},
   {id:1097,name:"Jersey Pouring/Single Cream",                 cat:"🥛 Dairy & Eggs",         icon:"🥛", prices:{coop:1.45,morrisons:0,ms:0,waitrose:0,iceland:1.55,alliance:0}, upd:"8 Oct"},
-  {id:1098,name:"Sprite No Sugar (500ml)",                     cat:"🥤 Drinks",               icon:"🥤", prices:sp(2.10,[0,-2.10,-2.10,-0.06,-0.25,-2.10]), upd:"20 Oct", upds:{waitrose:"20 Oct"}}, // Waitrose St Saviour receipt 20 Oct: SPRITE NO SUGAR 2.04 (size not shown, 500ml inferred from price)
+  {id:1098,name:"Sprite No Sugar (500ml)",                     cat:"🥤 Drinks",               icon:"🥤", prices:sp(2.10,[0,-2.10,-2.10,-0.06,-0.25,-2.10]), upd:"20 Oct", upds:{waitrose:"20 Oct"}}, // Waitrose St Saviour receipt 20 Oct: SPRITE NO SUGAR 2.04 (small bottle per shopper, so 500ml)
   {id:1099,name:"CP Still Mineral Water",                      cat:"🥤 Drinks",               icon:"💧", prices:sp(0.75,[0,-0.75,-0.75,-0.75,-0.75,-0.75]), upd:"15 Aug"},
   {id:1100,name:"CP Cheese Coleslaw",                          cat:"🥗 Deli & Salads",        icon:"🥗", prices:sp(2.90,[0,-2.90,-2.90,-2.90,-2.90,-2.90])},
   {id:1101,name:"CP Potato Salad",                             cat:"🥗 Deli & Salads",        icon:"🥔", prices:sp(1.65,[0,-1.65,-1.65,-1.65,-1.65,-1.65])},
