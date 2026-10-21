@@ -732,7 +732,7 @@ const BASE_PRODUCTS = [
   {id:454,name:"Jersey Full Fat Milk (1ltr)",         cat:"🥛 Dairy & Eggs", icon:"🥛",prices:sp(1.64,[0,0,0.01,0.01,0,0])},
   {id:455, name:"Jersey Salted Butter (250g)", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:2.35,morrisons:2.35,ms:1.90,waitrose:1.90,iceland:2.5,alliance:2.6}, upd:"15 Oct", upds:{coop:"21 Oct",iceland:"10 Oct",alliance:"15 Oct"}}, // merged duplicate rows 1202
   {id:15840, name:"Jersey Unsalted Butter 250g", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:2.35,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"21 Oct"},
-  {id:15841, name:"M&S Fairtrade Cocoa Powder 225g", cat:"🍝 Pantry", icon:"🍫", prices:{coop:0,morrisons:0,ms:4.65,waitrose:0,iceland:0,alliance:0}, upd:"21 Oct"}, // M&S St John receipt 21 Oct "FT COCOA POWD" 4.65 (225g confirmed by shopper)
+  {id:15841, name:"M&S Fairtrade Cocoa Powder 225g", cat:"🍝 Pantry", icon:"🍫", prices:{coop:0,morrisons:0,ms:4.65,waitrose:0,iceland:0,alliance:0}, upd:"21 Oct"}, // M&S branch: St John (receipt 21 Oct "FT COCOA POWD" 4.65, 225g confirmed by shopper)
   {id:456,name:"Tortilla Wraps Large (8pk)",          cat:"🍞 Bread & Bakery",icon:"🌯",prices:sp(1.80,[0,0,0,-0.35,0])},
   {id:555,name:"White Toastie Loaf",                  cat:"🍞 Bread & Bakery",icon:"🍞",prices:sp(1.25,[0,-1.25,-1.25,-1.25,-1.25])},
   {id:556,name:"Cheese Baps (4pk)",                   cat:"🍞 Bread & Bakery",icon:"🍞",prices:sp(1.89,[0,-1.89,-1.89,-1.89,-1.89]), upd:"20 Aug"},
@@ -9596,8 +9596,8 @@ const BASE_PRODUCTS = [
   {id:9604, name:"Grenade High Protein Low Sugar Bar Soft Core Double Chocolate 50g", cat:"💪 Sports Nutrition", icon:"💪", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:3,alliance:0}, upd:"22 Sep", oos:["iceland"]},
   {id:9605, name:"Kind Dark Chocolate Nuts & Sea Salt 40g", cat:"💪 Sports Nutrition", icon:"💪", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:1.7,alliance:2.1}, upd:"15 Oct", upds:{iceland:"10 Oct",alliance:"15 Oct"}},
   /* ── M&S receipt, St Johns, 23 Sep 2026 ── */
-  {id:9606, name:"M&S Sugar Free Rhubarb & Custard Sweets", cat:"🥨 Snacks & Treats", icon:"🍬", prices:{coop:0,morrisons:0,ms:2.00,waitrose:0,iceland:0,alliance:0}, upd:"23 Sep"},
-  {id:9607, name:"M&S 70:30 Loaf", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:0,morrisons:0,ms:0.95,waitrose:0,iceland:0,alliance:0}, upd:"23 Sep"},
+  {id:9606, name:"M&S Sugar Free Rhubarb & Custard Sweets", cat:"🥨 Snacks & Treats", icon:"🍬", prices:{coop:0,morrisons:0,ms:2.00,waitrose:0,iceland:0,alliance:0}, upd:"23 Sep"}, // M&S branch: St John (receipt 23 Sep)
+  {id:9607, name:"M&S 70:30 Loaf", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:0,morrisons:0,ms:0.95,waitrose:0,iceland:0,alliance:0}, upd:"23 Sep"}, // M&S branch: St John (receipt 23 Sep)
   /* ── Waitrose receipt, Red Houses, 24 Sep 2026 ── */
   {id:9608, name:"Waitrose Cooks' Ingredients Garlic Granules", cat:"🍝 Pantry", icon:"🧄", prices:{coop:0,morrisons:0,ms:0,waitrose:2.09,iceland:0,alliance:0}, upd:"24 Sep"},
   /* ── Co-op receipt, Millennium Park, 25 Sep 2026 ── */
