@@ -730,8 +730,9 @@ const BASE_PRODUCTS = [
 
   // ── Added 6 June 2026 from receipts ──
   {id:454,name:"Jersey Full Fat Milk (1ltr)",         cat:"🥛 Dairy & Eggs", icon:"🥛",prices:sp(1.64,[0,0,0.01,0.01,0,0])},
-  {id:455, name:"Jersey Salted Butter (250g)", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:2.35,morrisons:2.35,ms:1.90,waitrose:1.90,iceland:2.5,alliance:2.6}, upd:"15 Oct", upds:{coop:"10 Oct",iceland:"10 Oct",alliance:"15 Oct"}}, // merged duplicate rows 1202
+  {id:455, name:"Jersey Salted Butter (250g)", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:2.35,morrisons:2.35,ms:1.90,waitrose:1.90,iceland:2.5,alliance:2.6}, upd:"15 Oct", upds:{coop:"21 Oct",iceland:"10 Oct",alliance:"15 Oct"}}, // merged duplicate rows 1202
   {id:15840, name:"Jersey Unsalted Butter 250g", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:2.35,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"21 Oct"},
+  {id:15841, name:"M&S Fairtrade Cocoa Powder", cat:"🍝 Pantry", icon:"🍫", prices:{coop:0,morrisons:0,ms:4.65,waitrose:0,iceland:0,alliance:0}, upd:"21 Oct"}, // M&S St John receipt 21 Oct "FT COCOA POWD" 4.65 (pack size not printed on receipt)
   {id:456,name:"Tortilla Wraps Large (8pk)",          cat:"🍞 Bread & Bakery",icon:"🌯",prices:sp(1.80,[0,0,0,-0.35,0])},
   {id:555,name:"White Toastie Loaf",                  cat:"🍞 Bread & Bakery",icon:"🍞",prices:sp(1.25,[0,-1.25,-1.25,-1.25,-1.25])},
   {id:556,name:"Cheese Baps (4pk)",                   cat:"🍞 Bread & Bakery",icon:"🍞",prices:sp(1.89,[0,-1.89,-1.89,-1.89,-1.89]), upd:"20 Aug"},
@@ -1179,7 +1180,7 @@ const BASE_PRODUCTS = [
   {id:905,name:"Co-op Soft White Cheese (300g)",            cat:"🥛 Dairy & Eggs",        icon:"🧀",prices:sp(1.30,[0,-1.30,-1.30,-1.30,-1.30,-1.30])}, 
   {id:906,name:"Co-op Irresistable Bakewell Blondie",       cat:"🍰 Cakes & Desserts",    icon:"🍰",prices:sp(2.65,[0,-2.65,-2.65,-2.65,-2.65,-2.65])}, 
   {id:907,name:"Dime Bolognese Pasta Sauce (500g)",         cat:"🥫 Tins & Jars",         icon:"🍝",prices:sp(3.15,[0,-3.15,-3.15,-3.15,-3.15,-3.15])}, 
-  {id:908,name:"Co-op Fresh Single Cream (150ml)",          cat:"🥛 Dairy & Eggs",        icon:"🥛",prices:sp(1.49,[-0.09,-1.49,-1.49,-1.49,-1.49,-1.49]), upd:"1 Oct"}, // merged duplicate rows 8060
+  {id:908,name:"Co-op Fresh Single Cream (150ml)",          cat:"🥛 Dairy & Eggs",        icon:"🥛",prices:sp(1.49,[-0.09,-1.49,-1.49,-1.49,-1.49,-1.49]), upd:"21 Oct"}, // merged duplicate rows 8060 | Co-op receipt 21 Oct "Cp Frsh Sgl Crm" 1.40 (size not printed; same price as id 3028 British Milk Single Cream 300ml)
   {id:909,name:"Co-op Breaded Ham (125g)",                  cat:"🥩 Meat & Fish",         icon:"🥩",prices:sp(2.79,[0,-2.79,-2.79,-2.79,-2.79,-2.79])}, 
   {id:910,name:"Muller Corner Choc Digestive",              cat:"🥛 Dairy & Eggs",        icon:"🍫",prices:sp(1.05,[0,-1.05,-1.05,-1.05,-1.05,-1.05])}, 
   {id:911,name:"Muller Corner Vanilla Choc",                cat:"🥛 Dairy & Eggs",        icon:"🍫",prices:sp(1.05,[0,-1.05,-1.05,-1.05,-1.05,-1.05])}, 
@@ -3097,7 +3098,7 @@ const BASE_PRODUCTS = [
   {id:3025, name:"Co-op Irresistible Outdoor Bred Wiltshire Cooked Ham 5 Slices 120g", cat:"🥩 Meat & Fish", icon:"🍖", prices:{coop:4.2,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:3026, name:"Co-op Free Range Egg Mayonnaise 200g", cat:"🥩 Meat & Fish", icon:"🍖", prices:{coop:1.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:3027, name:"Co-op British Milk Double Cream 300ml", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:1.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:3028, name:"Co-op British Milk Single Cream 300ml", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:1.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
+  {id:3028, name:"Co-op British Milk Single Cream 300ml", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:1.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"21 Oct"}, // Co-op receipt 21 Oct confirms 1.40 (Fresh Single Cream)
   {id:3029, name:"Co-op Space to Thrive British Half Roast Chicken 450g", cat:"🥩 Meat & Fish", icon:"🍖", prices:{coop:5,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:3030, name:"Müller Frijj Fudge Brownie Flavour Milkshake 330ml", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:1.7,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:2.15}, upd:"15 Oct", upds:{coop:"10 Oct",alliance:"15 Oct"}, oos:["alliance"]},
   {id:3031, name:"Richmond 8 Meat-Free Streaky Bacon Rashers 120g", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:3.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:3.65}, upd:"15 Oct", upds:{coop:"10 Oct",alliance:"15 Oct"}, oos:["alliance"]}, // members £2.85 until 27/10/26
@@ -3278,7 +3279,7 @@ const BASE_PRODUCTS = [
   {id:3205, name:"Co-op Wild Rocket 60g", cat:"🥦 Fruit & Veg", icon:"🥗", prices:{coop:1.45,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £1.00 until 27/10/26
   {id:3206, name:"Co-op Big on BBQ Cajun Style Chicken Mini Fillets 300g", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:5.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:3207, name:"Co-op Big on BBQ Hot Honey Pork Belly Slices 340g", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:5.0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
-  {id:3208, name:"Co-op Stonebaked Texan Style BBQ Chicken Pizza 355g", cat:"🥗 Deli & Salads", icon:"🍕", prices:{coop:4.45,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
+  {id:3208, name:"Co-op Stonebaked Texan Style BBQ Chicken Pizza 355g", cat:"🥗 Deli & Salads", icon:"🍕", prices:{coop:4.45,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"21 Oct"}, // Co-op receipt 21 Oct "Cp Sb Tbq Cp 355G" 4.45
   {id:3209, name:"Co-op A Pinch of Coriander 25G", cat:"🥦 Fruit & Veg", icon:"🥕", prices:{coop:0.99,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £0.70 until 27/10/26
   {id:3210, name:"Co-op Cauliflower EACH", cat:"🥦 Fruit & Veg", icon:"🥕", prices:{coop:1.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:3211, name:"Co-op Detroit Style Double Pepperoni Deep Dish Pizza 446g", cat:"🥗 Deli & Salads", icon:"🍕", prices:{coop:5.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
