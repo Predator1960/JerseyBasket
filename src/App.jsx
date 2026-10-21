@@ -5990,16 +5990,16 @@ const BASE_PRODUCTS = [
   {id:5377, name:"Energizer Accu Recharge Power Plus Rechargeable AAA Batteries, 4 Pack", cat:"🧹 Household", icon:"🔋", prices:{coop:13.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5378, name:"Energizer Accu Recharge Power Plus Rechargeable AA Batteries 4 Pack", cat:"🧹 Household", icon:"🔋", prices:{coop:13.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5379, name:"Energizer Max 9V Batteries, Alkaline, 2 Pack", cat:"🧹 Household", icon:"🔋", prices:{coop:9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:5380, name:"Energizer Max 9V Batteries Alkaline", cat:"🧹 Household", icon:"🔋", prices:{coop:5.25,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
+  {id:5380, name:"Energizer Max 9V Batteries Alkaline, 1 Pack", cat:"🧹 Household", icon:"🔋", prices:{coop:5.25,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"21 Oct"},
   {id:5381, name:"Energizer Max C Batteries Alkaline 2 Pack", cat:"🧹 Household", icon:"🔋", prices:{coop:5.25,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5382, name:"Energizer Max D Batteries Alkaline 2 Pack", cat:"🧹 Household", icon:"🔋", prices:{coop:5.25,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5383, name:"Energizer Max Plus AA Batteries Alkaline 4 Pack", cat:"🧹 Household", icon:"🔋", prices:{coop:6.25,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5384, name:"Energizer Max Plus AAA Batteries, Alkaline, 4 Pack", cat:"🧹 Household", icon:"🔋", prices:{coop:6.25,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5385, name:"Energizer Max AA Batteries, Alkaline, 4 Pack", cat:"🧹 Household", icon:"🔋", prices:{coop:5.6,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5386, name:"Energizer Max AA Batteries, Alkaline, 8 Pack", cat:"🧹 Household", icon:"🔋", prices:{coop:9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:5387, name:"Energizer Max AA Batteries, Alkaline, 12 Pack", cat:"🧹 Household", icon:"🔋", prices:{coop:10,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £6.30 until 20/10/26
+  {id:5387, name:"Energizer Max AA Batteries, Alkaline, 12 Pack", cat:"🧹 Household", icon:"🔋", prices:{coop:10,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"21 Oct"}, // special offer £7.00 until 10/11/26
   {id:5388, name:"Energizer Max AAA Batteries, Alkaline, 8 Pack", cat:"🧹 Household", icon:"🔋", prices:{coop:9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:5389, name:"Energizer Max AAA Alkaline Batteries 12 Pack", cat:"🧹 Household", icon:"🔋", prices:{coop:10.0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £6.30 until 20/10/26
+  {id:5389, name:"Energizer Max AAA Alkaline Batteries 12 Pack", cat:"🧹 Household", icon:"🔋", prices:{coop:10.0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"21 Oct"}, // special offer £7.00 until 10/11/26
   {id:5390, name:"Energizer Max AAA Batteries, Alkaline, 4 Pack", cat:"🧹 Household", icon:"🔋", prices:{coop:5.6,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5391, name:"Andrex Ultimate Quilts 9 Rolls", cat:"🧹 Household", icon:"🧻", prices:{coop:6.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5392, name:"Kleenex The Original", cat:"🧹 Household", icon:"🧻", prices:{coop:3.59,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
