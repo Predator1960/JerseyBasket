@@ -2797,7 +2797,7 @@ const BASE_PRODUCTS = [
   {id:2720, name:"Co-op Cook's Kitchen Outdoor Bred Smoked Bacon 65g", cat:"🥩 Meat & Fish", icon:"🍖", prices:{coop:4.2,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:2721, name:"Co-op Italian Style Antipasto 120g", cat:"🥩 Meat & Fish", icon:"🍖", prices:{coop:4.25,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:2722, name:"Co-op Outdoor Bred Honey Roast Ham 120g", cat:"🥩 Meat & Fish", icon:"🍖", prices:{coop:2.8,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:2723, name:"Co-op Corned Beef 120g", cat:"🥩 Meat & Fish", icon:"🍖", prices:{coop:2.99,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
+  {id:2723, name:"Co-op Corned Beef 120g", cat:"🥩 Meat & Fish", icon:"🍖", prices:{coop:3.09,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"21 Oct"},
   {id:2724, name:"Co-op British Outdoor Bred Smoked Ham 120g", cat:"🥩 Meat & Fish", icon:"🍖", prices:{coop:2.8,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:2725, name:"Co-op British Outdoor Bred Breaded Ham 120g", cat:"🥩 Meat & Fish", icon:"🍖", prices:{coop:2.8,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:2726, name:"Co-op Space to Thrive British BBQ Chicken Slices 130g", cat:"🥩 Meat & Fish", icon:"🍖", prices:{coop:3.7,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -9656,7 +9656,6 @@ const BASE_PRODUCTS = [
   {id:9659, name:"Co-op Deli Coleslaw", cat:"🥗 Deli & Salads", icon:"🥗", prices:{coop:2.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"1 Oct"},
   {id:9660, name:"Co-op Creamy Potato Salad 300g", cat:"🥗 Deli & Salads", icon:"🥗", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"1 Oct"},
   {id:9661, name:"Co-op British Beef Mince 15% Fat", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:5.25,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"1 Oct"},
-  {id:9662, name:"Co-op Corned Beef", cat:"🥩 Meat & Fish", icon:"🥫", prices:{coop:4.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"1 Oct"},
   {id:9664, name:"Co-op Salted Butter 250g", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:3.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"1 Oct"},
   {id:9665, name:"Co-op Strawberries (each)", cat:"🥦 Fruit & Veg", icon:"🍓", prices:{coop:3.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £2.85 until 27/10/26
   {id:9666, name:"Müller Corner Yogurt (each)", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:1.05,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"1 Oct"},
