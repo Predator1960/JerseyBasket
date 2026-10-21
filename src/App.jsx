@@ -228,7 +228,7 @@ const BASE_PRODUCTS = [
   {id:14, name:"Parmesan (100g)",              cat:"🥛 Dairy & Eggs", icon:"🧀", prices:sp(2.50,[0,-0.40,0.95,0.75,0.12])},
   {id:15, name:"Feta Cheese (200g)",           cat:"🥛 Dairy & Eggs", icon:"🧀", prices:sp(2.00,[0.49,0.2,0.8,0.43,0.1])},
   {id:16, name:"Butter Salted (250g)",         cat:"🥛 Dairy & Eggs", icon:"🧈", prices:sp(1.05,[1.15,3.93,3.45,1.15,1.45,0]), upd:"10 Oct", upds:{coop:"10 Oct",iceland:"10 Oct"}}, // coop re-checked vs Co-op British Milk Salted Butter 250g; iceland re-checked vs Jersey Butter Salted 250g
-  {id:17, name:"Butter Unsalted (250g)",       cat:"🥛 Dairy & Eggs", icon:"🧈", prices:sp(3.40,[-0.90,0.15,0.6,-1.40,0.07,0])},
+  {id:17, name:"Butter Unsalted (250g)",       cat:"🥛 Dairy & Eggs", icon:"🧈", prices:sp(3.40,[-1.20,0.15,0.6,-1.40,0.07,0]), upd:"21 Oct", upds:{coop:"21 Oct"}},
   {id:18, name:"Spreadable Butter (500g)",     cat:"🥛 Dairy & Eggs", icon:"🧈", prices:sp(3.10,[1.45,0.22,0.85,0.65,0.11])},
   {id:19, name:"Greek Yoghurt (500g)",         cat:"🥛 Dairy & Eggs", icon:"🫙", prices:sp(1.25,[0.45,0.30,0.15,0.09,0,0.65]), upd:"10 Oct", upds:{coop:"10 Oct"}}, // coop re-checked vs Co-op Greek Style Natural Yogurt 500g
   {id:20, name:"Natural Yoghurt (500g)",       cat:"🥛 Dairy & Eggs", icon:"🫙", prices:sp(2.65,[0,0.15,0.55,0.4,0.07])},
@@ -689,8 +689,8 @@ const BASE_PRODUCTS = [
   {id:422,name:"Pedigree Dog Food (1.5kg)",cat:"🐾 Pet Care",icon:"🐕",prices:sp(4.5,[0.5,0.25,1.3,0.7,0.32])},
 
   /* ── NEW — verified Co-op Millennium Park receipt 28 May 2026 ─── */
-  {id:423,name:"Jersey Dairy Fresh Milk 1% (500ml)", cat:"🥔 Local Jersey", icon:"🥛",prices:sp(0.87,[0,0.01,0,0,0])},
-  {id:430,name:"Jersey Dairy Fresh Milk 1% (1L)",    cat:"🥔 Local Jersey", icon:"🥛",prices:sp(1.65,[-1.65,-1.65,-1.65,0,-1.65])},
+  {id:423,name:"Jersey Dairy Fresh Milk 1% (500ml)", cat:"🥔 Local Jersey", icon:"🥛",prices:sp(0.87,[0,0.01,0,0,0]), upd:"21 Oct", upds:{coop:"21 Oct"}},
+  {id:430,name:"Jersey Dairy Fresh Milk 1% (1L)",    cat:"🥔 Local Jersey", icon:"🥛",prices:sp(1.65,[-0.01,-1.65,-1.65,0,-1.65]), upd:"21 Oct", upds:{coop:"21 Oct"}},
 
   /* ── NEW — verified Waitrose Red Houses receipt 31 May 2026 ─────────── */
   {id:431,name:"Lurpak Salted Spread",               cat:"🥛 Dairy & Eggs", icon:"🧈",prices:sp(3.50,[-3.50,-3.50,-3.50,0,0.07,-3.50])},
@@ -731,6 +731,7 @@ const BASE_PRODUCTS = [
   // ── Added 6 June 2026 from receipts ──
   {id:454,name:"Jersey Full Fat Milk (1ltr)",         cat:"🥛 Dairy & Eggs", icon:"🥛",prices:sp(1.64,[0,0,0.01,0.01,0,0])},
   {id:455, name:"Jersey Salted Butter (250g)", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:2.35,morrisons:2.35,ms:1.90,waitrose:1.90,iceland:2.5,alliance:2.6}, upd:"15 Oct", upds:{coop:"10 Oct",iceland:"10 Oct",alliance:"15 Oct"}}, // merged duplicate rows 1202
+  {id:15840, name:"Jersey Unsalted Butter 250g", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:2.35,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"21 Oct"},
   {id:456,name:"Tortilla Wraps Large (8pk)",          cat:"🍞 Bread & Bakery",icon:"🌯",prices:sp(1.80,[0,0,0,-0.35,0])},
   {id:555,name:"White Toastie Loaf",                  cat:"🍞 Bread & Bakery",icon:"🍞",prices:sp(1.25,[0,-1.25,-1.25,-1.25,-1.25])},
   {id:556,name:"Cheese Baps (4pk)",                   cat:"🍞 Bread & Bakery",icon:"🍞",prices:sp(1.89,[0,-1.89,-1.89,-1.89,-1.89]), upd:"20 Aug"},
@@ -769,8 +770,6 @@ const BASE_PRODUCTS = [
   {id:486,name:"Lil Con Carn Pouch",                  cat:"🍱 Cupboard",     icon:"🥫",prices:sp(2.50,[0,-2.50,-2.50,-2.50,-2.50])},
   // ── Added 9 June 2026 from JCC Essentials data ──
   {id:487,name:"Apples (4pk)",                      cat:"🥦 Fruit & Veg",  icon:"🍎",prices:sp(1.60,[0.60,1.60,0.80,0.55,0,1.70])},
-  {id:488,name:"Unsalted Butter (250g)",             cat:"🥛 Dairy & Eggs", icon:"🧈",prices:sp(2.35,[0.15,0,0.05,-0.35,0])},
-  {id:528,name:"Salted Butter (250g)",               cat:"🥛 Dairy & Eggs", icon:"🧈",prices:sp(4.75,[-4.75,-4.75,0,-4.75,-4.75])},
   {id:489,name:"White Bread (800g)",                 cat:"🍞 Bread & Bakery",icon:"🍞",prices:sp(0.80,[0.45,0,0.10,0.36,1.15,0.65])},
   {id:551,name:"Brown Bloomer Loaf",                 cat:"🍞 Bread & Bakery",icon:"🍞",prices:sp(1.19,[-1.19,-1.19,-1.19,0,-1.19])},
   {id:490,name:"Potatoes (1.5kg)",                   cat:"🥦 Fruit & Veg",  icon:"🥔",prices:sp(1.40,[0,1.20,0.25,0.69,1.10,1.39])},
@@ -1353,7 +1352,6 @@ const BASE_PRODUCTS = [
   {id:1083,name:"Morrisons Salmon Cat Snack Pillows",           cat:"🐾 Pet",                 icon:"🐱", prices:sp(1.10,[-1.10,-1.10,-1.10,-1.10,0,-1.10])},
   {id:1084,name:"Fanta Zero Orange (500ml)",                    cat:"🥤 Drinks",              icon:"🍊", prices:sp(2.10,[0,-2.10,-2.10,-0.01,0,0.05]), upd:"15 Oct", upds:{iceland:"10 Oct"}},
   {id:1085,name:"Crispy French Fries Crisps",                   cat:"🍿 Snacks",              icon:"🍟", prices:sp(1.85,[0,-1.85,-1.85,-1.85,-1.85,-1.85])},
-  {id:1086,name:"Jersey Dairy 1% Fat Milk",                     cat:"🥛 Dairy & Eggs",        icon:"🥛", prices:sp(1.64,[0,-1.64,-1.64,-1.64,-1.64,-1.64])},
   {id:1088,name:"CP Iceberg Lettuce",                           cat:"🥦 Fruit & Veg",         icon:"🥬", prices:sp(1.60,[0,-1.60,-1.60,-1.60,-1.60,-1.60])},
   {id:1090,name:"CP Deli Chicken Stuffing Sandwich",            cat:"🥪 Food To Go",          icon:"🥪", prices:sp(3.60,[0,-3.60,-3.60,-3.60,-3.60,-3.60])},
   {id:1091,name:"Buxton Sports Water (500ml)",                  cat:"🥤 Drinks",              icon:"💧", prices:sp(1.50,[0,-1.50,-1.50,-1.50,-1.50,-1.50])},
@@ -2712,7 +2710,6 @@ const BASE_PRODUCTS = [
   {id:2636, name:"Co-op Greek Feta Cheese 200g", cat:"🥛 Dairy & Eggs", icon:"🧀", prices:{coop:2.49,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:2637, name:"Jersey Whole Milk 500ML", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:0.87,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:2638, name:"Jersey Dairy 2.5% Fat Reduced 500ML", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:0.87,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:2639, name:"Jersey Dairy 1% Fat Milk 500ml", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:0.87,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:2640, name:"Pukka All Steak Pie 209G", cat:"🥗 Deli & Salads", icon:"🥧", prices:{coop:2.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:2.75}, upd:"15 Oct", upds:{coop:"11 Jul",alliance:"15 Oct"}},
   {id:2641, name:"Jersey Dairy 2.5% Fat Reduced LTR", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:1.64,morrisons:1.54,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:2642, name:"Pukka Chicken & Mushroom Pie 212G", cat:"🥗 Deli & Salads", icon:"🥧", prices:{coop:2.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
