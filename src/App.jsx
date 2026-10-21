@@ -993,7 +993,6 @@ const BASE_PRODUCTS = [
   {id:2615,name:"Grove Mill Sauvignon Blanc (75cl)",     cat:"🍷 Wine & Beer",  icon:"🍷",prices:sp(9.75,[0,-9.75,-9.75,-9.75,-9.75,-9.75])},
   {id:2616,name:"Islands Choice Custard",                cat:"🥛 Dairy & Eggs", icon:"🍮",prices:sp(3.45,[0,-3.45,-3.45,-3.45,-3.45,-3.45])},
   {id:2617, name:"English Cheesecake Company Vanilla & Biscoff Cheesecake (484g)", cat:"🍰 Cakes & Desserts", icon:"🍰", prices:sp(4.15,[2.2,-4.15,-4.15,-4.15,-4.15,-4.15]), upd:"10 Oct"}, // special offer £4.45 until 27/10/26
-  {id:2618,name:"Co-op Double Pepperoni Stonebaked Pizza",cat:"🧊 Frozen",       icon:"🍕",prices:sp(1.95,[0,-1.95,-1.95,-1.95,-1.95,-1.95])},
   {id:2619,name:"7UP Zero (8pk)",                    cat:"🥤 Drinks",       icon:"🥤",prices:sp(3.95,[0,-3.95,-3.95,-3.95,-3.95,-3.95])},
   {id:2620,name:"Co-op Sweet & Sour Egg Rice",        cat:"🥗 Deli & Salads",icon:"🍚",prices:sp(4.50,[0,-4.50,-4.50,-4.50,-4.50,-4.50])},
   {id:2621,name:"Co-op Unsmoked Back Bacon (Thick Cut)",cat:"🥩 Meat & Fish",icon:"🥓",prices:sp(3.49,[0,-3.49,-3.49,-3.49,-3.49,-3.49])},
@@ -11666,7 +11665,6 @@ const BASE_PRODUCTS = [
   {id:11695, name:"Heinz By Nature Veggies with Lamb Baby Food Tray 12+ Months 200g", cat:"🍼 Baby & Child", icon:"🍼", prices:{coop:2.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:11696, name:"Heinz By Nature Cottage Pie Baby Food Tray 12+ Months 200g", cat:"🍼 Baby & Child", icon:"🍼", prices:{coop:2.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:11697, name:"Heinz By Nature Veggies, Pork & Mango Baby Food Tray 12+ Months 200g", cat:"🍼 Baby & Child", icon:"🍼", prices:{coop:2.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:11698, name:"Co-op Cranberry Juice Drink 1 Litre 1ltr", cat:"🥤 Drinks", icon:"🥤", prices:{coop:1.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:11699, name:"Co-op 8 Mexican Menu Soft Tortilla Wraps 320g", cat:"🍝 Pantry", icon:"🥫", prices:{coop:1.7,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:11700, name:"Co-op Mexican Menu Fajita Kit 475g", cat:"🍝 Pantry", icon:"🥫", prices:{coop:2.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:11701, name:"Co-op Mexican Menu Smoky BBQ Fajita Kit 475g", cat:"🍝 Pantry", icon:"🥫", prices:{coop:2.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
