@@ -5512,7 +5512,7 @@ const BASE_PRODUCTS = [
   {id:4899, name:"Co Op Basmati Rice 500g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.79,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4900, name:"Co Op Long Grain Rice 500g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4901, name:"Ben's Original Sweet and Sour Extra Pineapple 450g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
-  {id:4902, name:"Dolmio Smooth Tomato Sauce for Bolognese 450g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.85,morrisons:0,ms:0,waitrose:0,iceland:3.45,alliance:3.6}, upd:"15 Oct", upds:{coop:"10 Oct",iceland:"10 Oct",alliance:"15 Oct"}},
+  {id:4902, name:"Dolmio Smooth Tomato Sauce for Bolognese 450g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.85,morrisons:0,ms:0,waitrose:0,iceland:3.45,alliance:3.6}, upd:"15 Oct", upds:{coop:"10 Oct",iceland:"10 Oct",alliance:"15 Oct"}}, // special offer £2.10 until 10/11/26
   {id:4903, name:"Dolmio Onion & Garlic Sauce for Bolognese 675g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4904, name:"Dolmio Sauce for Lasagne Tomato 675g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct", oos:["coop"]},
   {id:4905, name:"Dolmio Creamy Sauce for Lasagne 655g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -5528,7 +5528,7 @@ const BASE_PRODUCTS = [
   {id:4915, name:"Dolmio Sauce for Lasagne Tomato 450g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.85,morrisons:0,ms:0,waitrose:0,iceland:3.45,alliance:3.6}, upd:"15 Oct", upds:{coop:"10 Oct",iceland:"10 Oct",alliance:"15 Oct"}},
   {id:4916, name:"Co-op Italian Menu Wholewheat Fusilli 500g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:0.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4917, name:"Dolmio Creamy Sauce for Lasagne 440g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.85,morrisons:0,ms:0,waitrose:0,iceland:3.45,alliance:3.6}, upd:"15 Oct", upds:{coop:"10 Oct",iceland:"10 Oct",alliance:"15 Oct"}},
-  {id:4918, name:"Dolmio Tomato & Basil Sauce for Meatballs 450g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.85,morrisons:0,ms:0,waitrose:0,iceland:3.45,alliance:3.6}, upd:"15 Oct", upds:{coop:"10 Oct",iceland:"10 Oct",alliance:"15 Oct"}, oos:["coop","alliance"]},
+  {id:4918, name:"Dolmio Tomato & Basil Sauce for Meatballs 450g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.85,morrisons:0,ms:0,waitrose:0,iceland:3.45,alliance:3.6}, upd:"15 Oct", upds:{coop:"10 Oct",iceland:"10 Oct",alliance:"15 Oct"}, oos:["coop","alliance"]}, // special offer £2.10 until 10/11/26
   {id:4919, name:"Co-op Italian Menu Macaroni 500g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:0.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £0.75 until 03/01/27
   {id:4920, name:"Co-op Italian Menu Lasagne Sheets 500g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.05,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £0.75 until 03/01/27
   {id:4921, name:"Co-op Italian Menu White Sauce 460g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -5572,8 +5572,8 @@ const BASE_PRODUCTS = [
   {id:4959, name:"Patak's The Original Butter Chicken Cooking Sauce 450g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.09,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £1.94 until 20/10/26
   {id:4960, name:"Patak's The Original Jalfrezi Cooking Sauce 450g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.09,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £1.94 until 20/10/26
   {id:4961, name:"Sacla' Pesto Classic Basil 190g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:4962, name:"Dolmio Onion & Garlic Sauce for Bolognese 450g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.85,morrisons:0,ms:0,waitrose:0,iceland:3.45,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
-  {id:4963, name:"Dolmio Original Sauce for Bolognese 450g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.85,morrisons:0,ms:0,waitrose:0,iceland:3.45,alliance:3.6}, upd:"15 Oct", upds:{coop:"10 Oct",iceland:"10 Oct",alliance:"15 Oct"}},
+  {id:4962, name:"Dolmio Onion & Garlic Sauce for Bolognese 450g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.85,morrisons:0,ms:0,waitrose:0,iceland:3.45,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}}, // special offer £2.10 until 10/11/26
+  {id:4963, name:"Dolmio Original Sauce for Bolognese 450g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.85,morrisons:0,ms:0,waitrose:0,iceland:3.45,alliance:3.6}, upd:"15 Oct", upds:{coop:"10 Oct",iceland:"10 Oct",alliance:"15 Oct"}}, // special offer £2.10 until 10/11/26
   {id:4964, name:"Co-op Italian Menu Fusilli 500g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:0.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £0.75 until 03/01/27
   {id:4965, name:"Co-op Italian Menu Penne 500g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:0.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £0.75 until 03/01/27
   {id:4966, name:"Co-op Italian Spaghetti 500g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:0.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £0.75 until 03/01/27
@@ -8055,7 +8055,6 @@ const BASE_PRODUCTS = [
   {id:8063, name:"Cadbury White Buttons", cat:"🍝 Pantry", icon:"🍫", prices:{coop:1.84,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"7 Aug"},
   {id:8064, name:"Cadbury Biscoff", cat:"🍝 Pantry", icon:"🍫", prices:{coop:1.58,morrisons:0,ms:0,waitrose:1.44,iceland:0,alliance:0}, upd:"1 Oct"}, // waitrose £1.44 was a special offer 24 Sep — re-verify normal shelf price
   {id:8065, name:"Hula Hoops BBQ Beef", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.60,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"7 Aug"},
-  {id:8066, name:"Co-op Spaghetti Bolognese", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.30,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"7 Aug"},
   {id:8067, name:"Peperami Original Multipack", cat:"🥩 Meat & Fish", icon:"🍖", prices:{coop:2.10,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"7 Aug"},
   {id:8069, name:"Warburtons Toastie White", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:1.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"7 Aug"},
   {id:8070, name:"Co-op Fair Trade Bananas (each)", cat:"🥦 Fruit & Veg", icon:"🍌", prices:{coop:0.26,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"12 Sep"},
