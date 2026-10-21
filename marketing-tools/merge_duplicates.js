@@ -24,8 +24,15 @@ function norm(s) {
   return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[®™©]/g, '').replace(/&/g, ' and ').replace(/[’']/g, '')
     .replace(/(\d)\s*%/g, '$1pc ').replace(/(\d)\s*(litres?|liters?|lt)\b/g, '$1l').replace(/(\d)\s+(kg|g|ml|l|cl|ltr)\b/g, '$1$2').replace(/[^a-z0-9. ]/g, ' ');
 }
+const SIZE_RE = /\d(?:\.\d+)?\s*(?:kg|g|ml|l|ltr|cl|litres?)\b|\d\s*(?:pk|pack|s)\b/i;
+function stripCode(name) {
+  // feed names sometimes end in a catalogue code ("8 x 330ml 8X330ML", "2 Litres 2LTR"); drop it when a real size is already there
+  const m = name.match(/\s(\d+(?:\.\d+)?(?:X\d+(?:\.\d+)?)?(?:ML|LTR|KG|CL|G|S))$/);
+  if (m && SIZE_RE.test(name.slice(0, m.index))) return name.slice(0, m.index);
+  return name;
+}
 function signature(name) {
-  let s = norm(name), count = 1, unit = null, hasSize = false;
+  let s = norm(stripCode(name)), count = 1, unit = null, hasSize = false;
   let m;
   if ((m = s.match(/(\d+)\s*x\s*(\d+(?:\.\d+)?)(kg|g|ml|l|ltr|cl)\b/))) { count = +m[1]; const [u, k] = BASE[m[3]]; unit = Math.round(+m[2] * k) + u; hasSize = true; s = s.replace(m[0], ' '); }
   else {
@@ -53,26 +60,62 @@ for (const [key, list] of byKey) {
   for (const members of g.values()) if (members.length >= 2) clusters.push(members);
 }
 
+// a row with no size at all joins a product only when every sized row with the same words has ONE pack size (anything else is ambiguous)
+const clusterOf = new Map(); clusters.forEach(c => c.forEach(r => clusterOf.set(r, c)));
+rows.forEach(u => {
+  if (u.sig.hasSize || u.sig.nWords < 2 || clusterOf.has(u)) return;
+  const lst = byKey.get(u.sig.key); if (!lst) return;
+  if (new Set(lst.map(r => r.sig.count + '|' + r.sig.unit)).size !== 1) return;
+  let c = clusterOf.get(lst[0]);
+  if (!c) { if (lst.length !== 1) return; c = [lst[0]]; clusters.push(c); clusterOf.set(lst[0], c); }
+  c.push(u); clusterOf.set(u, c);
+});
+
 const stores = p => S.filter(s => p.prices[s] > 0);
 const dateFor = (p, s) => (p.upds ? p.upds[s] : p.upd) || null;
 const plan = [], review = [];
+// Groups resolved by hand after looking at them: the row to keep, rows to drop, and which row's price to trust per store.
+// The Co-op 8 x 330ml / 4 x 500ml rows below: the legacy starter row carried an old Co-op price (re-dated only by a later Iceland
+// refresh); the Co-op feed row (10 Oct) matches the rest of the Co-op range (Coca-Cola 8 x 330ml 5.90, other Monster 4 x 500ml 7.20).
+const MANUAL = [
+  { keep: 5740, drop: [11029], prefer: { coop: 11029 } },                      // Fanta Orange 8 x 330ml
+  { keep: 12838, drop: [2583, 9686], prefer: { coop: 9686, waitrose: 2583 } }, // Fanta Orange Zero 8 x 330ml
+  { keep: 5745, drop: [11035], prefer: { coop: 11035 } },                      // Monster Energy 4 x 500ml
+  { keep: 5747, drop: [1718], prefer: {} },                                    // Schweppes Slimline Tonic 1L (newest Iceland price)
+  { keep: 5746, drop: [1719], prefer: {} },                                    // Schweppes Indian Tonic 1L
+];
+const byId = new Map(P.map(p => [p.id, p]));
+const manualKeeps = new Set(MANUAL.map(m => m.keep));
+const manualDone = new Set(MANUAL.flatMap(m => [m.keep, ...m.drop]));
 for (const members of clusters) {
-  const ps = members.map(m => m.p);
+  let ps = members.map(m => m.p), prefer = {}, forcedKeep = null;
+  const man = MANUAL.find(m => ps.some(p => p.id === m.keep || m.drop.includes(p.id)));
+  if (man) {
+    if (!manualKeeps.has(man.keep)) continue; // already handled via another cluster
+    ps =[man.keep, ...man.drop].map(id => byId.get(id)); prefer = man.prefer; forcedKeep = byId.get(man.keep);
+    manualKeeps.delete(man.keep);
+  } else {
   if (ps.length > 4) { review.push({ why: 'more than 4 rows', ps }); continue; }
   // price disagreement check
   let bad = null;
   for (const s of S) { const v = ps.filter(p => p.prices[s] > 0).map(p => p.prices[s]); if (v.length > 1 && Math.max(...v) / Math.min(...v) > 1.35) bad = s; }
   if (bad) { review.push({ why: 'prices differ by more than 35% at ' + bad, ps }); continue; }
+  // a row with no pack size could be a different pack: require every price in the cluster to be in the same ballpark
+  if (members.some(m => !m.sig.hasSize)) {
+    const all = ps.flatMap(p => S.map(s => p.prices[s]).filter(v => v > 0));
+    if (Math.max(...all) / Math.min(...all) > 1.45) { review.push({ why: 'row without a size and prices far apart', ps }); continue; }
+  }
+  }
   // choose the row to keep
   const score = p => stores(p).length * 1e6 + (signature(p.name).hasSize ? 1e5 : 0) + dval(p.upd) * 10 + (p.id > 1e5 ? 0 : 0) + p.id / 1e5;
-  const keep = ps.slice().sort((a, b) => score(b) - score(a))[0];
+  const keep = forcedKeep || ps.slice().sort((a, b) => score(b) - score(a))[0];
   const final = {}; let changed = false, overlaps = 0;
   for (const s of S) {
     const cand = ps.filter(p => p.prices[s] > 0);
     if (!cand.length) continue;
     if (cand.length > 1) overlaps++;
     cand.sort((a, b) => (dval(dateFor(b, s)) - dval(dateFor(a, s))) || ((b === keep) - (a === keep)) || (b.id - a.id));
-    const src = cand[0];
+    const src = prefer[s] ? byId.get(prefer[s]) : cand[0];
     final[s] = { price: src.prices[s], date: dateFor(src, s), oos: Array.isArray(src.oos) && src.oos.includes(s), from: src };
     if (src !== keep) changed = true;
   }
@@ -88,8 +131,8 @@ function setStore(l, store, price) {
 function rewrite(item) {
   const { keep, drop, final } = item;
   let l = lines[idLine.get(keep.id)];
-  const m = l.match(/^(\s*\{.*\})(,?)(\s*\/\/.*)?$/); if (!m) throw new Error('shape ' + l.slice(0, 80));
-  let obj = m[1], comma = m[2], com = m[3] || '';
+  const m = l.match(/^(\s*\{.*\})(,?)\s*(\/\/.*)?$/); if (!m) throw new Error('shape ' + l.slice(0, 80));
+  let obj = m[1], comma = m[2], com = m[3] ? ' ' + m[3] : '';
   for (const s of S) { if (final[s]) { if (keep.prices[s] !== final[s].price) obj = setStore(obj, s, final[s].price); } }
   obj = obj.replace(/,\s*upds:\{[^}]*\}/, '').replace(/,\s*upd:"[^"]*"/, '').replace(/,\s*oos:\[[^\]]*\]/, '');
   const dates = {}; S.forEach(s => { if (final[s] && final[s].date) dates[s] = final[s].date; });
