@@ -227,8 +227,8 @@ const BASE_PRODUCTS = [
   {id:13, name:"Brie (200g)",                  cat:"🥛 Dairy & Eggs", icon:"🧀", prices:sp(3.19,[0,0.2,0.8,0.6,0.1])},
   {id:14, name:"Parmesan (100g)",              cat:"🥛 Dairy & Eggs", icon:"🧀", prices:sp(2.50,[0,-0.40,0.95,0.75,0.12])},
   {id:15, name:"Feta Cheese (200g)",           cat:"🥛 Dairy & Eggs", icon:"🧀", prices:sp(2.00,[0.49,0.2,0.8,0.43,0.1])},
-  {id:16, name:"Butter Salted (250g)",         cat:"🥛 Dairy & Eggs", icon:"🧈", prices:sp(1.05,[1.15,3.93,3.45,1.15,1.45,0]), upd:"10 Oct", upds:{coop:"10 Oct",iceland:"10 Oct"}}, // coop re-checked vs Co-op British Milk Salted Butter 250g; iceland re-checked vs Jersey Butter Salted 250g
-  {id:17, name:"Butter Unsalted (250g)",       cat:"🥛 Dairy & Eggs", icon:"🧈", prices:sp(3.40,[-1.20,0.15,0.6,-1.40,0.07,0]), upd:"21 Oct", upds:{coop:"21 Oct"}},
+  {id:16, name:"Butter Salted (250g)",         cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:2.20,morrisons:2.35,ms:1.90,waitrose:1.90,iceland:2.50,alliance:2.60}, upd:"10 Oct", upds:{coop:"10 Oct",iceland:"10 Oct"}}, // coop re-checked vs Co-op British Milk Salted Butter 250g; iceland re-checked vs Jersey Butter Salted 250g // morrisons/ms/waitrose/alliance set in line with Jersey Salted Butter 250g (estimates)
+  {id:17, name:"Butter Unsalted (250g)",       cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:2.20,morrisons:2.35,ms:1.90,waitrose:1.90,iceland:2.50,alliance:2.60}, upd:"21 Oct", upds:{coop:"21 Oct"}}, // morrisons/ms/waitrose/iceland/alliance set in line with Jersey Salted Butter 250g (estimates); coop checked 21 Oct
   {id:18, name:"Spreadable Butter (500g)",     cat:"🥛 Dairy & Eggs", icon:"🧈", prices:sp(3.10,[1.45,0.22,0.85,0.65,0.11])},
   {id:19, name:"Greek Yoghurt (500g)",         cat:"🥛 Dairy & Eggs", icon:"🫙", prices:sp(1.25,[0.45,0.30,0.15,0.09,0,0.65]), upd:"10 Oct", upds:{coop:"10 Oct"}}, // coop re-checked vs Co-op Greek Style Natural Yogurt 500g
   {id:20, name:"Natural Yoghurt (500g)",       cat:"🥛 Dairy & Eggs", icon:"🫙", prices:sp(2.65,[0,0.15,0.55,0.4,0.07])},
