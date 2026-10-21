@@ -947,9 +947,6 @@ const BASE_PRODUCTS = [
   {id:696,name:"White Marzipan",                   cat:"🍝 Pantry",       icon:"🍬",prices:sp(3.20,[-3.20,-3.20,0,-3.20,-3.20,-3.20])},
   {id:698,name:"Co-op Wholemeal Farmhouse Loaf",    cat:"🍞 Bread & Bakery",icon:"🍞",prices:sp(1.25,[0,-1.25,-1.25,-1.25,-1.25,-1.25])},
   {id:699,name:"Coca-Cola Zero Sugar (1.75L)",      cat:"🥤 Drinks",       icon:"🥤",prices:sp(2.30,[0.35,-2.30,-2.30,-2.30,-2.30,-2.30]), upd:"5 Oct"},
-  {id:890,name:"Coca-Cola Zero Sugar (18 cans)",   cat:"🥤 Drinks",       icon:"🥤",prices:sp(4.75,[0,-4.75,-4.75,-4.75,-4.75,-4.75])},
-  {id:2567,name:"Coca-Cola Zero Sugar (4 cans)",   cat:"🥤 Drinks",       icon:"🥤",prices:sp(2.90,[0,-2.90,-2.90,-2.90,-2.90,-2.90])},
-  {id:2568,name:"Coca-Cola Zero Sugar (12 cans)",   cat:"🥤 Drinks",       icon:"🥤",prices:sp(5.25,[1.6,-5.25,-5.25,-5.25,-5.25,-5.25]), upd:"15 Oct", upds:{coop:"15 Oct"}}, // Co-op receipts 9 and 15 Oct: Coca-Cola Zero Sugar 12 pack 6.85
   {id:2569,name:"Co-op Extra Thick Foil",           cat:"🧹 Household",    icon:"✨",prices:sp(2.45,[0,-2.45,-2.45,-2.45,-2.45,-2.45]), upd:"17 Aug"},
   {id:2570,name:"Cadbury Daim Bar",                 cat:"🍫 Confectionery",icon:"🍫",prices:sp(1.58,[0,-1.58,-1.58,-1.58,-1.58,-1.58])},
   {id:2571,name:"Co-op Garlic & Coriander Naan",    cat:"🍞 Bread & Bakery",icon:"🫓",prices:sp(1.19,[0.01,-1.19,-1.19,-1.19,-1.19,-1.19]), upd:"19 Sep"},
@@ -1943,7 +1940,7 @@ const BASE_PRODUCTS = [
   {id:1660,name:"Appletiser Sparkling Apple Juice 750ml",          cat:"🥤 Drinks",      icon:"🥤", prices:sp(2.65,[-2.65,-2.65,-2.65,-2.65,0,1.7]), upd:"15 Oct", upds:{alliance:"15 Oct"}},
   {id:1661,name:"Coca-Cola Cherry 1.75L",                          cat:"🥤 Drinks",      icon:"🥤", prices:sp(3.60,[-3.60,-3.60,-3.60,-3.60,0,-3.60]), upd:"10 Oct"},
   {id:1662,name:"Coca-Cola Original Taste 1.25L",                  cat:"🥤 Drinks",      icon:"🥤", prices:sp(3.10,[-3.10,-3.10,-3.10,-3.10,0,-3.10]), upd:"10 Oct"},
-  {id:1663,name:"Coca-Cola Zero Sugar 2L",                         cat:"🥤 Drinks",      icon:"🥤", prices:sp(3.10,[-3.10,-3.10,-3.10,-3.10,0,0.15]), upd:"15 Oct", upds:{iceland:"10 Oct",alliance:"15 Oct"}},
+  {id:1663,name:"Coca-Cola Zero Sugar 2L",                         cat:"🥤 Drinks",      icon:"🥤", prices:sp(3.10,[-0.2,-3.10,-3.10,-3.10,0,0.15]), upd:"15 Oct", upds:{coop:"10 Oct",iceland:"10 Oct",alliance:"15 Oct"}}, // coop price moved here from duplicate row 5670
   {id:1664,name:"Diet Coke 2L",                                    cat:"🥤 Drinks",      icon:"🥤", prices:sp(2.80,[-2.80,-2.80,-2.80,-2.80,0.3,0.45]), upd:"15 Oct", upds:{iceland:"10 Oct",alliance:"15 Oct"}},
   {id:1665,name:"Diet Coke No Caffeine 2L",                        cat:"🥤 Drinks",      icon:"🥤", prices:sp(3.50,[-3.50,-3.50,-3.50,-3.50,-0.4,-0.25]), upd:"15 Oct", upds:{iceland:"10 Oct",alliance:"15 Oct"}},
   {id:1666,name:"Dr Pepper 2L",                                    cat:"🥤 Drinks",      icon:"🥤", prices:sp(3.15,[-3.15,-3.15,-3.15,-3.15,0,0.15]), upd:"15 Oct", upds:{iceland:"10 Oct",alliance:"15 Oct"}},
@@ -6441,7 +6438,6 @@ const BASE_PRODUCTS = [
   {id:5667, name:"Sprite Lemon Lime 150ml Can", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0.79,morrisons:0,ms:0,waitrose:0,iceland:1.00,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:5668, name:"Fanta Orange 150ml Can", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0.79,morrisons:0,ms:0,waitrose:0,iceland:1.00,alliance:1.1}, upd:"15 Oct", upds:{coop:"10 Oct",iceland:"10 Oct",alliance:"15 Oct"}},
   {id:5669, name:"Coca-Cola Zero Sugar 150ml", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0.79,morrisons:0,ms:0,waitrose:0,iceland:1,alliance:1.1}, upd:"15 Oct", upds:{iceland:"10 Oct"}, oos:["iceland"]},
-  {id:5670, name:"Coca-Cola Zero Sugar 2L Bottle 2LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5671, name:"Diet Coke No Caffeine Cola 2L Bottle 2LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5672, name:"Diet Coke Cola 2L Bottle 2LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5673, name:"Pepsi Max 8 x 330ml 8X330ML", cat:"🥤 Drinks", icon:"🥤", prices:{coop:5.6,morrisons:0,ms:0,waitrose:0,iceland:5.25,alliance:5.5}, upd:"15 Oct", upds:{coop:"10 Oct",iceland:"10 Oct",alliance:"15 Oct"}}, // special offer £2.90 until 20/10/26
@@ -6478,7 +6474,6 @@ const BASE_PRODUCTS = [
   {id:5704, name:"Volvic Touch of Fruit Lemon & Lime Sugar Free Still Flavoured Water 1.5L 1.5LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:1.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5705, name:"Volvic Touch of Fruit Strawberry Sugar Free Still Flavoured Water 1.5L 1.5LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:1.85,morrisons:0,ms:0,waitrose:0,iceland:1.25,alliance:1.3}, upd:"15 Oct", upds:{coop:"10 Oct",iceland:"10 Oct",alliance:"15 Oct"}, oos:["iceland","alliance"]},
   {id:5706, name:"Diet Coke Cola 1.25L Bottle 1.25LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:1.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
-  {id:5707, name:"Coca-Cola Zero Sugar 1.25L 1.25LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:1.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:5708, name:"Robinsons Apple & Blackcurrant 1L 1LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:1.8}, upd:"15 Oct", upds:{coop:"10 Oct",alliance:"15 Oct"}},
   {id:5709, name:"Robinsons Orange 1 Litre 1LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:2.1}, upd:"15 Oct", upds:{coop:"10 Oct",alliance:"15 Oct"}},
   {id:5710, name:"Appletiser Sparkling Apple Juice 6 x 250ml 6X250ML", cat:"🥤 Drinks", icon:"🥤", prices:{coop:5.6,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:6.1}, upd:"15 Oct", upds:{coop:"11 Jul",alliance:"15 Oct"}},
@@ -6512,7 +6507,6 @@ const BASE_PRODUCTS = [
   {id:5738, name:"Fanta Orange 2L Bottle 2LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.45,morrisons:0,ms:0,waitrose:0,iceland:2.65,alliance:2.75}, upd:"15 Oct", upds:{coop:"10 Oct",iceland:"10 Oct",alliance:"15 Oct"}},
   {id:5739, name:"Sprite Lemon Lime 2L Bottle 2LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.45,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5740, name:"Fanta Orange 8 x 330ml 8X330ML", cat:"🥤 Drinks", icon:"🥤", prices:{coop:3.4,morrisons:0,ms:0,waitrose:0,iceland:5.25,alliance:5.3}, upd:"15 Oct", upds:{iceland:"10 Oct"}, oos:["alliance"]},
-  {id:5741, name:"Coca-Cola Zero Sugar 8 x 330ml Cans 8X330ML", cat:"🥤 Drinks", icon:"🥤", prices:{coop:6.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // was 6.85 from a 9 Oct receipt that turned out to be the 12-pack; back to the Co-op feed price
   {id:5742, name:"Coca-Cola Original Taste 8 x 330ml Cans 8X330ML", cat:"🥤 Drinks", icon:"🥤", prices:{coop:5.9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5743, name:"Dr Pepper 8 x 330ml 8X330ML", cat:"🥤 Drinks", icon:"🥤", prices:{coop:4.9,morrisons:0,ms:0,waitrose:0,iceland:5.25,alliance:0}, upd:"10 Oct", upds:{iceland:"10 Oct"}},
   {id:5744, name:"Coca-Cola Original Taste 1.75L Bottle 1.75LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.99,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -6523,7 +6517,6 @@ const BASE_PRODUCTS = [
   {id:5749, name:"Diet Coke No Caffeine Cola 8 x 330ml Cans 8X330ML", cat:"🥤 Drinks", icon:"🥤", prices:{coop:3.68,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £3.15 until 20/10/26
   {id:5750, name:"San Pellegrino Sparkling Natural Mineral Water 1L 1LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:1.75,morrisons:0,ms:0,waitrose:0,iceland:1.75,alliance:2.15}, upd:"15 Oct", upds:{coop:"10 Oct",iceland:"10 Oct",alliance:"15 Oct"}},
   {id:5751, name:"San Pellegrino Sparkling Natural Mineral Water 6x500ml", cat:"🥤 Drinks", icon:"🥤", prices:{coop:4.1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct", oos:["coop"]},
-  {id:5752, name:"Coca-Cola Zero Sugar 4 x 330ml 4X330ML", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.9,morrisons:0,ms:0,waitrose:3.75,iceland:0,alliance:0}, upd:"27 Jul"},
   {id:5753, name:"San Pellegrino Sparkling Lemon Beverage 6 x 330ml (1.98L) 6X33CL", cat:"🥤 Drinks", icon:"🥤", prices:{coop:5.5,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:5754, name:"Rubicon Still Mango Juice Drink 1 Litre 1LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.35,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:2.45}, upd:"15 Oct", upds:{coop:"10 Oct",alliance:"15 Oct"}},
   {id:5755, name:"Volvic Touch of Fruit Watermelon Sugar Free Still Flavoured Water 1.5L 1.5LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:1.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -7329,7 +7322,6 @@ const BASE_PRODUCTS = [
   {id:6560, name:"Staropramen 10 x 440ml", cat:"🍷 Wine & Beer", icon:"🍺", prices:{coop:16.0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:6561, name:"Coors 18 x 330ml", cat:"🍷 Wine & Beer", icon:"🍺", prices:{coop:20.0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:6562, name:"Pepsi Max 18 x 330ml", cat:"🥤 Drinks", icon:"🥤", prices:{coop:8.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:6563, name:"Coca-Cola Zero Sugar 18 x 330ml", cat:"🥤 Drinks", icon:"🥤", prices:{coop:7.35,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"12 Jul"},
   {id:6564, name:"Yorkshire Tea 240 Tea Bags 750g", cat:"🍝 Pantry", icon:"🍵", prices:{coop:8.5,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £6.83 until 20/10/26
   {id:6565, name:"Co-op Thick Bleach Original 2 Litre", cat:"🧹 Household", icon:"🧴", prices:{coop:1.99,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct", oos:["coop"]},
   {id:6566, name:"Magners The Original Irish Cider 10 x 440ml", cat:"🍷 Wine & Beer", icon:"🍺", prices:{coop:14.0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"12 Jul"},
@@ -7340,7 +7332,6 @@ const BASE_PRODUCTS = [
   {id:6571, name:"FELIX As Good As it Looks Favourites Selection Wet Cat Food 40x85g", cat:"🐾 Pet Care", icon:"🐾", prices:{coop:15.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £13.65 until 20/10/26
   {id:6572, name:"Heineken Pure Malt Lager Cans 10 x 440ml", cat:"🍷 Wine & Beer", icon:"🍺", prices:{coop:16,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £14.50 until 20/10/26
   {id:6573, name:"Diet Coke Cola 24 x 330ml Cans", cat:"🥤 Drinks", icon:"🥤", prices:{coop:13.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:6574, name:"Coca-Cola Zero Sugar 24 x 330ml Cans", cat:"🥤 Drinks", icon:"🥤", prices:{coop:13.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:6575, name:"WHISKAS 1+ FISH Favourites Wet Cat Food Pouches in Jelly 40 x 85g", cat:"🐾 Pet Care", icon:"🐾", prices:{coop:12.9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:6576, name:"Persil Non Bio Non Bio Washing Powder 42 washes (2.1 kg)", cat:"🧹 Household", icon:"🧺", prices:{coop:8.1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:6577, name:"Comfort Fresh Fabric Conditioner Blue Skies 80 washes (2.4 L)", cat:"🧹 Household", icon:"🧺", prices:{coop:7,morrisons:0,ms:0,waitrose:0,iceland:6.3,alliance:0}, upd:"10 Oct"},
@@ -10662,7 +10653,6 @@ const BASE_PRODUCTS = [
   {id:10450, name:"A2 Kefir Natural 500ml", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:2.19,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:10451, name:"Co-op Irresistible Peppercorn Sauce 180g", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:10452, name:"Co-op Irresistible Beef Gravy 400g", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:3.69,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:10453, name:"Coca-Cola Zero Sugar 150ml Can", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0.79,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:10454, name:"Coca-Cola Original Taste 1.25L Bottle", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.6,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £2.10 until 20/10/26
   {id:10455, name:"Co-op Hunter's Chicken 390g", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:6.2,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:10456, name:"Dr Pepper 150ml Can", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0.79,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -11817,7 +11807,7 @@ const BASE_PRODUCTS = [
   {id:11605, name:"Mars, Snickers, Twix, Maltesers & Milky Way Funsize Milk Chocolate Bars 20 packs 358g", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:4.25,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £3.94 until 20/10/26
   {id:11606, name:"Elbow Grease 3 Dish Brush Refill Sponges 3pack", cat:"🧹 Household", icon:"🧹", prices:{coop:1.29,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct", oos:["coop"]},
   {id:11607, name:"Flipz Cinnamon Bun Flavour Coated Pretzels 90g", cat:"🥨 Snacks & Treats", icon:"🥨", prices:{coop:2.39,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:11608, name:"Coca-Cola Zero Sugar 12 x 330ml Cans", cat:"🥤 Drinks", icon:"🥤", prices:{coop:6.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
+  {id:11608, name:"Coca-Cola Zero Sugar 12 x 330ml Cans", cat:"🥤 Drinks", icon:"🥤", prices:{coop:6.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"15 Oct"}, // Co-op receipts 9 and 15 Oct confirm 6.85
   {id:11609, name:"Hamptonne Medium Free Range Eg med (6s)", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:11610, name:"Hamptonne Large Free Range Egg large (6s)", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:2.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:11611, name:"Co-op Crisp & Classic Italian Style Breadsticks 125g", cat:"🥨 Snacks & Treats", icon:"🥨", prices:{coop:1.05,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -12135,7 +12125,6 @@ const BASE_PRODUCTS = [
   {id:11923, name:"Schweppes Canada Dry Ginger Ale 1L Bottle", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.2,morrisons:0,ms:0,waitrose:0,iceland:2.35,alliance:0}, upd:"10 Oct"}, // special offer £1.65 until 20/10/26
   {id:11924, name:"Coca-Cola Original Taste 4 x 1.25L Bottles", cat:"🥤 Drinks", icon:"🥤", prices:{coop:7.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct", oos:["coop"]},
   {id:11925, name:"Coca-Cola Cherry 1.75L Bottle", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.99,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:11926, name:"Coca-Cola Zero Sugar Cherry 2L Bottle", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:11927, name:"Dr Pepper Zero 8 x 330ml Cans", cat:"🥤 Drinks", icon:"🥤", prices:{coop:4.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:11928, name:"Dr Pepper Zero Cherry Crush 2L Bottle", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.5,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:11929, name:"Monster Energy Drink Rio Punch 4 x 500ml Cans", cat:"🥤 Drinks", icon:"🥤", prices:{coop:7.2,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -13043,7 +13032,7 @@ const BASE_PRODUCTS = [
   {id:12830, name:"Don Simon Mango Passionfruit Smoothie 1L", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:2.95,alliance:3.1}, upd:"15 Oct", upds:{iceland:"10 Oct",alliance:"15 Oct"}, oos:["iceland"]},
   {id:12831, name:"Tango Zero'D Cherry Sugar Free 2 Litres", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:2.65,alliance:0}, upd:"10 Oct"},
   {id:12832, name:"Coca-Cola Vanilla 1.75L", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:3.55,alliance:0}, upd:"10 Oct"},
-  {id:12833, name:"Coca-Cola Zero Sugar Cherry 2 L", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:3.1,alliance:0}, upd:"10 Oct"},
+  {id:12833, name:"Coca-Cola Zero Sugar Cherry 2 L", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.9,morrisons:0,ms:0,waitrose:0,iceland:3.1,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct",iceland:"10 Oct"}}, // coop price moved here from duplicate row 11926
   {id:12834, name:"IRN-BRU Xtra Sugar Free Soft Drink 2L Bottle", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:2.95,alliance:0}, upd:"10 Oct"},
   {id:12835, name:"Vimto", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:2.15,alliance:0}, upd:"10 Oct"},
   {id:12836, name:"Diet Coke 8 x 330ml", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:5.3,alliance:5.6}, upd:"15 Oct", upds:{iceland:"10 Oct",alliance:"15 Oct"}, oos:["alliance"]},
@@ -13052,7 +13041,7 @@ const BASE_PRODUCTS = [
   {id:12839, name:"Fanta Orange Zero 24 x 330ml", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:9.45,alliance:9.9}, upd:"15 Oct", upds:{iceland:"10 Oct",alliance:"15 Oct"}},
   {id:12840, name:"Fanta Lemon 24 x 330ml", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:9.45,alliance:0}, upd:"10 Oct"},
   {id:12841, name:"Dr Pepper 24 x 330ml", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:9.45,alliance:0}, upd:"10 Oct"},
-  {id:12842, name:"Coca-Cola Zero Sugar Multipack Cans 24 x 330ml", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:9.45,alliance:9.9}, upd:"15 Oct", upds:{iceland:"10 Oct",alliance:"15 Oct"}},
+  {id:12842, name:"Coca-Cola Zero Sugar Multipack Cans 24 x 330ml", cat:"🥤 Drinks", icon:"🥤", prices:{coop:13.15,morrisons:0,ms:0,waitrose:0,iceland:9.45,alliance:9.9}, upd:"15 Oct", upds:{coop:"10 Oct",iceland:"10 Oct",alliance:"15 Oct"}}, // coop price moved here from duplicate row 6574
   {id:12843, name:"Coca-Cola Original Taste 8 x 330ml", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:6.65,alliance:6.95}, upd:"15 Oct", upds:{iceland:"10 Oct",alliance:"15 Oct"}},
   {id:12844, name:"Squeeze It Blue Raspberry Still Drink 4 x 200ml (800ml)", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:1.8,alliance:0}, upd:"10 Oct"},
   {id:12845, name:"Pepsi Cream Soda Flavour 8 x 330ml", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:5.6,alliance:0}, upd:"10 Oct"},
