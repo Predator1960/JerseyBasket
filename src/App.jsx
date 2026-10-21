@@ -8030,7 +8030,6 @@ const BASE_PRODUCTS = [
   {id:8031, name:"Galaxy Minstrels Large Pouch", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.84,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"20 Aug"},
   {id:8032, name:"Rice Krispies Squares Chocolate", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.80,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"31 Jul"},
   {id:8033, name:"Co-op Tiramisu 2 x 85g", cat:"🥨 Snacks & Treats", icon:"🍰", prices:{coop:2.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"31 Jul"},
-  {id:8034, name:"Co-op Stonebaked Meat Feast Pizza", cat:"🥗 Deli & Salads", icon:"🍕", prices:{coop:4.45,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"25 Sep"}, // near-duplicate of id 581/3088 "Stonebaked Meat Feast Pizza" — consider merging
   {id:8035, name:"Co-op Orange Juice Smooth 1L", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // merged duplicate rows 5461
   {id:8036, name:"Horlicks Instant Sachet", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0.42,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"1 Oct"},
   {id:8038, name:"Co-op Mexican Microwave Rice", cat:"🍝 Pantry", icon:"🍚", prices:{coop:1.05,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"31 Jul"},
