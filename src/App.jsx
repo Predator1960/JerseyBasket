@@ -9621,12 +9621,12 @@ const BASE_PRODUCTS = [
   {id:9627, name:"Co-op Facial Tissues 6 Pack", cat:"🧹 Household", icon:"🧻", prices:{coop:1.1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"30 Sep"},
   {id:9628, name:"Kleenex For Men Compact Tissues", cat:"🧹 Household", icon:"🧻", prices:{coop:3.1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"30 Sep"},
   {id:9629, name:"Co-op Aluminium Foil 300mm", cat:"🧹 Household", icon:"🧻", prices:{coop:2.25,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"30 Sep"},
-  {id:9630, name:"M&S Chicken Munchies", cat:"🥩 Meat & Fish", icon:"🍗", prices:{coop:0,morrisons:0,ms:4.45,waitrose:0,iceland:0,alliance:0}, upd:"30 Sep"},
-  {id:9631, name:"M&S Cod Fish Cake", cat:"🥩 Meat & Fish", icon:"🐟", prices:{coop:0,morrisons:0,ms:2,waitrose:0,iceland:0,alliance:0}, upd:"30 Sep"},
-  {id:9632, name:"M&S Baked Beans 400g", cat:"🍝 Pantry", icon:"🥫", prices:{coop:0,morrisons:0,ms:0.5,waitrose:0,iceland:0,alliance:0}, upd:"30 Sep"},
-  {id:9633, name:"M&S Loose Easy Peel (each)", cat:"🥦 Fruit & Veg", icon:"🍊", prices:{coop:0,morrisons:0,ms:0.45,waitrose:0,iceland:0,alliance:0}, upd:"30 Sep"},
-  {id:9634, name:"M&S Banana (each)", cat:"🥦 Fruit & Veg", icon:"🍌", prices:{coop:0,morrisons:0,ms:0.2,waitrose:0,iceland:0,alliance:0}, upd:"30 Sep"},
-  {id:9635, name:"M&S Pastel de Nata", cat:"🍰 Cakes & Desserts", icon:"🥧", prices:{coop:0,morrisons:0,ms:1.35,waitrose:0,iceland:0,alliance:0}, upd:"30 Sep"},
+  {id:9630, name:"M&S Chicken Munchies", cat:"🥩 Meat & Fish", icon:"🍗", prices:{coop:0,morrisons:0,ms:4.45,waitrose:0,iceland:0,alliance:0}, upd:"30 Sep"}, // M&S branch: St John
+  {id:9631, name:"M&S Cod Fish Cake", cat:"🥩 Meat & Fish", icon:"🐟", prices:{coop:0,morrisons:0,ms:2,waitrose:0,iceland:0,alliance:0}, upd:"30 Sep"}, // M&S branch: St John
+  {id:9632, name:"M&S Baked Beans 400g", cat:"🍝 Pantry", icon:"🥫", prices:{coop:0,morrisons:0,ms:0.5,waitrose:0,iceland:0,alliance:0}, upd:"30 Sep"}, // M&S branch: St John
+  {id:9633, name:"M&S Loose Easy Peel (each)", cat:"🥦 Fruit & Veg", icon:"🍊", prices:{coop:0,morrisons:0,ms:0.45,waitrose:0,iceland:0,alliance:0}, upd:"30 Sep"}, // M&S branch: St John
+  {id:9634, name:"M&S Banana (each)", cat:"🥦 Fruit & Veg", icon:"🍌", prices:{coop:0,morrisons:0,ms:0.2,waitrose:0,iceland:0,alliance:0}, upd:"30 Sep"}, // M&S branch: St John
+  {id:9635, name:"M&S Pastel de Nata", cat:"🍰 Cakes & Desserts", icon:"🥧", prices:{coop:0,morrisons:0,ms:1.35,waitrose:0,iceland:0,alliance:0}, upd:"30 Sep"}, // M&S branch: St John
   /* ── Waitrose receipt, St Saviour, 30 Sep 2026 ── */
   {id:9636, name:"Waitrose Essential Cheese & Onion Sandwich", cat:"🥗 Deli & Salads", icon:"🥪", prices:{coop:0,morrisons:0,ms:0,waitrose:2.27,iceland:0,alliance:0}, upd:"30 Sep"},
   /* ── Waitrose receipt St Helier + Co-op receipt Millennium Park, 1 Oct 2026 ── */
@@ -9656,14 +9656,14 @@ const BASE_PRODUCTS = [
   {id:9667, name:"Ginsters Beef & Ale Pasty", cat:"🥗 Deli & Salads", icon:"🥧", prices:{coop:1.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"1 Oct"},
   {id:9669, name:"Co-op Mash & Roast Potatoes", cat:"🥗 Deli & Salads", icon:"🥔", prices:{coop:1.59,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"1 Oct"},
   /* ── Receipts 30 Sep – 5 Oct 2026 (Co-op Goose Green/Pontac/St Brelade, M&S King St/St Johns, Waitrose St Saviour) ── */
-  {id:9670, name:"M&S Cured Roast Ham", cat:"🥩 Meat & Fish", icon:"🍖", prices:{coop:0,morrisons:0,ms:4.5,waitrose:0,iceland:0,alliance:0}, upd:"5 Oct"},
-  {id:9671, name:"M&S Wiltshire Breaded Ham", cat:"🥩 Meat & Fish", icon:"🍖", prices:{coop:0,morrisons:0,ms:4.5,waitrose:0,iceland:0,alliance:0}, upd:"5 Oct"},
-  {id:9672, name:"M&S 5% Fat Extra Lean Beef Mince", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:0,morrisons:0,ms:5.05,waitrose:0,iceland:0,alliance:0}, upd:"5 Oct"},
-  {id:9673, name:"M&S Melton Mowbray Pork Pie (small)", cat:"🥩 Meat & Fish", icon:"🥧", prices:{coop:0,morrisons:0,ms:2.3,waitrose:0,iceland:0,alliance:0}, upd:"5 Oct"},
-  {id:9674, name:"M&S Brown Onion (each)", cat:"🥦 Fruit & Veg", icon:"🧅", prices:{coop:0,morrisons:0,ms:0.3,waitrose:0,iceland:0,alliance:0}, upd:"5 Oct"},
-  {id:9675, name:"M&S Red Pesto", cat:"🍝 Pantry", icon:"🍝", prices:{coop:0,morrisons:0,ms:2.7,waitrose:0,iceland:0,alliance:0}, upd:"5 Oct"},
-  {id:9676, name:"M&S Garlic Baguette", cat:"🍞 Bread & Bakery", icon:"🥖", prices:{coop:0,morrisons:0,ms:1.55,waitrose:0,iceland:0,alliance:0}, upd:"5 Oct"},
-  {id:9677, name:"M&S Conference Pears", cat:"🥦 Fruit & Veg", icon:"🍐", prices:{coop:0,morrisons:0,ms:3.4,waitrose:0,iceland:0,alliance:0}, upd:"5 Oct"},
+  {id:9670, name:"M&S Cured Roast Ham", cat:"🥩 Meat & Fish", icon:"🍖", prices:{coop:0,morrisons:0,ms:4.5,waitrose:0,iceland:0,alliance:0}, upd:"5 Oct"}, // M&S branch: St Helier
+  {id:9671, name:"M&S Wiltshire Breaded Ham", cat:"🥩 Meat & Fish", icon:"🍖", prices:{coop:0,morrisons:0,ms:4.5,waitrose:0,iceland:0,alliance:0}, upd:"5 Oct"}, // M&S branch: St Helier
+  {id:9672, name:"M&S 5% Fat Extra Lean Beef Mince", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:0,morrisons:0,ms:5.05,waitrose:0,iceland:0,alliance:0}, upd:"5 Oct"}, // M&S branch: St Helier
+  {id:9673, name:"M&S Melton Mowbray Pork Pie (small)", cat:"🥩 Meat & Fish", icon:"🥧", prices:{coop:0,morrisons:0,ms:2.3,waitrose:0,iceland:0,alliance:0}, upd:"5 Oct"}, // M&S branch: St Helier
+  {id:9674, name:"M&S Brown Onion (each)", cat:"🥦 Fruit & Veg", icon:"🧅", prices:{coop:0,morrisons:0,ms:0.3,waitrose:0,iceland:0,alliance:0}, upd:"5 Oct"}, // M&S branch: St Helier
+  {id:9675, name:"M&S Red Pesto", cat:"🍝 Pantry", icon:"🍝", prices:{coop:0,morrisons:0,ms:2.7,waitrose:0,iceland:0,alliance:0}, upd:"5 Oct"}, // M&S branch: St Helier
+  {id:9676, name:"M&S Garlic Baguette", cat:"🍞 Bread & Bakery", icon:"🥖", prices:{coop:0,morrisons:0,ms:1.55,waitrose:0,iceland:0,alliance:0}, upd:"5 Oct"}, // M&S branch: St Helier
+  {id:9677, name:"M&S Conference Pears", cat:"🥦 Fruit & Veg", icon:"🍐", prices:{coop:0,morrisons:0,ms:3.4,waitrose:0,iceland:0,alliance:0}, upd:"5 Oct"}, // M&S branch: St Helier
   {id:9678, name:"M&S Free Range Large Eggs", cat:"🥛 Dairy & Eggs", icon:"🥚", prices:{coop:0,morrisons:0,ms:3.1,waitrose:0,iceland:0,alliance:0}, upd:"11 Oct"}, // M&S branch: St John
   {id:9679, name:"Waitrose Treacle Tart", cat:"🍰 Cakes & Desserts", icon:"🥧", prices:{coop:0,morrisons:0,ms:0,waitrose:4.47,iceland:0,alliance:0}, upd:"5 Oct"},
   {id:9680, name:"Cadbury Dairy Milk Giant Buttons", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:1.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"5 Oct"},
@@ -9678,7 +9678,7 @@ const BASE_PRODUCTS = [
   {id:9687, name:"Robinsons Orange & Pineapple 1 Litre", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:9688, name:"Richmond 12 Thin Pork Sausages 340g", cat:"🥩 Meat & Fish", icon:"🌭", prices:{coop:3.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct", oos:["coop"]},
   {id:9689, name:"Co-op Organic Fairtrade 5 Bananas", cat:"🥦 Fruit & Veg", icon:"🍌", prices:{coop:1.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £1.60 until 27/10/26
-  {id:9690, name:"M&S Dark Chocolate Digestives", cat:"🥨 Snacks & Treats", icon:"🍪", prices:{coop:0,morrisons:0,ms:1.55,waitrose:0,iceland:0,alliance:0}, upd:"2 Oct"},
+  {id:9690, name:"M&S Dark Chocolate Digestives", cat:"🥨 Snacks & Treats", icon:"🍪", prices:{coop:0,morrisons:0,ms:1.55,waitrose:0,iceland:0,alliance:0}, upd:"2 Oct"}, // M&S branch: St Helier (King St)
   /* ── Co-op Jersey online listing, 8 Oct 2026 (Organic, Fruit, Veg, Desserts, Pizza, Salad, Cheese, Yoghurt, Meat, Cooked Meat, Pies, Ready Meals) ── */
   {id:9691, name:"Co-op Organic Apples", cat:"🥦 Fruit & Veg", icon:"🍎", prices:{coop:2.79,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £2.45 until 27/10/26
   {id:9692, name:"Co-op Organic Pink Lady Apples", cat:"🥦 Fruit & Veg", icon:"🍎", prices:{coop:3.99,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £3.50 until 27/10/26
@@ -15755,8 +15755,8 @@ const BASE_PRODUCTS = [
   {id:15829, name:"Baylis & Harding Amber Hand Wash", cat:"💊 Health & Beauty", icon:"🧼", prices:{coop:0,morrisons:0,ms:0,waitrose:1.91,iceland:0,alliance:0}, upd:"15 Oct"}, // Waitrose receipt 15 Oct: BH AMBER HANDWASH (size not shown)
   {id:15830, name:"Head & Shoulders 2in1 Classic Clean Shampoo & Conditioner", cat:"💊 Health & Beauty", icon:"🧴", prices:{coop:0,morrisons:0,ms:0,waitrose:3.13,iceland:0,alliance:0}, upd:"15 Oct"}, // Waitrose receipt 15 Oct: H&S 2IN1 CLASSIC CLN (size not shown)
   {id:15831, name:"Fixodent Plus Food Barrier Denture Adhesive", cat:"💊 Health & Beauty", icon:"🦷", prices:{coop:0,morrisons:0,ms:0,waitrose:3.48,iceland:0,alliance:0}, upd:"15 Oct"}, // Waitrose receipt 15 Oct: FIXDNT+ FOOD BARRIER (size not shown)
-  {id:15833, name:"M&S Banana Flavoured Milk 500ml", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:0,morrisons:0,ms:1.85,waitrose:0,iceland:0,alliance:0}, upd:"15 Oct"}, // M&S Centre Point receipt 15 Oct: BANA FLVRD MI (500ml confirmed)
-  {id:15834, name:"M&S Strawberry Flavoured Milk 500ml", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:0,morrisons:0,ms:1.85,waitrose:0,iceland:0,alliance:0}, upd:"15 Oct"}, // M&S Centre Point receipt 15 Oct: STRWBRY MILK (500ml confirmed)
+  {id:15833, name:"M&S Banana Flavoured Milk 500ml", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:0,morrisons:0,ms:1.85,waitrose:0,iceland:0,alliance:0}, upd:"15 Oct"}, // M&S Centre Point receipt 15 Oct: BANA FLVRD MI (500ml confirmed) | M&S branch: St Helier (Centre Point)
+  {id:15834, name:"M&S Strawberry Flavoured Milk 500ml", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:0,morrisons:0,ms:1.85,waitrose:0,iceland:0,alliance:0}, upd:"15 Oct"}, // M&S Centre Point receipt 15 Oct: STRWBRY MILK (500ml confirmed) | M&S branch: St Helier (Centre Point)
   {id:15836, name:"Sula Butterscotch", cat:"🍫 Confectionery", icon:"🍬", prices:{coop:0,morrisons:0,ms:0,waitrose:1.79,iceland:0,alliance:0}, upd:"20 Oct"}, // Waitrose St Saviour receipt 20 Oct: SULA BUTTERSCOTCH (size not shown)
   {id:15838, name:"Kellogg's Rice Krispies Squares Gooey Marshmallow", cat:"🥨 Snacks & Treats", icon:"🍫", prices:{coop:0,morrisons:0,ms:0,waitrose:1.9,iceland:0,alliance:0}, upd:"20 Oct"}, // Waitrose St Saviour receipt 20 Oct: RICE KRISPIE SQUARES, bought 4 at 1.90 each (flavour confirmed gooey marshmallow, pack size not shown)
   {id:15839, name:"Evian Natural Mineral Water Sports Cap 1.5L", cat:"🥤 Drinks", icon:"💧", prices:{coop:1.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"20 Oct"}, // Co-op Five Oaks receipt 20 Oct: EVIAN SPORTS CAP (1.5L bottle per shopper; the plain 1.5L is 1.59 at the Co-op)
