@@ -236,7 +236,7 @@ const BASE_PRODUCTS = [
   {id:22, name:"Sour Cream (300ml)",           cat:"🥛 Dairy & Eggs", icon:"🫙", prices:sp(1.40,[0,0.15,0.6,0.45,0.07])},
   {id:23, name:"Crème Fraîche (300ml)",        cat:"🥛 Dairy & Eggs", icon:"🫙", prices:sp(1.85,[0,0.18,0.65,0.5,0.09])},
   {id:24, name:"Double Cream (300ml)",         cat:"🥛 Dairy & Eggs", icon:"🍦", prices:sp(2.26,[-0.46,0.20,0,0,0,1.49])},
-  {id:25, name:"Single Cream (300ml)",         cat:"🥛 Dairy & Eggs", icon:"🍦", prices:sp(1.45,[-0.05,0.18,0.35,0.5,0.09,0]), upd:"10 Oct", upds:{coop:"10 Oct"}}, // audit 16 Oct: Co-op 1.4 checked against Co-op British Milk Single Cream 300ml; other stores unverified (estimates)
+  {id:25, name:"Single Cream (300ml)",         cat:"🥛 Dairy & Eggs", icon:"🍦", prices:sp(1.45,[-0.05,0.18,0.35,0.5,0.09,0]), upd:"10 Oct", upds:{coop:"10 Oct"}}, // audit 16 Oct: Co-op 1.4 checked against Co-op British Milk Single Cream 300ml; other stores unverified (estimates) | M&S branch: St John
   {id:26, name:"Cottage Cheese (300g)",        cat:"🥛 Dairy & Eggs", icon:"🫙", prices:sp(1.50,[0,1.10,0.6,0.25,0.07])},
   {id:27, name:"Cream Cheese (200g)",          cat:"🥛 Dairy & Eggs", icon:"🧀", prices:sp(1.80,[0.85,0.18,0.7,0.52,0.09])},
   {id:28, name:"Clotted Cream (113g)",         cat:"🥛 Dairy & Eggs", icon:"🍦", prices:sp(2.00,[0,0.22,0.8,0.6,0.11])},
@@ -446,9 +446,9 @@ const BASE_PRODUCTS = [
   {id:203,name:"Muesli (500g)",                cat:"🍝 Pantry",       icon:"🌾", prices:sp(2.10,[0,1.35,0,1.58,1.15,2.05])},
   {id:204,name:"Granola (500g)",               cat:"🍝 Pantry",       icon:"🌾", prices:sp(2.80,[0,0.25,0.98,0.76,0.12])},
   {id:205,name:"Plain Flour (1kg)",            cat:"🍝 Pantry",       icon:"🌾", prices:sp(0.95,[1.15,0,0.10,0.04,1.20,0.70])},
-  {id:206,name:"Self Raising Flour (1.5kg)",   cat:"🍝 Pantry",       icon:"🌾", prices:sp(1.84,[-0.79,0.12,-0.84,0.38,0.06]), upd:"11 Oct", upds:{ms:"11 Oct"}}, // M&S 1.00 from receipt (value-range pack BPBV), other stores still estimates
+  {id:206,name:"Self Raising Flour (1.5kg)",   cat:"🍝 Pantry",       icon:"🌾", prices:sp(1.84,[-0.79,0.12,-0.84,0.38,0.06]), upd:"11 Oct", upds:{ms:"11 Oct"}}, // M&S 1.00 from receipt (value-range pack BPBV), other stores still estimates | M&S branch: St John
   {id:207,name:"Sugar White (1kg)",            cat:"🍝 Pantry",       icon:"🍬", prices:sp(1.35,[0,0,0,0.10,0.25,0.15]), upd:"10 Oct", upds:{coop:"10 Oct",iceland:"10 Oct"}}, // coop re-checked vs Tate & Lyle Granulated Sugar 1kg; iceland re-checked vs Whitworths Granulated Sugar 1kg
-  {id:208,name:"Caster Sugar (1kg)",           cat:"🍝 Pantry",       icon:"🍬", prices:sp(1.10,[1.25,0.1,1.7,0.3,0.05]), upd:"11 Oct", upds:{ms:"11 Oct"}}, // M&S 2.80 from receipt (British caster sugar), other stores still estimates
+  {id:208,name:"Caster Sugar (1kg)",           cat:"🍝 Pantry",       icon:"🍬", prices:sp(1.10,[1.25,0.1,1.7,0.3,0.05]), upd:"11 Oct", upds:{ms:"11 Oct"}}, // M&S 2.80 from receipt (British caster sugar), other stores still estimates | M&S branch: St John
   {id:209,name:"Icing Sugar (500g)",           cat:"🍝 Pantry",       icon:"🍬", prices:sp(0.90,[0.0,0.09,2.20,0.26,0.04])},
   {id:527,name:"White Marzipan (500g)",        cat:"🍝 Pantry",       icon:"🍰", prices:sp(3.20,[-3.20,-3.20,0,-3.20,-3.20])}, // merged duplicate rows 696
   {id:210,name:"Tomato Ketchup (460g)",        cat:"🍝 Pantry",       icon:"🍅", prices:sp(1.00,[0.30,0,0.80,0.16,1.50,0.70])},
@@ -8157,8 +8157,8 @@ const BASE_PRODUCTS = [
   {id:8155, name:"The Daily Bakery 4 Millionaire Handmade Slices", cat:"🍞 Bread & Bakery", icon:"🍰", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:2.00,alliance:2.1}, upd:"15 Oct", upds:{iceland:"10 Oct",alliance:"15 Oct"}, oos:["alliance"]},
   {id:8156, name:"The Daily Bakery 12 Choc Chip Muffins 340g", cat:"🍞 Bread & Bakery", icon:"🧁", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:2.35,alliance:0}, upd:"10 Oct", oos:["iceland"]},
   /* ── M&S RECEIPT IMPORT — 15 Sep 2026 ── */
-  {id:8171, name:"M&S Ultimate Crumpets", cat:"🍞 Bread & Bakery", icon:"🫓", prices:{coop:0,morrisons:0,ms:1.85,waitrose:0,iceland:0,alliance:0}, upd:"15 Sep"},
-  {id:8172, name:"M&S Sugar Free Butterscotch Sweets", cat:"🥨 Snacks & Treats", icon:"🍬", prices:{coop:0,morrisons:0,ms:2.00,waitrose:0,iceland:0,alliance:0}, upd:"23 Sep"},
+  {id:8171, name:"M&S Ultimate Crumpets", cat:"🍞 Bread & Bakery", icon:"🫓", prices:{coop:0,morrisons:0,ms:1.85,waitrose:0,iceland:0,alliance:0}, upd:"15 Sep"}, // M&S branch: St John
+  {id:8172, name:"M&S Sugar Free Butterscotch Sweets", cat:"🥨 Snacks & Treats", icon:"🍬", prices:{coop:0,morrisons:0,ms:2.00,waitrose:0,iceland:0,alliance:0}, upd:"23 Sep"}, // M&S branch: St John
   /* ── WAITROSE RECEIPT IMPORT — 17 Sep 2026 ── */
   {id:8173, name:"WR Strawberry & Grape", cat:"🥦 Fruit & Veg", icon:"🍇", prices:{coop:0,morrisons:0,ms:0,waitrose:2.03,iceland:0,alliance:0}, upd:"17 Sep"},
   {id:8174, name:"WR White Chocolate Cookies", cat:"🥨 Snacks & Treats", icon:"🍪", prices:{coop:0,morrisons:0,ms:0,waitrose:2.79,iceland:0,alliance:0}, upd:"17 Sep"},
@@ -9664,7 +9664,7 @@ const BASE_PRODUCTS = [
   {id:9675, name:"M&S Red Pesto", cat:"🍝 Pantry", icon:"🍝", prices:{coop:0,morrisons:0,ms:2.7,waitrose:0,iceland:0,alliance:0}, upd:"5 Oct"},
   {id:9676, name:"M&S Garlic Baguette", cat:"🍞 Bread & Bakery", icon:"🥖", prices:{coop:0,morrisons:0,ms:1.55,waitrose:0,iceland:0,alliance:0}, upd:"5 Oct"},
   {id:9677, name:"M&S Conference Pears", cat:"🥦 Fruit & Veg", icon:"🍐", prices:{coop:0,morrisons:0,ms:3.4,waitrose:0,iceland:0,alliance:0}, upd:"5 Oct"},
-  {id:9678, name:"M&S Free Range Large Eggs", cat:"🥛 Dairy & Eggs", icon:"🥚", prices:{coop:0,morrisons:0,ms:3.1,waitrose:0,iceland:0,alliance:0}, upd:"11 Oct"},
+  {id:9678, name:"M&S Free Range Large Eggs", cat:"🥛 Dairy & Eggs", icon:"🥚", prices:{coop:0,morrisons:0,ms:3.1,waitrose:0,iceland:0,alliance:0}, upd:"11 Oct"}, // M&S branch: St John
   {id:9679, name:"Waitrose Treacle Tart", cat:"🍰 Cakes & Desserts", icon:"🥧", prices:{coop:0,morrisons:0,ms:0,waitrose:4.47,iceland:0,alliance:0}, upd:"5 Oct"},
   {id:9680, name:"Cadbury Dairy Milk Giant Buttons", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:1.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"5 Oct"},
   {id:9681, name:"Co-op Mini Yum Yums", cat:"🍞 Bread & Bakery", icon:"🍩", prices:{coop:1.29,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"5 Oct"},
