@@ -17655,6 +17655,8 @@ export default function JerseyGroceryApp() {
           <span style={{ color:lightMode?"#94a3b8":"#1e293b" }}>·</span>
           <a href="mailto:hello@jerseybasket.je" style={{ color:"#22c55e",textDecoration:"none",fontWeight:600 }}>hello@jerseybasket.je</a>
           <span style={{ color:lightMode?"#94a3b8":"#1e293b" }}>·</span>
+          <a href="https://www.linkedin.com/company/146876218" target="_blank" rel="noopener noreferrer" style={{ color:"#22c55e",textDecoration:"none",fontWeight:600 }}>LinkedIn</a>
+          <span style={{ color:lightMode?"#94a3b8":"#1e293b" }}>·</span>
           <span style={{ color:"#22c55e",fontWeight:600 }}>
             🕐 Prices updated: {new Date().toLocaleDateString("en-GB", { day:"numeric", month:"long", year:"numeric" })}
           </span>
