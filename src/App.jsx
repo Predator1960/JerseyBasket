@@ -1200,7 +1200,6 @@ const BASE_PRODUCTS = [
   {id:924,name:"Co-op Sorbet Coconut Ice Cream",            cat:"❄️ Frozen",             icon:"🍦",prices:sp(3.15,[0,-3.15,-3.15,-3.15,-3.15,-3.15])}, 
   {id:925,name:"Werthers Original Soft Box (42g)",          cat:"🍫 Confectionery",       icon:"🍬",prices:sp(1.05,[0,-1.05,-1.05,-1.05,-1.05,-1.05]), upd:"20 Aug"}, 
   {id:926,name:"Wotsits Giants Spicy (130g)",               cat:"🍿 Snacks",              icon:"🍿",prices:sp(2.65,[0,-2.65,-2.65,-2.65,-2.65,-2.65]), upd:"20 Aug"}, 
-  {id:927,name:"T&L Fairtrade Icing Sugar (1kg)",       cat:"🍝 Pantry",        icon:"🍬",prices:sp(2.75,[0,-2.75,-2.75,-2.75,-2.75,-2.75])}, 
 
   {id:928,name:"Co-op English Black Pudding (per kg)",      cat:"🥩 Meat & Fish",         icon:"🖤",prices:sp(4.80,[0,-4.80,-4.80,-4.80,-4.80,-4.80])}, 
   {id:929,name:"Heinz Sweet & Sour Chicken (400g)",         cat:"🥫 Tins & Jars",         icon:"🍗",prices:sp(2.50,[0,-2.50,-2.50,-2.50,-2.50,-2.50])}, 
@@ -4738,7 +4737,7 @@ const BASE_PRODUCTS = [
   {id:4103, name:"Tate & Lyle Fairtrade Pure Cane Granulated Sugar 1kg", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.35,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:1.65}, upd:"15 Oct", upds:{coop:"10 Oct",alliance:"15 Oct"}}, // members £1.10 until 03/01/27
   {id:4104, name:"Tate & Lyle Fairtrade Pure Cane Caster Sugar 1kg", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.35,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:3.8}, upd:"15 Oct", upds:{coop:"10 Oct",alliance:"15 Oct"}},
   {id:4105, name:"Tate & Lyle Fairtrade Pure Cane Granulated Sugar 500g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:4106, name:"Tate & Lyle Fairtrade Cane Icing Sugar 1kg", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.7,morrisons:0,ms:0,waitrose:2.03,iceland:0,alliance:3.45}, upd:"15 Oct", upds:{coop:"10 Oct"}},
+  {id:4106, name:"Tate & Lyle Fairtrade Cane Icing Sugar 1kg", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.7,morrisons:0,ms:0,waitrose:3.08,iceland:0,alliance:3.45}, upd:"22 Oct", upds:{coop:"10 Oct",waitrose:"22 Oct"}}, // Waitrose St Saviour receipt 22 Oct: TLYLE ICING SUGAR 3.08 (1kg confirmed by shopper; was 2.03)
   {id:4107, name:"Tate & Lyle Fairtrade Unrefined Demerara Pure Cane Sugar 1kg", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.89,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4108, name:"Tate & Lyle Fairtrade Golden Caster Pure Cane Sugar 1kg", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.6,morrisons:2.35,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:4109, name:"Tate & Lyle Fairtrade Light Brown Soft Pure Cane Sugar 500g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -9922,7 +9921,7 @@ const BASE_PRODUCTS = [
   {id:9929, name:"Silver Spoon Half Spoon 1kg", cat:"🍝 Pantry", icon:"🥫", prices:{coop:2.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:9930, name:"Tate & Lyle Fairtrade Cane Jam Sugar with Pectin 1kg", cat:"🍝 Pantry", icon:"🍬", prices:{coop:3.29,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:9931, name:"Tate & Lyle Fairtrade Pure Cane Caster Sugar 500g", cat:"🍝 Pantry", icon:"🍬", prices:{coop:2.09,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:2.4}, upd:"15 Oct", upds:{coop:"10 Oct",alliance:"15 Oct"}},
-  {id:9932, name:"Tate & Lyle Fairtrade Cane Icing Sugar 500g", cat:"🍝 Pantry", icon:"🍬", prices:{coop:1.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:2.2}, upd:"15 Oct", upds:{coop:"10 Oct",alliance:"15 Oct"}},
+  {id:9932, name:"Tate & Lyle Fairtrade Cane Icing Sugar 500g", cat:"🍝 Pantry", icon:"🍬", prices:{coop:1.55,morrisons:0,ms:0,waitrose:2.03,iceland:0,alliance:2.2}, upd:"22 Oct", upds:{coop:"10 Oct",waitrose:"22 Oct",alliance:"15 Oct"}}, // Waitrose St Saviour receipt 22 Oct: TLYLE ICING SUGAR 2.03 (500g confirmed by shopper)
   {id:9933, name:"Tate & Lyle Fairtrade Pure Cane Preserving Sugar 1kg", cat:"🍝 Pantry", icon:"🍬", prices:{coop:2.79,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:9934, name:"Tate & Lyle Fairtrade Golden Granulated Pure Cane Sugar 1kg", cat:"🍝 Pantry", icon:"🍬", prices:{coop:1.9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:9935, name:"Tate & Lyle Black Treacle 454g", cat:"🍝 Pantry", icon:"🍯", prices:{coop:2.49,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:2.55}, upd:"15 Oct", upds:{coop:"10 Oct",alliance:"15 Oct"}},
