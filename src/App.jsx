@@ -227,8 +227,8 @@ const BASE_PRODUCTS = [
   {id:13, name:"Brie (200g)",                  cat:"🥛 Dairy & Eggs", icon:"🧀", prices:sp(3.19,[0,0.2,0.8,0.6,0.1])},
   {id:14, name:"Parmesan (100g)",              cat:"🥛 Dairy & Eggs", icon:"🧀", prices:sp(2.50,[0,-0.40,0.95,0.75,0.12])},
   {id:15, name:"Feta Cheese (200g)",           cat:"🥛 Dairy & Eggs", icon:"🧀", prices:sp(2.00,[0.49,0.2,0.8,0.43,0.1])},
-  {id:16, name:"Butter Salted (250g)",         cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:2.20,morrisons:2.35,ms:1.90,waitrose:1.90,iceland:2.50,alliance:2.60}, upd:"10 Oct", upds:{coop:"10 Oct",iceland:"10 Oct"}}, // coop re-checked vs Co-op British Milk Salted Butter 250g; iceland re-checked vs Jersey Butter Salted 250g // morrisons/ms/waitrose/alliance set in line with Jersey Salted Butter 250g (estimates)
-  {id:17, name:"Butter Unsalted (250g)",       cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:2.20,morrisons:2.35,ms:1.90,waitrose:1.90,iceland:2.50,alliance:2.60}, upd:"21 Oct", upds:{coop:"21 Oct"}}, // morrisons/ms/waitrose/iceland/alliance set in line with Jersey Salted Butter 250g (estimates); coop checked 21 Oct
+  {id:16, name:"Butter Salted (250g)",         cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:2.20,morrisons:2.35,ms:1.90,waitrose:2.58,iceland:2.50,alliance:2.60}, upd:"10 Oct", upds:{coop:"10 Oct",iceland:"10 Oct"}}, // coop re-checked vs Co-op British Milk Salted Butter 250g; iceland re-checked vs Jersey Butter Salted 250g // morrisons/ms/waitrose/alliance set in line with Jersey Salted Butter 250g (estimates)
+  {id:17, name:"Butter Unsalted (250g)",       cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:2.20,morrisons:2.35,ms:1.90,waitrose:2.58,iceland:2.50,alliance:2.60}, upd:"21 Oct", upds:{coop:"21 Oct"}}, // morrisons/ms/waitrose/iceland/alliance set in line with Jersey Salted Butter 250g (estimates); coop checked 21 Oct
   {id:18, name:"Spreadable Butter (500g)",     cat:"🥛 Dairy & Eggs", icon:"🧈", prices:sp(3.10,[1.45,0.22,0.85,0.65,0.11])},
   {id:19, name:"Greek Yoghurt (500g)",         cat:"🥛 Dairy & Eggs", icon:"🫙", prices:sp(1.25,[0.45,0.30,0.15,0.09,0,0.65]), upd:"10 Oct", upds:{coop:"10 Oct"}}, // coop re-checked vs Co-op Greek Style Natural Yogurt 500g
   {id:20, name:"Natural Yoghurt (500g)",       cat:"🥛 Dairy & Eggs", icon:"🫙", prices:sp(2.65,[0,0.15,0.55,0.4,0.07])},
@@ -730,9 +730,12 @@ const BASE_PRODUCTS = [
 
   // ── Added 6 June 2026 from receipts ──
   {id:454,name:"Jersey Full Fat Milk (1ltr)",         cat:"🥛 Dairy & Eggs", icon:"🥛",prices:sp(1.64,[0,0,0.01,0.01,0,0])},
-  {id:455, name:"Jersey Salted Butter (250g)", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:2.35,morrisons:2.35,ms:1.90,waitrose:1.90,iceland:2.5,alliance:2.6}, upd:"15 Oct", upds:{coop:"21 Oct",iceland:"10 Oct",alliance:"15 Oct"}}, // merged duplicate rows 1202
+  {id:455, name:"Jersey Salted Butter (250g)", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:2.35,morrisons:2.35,ms:1.90,waitrose:2.58,iceland:2.5,alliance:2.6}, upd:"22 Oct", upds:{coop:"21 Oct",waitrose:"22 Oct",iceland:"10 Oct",alliance:"15 Oct"}}, // merged duplicate rows 1202 | Waitrose St Saviour receipt 22 Oct: JDAIRY SALTED BUTTER 2.58 (was an estimate 1.90)
   {id:15840, name:"Jersey Unsalted Butter 250g", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:2.35,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"21 Oct"},
   {id:15841, name:"M&S Fairtrade Cocoa Powder 225g", cat:"🍝 Pantry", icon:"🍫", prices:{coop:0,morrisons:0,ms:4.65,waitrose:0,iceland:0,alliance:0}, upd:"21 Oct"}, // M&S branch: St John (receipt 21 Oct "FT COCOA POWD" 4.65, 225g confirmed by shopper)
+  {id:15842, name:"Co-op Apple Crumble", cat:"🍰 Cakes & Desserts", icon:"🥧", prices:{coop:1.05,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"22 Oct"}, // Co-op Five Oaks receipt 22 Oct: Apple Crumble 1.05 (size not printed)
+  {id:15843, name:"Co-op Milk Chocolate", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:2.10,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"22 Oct"}, // Co-op Five Oaks receipt 22 Oct: Cp Milk Chocolate 2.10 (size not printed)
+  {id:15844, name:"Co-op Medium Woven Bag", cat:"🧹 Household", icon:"🛍️", prices:{coop:1.00,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"22 Oct"}, // Co-op Five Oaks receipt 22 Oct: Co-op Med Woven 1.00 (carrier bag)
   {id:456,name:"Tortilla Wraps Large (8pk)",          cat:"🍞 Bread & Bakery",icon:"🌯",prices:sp(1.80,[0,0,0,-0.35,0])},
   {id:555,name:"White Toastie Loaf",                  cat:"🍞 Bread & Bakery",icon:"🍞",prices:sp(1.25,[0,-1.25,-1.25,-1.25,-1.25])},
   {id:556,name:"Cheese Baps (4pk)",                   cat:"🍞 Bread & Bakery",icon:"🍞",prices:sp(1.89,[0,-1.89,-1.89,-1.89,-1.89]), upd:"20 Aug"},
@@ -993,10 +996,9 @@ const BASE_PRODUCTS = [
   {id:2615,name:"Grove Mill Sauvignon Blanc (75cl)",     cat:"🍷 Wine & Beer",  icon:"🍷",prices:sp(9.75,[0,-9.75,-9.75,-9.75,-9.75,-9.75])},
   {id:2616,name:"Islands Choice Custard",                cat:"🥛 Dairy & Eggs", icon:"🍮",prices:sp(3.45,[0,-3.45,-3.45,-3.45,-3.45,-3.45])},
   {id:2617, name:"English Cheesecake Company Vanilla & Biscoff Cheesecake (484g)", cat:"🍰 Cakes & Desserts", icon:"🍰", prices:sp(4.15,[2.2,-4.15,-4.15,-4.15,-4.15,-4.15]), upd:"10 Oct"}, // special offer £4.45 until 27/10/26
-  {id:2619,name:"7UP Zero (8pk)",                    cat:"🥤 Drinks",       icon:"🥤",prices:sp(3.95,[0,-3.95,-3.95,-3.95,-3.95,-3.95])},
   {id:2620,name:"Co-op Sweet & Sour Egg Rice",        cat:"🥗 Deli & Salads",icon:"🍚",prices:sp(4.50,[0,-4.50,-4.50,-4.50,-4.50,-4.50])},
   {id:2621,name:"Co-op Unsmoked Back Bacon (Thick Cut)",cat:"🥩 Meat & Fish",icon:"🥓",prices:sp(3.49,[0,-3.49,-3.49,-3.49,-3.49,-3.49])},
-  {id:700,name:"Jersey Green Fat Reduced Milk",     cat:"🥛 Dairy & Eggs", icon:"🥛",prices:{coop:1.64,morrisons:0,ms:0,waitrose:1.65,iceland:0,alliance:0}, upd:"1 Sep"},
+  {id:700,name:"Jersey Green Fat Reduced Milk",     cat:"🥛 Dairy & Eggs", icon:"🥛",prices:{coop:1.64,morrisons:0,ms:0,waitrose:1.65,iceland:0,alliance:0}, upd:"22 Oct", upds:{coop:"1 Sep",waitrose:"22 Oct"}}, // Waitrose St Saviour receipt 22 Oct: JDAIRY FAT RED MILK 1.65 (matches)
   {id:701,name:"Carte D'Or Vanilla Ice Cream (900ml)",cat:"🧊 Frozen",    icon:"🍦",prices:sp(2.90,[0,-2.90,-2.90,-2.90,-2.90,-2.90])},
 
   /* ── Waitrose Kate receipt 15 Jun 2026 — 28 new items ── */
@@ -1360,7 +1362,7 @@ const BASE_PRODUCTS = [
   {id:1095,name:"CP Chilli Chicken Pizza",                     cat:"🍝 Pantry",               icon:"🍕", prices:sp(1.95,[0,-1.95,-1.95,-1.95,-1.95,-1.95]), upd:"20 Aug"},
   {id:1096,name:"Cadbury Mint Crisp (5pk)",                    cat:"🍫 Confectionery",        icon:"🍫", prices:sp(1.50,[0,-1.50,-1.50,-1.50,-1.50,-1.50])},
   {id:1097,name:"Jersey Pouring/Single Cream",                 cat:"🥛 Dairy & Eggs",         icon:"🥛", prices:{coop:1.45,morrisons:0,ms:0,waitrose:0,iceland:1.55,alliance:0}, upd:"8 Oct"},
-  {id:1098,name:"Sprite No Sugar (500ml)",                     cat:"🥤 Drinks",               icon:"🥤", prices:sp(2.10,[0,-2.10,-2.10,-0.06,-0.25,-2.10]), upd:"20 Oct", upds:{coop:"20 Oct",waitrose:"20 Oct"}}, // Waitrose St Saviour receipt 20 Oct: SPRITE NO SUGAR 2.04 (small bottle per shopper, so 500ml) | Co-op Five Oaks receipt 20 Oct confirms Co-op 2.10
+  {id:1098,name:"Sprite No Sugar (500ml)",                     cat:"🥤 Drinks",               icon:"🥤", prices:sp(2.10,[0,-2.10,-2.10,-0.06,-0.25,-2.10]), upd:"22 Oct", upds:{coop:"22 Oct",waitrose:"20 Oct"}}, // Waitrose St Saviour receipt 20 Oct: SPRITE NO SUGAR 2.04 (small bottle per shopper, so 500ml) | Co-op Five Oaks receipt 20 Oct confirms Co-op 2.10 | Co-op Five Oaks receipt 22 Oct confirms 2.10 again
   {id:1099,name:"CP Still Mineral Water",                      cat:"🥤 Drinks",               icon:"💧", prices:sp(0.75,[0,-0.75,-0.75,-0.75,-0.75,-0.75]), upd:"15 Aug"},
   {id:1100,name:"CP Cheese Coleslaw",                          cat:"🥗 Deli & Salads",        icon:"🥗", prices:sp(2.90,[0,-2.90,-2.90,-2.90,-2.90,-2.90])},
   {id:1101,name:"CP Potato Salad",                             cat:"🥗 Deli & Salads",        icon:"🥔", prices:sp(1.65,[0,-1.65,-1.65,-1.65,-1.65,-1.65])},
@@ -3919,7 +3921,7 @@ const BASE_PRODUCTS = [
   {id:3715, name:"Warburtons 6 Original Crumpets 6S", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:1.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £0.80 until 20/10/26
   {id:3716, name:"Co-op Bakery 4 Large White Baps 4PACK", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:1.5,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £1.20 until 27/10/26
   {id:3717, name:"Co-op Bakery 6 Scotch Pancakes 6S", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:1.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:3718, name:"Co-op Bakery 6 Soft White Rolls 6S", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:1.25,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
+  {id:3718, name:"Co-op Bakery 6 Soft White Rolls 6S", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:1.25,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"22 Oct"}, // Co-op Five Oaks receipt 22 Oct: Cp Wht Rolls 6S 1.25 (matches)
   {id:3719, name:"Menissez Bake at Home 6 French Mini Pains 300g 6PACK", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:2.45,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:3720, name:"Co-op Irresistible 4 Sultana Scones 4S", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:3721, name:"Co-op Bakery 8 White Tortilla Wraps 8S", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:1.9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -6251,7 +6253,7 @@ const BASE_PRODUCTS = [
   {id:5643, name:"Pepsi Max 1.25 Litres 1.25LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:1.79,morrisons:0,ms:0,waitrose:0,iceland:1.85,alliance:0}, upd:"10 Oct", oos:["iceland"]}, // merged duplicate rows 1682
   {id:5644, name:"Pepsi Max Cherry 1.25 Litres 1.25LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:1.79,morrisons:0,ms:0,waitrose:0,iceland:1.85,alliance:0}, upd:"10 Oct"}, // merged duplicate rows 1680
   {id:5645, name:"7Up Zero Sugar 2 Litres 2LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.2,morrisons:0,ms:0,waitrose:0,iceland:2.65,alliance:2.9}, upd:"15 Oct", upds:{coop:"10 Oct",iceland:"10 Oct",alliance:"15 Oct"}}, // special offer £1.40 until 20/10/26 | merged duplicate rows 1650
-  {id:5646, name:"7Up Zero Sugar 8 x 330ml 8X330ML", cat:"🥤 Drinks", icon:"🥤", prices:{coop:3.95,morrisons:0,ms:0,waitrose:3.00,iceland:5.1,alliance:5.3}, upd:"15 Oct", upds:{coop:"10 Oct",iceland:"10 Oct"}},
+  {id:5646, name:"7Up Zero Sugar 8 x 330ml 8X330ML", cat:"🥤 Drinks", icon:"🥤", prices:{coop:3.70,morrisons:0,ms:0,waitrose:3.00,iceland:5.1,alliance:5.3}, upd:"22 Oct", upds:{coop:"22 Oct",iceland:"10 Oct"}}, // Co-op Five Oaks receipt 22 Oct: 7Up Zero 8Pk 3.70 (was 3.95)
   {id:5647, name:"Co-op Diet Sparkling Lemonade 2 Litre 2LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0.99,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5648, name:"Co-op Diet Indian Tonic Water 1 Litre 1LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0.89,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5649, name:"Co-op Natural Mineral Water Still 4 x 2 Litre 4X2LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct", upds:{}, oos:["coop"]},
@@ -8020,7 +8022,7 @@ const BASE_PRODUCTS = [
   {id:8025, name:"Häagen-Dazs Salted Caramel Ice Cream", cat:"🧊 Frozen", icon:"🧊", prices:{coop:3.17,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"15 Aug"},
   {id:8026, name:"Cooks' Ingredients Sage 25g", cat:"🥦 Fruit & Veg", icon:"🌿", prices:{coop:0,morrisons:0,ms:0,waitrose:2.09,iceland:0,alliance:0}, upd:"27 Jul"},
   {id:8027, name:"Jersey Dairy Red Top Full Fat Milk", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:0,morrisons:0,ms:0,waitrose:1.65,iceland:0,alliance:0}, upd:"27 Jul"},
-  {id:8028, name:"Waitrose Essential Drain Unblocker", cat:"🧹 Household", icon:"🏠", prices:{coop:0,morrisons:0,ms:0,waitrose:2.69,iceland:0,alliance:0}, upd:"2 Aug"},
+  {id:8028, name:"Waitrose Essential Drain Unblocker", cat:"🧹 Household", icon:"🏠", prices:{coop:0,morrisons:0,ms:0,waitrose:2.69,iceland:0,alliance:0}, upd:"22 Oct"}, // Waitrose St Saviour receipt 22 Oct: WR ESS UNBLOCKER 2.69 (matches)
   {id:8029, name:"Bakers Adult Dog Food Chicken & Vegetables", cat:"🐾 Pet Care", icon:"🐕", prices:{coop:4.20,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"31 Jul"},
   {id:8030, name:"Co-op Lily White Flowers Bouquet", cat:"💐 Fresh Flowers", icon:"💐", prices:{coop:1.30,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"31 Jul"},
   {id:8031, name:"Galaxy Minstrels Large Pouch", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.84,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"20 Aug"},
@@ -8095,7 +8097,7 @@ const BASE_PRODUCTS = [
   {id:8107, name:"Fruit Cocktail Tin", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.59,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"15 Aug"},
   {id:8108, name:"Dolmio Lasagne Red Tomato & Pancetta Sauce 675g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"15 Aug"},
   {id:8109, name:"Co-op Wholemeal Loaf", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:1.25,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"17 Aug"},
-  {id:8110, name:"Walden Sausage Rolls", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:1.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"17 Aug"},
+  {id:8110, name:"Walden Sausage Rolls", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:1.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"22 Oct"}, // Co-op Five Oaks receipt 22 Oct: Walden Sausage Roll 1.95 (matches)
   {id:8111, name:"Müller Corner Chocolate Digestive", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:1.05,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"20 Aug"},
   {id:8112, name:"Müller Corner Banana Chocolate", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:1.05,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"20 Aug"},
   {id:8113, name:"Bakers Adult Dog Food Beef & Vegetables", cat:"🐾 Pet Care", icon:"🐕", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"20 Aug"},
