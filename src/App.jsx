@@ -744,6 +744,7 @@ const BASE_PRODUCTS = [
   {id:15850, name:"Cadbury Twin Pot Buttons", cat:"🍰 Cakes & Desserts", icon:"🍫", prices:{coop:1.05,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"24 Oct"}, // Co-op Millennium Park receipt 24 Oct: Cdbury Twnpt Btn 2 @ 1.05
   {id:15851, name:"Waitrose Essential Sunflower Oil 500ml", cat:"🍝 Pantry", icon:"🌻", prices:{coop:0,morrisons:0,ms:0,waitrose:1.51,iceland:0,alliance:0}, upd:"24 Oct"}, // Waitrose St Helier receipt 24 Oct: WR ESS SUNFLOWER OIL 1.51 (500ml per shopper)
   {id:15852, name:"Cadbury Dairy Milk Orange Cookies 4 Pack", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:1.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"24 Oct"}, // Co-op Millennium Park receipt 24 Oct: Cadbury Dm Or Cookie 1.75 (Orange Cookie per shopper, not Oreo; 4 cookies per pack per shopper)
+  {id:15853, name:"Co-op Cheese Coleslaw 300g", cat:"🥗 Deli & Salads", icon:"🥗", prices:{coop:2.99,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"24 Oct"}, // Co-op Millennium Park receipt 24 Oct: Cp Chs Coleslaw 2.99 (regular Co-op cheese coleslaw, 300g per shopper)
   {id:456,name:"Tortilla Wraps Large (8pk)",          cat:"🍞 Bread & Bakery",icon:"🌯",prices:sp(1.80,[0,0,0,-0.35,0])},
   {id:555,name:"White Toastie Loaf",                  cat:"🍞 Bread & Bakery",icon:"🍞",prices:sp(1.25,[0,-1.25,-1.25,-1.25,-1.25])},
   {id:556, name:"Cheese Baps (4pk)", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:1.89,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:1.89}, upd:"24 Oct", upds:{alliance:"20 Aug",coop:"24 Oct"}}, // Co-op Millennium Park receipt 24 Oct matches
@@ -2809,7 +2810,7 @@ const BASE_PRODUCTS = [
   {id:2728, name:"Shaken Udder Vanillalicious Milkshake 750ml", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:2.8,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:4.15}, upd:"15 Oct", upds:{coop:"11 Jul",alliance:"15 Oct"}},
   {id:2729, name:"Co-op Chicken Arrabbiata 400g", cat:"🥗 Deli & Salads", icon:"🥘", prices:{coop:4.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:2730, name:"Co-op Big On BBQ Space to Thrive Sweet Chilli Chicken Kebabs 270g", cat:"🥛 Dairy & Eggs", icon:"🥚", prices:{coop:5.35,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
-  {id:2731, name:"Co-op Irresistible Cheddar Cheese Coleslaw 300g", cat:"🥦 Fruit & Veg", icon:"🥗", prices:{coop:2.99,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"24 Oct"}, // Co-op Millennium Park receipt 24 Oct matches
+  {id:2731, name:"Co-op Irresistible Cheddar Cheese Coleslaw 300g", cat:"🥦 Fruit & Veg", icon:"🥗", prices:{coop:2.99,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}
   {id:2732, name:"Co-op Classic Houmous 200g", cat:"🥦 Fruit & Veg", icon:"🥗", prices:{coop:1.8,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:2733, name:"Co-op Creamy Onion & Garlic Dip 200g", cat:"🥦 Fruit & Veg", icon:"🥗", prices:{coop:1.8,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:2734, name:"Co-op Mild Salsa 200g", cat:"🥦 Fruit & Veg", icon:"🥗", prices:{coop:1.8,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
