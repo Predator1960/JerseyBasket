@@ -227,7 +227,7 @@ const BASE_PRODUCTS = [
   {id:13, name:"Brie (200g)",                  cat:"🥛 Dairy & Eggs", icon:"🧀", prices:sp(3.19,[0,0.2,0.8,0.6,0.1])},
   {id:14, name:"Parmesan (100g)",              cat:"🥛 Dairy & Eggs", icon:"🧀", prices:sp(2.50,[0,-0.40,0.95,0.75,0.12])},
   {id:15, name:"Feta Cheese (200g)",           cat:"🥛 Dairy & Eggs", icon:"🧀", prices:sp(2.00,[0.49,0.2,0.8,0.43,0.1])},
-  {id:16, name:"Butter Salted (250g)",         cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:2.20,morrisons:2.35,ms:1.90,waitrose:2.58,iceland:2.50,alliance:2.60}, upd:"10 Oct", upds:{coop:"10 Oct",iceland:"10 Oct"}}, // coop re-checked vs Co-op British Milk Salted Butter 250g; iceland re-checked vs Jersey Butter Salted 250g // morrisons/ms/waitrose/alliance set in line with Jersey Salted Butter 250g (estimates)
+  {id:16, name:"Butter Salted (250g)", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:2.2,morrisons:2.35,ms:1.9,waitrose:2.58,iceland:2.5,alliance:2.6}, upd:"24 Oct", upds:{coop:"24 Oct",iceland:"10 Oct"}}, // coop re-checked vs Co-op British Milk Salted Butter 250g; iceland re-checked vs Jersey Butter Salted 250g // morrisons/ms/waitrose/alliance set in line with Jersey Salted Butter 250g (estimates) | Co-op Millennium Park receipt 24 Oct matches
   {id:17, name:"Butter Unsalted (250g)",       cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:2.20,morrisons:2.35,ms:1.90,waitrose:2.58,iceland:2.50,alliance:2.60}, upd:"21 Oct", upds:{coop:"21 Oct"}}, // morrisons/ms/waitrose/iceland/alliance set in line with Jersey Salted Butter 250g (estimates); coop checked 21 Oct
   {id:18, name:"Spreadable Butter (500g)",     cat:"🥛 Dairy & Eggs", icon:"🧈", prices:sp(3.10,[1.45,0.22,0.85,0.65,0.11])},
   {id:19, name:"Greek Yoghurt (500g)",         cat:"🥛 Dairy & Eggs", icon:"🫙", prices:sp(1.25,[0.45,0.30,0.15,0.09,0,0.65]), upd:"10 Oct", upds:{coop:"10 Oct"}}, // coop re-checked vs Co-op Greek Style Natural Yogurt 500g
@@ -334,7 +334,7 @@ const BASE_PRODUCTS = [
   {id:109,name:"Red Onions (3pk)",             cat:"🥦 Fruit & Veg",  icon:"🧅", prices:sp(0.90,[0.39,0.09,0.35,0.10,0.04])},
   {id:110,name:"Garlic (bulb)",                cat:"🥦 Fruit & Veg",  icon:"🧄", prices:sp(0.60,[0.05,0,0,0.04,0])},
   {id:111,name:"Cherry Tomatoes (250g)",       cat:"🥦 Fruit & Veg",  icon:"🍅", prices:sp(1.20,[0.4,0.05,0.0,0.05,0.05])},
-  {id:563,name:"Green Grapes (500g)",           cat:"🥦 Fruit & Veg",  icon:"🍇", prices:sp(3.15,[-0.15,-3.15,-3.15,-3.15,-3.15])},
+  {id:563, name:"Green Grapes (500g)", cat:"🥦 Fruit & Veg", icon:"🍇", prices:{coop:3.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:3.15}, upd:"24 Oct", upds:{coop:"24 Oct"}}, // Co-op Millennium Park receipt 24 Oct: Co-op Green Grapes 3.15 (was 3)
   {id:564,name:"Plums Punnet (400g)",           cat:"🥦 Fruit & Veg",  icon:"🍑", prices:sp(1.78,[0,-1.78,-1.78,-1.78,-1.78])},
   {id:112,name:"Tomatoes (6pk)",               cat:"🥦 Fruit & Veg",  icon:"🍅", prices:sp(1.20,[0.4,0.05,0,1.20,0.05,0.15]), upd:"10 Oct", upds:{coop:"10 Oct"}}, // coop re-checked vs Jsy Tomatoes 6s
   {id:113,name:"Cucumber (each)",              cat:"🥦 Fruit & Veg",  icon:"🥒", prices:sp(1.00,[0.50,0.20,0,0,0.25,0.30])},
@@ -725,7 +725,7 @@ const BASE_PRODUCTS = [
   {id:449,name:"7UP Zero (4pk)",                     cat:"🥤 Drinks",       icon:"🥤",prices:sp(4.23,[-4.23,-4.23,-4.23,0,-4.23])},
   {id:450,name:"Waitrose Essential Double Cream",    cat:"🥛 Dairy & Eggs", icon:"🍦",prices:sp(1.51,[-1.51,-1.51,-1.51,0,-1.51]), upd:"10 Aug"},
   {id:451,name:"Waitrose Essential Back Bacon (10)", cat:"🥩 Meat & Fish",  icon:"🥓",prices:sp(3.19,[-3.19,-3.19,-3.19,0,-3.19])},
-  {id:452,name:"Waitrose Frozen Quarter Pounder",    cat:"🧊 Frozen",       icon:"🍔",prices:sp(4.60,[-4.60,-4.60,-4.60,0,-4.60])},
+  {id:452, name:"Waitrose Frozen Quarter Pounder", cat:"🧊 Frozen", icon:"🍔", prices:{coop:0,morrisons:0,ms:0,waitrose:4.6,iceland:0,alliance:4.6}, upd:"24 Oct", upds:{waitrose:"24 Oct"}}, // Waitrose St Helier receipt 24 Oct: WR FRZ QRTR POUNDER 4.60 (bought 2)
   {id:453,name:"McCain Southern Fries",              cat:"🧊 Frozen",       icon:"🍟",prices:sp(2.90,[-2.90,-2.90,-2.90,0,-2.90])},
 
   // ── Added 6 June 2026 from receipts ──
@@ -736,9 +736,12 @@ const BASE_PRODUCTS = [
   {id:15842, name:"Co-op Apple Flapjack Crumble", cat:"🍰 Cakes & Desserts", icon:"🥧", prices:{coop:1.05,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"22 Oct"}, // Co-op Five Oaks receipt 22 Oct: Apple Crumble 1.05 (apple flapjack crumble per shopper; size not printed)
   {id:15843, name:"Co-op Milk Chocolate 180g", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:2.10,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"22 Oct"}, // Co-op Five Oaks receipt 22 Oct: Cp Milk Chocolate 2.10 (180g per shopper)
   {id:15844, name:"Co-op Medium Woven Bag", cat:"🧹 Household", icon:"🛍️", prices:{coop:1.00,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"22 Oct"}, // Co-op Five Oaks receipt 22 Oct: Co-op Med Woven 1.00 (carrier bag)
+  {id:15845, name:"Bold 2in1 Lavender & Camomile 40 Washes", cat:"🧺 Laundry", icon:"🧺", prices:{coop:9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"24 Oct"}, // Co-op Millennium Park receipt 24 Oct: Bold 2In1 L&C 40W 9.00
+  {id:15846, name:"Gaviscon Aniseed", cat:"💊 Health & Beauty", icon:"💊", prices:{coop:4.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"24 Oct"}, // Co-op Millennium Park receipt 24 Oct: Gav Aniseed 4.65 (size not printed)
+  {id:15847, name:"Bakers Whirls Bacon & Cheese Dog Treats", cat:"🐾 Pet Care", icon:"🐕", prices:{coop:1.25,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"24 Oct"}, // Co-op Millennium Park receipt 24 Oct: Bakers Whrls Bcn Chs 1.25 (size not printed)
   {id:456,name:"Tortilla Wraps Large (8pk)",          cat:"🍞 Bread & Bakery",icon:"🌯",prices:sp(1.80,[0,0,0,-0.35,0])},
   {id:555,name:"White Toastie Loaf",                  cat:"🍞 Bread & Bakery",icon:"🍞",prices:sp(1.25,[0,-1.25,-1.25,-1.25,-1.25])},
-  {id:556,name:"Cheese Baps (4pk)",                   cat:"🍞 Bread & Bakery",icon:"🍞",prices:sp(1.89,[0,-1.89,-1.89,-1.89,-1.89]), upd:"20 Aug"},
+  {id:556, name:"Cheese Baps (4pk)", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:1.89,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:1.89}, upd:"24 Oct", upds:{alliance:"20 Aug",coop:"24 Oct"}}, // Co-op Millennium Park receipt 24 Oct matches
   {id:557,name:"Jumbo Finger Rolls (6pk)",             cat:"🍞 Bread & Bakery",icon:"🍞",prices:sp(2.79,[0,-2.79,-2.79,-2.79,-2.79])},
   {id:558,name:"Tiger Bloomer Loaf",                  cat:"🍞 Bread & Bakery",icon:"🍞",prices:{coop:2.15,morrisons:0,ms:0,waitrose:0,iceland:2.25,alliance:2.15}, upd:"6 Sep"},
   {id:457,name:"Large White Baps (4pk)",              cat:"🍞 Bread & Bakery",icon:"🍞",prices:sp(1.50,[0,0,0,0,0])},
@@ -796,7 +799,7 @@ const BASE_PRODUCTS = [
   {id:536, name:"Ambrosia Rice Pudding (400g)", cat:"🍝 Pantry", icon:"🍮", prices:sp(1.25,[0.85,-1.25,-1.25,0,1.4,1.5]), upd:"15 Oct", upds:{coop:"10 Oct",iceland:"10 Oct"}},
   {id:577,name:"Basmati Microwave Rice (250g)",cat:"🍝 Pantry",       icon:"🍚",prices:sp(2.10,[0,-2.10,-2.10,-2.10,-2.10])},
   {id:578,name:"Plain Microwave Rice (250g)",  cat:"🍝 Pantry",       icon:"🍚",prices:sp(1.00,[0,-1.00,-1.00,-1.00,-1.00])},
-  {id:579,name:"Brussels Pate (125g)",          cat:"🍝 Pantry",       icon:"🫙",prices:sp(1.35,[0,-1.35,-1.35,-1.35,-1.35])},
+  {id:579, name:"Brussels Pate (125g)", cat:"🍝 Pantry", icon:"🫙", prices:{coop:1.35,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:1.35}, upd:"24 Oct", upds:{coop:"24 Oct"}}, // Co-op Millennium Park receipt 24 Oct matches
   {id:580,name:"Orange Marmalade (454g)",       cat:"🍝 Pantry",       icon:"🍊",prices:sp(1.19,[0,-1.19,-1.19,-1.19,-1.19])},
   {id:581,name:"Stonebaked Meat Feast Pizza",   cat:"🍝 Pantry",       icon:"🍕",prices:sp(4.45,[0,-4.45,-4.45,-1.18,-4.45]), upd:"30 Sep"}, // waitrose £3.27 was a "Reduced item" clearance price 30 Sep — re-verify normal shelf price
   {id:507,name:"Fruit Shoot Blackcurrant (6pk)",cat:"🥤 Drinks",       icon:"🥤",prices:sp(3.83,[0,0,0,0,0])},
@@ -810,7 +813,7 @@ const BASE_PRODUCTS = [
   {id:511,name:"Lucozade Energy Orange (500ml)", cat:"🥤 Drinks",       icon:"⚡",prices:sp(2.73,[0,0,0,0,-0.63,-0.58]), upd:"15 Oct", upds:{iceland:"10 Oct"}},
   {id:523,name:"Capri-Sun Juice Drink (10pk)",  cat:"🥤 Drinks",       icon:"🧃",prices:{coop:0,morrisons:0,ms:0,waitrose:1.50,iceland:0,alliance:0}, upd:"10 Jun"},
   {id:595,name:"Lucozade Pink Lemonade (500ml)", cat:"🥤 Drinks",       icon:"⚡", prices:sp(1.35,[0,-1.35,-1.35,-1.35,-1.35]), upd:"20 Aug"},
-  {id:596,name:"Robinsons Double Strength Orange (1L)", cat:"🥤 Drinks", icon:"🍊", prices:{coop:1.3,morrisons:0,ms:0,waitrose:0,iceland:2.10,alliance:0}, upd:"19 Sep"},
+  {id:596, name:"Robinsons Double Strength Orange (1L)", cat:"🥤 Drinks", icon:"🍊", prices:{coop:1.25,morrisons:0,ms:0,waitrose:0,iceland:2.1,alliance:0}, upd:"24 Oct", upds:{iceland:"19 Sep",coop:"24 Oct"}}, // Co-op Millennium Park receipt 24 Oct: Robs Dc Orange 1L 1.25 (was 1.3)
   {id:597,name:"Cp Closed Cup Mushrooms",        cat:"🥦 Fruit & Veg",  icon:"🍄", prices:sp(1.10,[0,-1.10,-1.10,-1.10,-1.10])},
   {id:598,name:"Cp Cauliflower (head)",           cat:"🥦 Fruit & Veg",  icon:"🥦", prices:sp(1.40,[0,-1.40,-1.40,-1.40,-1.40])},
   {id:599,name:"Cp Spring Onions (100g)",         cat:"🥦 Fruit & Veg",  icon:"🧅", prices:sp(0.85,[0,-0.85,-0.85,-0.85,-0.85])},
@@ -862,7 +865,7 @@ const BASE_PRODUCTS = [
   {id:572,name:"McCain Spiced Wedges (750g)",    cat:"🧊 Frozen",       icon:"🍟",prices:sp(1.60,[0,-1.60,-1.60,-1.60,-1.60])},
   {id:573,name:"Crispy French Fries (900g)",     cat:"🧊 Frozen",       icon:"🍟",prices:sp(3.90,[-0.01,-3.90,-3.90,-3.90,-3.90]), upd:"20 Aug"},
   {id:574,name:"Garlic Kiev (260g)",             cat:"🧊 Frozen",       icon:"🍗",prices:sp(3.59,[0.36,-3.59,-3.59,-3.59,-3.59]), upd:"15 Aug"},
-  {id:575,name:"Hot Crunchy Mini Fillets",        cat:"🧊 Frozen",       icon:"🍗",prices:sp(3.60,[1.12,-3.60,-3.60,-3.60,-3.60,0]), upd:"9 Oct"},
+  {id:575, name:"Hot Crunchy Mini Fillets", cat:"🧊 Frozen", icon:"🍗", prices:{coop:4.72,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:3.6}, upd:"24 Oct", upds:{alliance:"9 Oct",coop:"24 Oct"}}, // Co-op Millennium Park receipt 24 Oct matches
   {id:576,name:"Chicken Nuggets (240g)",          cat:"🧊 Frozen",       icon:"🍗",prices:sp(3.35,[0,-3.35,-3.35,-3.35,-3.35])},
   {id:515,name:"GF Self-raising Flour (1kg)",  cat:"🌱 Free From",    icon:"🌾",prices:sp(2.34,[0,0.11,0.21,0,0,0.61])},
   {id:516,name:"GF Gravy Granules (165g)",     cat:"🌱 Free From",    icon:"🍖",prices:sp(2.62,[0,0,0,0,0,0.13])},
@@ -954,9 +957,9 @@ const BASE_PRODUCTS = [
   {id:2572,name:"Co-op Sausage & Bean Slice",       cat:"🥩 Meat & Fish",  icon:"🌭",prices:sp(1.60,[0,-1.60,-1.60,-1.60,-1.60,-1.60])},
   {id:2573,name:"Co-op Chocolate Twist",            cat:"🍞 Bread & Bakery",icon:"🥐",prices:sp(1.19,[0,-1.19,-1.19,-1.19,-1.19,-1.19])},
   {id:2574,name:"Co-op Pear Drops",                 cat:"🍫 Confectionery",icon:"🍬",prices:sp(1.05,[0,-1.05,-1.05,-1.05,-1.05,-1.05])},
-  {id:2575,name:"Bakers Small Dog Beef & Veg",      cat:"🐾 Pet",          icon:"🐕",prices:sp(3.65,[-0.5,-3.65,-3.65,-3.65,-3.65,-3.65]), upd:"1 Oct"},
+  {id:2575, name:"Bakers Small Dog Beef & Veg", cat:"🐾 Pet", icon:"🐕", prices:{coop:3.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"24 Oct"}, // Co-op Millennium Park receipt 24 Oct matches
   {id:2576,name:"Youngs Cod Cakes",                 cat:"🥩 Meat & Fish",  icon:"🐟",prices:sp(1.70,[0,-1.70,-1.70,-1.70,-1.70,-1.70])},
-  {id:2577,name:"Co-op Salted Caramel Chocolate Bar",cat:"🍫 Confectionery",icon:"🍫",prices:sp(3.15,[0,-3.15,-3.15,-3.15,-3.15,-3.15])},
+  {id:2577, name:"Co-op Salted Caramel Chocolate Bar", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:3.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"24 Oct"}, // Co-op Millennium Park receipt 24 Oct matches
   {id:2578,name:"Patak's Korma Curry Paste Pot",    cat:"🍝 Pantry",       icon:"🍛",prices:{coop:1.58,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"28 Aug"},
   {id:2579,name:"WR Essential Salted Butter",       cat:"🥛 Dairy & Eggs", icon:"🧈",prices:{coop:0,morrisons:0,ms:0,waitrose:2.30,iceland:0,alliance:0}, upd:"1 Sep"},
   {id:2580,name:"WR Diced Chicken Breast",           cat:"🥩 Meat & Fish",  icon:"🍗",prices:sp(6.38,[-6.38,-6.38,-6.38,0,-6.38,-6.38])},
@@ -998,7 +1001,6 @@ const BASE_PRODUCTS = [
   {id:2617, name:"English Cheesecake Company Vanilla & Biscoff Cheesecake (484g)", cat:"🍰 Cakes & Desserts", icon:"🍰", prices:sp(4.15,[2.2,-4.15,-4.15,-4.15,-4.15,-4.15]), upd:"10 Oct"}, // special offer £4.45 until 27/10/26
   {id:2620,name:"Co-op Sweet & Sour Egg Rice",        cat:"🥗 Deli & Salads",icon:"🍚",prices:sp(4.50,[0,-4.50,-4.50,-4.50,-4.50,-4.50])},
   {id:2621,name:"Co-op Unsmoked Back Bacon (Thick Cut)",cat:"🥩 Meat & Fish",icon:"🥓",prices:sp(3.49,[0,-3.49,-3.49,-3.49,-3.49,-3.49])},
-  {id:700,name:"Jersey Green Fat Reduced Milk",     cat:"🥛 Dairy & Eggs", icon:"🥛",prices:{coop:1.64,morrisons:0,ms:0,waitrose:1.65,iceland:0,alliance:0}, upd:"22 Oct", upds:{coop:"1 Sep",waitrose:"22 Oct"}}, // Waitrose St Saviour receipt 22 Oct: JDAIRY FAT RED MILK 1.65 (matches)
   {id:701,name:"Carte D'Or Vanilla Ice Cream (900ml)",cat:"🧊 Frozen",    icon:"🍦",prices:sp(2.90,[0,-2.90,-2.90,-2.90,-2.90,-2.90])},
 
   /* ── Waitrose Kate receipt 15 Jun 2026 — 28 new items ── */
@@ -1074,7 +1076,7 @@ const BASE_PRODUCTS = [
   {id:768,name:"M&S Donkey Manchego Pork Pate",       cat:"🥩 Meat & Fish",   icon:"🫙",prices:sp(4.85,[-4.85,-4.85,0,-4.85,-4.85,-4.85])},
   /* ── Carmen1971 Co-op receipt 19 Jun 2026 ── */
   {id:769,name:"Ariel Pods Original",                 cat:"🧴 Household",     icon:"🧺",prices:sp(3.65,[0,-3.65,-3.65,-3.65,1.90,-3.65])},
-  {id:771,name:"Andrex Toilet Tissue",                cat:"🧴 Household",     icon:"🧻",prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"19 Sep"},
+  {id:771, name:"Andrex Toilet Tissue", cat:"🧴 Household", icon:"🧻", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"24 Oct"}, // Co-op Millennium Park receipt 24 Oct matches
   {id:775,name:"Bakers Rewards Dog Food",             cat:"🐾 Pet",           icon:"🐶",prices:sp(1.49,[0,-1.49,-1.49,-1.49,-1.49,-1.49])},
   {id:776,name:"Bakers Sizzlers Bacon Dog Food",      cat:"🐾 Pet",           icon:"🐶",prices:sp(1.49,[0,-1.49,-1.49,-1.49,-1.49,-1.49]), upd:"12 Sep"},
   /* ── j.acottjsy Waitrose receipt 21 Jun 2026 ── */
@@ -1188,11 +1190,11 @@ const BASE_PRODUCTS = [
   {id:912,name:"Muller Corner Banana Choc",                 cat:"🥛 Dairy & Eggs",        icon:"🍌",prices:sp(1.05,[0,-1.05,-1.05,-1.05,-1.05,-1.05])}, 
   {id:913,name:"Co-op Lemon Cheesecake",                    cat:"🍰 Cakes & Desserts",    icon:"🍋",prices:sp(1.85,[0,-1.85,-1.85,-1.85,-1.85,-1.85]), upd:"1 Oct"},
   {id:914,name:"Snickers Duo (83.4g)",                      cat:"🍫 Confectionery",       icon:"🍫",prices:sp(1.60,[0,-1.60,-1.60,-1.60,-1.60,-1.60]), upd:"12 Sep"},
-  {id:915, name:"KitKat Chunky Peanut Butter (42g)", cat:"🍫 Confectionery", icon:"🍫", prices:sp(0.95,[0.1,-0.95,-0.95,-0.95,0.15,-0.95]), upd:"22 Sep"}, // merged duplicate rows 1089
+  {id:915, name:"KitKat Chunky Peanut Butter (42g)", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:1.05,morrisons:0,ms:0,waitrose:0,iceland:1.1,alliance:0}, upd:"24 Oct", upds:{iceland:"22 Sep",coop:"24 Oct"}}, // merged duplicate rows 1089 | Co-op Millennium Park receipt 24 Oct matches
   {id:916,name:"Cadbury Twirl Orange (43g)",                cat:"🍫 Confectionery",       icon:"🍫",prices:sp(1.20,[0,-1.20,-1.20,-1.20,-1.20,-1.20]), upd:"20 Aug"}, 
   {id:917,name:"Cadbury Raspberry Ruffle Rolls",            cat:"🍫 Confectionery",       icon:"🍫",prices:sp(4.35,[0,-4.35,-4.35,-4.35,-4.35,-4.35])}, 
   {id:918,name:"Co-op Fresh Pork Mince (500g)",             cat:"🥩 Meat & Fish",         icon:"🥩",prices:sp(4.00,[-0.01,-4.00,-4.00,-4.00,-4.00,-4.00]), upd:"1 Oct"}, 
-  {id:919,name:"Co-op Closed Cup Mushrooms (300g)",         cat:"🥦 Fruit & Veg",         icon:"🍄",prices:sp(1.30,[0,-1.30,-1.30,-1.30,-1.30,-1.30]), upd:"10 Oct"},  // members £1.15 until 27/10/26
+  {id:919, name:"Co-op Closed Cup Mushrooms (300g)", cat:"🥦 Fruit & Veg", icon:"🍄", prices:{coop:1.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"24 Oct"}, // members £1.15 until 27/10/26 | Co-op Millennium Park receipt 24 Oct matches
   {id:920,name:"Skittles Fruits (136g)",                    cat:"🍫 Confectionery",       icon:"🍬",prices:sp(1.19,[0,-1.19,-1.19,-1.19,-1.19,-1.19])}, 
   {id:921,name:"Co-op Melon (each)",                        cat:"🥦 Fruit & Veg",         icon:"🍈",prices:sp(2.35,[-0.75,-2.35,-2.35,-2.35,-2.35,-2.35]), upd:"20 Aug"}, 
   {id:922,name:"Co-op White Potatoes (1.5kg)",              cat:"🥦 Fruit & Veg",         icon:"🥔",prices:sp(1.40,[0,-1.40,-1.40,-1.40,-1.40,-1.40]), upd:"10 Oct"}, 
@@ -1228,7 +1230,7 @@ const BASE_PRODUCTS = [
   {id:951, name:"Morrisons Dishwasher Cleaner",                cat:"🧹 Household & Cleaning", icon:"🍽️", prices:sp(3.30,[-3.30,-3.30,-3.30,-3.30,0,-3.30])},
   {id:952, name:"Finish Dishwasher Cleaner",                   cat:"🧹 Household & Cleaning", icon:"🍽️", prices:sp(5.69,[-5.69,-5.69,-5.69,-5.69,0,-5.69])},
   {id:953, name:"Finish Dishwasher Salt (2kg)",                cat:"🧹 Household & Cleaning", icon:"🍽️", prices:sp(4.19,[-4.19,-4.19,-4.19,-4.19,0,-4.19])},
-  {id:954, name:"Morrisons All In One Dishwasher Tablets Lemon 40pk",   cat:"🧹 Household & Cleaning", icon:"🍋", prices:sp(4.40,[-4.40,-4.40,-4.40,-4.40,0,-4.40])},
+  {id:954, name:"Morrisons All In One Dishwasher Tablets Lemon 40pk", cat:"🧹 Household & Cleaning", icon:"🍋", prices:{coop:0,morrisons:4.6,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"23 Oct"}, // Morrisons Haute Croix receipt 23 Oct: MORRISONS ALL IN ONE LEMON DIS 4.60 (pack size not printed; the old Iceland 4.40 was an estimate for a Morrisons own-brand product)
   {id:955, name:"Morrisons All In One Dishwasher Tablets Original 40pk",cat:"🧹 Household & Cleaning", icon:"🍽️", prices:sp(4.40,[-4.40,-4.40,-4.40,-4.40,0,-4.40])},
   {id:956, name:"Fairy Original Power Dishwasher Capsules 88pk",        cat:"🧹 Household & Cleaning", icon:"🍽️", prices:sp(14.15,[-14.15,-14.15,-14.15,-14.15,0,-14.15])},
   {id:957, name:"Oasis Strawberry (500ml)",                    cat:"🥤 Drinks",              icon:"🍓", prices:sp(2.15,[-2.15,-2.15,-2.15,-2.15,0,-2.15])},
@@ -1359,7 +1361,7 @@ const BASE_PRODUCTS = [
   {id:1092,name:"Fairy Original Power Dishwasher Tablets",     cat:"🧹 Household & Cleaning", icon:"🍽️", prices:sp(4.20,[0,-4.20,-4.20,-4.20,-4.20,-4.20])},
   {id:1094,name:"Warburtons White/Wholemeal Loaf",             cat:"🍞 Bakery",               icon:"🍞", prices:{coop:1.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"4 Sep"},
   {id:1095,name:"CP Chilli Chicken Pizza",                     cat:"🍝 Pantry",               icon:"🍕", prices:sp(1.95,[0,-1.95,-1.95,-1.95,-1.95,-1.95]), upd:"20 Aug"},
-  {id:1096,name:"Cadbury Mint Crisp (5pk)",                    cat:"🍫 Confectionery",        icon:"🍫", prices:sp(1.50,[0,-1.50,-1.50,-1.50,-1.50,-1.50])},
+  {id:1096, name:"Cadbury Mint Crisp (5pk)", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:1.5,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"24 Oct"}, // Co-op Millennium Park receipt 24 Oct matches
   {id:1097,name:"Jersey Pouring/Single Cream",                 cat:"🥛 Dairy & Eggs",         icon:"🥛", prices:{coop:1.45,morrisons:0,ms:0,waitrose:0,iceland:1.55,alliance:0}, upd:"8 Oct"},
   {id:1098,name:"Sprite No Sugar (500ml)",                     cat:"🥤 Drinks",               icon:"🥤", prices:sp(2.10,[0,-2.10,-2.10,-0.06,-0.25,-2.10]), upd:"22 Oct", upds:{coop:"22 Oct",waitrose:"20 Oct"}}, // Waitrose St Saviour receipt 20 Oct: SPRITE NO SUGAR 2.04 (small bottle per shopper, so 500ml) | Co-op Five Oaks receipt 20 Oct confirms Co-op 2.10 | Co-op Five Oaks receipt 22 Oct confirms 2.10 again
   {id:1099,name:"CP Still Mineral Water",                      cat:"🥤 Drinks",               icon:"💧", prices:sp(0.75,[0,-0.75,-0.75,-0.75,-0.75,-0.75]), upd:"15 Aug"},
@@ -2712,7 +2714,7 @@ const BASE_PRODUCTS = [
   {id:2637, name:"Jersey Whole Milk 500ML", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:0.87,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:2638, name:"Jersey Dairy 2.5% Fat Reduced 500ML", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:0.87,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:2640, name:"Pukka All Steak Pie 209G", cat:"🥗 Deli & Salads", icon:"🥧", prices:{coop:2.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:2.75}, upd:"15 Oct", upds:{coop:"11 Jul",alliance:"15 Oct"}},
-  {id:2641, name:"Jersey Dairy 2.5% Fat Reduced LTR", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:1.64,morrisons:1.54,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
+  {id:2641, name:"Jersey Dairy 2.5% Fat Reduced Milk 1L", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:1.64,morrisons:1.54,ms:0,waitrose:1.65,iceland:0,alliance:0}, upd:"24 Oct", upds:{coop:"24 Oct",waitrose:"22 Oct"}}, // Waitrose St Saviour receipt 22 Oct: JDAIRY FAT RED MILK 1.65 (merged from row 700) | Co-op Millennium Park receipt 24 Oct: Jersey Green Fat R 2 @ 1.64
   {id:2642, name:"Pukka Chicken & Mushroom Pie 212G", cat:"🥗 Deli & Salads", icon:"🥧", prices:{coop:2.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:2643, name:"Jersey Dairy 1% Fat Milk Blue LTR", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:1.64,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:2644, name:"Jersey Skimmed Milk Orange 500 500ML", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:0.87,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -2796,13 +2798,13 @@ const BASE_PRODUCTS = [
   {id:2722, name:"Co-op Outdoor Bred Honey Roast Ham 120g", cat:"🥩 Meat & Fish", icon:"🍖", prices:{coop:2.8,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:2723, name:"Co-op Corned Beef 120g", cat:"🥩 Meat & Fish", icon:"🍖", prices:{coop:3.09,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"21 Oct"},
   {id:2724, name:"Co-op British Outdoor Bred Smoked Ham 120g", cat:"🥩 Meat & Fish", icon:"🍖", prices:{coop:2.8,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:2725, name:"Co-op British Outdoor Bred Breaded Ham 120g", cat:"🥩 Meat & Fish", icon:"🍖", prices:{coop:2.8,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
+  {id:2725, name:"Co-op British Outdoor Bred Breaded Ham 120g", cat:"🥩 Meat & Fish", icon:"🍖", prices:{coop:2.8,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"24 Oct"}, // Co-op Millennium Park receipt 24 Oct matches
   {id:2726, name:"Co-op Space to Thrive British BBQ Chicken Slices 130g", cat:"🥩 Meat & Fish", icon:"🍖", prices:{coop:3.7,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:2727, name:"Co-op Spanish Tortilla 250g", cat:"🥦 Fruit & Veg", icon:"🥗", prices:{coop:3.5,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £2.60 until 27/10/26
   {id:2728, name:"Shaken Udder Vanillalicious Milkshake 750ml", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:2.8,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:4.15}, upd:"15 Oct", upds:{coop:"11 Jul",alliance:"15 Oct"}},
   {id:2729, name:"Co-op Chicken Arrabbiata 400g", cat:"🥗 Deli & Salads", icon:"🥘", prices:{coop:4.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:2730, name:"Co-op Big On BBQ Space to Thrive Sweet Chilli Chicken Kebabs 270g", cat:"🥛 Dairy & Eggs", icon:"🥚", prices:{coop:5.35,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
-  {id:2731, name:"Co-op Irresistible Cheddar Cheese Coleslaw 300g", cat:"🥦 Fruit & Veg", icon:"🥗", prices:{coop:2.99,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
+  {id:2731, name:"Co-op Irresistible Cheddar Cheese Coleslaw 300g", cat:"🥦 Fruit & Veg", icon:"🥗", prices:{coop:2.99,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"24 Oct"}, // Co-op Millennium Park receipt 24 Oct matches
   {id:2732, name:"Co-op Classic Houmous 200g", cat:"🥦 Fruit & Veg", icon:"🥗", prices:{coop:1.8,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:2733, name:"Co-op Creamy Onion & Garlic Dip 200g", cat:"🥦 Fruit & Veg", icon:"🥗", prices:{coop:1.8,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:2734, name:"Co-op Mild Salsa 200g", cat:"🥦 Fruit & Veg", icon:"🥗", prices:{coop:1.8,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -3022,7 +3024,7 @@ const BASE_PRODUCTS = [
   {id:2949, name:"Co-op Sticky Toffee Puddings 2 x 105g (210g)", cat:"🥨 Snacks & Treats", icon:"🍰", prices:{coop:2.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:2950, name:"Violife Supreme Creamy 200g", cat:"🥛 Dairy & Eggs", icon:"🧀", prices:{coop:2.69,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:3.85}, upd:"15 Oct", upds:{coop:"11 Jul",alliance:"15 Oct"}},
   {id:2951, name:"Co-op Irresistible 2 Scotch Eggs 240g", cat:"🥗 Deli & Salads", icon:"🥧", prices:{coop:3.89,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:2952, name:"Peperami The Original 5 x 20g (100g) 5X20G", cat:"🥩 Meat & Fish", icon:"🍖", prices:{coop:3.4,morrisons:0,ms:0,waitrose:0,iceland:3.95,alliance:4.15}, upd:"15 Oct", upds:{coop:"10 Oct",iceland:"10 Oct",alliance:"15 Oct"}},
+  {id:2952, name:"Peperami The Original 5 x 20g (100g) 5X20G", cat:"🥩 Meat & Fish", icon:"🍖", prices:{coop:3.4,morrisons:0,ms:0,waitrose:0,iceland:3.95,alliance:4.15}, upd:"24 Oct", upds:{coop:"24 Oct",iceland:"10 Oct",alliance:"15 Oct"}}, // Co-op Millennium Park receipt 24 Oct matches
   {id:2953, name:"Violife 10 Original Slices 175g", cat:"🥛 Dairy & Eggs", icon:"🧀", prices:{coop:2.9,morrisons:0,ms:0,waitrose:0,iceland:3.1,alliance:4.15}, upd:"15 Oct", upds:{coop:"10 Oct",iceland:"10 Oct",alliance:"15 Oct"}},
   {id:2954, name:"Co-op Salt & Pepper Chicken Spring Rolls 100g 90G", cat:"🥗 Deli & Salads", icon:"🥘", prices:{coop:2.5,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:2955, name:"Co-op Mature Cheddar 700g", cat:"🥛 Dairy & Eggs", icon:"🧀", prices:{coop:6.0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -3031,7 +3033,7 @@ const BASE_PRODUCTS = [
   {id:2958, name:"Co-op 10 Mild Cheddar Slices 200g", cat:"🥛 Dairy & Eggs", icon:"🧀", prices:{coop:3.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:2959, name:"Co-op Somerset Brie 160g", cat:"🥛 Dairy & Eggs", icon:"🧀", prices:{coop:2.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:2960, name:"Co-op Grated Mature Cheddar 250g", cat:"🥛 Dairy & Eggs", icon:"🧀", prices:{coop:3.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:2961, name:"Co-op Grated Mild Cheddar 250g", cat:"🥛 Dairy & Eggs", icon:"🧀", prices:{coop:3.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
+  {id:2961, name:"Co-op Grated Mild Cheddar 250g", cat:"🥛 Dairy & Eggs", icon:"🧀", prices:{coop:3.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"24 Oct"}, // Co-op Millennium Park receipt 24 Oct matches
   {id:2962, name:"Co-op Red Leicester 240g", cat:"🥛 Dairy & Eggs", icon:"🧀", prices:{coop:3.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:2963, name:"Co-op Mild & Melting Grated Mozzarella 250g", cat:"🥛 Dairy & Eggs", icon:"🧀", prices:{coop:3.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:2964, name:"Co-op Irresistible West Country Yogurt Black Cherry 150g", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:1.05,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
@@ -3098,11 +3100,11 @@ const BASE_PRODUCTS = [
   {id:3025, name:"Co-op Irresistible Outdoor Bred Wiltshire Cooked Ham 5 Slices 120g", cat:"🥩 Meat & Fish", icon:"🍖", prices:{coop:4.2,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:3026, name:"Co-op Free Range Egg Mayonnaise 200g", cat:"🥩 Meat & Fish", icon:"🍖", prices:{coop:1.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:3027, name:"Co-op British Milk Double Cream 300ml", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:1.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:3028, name:"Co-op British Milk Single Cream 300ml", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:1.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"21 Oct"}, // Co-op receipt 21 Oct "Cp Frsh Sgl Crm" 1.40, 300ml confirmed by shopper; merged duplicate row 908
+  {id:3028, name:"Co-op British Milk Single Cream 300ml", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:1.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"24 Oct"}, // Co-op receipt 21 Oct "Cp Frsh Sgl Crm" 1.40, 300ml confirmed by shopper; merged duplicate row 908 | Co-op Millennium Park receipt 24 Oct matches
   {id:3029, name:"Co-op Space to Thrive British Half Roast Chicken 450g", cat:"🥩 Meat & Fish", icon:"🍖", prices:{coop:5,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:3030, name:"Müller Frijj Fudge Brownie Flavour Milkshake 330ml", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:1.7,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:2.15}, upd:"15 Oct", upds:{coop:"10 Oct",alliance:"15 Oct"}, oos:["alliance"]},
   {id:3031, name:"Richmond 8 Meat-Free Streaky Bacon Rashers 120g", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:3.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:3.65}, upd:"15 Oct", upds:{coop:"10 Oct",alliance:"15 Oct"}, oos:["alliance"]}, // members £2.85 until 27/10/26
-  {id:3032, name:"Co-op Chocolate Sundae 125g", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:1.9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
+  {id:3032, name:"Co-op Chocolate Sundae 125g", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:1.9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"24 Oct"}, // Co-op Millennium Park receipt 24 Oct matches
   {id:3033, name:"Dairylea Cheese Spread Triangles 8 Pack Multipack 125 g 125G", cat:"🥛 Dairy & Eggs", icon:"🧀", prices:{coop:2.2,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:3034, name:"Pots & Co 70% Chocolate Ganache 4 x 50g 4X50G", cat:"🥨 Snacks & Treats", icon:"🍰", prices:{coop:4.5,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:3035, name:"Co-op Creamy Tzatziki 200g", cat:"🥦 Fruit & Veg", icon:"🥗", prices:{coop:1.8,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -3281,7 +3283,7 @@ const BASE_PRODUCTS = [
   {id:3207, name:"Co-op Big on BBQ Hot Honey Pork Belly Slices 340g", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:5.0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:3208, name:"Co-op Stonebaked Texan Style BBQ Chicken Pizza 355g", cat:"🥗 Deli & Salads", icon:"🍕", prices:{coop:4.45,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"21 Oct"}, // Co-op receipt 21 Oct "Cp Sb Tbq Cp 355G" 4.45
   {id:3209, name:"Co-op A Pinch of Coriander 25G", cat:"🥦 Fruit & Veg", icon:"🥕", prices:{coop:0.99,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £0.70 until 27/10/26
-  {id:3210, name:"Co-op Cauliflower EACH", cat:"🥦 Fruit & Veg", icon:"🥕", prices:{coop:1.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
+  {id:3210, name:"Co-op Cauliflower EACH", cat:"🥦 Fruit & Veg", icon:"🥕", prices:{coop:1.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"24 Oct"}, // Co-op Millennium Park receipt 24 Oct matches
   {id:3211, name:"Co-op Detroit Style Double Pepperoni Deep Dish Pizza 446g", cat:"🥗 Deli & Salads", icon:"🍕", prices:{coop:5.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:3212, name:"Co-op Detroit Style Cheese Burger Deep Dish Pizza 500g", cat:"🥗 Deli & Salads", icon:"🍕", prices:{coop:5.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:3213, name:"Co-op Served Smash Burgers with a Gherkin & Mustard Cheese Melt 356g", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:5.8,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
@@ -3382,7 +3384,7 @@ const BASE_PRODUCTS = [
   {id:3308, name:"Co-op King Prawns in a Chilli & Coriander Marinade 140g", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:4.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:3309, name:"Co-op Irresistible 6 Pork & Caramelised Onion Sausages 400g", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:4.2,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:3310, name:"Co-op Space to Thrive British Chicken Breast Mini Fillets 400g", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:5.35,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:3311, name:"Co-op Space to Thrive British Diced Chicken Breast 400g", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:5.35,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £4.75 until 27/10/26
+  {id:3311, name:"Co-op Space to Thrive British Diced Chicken Breast 400g", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:5.35,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"24 Oct"}, // members £4.75 until 27/10/26 | Co-op Millennium Park receipt 24 Oct matches
   {id:3312, name:"Co-op Space to Thrive British Southern Fried Chicken Mini Fillets 305g", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:4.89,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £4.20 until 27/10/26
   {id:3313, name:"Co-op Irresistible Thai Inspired Chunky Salmon Fish Cakes 270g", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:4.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:3314, name:"Co-op Outdoor Bred British Unsmoked Back Bacon Thick Cut 300g", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:3.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £2.40 until 27/10/26
@@ -3390,7 +3392,7 @@ const BASE_PRODUCTS = [
   {id:3316, name:"Co-op British Thick Cut Smoked Back Bacon 300g", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:3.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £2.40 until 27/10/26
   {id:3317, name:"Co-op Space to Thrive British Crispy Chicken Breast Burger 300g", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:4.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £4.20 until 27/10/26
   {id:3318, name:"Co-op Irresistible Smoked Haddock & Mature Cheddar Fishcakes 270g", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:4.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:3320, name:"Co-op Space to Thrive British Large Whole Chicken 1.7KG", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:6.5,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £5.75 until 27/10/26
+  {id:3320, name:"Co-op Space to Thrive British Large Whole Chicken 1.7KG", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:6.5,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"24 Oct"}, // members £5.75 until 27/10/26 | Co-op Millennium Park receipt 24 Oct matches
   {id:3321, name:"Co-op Served Corn Bites 280g", cat:"🥦 Fruit & Veg", icon:"🥗", prices:{coop:2.9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:3322, name:"Gü Victoria Sponge Cake Pots 2 x 74g (148g) 2X75G", cat:"🥨 Snacks & Treats", icon:"🍰", prices:{coop:3.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £2.90 until 27/10/26
   {id:3323, name:"Gü Salted Pistachio Cheesecake 2 x 74.5g (149g) 2X74.5G", cat:"🥨 Snacks & Treats", icon:"🍰", prices:{coop:3.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct", oos:["coop"]},
@@ -3457,7 +3459,7 @@ const BASE_PRODUCTS = [
   {id:3383, name:"Purely Organic 6 Mixed Size Organic Eggs 328g 6S", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:3.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:3384, name:"The Happy Egg Co. Free Range 6 Large 6S", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:2.7}, upd:"15 Oct", upds:{coop:"10 Oct",alliance:"15 Oct"}},
   {id:3385, name:"Co-op Space To Thrive British Chicken Breast Fillets 850g", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:8,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £6.50 until 27/10/26
-  {id:3386, name:"Co-op 6 British Large Free Range Eggs 6S", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:2.2,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
+  {id:3386, name:"Co-op 6 British Large Free Range Eggs 6S", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:2.2,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"24 Oct"}, // Co-op Millennium Park receipt 24 Oct matches
   {id:3387, name:"Co-op 6 Free Range British Medium Eggs 6S", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:2.1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £1.60 until 03/01/27
   {id:3388, name:"Co-op British 12 Medium Free Range Eggs 12S", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:3.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:3389, name:"Co-op 6 Free Range British Very Large Eggs 6S", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:2.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -3503,7 +3505,7 @@ const BASE_PRODUCTS = [
   {id:3430, name:"Ginsters Chicken & Bacon Pasty 180g", cat:"🥗 Deli & Salads", icon:"🥧", prices:{coop:2.8,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:3431, name:"Alpro Almond No Sugar Chilled Dairy Free Drink 1L 1LTR", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:2.7,morrisons:0,ms:0,waitrose:0,iceland:2.95,alliance:3.1}, upd:"15 Oct", upds:{coop:"10 Oct",iceland:"10 Oct",alliance:"15 Oct"}},
   {id:3432, name:"Oykos Strawberry Luxury Greek Style Yoghurt Dessert 4x110g", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:3.4,morrisons:0,ms:0,waitrose:0,iceland:3.35,alliance:3.5}, upd:"15 Oct", upds:{coop:"10 Oct",iceland:"10 Oct",alliance:"15 Oct"}}, // members £2.10 until 17/11/26
-  {id:3433, name:"Co-op Space to Thrive British Hot & Spicy Chicken Mini Fillets 305g", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:4.72,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £4.20 until 27/10/26
+  {id:3433, name:"Co-op Space to Thrive British Hot & Spicy Chicken Mini Fillets 305g", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:4.72,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"24 Oct"}, // members £4.20 until 27/10/26 | Co-op Millennium Park receipt 24 Oct matches
   {id:3434, name:"Co-op Space to Thrive British Breaded Chicken Goujons 230g", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:3.19,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:3435, name:"Munch Bunch Double Up Fromage Frais Strawberry Vanilla 4 x 85g (340g) 4X85G", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:2.05,morrisons:0,ms:0,waitrose:0,iceland:2.65,alliance:2.75}, upd:"15 Oct", upds:{coop:"10 Oct",iceland:"10 Oct",alliance:"15 Oct"}},
   {id:3436, name:"Flora Original Natural Ingredients 450g", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:3.1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -3516,7 +3518,7 @@ const BASE_PRODUCTS = [
   {id:3443, name:"Co-op Supporting British Farms 15% Fat Beef Mince 450g", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:5.25,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"19 Sep"},
   {id:3444, name:"Co-op Turkey Thigh Mince 500g", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:4.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:3445, name:"Co-op Outdoor Bred 5% Fat British Pork Mince 500g", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:4.0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £3.35 until 27/10/26
-  {id:3446, name:"Co-op Outdoor Bred British Unsmoked Back Bacon 300g", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:3.40,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £2.45 until 27/10/26
+  {id:3446, name:"Co-op Outdoor Bred British Unsmoked Back Bacon 300g", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:3.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"24 Oct"}, // members £2.45 until 27/10/26 | Co-op Millennium Park receipt 24 Oct matches
   {id:3447, name:"Co-op Space to Thrive British Chicken Thighs 600g", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:3.9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £2.80 until 27/10/26
   {id:3448, name:"Co-op British Smoked Back Bacon 300g", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:3.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £2.45 until 27/10/26
   {id:3449, name:"Co-op 2 Salmon Fillets with a Pesto Butter 230g", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:6.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
@@ -3627,7 +3629,7 @@ const BASE_PRODUCTS = [
   {id:3554, name:"Co-op Bolognese Pasta Bake 750g", cat:"🥗 Deli & Salads", icon:"🥘", prices:{coop:5.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:3555, name:"Co-op Garlic & Herb Flatbread 225g", cat:"🥗 Deli & Salads", icon:"🍕", prices:{coop:2.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:3556, name:"Co-op Garlic & Cheese Flatbread 230g", cat:"🥗 Deli & Salads", icon:"🍕", prices:{coop:2.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:3557, name:"Co-op Garlic Baguette 205g", cat:"🥗 Deli & Salads", icon:"🍕", prices:{coop:1.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
+  {id:3557, name:"Co-op Garlic Baguette 205g", cat:"🥗 Deli & Salads", icon:"🍕", prices:{coop:1.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"24 Oct"}, // Co-op Millennium Park receipt 24 Oct matches
   {id:3558, name:"Co-op 2 Garlic Baguettes 410g", cat:"🥗 Deli & Salads", icon:"🍕", prices:{coop:2.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:3559, name:"Co-op Classic Lasagne 750g", cat:"🥗 Deli & Salads", icon:"🥘", prices:{coop:5.6,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:3560, name:"Co-op Sweet & Sour Chicken with Egg Fried Rice 400g", cat:"🥗 Deli & Salads", icon:"🥘", prices:{coop:4.5,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -3638,7 +3640,7 @@ const BASE_PRODUCTS = [
   {id:3565, name:"Co-op Irresistible Spiced & Marinated Chicken Tikka Masala 400g", cat:"🥗 Deli & Salads", icon:"🥘", prices:{coop:5.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:3566, name:"Co-op Irresistible Petits Pois & Beechwood Smoked Ham Soup 600g", cat:"🥗 Deli & Salads", icon:"🥘", prices:{coop:3.5,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:3567, name:"Co-op Creamy Leek & Potato Soup 600g", cat:"🥗 Deli & Salads", icon:"🥘", prices:{coop:2.5,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct", oos:["coop"]},
-  {id:3568, name:"Co-op Fairtrade Small Bananas 6S", cat:"🥦 Fruit & Veg", icon:"🍏", prices:{coop:1.29,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
+  {id:3568, name:"Co-op Fairtrade Small Bananas 6S", cat:"🥦 Fruit & Veg", icon:"🍏", prices:{coop:1.29,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"24 Oct"}, // Co-op Millennium Park receipt 24 Oct matches
   {id:3569, name:"Co-op Organic Leeks 350g", cat:"🥦 Fruit & Veg", icon:"🌿", prices:{coop:2,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £1.80 until 27/10/26
   {id:3570, name:"Co-op Organic Courgettes 2PK", cat:"🥦 Fruit & Veg", icon:"🌿", prices:{coop:2.69,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:3571, name:"Co-op Organic Broccoli 300g", cat:"🥦 Fruit & Veg", icon:"🌿", prices:{coop:2.09,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -3675,7 +3677,7 @@ const BASE_PRODUCTS = [
   {id:3602, name:"Co-op Butterhead Salad 80g", cat:"🥦 Fruit & Veg", icon:"🥗", prices:{coop:1.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:3603, name:"Co-op Outdoor Bred British 6 Pork Loin Steaks 600g", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:6.0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £5.00 until 27/10/26
   {id:3604, name:"Co-op Outdoor Bred 2 British Pork Chops 350g", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:3.69,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:3605, name:"Co-op Diced Beef Casserole Steak 400g", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:6.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
+  {id:3605, name:"Co-op Diced Beef Casserole Steak 400g", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:7,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"24 Oct"}, // Co-op Millennium Park receipt 24 Oct: Cp Diced Cssrle Stk 7.00 (was 6.75)
   {id:3606, name:"Co-op 2 Battered Haddock 270g", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:4.89,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:3607, name:"Co-op Alfresco Salad 320g", cat:"🥦 Fruit & Veg", icon:"🥗", prices:{coop:2.9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:3608, name:"Co-op Watermelon Chunks 300g", cat:"🥦 Fruit & Veg", icon:"🥗", prices:{coop:3.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -3910,7 +3912,7 @@ const BASE_PRODUCTS = [
   {id:3705, name:"Mr Kipling 6 Angel Slices 6S", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:3.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:3706, name:"Co-op Time Treat 6 Tea Bramley Apple Pies 6PACK", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:2.0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:3707, name:"Co-op 6 Assorted Jam Tarts 6PK", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:1.59,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
-  {id:3708, name:"Mrs Crimble's 6 Big Choc Macaroons 195g", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:1.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £1.47 until 20/10/26
+  {id:3708, name:"Mrs Crimble's 6 Big Choc Macaroons 195g", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:1.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"24 Oct"}, // special offer £1.47 until 20/10/26 | Co-op Millennium Park receipt 24 Oct matches
   {id:3709, name:"Brioche Pasquier Pitch Chocolate and Hazelnut Brioche 4 x 37.5g (150g) 4PACK", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:1.89,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:3710, name:"Brioche Pasquier 6 Brioche Rolls 6PACK", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:2.39,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:2.45}, upd:"15 Oct", upds:{coop:"10 Oct",alliance:"15 Oct"}}, // merged duplicate rows 13495
   {id:3711, name:"Brioche Pasquier 6 Brioche Rolls Chocolate Chips 6S", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:2.39,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:2.45}, upd:"15 Oct", upds:{coop:"10 Oct",alliance:"15 Oct"}},
@@ -3923,7 +3925,7 @@ const BASE_PRODUCTS = [
   {id:3718, name:"Co-op Bakery 6 Soft White Rolls 6S", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:1.25,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"22 Oct"}, // Co-op Five Oaks receipt 22 Oct: Cp Wht Rolls 6S 1.25 (matches)
   {id:3719, name:"Menissez Bake at Home 6 French Mini Pains 300g 6PACK", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:2.45,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:3720, name:"Co-op Irresistible 4 Sultana Scones 4S", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:3721, name:"Co-op Bakery 8 White Tortilla Wraps 8S", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:1.9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
+  {id:3721, name:"Co-op Bakery 8 White Tortilla Wraps 8S", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:1.9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"24 Oct"}, // Co-op Millennium Park receipt 24 Oct matches
   {id:3722, name:"Warburtons 4 Sliced Brioche Hot Dog Rolls 4EACH", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:3723, name:"Co-op Limited Edition Irresistible Mango Cheesecake EACH", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:3.9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:3724, name:"Co-op Bakery 6 White Pitta Breads 6S", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:1.2,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £0.90 until 27/10/26
@@ -3957,7 +3959,7 @@ const BASE_PRODUCTS = [
   {id:3755, name:"Warburtons Pearl Sugar Belgian Waffles 4 x 50g 4S", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:3756, name:"Warburtons Pearl Sugar Belgian Waffle 70g EACH", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:1.39,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:1.75}, upd:"15 Oct", upds:{coop:"10 Oct",alliance:"15 Oct"}},
   {id:3757, name:"Warburtons 4 Brioche Burger Buns 4S", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:2.1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:3758, name:"Sheldon's 4 Soft Large Brown Baps 4S", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:1.45,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
+  {id:3758, name:"Sheldon's 4 Soft Large Brown Baps 4S", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:1.45,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"24 Oct"}, // Co-op Millennium Park receipt 24 Oct matches
   {id:3759, name:"Co-op Treat Brookie EACH", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:1.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:3760, name:"Co-op Treat Brownie EACH", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:1.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:3761, name:"Co-op Treat Millionaire's Shortbread EACH", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:1.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
@@ -4440,7 +4442,7 @@ const BASE_PRODUCTS = [
   {id:3799, name:"Birds Eye 4 Chicken Burgers 200g", cat:"🧊 Frozen", icon:"🍗", prices:{coop:3.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:3800, name:"Birds Eye 2 Crispy Tempura Battered Chicken 170g", cat:"🧊 Frozen", icon:"🍗", prices:{coop:3.45,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:3801, name:"Birds Eye 2 Crunchy Southern Fried Chicken 180g", cat:"🧊 Frozen", icon:"🍗", prices:{coop:3.45,morrisons:0,ms:0,waitrose:0,iceland:3.5,alliance:0}, upd:"10 Oct"},
-  {id:3802, name:"Birds Eye 12 Chicken Dippers 220g", cat:"🧊 Frozen", icon:"🍗", prices:{coop:3.2,morrisons:0,ms:0,waitrose:0,iceland:3.7,alliance:3.85}, upd:"15 Oct", upds:{iceland:"10 Oct"}},
+  {id:3802, name:"Birds Eye 12 Chicken Dippers 220g", cat:"🧊 Frozen", icon:"🍗", prices:{coop:3.2,morrisons:0,ms:0,waitrose:0,iceland:3.7,alliance:3.85}, upd:"24 Oct", upds:{iceland:"10 Oct",coop:"24 Oct"}}, // Co-op Millennium Park receipt 24 Oct matches
   {id:3803, name:"Birds Eye Chicken Shop Ultimate Fillet Burgers 227g", cat:"🧊 Frozen", icon:"🍗", prices:{coop:5.0,morrisons:0,ms:0,waitrose:0,iceland:5.8,alliance:5.25}, upd:"15 Oct", upds:{iceland:"10 Oct"}},
   {id:3804, name:"Co-op 4 British Beef Quarter Pounders 454g", cat:"🧊 Frozen", icon:"🍗", prices:{coop:5.25,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:3805, name:"Strong Roots Crispy Sweet Potato Fries 500g", cat:"🧊 Frozen", icon:"🥦", prices:{coop:3.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
@@ -4453,9 +4455,9 @@ const BASE_PRODUCTS = [
   {id:3812, name:"McCain 4 Slow Baked Jackets 800g 4PACK", cat:"🧊 Frozen", icon:"🥦", prices:{coop:4.2,morrisons:0,ms:0,waitrose:0,iceland:5.1,alliance:0}, upd:"10 Oct"}, // special offer £3.15 until 27/10/26
   {id:3813, name:"McCain Crinkle Home Chips 1kg", cat:"🧊 Frozen", icon:"🥦", prices:{coop:3.9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:3814, name:"McCain Straight Home Chips 1kg", cat:"🧊 Frozen", icon:"🥦", prices:{coop:3.9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:4.35}, upd:"15 Oct", upds:{coop:"10 Oct",alliance:"15 Oct"}},
-  {id:3815, name:"McCain Crispy French Fries 900g", cat:"🧊 Frozen", icon:"🥦", prices:{coop:3.89,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:4.35}, upd:"15 Oct", upds:{coop:"10 Oct",alliance:"15 Oct"}},
+  {id:3815, name:"McCain Crispy French Fries 900g", cat:"🧊 Frozen", icon:"🥦", prices:{coop:3.89,morrisons:0,ms:0,waitrose:3.89,iceland:0,alliance:4.35}, upd:"24 Oct", upds:{coop:"10 Oct",alliance:"15 Oct",waitrose:"24 Oct"}}, // Waitrose St Helier receipt 24 Oct: MCCAIN FRENCH FRIES 3.89 (size not printed; same price as Co-op 900g)
   {id:3816, name:"McCain Crispy Hash Browns 625g", cat:"🧊 Frozen", icon:"🥦", prices:{coop:3.39,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:3.8}, upd:"15 Oct", upds:{coop:"10 Oct",alliance:"15 Oct"}},
-  {id:3817, name:"McCain Lightly Spiced Wedges 650g", cat:"🧊 Frozen", icon:"🥦", prices:{coop:3.4,morrisons:0,ms:0,waitrose:0,iceland:3.7,alliance:0}, upd:"10 Oct"}, // merged duplicate rows 8128
+  {id:3817, name:"McCain Lightly Spiced Wedges 650g", cat:"🧊 Frozen", icon:"🥦", prices:{coop:3.4,morrisons:0,ms:0,waitrose:0,iceland:3.7,alliance:0}, upd:"24 Oct", upds:{iceland:"10 Oct",coop:"24 Oct"}}, // merged duplicate rows 8128 | Co-op Millennium Park receipt 24 Oct matches
   {id:3818, name:"McCain Smiles 454g", cat:"🧊 Frozen", icon:"🥦", prices:{coop:3.39,morrisons:0,ms:0,waitrose:0,iceland:3.35,alliance:0}, upd:"10 Oct"},
   {id:3819, name:"Aunt Bessie's Crispy & Fluffy Roasties 600g", cat:"🧊 Frozen", icon:"🥦", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:3.35,alliance:3.6}, upd:"15 Oct", upds:{coop:"10 Oct",iceland:"10 Oct",alliance:"15 Oct"}},
   {id:3820, name:"Co-op Battered Onion Rings 454g", cat:"🧊 Frozen", icon:"🥦", prices:{coop:2.2,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -4625,7 +4627,7 @@ const BASE_PRODUCTS = [
   {id:3988, name:"Colman's Classic Comforts Beef Casserole Recipe Mix 40 g 40G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.3,morrisons:0,ms:0,waitrose:0,iceland:1.35,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:3989, name:"Colman's Classic Comforts Meal Maker Chicken Casserole 40 g 40G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.3,morrisons:0,ms:0,waitrose:0,iceland:1.35,alliance:1.4}, upd:"15 Oct", upds:{coop:"10 Oct",iceland:"10 Oct",alliance:"15 Oct"}},
   {id:3990, name:"Colman's Midweek Meals Parsley Sauce Mix 20 g 20G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:3991, name:"Co-op Sage and Onion Stuffing Mix 170G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:0.79,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
+  {id:3991, name:"Co-op Sage and Onion Stuffing Mix 170G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:0.79,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"24 Oct"}, // Co-op Millennium Park receipt 24 Oct matches
   {id:3992, name:"Co-op A Pinch of Table Salt 750g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:0.99,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:3993, name:"Co-op Cook's Kitchen Cornflour 250g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.45,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:3994, name:"Co Op Sea Salt Mill 110g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.69,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -4669,7 +4671,7 @@ const BASE_PRODUCTS = [
   {id:4035, name:"Oxo 12 Chicken 71g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.0,morrisons:0,ms:0,waitrose:0,iceland:3.75,alliance:0}, upd:"10 Oct"},
   {id:4037, name:"Oxo 12 Vegetable 71g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.0,morrisons:0,ms:0,waitrose:0,iceland:3.75,alliance:3.95}, upd:"15 Oct", upds:{coop:"10 Oct",iceland:"10 Oct",alliance:"15 Oct"}},
   {id:4038, name:"Co-op Cook's Kitchen Gravy Granules for Chicken 170g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.19,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:4039, name:"Co-op Cook's Kitchen Gravy Granules 170g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.19,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
+  {id:4039, name:"Co-op Cook's Kitchen Gravy Granules 170g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.19,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"24 Oct"}, // Co-op Millennium Park receipt 24 Oct matches
   {id:4040, name:"Kallo Organic Very Low Salt Chicken Stock Cubes 6 x 8g 48G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.49,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4041, name:"Table Salt Saldomar 250g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.05,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4042, name:"Saldomar Sea Salt 1KG", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.45,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -4759,7 +4761,7 @@ const BASE_PRODUCTS = [
   {id:4126, name:"Heinz Salad Cream Original 425g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.99,morrisons:0,ms:0,waitrose:0,iceland:3.35,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}},
   {id:4127, name:"Heinz 30% Less Fat Salad Cream 415g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.99,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4128, name:"Heinz Salad Cream Original 605g 570ML", cat:"🍝 Pantry", icon:"🍝", prices:{coop:4.75,morrisons:0,ms:0,waitrose:0,iceland:4.9,alliance:5.15}, upd:"15 Oct", upds:{coop:"10 Oct",iceland:"10 Oct",alliance:"15 Oct"}, oos:["iceland","alliance"]},
-  {id:4129, name:"Heinz Tomato Ketchup Zero Added Sugar & Salt 400ml", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
+  {id:4129, name:"Heinz Tomato Ketchup Zero Added Sugar & Salt 400ml", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.95,morrisons:0,ms:0,waitrose:3.48,iceland:0,alliance:0}, upd:"24 Oct", upds:{coop:"10 Oct",waitrose:"24 Oct"}}, // Waitrose St Helier receipt 24 Oct: HEINZ ZERO KETCHUP 3.48 (size not printed)
   {id:4130, name:"Co-op Pickled Gherkins in Sweet Vinegar 680g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.25,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4131, name:"Hellmann's Light Mayonnaise Condiment 430 ml 430ML", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.15,morrisons:0,ms:0,waitrose:0,iceland:3.6,alliance:3.75}, upd:"15 Oct", upds:{iceland:"10 Oct"}},
   {id:4132, name:"Co-op Classic Cranberry Sauce 200g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.7,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -4910,7 +4912,7 @@ const BASE_PRODUCTS = [
   {id:4285, name:"Carr's Melts Cheese 150g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.5,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £1.58 until 20/10/26
   {id:4286, name:"McVitie's Digestives Seriously Chocolatey 250g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.89,morrisons:0,ms:0,waitrose:0,iceland:3.1,alliance:3.25}, upd:"15 Oct", upds:{iceland:"10 Oct"}},
   {id:4287, name:"McVitie's Signature Cocoa Truffle Gold Rounds 109g 15X109G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.7,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:4288, name:"Co-op Bourbon Creams 300g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.05,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
+  {id:4288, name:"Co-op Bourbon Creams 300g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.05,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"24 Oct"}, // Co-op Millennium Park receipt 24 Oct matches
   {id:4289, name:"Co-op a Cracking Rosemary Cracker 185g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.5,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4290, name:"Co-op Rich Tea 300g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:0.99,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4291, name:"Co-op 20 Shortbread Fingers 380g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -5029,7 +5031,7 @@ const BASE_PRODUCTS = [
   {id:4405, name:"Lizi's Low Sugar Nuts & Seeds Granola 400g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.89,morrisons:0,ms:0,waitrose:4.25,iceland:0,alliance:0}, upd:"2 Aug"},
   {id:4406, name:"Bio&Me Granola Super Seedy & Nutty 360g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:4.2,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4407, name:"Mornflake Mighty Oats Organic Porridge 1kg", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £2.36 until 20/10/26
-  {id:4408, name:"Weetabix 12 Biscuits 12S", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.45,morrisons:0,ms:0,waitrose:0,iceland:2.65,alliance:0}, upd:"10 Oct"},
+  {id:4408, name:"Weetabix 12 Biscuits 12S", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.45,morrisons:0,ms:0,waitrose:0,iceland:2.65,alliance:0}, upd:"24 Oct", upds:{iceland:"10 Oct",coop:"24 Oct"}}, // Co-op Millennium Park receipt 24 Oct matches
   {id:4409, name:"Ready Brek Smooth Porridge Oats Original 450g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.8,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £1.80 until 20/10/26
   {id:4410, name:"Weetabix Marvel Chocolate Stars 500g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4411, name:"Weetabix Crispy Minis Caramelised Biscuit 500g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.89,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
@@ -5116,7 +5118,7 @@ const BASE_PRODUCTS = [
   {id:4492, name:"Cadbury Dairy Milk Wholenut Chocolate Bar 120 g 120G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.5,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £1.58 until 20/10/26
   {id:4493, name:"Co-op Irresistible Single Origin Dark Chocolate with Raspberries 100g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4494, name:"Skittles Chewies Fruits Sweets Pouch Bag 137g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.19,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £1.00 until 20/10/26
-  {id:4495, name:"Skittles Fruit Flavoured Sweets Bag 136g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.19,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £1.00 until 20/10/26
+  {id:4495, name:"Skittles Fruit Flavoured Sweets Bag 136g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.19,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"24 Oct"}, // special offer £1.00 until 20/10/26 | Co-op Millennium Park receipt 24 Oct matches
   {id:4496, name:"Starburst Vegan Chewy Sweets Fruit Flavoured Pouch Bag 138g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.19,morrisons:0,ms:0,waitrose:0,iceland:1.65,alliance:1.55}, upd:"15 Oct", upds:{coop:"10 Oct",iceland:"10 Oct",alliance:"15 Oct"}}, // special offer £1.00 until 20/10/26
   {id:4497, name:"Skittles Gooeys Fruit Flavoured Sweets Bag 125g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.19,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £1.00 until 20/10/26
   {id:4498, name:"Werther's Original Butter Candies 135g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:1.85}, upd:"15 Oct", upds:{coop:"10 Oct",alliance:"15 Oct"}},
@@ -5218,7 +5220,7 @@ const BASE_PRODUCTS = [
   {id:4595, name:"Cadbury Milk Tray Chocolate Pralines Gifting Box 312 g 312G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:7.35,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4596, name:"KitKat Chunky 4 x 40g (160g)", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:4597, name:"Toblerone Milk Chocolate Bar 100g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.25,morrisons:0,ms:0,waitrose:0,iceland:2.65,alliance:2.75}, upd:"15 Oct", upds:{coop:"10 Oct",iceland:"10 Oct",alliance:"15 Oct"}}, // special offer £1.90 until 20/10/26
-  {id:4598, name:"Snickers Duo Peanut & Caramel Chocolate Bar 69g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.6,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:1.6}, upd:"15 Oct", upds:{coop:"10 Oct",alliance:"15 Oct"}},
+  {id:4598, name:"Snickers Duo Peanut & Caramel Chocolate Bar 69g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.6,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:1.6}, upd:"24 Oct", upds:{coop:"24 Oct",alliance:"15 Oct"}}, // Co-op Millennium Park receipt 24 Oct matches
   {id:4599, name:"M&M's Minis Milk Chocolate Bag 115g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £1.58 until 20/10/26
   {id:4600, name:"Lindt Excellence Dark 70% Cocoa Chocolate Bar 100g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.95,morrisons:0,ms:0,waitrose:3.50,iceland:0,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}}, // special offer £3.15 until 20/10/26
   {id:4601, name:"Lindt Excellence Dark Sea Salt Chocolate Bar 100g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.95,morrisons:0,ms:0,waitrose:3.50,iceland:0,alliance:4.15}, upd:"15 Oct", upds:{coop:"10 Oct"}}, // special offer £3.15 until 20/10/26
@@ -5301,7 +5303,7 @@ const BASE_PRODUCTS = [
   {id:4681, name:"Tyrrells Sea Salt & Cider Vinegar Hand-Cooked English Crisps 150g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.39,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:3.1}, upd:"15 Oct", upds:{coop:"10 Oct",alliance:"15 Oct"}}, // special offer £1.80 until 20/10/26
   {id:4682, name:"Tyrrells Mature Cheddar & Chive Hand-Cooked English Crisps 150g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.39,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:3.1}, upd:"15 Oct", upds:{coop:"10 Oct",alliance:"15 Oct"}}, // special offer £1.80 until 20/10/26
   {id:4683, name:"Pringles Texas BBQ Sauce 165g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:3.45}, upd:"15 Oct", upds:{coop:"10 Oct",alliance:"15 Oct"}, oos:["alliance"]}, // special offer £1.75 until 20/10/26
-  {id:4684, name:"Pringles Sour Cream & Onion 165g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:3.45}, upd:"15 Oct", upds:{coop:"10 Oct",alliance:"15 Oct"}}, // special offer £1.75 until 20/10/26
+  {id:4684, name:"Pringles Sour Cream & Onion 165g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:3.45}, upd:"24 Oct", upds:{coop:"24 Oct",alliance:"15 Oct"}}, // special offer £1.75 until 20/10/26 | Co-op Millennium Park receipt 24 Oct matches
   {id:4685, name:"Walkers Max Strong Jalapeño & Cheese Sharing Crisps 140g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £1.60 until 20/10/26
   {id:4686, name:"Doritos Chilli Heatwave Tortilla Chips Sharing Bag Crisps 140g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4687, name:"Doritos Cool Original Tortilla Chips Sharing Bag Crisps 140g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -5312,7 +5314,7 @@ const BASE_PRODUCTS = [
   {id:4692, name:"Walkers Sensations Mature Cheddar Cheese & Chilli Sharing Crisps 150g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.19,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:4693, name:"Walkers Sensations Thai Sweet Chilli Sharing Bag Crisps 150g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:3.3,alliance:3.45}, upd:"15 Oct", upds:{coop:"10 Oct",iceland:"10 Oct",alliance:"15 Oct"}, oos:["alliance"]},
   {id:4694, name:"Wotsits Giants Really Cheesy Sharing Cheese Snacks Crisps 130g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:2.95,alliance:3.1}, upd:"15 Oct", upds:{coop:"10 Oct",iceland:"10 Oct",alliance:"15 Oct"}},
-  {id:4695, name:"Walkers Wotsits Giants Snacks Sweet & Spicy Sharing Crisps 130g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
+  {id:4695, name:"Walkers Wotsits Giants Snacks Sweet & Spicy Sharing Crisps 130g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"24 Oct"}, // Co-op Millennium Park receipt 24 Oct matches
   {id:4696, name:"Walkers Bugles Snacks Southern Style BBQ Sharing Crisps 110g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:2.5}, upd:"15 Oct", upds:{coop:"10 Oct",alliance:"15 Oct"}},
   {id:4697, name:"Walkers Sensations Mango & Chilli Chutney Sharing Poppadoms Crisps 82.5g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.19,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £1.40 until 20/10/26
   {id:4698, name:"Walkers Squares Flavour Potato Snacks 6 x 22g 6X22G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.4,morrisons:0,ms:0,waitrose:0,iceland:2.6,alliance:2.65}, upd:"15 Oct", upds:{coop:"10 Oct",iceland:"10 Oct",alliance:"15 Oct"}}, // special offer £1.40 until 20/10/26
@@ -5494,7 +5496,7 @@ const BASE_PRODUCTS = [
   {id:4880, name:"Co-op Home Baking Lime Juice 250ml", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.05,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4881, name:"Co-op British Plain White Flour 1.5kg", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.05,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4882, name:"Co Op Soft Figs 250g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:4883, name:"Co-op 2 Garlic & Coriander Naan Breads 260G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.20,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"28 Aug"},
+  {id:4883, name:"Co-op 2 Garlic & Coriander Naan Breads 260G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.2,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"24 Oct"}, // Co-op Millennium Park receipt 24 Oct matches
   {id:4884, name:"Dolmio Stir in Slow Roasted Garlic & Tomato Pasta Sauce 150g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.39,morrisons:0,ms:0,waitrose:0,iceland:2.5,alliance:0}, upd:"10 Oct", upds:{iceland:"10 Oct"}},
   {id:4885, name:"Sharwood's Korma Cooking Sauce 420g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.95,morrisons:0,ms:0,waitrose:0,iceland:3.6,alliance:3.75}, upd:"15 Oct", upds:{coop:"10 Oct",iceland:"10 Oct",alliance:"15 Oct"}}, // special offer £1.94 until 20/10/26
   {id:4886, name:"Sharwood's Tikka Masala Cooking Sauce 420g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.95,morrisons:0,ms:0,waitrose:0,iceland:3.6,alliance:3.75}, upd:"15 Oct", upds:{coop:"10 Oct",iceland:"10 Oct",alliance:"15 Oct"}, oos:["iceland"]}, // special offer £1.94 until 20/10/26
@@ -5523,7 +5525,7 @@ const BASE_PRODUCTS = [
   {id:4909, name:"Co-op Italian Menu Tomato Sauce 500g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.8,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:4910, name:"Co-op Indian Menu Mini Poppadums 60g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4911, name:"Co-op Brown Basmati Rice 500g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.8,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:4912, name:"Co-op Mexican Menu Taco Seasoning Spice Mix 30g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:0.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
+  {id:4912, name:"Co-op Mexican Menu Taco Seasoning Spice Mix 30g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:0.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"24 Oct"}, // Co-op Millennium Park receipt 24 Oct matches
   {id:4913, name:"Ben's Original Sauce for Chilli Con Carne Medium 450g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.75,morrisons:0,ms:0,waitrose:0,iceland:3.7,alliance:3.85}, upd:"15 Oct", upds:{coop:"10 Oct",iceland:"10 Oct",alliance:"15 Oct"}, oos:["iceland"]}, // special offer £2.10 until 20/10/26
   {id:4914, name:"Ben's Original Sweet & Sour Tangy 450g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £2.10 until 20/10/26
   {id:4915, name:"Dolmio Sauce for Lasagne Tomato 450g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.85,morrisons:0,ms:0,waitrose:0,iceland:3.45,alliance:3.6}, upd:"15 Oct", upds:{coop:"10 Oct",iceland:"10 Oct",alliance:"15 Oct"}},
@@ -5623,7 +5625,7 @@ const BASE_PRODUCTS = [
   {id:5009, name:"Co-op Italian Spirali 500g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:0.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £0.75 until 03/01/27
   {id:5010, name:"Co-op Italian Menu Farfalle 500g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:0.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £0.75 until 03/01/27
   {id:5011, name:"Co-op Long Grain Rice 250g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:5012, name:"Co-op Basmati Rice 250g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
+  {id:5012, name:"Co-op Basmati Rice 250g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"24 Oct"}, // Co-op Millennium Park receipt 24 Oct matches
   {id:5013, name:"Co-op Wholegrain Rice 250g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5014, name:"Co-op Golden Vegetable Rice 250g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.05,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5015, name:"Co-op Thai Menu Coconut Milk 400ml", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.7,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -5758,7 +5760,7 @@ const BASE_PRODUCTS = [
   {id:5147, name:"Co-op Tuna Steak with a Little Sunflower Oil 3 x 110g 3X110G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:4.1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5148, name:"Co-op Classic Minestrone Soup 400g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £0.85 until 03/01/27
   {id:5149, name:"Co-op Honest Value Chopped Tomatoes in Tomato Juice 400g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:0.7,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £0.50 until 03/01/27
-  {id:5150, name:"Co-op Tuna Flakes in Brine 145g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:0.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
+  {id:5150, name:"Co-op Tuna Flakes in Brine 145g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:0.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"24 Oct"}, // Co-op Millennium Park receipt 24 Oct matches
   {id:5151, name:"Co-op Spaghetti Rings in Tomato Sauce 385g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:0.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5152, name:"Co-op Tuna Steak with a Little Spring Water 3 x 110g 3X110G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:4.1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5153, name:"Co-op Green Lentils in Water 400g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:0.7,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -5766,7 +5768,7 @@ const BASE_PRODUCTS = [
   {id:5155, name:"Co-op Black Beans 400G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:0.7,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"8 Oct"},
   {id:5156, name:"Co-op Classic Corned Beef 340g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:4.45,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5157, name:"Co-op Classic Corned Beef 200g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.35,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:5158, name:"Co-op Baked Beans in Tomato Sauce 210g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:0.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
+  {id:5158, name:"Co-op Baked Beans in Tomato Sauce 210g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:0.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"24 Oct"}, // Co-op Millennium Park receipt 24 Oct matches
   {id:5159, name:"Co-op Cream of Mushroom Soup 400g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"8 Oct"},
   {id:5160, name:"Co-op Classic Scotch Broth 400g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5161, name:"Heinz Cathedral City Cheesy Tinned Baked Beans 390g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"8 Oct"},
@@ -6022,7 +6024,7 @@ const BASE_PRODUCTS = [
   {id:5411, name:"Co-op 4 Quilted Bathroom Tissue Rolls", cat:"🧹 Household", icon:"🧻", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5412, name:"Andrex Fresh and Soothe 36 Hygiene Wipes", cat:"🧹 Household", icon:"🧻", prices:{coop:2.1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £1.05 until 20/10/26
   {id:5413, name:"Andrex Ultimate Fresh Hygiene Wipes", cat:"🧹 Household", icon:"🧻", prices:{coop:2.1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:5414, name:"Co-op Ultra Absorbent Multi Purpose Towel", cat:"🧹 Household", icon:"🧻", prices:{coop:2.05,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
+  {id:5414, name:"Co-op Ultra Absorbent Multi Purpose Towel", cat:"🧹 Household", icon:"🧻", prices:{coop:2.05,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"24 Oct"}, // Co-op Millennium Park receipt 24 Oct matches
   {id:5415, name:"Co-op Super Soft White Bathroom Tissue 9 Rolls", cat:"🧹 Household", icon:"🧻", prices:{coop:4.6,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5416, name:"Kleenex Extra Large Tissues Even Bigger Tissues for When You Need a Little Extra Compact Twin Pack", cat:"🧹 Household", icon:"🧻", prices:{coop:3.1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5417, name:"Kleenex Balsam Tissues Single Standard Box", cat:"🧹 Household", icon:"🧻", prices:{coop:3.29,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -6065,7 +6067,7 @@ const BASE_PRODUCTS = [
   {id:5454, name:"innocent Berry Set Go Raspberry, Cherry, Apple, Guarana Juice + Vitamins 750ml", cat:"🥤 Drinks", icon:"🥤", prices:{coop:4.5,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5455, name:"innocent Berry Energise, Strawberry, Cherry, Apple & Guarana Super Smoothie 750ml", cat:"🥤 Drinks", icon:"🥤", prices:{coop:4.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £2.65 until 27/10/26
   {id:5456, name:"innocent Green Energise, Kiwi, Cucumber, Apple & Matcha Super Smoothie 750ml", cat:"🥤 Drinks", icon:"🥤", prices:{coop:4.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £2.65 until 27/10/26
-  {id:5457, name:"Co-op Orange Juice with Bits 1L 1LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
+  {id:5457, name:"Co-op Orange Juice with Bits 1L 1LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"24 Oct"}, // Co-op Millennium Park receipt 24 Oct matches
   {id:5458, name:"Co-op Cranberry Juice Drink 1L 1LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5459, name:"Co-op Apple & Mango Juice 1L 1LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5460, name:"Co-op Apple Juice 1L 1LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -6252,7 +6254,7 @@ const BASE_PRODUCTS = [
   {id:5643, name:"Pepsi Max 1.25 Litres 1.25LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:1.79,morrisons:0,ms:0,waitrose:0,iceland:1.85,alliance:0}, upd:"10 Oct", oos:["iceland"]}, // merged duplicate rows 1682
   {id:5644, name:"Pepsi Max Cherry 1.25 Litres 1.25LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:1.79,morrisons:0,ms:0,waitrose:0,iceland:1.85,alliance:0}, upd:"10 Oct"}, // merged duplicate rows 1680
   {id:5645, name:"7Up Zero Sugar 2 Litres 2LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.2,morrisons:0,ms:0,waitrose:0,iceland:2.65,alliance:2.9}, upd:"15 Oct", upds:{coop:"10 Oct",iceland:"10 Oct",alliance:"15 Oct"}}, // special offer £1.40 until 20/10/26 | merged duplicate rows 1650
-  {id:5646, name:"7Up Zero Sugar 8 x 330ml 8X330ML", cat:"🥤 Drinks", icon:"🥤", prices:{coop:3.70,morrisons:0,ms:0,waitrose:3.00,iceland:5.1,alliance:5.3}, upd:"22 Oct", upds:{coop:"22 Oct",iceland:"10 Oct"}}, // Co-op Five Oaks receipt 22 Oct: 7Up Zero 8Pk 3.70 (was 3.95)
+  {id:5646, name:"7Up Zero Sugar 8 x 330ml 8X330ML", cat:"🥤 Drinks", icon:"🥤", prices:{coop:3.7,morrisons:0,ms:0,waitrose:3,iceland:5.1,alliance:5.3}, upd:"24 Oct", upds:{coop:"24 Oct",iceland:"10 Oct"}}, // Co-op Five Oaks receipt 22 Oct: 7Up Zero 8Pk 3.70 (was 3.95) | Co-op Millennium Park receipt 24 Oct matches
   {id:5647, name:"Co-op Diet Sparkling Lemonade 2 Litre 2LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0.99,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5648, name:"Co-op Diet Indian Tonic Water 1 Litre 1LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0.89,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5649, name:"Co-op Natural Mineral Water Still 4 x 2 Litre 4X2LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct", upds:{}, oos:["coop"]},
@@ -6318,7 +6320,7 @@ const BASE_PRODUCTS = [
   {id:5717, name:"Rubicon Still Pineapple Juice Drink 1 Litre 1LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.35,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5718, name:"Bottlegreen Wild Elderflower Cordial 500ml", cat:"🥤 Drinks", icon:"🥤", prices:{coop:4.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:5.25}, upd:"15 Oct", upds:{coop:"10 Oct",alliance:"15 Oct"}}, // special offer £3.68 until 20/10/26
   {id:5719, name:"Bottlegreen Ginger & Lemongrass Cordial 500ml", cat:"🥤 Drinks", icon:"🥤", prices:{coop:4.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:5.25}, upd:"15 Oct", upds:{coop:"10 Oct",alliance:"15 Oct"}, oos:["alliance"]}, // special offer £3.68 until 20/10/26
-  {id:5720, name:"Buxton Still Natural Mineral Water 1.5L 1.5LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:1.29,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
+  {id:5720, name:"Buxton Still Natural Mineral Water 1.5L 1.5LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:1.29,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"24 Oct"}, // Co-op Millennium Park receipt 24 Oct matches
   {id:5722, name:"Dr Pepper 2L 2LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.5,morrisons:0,ms:0,waitrose:0,iceland:3.15,alliance:3.3}, upd:"15 Oct", upds:{coop:"10 Oct",iceland:"10 Oct",alliance:"15 Oct"}}, // merged duplicate rows 1666, 11024
   {id:5723, name:"Vimto No Added Sugar Real Fruit Squash 1 Litre 1LTR", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £1.31 until 20/10/26
   {id:5724, name:"Co-op Pure Apple Juice 200ml 3X200ML", cat:"🥤 Drinks", icon:"🥤", prices:{coop:1.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -8062,7 +8064,7 @@ const BASE_PRODUCTS = [
   {id:8071, name:"Co-op Chicken Stir Fry", cat:"🥩 Meat & Fish", icon:"🍗", prices:{coop:3.99,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"7 Aug"},
   {id:8072, name:"Co-op British 12 Large Free Range Eggs 12S", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:3.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // merged duplicate rows 3390
   {id:8073, name:"Half Cucumbers (each)", cat:"🥦 Fruit & Veg", icon:"🥒", prices:{coop:0.90,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £0.70 until 27/10/26
-  {id:8074, name:"Galaxy Ripple Sharing Bag 120g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.84,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"19 Sep"},
+  {id:8074, name:"Galaxy Ripple Sharing Bag 120g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.84,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"24 Oct"}, // Co-op Millennium Park receipt 24 Oct matches
   {id:8075, name:"Co-op Large White Baps", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:1.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"7 Aug"},
   {id:8076, name:"Co-op Crispy Pancakes 300g", cat:"🧊 Frozen", icon:"🥞", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"7 Aug"},
   {id:8077, name:"Twister Mini Pineapple", cat:"🧊 Frozen", icon:"🍭", prices:{coop:0,morrisons:0,ms:0,waitrose:2.00,iceland:0,alliance:0}, upd:"10 Aug"},
@@ -8103,7 +8105,7 @@ const BASE_PRODUCTS = [
   {id:8114, name:"Robinsons Double Concentrate Pink Grapefruit & Citrus", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.20,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"20 Aug"},
   {id:8115, name:"Quaker Oats Porridge Syrup", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.45,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"20 Aug"},
   {id:8116, name:"Jamaica Cake", cat:"🍞 Bread & Bakery", icon:"🍰", prices:{coop:1.05,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"20 Aug"},
-  {id:8117, name:"Co-op 2 Crispy Chicken Grills", cat:"🧊 Frozen", icon:"🍗", prices:{coop:2.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"20 Aug"},
+  {id:8117, name:"Co-op 2 Crispy Chicken Grills", cat:"🧊 Frozen", icon:"🍗", prices:{coop:3.45,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"24 Oct"}, // Co-op Millennium Park receipt 24 Oct: 2 Crispy Chick Grill 3.45 (was 2.55)
 
   /* ── RECEIPT IMPORT — 3 Sep 2026 ──────────────────────────────── */
   {id:8118, name:"Waitrose Essential Garlic", cat:"🥦 Fruit & Veg", icon:"🧄", prices:{coop:0,morrisons:0,ms:0,waitrose:1.10,iceland:0,alliance:0}, upd:"26 Aug"},
@@ -8540,7 +8542,7 @@ const BASE_PRODUCTS = [
   {id:8549, name:"Iceland Chestnut Mushroom 250g", cat:"🥦 Fruit & Veg", icon:"🍄", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:1.5,alliance:0}, upd:"10 Oct"},
   /* ── CO-OP RECEIPT 19 Sep 2026 — lines with no pack size on the receipt, added as named ── */
   {id:8550, name:"Coca-Cola Zero Sugar", cat:"🥤 Drinks", icon:"🥤", prices:{coop:3.68,morrisons:0,ms:0,waitrose:3.75,iceland:0,alliance:0}, upd:"7 Oct"},
-  {id:8551, name:"Mars Bounty Milk", cat:"🥨 Snacks & Treats", icon:"🍫", prices:{coop:1.84,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"19 Sep"},
+  {id:8551, name:"Mars Bounty Milk", cat:"🥨 Snacks & Treats", icon:"🍫", prices:{coop:1.84,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"24 Oct"}, // Co-op Millennium Park receipt 24 Oct matches
   {id:8552, name:"Maynards Liquorice Allsorts", cat:"🥨 Snacks & Treats", icon:"🍬", prices:{coop:1.5,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"19 Sep"},
   {id:8553, name:"Cadbury Dairy Milk Bar", cat:"🥨 Snacks & Treats", icon:"🍫", prices:{coop:2.5,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"19 Sep"},
   {id:8554, name:"Cadbury Caramel Nibbles", cat:"🥨 Snacks & Treats", icon:"🍫", prices:{coop:1.58,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"19 Sep"},
@@ -8551,7 +8553,7 @@ const BASE_PRODUCTS = [
   {id:8559, name:"McVitie's Dark Choc Digestives", cat:"🥨 Snacks & Treats", icon:"🍪", prices:{coop:2.1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"1 Oct"},
   {id:8560, name:"Fresh Fingers Rolls", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:4.45,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"19 Sep"},
   {id:8561, name:"Richmond 8 Thick Sausages", cat:"🥩 Meat & Fish", icon:"🌭", prices:{coop:3.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"9 Oct"},
-  {id:8562, name:"Gaviscon Double Action", cat:"💊 Health & Beauty", icon:"💊", prices:{coop:4.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"19 Sep"},
+  {id:8562, name:"Gaviscon Double Action", cat:"💊 Health & Beauty", icon:"💊", prices:{coop:4.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"24 Oct"}, // Co-op Millennium Park receipt 24 Oct matches
   {id:8563, name:"Bold Gel Spring Awakening", cat:"🧹 Household", icon:"🧺", prices:{coop:4.2,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"19 Sep"},
   /* ── ICELAND SNAPPY SHOPPER IMPORT #6 (biscuits, tea & coffee, cereals, rice, pasta, cupboard, tins) — 21 Sep 2026 ── */
   {id:8564, name:"Jacob's TUC Sandwich Snack Crackers 150g", cat:"🥨 Snacks & Treats", icon:"🍪", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:2.4,alliance:2.5}, upd:"15 Oct", upds:{iceland:"10 Oct",alliance:"15 Oct"}},
@@ -9603,7 +9605,7 @@ const BASE_PRODUCTS = [
   {id:9608, name:"Waitrose Cooks' Ingredients Garlic Granules", cat:"🍝 Pantry", icon:"🧄", prices:{coop:0,morrisons:0,ms:0,waitrose:2.09,iceland:0,alliance:0}, upd:"24 Sep"},
   /* ── Co-op receipt, Millennium Park, 25 Sep 2026 ── */
   {id:9609, name:"Mackie's Ice Cream", cat:"🧊 Frozen", icon:"🍨", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"25 Sep"},
-  {id:9610, name:"Häagen-Dazs Salted Caramel Ice Cream 460ml", cat:"🧊 Frozen", icon:"🍨", prices:{coop:3.95,morrisons:0,ms:0,waitrose:5.96,iceland:0,alliance:0}, upd:"1 Oct"}, // note: possible duplicate of id8025 "Häagen-Dazs Salted Caramel Ice Cream" (unsized, coop 3.17) — worth merging later
+  {id:9610, name:"Häagen-Dazs Salted Caramel Ice Cream 460ml", cat:"🧊 Frozen", icon:"🍨", prices:{coop:3.95,morrisons:5.48,ms:0,waitrose:5.96,iceland:0,alliance:0}, upd:"23 Oct", upds:{coop:"1 Oct",waitrose:"1 Oct",morrisons:"23 Oct"}}, // note: possible duplicate of id8025 "Häagen-Dazs Salted Caramel Ice Cream" (unsized, coop 3.17) — worth merging later | Morrisons Haute Croix receipt 23 Oct: HAAGEN DAZS SALTED CARAMEL 5.48 (More Card price 4.25; size not printed, 460ml assumed)
   {id:9612, name:"Co-op Biodegradable Face Wipes", cat:"💊 Health & Beauty", icon:"🧻", prices:{coop:1.20,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"25 Sep"},
   {id:9614, name:"Vienna Seeded Rolls", cat:"🍞 Bread & Bakery", icon:"🥖", prices:{coop:2.35,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"25 Sep"},
   {id:9615, name:"Co-op Mince Pies", cat:"🍰 Cakes & Desserts", icon:"🥧", prices:{coop:1.60,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"25 Sep"},
@@ -9677,7 +9679,7 @@ const BASE_PRODUCTS = [
   /* ── Co-op online basket prices, 7 Oct 2026 ── */
   {id:9685, name:"Erin Meal Time Savoury Mince Mix 43g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:9687, name:"Robinsons Orange & Pineapple 1 Litre", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:9688, name:"Richmond 12 Thin Pork Sausages 340g", cat:"🥩 Meat & Fish", icon:"🌭", prices:{coop:3.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct", oos:["coop"]},
+  {id:9688, name:"Richmond 12 Thin Pork Sausages 340g", cat:"🥩 Meat & Fish", icon:"🌭", prices:{coop:3.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"24 Oct", oos:["coop"]}, // Co-op Millennium Park receipt 24 Oct matches
   {id:9689, name:"Co-op Organic Fairtrade 5 Bananas", cat:"🥦 Fruit & Veg", icon:"🍌", prices:{coop:1.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £1.60 until 27/10/26
   {id:9690, name:"M&S Dark Chocolate Digestives", cat:"🥨 Snacks & Treats", icon:"🍪", prices:{coop:0,morrisons:0,ms:1.55,waitrose:0,iceland:0,alliance:0}, upd:"2 Oct"}, // M&S branch: St Helier (King St)
   /* ── Co-op Jersey online listing, 8 Oct 2026 (Organic, Fruit, Veg, Desserts, Pizza, Salad, Cheese, Yoghurt, Meat, Cooked Meat, Pies, Ready Meals) ── */
@@ -9894,7 +9896,7 @@ const BASE_PRODUCTS = [
   {id:9902, name:"Heinz Beanz in a Rich Tomato Sauce 415g", cat:"🍝 Pantry", icon:"🍅", prices:{coop:1.79,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:9903, name:"Heinz Chicken & Mushroom Tinned Soup 400g", cat:"🍝 Pantry", icon:"🍲", prices:{coop:2.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:9904, name:"Co-op Lentil & Bacon Soup 400g", cat:"🍝 Pantry", icon:"🍲", prices:{coop:1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £0.85 until 03/01/27
-  {id:9905, name:"Co-op Italian Chopped Tomatoes in Tomato Juice 230g", cat:"🍝 Pantry", icon:"🍅", prices:{coop:0.69,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
+  {id:9905, name:"Co-op Italian Chopped Tomatoes in Tomato Juice 230g", cat:"🍝 Pantry", icon:"🍅", prices:{coop:0.69,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"24 Oct"}, // Co-op Millennium Park receipt 24 Oct matches
   {id:9906, name:"Co-op Italian Chopped Tomatoes with Herbs in Tomato Juice 400g", cat:"🍝 Pantry", icon:"🍅", prices:{coop:0.9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:9907, name:"Co-op Wholefoods Dried Yellow Split Peas 500g", cat:"🍝 Pantry", icon:"🫛", prices:{coop:1.35,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:9908, name:"Co-op Wholefoods Dried Pearl Barley 500g", cat:"🍝 Pantry", icon:"🥫", prices:{coop:1.05,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -10127,7 +10129,7 @@ const BASE_PRODUCTS = [
   {id:10129, name:"Pringles Sour Cream & Onion (small can)", cat:"🥨 Snacks & Treats", icon:"🥔", prices:{coop:1.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"9 Oct"},
   {id:10130, name:"Cadbury Caramilk Buttons", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:2.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"9 Oct"},
   {id:10131, name:"Sellotape Gold Tape 24mm x 50m", cat:"🧹 Household", icon:"📎", prices:{coop:1.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"9 Oct"},
-  {id:10133, name:"7UP Zero Sugar 330ml Bottle", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.10,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"8 Oct"},
+  {id:10133, name:"7UP Zero Sugar 330ml Bottle", cat:"🥤 Drinks", icon:"🥤", prices:{coop:2.1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"24 Oct"}, // Co-op Millennium Park receipt 24 Oct matches
   {id:10132, name:"Co-op Frozen French Fries", cat:"🧊 Frozen", icon:"🍟", prices:{coop:1.40,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"9 Oct"}, // receipt line "French Fries" 1.40, pack size not shown; differs from the 3.00 "French Fries" on 5 Oct
   /* ── Co-op Jersey Hot Beverages, API download 9 Oct 2026 ── */
   {id:10134, name:"Lavazza Espresso Barista Coffee Beans 500g", cat:"🥤 Drinks", icon:"☕", prices:{coop:12.9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -10260,7 +10262,7 @@ const BASE_PRODUCTS = [
   {id:10261, name:"Costa Coffee Barista Creations Salted Caramel Latte 17g", cat:"🥤 Drinks", icon:"☕", prices:{coop:0.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:10262, name:"Galaxy Instant Hot Chocolate 25g", cat:"🥤 Drinks", icon:"🍫", prices:{coop:0.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:10263, name:"Maltesers Hot Chocolate 25g", cat:"🥤 Drinks", icon:"🍫", prices:{coop:0.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:10264, name:"Horlicks Instant 32g", cat:"🥤 Drinks", icon:"🍫", prices:{coop:0.42,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
+  {id:10264, name:"Horlicks Instant 32g", cat:"🥤 Drinks", icon:"🍫", prices:{coop:0.42,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"24 Oct"}, // Co-op Millennium Park receipt 24 Oct matches
   /* ── Co-op Jersey full catalogue, API download 10 Oct 2026 ── */
   {id:10265, name:"Jersey Pouring Single Cream 25 250m", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:1.45,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:10266, name:"Jersey Dairy Lux Gelato mix 1 ltr", cat:"🍝 Pantry", icon:"🥫", prices:{coop:2.94,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -10510,7 +10512,7 @@ const BASE_PRODUCTS = [
   {id:10518, name:"Hackney Gelato Peanut Butter & Chocolate 460ml", cat:"🧊 Frozen", icon:"🧊", prices:{coop:5.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:10519, name:"Yorkshire Provender Roast Chicken and Vegetables 560g", cat:"🥗 Deli & Salads", icon:"🥗", prices:{coop:3.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:10520, name:"Yorkshire Provender Roast Chicken & Lentil 560g", cat:"🥗 Deli & Salads", icon:"🥗", prices:{coop:3.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:10521, name:"Richmond 8 Thick Pork Sausages 410g", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:3.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:3.3}, upd:"15 Oct", upds:{coop:"10 Oct",alliance:"15 Oct"}},
+  {id:10521, name:"Richmond 8 Thick Pork Sausages 410g", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:3.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:3.3}, upd:"24 Oct", upds:{coop:"24 Oct",alliance:"15 Oct"}}, // Co-op Millennium Park receipt 24 Oct matches
   {id:10522, name:"Co-op British Smoked Bacon Medallions 240g", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:3.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £2.80 until 27/10/26
   {id:10523, name:"Walkers Monster Munch Roast Beef Snacks Grab Bag Crisps 40g", cat:"🥨 Snacks & Treats", icon:"🥨", prices:{coop:1.49,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:10524, name:"Russell Hobbs White Toaster each", cat:"🧹 Household", icon:"🏠", prices:{coop:19.99,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -10598,7 +10600,7 @@ const BASE_PRODUCTS = [
   {id:10606, name:"Essential Plastic Kettle ea", cat:"🧹 Household", icon:"🏠", prices:{coop:14.99,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:10607, name:"Copella Cloudy Apple 900ml", cat:"🥤 Drinks", icon:"🥤", prices:{coop:3.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:10608, name:"Co-op Florist Serenity Bouquet bnch", cat:"💐 Fresh Flowers", icon:"💐", prices:{coop:12,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:10609, name:"Co-op British Milk Salted Butter 250g", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:2.2,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
+  {id:10609, name:"Co-op British Milk Salted Butter 250g", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:2.2,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"24 Oct"}, // Co-op Millennium Park receipt 24 Oct matches
   {id:10610, name:"Co-op Irresistible Heather Honey & Ginger West Country Yogurt 150g", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:1.05,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:10611, name:"Co-op Irresistible Lemon West Country Yogurt 425g", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:2.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct", oos:["coop"]},
   {id:10612, name:"Co-op Irr. Hot Smoked Pork Shoulder 452G", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:6.6,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -11319,7 +11321,7 @@ const BASE_PRODUCTS = [
   {id:11349, name:"Co-op Party Time 9 Rainbow Cupcakes 9pack", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:2.79,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:11350, name:"Co-op Irresistible Slowly Reduced Tomato & Chilli Chutney 310g", cat:"🍝 Pantry", icon:"🥫", prices:{coop:2.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:11351, name:"Co-op Gravy Jelly Meaty Chunks for Adult Dogs +1 Year 12 x 400g (4.8kg)", cat:"🐾 Pet Care", icon:"🐾", prices:{coop:8.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:11352, name:"Pringles Prawn Cocktail Flavour 165g", cat:"🥨 Snacks & Treats", icon:"🥨", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £1.75 until 20/10/26
+  {id:11352, name:"Pringles Prawn Cocktail Flavour 165g", cat:"🥨 Snacks & Treats", icon:"🥨", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"24 Oct"}, // special offer £1.75 until 20/10/26 | Co-op Millennium Park receipt 24 Oct matches
   {id:11354, name:"GO-CAT Herring with Vegetables Dry Cat Food 750g", cat:"🐾 Pet Care", icon:"🐾", prices:{coop:3.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:3.6}, upd:"15 Oct", upds:{coop:"10 Oct",alliance:"15 Oct"}, oos:["alliance"]}, // special offer £2.65 until 20/10/26
   {id:11355, name:"Good Boy Pawsley & Co. Chewy Chicken Dumbbells 100g", cat:"🐾 Pet Care", icon:"🐾", prices:{coop:3.1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:11356, name:"McVitie's Signature Chocolate Truffle Bar 35g", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:1.2,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -12048,7 +12050,7 @@ const BASE_PRODUCTS = [
   {id:12086, name:"Patak's Warming Tarka Dhal 270g", cat:"🍝 Pantry", icon:"🥫", prices:{coop:3.7,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £2.10 until 20/10/26
   {id:12087, name:"Lee Kum Kee Satay Sauce 190g", cat:"🍝 Pantry", icon:"🥫", prices:{coop:2.39,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:12088, name:"Patak's 10 Plain Naan Dippers 180g", cat:"🍝 Pantry", icon:"🥫", prices:{coop:2.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct", oos:["coop"]}, // special offer £1.58 until 20/10/26
-  {id:12089, name:"Patak's The Original Tikka Masala Paste Pots 2 x 70g", cat:"🍝 Pantry", icon:"🥫", prices:{coop:2.35,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £1.58 until 20/10/26
+  {id:12089, name:"Patak's The Original Tikka Masala Paste Pots 2 x 70g", cat:"🍝 Pantry", icon:"🥫", prices:{coop:2.35,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"24 Oct"}, // special offer £1.58 until 20/10/26 | Co-op Millennium Park receipt 24 Oct matches
   {id:12090, name:"Saclà Pesto Fiery Red Chilli 190g", cat:"🍝 Pantry", icon:"🥫", prices:{coop:3.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:12091, name:"De Cecco Cavatappi No87 500g", cat:"🍝 Pantry", icon:"🥫", prices:{coop:2.45,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:12092, name:"Riso Gallo Risotto Mushroom 250g", cat:"🍝 Pantry", icon:"🥫", prices:{coop:2.39,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
