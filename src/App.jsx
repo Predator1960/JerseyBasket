@@ -2810,7 +2810,7 @@ const BASE_PRODUCTS = [
   {id:2728, name:"Shaken Udder Vanillalicious Milkshake 750ml", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:2.8,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:4.15}, upd:"15 Oct", upds:{coop:"11 Jul",alliance:"15 Oct"}},
   {id:2729, name:"Co-op Chicken Arrabbiata 400g", cat:"🥗 Deli & Salads", icon:"🥘", prices:{coop:4.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:2730, name:"Co-op Big On BBQ Space to Thrive Sweet Chilli Chicken Kebabs 270g", cat:"🥛 Dairy & Eggs", icon:"🥚", prices:{coop:5.35,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
-  {id:2731, name:"Co-op Irresistible Cheddar Cheese Coleslaw 300g", cat:"🥦 Fruit & Veg", icon:"🥗", prices:{coop:2.99,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}
+  {id:2731, name:"Co-op Irresistible Cheddar Cheese Coleslaw 300g", cat:"🥦 Fruit & Veg", icon:"🥗", prices:{coop:2.99,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:2732, name:"Co-op Classic Houmous 200g", cat:"🥦 Fruit & Veg", icon:"🥗", prices:{coop:1.8,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:2733, name:"Co-op Creamy Onion & Garlic Dip 200g", cat:"🥦 Fruit & Veg", icon:"🥗", prices:{coop:1.8,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:2734, name:"Co-op Mild Salsa 200g", cat:"🥦 Fruit & Veg", icon:"🥗", prices:{coop:1.8,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
