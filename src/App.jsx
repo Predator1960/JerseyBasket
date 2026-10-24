@@ -743,6 +743,7 @@ const BASE_PRODUCTS = [
   {id:15849, name:"Mr Kipling Chocolate Orange Halloween Slices", cat:"🍰 Cakes & Desserts", icon:"🎃", prices:{coop:2.2,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"24 Oct"}, // Co-op Millennium Park receipt 24 Oct: Mk Choc Orng Hlwn Sl 2.20 (pack size not printed)
   {id:15850, name:"Cadbury Twin Pot Buttons", cat:"🍰 Cakes & Desserts", icon:"🍫", prices:{coop:1.05,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"24 Oct"}, // Co-op Millennium Park receipt 24 Oct: Cdbury Twnpt Btn 2 @ 1.05
   {id:15851, name:"Waitrose Essential Sunflower Oil 500ml", cat:"🍝 Pantry", icon:"🌻", prices:{coop:0,morrisons:0,ms:0,waitrose:1.51,iceland:0,alliance:0}, upd:"24 Oct"}, // Waitrose St Helier receipt 24 Oct: WR ESS SUNFLOWER OIL 1.51 (500ml per shopper)
+  {id:15852, name:"Cadbury Dairy Milk Oreo Cookie", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:1.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"24 Oct"}, // Co-op Millennium Park receipt 24 Oct: Cadbury Dm Or Cookie 1.75 (Oreo per shopper; size not printed)
   {id:456,name:"Tortilla Wraps Large (8pk)",          cat:"🍞 Bread & Bakery",icon:"🌯",prices:sp(1.80,[0,0,0,-0.35,0])},
   {id:555,name:"White Toastie Loaf",                  cat:"🍞 Bread & Bakery",icon:"🍞",prices:sp(1.25,[0,-1.25,-1.25,-1.25,-1.25])},
   {id:556, name:"Cheese Baps (4pk)", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:1.89,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:1.89}, upd:"24 Oct", upds:{alliance:"20 Aug",coop:"24 Oct"}}, // Co-op Millennium Park receipt 24 Oct matches
@@ -5220,7 +5221,7 @@ const BASE_PRODUCTS = [
   {id:4591, name:"KitKat Cookie Dough Flavour 41.5g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:0.9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4592, name:"Maltesers More To Share Chocolate Bag 158g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.79,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4593, name:"Co-op Jelly Cherries 65g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:0.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:4594, name:"Snickers Peanut Multipack Chocolate Bars 4 x 40g 160G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
+  {id:4594, name:"Snickers Peanut Multipack Chocolate Bars 4 x 40g 160G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // Co-op Millennium Park receipt 24 Oct: Snickers 4 Pack 1.84 per shopper (cheaper than the 2.55 regular price, treated as a special offer; end date not printed)
   {id:4595, name:"Cadbury Milk Tray Chocolate Pralines Gifting Box 312 g 312G", cat:"🍝 Pantry", icon:"🍝", prices:{coop:7.35,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:4596, name:"KitKat Chunky 4 x 40g (160g)", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:4597, name:"Toblerone Milk Chocolate Bar 100g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.25,morrisons:0,ms:0,waitrose:0,iceland:2.65,alliance:2.75}, upd:"15 Oct", upds:{coop:"10 Oct",iceland:"10 Oct",alliance:"15 Oct"}}, // special offer £1.90 until 20/10/26
@@ -12005,7 +12006,7 @@ const BASE_PRODUCTS = [
   {id:12037, name:"Vizulize All in One Contact Lens Care Solution 250ml", cat:"💊 Health & Beauty", icon:"💊", prices:{coop:3.69,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:12038, name:"Red Bull Energy Drink 250ml x 12", cat:"🥤 Drinks", icon:"🥤", prices:{coop:14.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £10.50 until 20/10/26
   {id:12039, name:"Tilda Butter & Sea Salt Rice 2 x 125g", cat:"🍝 Pantry", icon:"🥫", prices:{coop:1.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:12040, name:"Tilda Long Grain Rice 2 x 125g", cat:"🍝 Pantry", icon:"🥫", prices:{coop:1.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
+  {id:12040, name:"Tilda Long Grain Rice 2 x 125g", cat:"🍝 Pantry", icon:"🥫", prices:{coop:1.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"24 Oct"}, // Co-op Millennium Park receipt 24 Oct: Td Vg Long Grn Ric 1.75 (Tilda long grain rice per shopper)
   {id:12041, name:"CRF Simpl Wafers & Vanilla Fil 175g", cat:"🍝 Pantry", icon:"🥫", prices:{coop:1.35,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:12042, name:"Heinz Baked Beans Barbecue 390g", cat:"🍝 Pantry", icon:"🥫", prices:{coop:1.9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:12043, name:"Tims Greek Family Vanilla Kefir 450g", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:2.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
