@@ -3142,7 +3142,7 @@ const BASE_PRODUCTS = [
   {id:3062, name:"Ginsters Smoked Ham & Cheddar Pastry Toastie 130g", cat:"🥗 Deli & Salads", icon:"🥧", prices:{coop:2.9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:3063, name:"Co-op Irresistible West Country Yogurt Fudge 150g", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:1.05,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:3064, name:"Président Crème Fraîche Gastronomique 194g 200ML", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:1.79,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:3065, name:"Fridge Raiders Slow Roasted Chicken Bites Mini Packs 3 x 22.5g 3X22.5G", cat:"🥩 Meat & Fish", icon:"🍖", prices:{coop:2.2,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
+  {id:3065, name:"Fridge Raiders Slow Roasted Chicken Bites Mini Packs 3 x 22.5g 3X22.5G", cat:"🥩 Meat & Fish", icon:"🍖", prices:{coop:2.2,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"24 Oct"}, // Co-op Millennium Park receipt 24 Oct: Fr Roast Mp 3X22.5G 2.20 (matches; per shopper Fridge Raiders chicken snacks)
   {id:3066, name:"Co-op Space to Thrive British Rotisserie Chicken Roast in the Bag 1.615kg", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:8.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:3067, name:"Dairylea Cheese Spread Tub 145 g 145G", cat:"🥛 Dairy & Eggs", icon:"🧀", prices:{coop:2.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // special offer £1.60 until 27/10/26
   {id:3068, name:"Philadelphia Protein Soft Cream Cheese Tub 165 g 165G", cat:"🥛 Dairy & Eggs", icon:"🧀", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:3.15}, upd:"15 Oct", upds:{coop:"10 Oct",alliance:"15 Oct"}},
