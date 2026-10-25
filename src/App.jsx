@@ -17781,8 +17781,8 @@ export default function JerseyGroceryApp() {
       {showSubmitPrice && <SubmitPriceModal onClose={()=>setShowSubmitPrice(false)} onOpenCompetition={()=>{ setShowSubmitPrice(false); setShowCompetition(true); }} lightMode={lightMode} />}
 
       {/* ── NOVEMBER PRICE HUNT MODAL ── */}
-      {showCompetition && compPh === "soon" && <CompSoonModal onClose={()=>setShowCompetition(false)} />}
-      {showCompetition && compPh !== "soon" && <CompetitionModal onClose={()=>setShowCompetition(false)} onEnter={()=>{ setShowCompetition(false); setShowSubmitPrice(true); }} lightMode={lightMode} data={compData} phase={compPh === "off" ? "live" : compPh} />}
+      {showCompetition && compPh === "soon" && <CompSoonModal onClose={()=>setShowCompetition(false)} onPractise={()=>{ setShowCompetition(false); setShowSubmitPrice(true); }} />}
+      {showCompetition && compPh !== "soon" && <CompetitionModal onClose={()=>setShowCompetition(false)} onEnter={()=>{ setShowCompetition(false); setShowSubmitPrice(true); }} data={compData} phase={compPh === "off" ? "live" : compPh} />}
 
     </div>
   );
@@ -19020,7 +19020,7 @@ function SettingsModal({ disabledStores, onToggleStore, onClose, lightMode=false
    COMPETITION "WATCH THIS SPACE" CARD: shown when the teaser banner is tapped, before 1 November.
    Deliberately says nothing about prizes or rules.
 ══════════════════════════════════════════════════════════════════════ */
-function CompSoonModal({ onClose }) {
+function CompSoonModal({ onClose, onPractise }) {
   return (
     <div style={{ position:"fixed",top:0,left:0,right:0,height:"var(--app-height, 100%)",zIndex:550,display:"flex",alignItems:"center",justifyContent:"center",padding:"0 20px",background:"rgba(0,0,0,.8)",backdropFilter:"blur(8px)" }}
       onClick={e=>{ if(e.target===e.currentTarget) onClose(); }}>
@@ -19029,8 +19029,13 @@ function CompSoonModal({ onClose }) {
         <div style={{ fontSize:24,fontWeight:900,color:"#0b1f12",marginBottom:12 }}>Watch this space!</div>
         <div style={{ fontSize:14.5,fontWeight:700,lineHeight:1.7,color:"#14532d",marginBottom:22 }}>
           A new <b>Christmas competition</b> starts on <b>1 November</b>.<br/>
-          <b>Start saving your shopping receipts now</b>, and check back here for all the details.
+          <b>Start saving your shopping receipts now</b>, and check back here for all the details.<br/>
+          <span style={{ fontSize:13 }}>(Only receipts dated 1 to 30 November will count.)</span>
         </div>
+        <div style={{ fontSize:13,fontWeight:700,lineHeight:1.6,color:"#14532d",marginBottom:16,padding:"10px 12px",borderRadius:10,background:"rgba(255,255,255,.55)" }}>
+          Like to practise? You can send receipts from now. They help keep prices right, but won't count towards the competition yet.
+        </div>
+        <button onClick={onPractise} style={{ width:"100%",padding:"12px",marginBottom:10,background:"transparent",border:"2px solid #14532d",borderRadius:12,color:"#14532d",cursor:"pointer",fontSize:14,fontWeight:900 }}>📸 Practise sending a receipt</button>
         <button onClick={onClose} style={{ width:"100%",padding:"14px",background:"#14532d",border:"none",borderRadius:12,color:"#FFE74C",cursor:"pointer",fontSize:16,fontWeight:900 }}>Got it</button>
       </div>
     </div>
@@ -19040,12 +19045,10 @@ function CompSoonModal({ onClose }) {
 /* ═════════════════════════════════════════════════════════════════════
    COMPETITION MODAL — November Price Hunt: prizes, how it works, store progress, leaderboard, rules
 ══════════════════════════════════════════════════════════════════════ */
-function CompetitionModal({ onClose, onEnter, lightMode=false, data=null, phase="live" }) {
-  const txt   = lightMode ? "#1e293b" : "#f0f4f8";
-  const muted = lightMode ? "#475569" : "#a8b3c7";
-  const gold  = lightMode ? "#92400e" : "#fbbf24";
-  const card  = { background:lightMode?"rgba(0,0,0,.04)":"rgba(255,255,255,.05)", border:`1px solid ${lightMode?"rgba(0,0,0,.09)":"rgba(255,255,255,.09)"}`, borderRadius:12, padding:"14px 16px", marginBottom:14 };
-  const head  = { fontSize:10, color:gold, fontWeight:700, letterSpacing:".08em", textTransform:"uppercase", marginBottom:10 };
+function CompetitionModal({ onClose, onEnter, data=null, phase="live" }) {
+  const GREEN = "#14532d", INK = "#0b1f12", YEL = "#FFE74C";
+  const card  = { background:"rgba(255,255,255,.55)", border:"1px solid rgba(20,83,45,.35)", borderRadius:12, padding:"14px 16px", marginBottom:14 };
+  const head  = { fontSize:11, color:GREEN, fontWeight:900, letterSpacing:".08em", textTransform:"uppercase", marginBottom:10 };
   const live  = phase === "live";
   const entries = [...((data && data.entries) || [])].sort((a, b) => (b.points || 0) - (a.points || 0)).slice(0, 10);
   const winners = (data && data.winners) || {};
@@ -19054,25 +19057,25 @@ function CompetitionModal({ onClose, onEnter, lightMode=false, data=null, phase=
   return (
     <div style={{ position:"fixed",top:0,left:0,right:0,height:"var(--app-height, 100%)",zIndex:550,display:"flex",alignItems:"flex-end",justifyContent:"center",background:"rgba(0,0,0,.8)",backdropFilter:"blur(8px)" }}
       onClick={e=>{ if(e.target===e.currentTarget) onClose(); }}>
-      <div style={{ width:"100%",maxWidth:520,background:lightMode?"rgba(255,252,248,.98)":"#120c26",border:"1px solid rgba(250,204,21,.3)",borderRadius:"20px 20px 0 0",maxHeight:"92%",display:"flex",flexDirection:"column" }}>
+      <div style={{ width:"100%",maxWidth:520,background:"linear-gradient(160deg,#FFE74C 0%,#FFD60A 55%,#FFC300 100%)",border:`3px solid ${GREEN}`,borderBottom:"none",borderRadius:"20px 20px 0 0",maxHeight:"92%",display:"flex",flexDirection:"column" }}>
 
         {/* header */}
-        <div style={{ display:"flex",justifyContent:"space-between",alignItems:"center",padding:"16px 20px 12px",borderBottom:"1px solid rgba(250,204,21,.18)",flexShrink:0 }}>
+        <div style={{ display:"flex",justifyContent:"space-between",alignItems:"center",padding:"16px 20px 12px",borderBottom:"2px solid rgba(20,83,45,.35)",flexShrink:0 }}>
           <div>
-            <div style={{ fontSize:17,fontWeight:700,color:lightMode?"#581c87":"#fde68a" }}>🎟️ {COMP.title}</div>
-            <div style={{ fontSize:11,color:gold,marginTop:2 }}>Receipts dated 1 to 30 November · winners announced {COMP.announce}</div>
+            <div style={{ fontSize:19,fontWeight:900,color:INK }}>🎟️ {COMP.title}</div>
+            <div style={{ fontSize:11.5,fontWeight:700,color:GREEN,marginTop:2 }}>Receipts dated 1 to 30 November · winners announced {COMP.announce}</div>
           </div>
-          <button onClick={onClose} style={{ background:lightMode?"rgba(0,0,0,.07)":"rgba(255,255,255,.07)",border:"none",borderRadius:7,width:32,height:32,color:muted,cursor:"pointer",fontSize:16,flexShrink:0 }}>✕</button>
+          <button onClick={onClose} style={{ background:"rgba(20,83,45,.14)",border:"none",borderRadius:8,width:34,height:34,color:GREEN,cursor:"pointer",fontSize:17,fontWeight:900,flexShrink:0 }}>✕</button>
         </div>
 
         <div style={{ overflowY:"auto",padding:"16px 20px 12px",flex:1 }}>
 
           {/* results, once the winners have been added to leaderboard.json */}
           {hasWinners && (
-            <div style={{ background:"linear-gradient(135deg,rgba(250,204,21,.22),rgba(168,85,247,.18))",border:"1px solid rgba(250,204,21,.45)",borderRadius:12,padding:"14px 16px",marginBottom:14,textAlign:"center" }}>
-              <div style={{ fontSize:11,color:"#fde68a",fontWeight:700,letterSpacing:".08em",textTransform:"uppercase" }}>🎉 November winners</div>
+            <div style={{ background:GREEN,borderRadius:12,padding:"14px 16px",marginBottom:14,textAlign:"center" }}>
+              <div style={{ fontSize:12,color:YEL,fontWeight:900,letterSpacing:".08em",textTransform:"uppercase" }}>🎉 November winners</div>
               {[["🥇",winners.first,"7 tickets"],["🥈",winners.second,"5 tickets"],["🥉",winners.third,"3 tickets"]].filter(w=>w[1]).map((w,i)=>(
-                <div key={i} style={{ fontSize:15,fontWeight:800,color:lightMode?"#581c87":"#fff",marginTop:6 }}>{w[0]} {w[1]} <span style={{ fontSize:11,fontWeight:600,color:gold }}>· {w[2]}</span></div>
+                <div key={i} style={{ fontSize:16,fontWeight:900,color:"#fff",marginTop:6 }}>{w[0]} {w[1]} <span style={{ fontSize:11.5,fontWeight:700,color:YEL }}>· {w[2]}</span></div>
               ))}
             </div>
           )}
@@ -19082,14 +19085,14 @@ function CompetitionModal({ onClose, onEnter, lightMode=false, data=null, phase=
             <div style={head}>The prizes · Channel Islands Charity Christmas Draw tickets</div>
             {[["🥇","1st prize","7 tickets","Most points"],["🥈","2nd prize","5 tickets","Second most points"],["🥉","3rd prize","3 tickets","Random draw: everyone with a checked receipt is in it"]].map(([m,a,b,c],i)=>(
               <div key={i} style={{ display:"flex",alignItems:"center",gap:12,marginBottom:i<2?10:0 }}>
-                <span style={{ fontSize:24,flexShrink:0 }}>{m}</span>
+                <span style={{ fontSize:26,flexShrink:0 }}>{m}</span>
                 <div>
-                  <div style={{ fontSize:13,fontWeight:800,color:txt }}>{a}: {b}</div>
-                  <div style={{ fontSize:10.5,color:muted,marginTop:1 }}>{c}</div>
+                  <div style={{ fontSize:14,fontWeight:900,color:INK }}>{a}: {b}</div>
+                  <div style={{ fontSize:11.5,fontWeight:600,color:GREEN,marginTop:1 }}>{c}</div>
                 </div>
               </div>
             ))}
-            <div style={{ fontSize:10,color:muted,marginTop:10,lineHeight:1.6 }}>Tickets are handed over whole and unscratched. The draw is on {COMP.drawDate} and supports Channel Island charities. JerseyBasket is not connected to the Channel Islands Lottery.</div>
+            <div style={{ fontSize:10.5,fontWeight:600,color:GREEN,marginTop:10,lineHeight:1.6 }}>Tickets are handed over whole and unscratched. The draw is on {COMP.drawDate} and supports Channel Island charities. JerseyBasket is not connected to the Channel Islands Lottery.</div>
           </div>
 
           {/* how it works */}
@@ -19102,10 +19105,10 @@ function CompetitionModal({ onClose, onEnter, lightMode=false, data=null, phase=
               ["🤝","Bring a friend","Their first checked receipt gives you +5 points if they put your name in \"who told you\"."],
             ].map(([ic,t,s],i)=>(
               <div key={i} style={{ display:"flex",gap:12,marginBottom:i<3?10:0 }}>
-                <span style={{ fontSize:18,flexShrink:0 }}>{ic}</span>
+                <span style={{ fontSize:20,flexShrink:0 }}>{ic}</span>
                 <div>
-                  <div style={{ fontSize:12,fontWeight:700,color:txt }}>{t}</div>
-                  <div style={{ fontSize:10.5,color:muted,marginTop:1 }}>{s}</div>
+                  <div style={{ fontSize:13,fontWeight:900,color:INK }}>{t}</div>
+                  <div style={{ fontSize:11.5,fontWeight:600,color:GREEN,marginTop:1 }}>{s}</div>
                 </div>
               </div>
             ))}
@@ -19119,12 +19122,12 @@ function CompetitionModal({ onClose, onEnter, lightMode=false, data=null, phase=
               const goal = st.goal || 100, n = st.prices || 0, pct = Math.min(100, Math.round(n / goal * 100));
               return (
                 <div key={s.id} style={{ marginBottom:i<gapStores.length-1?10:0 }}>
-                  <div style={{ display:"flex",justifyContent:"space-between",fontSize:11,color:txt,marginBottom:4 }}>
-                    <span style={{ fontWeight:700 }}>{s.emoji} {s.short || s.name} <span style={{ color:"#fbbf24" }}>· 2× points</span></span>
-                    <span style={{ color:muted }}>{n} / {goal}</span>
+                  <div style={{ display:"flex",justifyContent:"space-between",fontSize:12,color:INK,marginBottom:4 }}>
+                    <span style={{ fontWeight:900 }}>{s.emoji} {s.short || s.name} <span style={{ color:GREEN }}>· 2× points</span></span>
+                    <span style={{ color:GREEN,fontWeight:700 }}>{n} / {goal}</span>
                   </div>
-                  <div style={{ height:8,borderRadius:6,background:lightMode?"rgba(0,0,0,.1)":"rgba(255,255,255,.12)",overflow:"hidden" }}>
-                    <div style={{ width:`${pct}%`,height:"100%",background:"linear-gradient(90deg,#fbbf24,#f97316)",borderRadius:6 }}/>
+                  <div style={{ height:10,borderRadius:6,background:"rgba(20,83,45,.22)",overflow:"hidden" }}>
+                    <div style={{ width:`${pct}%`,height:"100%",background:`linear-gradient(90deg,${GREEN},#16a34a)`,borderRadius:6 }}/>
                   </div>
                 </div>
               );
@@ -19137,25 +19140,25 @@ function CompetitionModal({ onClose, onEnter, lightMode=false, data=null, phase=
             {entries.length > 0 ? (
               <div style={{ display:"flex",flexDirection:"column",gap:5 }}>
                 {entries.map((e,i)=>(
-                  <div key={i} style={{ display:"flex",alignItems:"center",gap:10,padding:"8px 12px",borderRadius:9,background:i<2?"rgba(250,204,21,.13)":(lightMode?"rgba(0,0,0,.04)":"rgba(255,255,255,.04)") }}>
-                    <div style={{ width:22,textAlign:"center",fontSize:i<3?15:12,fontWeight:700,color:muted }}>{["🥇","🥈","🥉"][i] || (i+1)}</div>
-                    <div style={{ flex:1,minWidth:0,fontSize:12.5,fontWeight:700,color:txt,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap" }}>{e.name}</div>
-                    <div style={{ fontSize:12,fontWeight:700,color:"#fbbf24" }}>{e.points} pts</div>
+                  <div key={i} style={{ display:"flex",alignItems:"center",gap:10,padding:"8px 12px",borderRadius:9,background:i<2?"rgba(20,83,45,.18)":"rgba(255,255,255,.6)" }}>
+                    <div style={{ width:24,textAlign:"center",fontSize:i<3?16:13,fontWeight:900,color:GREEN }}>{["🥇","🥈","🥉"][i] || (i+1)}</div>
+                    <div style={{ flex:1,minWidth:0,fontSize:13.5,fontWeight:900,color:INK,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap" }}>{e.name}</div>
+                    <div style={{ fontSize:13,fontWeight:900,color:GREEN }}>{e.points} pts</div>
                   </div>
                 ))}
-                <div style={{ fontSize:10,color:muted,marginTop:4 }}>Names are the aliases entrants chose. The board updates as receipts are checked.</div>
+                <div style={{ fontSize:10.5,fontWeight:600,color:GREEN,marginTop:4 }}>Names are the aliases entrants chose. The board updates as receipts are checked.</div>
               </div>
             ) : (
-              <div style={{ textAlign:"center",padding:"10px 0",fontSize:12,color:muted,lineHeight:1.6 }}>No checked entries yet.<br/>Be the first on the board! 🚀</div>
+              <div style={{ textAlign:"center",padding:"10px 0",fontSize:13,fontWeight:700,color:GREEN,lineHeight:1.6 }}>No checked entries yet.<br/>Be the first on the board! 🚀</div>
             )}
           </div>
 
           {/* rules */}
-          <div style={{ fontSize:10,color:muted,lineHeight:1.8,marginBottom:6 }}>
-            <div style={{ fontWeight:700,color:txt,marginBottom:3 }}>Rules</div>
+          <div style={{ fontSize:11,fontWeight:600,color:GREEN,lineHeight:1.8,marginBottom:6 }}>
+            <div style={{ fontWeight:900,color:INK,marginBottom:3 }}>Rules</div>
             • Free to enter. No purchase necessary: a receipt from any shop you were already in counts.<br/>
             • Open to Jersey residents aged 18 or over. The organiser and their family cannot win.<br/>
-            • Receipts must be dated 1 to 30 November 2026 and show the store name and date clearly. Each receipt counts once.<br/>
+            • <b>Only receipts dated 1 to 30 November 2026 count.</b> They must show the store name and date clearly. Each receipt counts once.<br/>
             • We check every receipt by hand. 1 point for each correct price, 2 points at Morrisons, Waitrose and M&S.<br/>
             • 1st and 2nd prizes go to the highest scores. 3rd prize is a random draw among all other entrants with at least one checked receipt.<br/>
             • To win you must give a name or alias and a mobile number or email so we can contact you. Details are used only to run the competition and are deleted afterwards.<br/>
@@ -19163,13 +19166,13 @@ function CompetitionModal({ onClose, onEnter, lightMode=false, data=null, phase=
           </div>
         </div>
 
-        <div style={{ padding:"8px 20px 20px",flexShrink:0 }}>
+        <div style={{ padding:"8px 20px 20px",flexShrink:0,borderTop:"2px solid rgba(20,83,45,.25)" }}>
           {live && (
-            <button onClick={onEnter} style={{ width:"100%",padding:"14px",marginBottom:8,background:"linear-gradient(180deg,#fbbf24 0%,#d97706 100%)",border:"none",borderRadius:12,color:"#1a1200",cursor:"pointer",fontSize:15,fontWeight:800,boxShadow:"0 3px 12px rgba(217,119,6,.45)" }}>
+            <button onClick={onEnter} style={{ width:"100%",padding:"15px",marginTop:8,marginBottom:8,background:GREEN,border:"none",borderRadius:12,color:YEL,cursor:"pointer",fontSize:16,fontWeight:900,boxShadow:"0 3px 12px rgba(20,83,45,.45)" }}>
               📸 Enter now: send a receipt →
             </button>
           )}
-          <button onClick={onClose} style={{ width:"100%",padding:"11px",background:"transparent",border:`1px solid ${lightMode?"rgba(0,0,0,.15)":"rgba(255,255,255,.14)"}`,borderRadius:12,color:muted,cursor:"pointer",fontSize:13,fontWeight:600 }}>
+          <button onClick={onClose} style={{ width:"100%",padding:"12px",marginTop:live?0:8,background:"transparent",border:`2px solid ${GREEN}`,borderRadius:12,color:GREEN,cursor:"pointer",fontSize:14,fontWeight:900 }}>
             Back to app
           </button>
         </div>
