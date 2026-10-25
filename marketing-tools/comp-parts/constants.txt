@@ -1,0 +1,46 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   NOVEMBER PRICE HUNT — competition settings.
+   Receipts dated 1–30 Nov 2026; winners announced Tue 1 Dec 2026. Prizes are
+   Channel Islands Charity Christmas Draw tickets (7 / 5 / 3).
+   The competition is invisible to the public until COMP.start. To preview it
+   before then, open the app with ?comp=preview on the end of the address.
+   Set enabled:false to hide everything. Standings live in public/leaderboard.json
+   (see COMPETITION-NOV2026-RUNBOOK.md).
+═══════════════════════════════════════════════════════════════════════════ */
+const COMP = {
+  enabled: true,
+  id: "nov2026",
+  title: "November Price Hunt",
+  start:     Date.UTC(2026, 10, 1),   // 1 Nov 2026 00:00 (GMT = UTC in November)
+  end:       Date.UTC(2026, 11, 1),   // closes 1 Dec 2026 00:00, so receipts dated 1-30 Nov
+  hideAfter: Date.UTC(2026, 11, 8),   // banner goes a week after the winners are announced
+  announce: "Tuesday 1 December 2026",
+  drawDate: "Thursday 17 December 2026",
+  doubleStores: ["morrisons", "waitrose", "ms"],   // STORES ids that score double points
+  dataUrl: "/leaderboard.json",
+};
+// "off" (not public), "live" (open for entries) or "ended" (results week)
+function compPhase() {
+  if (!COMP.enabled) return "off";
+  try { if (typeof window !== "undefined" && new URLSearchParams(window.location.search).get("comp") === "preview") return "live"; } catch {}
+  const now = Date.now();
+  if (now < COMP.start) return "off";
+  if (now < COMP.end) return "live";
+  if (now < COMP.hideAfter) return "ended";
+  return "off";
+}
+// Fetches the standings file; a failure just means an empty leaderboard
+function useCompData(active) {
+  const [data, setData] = useState(null);
+  useEffect(() => {
+    if (!active) return undefined;
+    let dead = false;
+    fetch(`${COMP.dataUrl}?v=${Math.floor(Date.now() / 300000)}`)
+      .then(r => (r.ok ? r.json() : null))
+      .then(j => { if (!dead) setData(j); })
+      .catch(() => {});
+    return () => { dead = true; };
+  }, [active]);
+  return data;
+}
+

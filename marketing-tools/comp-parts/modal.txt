@@ -1,0 +1,141 @@
+/* ═════════════════════════════════════════════════════════════════════
+   COMPETITION MODAL — November Price Hunt: prizes, how it works, store progress, leaderboard, rules
+══════════════════════════════════════════════════════════════════════ */
+function CompetitionModal({ onClose, onEnter, lightMode=false, data=null, phase="live" }) {
+  const txt   = lightMode ? "#1e293b" : "#f0f4f8";
+  const muted = lightMode ? "#475569" : "#a8b3c7";
+  const gold  = lightMode ? "#92400e" : "#fbbf24";
+  const card  = { background:lightMode?"rgba(0,0,0,.04)":"rgba(255,255,255,.05)", border:`1px solid ${lightMode?"rgba(0,0,0,.09)":"rgba(255,255,255,.09)"}`, borderRadius:12, padding:"14px 16px", marginBottom:14 };
+  const head  = { fontSize:10, color:gold, fontWeight:700, letterSpacing:".08em", textTransform:"uppercase", marginBottom:10 };
+  const live  = phase === "live";
+  const entries = [...((data && data.entries) || [])].sort((a, b) => (b.points || 0) - (a.points || 0)).slice(0, 10);
+  const winners = (data && data.winners) || {};
+  const hasWinners = !!(winners.first || winners.second || winners.third);
+  const gapStores = STORES.filter(s => COMP.doubleStores.includes(s.id));
+  return (
+    <div style={{ position:"fixed",top:0,left:0,right:0,height:"var(--app-height, 100%)",zIndex:550,display:"flex",alignItems:"flex-end",justifyContent:"center",background:"rgba(0,0,0,.8)",backdropFilter:"blur(8px)" }}
+      onClick={e=>{ if(e.target===e.currentTarget) onClose(); }}>
+      <div style={{ width:"100%",maxWidth:520,background:lightMode?"rgba(255,252,248,.98)":"#120c26",border:"1px solid rgba(250,204,21,.3)",borderRadius:"20px 20px 0 0",maxHeight:"92%",display:"flex",flexDirection:"column" }}>
+
+        {/* header */}
+        <div style={{ display:"flex",justifyContent:"space-between",alignItems:"center",padding:"16px 20px 12px",borderBottom:"1px solid rgba(250,204,21,.18)",flexShrink:0 }}>
+          <div>
+            <div style={{ fontSize:17,fontWeight:700,color:lightMode?"#581c87":"#fde68a" }}>🎟️ {COMP.title}</div>
+            <div style={{ fontSize:11,color:gold,marginTop:2 }}>Receipts dated 1 to 30 November · winners announced {COMP.announce}</div>
+          </div>
+          <button onClick={onClose} style={{ background:lightMode?"rgba(0,0,0,.07)":"rgba(255,255,255,.07)",border:"none",borderRadius:7,width:32,height:32,color:muted,cursor:"pointer",fontSize:16,flexShrink:0 }}>✕</button>
+        </div>
+
+        <div style={{ overflowY:"auto",padding:"16px 20px 12px",flex:1 }}>
+
+          {/* results, once the winners have been added to leaderboard.json */}
+          {hasWinners && (
+            <div style={{ background:"linear-gradient(135deg,rgba(250,204,21,.22),rgba(168,85,247,.18))",border:"1px solid rgba(250,204,21,.45)",borderRadius:12,padding:"14px 16px",marginBottom:14,textAlign:"center" }}>
+              <div style={{ fontSize:11,color:"#fde68a",fontWeight:700,letterSpacing:".08em",textTransform:"uppercase" }}>🎉 November winners</div>
+              {[["🥇",winners.first,"7 tickets"],["🥈",winners.second,"5 tickets"],["🥉",winners.third,"3 tickets"]].filter(w=>w[1]).map((w,i)=>(
+                <div key={i} style={{ fontSize:15,fontWeight:800,color:lightMode?"#581c87":"#fff",marginTop:6 }}>{w[0]} {w[1]} <span style={{ fontSize:11,fontWeight:600,color:gold }}>· {w[2]}</span></div>
+              ))}
+            </div>
+          )}
+
+          {/* prizes */}
+          <div style={card}>
+            <div style={head}>The prizes · Channel Islands Charity Christmas Draw tickets</div>
+            {[["🥇","1st prize","7 tickets","Most points"],["🥈","2nd prize","5 tickets","Second most points"],["🥉","3rd prize","3 tickets","Random draw: everyone with a checked receipt is in it"]].map(([m,a,b,c],i)=>(
+              <div key={i} style={{ display:"flex",alignItems:"center",gap:12,marginBottom:i<2?10:0 }}>
+                <span style={{ fontSize:24,flexShrink:0 }}>{m}</span>
+                <div>
+                  <div style={{ fontSize:13,fontWeight:800,color:txt }}>{a}: {b}</div>
+                  <div style={{ fontSize:10.5,color:muted,marginTop:1 }}>{c}</div>
+                </div>
+              </div>
+            ))}
+            <div style={{ fontSize:10,color:muted,marginTop:10,lineHeight:1.6 }}>Tickets are handed over whole and unscratched. The draw is on {COMP.drawDate} and supports Channel Island charities. JerseyBasket is not connected to the Channel Islands Lottery.</div>
+          </div>
+
+          {/* how it works */}
+          <div style={card}>
+            <div style={head}>How it works</div>
+            {[
+              ["📸","Send a receipt","Or a photo of a shelf price. Under a minute, from any of the six stores."],
+              ["✅","We check every receipt","Each verified price scores 1 point."],
+              ["⚡","Double points","Morrisons, Waitrose and M&S prices score 2."],
+              ["🤝","Bring a friend","Their first checked receipt gives you +5 points if they put your name in \"who told you\"."],
+            ].map(([ic,t,s],i)=>(
+              <div key={i} style={{ display:"flex",gap:12,marginBottom:i<3?10:0 }}>
+                <span style={{ fontSize:18,flexShrink:0 }}>{ic}</span>
+                <div>
+                  <div style={{ fontSize:12,fontWeight:700,color:txt }}>{t}</div>
+                  <div style={{ fontSize:10.5,color:muted,marginTop:1 }}>{s}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* store progress: the three stores we need most */}
+          <div style={card}>
+            <div style={head}>Help us fill the gaps · prices checked this month</div>
+            {gapStores.map((s,i)=>{
+              const st = (data && data.stores && data.stores[s.id]) || {};
+              const goal = st.goal || 100, n = st.prices || 0, pct = Math.min(100, Math.round(n / goal * 100));
+              return (
+                <div key={s.id} style={{ marginBottom:i<gapStores.length-1?10:0 }}>
+                  <div style={{ display:"flex",justifyContent:"space-between",fontSize:11,color:txt,marginBottom:4 }}>
+                    <span style={{ fontWeight:700 }}>{s.emoji} {s.short || s.name} <span style={{ color:"#fbbf24" }}>· 2× points</span></span>
+                    <span style={{ color:muted }}>{n} / {goal}</span>
+                  </div>
+                  <div style={{ height:8,borderRadius:6,background:lightMode?"rgba(0,0,0,.1)":"rgba(255,255,255,.12)",overflow:"hidden" }}>
+                    <div style={{ width:`${pct}%`,height:"100%",background:"linear-gradient(90deg,#fbbf24,#f97316)",borderRadius:6 }}/>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* leaderboard */}
+          <div style={card}>
+            <div style={head}>🏆 Leaderboard{data && data.updated ? ` · updated ${data.updated}` : ""}</div>
+            {entries.length > 0 ? (
+              <div style={{ display:"flex",flexDirection:"column",gap:5 }}>
+                {entries.map((e,i)=>(
+                  <div key={i} style={{ display:"flex",alignItems:"center",gap:10,padding:"8px 12px",borderRadius:9,background:i<2?"rgba(250,204,21,.13)":(lightMode?"rgba(0,0,0,.04)":"rgba(255,255,255,.04)") }}>
+                    <div style={{ width:22,textAlign:"center",fontSize:i<3?15:12,fontWeight:700,color:muted }}>{["🥇","🥈","🥉"][i] || (i+1)}</div>
+                    <div style={{ flex:1,minWidth:0,fontSize:12.5,fontWeight:700,color:txt,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap" }}>{e.name}</div>
+                    <div style={{ fontSize:12,fontWeight:700,color:"#fbbf24" }}>{e.points} pts</div>
+                  </div>
+                ))}
+                <div style={{ fontSize:10,color:muted,marginTop:4 }}>Names are the aliases entrants chose. The board updates as receipts are checked.</div>
+              </div>
+            ) : (
+              <div style={{ textAlign:"center",padding:"10px 0",fontSize:12,color:muted,lineHeight:1.6 }}>No checked entries yet.<br/>Be the first on the board! 🚀</div>
+            )}
+          </div>
+
+          {/* rules */}
+          <div style={{ fontSize:10,color:muted,lineHeight:1.8,marginBottom:6 }}>
+            <div style={{ fontWeight:700,color:txt,marginBottom:3 }}>Rules</div>
+            • Free to enter. No purchase necessary: a receipt from any shop you were already in counts.<br/>
+            • Open to Jersey residents aged 18 or over. The organiser and their family cannot win.<br/>
+            • Receipts must be dated 1 to 30 November 2026 and show the store name and date clearly. Each receipt counts once.<br/>
+            • We check every receipt by hand. 1 point for each correct price, 2 points at Morrisons, Waitrose and M&S.<br/>
+            • 1st and 2nd prizes go to the highest scores. 3rd prize is a random draw among all other entrants with at least one checked receipt.<br/>
+            • To win you must give a name or alias and a mobile number or email so we can contact you. Details are used only to run the competition and are deleted afterwards.<br/>
+            • Winners announced {COMP.announce}. Tickets are handed over in person or by recorded delivery. JerseyBasket's decision is final.
+          </div>
+        </div>
+
+        <div style={{ padding:"8px 20px 20px",flexShrink:0 }}>
+          {live && (
+            <button onClick={onEnter} style={{ width:"100%",padding:"14px",marginBottom:8,background:"linear-gradient(180deg,#fbbf24 0%,#d97706 100%)",border:"none",borderRadius:12,color:"#1a1200",cursor:"pointer",fontSize:15,fontWeight:800,boxShadow:"0 3px 12px rgba(217,119,6,.45)" }}>
+              📸 Enter now: send a receipt →
+            </button>
+          )}
+          <button onClick={onClose} style={{ width:"100%",padding:"11px",background:"transparent",border:`1px solid ${lightMode?"rgba(0,0,0,.15)":"rgba(255,255,255,.14)"}`,borderRadius:12,color:muted,cursor:"pointer",fontSize:13,fontWeight:600 }}>
+            Back to app
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+

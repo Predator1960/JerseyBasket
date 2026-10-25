@@ -16294,6 +16294,53 @@ const RECEIPT_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbwf8Jwd-dnlm
 const RECEIPT_SHARED_SECRET = "2bf2c87b3d5bd1bd57bcc8dee5818ab8f75f238d509471b1";
 
 /* ═══════════════════════════════════════════════════════════════════════════
+   NOVEMBER PRICE HUNT — competition settings.
+   Receipts dated 1–30 Nov 2026; winners announced Tue 1 Dec 2026. Prizes are
+   Channel Islands Charity Christmas Draw tickets (7 / 5 / 3).
+   The competition is invisible to the public until COMP.start. To preview it
+   before then, open the app with ?comp=preview on the end of the address.
+   Set enabled:false to hide everything. Standings live in public/leaderboard.json
+   (see COMPETITION-NOV2026-RUNBOOK.md).
+═══════════════════════════════════════════════════════════════════════════ */
+const COMP = {
+  enabled: true,
+  id: "nov2026",
+  title: "November Price Hunt",
+  start:     Date.UTC(2026, 10, 1),   // 1 Nov 2026 00:00 (GMT = UTC in November)
+  end:       Date.UTC(2026, 11, 1),   // closes 1 Dec 2026 00:00, so receipts dated 1-30 Nov
+  hideAfter: Date.UTC(2026, 11, 8),   // banner goes a week after the winners are announced
+  announce: "Tuesday 1 December 2026",
+  drawDate: "Thursday 17 December 2026",
+  doubleStores: ["morrisons", "waitrose", "ms"],   // STORES ids that score double points
+  dataUrl: "/leaderboard.json",
+};
+// "off" (not public), "live" (open for entries) or "ended" (results week)
+function compPhase() {
+  if (!COMP.enabled) return "off";
+  try { if (typeof window !== "undefined" && new URLSearchParams(window.location.search).get("comp") === "preview") return "live"; } catch {}
+  const now = Date.now();
+  if (now < COMP.start) return "off";
+  if (now < COMP.end) return "live";
+  if (now < COMP.hideAfter) return "ended";
+  return "off";
+}
+// Fetches the standings file; a failure just means an empty leaderboard
+function useCompData(active) {
+  const [data, setData] = useState(null);
+  useEffect(() => {
+    if (!active) return undefined;
+    let dead = false;
+    fetch(`${COMP.dataUrl}?v=${Math.floor(Date.now() / 300000)}`)
+      .then(r => (r.ok ? r.json() : null))
+      .then(j => { if (!dead) setData(j); })
+      .catch(() => {});
+    return () => { dead = true; };
+  }, [active]);
+  return data;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
    HOME SCREEN TEASER — currently promoting the August free-advertising
    campaign. Set TEASER_ACTIVE to false to hide the banner entirely once
    the campaign ends or the next thing is ready to announce.
@@ -16331,6 +16378,9 @@ export default function JerseyGroceryApp() {
   const [showSettings,   setShowSettings]   = useState(false);
   const [disabledStores, setDisabledStores] = useState(new Set());
   const [showSubmitPrice,  setShowSubmitPrice]  = useState(false);
+  const [showCompetition, setShowCompetition] = useState(false);
+  const compPh   = compPhase();
+  const compData = useCompData(compPh !== "off");
   // "Estimated price" pop-out on a product card asks for a receipt via this event
   useEffect(() => {
     const open = () => setShowSubmitPrice(true);
@@ -16793,6 +16843,18 @@ export default function JerseyGroceryApp() {
                 <strong>Each item shows the cheapest price.</strong> Tap the store pill to switch to a different store — then hit <strong>+ Add</strong> to add to basket.
               </div>
             </div>
+
+            {/* ── NOVEMBER PRICE HUNT BANNER (only while the competition is live or in results week) ── */}
+            {compPh !== "off" && (
+              <div onClick={()=>setShowCompetition(true)} style={{ marginBottom:12,background:"linear-gradient(135deg,#1e1145 0%,#3b1a6e 55%,#7c2d92 100%)",border:"1px solid rgba(250,204,21,.55)",borderRadius:12,padding:"12px 16px",display:"flex",alignItems:"center",gap:12,cursor:"pointer",position:"relative",overflow:"hidden" }}>
+                <span style={{ fontSize:28,flexShrink:0 }}>🎟️</span>
+                <div style={{ flex:1,minWidth:0 }}>
+                  <div style={{ fontSize:13,fontWeight:800,color:"#fde68a",lineHeight:1.3 }}>{compPh === "live" ? "November Price Hunt: win Christmas Draw tickets" : "November Price Hunt is closed"}</div>
+                  <div style={{ fontSize:11,color:"rgba(255,255,255,.88)",marginTop:2,lineHeight:1.4 }}>{compPh === "live" ? "Send a receipt · double points at Morrisons, Waitrose & M&S · tap for details" : `Winners announced ${COMP.announce} · tap to see the results`}</div>
+                </div>
+                <span style={{ color:"#fde68a",fontSize:22,flexShrink:0 }}>›</span>
+              </div>
+            )}
 
             {/* ── SUBMIT-A-RECEIPT TEASER BANNER (tap opens SubmitPriceModal) ── */}
             {TEASER_ACTIVE && <style>{`@keyframes shimmer{0%{left:-60%}100%{left:120%}}@keyframes bannerGrow{0%{transform:scale(1)}50%{transform:scale(1.12)}100%{transform:scale(1)}}@keyframes cameraFlash{0%{opacity:0}10%{opacity:1}25%{opacity:0}100%{opacity:0}}`}</style>}
@@ -17706,7 +17768,10 @@ export default function JerseyGroceryApp() {
       {showSettings && <SettingsModal disabledStores={disabledStores} onToggleStore={toggleStore} onClose={()=>setShowSettings(false)} lightMode={lightMode} />}
 
       {/* ── SUBMIT PRICE MODAL ── */}
-      {showSubmitPrice && <SubmitPriceModal onClose={()=>setShowSubmitPrice(false)} lightMode={lightMode} />}
+      {showSubmitPrice && <SubmitPriceModal onClose={()=>setShowSubmitPrice(false)} onOpenCompetition={()=>{ setShowSubmitPrice(false); setShowCompetition(true); }} lightMode={lightMode} />}
+
+      {/* ── NOVEMBER PRICE HUNT MODAL ── */}
+      {showCompetition && <CompetitionModal onClose={()=>setShowCompetition(false)} onEnter={()=>{ setShowCompetition(false); setShowSubmitPrice(true); }} lightMode={lightMode} data={compData} phase={compPh === "off" ? "live" : compPh} />}
 
     </div>
   );
@@ -18940,10 +19005,151 @@ function SettingsModal({ disabledStores, onToggleStore, onClose, lightMode=false
   );
 }
 
+/* ═════════════════════════════════════════════════════════════════════
+   COMPETITION MODAL — November Price Hunt: prizes, how it works, store progress, leaderboard, rules
+══════════════════════════════════════════════════════════════════════ */
+function CompetitionModal({ onClose, onEnter, lightMode=false, data=null, phase="live" }) {
+  const txt   = lightMode ? "#1e293b" : "#f0f4f8";
+  const muted = lightMode ? "#475569" : "#a8b3c7";
+  const gold  = lightMode ? "#92400e" : "#fbbf24";
+  const card  = { background:lightMode?"rgba(0,0,0,.04)":"rgba(255,255,255,.05)", border:`1px solid ${lightMode?"rgba(0,0,0,.09)":"rgba(255,255,255,.09)"}`, borderRadius:12, padding:"14px 16px", marginBottom:14 };
+  const head  = { fontSize:10, color:gold, fontWeight:700, letterSpacing:".08em", textTransform:"uppercase", marginBottom:10 };
+  const live  = phase === "live";
+  const entries = [...((data && data.entries) || [])].sort((a, b) => (b.points || 0) - (a.points || 0)).slice(0, 10);
+  const winners = (data && data.winners) || {};
+  const hasWinners = !!(winners.first || winners.second || winners.third);
+  const gapStores = STORES.filter(s => COMP.doubleStores.includes(s.id));
+  return (
+    <div style={{ position:"fixed",top:0,left:0,right:0,height:"var(--app-height, 100%)",zIndex:550,display:"flex",alignItems:"flex-end",justifyContent:"center",background:"rgba(0,0,0,.8)",backdropFilter:"blur(8px)" }}
+      onClick={e=>{ if(e.target===e.currentTarget) onClose(); }}>
+      <div style={{ width:"100%",maxWidth:520,background:lightMode?"rgba(255,252,248,.98)":"#120c26",border:"1px solid rgba(250,204,21,.3)",borderRadius:"20px 20px 0 0",maxHeight:"92%",display:"flex",flexDirection:"column" }}>
+
+        {/* header */}
+        <div style={{ display:"flex",justifyContent:"space-between",alignItems:"center",padding:"16px 20px 12px",borderBottom:"1px solid rgba(250,204,21,.18)",flexShrink:0 }}>
+          <div>
+            <div style={{ fontSize:17,fontWeight:700,color:lightMode?"#581c87":"#fde68a" }}>🎟️ {COMP.title}</div>
+            <div style={{ fontSize:11,color:gold,marginTop:2 }}>Receipts dated 1 to 30 November · winners announced {COMP.announce}</div>
+          </div>
+          <button onClick={onClose} style={{ background:lightMode?"rgba(0,0,0,.07)":"rgba(255,255,255,.07)",border:"none",borderRadius:7,width:32,height:32,color:muted,cursor:"pointer",fontSize:16,flexShrink:0 }}>✕</button>
+        </div>
+
+        <div style={{ overflowY:"auto",padding:"16px 20px 12px",flex:1 }}>
+
+          {/* results, once the winners have been added to leaderboard.json */}
+          {hasWinners && (
+            <div style={{ background:"linear-gradient(135deg,rgba(250,204,21,.22),rgba(168,85,247,.18))",border:"1px solid rgba(250,204,21,.45)",borderRadius:12,padding:"14px 16px",marginBottom:14,textAlign:"center" }}>
+              <div style={{ fontSize:11,color:"#fde68a",fontWeight:700,letterSpacing:".08em",textTransform:"uppercase" }}>🎉 November winners</div>
+              {[["🥇",winners.first,"7 tickets"],["🥈",winners.second,"5 tickets"],["🥉",winners.third,"3 tickets"]].filter(w=>w[1]).map((w,i)=>(
+                <div key={i} style={{ fontSize:15,fontWeight:800,color:lightMode?"#581c87":"#fff",marginTop:6 }}>{w[0]} {w[1]} <span style={{ fontSize:11,fontWeight:600,color:gold }}>· {w[2]}</span></div>
+              ))}
+            </div>
+          )}
+
+          {/* prizes */}
+          <div style={card}>
+            <div style={head}>The prizes · Channel Islands Charity Christmas Draw tickets</div>
+            {[["🥇","1st prize","7 tickets","Most points"],["🥈","2nd prize","5 tickets","Second most points"],["🥉","3rd prize","3 tickets","Random draw: everyone with a checked receipt is in it"]].map(([m,a,b,c],i)=>(
+              <div key={i} style={{ display:"flex",alignItems:"center",gap:12,marginBottom:i<2?10:0 }}>
+                <span style={{ fontSize:24,flexShrink:0 }}>{m}</span>
+                <div>
+                  <div style={{ fontSize:13,fontWeight:800,color:txt }}>{a}: {b}</div>
+                  <div style={{ fontSize:10.5,color:muted,marginTop:1 }}>{c}</div>
+                </div>
+              </div>
+            ))}
+            <div style={{ fontSize:10,color:muted,marginTop:10,lineHeight:1.6 }}>Tickets are handed over whole and unscratched. The draw is on {COMP.drawDate} and supports Channel Island charities. JerseyBasket is not connected to the Channel Islands Lottery.</div>
+          </div>
+
+          {/* how it works */}
+          <div style={card}>
+            <div style={head}>How it works</div>
+            {[
+              ["📸","Send a receipt","Or a photo of a shelf price. Under a minute, from any of the six stores."],
+              ["✅","We check every receipt","Each verified price scores 1 point."],
+              ["⚡","Double points","Morrisons, Waitrose and M&S prices score 2."],
+              ["🤝","Bring a friend","Their first checked receipt gives you +5 points if they put your name in \"who told you\"."],
+            ].map(([ic,t,s],i)=>(
+              <div key={i} style={{ display:"flex",gap:12,marginBottom:i<3?10:0 }}>
+                <span style={{ fontSize:18,flexShrink:0 }}>{ic}</span>
+                <div>
+                  <div style={{ fontSize:12,fontWeight:700,color:txt }}>{t}</div>
+                  <div style={{ fontSize:10.5,color:muted,marginTop:1 }}>{s}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* store progress: the three stores we need most */}
+          <div style={card}>
+            <div style={head}>Help us fill the gaps · prices checked this month</div>
+            {gapStores.map((s,i)=>{
+              const st = (data && data.stores && data.stores[s.id]) || {};
+              const goal = st.goal || 100, n = st.prices || 0, pct = Math.min(100, Math.round(n / goal * 100));
+              return (
+                <div key={s.id} style={{ marginBottom:i<gapStores.length-1?10:0 }}>
+                  <div style={{ display:"flex",justifyContent:"space-between",fontSize:11,color:txt,marginBottom:4 }}>
+                    <span style={{ fontWeight:700 }}>{s.emoji} {s.short || s.name} <span style={{ color:"#fbbf24" }}>· 2× points</span></span>
+                    <span style={{ color:muted }}>{n} / {goal}</span>
+                  </div>
+                  <div style={{ height:8,borderRadius:6,background:lightMode?"rgba(0,0,0,.1)":"rgba(255,255,255,.12)",overflow:"hidden" }}>
+                    <div style={{ width:`${pct}%`,height:"100%",background:"linear-gradient(90deg,#fbbf24,#f97316)",borderRadius:6 }}/>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* leaderboard */}
+          <div style={card}>
+            <div style={head}>🏆 Leaderboard{data && data.updated ? ` · updated ${data.updated}` : ""}</div>
+            {entries.length > 0 ? (
+              <div style={{ display:"flex",flexDirection:"column",gap:5 }}>
+                {entries.map((e,i)=>(
+                  <div key={i} style={{ display:"flex",alignItems:"center",gap:10,padding:"8px 12px",borderRadius:9,background:i<2?"rgba(250,204,21,.13)":(lightMode?"rgba(0,0,0,.04)":"rgba(255,255,255,.04)") }}>
+                    <div style={{ width:22,textAlign:"center",fontSize:i<3?15:12,fontWeight:700,color:muted }}>{["🥇","🥈","🥉"][i] || (i+1)}</div>
+                    <div style={{ flex:1,minWidth:0,fontSize:12.5,fontWeight:700,color:txt,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap" }}>{e.name}</div>
+                    <div style={{ fontSize:12,fontWeight:700,color:"#fbbf24" }}>{e.points} pts</div>
+                  </div>
+                ))}
+                <div style={{ fontSize:10,color:muted,marginTop:4 }}>Names are the aliases entrants chose. The board updates as receipts are checked.</div>
+              </div>
+            ) : (
+              <div style={{ textAlign:"center",padding:"10px 0",fontSize:12,color:muted,lineHeight:1.6 }}>No checked entries yet.<br/>Be the first on the board! 🚀</div>
+            )}
+          </div>
+
+          {/* rules */}
+          <div style={{ fontSize:10,color:muted,lineHeight:1.8,marginBottom:6 }}>
+            <div style={{ fontWeight:700,color:txt,marginBottom:3 }}>Rules</div>
+            • Free to enter. No purchase necessary: a receipt from any shop you were already in counts.<br/>
+            • Open to Jersey residents aged 18 or over. The organiser and their family cannot win.<br/>
+            • Receipts must be dated 1 to 30 November 2026 and show the store name and date clearly. Each receipt counts once.<br/>
+            • We check every receipt by hand. 1 point for each correct price, 2 points at Morrisons, Waitrose and M&S.<br/>
+            • 1st and 2nd prizes go to the highest scores. 3rd prize is a random draw among all other entrants with at least one checked receipt.<br/>
+            • To win you must give a name or alias and a mobile number or email so we can contact you. Details are used only to run the competition and are deleted afterwards.<br/>
+            • Winners announced {COMP.announce}. Tickets are handed over in person or by recorded delivery. JerseyBasket's decision is final.
+          </div>
+        </div>
+
+        <div style={{ padding:"8px 20px 20px",flexShrink:0 }}>
+          {live && (
+            <button onClick={onEnter} style={{ width:"100%",padding:"14px",marginBottom:8,background:"linear-gradient(180deg,#fbbf24 0%,#d97706 100%)",border:"none",borderRadius:12,color:"#1a1200",cursor:"pointer",fontSize:15,fontWeight:800,boxShadow:"0 3px 12px rgba(217,119,6,.45)" }}>
+              📸 Enter now: send a receipt →
+            </button>
+          )}
+          <button onClick={onClose} style={{ width:"100%",padding:"11px",background:"transparent",border:`1px solid ${lightMode?"rgba(0,0,0,.15)":"rgba(255,255,255,.14)"}`,borderRadius:12,color:muted,cursor:"pointer",fontSize:13,fontWeight:600 }}>
+            Back to app
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 /* ═══════════════════════════════════════════════════════════════════════════
    SUBMIT PRICE MODAL — receipt-photo price submission
 ═══════════════════════════════════════════════════════════════════════════ */
-function SubmitPriceModal({ onClose, lightMode=false }) {
+function SubmitPriceModal({ onClose, onOpenCompetition, lightMode=false }) {
   const [form,   setForm]   = useState({ name:"", mobile:"", email:"" });
   const [photos, setPhotos] = useState([]);        // [{ name, mimeType, base64 }]
   const [status, setStatus] = useState("idle");    // idle | sending | sent | error
@@ -18955,6 +19161,24 @@ function SubmitPriceModal({ onClose, lightMode=false }) {
   const [store, setStore] = useState("");           // which store the photo is from (optional)
   const [taken, setTaken] = useState(todayLocal()); // date the photo was taken (defaults to today)
   const fileRef = useRef(null);
+  // November Price Hunt: a pre-ticked entry box while the competition is live
+  const compLive = compPhase() === "live";
+  const [enter, setEnter] = useState(compLive);
+  const [referrer, setReferrer] = useState("");
+  const entered = compLive && enter;
+  // remember an entrant's details on this phone so repeat entries take seconds
+  useEffect(() => {
+    try {
+      const s = JSON.parse(localStorage.getItem("jb_entrant") || "null");
+      if (s) setForm(p => ({ name: s.name || p.name, mobile: s.mobile || p.mobile, email: s.email || p.email }));
+    } catch {}
+  }, []);
+  const shareHunt = () => {
+    const alias = form.name.trim();
+    const text = `I'm in the JerseyBasket November Price Hunt: send a receipt, win Christmas Draw tickets. ${alias ? `Put "${alias}" in "who told you" when you enter. ` : ""}https://jerseybasket.je`;
+    if (navigator.share) navigator.share({ text }).catch(() => {});
+    else if (navigator.clipboard) navigator.clipboard.writeText(text).catch(() => {});
+  };
 
   const MAX_PHOTOS = 4;
   const MAX_PHOTO_BYTES = 8 * 1024 * 1024; // only used if a photo can't be shrunk
@@ -19024,7 +19248,9 @@ function SubmitPriceModal({ onClose, lightMode=false }) {
               email:         form.email,
               store:         store,
               dateTaken:     taken,
-              photoName:     `${taken}_${store ? store.replace(/[^A-Za-z0-9]+/g, "-") : "store-unknown"}_${ph.name}`,
+              competition:   entered ? COMP.id : "",
+              referredBy:    entered ? referrer.trim() : "",
+              photoName:     `${entered ? "COMP-NOV26_" + (referrer.trim() ? "REF-" + referrer.trim().replace(/[^A-Za-z0-9]+/g, "-") + "_" : "") : ""}${taken}_${store ? store.replace(/[^A-Za-z0-9]+/g, "-") : "store-unknown"}_${ph.name}`,
               photoMimeType: ph.mimeType,
               photoBase64:   ph.base64,
             })
@@ -19035,6 +19261,7 @@ function SubmitPriceModal({ onClose, lightMode=false }) {
       }));
       ok = results.filter(Boolean).length;
     } catch {}
+    if (ok && entered) { try { localStorage.setItem("jb_entrant", JSON.stringify({ name: form.name, mobile: form.mobile, email: form.email })); } catch {} }
     setSentCount(ok);
     setStatus(ok === photos.length ? "sent" : "error");
   };
@@ -19042,7 +19269,8 @@ function SubmitPriceModal({ onClose, lightMode=false }) {
   const sendAnother = () => { setPhotos([]); setStatus("idle"); setSentCount(0); setPhotoError(""); };
 
   const sending  = status === "sending";
-  const disabled = !photos.length || sending || preparing;
+  const needsContact = entered && (!form.name.trim() || (!form.mobile.trim() && !form.email.trim()));
+  const disabled = !photos.length || sending || preparing || needsContact;
   const muted = lightMode ? "#475569" : "#94a3b8";
   const label = lightMode ? "#7c2d12" : "#9a3412";
   const inputStyle = { width:"100%",padding:"9px 12px",background:lightMode?"rgba(0,0,0,.05)":"rgba(255,255,255,.07)",border:lightMode?"1px solid rgba(0,0,0,.15)":"1px solid rgba(255,255,255,.11)",borderRadius:9,color:lightMode?"#0f172a":"#fff",fontSize:16,outline:"none",boxSizing:"border-box",fontFamily:"inherit" };
@@ -19056,15 +19284,31 @@ function SubmitPriceModal({ onClose, lightMode=false }) {
         {status==="sent" ? (
           <div style={{ textAlign:"center",padding:"30px 20px" }}>
             <div style={{ fontSize:48,marginBottom:14 }}>🏆</div>
-            <div style={{ fontSize:18,fontWeight:700,color:"#fb923c",marginBottom:8 }}>{sentCount > 1 ? "Receipts sent!" : "Receipt sent!"}</div>
+            <div style={{ fontSize:18,fontWeight:700,color:"#fb923c",marginBottom:8 }}>{entered ? "You're in the Price Hunt! 🎟️" : (sentCount > 1 ? "Receipts sent!" : "Receipt sent!")}</div>
             <div style={{ fontSize:12,color:muted,lineHeight:1.8,marginBottom:22 }}>
-              {form.name.trim() ? `Thanks ${form.name.trim().split(" ")[0]}! ` : "Thanks! "}We'll check it and add<br/>
-              the prices to JerseyBasket within 24 hours.<br/>
-              Thanks for helping keep it accurate! 🙌
+              {entered ? (<>
+                Thanks {form.name.trim().split(" ")[0]}! We check every receipt by hand and update<br/>
+                the leaderboard as we go, usually within a couple of days.<br/>
+                Send more to climb: Morrisons, Waitrose and M&S score double. 🙌
+              </>) : (<>
+                {form.name.trim() ? `Thanks ${form.name.trim().split(" ")[0]}! ` : "Thanks! "}We'll check it and add<br/>
+                the prices to JerseyBasket within 24 hours.<br/>
+                Thanks for helping keep it accurate! 🙌
+              </>)}
             </div>
             <button onClick={sendAnother} style={{ width:"100%",padding:"12px",marginBottom:8,background:orangeBtn,border:"none",borderRadius:11,color:"#fff",cursor:"pointer",fontSize:14,fontWeight:700 }}>
               📷 Send another receipt
             </button>
+            {entered && onOpenCompetition && (
+              <button onClick={onOpenCompetition} style={{ width:"100%",padding:"11px",marginBottom:8,background:"linear-gradient(180deg,#fbbf24 0%,#d97706 100%)",border:"none",borderRadius:11,color:"#1a1200",cursor:"pointer",fontSize:13,fontWeight:800 }}>
+                🏆 See the leaderboard
+              </button>
+            )}
+            {entered && (
+              <button onClick={shareHunt} style={{ width:"100%",padding:"10px",marginBottom:8,background:"transparent",border:"1px solid rgba(250,204,21,.5)",borderRadius:11,color:lightMode?"#92400e":"#fde68a",cursor:"pointer",fontSize:13,fontWeight:700 }}>
+                📣 Tell a friend (they get you +5 points)
+              </button>
+            )}
             <button onClick={onClose} style={{ width:"100%",padding:"10px",background:"transparent",border:`1px solid ${lightMode?"rgba(0,0,0,.15)":"rgba(255,255,255,.14)"}`,borderRadius:11,color:muted,cursor:"pointer",fontSize:13,fontWeight:600 }}>
               Back to app
             </button>
@@ -19075,7 +19319,7 @@ function SubmitPriceModal({ onClose, lightMode=false }) {
             <div style={{ display:"flex",justifyContent:"space-between",alignItems:"center",padding:"16px 20px 12px",borderBottom:`1px solid ${lightMode?"rgba(251,146,60,.25)":"rgba(251,146,60,.15)"}`,flexShrink:0 }}>
               <div>
                 <div style={{ fontSize:17,fontWeight:700,color:lightMode?"#7c2d12":"#fed7aa" }}>📸 Send a Receipt</div>
-                <div style={{ fontSize:11,color:lightMode?"#92400e":"#9a3412",marginTop:2 }}>One photo is all it takes. Anonymous.</div>
+                <div style={{ fontSize:11,color:lightMode?"#92400e":"#9a3412",marginTop:2 }}>{entered ? "Price Hunt entry · double points at Morrisons, Waitrose & M&S" : "One photo is all it takes. Anonymous."}</div>
               </div>
               <button onClick={onClose} style={{ background:lightMode?"rgba(0,0,0,.07)":"rgba(255,255,255,.07)",border:"none",borderRadius:7,width:32,height:32,color:muted,cursor:"pointer",fontSize:16,flexShrink:0 }}>✕</button>
             </div>
@@ -19126,16 +19370,48 @@ function SubmitPriceModal({ onClose, lightMode=false }) {
                 {sentCount > 0 ? `${sentCount} of ${photos.length} photos were sent, but something went wrong. Please try again, or email hello@jerseybasket.je` : "Something went wrong. Please try again, or email hello@jerseybasket.je"}
               </div>}
 
+              {/* competition entry: one tick, remembered details, required contact only when entering */}
+              {compLive && (
+                <div style={{ marginTop:14,padding:"12px 14px",borderRadius:12,border:"1px solid rgba(250,204,21,.45)",background:lightMode?"rgba(250,204,21,.12)":"rgba(250,204,21,.08)" }}>
+                  <label style={{ display:"flex",alignItems:"flex-start",gap:10,cursor:"pointer" }}>
+                    <input type="checkbox" checked={enter} onChange={e=>setEnter(e.target.checked)} style={{ marginTop:3,width:18,height:18,flexShrink:0 }} />
+                    <span style={{ fontSize:13,fontWeight:800,color:lightMode?"#581c87":"#fde68a",lineHeight:1.4 }}>🎟️ Enter me in the {COMP.title}<br/><span style={{ fontSize:11,fontWeight:500,color:muted }}>Win Christmas Draw tickets · double points at Morrisons, Waitrose & M&S</span></span>
+                  </label>
+                  {enter && (
+                    <div style={{ marginTop:12 }}>
+                      <div style={{ marginBottom:10 }}>
+                        <div style={{ fontSize:10,color:label,fontWeight:700,letterSpacing:".5px",marginBottom:5 }}>YOUR NAME OR ALIAS <span style={{ color:"#f43f5e" }}>*</span></div>
+                        <input value={form.name} onChange={e=>setForm(p=>({...p,name:e.target.value}))} placeholder="e.g. IslandShopper (shown on the leaderboard)" style={inputStyle} />
+                      </div>
+                      <div style={{ marginBottom:10 }}>
+                        <div style={{ fontSize:10,color:label,fontWeight:700,letterSpacing:".5px",marginBottom:5 }}>MOBILE NUMBER <span style={{ color:muted,fontWeight:400 }}>(or email below)</span></div>
+                        <input value={form.mobile} onChange={e=>setForm(p=>({...p,mobile:e.target.value}))} inputMode="tel" placeholder="e.g. 07797 123456" style={inputStyle} />
+                      </div>
+                      <div style={{ marginBottom:10 }}>
+                        <div style={{ fontSize:10,color:label,fontWeight:700,letterSpacing:".5px",marginBottom:5 }}>EMAIL <span style={{ color:muted,fontWeight:400 }}>(or mobile above)</span></div>
+                        <input value={form.email} onChange={e=>setForm(p=>({...p,email:e.target.value}))} inputMode="email" placeholder="e.g. yourname@email.com" style={inputStyle} />
+                      </div>
+                      <div style={{ marginBottom:4 }}>
+                        <div style={{ fontSize:10,color:label,fontWeight:700,letterSpacing:".5px",marginBottom:5 }}>WHO TOLD YOU ABOUT IT? <span style={{ color:muted,fontWeight:400 }}>(optional: their alias gets +5 points)</span></div>
+                        <input value={referrer} onChange={e=>setReferrer(e.target.value)} placeholder="their name or alias" style={inputStyle} />
+                      </div>
+                      <div style={{ fontSize:10,color:muted,marginTop:6,lineHeight:1.6 }}>We need a way to reach you if you win. Details are never shared or sold, are used only to run the competition, and are deleted afterwards. We'll remember them on this phone for next time.</div>
+                      {needsContact && <div style={{ fontSize:11,color:"#fbbf24",marginTop:6 }}>Add your name and a mobile or email to enter, or untick the box to send without entering.</div>}
+                    </div>
+                  )}
+                </div>
+              )}
+
               <button onClick={handleSubmit} disabled={disabled}
                 style={{ width:"100%",marginTop:14,padding:"14px",background:orangeBtn,border:"none",borderRadius:12,color:"#fff",cursor:disabled?"not-allowed":"pointer",opacity:disabled?0.5:1,fontSize:15,fontWeight:700,boxShadow:disabled?"none":"0 3px 12px rgba(194,65,12,.6),inset 0 1px 0 rgba(255,255,255,.25)" }}>
                 {sending ? `Sending ${photos.length > 1 ? photos.length + " photos" : "your receipt"}… a few seconds` : preparing ? "Getting your photo ready…" : photos.length > 1 ? `Send ${photos.length} photos →` : "Send receipt →"}
               </button>
 
               {/* optional details, tucked away so they don't get in the way */}
-              <button onClick={()=>setShowDetails(s=>!s)} style={{ width:"100%",marginTop:14,padding:"8px",background:"transparent",border:"none",color:muted,cursor:"pointer",fontSize:12,textDecoration:"underline dotted" }}>
+              <button onClick={()=>setShowDetails(s=>!s)} style={{ display:(compLive && enter) ? "none" : "block",width:"100%",marginTop:14,padding:"8px",background:"transparent",border:"none",color:muted,cursor:"pointer",fontSize:12,textDecoration:"underline dotted" }}>
                 {showDetails ? "Hide optional details" : "Add your name or contact (optional)"}
               </button>
-              {showDetails && (
+              {showDetails && !(compLive && enter) && (
                 <div style={{ marginTop:6 }}>
                   <div style={{ marginBottom:10 }}>
                     <div style={{ fontSize:10,color:label,fontWeight:700,letterSpacing:".5px",marginBottom:5 }}>YOUR NAME OR ALIAS</div>

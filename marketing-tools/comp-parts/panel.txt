@@ -1,0 +1,32 @@
+              {/* competition entry: one tick, remembered details, required contact only when entering */}
+              {compLive && (
+                <div style={{ marginTop:14,padding:"12px 14px",borderRadius:12,border:"1px solid rgba(250,204,21,.45)",background:lightMode?"rgba(250,204,21,.12)":"rgba(250,204,21,.08)" }}>
+                  <label style={{ display:"flex",alignItems:"flex-start",gap:10,cursor:"pointer" }}>
+                    <input type="checkbox" checked={enter} onChange={e=>setEnter(e.target.checked)} style={{ marginTop:3,width:18,height:18,flexShrink:0 }} />
+                    <span style={{ fontSize:13,fontWeight:800,color:lightMode?"#581c87":"#fde68a",lineHeight:1.4 }}>🎟️ Enter me in the {COMP.title}<br/><span style={{ fontSize:11,fontWeight:500,color:muted }}>Win Christmas Draw tickets · double points at Morrisons, Waitrose & M&S</span></span>
+                  </label>
+                  {enter && (
+                    <div style={{ marginTop:12 }}>
+                      <div style={{ marginBottom:10 }}>
+                        <div style={{ fontSize:10,color:label,fontWeight:700,letterSpacing:".5px",marginBottom:5 }}>YOUR NAME OR ALIAS <span style={{ color:"#f43f5e" }}>*</span></div>
+                        <input value={form.name} onChange={e=>setForm(p=>({...p,name:e.target.value}))} placeholder="e.g. IslandShopper (shown on the leaderboard)" style={inputStyle} />
+                      </div>
+                      <div style={{ marginBottom:10 }}>
+                        <div style={{ fontSize:10,color:label,fontWeight:700,letterSpacing:".5px",marginBottom:5 }}>MOBILE NUMBER <span style={{ color:muted,fontWeight:400 }}>(or email below)</span></div>
+                        <input value={form.mobile} onChange={e=>setForm(p=>({...p,mobile:e.target.value}))} inputMode="tel" placeholder="e.g. 07797 123456" style={inputStyle} />
+                      </div>
+                      <div style={{ marginBottom:10 }}>
+                        <div style={{ fontSize:10,color:label,fontWeight:700,letterSpacing:".5px",marginBottom:5 }}>EMAIL <span style={{ color:muted,fontWeight:400 }}>(or mobile above)</span></div>
+                        <input value={form.email} onChange={e=>setForm(p=>({...p,email:e.target.value}))} inputMode="email" placeholder="e.g. yourname@email.com" style={inputStyle} />
+                      </div>
+                      <div style={{ marginBottom:4 }}>
+                        <div style={{ fontSize:10,color:label,fontWeight:700,letterSpacing:".5px",marginBottom:5 }}>WHO TOLD YOU ABOUT IT? <span style={{ color:muted,fontWeight:400 }}>(optional: their alias gets +5 points)</span></div>
+                        <input value={referrer} onChange={e=>setReferrer(e.target.value)} placeholder="their name or alias" style={inputStyle} />
+                      </div>
+                      <div style={{ fontSize:10,color:muted,marginTop:6,lineHeight:1.6 }}>We need a way to reach you if you win. Details are never shared or sold, are used only to run the competition, and are deleted afterwards. We'll remember them on this phone for next time.</div>
+                      {needsContact && <div style={{ fontSize:11,color:"#fbbf24",marginTop:6 }}>Add your name and a mobile or email to enter, or untick the box to send without entering.</div>}
+                    </div>
+                  )}
+                </div>
+              )}
+

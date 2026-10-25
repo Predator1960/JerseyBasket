@@ -1,0 +1,11 @@
+{
+  "competition": "nov2026",
+  "updated": "",
+  "entries": [],
+  "stores": {
+    "morrisons": { "prices": 0, "goal": 100 },
+    "waitrose":  { "prices": 0, "goal": 100 },
+    "ms":        { "prices": 0, "goal": 100 }
+  },
+  "winners": { "first": "", "second": "", "third": "" }
+}
