@@ -41,3 +41,6 @@ product-full-export.csv
 !HANDOVER.md
 !.github/
 !.github/copilot-instructions.md
+
+# real Apps Script copy holds the shared secret and Drive/Sheet IDs
+apps-script/*PRIVATE*

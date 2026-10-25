@@ -34,7 +34,7 @@ Only you see it that way; everyone else sees nothing until 1 November.
 The form uploads each photo to your Google Apps Script (the one that saves to Drive and the Sheet). Because that script is not in this project, I made the entry details travel in places it already records:
 - The **photo file name** starts with `COMP-NOV26_` and, if given, `REF-<alias>_` (the "who told you" answer), then date, store and original name. Example: `COMP-NOV26_REF-Kate_2026-11-08_Waitrose_receipt.jpg`.
 - **Name/alias, mobile and email** are sent as before.
-- The form also sends `competition` and `referredBy` fields. **UNKNOWN:** whether your Apps Script stores unknown fields. If not, the file-name tags still carry everything.
+- The form also sends `competition`, `referredBy`, `store` and `dateTaken`. **Checked 25 Oct:** your running Apps Script ignores these (its Sheet has only time, name, mobile, email and photo link), so until you deploy the updated script (`apps-script/README.md`) the competition details exist **only in the photo file name in Drive**.
 
 ## Daily routine (about 10 minutes)
 

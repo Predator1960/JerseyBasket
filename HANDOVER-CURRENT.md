@@ -58,7 +58,7 @@ check one test entry reaches the Drive/Sheet with the `COMP-NOV26_` tag; write a
 
 Business licence 006096 granted 23 Jun 2026. Check in myRegistry whether "Jersey Basket.je" is registered as a business name and whether the fee is due or can wait until revenue (get this in writing).
 Class 2 social security: reply to the Business Hub (default rate £1,296/month until income is shown). Manpower Return due 31 Jan and 31 Jul (next 31 Jan 2027).
-Channelisles.net hosts the domain/email (invoices 19 May 2026; renewal date to check). The receipt-photo Apps Script lives only in the Google account: **its code is not in this project** (copy it in).
+Channelisles.net hosts the domain/email (invoices 19 May 2026; renewal date to check). The receipt-photo Apps Script is now backed up in `apps-script/` (real values in the git-ignored `receipts-original-PRIVATE.gs`; placeholder copy with extra competition columns in `receipts.gs`, **not yet deployed**: see `apps-script/README.md`).
 
 ## 8. Backups
 
