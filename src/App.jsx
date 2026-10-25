@@ -17781,7 +17781,7 @@ export default function JerseyGroceryApp() {
       {showSubmitPrice && <SubmitPriceModal onClose={()=>setShowSubmitPrice(false)} onOpenCompetition={()=>{ setShowSubmitPrice(false); setShowCompetition(true); }} lightMode={lightMode} />}
 
       {/* ── NOVEMBER PRICE HUNT MODAL ── */}
-      {showCompetition && compPh === "soon" && <CompSoonModal onClose={()=>setShowCompetition(false)} lightMode={lightMode} />}
+      {showCompetition && compPh === "soon" && <CompSoonModal onClose={()=>setShowCompetition(false)} />}
       {showCompetition && compPh !== "soon" && <CompetitionModal onClose={()=>setShowCompetition(false)} onEnter={()=>{ setShowCompetition(false); setShowSubmitPrice(true); }} lightMode={lightMode} data={compData} phase={compPh === "off" ? "live" : compPh} />}
 
     </div>
@@ -19020,18 +19020,18 @@ function SettingsModal({ disabledStores, onToggleStore, onClose, lightMode=false
    COMPETITION "WATCH THIS SPACE" CARD: shown when the teaser banner is tapped, before 1 November.
    Deliberately says nothing about prizes or rules.
 ══════════════════════════════════════════════════════════════════════ */
-function CompSoonModal({ onClose, lightMode=false }) {
+function CompSoonModal({ onClose }) {
   return (
     <div style={{ position:"fixed",top:0,left:0,right:0,height:"var(--app-height, 100%)",zIndex:550,display:"flex",alignItems:"center",justifyContent:"center",padding:"0 20px",background:"rgba(0,0,0,.8)",backdropFilter:"blur(8px)" }}
       onClick={e=>{ if(e.target===e.currentTarget) onClose(); }}>
-      <div style={{ width:"100%",maxWidth:420,background:lightMode?"rgba(255,252,248,.98)":"#120c26",border:"1px solid rgba(250,204,21,.4)",borderRadius:20,padding:"28px 24px",textAlign:"center" }}>
-        <div style={{ fontSize:48,marginBottom:10 }}>🎄</div>
-        <div style={{ fontSize:20,fontWeight:800,color:lightMode?"#581c87":"#fde68a",marginBottom:10 }}>Watch this space!</div>
-        <div style={{ fontSize:13,lineHeight:1.7,color:lightMode?"#334155":"#cbd5e1",marginBottom:20 }}>
+      <div style={{ width:"100%",maxWidth:420,background:"linear-gradient(135deg,#FFE74C 0%,#FFD60A 50%,#FFC300 100%)",border:"3px solid #14532d",borderRadius:20,padding:"28px 24px",textAlign:"center",boxShadow:"0 10px 40px rgba(255,195,0,.45)" }}>
+        <div style={{ fontSize:52,marginBottom:10 }}>👀</div>
+        <div style={{ fontSize:24,fontWeight:900,color:"#0b1f12",marginBottom:12 }}>Watch this space!</div>
+        <div style={{ fontSize:14.5,fontWeight:700,lineHeight:1.7,color:"#14532d",marginBottom:22 }}>
           A new <b>Christmas competition</b> starts on <b>1 November</b>.<br/>
-          Keep your shopping receipts from 1 November, and check back here for all the details. 👀
+          <b>Start saving your shopping receipts now</b>, and check back here for all the details.
         </div>
-        <button onClick={onClose} style={{ width:"100%",padding:"13px",background:"linear-gradient(180deg,#fbbf24 0%,#d97706 100%)",border:"none",borderRadius:12,color:"#1a1200",cursor:"pointer",fontSize:15,fontWeight:800 }}>Got it</button>
+        <button onClick={onClose} style={{ width:"100%",padding:"14px",background:"#14532d",border:"none",borderRadius:12,color:"#FFE74C",cursor:"pointer",fontSize:16,fontWeight:900 }}>Got it</button>
       </div>
     </div>
   );
