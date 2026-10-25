@@ -16,6 +16,8 @@ Background on the June 2026 competition: `COMPETITION-NOTES.md`.
 | Tools | `marketing-tools/update_leaderboard.js`, `draw_third_prize.js` | Build the standings from your checked receipts; draw 3rd prize. |
 | Graphic | `November Price Hunt (square) DRAFT - needs Lottery OK.png` | Draft only. Script: `marketing-tools/make_comp_graphic.py`. |
 
+**Teaser stage (added 25 Oct):** from 25 Oct 00:00 until 1 Nov 00:00 the home banner reads "Watch this space! New Christmas competition coming soon" and tapping it opens a small card ("A new Christmas competition starts on 1 November. Keep your shopping receipts"). It mentions no prizes or rules. At 1 Nov 00:00 it switches to the real competition by itself. Change `teaserFrom` in `COMP` to move the start. Private preview of the teaser: `?comp=soon`.
+
 **Preview before launch:** open the app with `?comp=preview` on the end of the address, for example `https://www.jerseybasket.je/?comp=preview`.
 Only you see it that way; everyone else sees nothing until 1 November.
 
