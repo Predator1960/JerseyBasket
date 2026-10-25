@@ -25,8 +25,8 @@ Only you see it that way; everyone else sees nothing until 1 November.
 2. [ ] Confirm legally that a free-entry prize competition is fine in Jersey (Jersey Gambling Commission). I could not verify the current rules.
 3. [ ] Have the 15 tickets safely put away, unscratched. Note the numbers privately (do not publish them).
 4. [ ] Read the rules text in `CompetitionModal` and the "Rules" wording in the posts. Change anything you disagree with (see "Assumptions" below).
-5. [ ] Open the preview link on your phone and on a computer. Send one test receipt with the "Enter" box ticked and check it arrives in your Drive folder.
-6. [ ] Check the receipt Google Sheet: do you see a column that shows the photo file name? The entry tags are in the file name (see "How entries arrive").
+5. [x] Done 25 Oct: test entry sent from the preview link; the email, Sheet row (columns F to J), Drive photo name and remembered details all worked. Still worth trying it once on your phone.
+6. [x] Done 25 Oct: the Sheet shows the photo name and competition tag in columns I and J.
 7. [ ] Decide who checks receipts (you, or you and Laura) and how often (suggest once a day).
 
 ## How entries arrive
@@ -34,7 +34,7 @@ Only you see it that way; everyone else sees nothing until 1 November.
 The form uploads each photo to your Google Apps Script (the one that saves to Drive and the Sheet). Because that script is not in this project, I made the entry details travel in places it already records:
 - The **photo file name** starts with `COMP-NOV26_` and, if given, `REF-<alias>_` (the "who told you" answer), then date, store and original name. Example: `COMP-NOV26_REF-Kate_2026-11-08_Waitrose_receipt.jpg`.
 - **Name/alias, mobile and email** are sent as before.
-- The form also sends `competition`, `referredBy`, `store` and `dateTaken`. **Checked 25 Oct:** your running Apps Script ignores these (its Sheet has only time, name, mobile, email and photo link), so until you deploy the updated script (`apps-script/README.md`) the competition details exist **only in the photo file name in Drive**.
+- The form also sends `competition`, `referredBy`, `store` and `dateTaken`. **Checked 25 Oct:** your running Apps Script ignores these (its Sheet had only time, name, mobile, email and photo link). **Fixed on 25 Oct 2026:** the updated script (`apps-script/receipts.gs`) is deployed. The Sheet now records store, date taken, photo name, competition and referred-by in columns F to J, and the notification email lists them too. A test entry confirmed all of it.
 
 ## Daily routine (about 10 minutes)
 

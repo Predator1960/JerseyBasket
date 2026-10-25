@@ -44,7 +44,7 @@ Double points at Morrisons, Waitrose, M&S. 3rd prize = random draw among everyon
 Preview before launch with `?comp=preview` on the web address. Settings are in `COMP` in `App.jsx` (`enabled:false` switches it off). Standings are `public/leaderboard.json`.
 
 **Not yet done (needs the owner):** ask the Channel Islands Lottery about giving tickets as prizes and about using the ticket image; check the competition rules with the Jersey Gambling Commission;
-check one test entry reaches the Drive/Sheet with the `COMP-NOV26_` tag; write and approve the Facebook, Instagram and LinkedIn posts; final graphic (draft exists, **do not post until the Lottery agrees**).
+write and approve the Facebook, Instagram and LinkedIn posts; final graphic (draft exists, **do not post until the Lottery agrees**).
 
 ## 6. Marketing and social
 
@@ -58,7 +58,7 @@ check one test entry reaches the Drive/Sheet with the `COMP-NOV26_` tag; write a
 
 Business licence 006096 granted 23 Jun 2026. Check in myRegistry whether "Jersey Basket.je" is registered as a business name and whether the fee is due or can wait until revenue (get this in writing).
 Class 2 social security: reply to the Business Hub (default rate £1,296/month until income is shown). Manpower Return due 31 Jan and 31 Jul (next 31 Jan 2027).
-Channelisles.net hosts the domain/email (invoices 19 May 2026; renewal date to check). The receipt-photo Apps Script is now backed up in `apps-script/` (real values in the git-ignored `receipts-original-PRIVATE.gs`; placeholder copy with extra competition columns in `receipts.gs`, **not yet deployed**: see `apps-script/README.md`).
+Channelisles.net hosts the domain/email (invoices 19 May 2026; renewal date to check). The receipt-photo Apps Script is now backed up in `apps-script/` (real values in the git-ignored `receipts-original-PRIVATE.gs`; placeholder copy in `receipts.gs`). **The updated script was deployed on 25 Oct 2026 and tested end to end** (email, Sheet columns F to J, Drive photo name, remembered details): see `apps-script/README.md`.
 
 ## 8. Backups
 

@@ -10,6 +10,9 @@ The app (`RECEIPT_WEBAPP_URL` in `src/App.jsx`) posts each receipt photo to a Go
 ## What the original script stored (important for the Price Hunt)
 Sheet columns A to E only: time, name, mobile, email, photo link. It did **not** store the store, the date, the competition tag or "who told you". For competition entries those details were only in the **photo's file name** in Drive (for example `COMP-NOV26_REF-Kate_2026-11-08_Waitrose_receipt.jpg`).
 
+## Status: DEPLOYED and tested on 25 Oct 2026
+The steps below were carried out and the test entry worked. Keep them in case it ever needs redeploying.
+
 ## To start recording them in the Sheet (before 1 Nov)
 1. Open the script (script.google.com, or the Sheet > Extensions > Apps Script). Keep a copy first: File > Make a copy.
 2. Paste `receipts.gs` over the code, then put the four real values back from `receipts-original-PRIVATE.gs`.
