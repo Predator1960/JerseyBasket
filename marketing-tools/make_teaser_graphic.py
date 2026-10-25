@@ -44,11 +44,12 @@ d.rounded_rectangle((110, 500, 970, 640), 30, fill=(253, 224, 71))
 centred("New Christmas competition", bold(54), 520, (60, 40, 0))
 centred("coming soon", bold(54), 578, (60, 40, 0))
 centred("Starts 1 November", bold(64), 690, WHITE)
-centred("Keep your shopping receipts", semi(38), 780, LILAC)
+centred("Start saving your receipts now", semi(40), 772, WHITE)
+centred("Only receipts dated 1 to 30 November count", semi(28), 824, LILAC)
 
 # the six store logos along the bottom
 names = ["Co-op.png", "Iceland.png", "Alliance.png", "Morrisons.png", "M&S.png", "Waitrose2.png"]
-S, gap = 120, 22
+S, gap = 108, 22
 x0 = (W - (6 * S + 5 * gap)) // 2
 for i, n in enumerate(names):
     im = Image.open(os.path.join(ROOT, "Store Logo", n)).convert("RGBA")
@@ -60,9 +61,9 @@ for i, n in enumerate(names):
     mk = Image.new("L", (S, S), 0)
     ImageDraw.Draw(mk).rounded_rectangle((0, 0, S - 1, S - 1), 16, fill=255)
     im.putalpha(mk)
-    base.alpha_composite(im, (x0 + i * (S + gap), 850))
+    base.alpha_composite(im, (x0 + i * (S + gap), 880))
 d = ImageDraw.Draw(base)
-centred("jerseybasket.je", bold(34), 998, GOLD)
+centred("jerseybasket.je", bold(34), 1010, GOLD)
 
 name = "Watch This Space - Christmas competition teaser (square).png"
 out = os.path.join(ROOT, name)
