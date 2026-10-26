@@ -79,6 +79,23 @@ node marketing-tools/draw_third_prize.js entries.csv --exclude "Carmen1971"
 6. Announce on **Tuesday 1 December 2026**. Contact the winners by their mobile or email, and arrange to hand over the tickets whole and unscratched, in person or by recorded delivery. Note which ticket numbers went to whom. The draw is on Thursday 17 December.
 7. **Delete** the names, mobile numbers and emails afterwards. Keep only the winners' names if they agreed to be named.
 
+## Fallback versions: switch the prizes or the draw (prepared 26 Oct)
+
+Two settings in `COMP` (near the top of the competition code in `src/App.jsx`) change the app, the rules and the entry wording together:
+
+| Situation | Set | Graphic to use |
+|---|---|---|
+| Everything agreed (default) | `prizeMode: "tickets"`, `drawThird: true` | `November Price Hunt (square) DRAFT - needs Lottery OK.png` (A) |
+| Lottery agrees to tickets but NOT the ticket image | same as default | `... - B tickets no ticket photo.png` |
+| Lottery says no to tickets | `prizeMode: "vouchers"` | `... - C vouchers.png` |
+| Gambling Commission unhappy with the random draw | `drawThird: false` | `... - E tickets no draw DRAFT - needs Lottery OK.png` (or D if vouchers) |
+| No answers by 29 Oct: launch safe | `prizeMode: "vouchers"` and `drawThird: false` | `... - D vouchers no draw.png` |
+
+After changing, run the file check (`node coop-refresh/export_csv.js`), commit and push. Or ask Claude to do it (it takes minutes).
+**Private preview of any version** before launch: `?comp=preview&prizes=vouchers&draw=no` (use only the parts you want; these extras work only together with `comp=preview`).
+All five graphics are rebuilt by `python marketing-tools/make_comp_graphic.py` (files go to the project folder and Downloads).
+The rules text (`COMP_RULES`), the competition screen, the entry box and the share text all follow these two settings. `COMPETITION-NOV2026-RULES.md` is the tickets-with-draw wording and would need editing by hand for the other versions.
+
 ## Turning it off early
 
 Set `enabled: false` in `COMP` in `src/App.jsx` (or ask me), push, and everything disappears.

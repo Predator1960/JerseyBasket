@@ -16314,7 +16314,19 @@ const COMP = {
   drawDate: "Thursday 17 December 2026",
   doubleStores: ["morrisons", "waitrose", "ms"],   // STORES ids that score double points
   dataUrl: "/leaderboard.json",
+  prizeMode: "tickets",               // "tickets" (Channel Islands Charity Christmas Draw) or "vouchers" (£15 / £10 / £5)
+  drawThird: true,                    // true: 3rd prize is a random draw; false: 3rd prize goes to the 3rd highest score
 };
+// Prize wording follows the two settings above. The URL switches only work together with the private preview link.
+const _q = (() => { try { return typeof window !== "undefined" ? new URLSearchParams(window.location.search) : null; } catch { return null; } })();
+const _pv = !!_q && ["preview", "soon"].includes(_q.get("comp"));
+const COMP_TICKETS = !(_pv && _q.get("prizes") === "vouchers" ? true : COMP.prizeMode === "vouchers");
+const COMP_DRAW = _pv && _q.get("draw") === "no" ? false : COMP.drawThird;
+const COMP_PRIZES = {
+  tickets:  { name: "Christmas Draw tickets", head: "Channel Islands Charity Christmas Draw tickets", first: "7 tickets", second: "5 tickets", third: "3 tickets" },
+  vouchers: { name: "shopping vouchers", head: "Shopping vouchers, your choice of store", first: "£15 voucher", second: "£10 voucher", third: "£5 voucher" },
+};
+const PRIZE = COMP_TICKETS ? COMP_PRIZES.tickets : COMP_PRIZES.vouchers;
 // "off" (not public), "soon" (teaser only), "live" (open for entries) or "ended" (results week)
 function compPhase() {
   if (!COMP.enabled) return "off";
@@ -16859,7 +16871,7 @@ export default function JerseyGroceryApp() {
                 <span style={{ position:"absolute",top:0,left:"-60%",width:"40%",height:"100%",background:"linear-gradient(90deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.6) 50%,rgba(255,255,255,0) 100%)",pointerEvents:"none",animation:"compShine 3s ease-in-out infinite" }}/>
                 <span style={{ fontSize:36,flexShrink:0,position:"relative" }}>{compPh === "soon" ? "👀" : "🎟️"}</span>
                 <div style={{ flex:1,minWidth:0,position:"relative" }}>
-                  <div style={{ fontSize:16,fontWeight:900,color:"#0b1f12",lineHeight:1.25 }}>{compPh === "soon" ? "Watch this space! New Christmas competition coming soon" : compPh === "live" ? "November Price Hunt: win Christmas Draw tickets" : "November Price Hunt is closed"}</div>
+                  <div style={{ fontSize:16,fontWeight:900,color:"#0b1f12",lineHeight:1.25 }}>{compPh === "soon" ? "Watch this space! New Christmas competition coming soon" : compPh === "live" ? `November Price Hunt: win ${PRIZE.name}` : "November Price Hunt is closed"}</div>
                   <div style={{ fontSize:12.5,fontWeight:700,color:"#14532d",marginTop:3,lineHeight:1.4 }}>{compPh === "soon" ? "Starts 1 November · tap to find out more" : compPh === "live" ? "Send a receipt · double points at Morrisons, Waitrose & M&S · tap for details" : `Winners announced ${COMP.announce} · tap to see the results`}</div>
                 </div>
                 <span style={{ color:"#14532d",fontSize:30,fontWeight:900,flexShrink:0,position:"relative" }}>›</span>
@@ -19075,17 +19087,27 @@ const COMP_RULES = [
     "The leaderboard shows names or aliases and points only. It updates as receipts are checked, so it may be a little behind.",
   ]],
   ["6. The prizes", [
-    "The prizes are tickets in the Channel Islands Charity Christmas Draw (draw date Thursday 17 December 2026): 1st prize 7 tickets for the entrant with the most points; 2nd prize 5 tickets for the entrant with the second most points; 3rd prize 3 tickets, drawn at random from all other eligible entrants who have at least one accepted receipt.",
-    "Tickets are handed over whole and unscratched. There is no cash or other alternative, and prizes cannot be transferred or exchanged.",
-    "The tickets are bought by us at their normal price. The competition is not connected with, sponsored by or endorsed by the Channel Islands Lottery, and we cannot guarantee any winnings in the draw. The ticket holder must be 18 or over.",
+    COMP_TICKETS
+      ? `The prizes are tickets in the Channel Islands Charity Christmas Draw (draw date ${COMP.drawDate}): 1st prize ${PRIZE.first} for the entrant with the most points; 2nd prize ${PRIZE.second} for the entrant with the second most points; 3rd prize ${PRIZE.third}, ${COMP_DRAW ? "drawn at random from all other eligible entrants who have at least one accepted receipt" : "for the entrant with the third most points"}.`
+      : `The prizes are shopping vouchers: 1st prize ${PRIZE.first} for the entrant with the most points; 2nd prize ${PRIZE.second} for the entrant with the second most points; 3rd prize ${PRIZE.third}, ${COMP_DRAW ? "drawn at random from all other eligible entrants who have at least one accepted receipt" : "for the entrant with the third most points"}.`,
+    COMP_TICKETS
+      ? "Tickets are handed over whole and unscratched. There is no cash or other alternative, and prizes cannot be transferred or exchanged."
+      : "Each voucher is for one of the six stores in the app, the winner's choice, subject to availability. There is no cash alternative, and prizes cannot be transferred or exchanged.",
+    COMP_TICKETS
+      ? "The tickets are bought by us at their normal price. The competition is not connected with, sponsored by or endorsed by the Channel Islands Lottery, and we cannot guarantee any winnings in the draw. The ticket holder must be 18 or over."
+      : "The vouchers are bought by us and are subject to the issuing store's own terms and expiry date.",
   ]],
   ["7. How winners are chosen and told", [
-    "1st and 2nd prizes go to the two highest scores after all receipts sent by midnight on 30 November have been checked. If scores are equal, the entrant whose first accepted receipt was received earliest ranks higher.",
-    "The 3rd prize draw uses a random number generator and will be recorded or shown publicly.",
+    COMP_DRAW
+      ? "1st and 2nd prizes go to the two highest scores after all receipts sent by midnight on 30 November have been checked. If scores are equal, the entrant whose first accepted receipt was received earliest ranks higher."
+      : "The three prizes go to the three highest scores after all receipts sent by midnight on 30 November have been checked. If scores are equal, the entrant whose first accepted receipt was received earliest ranks higher.",
+    COMP_DRAW ? "The 3rd prize draw uses a random number generator and will be recorded or shown publicly." : null,
     "Winners will be contacted using the details they gave, and announced on Tuesday 1 December 2026 (names or aliases only, and only with their agreement).",
     "If a winner cannot be reached or does not reply within 7 days, or is found to be ineligible, the prize passes to the next eligible entrant.",
-    "Tickets will be handed over in person or by recorded delivery. We record the ticket numbers beforehand and ask winners to confirm receipt.",
-  ]],
+    COMP_TICKETS
+      ? "Tickets will be handed over in person or by recorded delivery. We record the ticket numbers beforehand and ask winners to confirm receipt."
+      : "Vouchers will be handed over in person, by recorded delivery or by email, and we ask winners to confirm receipt.",
+  ].filter(Boolean)],
   ["8. Your data", [
     "We collect your name or alias, mobile number and/or email address, and the receipt photos you send. We use your contact details only to run the competition and contact winners, and we do not share or sell them.",
     "Receipt photos are also used to check and update prices in the JerseyBasket catalogue, and are kept only as long as we need them for that.",
@@ -19161,7 +19183,7 @@ function CompetitionModal({ onClose, onEnter, data=null, phase="live" }) {
           {hasWinners && (
             <div style={{ background:GREEN,borderRadius:12,padding:"14px 16px",marginBottom:14,textAlign:"center" }}>
               <div style={{ fontSize:12,color:YEL,fontWeight:900,letterSpacing:".08em",textTransform:"uppercase" }}>🎉 November winners</div>
-              {[["🥇",winners.first,"7 tickets"],["🥈",winners.second,"5 tickets"],["🥉",winners.third,"3 tickets"]].filter(w=>w[1]).map((w,i)=>(
+              {[["🥇",winners.first,PRIZE.first],["🥈",winners.second,PRIZE.second],["🥉",winners.third,PRIZE.third]].filter(w=>w[1]).map((w,i)=>(
                 <div key={i} style={{ fontSize:16,fontWeight:900,color:"#fff",marginTop:6 }}>{w[0]} {w[1]} <span style={{ fontSize:11.5,fontWeight:700,color:YEL }}>· {w[2]}</span></div>
               ))}
             </div>
@@ -19169,8 +19191,8 @@ function CompetitionModal({ onClose, onEnter, data=null, phase="live" }) {
 
           {/* prizes */}
           <div style={card}>
-            <div style={head}>The prizes · Channel Islands Charity Christmas Draw tickets</div>
-            {[["🥇","1st prize","7 tickets","Most points"],["🥈","2nd prize","5 tickets","Second most points"],["🥉","3rd prize","3 tickets","Random draw: everyone with a checked receipt is in it"]].map(([m,a,b,c],i)=>(
+            <div style={head}>The prizes · {PRIZE.head}</div>
+            {[["🥇","1st prize",PRIZE.first,"Most points"],["🥈","2nd prize",PRIZE.second,"Second most points"],["🥉","3rd prize",PRIZE.third,COMP_DRAW ? "Random draw: everyone with a checked receipt is in it" : "Third most points"]].map(([m,a,b,c],i)=>(
               <div key={i} style={{ display:"flex",alignItems:"center",gap:12,marginBottom:i<2?10:0 }}>
                 <span style={{ fontSize:26,flexShrink:0 }}>{m}</span>
                 <div>
@@ -19179,7 +19201,7 @@ function CompetitionModal({ onClose, onEnter, data=null, phase="live" }) {
                 </div>
               </div>
             ))}
-            <div style={{ fontSize:10.5,fontWeight:600,color:GREEN,marginTop:10,lineHeight:1.6 }}>Tickets are handed over whole and unscratched. The draw is on {COMP.drawDate} and supports Channel Island charities. JerseyBasket is not connected to the Channel Islands Lottery.</div>
+            <div style={{ fontSize:10.5,fontWeight:600,color:GREEN,marginTop:10,lineHeight:1.6 }}>{COMP_TICKETS ? `Tickets are handed over whole and unscratched. The draw is on ${COMP.drawDate} and supports Channel Island charities. JerseyBasket is not connected to the Channel Islands Lottery.` : "Each voucher is for the store of your choice from the six in the app, subject to availability."}</div>
           </div>
 
           {/* how it works */}
@@ -19247,9 +19269,9 @@ function CompetitionModal({ onClose, onEnter, data=null, phase="live" }) {
             • Open to Jersey residents aged 18 or over. The organiser and their family cannot win.<br/>
             • <b>Only receipts dated 1 to 30 November 2026 count.</b> They must show the store name and date clearly. Each receipt counts once.<br/>
             • We check every receipt by hand. 1 point for each correct price, 2 points at Morrisons, Waitrose and M&S.<br/>
-            • 1st and 2nd prizes go to the highest scores. 3rd prize is a random draw among all other entrants with at least one checked receipt.<br/>
+            • {COMP_DRAW ? "1st and 2nd prizes go to the highest scores. 3rd prize is a random draw among all other entrants with at least one checked receipt." : "The three prizes go to the three highest scores."}<br/>
             • To win you must give a name or alias and a mobile number or email so we can contact you. Details are used only to run the competition and are deleted afterwards.<br/>
-            • Winners announced {COMP.announce}. Tickets are handed over in person or by recorded delivery. JerseyBasket's decision is final.
+            • Winners announced {COMP.announce}. {COMP_TICKETS ? "Tickets" : "Vouchers"} are handed over in person or by recorded delivery. JerseyBasket's decision is final.
             <button onClick={()=>setShowRules(true)} style={{ display:"block",width:"100%",marginTop:12,padding:"11px",background:"rgba(255,255,255,.55)",border:"2px solid #14532d",borderRadius:10,color:"#14532d",cursor:"pointer",fontSize:13.5,fontWeight:900 }}>📜 Read the full rules</button>
           </div>
         </div>
@@ -19298,7 +19320,7 @@ function SubmitPriceModal({ onClose, onOpenCompetition, lightMode=false }) {
   }, []);
   const shareHunt = () => {
     const alias = form.name.trim();
-    const text = `I'm in the JerseyBasket November Price Hunt: send a receipt, win Christmas Draw tickets. ${alias ? `Put "${alias}" in "who told you" when you enter. ` : ""}https://jerseybasket.je`;
+    const text = `I'm in the JerseyBasket November Price Hunt: send a receipt, win ${PRIZE.name}. ${alias ? `Put "${alias}" in "who told you" when you enter. ` : ""}https://jerseybasket.je`;
     if (navigator.share) navigator.share({ text }).catch(() => {});
     else if (navigator.clipboard) navigator.clipboard.writeText(text).catch(() => {});
   };
@@ -19498,7 +19520,7 @@ function SubmitPriceModal({ onClose, onOpenCompetition, lightMode=false }) {
                 <div style={{ marginTop:14,padding:"12px 14px",borderRadius:12,border:"1px solid rgba(250,204,21,.45)",background:lightMode?"rgba(250,204,21,.12)":"rgba(250,204,21,.08)" }}>
                   <label style={{ display:"flex",alignItems:"flex-start",gap:10,cursor:"pointer" }}>
                     <input type="checkbox" checked={enter} onChange={e=>setEnter(e.target.checked)} style={{ marginTop:3,width:18,height:18,flexShrink:0 }} />
-                    <span style={{ fontSize:13,fontWeight:800,color:lightMode?"#581c87":"#fde68a",lineHeight:1.4 }}>🎟️ Enter me in the {COMP.title}<br/><span style={{ fontSize:11,fontWeight:500,color:muted }}>Win Christmas Draw tickets · double points at Morrisons, Waitrose & M&S</span></span>
+                    <span style={{ fontSize:13,fontWeight:800,color:lightMode?"#581c87":"#fde68a",lineHeight:1.4 }}>🎟️ Enter me in the {COMP.title}<br/><span style={{ fontSize:11,fontWeight:500,color:muted }}>Win {PRIZE.name} · double points at Morrisons, Waitrose & M&S</span></span>
                   </label>
                   {enter && (
                     <div style={{ marginTop:12 }}>
