@@ -970,11 +970,11 @@ const BASE_PRODUCTS = [
   {id:2576,name:"Youngs Cod Cakes",                 cat:"🥩 Meat & Fish",  icon:"🐟",prices:sp(1.70,[0,-1.70,-1.70,-1.70,-1.70,-1.70])},
   {id:2577, name:"Co-op Salted Caramel Chocolate Bar", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:3.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"24 Oct"}, // Co-op Millennium Park receipt 24 Oct matches
   {id:2578,name:"Patak's Korma Curry Paste Pot",    cat:"🍝 Pantry",       icon:"🍛",prices:{coop:1.58,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"28 Aug"},
-  {id:2579,name:"WR Essential Salted Butter",       cat:"🥛 Dairy & Eggs", icon:"🧈",prices:{coop:0,morrisons:0,ms:0,waitrose:2.30,iceland:0,alliance:0}, upd:"1 Sep"},
+  {id:2579, name:"WR Essential Salted Butter", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:0,morrisons:0,ms:0,waitrose:2.3,iceland:0,alliance:0}, upd:"27 Oct"}, // Waitrose St Saviour receipt 27 Oct: WR ESS SALTED BUTTER 2.30 matches
   {id:2580,name:"WR Diced Chicken Breast",           cat:"🥩 Meat & Fish",  icon:"🍗",prices:sp(6.38,[-6.38,-6.38,-6.38,0,-6.38,-6.38])},
   {id:2581,name:"Robinsons Creations",               cat:"🥤 Drinks",       icon:"🧃",prices:sp(1.75,[-1.75,-1.75,-1.75,0,-1.75,-1.75])},
   {id:2582,name:"Hellmann's Light Mayo",              cat:"🍝 Pantry",       icon:"🥫",prices:sp(2.60,[-2.60,-2.60,-2.60,0,-2.60,-2.60])},
-  {id:2584, name:"WR Durafold Bag", cat:"🧹 Household", icon:"🛍️", prices:{coop:0,morrisons:0,ms:0,waitrose:1,iceland:0,alliance:0}, upd:"26 Oct"}, // Waitrose St Helier receipt 15 Oct: WR DURAFOLD BAG 1.00 | Waitrose St Helier receipt 26 Oct: WR DURAFOLD BAG 1.00 (matches)
+  {id:2584, name:"WR Durafold Bag", cat:"🧹 Household", icon:"🛍️", prices:{coop:0,morrisons:0,ms:0,waitrose:1,iceland:0,alliance:0}, upd:"27 Oct"}, // Waitrose St Helier receipt 15 Oct: WR DURAFOLD BAG 1.00 | Waitrose St Helier receipt 26 Oct: WR DURAFOLD BAG 1.00 (matches) | Waitrose St Saviour receipt 27 Oct: WR DURAFOLD BAG 1.00 matches
   {id:2585,name:"Dr Pepper Zero (330ml)",             cat:"🥤 Drinks",       icon:"🥤",prices:{coop:0,morrisons:0,ms:0,waitrose:2.09,iceland:0,alliance:0}, upd:"1 Sep"},
   {id:2586, name:"Sprite (8x330ml)", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0,morrisons:0,ms:0,waitrose:3.75,iceland:0,alliance:0}, upd:"26 Oct"}, // Waitrose St Helier receipt 26 Oct: SPRITE 3.75 (8 pack confirmed by shopper)
   {id:2587,name:"Budweiser Budvar Lager (500ml)",     cat:"🍷 Wine & Beer",  icon:"🍺",prices:sp(2.14,[-2.14,-2.14,-2.14,0,-2.14,-2.14])},
@@ -1173,7 +1173,7 @@ const BASE_PRODUCTS = [
   {id:885,name:"Tony's Caramel Chocolate Bar",        cat:"🥨 Snacks & Treats",icon:"🍫",prices:sp(3.83,[-3.83,-3.83,-3.83,0,-3.83,-3.83])},
   {id:886,name:"WR CI White Fondant Icing",           cat:"🍝 Pantry",        icon:"🎂",prices:sp(2.32,[-2.32,-2.32,-2.32,0,-2.32,-2.32])},
   {id:887,name:"WR Salted Danish Butter (250g)",      cat:"🥛 Dairy & Eggs",  icon:"🧈",prices:sp(3.88,[-3.88,-3.88,-3.88,0,-3.88,-3.88])},
-  {id:888,name:"WR Essential Single Cream",           cat:"🥛 Dairy & Eggs",  icon:"🍦",prices:sp(1.69,[-1.69,-1.69,-1.69,-0.06,-1.69,-1.69]), upd:"24 Sep"},
+  {id:888, name:"WR Essential Single Cream", cat:"🥛 Dairy & Eggs", icon:"🍦", prices:{coop:0,morrisons:0,ms:0,waitrose:1.63,iceland:0,alliance:0}, upd:"27 Oct"}, // Waitrose St Saviour receipt 27 Oct: WR ESS SINGLE CREAM 1.63 matches
   {id:889,name:"WR Essential Iceberg Lettuce",        cat:"🥦 Fruit & Veg",   icon:"🥬",prices:sp(1.00,[-1.00,-1.00,-1.00,0.05,-1.00,-1.00]), upd:"15 Oct"}, // Waitrose St Helier receipt 15 Oct: ESS ICBRG LETTUCE 1.05 (was 1.00, 30 Jul)
 
   {id:891,name:"Olde Oak Hot Dogs",                         cat:"🥩 Meat & Fish",         icon:"🌭",prices:sp(2.05,[0,-2.05,-2.05,-2.05,-2.05,-2.05])}, 
@@ -2723,7 +2723,7 @@ const BASE_PRODUCTS = [
   {id:2637, name:"Jersey Whole Milk 500ML", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:0.87,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:2638, name:"Jersey Dairy 2.5% Fat Reduced 500ML", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:0.87,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:2640, name:"Pukka All Steak Pie 209G", cat:"🥗 Deli & Salads", icon:"🥧", prices:{coop:2.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:2.75}, upd:"15 Oct", upds:{coop:"11 Jul",alliance:"15 Oct"}},
-  {id:2641, name:"Jersey Dairy 2.5% Fat Reduced Milk 1L", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:1.64,morrisons:1.54,ms:0,waitrose:1.65,iceland:0,alliance:0}, upd:"24 Oct", upds:{coop:"24 Oct",waitrose:"22 Oct"}}, // Waitrose St Saviour receipt 22 Oct: JDAIRY FAT RED MILK 1.65 (merged from row 700) | Co-op Millennium Park receipt 24 Oct: Jersey Green Fat R 2 @ 1.64
+  {id:2641, name:"Jersey Dairy 2.5% Fat Reduced Milk 1L", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:1.64,morrisons:1.54,ms:0,waitrose:1.65,iceland:0,alliance:0}, upd:"27 Oct", upds:{coop:"24 Oct",waitrose:"27 Oct"}}, // Waitrose St Saviour receipt 22 Oct: JDAIRY FAT RED MILK 1.65 (merged from row 700) | Co-op Millennium Park receipt 24 Oct: Jersey Green Fat R 2 @ 1.64 | Waitrose St Saviour receipt 27 Oct: JDAIRY FAT RED MILK 1.65 matches
   {id:2642, name:"Pukka Chicken & Mushroom Pie 212G", cat:"🥗 Deli & Salads", icon:"🥧", prices:{coop:2.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:2643, name:"Jersey Dairy 1% Fat Milk Blue LTR", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:1.64,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:2644, name:"Jersey Skimmed Milk Orange 500 500ML", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:0.87,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -4024,7 +4024,7 @@ const BASE_PRODUCTS = [
   {id:7118, name:"Small Baguette", cat:"🍞 Bread & Bakery", icon:"🥖", prices:{coop:0,morrisons:0,ms:0,waitrose:0.85,iceland:0,alliance:0}, upd:"30 Jul"},
   {id:7119, name:"Waitrose 4 All Butter Sultana Scones 4S", cat:"🍞 Bread & Bakery", icon:"🧁", prices:{coop:0,morrisons:0,ms:0,waitrose:2.10,iceland:0,alliance:0}, upd:"30 Jul"},
   {id:7120, name:"Essential Crumpets 8S", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:0,morrisons:0,ms:0,waitrose:0.70,iceland:0,alliance:0}, upd:"30 Jul"},
-  {id:7121, name:"Hovis Wholemeal Medium Sliced Bread 800g", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:0,morrisons:0,ms:0,waitrose:1.74,iceland:0,alliance:0}, upd:"27 Jul"},
+  {id:7121, name:"Hovis Wholemeal Medium Sliced Bread 800g", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:0,morrisons:0,ms:0,waitrose:1.74,iceland:0,alliance:0}, upd:"27 Oct"}, // Waitrose St Saviour receipt 27 Oct: HOVIS W'MEAL MEDIUM 1.74 matches (800g)
   {id:7122, name:"Fitzgeralds 2 Sourdough Baguettes 250g", cat:"🍞 Bread & Bakery", icon:"🥖", prices:{coop:0,morrisons:0,ms:0,waitrose:2.10,iceland:0,alliance:0}, upd:"30 Jul"},
   {id:7123, name:"Hovis Soft White Medium Sliced White Bread 800g", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:0,morrisons:0,ms:0,waitrose:1.50,iceland:0,alliance:0}, upd:"30 Jul"},
   {id:7124, name:"Waitrose 2 Almond Croissants 2S", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:0,morrisons:0,ms:0,waitrose:2.50,iceland:0,alliance:0}, upd:"30 Jul"},
@@ -12804,7 +12804,7 @@ const BASE_PRODUCTS = [
   {id:12835, name:"Vimto", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:2.15,alliance:0}, upd:"10 Oct"},
   {id:12836, name:"Diet Coke 8 x 330ml", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:5.3,alliance:5.6}, upd:"15 Oct", upds:{iceland:"10 Oct",alliance:"15 Oct"}, oos:["alliance"]},
   {id:12837, name:"Capri-Sun Zero Apple and Blackcurrant 8 x 200ml", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:3.75,alliance:0}, upd:"10 Oct"},
-  {id:12838, name:"Fanta Orange Zero 8 x 330ml", cat:"🥤 Drinks", icon:"🥤", prices:{coop:4.95,morrisons:0,ms:0,waitrose:3.75,iceland:5.25,alliance:0}, upd:"15 Oct", upds:{coop:"10 Oct",waitrose:"15 Oct",iceland:"10 Oct"}}, // merged duplicate rows 2583, 9686
+  {id:12838, name:"Fanta Orange Zero 8 x 330ml", cat:"🥤 Drinks", icon:"🥤", prices:{coop:4.95,morrisons:0,ms:0,waitrose:3.75,iceland:5.25,alliance:0}, upd:"27 Oct", upds:{coop:"10 Oct",waitrose:"27 Oct",iceland:"10 Oct"}}, // merged duplicate rows 2583, 9686 | Waitrose St Saviour receipt 27 Oct: FANTA ORANGE ZERO 3.75 matches
   {id:12839, name:"Fanta Orange Zero 24 x 330ml", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:9.45,alliance:9.9}, upd:"15 Oct", upds:{iceland:"10 Oct",alliance:"15 Oct"}},
   {id:12840, name:"Fanta Lemon 24 x 330ml", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:9.45,alliance:0}, upd:"10 Oct"},
   {id:12841, name:"Dr Pepper 24 x 330ml", cat:"🥤 Drinks", icon:"🥤", prices:{coop:13,morrisons:0,ms:0,waitrose:0,iceland:9.45,alliance:0}, upd:"10 Oct"}, // merged duplicate rows 11865
