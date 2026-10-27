@@ -745,6 +745,9 @@ const BASE_PRODUCTS = [
   {id:15851, name:"Waitrose Essential Sunflower Oil 500ml", cat:"🍝 Pantry", icon:"🌻", prices:{coop:0,morrisons:0,ms:0,waitrose:1.51,iceland:0,alliance:0}, upd:"24 Oct"}, // Waitrose St Helier receipt 24 Oct: WR ESS SUNFLOWER OIL 1.51 (500ml per shopper)
   {id:15852, name:"Cadbury Dairy Milk Orange Cookies 4 Pack", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:1.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"24 Oct"}, // Co-op Millennium Park receipt 24 Oct: Cadbury Dm Or Cookie 1.75 (Orange Cookie per shopper, not Oreo; 4 cookies per pack per shopper)
   {id:15853, name:"Co-op Cheese Coleslaw 300g", cat:"🥗 Deli & Salads", icon:"🥗", prices:{coop:2.99,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"24 Oct"}, // Co-op Millennium Park receipt 24 Oct: Cp Chs Coleslaw 2.99 (regular Co-op cheese coleslaw, 300g per shopper)
+  {id:15854, name:"Waitrose Essential Salted Peanuts", cat:"🥨 Snacks & Treats", icon:"🥜", prices:{coop:0,morrisons:0,ms:0,waitrose:1.66,iceland:0,alliance:0}, upd:"26 Oct"}, // Waitrose St Helier receipt 26 Oct: WR ESS SALTED PEANUT 1.66 (size not printed)
+  {id:15855, name:"Waitrose Cream Chocolate Choux Buns", cat:"🍰 Cakes & Desserts", icon:"🍫", prices:{coop:0,morrisons:0,ms:0,waitrose:3.19,iceland:0,alliance:0}, upd:"26 Oct"}, // Waitrose St Helier receipt 26 Oct: WR CREAM CHOC CHOUX 3.19 (pack size not printed)
+  {id:15856, name:"Waitrose Essential Hot Cross Buns", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:0,morrisons:0,ms:0,waitrose:2.03,iceland:0,alliance:0}, upd:"26 Oct"}, // Waitrose St Helier receipt 26 Oct: WR ESS HOT CROSS BUN 2.03 (pack size not printed)
   {id:456,name:"Tortilla Wraps Large (8pk)",          cat:"🍞 Bread & Bakery",icon:"🌯",prices:sp(1.80,[0,0,0,-0.35,0])},
   {id:555,name:"White Toastie Loaf",                  cat:"🍞 Bread & Bakery",icon:"🍞",prices:sp(1.25,[0,-1.25,-1.25,-1.25,-1.25])},
   {id:556, name:"Cheese Baps (4pk)", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:1.89,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:1.89}, upd:"24 Oct", upds:{alliance:"20 Aug",coop:"24 Oct"}}, // Co-op Millennium Park receipt 24 Oct matches
@@ -971,9 +974,9 @@ const BASE_PRODUCTS = [
   {id:2580,name:"WR Diced Chicken Breast",           cat:"🥩 Meat & Fish",  icon:"🍗",prices:sp(6.38,[-6.38,-6.38,-6.38,0,-6.38,-6.38])},
   {id:2581,name:"Robinsons Creations",               cat:"🥤 Drinks",       icon:"🧃",prices:sp(1.75,[-1.75,-1.75,-1.75,0,-1.75,-1.75])},
   {id:2582,name:"Hellmann's Light Mayo",              cat:"🍝 Pantry",       icon:"🥫",prices:sp(2.60,[-2.60,-2.60,-2.60,0,-2.60,-2.60])},
-  {id:2584,name:"WR Durafold Bag",                   cat:"🧹 Household",    icon:"🛍️",prices:sp(1.00,[-1.00,-1.00,-1.00,0,-1.00,-1.00]), upd:"15 Oct"}, // Waitrose St Helier receipt 15 Oct: WR DURAFOLD BAG 1.00
+  {id:2584, name:"WR Durafold Bag", cat:"🧹 Household", icon:"🛍️", prices:{coop:0,morrisons:0,ms:0,waitrose:1,iceland:0,alliance:0}, upd:"26 Oct"}, // Waitrose St Helier receipt 15 Oct: WR DURAFOLD BAG 1.00 | Waitrose St Helier receipt 26 Oct: WR DURAFOLD BAG 1.00 (matches)
   {id:2585,name:"Dr Pepper Zero (330ml)",             cat:"🥤 Drinks",       icon:"🥤",prices:{coop:0,morrisons:0,ms:0,waitrose:2.09,iceland:0,alliance:0}, upd:"1 Sep"},
-  {id:2586,name:"Sprite (8x330ml)",                   cat:"🥤 Drinks",       icon:"🥤",prices:sp(3.75,[-3.75,-3.75,-3.75,0,-3.75,-3.75])},
+  {id:2586, name:"Sprite (8x330ml)", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0,morrisons:0,ms:0,waitrose:3.75,iceland:0,alliance:0}, upd:"26 Oct"}, // Waitrose St Helier receipt 26 Oct: SPRITE 3.75 (matches the 8 x 330ml price; pack size not printed)
   {id:2587,name:"Budweiser Budvar Lager (500ml)",     cat:"🍷 Wine & Beer",  icon:"🍺",prices:sp(2.14,[-2.14,-2.14,-2.14,0,-2.14,-2.14])},
   {id:2588,name:"WR Essential Smoked Lardons",         cat:"🥩 Meat & Fish",  icon:"🥓",prices:sp(3.72,[-3.72,-3.72,-3.72,0,-3.72,-3.72])},
   {id:2589,name:"WR Cumberland Sausages",              cat:"🥩 Meat & Fish",  icon:"🌭",prices:sp(4.00,[-4.00,-4.00,-4.00,0,-4.00,-4.00]), upd:"30 Jul"},
