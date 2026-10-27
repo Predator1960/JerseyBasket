@@ -11306,7 +11306,7 @@ const BASE_PRODUCTS = [
   {id:11325, name:"Co-op Irresistible Tomato Selection 250g", cat:"🥦 Fruit & Veg", icon:"🥗", prices:{coop:3.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"}, // members £2.75 until 27/10/26
   {id:11326, name:"Lenor Outdoorable Fabric Conditioner 86 Washes, Spring Awakening 1.204ltr", cat:"🧹 Household", icon:"🧹", prices:{coop:5,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:11327, name:"Tunnock's Dark Chocolate Tea Cakes 6 x 24g", cat:"🥨 Snacks & Treats", icon:"🥨", prices:{coop:1.6,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:11328, name:"Sprite Zero Sugar Lemon Lime 8 x 330ml Cans", cat:"🥤 Drinks", icon:"🥤", prices:{coop:4.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
+  {id:11328, name:"Sprite Zero Sugar Lemon Lime 8 x 330ml Cans", cat:"🥤 Drinks", icon:"🥤", prices:{coop:4.95,morrisons:0,ms:0,waitrose:3.75,iceland:0,alliance:0}, upd:"27 Oct", upds:{coop:"10 Oct",waitrose:"27 Oct"}}, // Waitrose St Saviour receipt 27 Oct: SPRITE NO SUGAR 3.75 (8 pack per shopper)
   {id:11329, name:"Capsicana Latin Flavour Maxican Style Smoky Chipotle Chilli Con Carne Sauce Kit 273g", cat:"🍝 Pantry", icon:"🥫", prices:{coop:3.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:11330, name:"Co-op British Fresh Beef Braising Steak 375g", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:6.6,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:11331, name:"Co-op Soft & Fluffy Bao Buns 168g", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
