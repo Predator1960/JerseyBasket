@@ -24,7 +24,7 @@ Only you see it that way; everyone else sees nothing until 1 November.
 ## Before 1 November: checklist
 
 1. [ ] Ask the Channel Islands Lottery whether giving their tickets as a prize is fine and whether the ticket image / branding may be used. Until they answer, do not post the graphic.
-2. [ ] Confirm legally that a free-entry prize competition is fine in Jersey (Jersey Gambling Commission). I could not verify the current rules.
+2. [x] 29 Oct 2026: Jersey Gambling Commission replied that a free-entry competition with no cost to the consumer is not gambling, so the random 3rd-prize draw (drawThird: true) is fine. Keep the reply (ideally in writing).
 3. [ ] Have the 15 tickets safely put away, unscratched. Note the numbers privately (do not publish them).
 4. [ ] Read the rules text in `CompetitionModal` and the "Rules" wording in the posts. Change anything you disagree with (see "Assumptions" below).
 5. [x] Done 25 Oct: test entry sent from the preview link; the email, Sheet row (columns F to J), Drive photo name and remembered details all worked. Still worth trying it once on your phone.
