@@ -9066,7 +9066,7 @@ const BASE_PRODUCTS = [
   {id:9060, name:"Iceland 20pk Breaded Chicken Goujons 20pk", cat:"🧊 Frozen", icon:"🍗", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:3.35,alliance:0}, upd:"10 Oct"},
   {id:9061, name:"Iceland 12pk Garlic & Cheese Bites", cat:"🧊 Frozen", icon:"🍗", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:3.35,alliance:0}, upd:"10 Oct"},
   {id:9062, name:"Birds Eye 10 Chicken Fingers 250g", cat:"🧊 Frozen", icon:"🍗", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:3.35,alliance:4.2}, upd:"15 Oct", upds:{iceland:"10 Oct",alliance:"15 Oct"}},
-  {id:9063, name:"Birds Eye 4 Chicken Quarter Pounders 454g", cat:"🧊 Frozen", icon:"🍗", prices:{coop:0,morrisons:0,ms:0,waitrose:3.91,iceland:7.25,alliance:0}, upd:"31 Oct", upds:{iceland:"10 Oct",waitrose:"31 Oct"}}, // Waitrose St Helier receipt 31 Oct: B/EYE CHICKEN POUNDR 3.91 (4 pack per shopper)
+  {id:9063, name:"Birds Eye 4 Chicken Quarter Pounders 454g", cat:"🧊 Frozen", icon:"🍗", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:7.25,alliance:0}, upd:"10 Oct"}, // Waitrose 31 Oct receipt (sent in by a user) showed B/EYE CHICKEN POUNDR 3.91 but pack size unconfirmed (2 or 4 pack); not recorded
   {id:9064, name:"Birds Eye 8 Chicken BBQ Griddlers 204g", cat:"🧊 Frozen", icon:"🍗", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:3.35,alliance:3.85}, upd:"15 Oct", upds:{iceland:"21 Sep",alliance:"15 Oct"}},
   {id:9065, name:"Young's Fish Steaks in a Creamy Butter Sauce 4 Pack 560g", cat:"🧊 Frozen", icon:"🍗", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:5.9,alliance:0}, upd:"10 Oct"},
   {id:9066, name:"Iceland Ready Cooked Sweet Chilli Chicken Skewers 340g", cat:"🧊 Frozen", icon:"🍗", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:5.5,alliance:0}, upd:"10 Oct"},
