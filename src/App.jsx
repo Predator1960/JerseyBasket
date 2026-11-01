@@ -753,6 +753,11 @@ const BASE_PRODUCTS = [
   {id:15859, name:"Ribena Summerfruits Squash 1L", cat:"🥤 Drinks", icon:"🫐", prices:{coop:0,morrisons:0,ms:0,waitrose:2.44,iceland:0,alliance:0}, upd:"31 Oct"}, // Waitrose St Helier receipt 31 Oct: RIBENA SUMMERFRUITS 2.44 (1L squash per shopper)
   {id:15860, name:"Co-op Irresistible Triple Chocolate Cupcakes 2 Pack", cat:"🍞 Bread & Bakery", icon:"🧁", prices:{coop:2.25,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"31 Oct"}, // Co-op St Brelade receipt 31 Oct: CP IRR TR CH 2PK 2.25 (triple chocolate cupcakes 2 pack per shopper)
   {id:15861, name:"Co-op Cherry Vitamin C Sucking Sweets", cat:"🥨 Snacks & Treats", icon:"🍬", prices:{coop:1.05,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"31 Oct"}, // Co-op St Brelade receipt 31 Oct: CP CHERRY VIT C 1.05 (sucking sweets for car journeys per shopper; size not printed)
+  {id:15862, name:"M&S Mashing Potatoes 2kg", cat:"🥦 Fruit & Veg", icon:"🥔", prices:{coop:0,morrisons:0,ms:2.45,waitrose:0,iceland:0,alliance:0}, upd:"1 Nov"}, // M&S branch: School Road, St Clement, receipt 1 Nov: MASHNG POTS 2 2.45 (2kg read from the receipt, not confirmed)
+  {id:15863, name:"M&S Cabbage Heart", cat:"🥦 Fruit & Veg", icon:"🥬", prices:{coop:0,morrisons:0,ms:0.75,waitrose:0,iceland:0,alliance:0}, upd:"1 Nov"}, // M&S branch: School Road, St Clement, receipt 1 Nov: CABBAGE HEART 0.75 (each; size not confirmed)
+  {id:15864, name:"M&S R&P Merlot 75cl", cat:"🍷 Wine & Beer", icon:"🍷", prices:{coop:0,morrisons:0,ms:6.8,waitrose:0,iceland:0,alliance:0}, upd:"1 Nov"}, // M&S branch: School Road, St Clement, receipt 1 Nov: R&P MERLOT 75 6.80 (full name not printed)
+  {id:15865, name:"M&S Isle of Wight Arlintia Tomatoes", cat:"🥦 Fruit & Veg", icon:"🍅", prices:{coop:0,morrisons:0,ms:3.4,waitrose:0,iceland:0,alliance:0}, upd:"1 Nov"}, // M&S branch: School Road, St Clement, receipt 1 Nov: ARLINTIA TOMS 3.40 (pack size not confirmed)
+  {id:15866, name:"M&S Scottish Amber Carrots", cat:"🥦 Fruit & Veg", icon:"🥕", prices:{coop:0,morrisons:0,ms:2.1,waitrose:0,iceland:0,alliance:0}, upd:"1 Nov"}, // M&S branch: School Road, St Clement, receipt 1 Nov: SCOT AMB CARR 2.10 (pack size not confirmed)
   {id:456,name:"Tortilla Wraps Large (8pk)",          cat:"🍞 Bread & Bakery",icon:"🌯",prices:sp(1.80,[0,0,0,-0.35,0])},
   {id:555,name:"White Toastie Loaf",                  cat:"🍞 Bread & Bakery",icon:"🍞",prices:sp(1.25,[0,-1.25,-1.25,-1.25,-1.25])},
   {id:556, name:"Cheese Baps (4pk)", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:1.89,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:1.89}, upd:"24 Oct", upds:{alliance:"20 Aug",coop:"24 Oct"}}, // Co-op Millennium Park receipt 24 Oct matches
@@ -914,7 +919,7 @@ const BASE_PRODUCTS = [
   {id:653,name:"Fresh Flat Parsley (bunch)",       cat:"🥦 Fruit & Veg",  icon:"🌿", prices:sp(1.05,[-1.05,-1.05,0,-1.05,-1.05,-1.05])},
   {id:654,name:"Fresh Cut Mint (bunch)",           cat:"🥦 Fruit & Veg",  icon:"🌿", prices:sp(1.05,[-1.05,-1.05,0,-1.05,-1.05,-1.05])},
   {id:655,name:"Rosa Verde Salad (80g)",           cat:"🥦 Fruit & Veg",  icon:"🥗", prices:sp(1.95,[-1.95,-1.95,0,-1.95,-1.95,-1.95])},
-  {id:656,name:"Single Pepper",                    cat:"🥦 Fruit & Veg",  icon:"🫑", prices:sp(0.85,[-0.85,-0.85,0,-0.85,-0.85,-0.85])},
+  {id:656, name:"Single Pepper", cat:"🥦 Fruit & Veg", icon:"🫑", prices:{coop:0,morrisons:0,ms:0.85,waitrose:0,iceland:0,alliance:0}, upd:"1 Nov"}, // M&S branch: School Road, St Clement, receipt 1 Nov: SINGLE PEPPER 0.85 (matches)
   {id:657,name:"Brown Onion Net",                  cat:"🥦 Fruit & Veg",  icon:"🧅", prices:sp(1.80,[-1.80,-1.80,0,-1.80,-1.80,-1.80])},
   {id:658,name:"Pistachio & Caramel Snack",        cat:"🥨 Snacks & Treats",icon:"🌰",prices:sp(1.70,[-1.70,-1.70,0,-1.70,-1.70,-1.70])},
 
