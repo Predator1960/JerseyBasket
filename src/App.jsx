@@ -751,6 +751,8 @@ const BASE_PRODUCTS = [
   {id:15857, name:"Robinsons Double Concentrate Orange & Pineapple Squash 1L", cat:"🥤 Drinks", icon:"🥤", prices:{coop:1.25,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"29 Oct"}, // Co-op Millennium Park receipt 29 Oct: Robinsons Dc O&P 2 @ 1.25 (1L per shopper)
   {id:15858, name:"Tate & Lyle Fairtrade Pure Cane Icing Sugar 1kg", cat:"🍝 Pantry", icon:"🍬", prices:{coop:2.7,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"29 Oct"}, // Co-op Millennium Park receipt 29 Oct: T&L F.T Icng Sgr 2 @ 2.70 (1kg each per shopper)
   {id:15859, name:"Ribena Summerfruits Squash 1L", cat:"🥤 Drinks", icon:"🫐", prices:{coop:0,morrisons:0,ms:0,waitrose:2.44,iceland:0,alliance:0}, upd:"31 Oct"}, // Waitrose St Helier receipt 31 Oct: RIBENA SUMMERFRUITS 2.44 (1L squash per shopper)
+  {id:15860, name:"Co-op Irresistible Chocolate Cupcakes 2 Pack", cat:"🍞 Bread & Bakery", icon:"🧁", prices:{coop:2.25,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"31 Oct"}, // Co-op St Brelade receipt 31 Oct: CP IRR TR CH 2PK 2.25 (cupcakes 2 pack per shopper; exact flavour name not printed)
+  {id:15861, name:"Co-op Cherry Vitamin C Sucking Sweets", cat:"🥨 Snacks & Treats", icon:"🍬", prices:{coop:1.05,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"31 Oct"}, // Co-op St Brelade receipt 31 Oct: CP CHERRY VIT C 1.05 (sucking sweets for car journeys per shopper; size not printed)
   {id:456,name:"Tortilla Wraps Large (8pk)",          cat:"🍞 Bread & Bakery",icon:"🌯",prices:sp(1.80,[0,0,0,-0.35,0])},
   {id:555,name:"White Toastie Loaf",                  cat:"🍞 Bread & Bakery",icon:"🍞",prices:sp(1.25,[0,-1.25,-1.25,-1.25,-1.25])},
   {id:556, name:"Cheese Baps (4pk)", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:1.89,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:1.89}, upd:"24 Oct", upds:{alliance:"20 Aug",coop:"24 Oct"}}, // Co-op Millennium Park receipt 24 Oct matches
@@ -1368,7 +1370,7 @@ const BASE_PRODUCTS = [
   {id:1084,name:"Fanta Zero Orange (500ml)",                    cat:"🥤 Drinks",              icon:"🍊", prices:sp(2.10,[0,-2.10,-2.10,-0.01,0,0.05]), upd:"15 Oct", upds:{iceland:"10 Oct"}},
   {id:1085,name:"Crispy French Fries Crisps",                   cat:"🍿 Snacks",              icon:"🍟", prices:sp(1.85,[0,-1.85,-1.85,-1.85,-1.85,-1.85])},
   {id:1088,name:"CP Iceberg Lettuce",                           cat:"🥦 Fruit & Veg",         icon:"🥬", prices:sp(1.60,[0,-1.60,-1.60,-1.60,-1.60,-1.60])},
-  {id:1090,name:"CP Deli Chicken Stuffing Sandwich",            cat:"🥪 Food To Go",          icon:"🥪", prices:sp(3.60,[0,-3.60,-3.60,-3.60,-3.60,-3.60])},
+  {id:1090, name:"CP Deli Chicken Stuffing Sandwich", cat:"🥪 Food To Go", icon:"🥪", prices:{coop:3.6,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"31 Oct"}, // Co-op St Brelade receipt 31 Oct: CP D/F CHK STFNG SW 3.60 (same item as row 8102, per shopper)
   {id:1091,name:"Buxton Sports Water (500ml)",                  cat:"🥤 Drinks",              icon:"💧", prices:sp(1.50,[0,-1.50,-1.50,-1.50,-1.50,-1.50])},
   {id:1092,name:"Fairy Original Power Dishwasher Tablets",     cat:"🧹 Household & Cleaning", icon:"🍽️", prices:sp(4.20,[0,-4.20,-4.20,-4.20,-4.20,-4.20])},
   {id:1094, name:"Warburtons White/Wholemeal Loaf", cat:"🍞 Bakery", icon:"🍞", prices:{coop:1.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"29 Oct"}, // Co-op Millennium Park receipt 29 Oct: matches
@@ -5799,7 +5801,7 @@ const BASE_PRODUCTS = [
   {id:5174, name:"Dettol 110 Multi Purpose Wipes Citrus Zest", cat:"🧹 Household", icon:"🧴", prices:{coop:4.2,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:5175, name:"Duzzit Shake & Fresh Carpet Odour Neutraliser Fresh Linen 500g", cat:"🧹 Household", icon:"🏠", prices:{coop:1.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5176, name:"Viakal Classic Limescale Remover Spray 500ML, To Remove Up To 100% Of Limescale", cat:"🧹 Household", icon:"🧴", prices:{coop:3.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:4.4}, upd:"15 Oct", upds:{coop:"10 Oct",alliance:"15 Oct"}},
-  {id:5177, name:"Flash Bleach Cleaning Spray For Hard Surfaces 800ML", cat:"🧹 Household", icon:"🧴", prices:{coop:3.3,morrisons:0,ms:0,waitrose:0,iceland:3.7,alliance:0}, upd:"10 Oct", oos:["coop"]},
+  {id:5177, name:"Flash Bleach Cleaning Spray For Hard Surfaces 800ML", cat:"🧹 Household", icon:"🧴", prices:{coop:2.4,morrisons:0,ms:0,waitrose:0,iceland:3.7,alliance:0}, upd:"1 Nov", upds:{iceland:"10 Oct",coop:"1 Nov"}, oos:["coop"]}, // Co-op Five Oaks receipt 1 Nov: FLASH B&C 2.40 (spray 800ml per shopper; was 3.30)
   {id:5178, name:"Co-op 30 Ultimate All in One Dishwasher Tablets Lemon 510g", cat:"🧹 Household", icon:"🍽️", prices:{coop:3.39,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:5179, name:"Co-op 40 Antibacterial Lemon Multi-Surface Wipes", cat:"🧹 Household", icon:"🧴", prices:{coop:1.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5180, name:"Co-op Dishwasher Cleaner 250ml", cat:"🧹 Household", icon:"🍽️", prices:{coop:3.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -5812,7 +5814,7 @@ const BASE_PRODUCTS = [
   {id:5187, name:"Zoflora All Purpose Concentrated Disinfectant Mandarin & Lime 4 in 1 Action 250ml", cat:"🧹 Household", icon:"🧴", prices:{coop:3.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5188, name:"Flash Spray Wipe Done Antibac Apple Blossom Cleaning Spray 800ml", cat:"🧹 Household", icon:"🧴", prices:{coop:3.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5189, name:"Fairy Skip the Soak Dish Power Spray Lemon 500ml, Dishes & Kitchen, Grease Remover", cat:"🧹 Household", icon:"🍽️", prices:{coop:3.55,morrisons:0,ms:0,waitrose:0,iceland:5.55,alliance:0}, upd:"10 Oct", upds:{coop:"10 Oct"}}, // special offer £2.85 until 20/10/26
-  {id:5190, name:"Flash Multipurpose Floor Liquid Cleaner Crisp Lemon 1L", cat:"🧹 Household", icon:"🧴", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:3.5}, upd:"15 Oct", upds:{coop:"10 Oct",alliance:"15 Oct"}, oos:["alliance"]},
+  {id:5190, name:"Flash Multipurpose Floor Liquid Cleaner Crisp Lemon 1L", cat:"🧹 Household", icon:"🧴", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:3.5}, upd:"1 Nov", upds:{coop:"1 Nov",alliance:"15 Oct"}, oos:["alliance"]}, // Co-op Five Oaks receipt 1 Nov: FLASH LEMON 2.65 (liquid 1L per shopper; matches)
   {id:5191, name:"Flash Spray Wipe Done Bright Mandarin Cleaning Spray 800ml", cat:"🧹 Household", icon:"🧴", prices:{coop:3.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:5192, name:"Cif Ocean Floor Cleaner 950 ml", cat:"🧹 Household", icon:"🧴", prices:{coop:2.2,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:3.25}, upd:"15 Oct", upds:{coop:"10 Oct",alliance:"15 Oct"}},
   {id:5193, name:"Febreze 3Volution Air Freshener Plug In Refill Spring Awakening 20ML", cat:"🧹 Household", icon:"🌸", prices:{coop:4.2,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -8102,7 +8104,7 @@ const BASE_PRODUCTS = [
   {id:8099, name:"Graze Cocoa Orange", cat:"🥨 Snacks & Treats", icon:"🍫", prices:{coop:0,morrisons:0,ms:0,waitrose:1.80,iceland:0,alliance:0}, upd:"12 Aug"},
   {id:8100, name:"Vienna Crusty Rolls", cat:"🍞 Bread & Bakery", icon:"🥖", prices:{coop:0,morrisons:0,ms:0,waitrose:1.40,iceland:0,alliance:0}, upd:"15 Aug"},
   {id:8101, name:"Waitrose Essential 10 Bacon Rashers", cat:"🥩 Meat & Fish", icon:"🥓", prices:{coop:0,morrisons:0,ms:0,waitrose:3.25,iceland:0,alliance:0}, upd:"15 Aug"},
-  {id:8102, name:"Co-op Deep Fill Chicken & Stuffing Swirl", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:3.60,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"09 Aug"},
+  {id:8102, name:"Co-op Deep Fill Chicken & Stuffing Swirl", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:3.6,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"31 Oct"}, // Co-op St Brelade receipt 31 Oct: CP D/F CHK STFNG SW 3.60 (same item as row 1090, per shopper)
   {id:8103, name:"Jersey Sweet Pointed Peppers", cat:"🥔 Local Jersey", icon:"🫑", prices:{coop:2.60,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"15 Aug"},
   {id:8104, name:"Co-op Pretzel", cat:"🍞 Bread & Bakery", icon:"🥨", prices:{coop:0.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"15 Aug"},
   {id:8105, name:"Co-op British Unsmoked Bacon", cat:"🥩 Meat & Fish", icon:"🥓", prices:{coop:2.35,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"28 Aug"},
