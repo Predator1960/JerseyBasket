@@ -1,11 +1,29 @@
 {
   "competition": "nov2026",
-  "updated": "",
-  "entries": [],
+  "updated": "1 Nov",
+  "entries": [
+    {
+      "name": "Mary",
+      "points": 12
+    }
+  ],
   "stores": {
-    "morrisons": { "prices": 0, "goal": 100 },
-    "waitrose":  { "prices": 0, "goal": 100 },
-    "ms":        { "prices": 0, "goal": 100 }
+    "morrisons": {
+      "goal": 100,
+      "prices": 0
+    },
+    "waitrose": {
+      "goal": 100,
+      "prices": 0
+    },
+    "ms": {
+      "goal": 100,
+      "prices": 6
+    }
   },
-  "winners": { "first": "", "second": "", "third": "" }
+  "winners": {
+    "first": "",
+    "second": "",
+    "third": ""
+  }
 }
