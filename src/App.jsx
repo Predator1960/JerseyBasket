@@ -758,6 +758,8 @@ const BASE_PRODUCTS = [
   {id:15864, name:"M&S R&P Merlot 75cl", cat:"🍷 Wine & Beer", icon:"🍷", prices:{coop:0,morrisons:0,ms:6.8,waitrose:0,iceland:0,alliance:0}, upd:"1 Nov"}, // M&S branch: School Road, St Clement, receipt 1 Nov: R&P MERLOT 75 6.80 (full name not printed)
   {id:15865, name:"M&S Isle of Wight Arlintia Tomatoes", cat:"🥦 Fruit & Veg", icon:"🍅", prices:{coop:0,morrisons:0,ms:3.4,waitrose:0,iceland:0,alliance:0}, upd:"1 Nov"}, // M&S branch: School Road, St Clement, receipt 1 Nov: ARLINTIA TOMS 3.40 (pack size not confirmed)
   {id:15866, name:"M&S Scottish Amber Carrots", cat:"🥦 Fruit & Veg", icon:"🥕", prices:{coop:0,morrisons:0,ms:2.1,waitrose:0,iceland:0,alliance:0}, upd:"1 Nov"}, // M&S branch: School Road, St Clement, receipt 1 Nov: SCOT AMB CARR 2.10 (pack size not confirmed)
+  {id:15867, name:"Waitrose Brie & Bacon Sandwich", cat:"🥗 Deli & Salads", icon:"🥪", prices:{coop:0,morrisons:0,ms:0,waitrose:4.64,iceland:0,alliance:0}, upd:"2 Nov"}, // Waitrose St Saviour receipt 2 Nov (price check): WR BRIE BACON SWICH 4.64 (size not printed)
+  {id:15868, name:"Waitrose Lavender Scented Vanity Bin Liners 10L", cat:"🧹 Household", icon:"🛍️", prices:{coop:0,morrisons:0,ms:0,waitrose:1.99,iceland:0,alliance:0}, upd:"2 Nov"}, // Waitrose St Saviour receipt 2 Nov (price check): 10L LAVEND BIN LINER 1.99 (pack count not printed; Waitrose site lists 25 per pack)
   {id:456,name:"Tortilla Wraps Large (8pk)",          cat:"🍞 Bread & Bakery",icon:"🌯",prices:sp(1.80,[0,0,0,-0.35,0])},
   {id:555,name:"White Toastie Loaf",                  cat:"🍞 Bread & Bakery",icon:"🍞",prices:sp(1.25,[0,-1.25,-1.25,-1.25,-1.25])},
   {id:556, name:"Cheese Baps (4pk)", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:1.89,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:1.89}, upd:"24 Oct", upds:{alliance:"20 Aug",coop:"24 Oct"}}, // Co-op Millennium Park receipt 24 Oct matches
@@ -980,11 +982,11 @@ const BASE_PRODUCTS = [
   {id:2576,name:"Youngs Cod Cakes",                 cat:"🥩 Meat & Fish",  icon:"🐟",prices:sp(1.70,[0,-1.70,-1.70,-1.70,-1.70,-1.70])},
   {id:2577, name:"Co-op Salted Caramel Chocolate Bar", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:3.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"29 Oct"}, // Co-op Millennium Park receipt 24 Oct matches | Co-op Millennium Park receipt 29 Oct: matches
   {id:2578,name:"Patak's Korma Curry Paste Pot",    cat:"🍝 Pantry",       icon:"🍛",prices:{coop:1.58,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"28 Aug"},
-  {id:2579, name:"WR Essential Salted Butter", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:0,morrisons:0,ms:0,waitrose:2.3,iceland:0,alliance:0}, upd:"27 Oct"}, // Waitrose St Saviour receipt 27 Oct: WR ESS SALTED BUTTER 2.30 matches
+  {id:2579, name:"WR Essential Salted Butter", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:0,morrisons:0,ms:0,waitrose:2.3,iceland:0,alliance:0}, upd:"2 Nov"}, // Waitrose St Saviour receipt 27 Oct: WR ESS SALTED BUTTER 2.30 matches | Waitrose St Saviour receipt 2 Nov (price check): WR ESS SALTED BUTTER 2.30 x2 (matches)
   {id:2580,name:"WR Diced Chicken Breast",           cat:"🥩 Meat & Fish",  icon:"🍗",prices:sp(6.38,[-6.38,-6.38,-6.38,0,-6.38,-6.38])},
   {id:2581,name:"Robinsons Creations",               cat:"🥤 Drinks",       icon:"🧃",prices:sp(1.75,[-1.75,-1.75,-1.75,0,-1.75,-1.75])},
   {id:2582,name:"Hellmann's Light Mayo",              cat:"🍝 Pantry",       icon:"🥫",prices:sp(2.60,[-2.60,-2.60,-2.60,0,-2.60,-2.60])},
-  {id:2584, name:"WR Durafold Bag", cat:"🧹 Household", icon:"🛍️", prices:{coop:0,morrisons:0,ms:0,waitrose:1,iceland:0,alliance:0}, upd:"31 Oct"}, // Waitrose St Helier receipt 15 Oct: WR DURAFOLD BAG 1.00 | Waitrose St Helier receipt 26 Oct: WR DURAFOLD BAG 1.00 (matches) | Waitrose St Saviour receipt 27 Oct: WR DURAFOLD BAG 1.00 matches | Waitrose St Helier receipt 31 Oct: WR DURAFOLD BAG 1.00 (matches)
+  {id:2584, name:"WR Durafold Bag", cat:"🧹 Household", icon:"🛍️", prices:{coop:0,morrisons:0,ms:0,waitrose:1,iceland:0,alliance:0}, upd:"2 Nov"}, // Waitrose St Helier receipt 15 Oct: WR DURAFOLD BAG 1.00 | Waitrose St Helier receipt 26 Oct: WR DURAFOLD BAG 1.00 (matches) | Waitrose St Saviour receipt 27 Oct: WR DURAFOLD BAG 1.00 matches | Waitrose St Helier receipt 31 Oct: WR DURAFOLD BAG 1.00 (matches) | Waitrose St Saviour receipt 2 Nov (price check): WR DURAFOLD BAG 1.00 (matches)
   {id:2585,name:"Dr Pepper Zero (330ml)",             cat:"🥤 Drinks",       icon:"🥤",prices:{coop:0,morrisons:0,ms:0,waitrose:2.09,iceland:0,alliance:0}, upd:"1 Sep"},
   {id:2586, name:"Sprite (8x330ml)", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0,morrisons:0,ms:0,waitrose:3.75,iceland:0,alliance:0}, upd:"26 Oct"}, // Waitrose St Helier receipt 26 Oct: SPRITE 3.75 (8 pack confirmed by shopper)
   {id:2587,name:"Budweiser Budvar Lager (500ml)",     cat:"🍷 Wine & Beer",  icon:"🍺",prices:sp(2.14,[-2.14,-2.14,-2.14,0,-2.14,-2.14])},
@@ -1004,7 +1006,7 @@ const BASE_PRODUCTS = [
   {id:2601,name:"Always Discreet Sensitive (Large Pack)",cat:"💊 Health & Beauty",icon:"🌸",prices:sp(5.98,[-5.98,-5.98,-5.98,0,-5.98,-5.98])},
   {id:2602,name:"Always Discreet Sensitive (Small Pack)",cat:"💊 Health & Beauty",icon:"🌸",prices:sp(3.00,[-3.00,-3.00,-3.00,0,-3.00,-3.00])},
   {id:2603,name:"J20 Orange & Passionfruit",            cat:"🥤 Drinks",       icon:"🥤",prices:sp(2.19,[-2.19,-2.19,-2.19,0,-2.19,-2.19])},
-  {id:2604,name:"WR Essential Still Water",             cat:"🥤 Drinks",       icon:"💧",prices:sp(1.90,[-1.90,-1.90,-1.90,-0.90,-1.90,-1.90])},
+  {id:2604, name:"WR Essential Still Water", cat:"🥤 Drinks", icon:"💧", prices:{coop:0,morrisons:0,ms:0,waitrose:1,iceland:0,alliance:0}, upd:"2 Nov"}, // Waitrose St Saviour receipt 2 Nov (price check): WR ESS MIN WATER 1.00 (matches)
   {id:2605,name:"WR Fusilli",                           cat:"🍝 Pantry",       icon:"🍝",prices:sp(1.96,[-1.96,-1.96,-1.96,0,-1.96,-1.96]), upd:"10 Aug"},
   {id:2606,name:"WR Essential Table Salt",              cat:"🍝 Pantry",       icon:"🧂",prices:sp(1.98,[-1.98,-1.98,-1.98,0,-1.98,-1.98])},
   {id:2607,name:"WR Greek Yogurt with Honey",           cat:"🥛 Dairy & Eggs", icon:"🍯",prices:sp(3.48,[-3.48,-3.48,-3.48,0,-3.48,-3.48])},
@@ -4474,7 +4476,7 @@ const BASE_PRODUCTS = [
   {id:3812, name:"McCain 4 Slow Baked Jackets 800g 4PACK", cat:"🧊 Frozen", icon:"🥦", prices:{coop:4.2,morrisons:0,ms:0,waitrose:0,iceland:5.1,alliance:0}, upd:"10 Oct"}, // special offer £3.15 until 27/10/26
   {id:3813, name:"McCain Crinkle Home Chips 1kg", cat:"🧊 Frozen", icon:"🥦", prices:{coop:3.9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"29 Oct"}, // Co-op Millennium Park receipt 29 Oct: matches
   {id:3814, name:"McCain Straight Home Chips 1kg", cat:"🧊 Frozen", icon:"🥦", prices:{coop:3.9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:4.35}, upd:"15 Oct", upds:{coop:"10 Oct",alliance:"15 Oct"}},
-  {id:3815, name:"McCain Crispy French Fries 900g", cat:"🧊 Frozen", icon:"🥦", prices:{coop:3.89,morrisons:0,ms:0,waitrose:3.89,iceland:0,alliance:4.35}, upd:"29 Oct", upds:{coop:"29 Oct",alliance:"15 Oct",waitrose:"24 Oct"}}, // Waitrose St Helier receipt 24 Oct: MCCAIN FRENCH FRIES 3.89 (size not printed; same price as Co-op 900g) | Co-op Millennium Park receipt 29 Oct: matches
+  {id:3815, name:"McCain Crispy French Fries 900g", cat:"🧊 Frozen", icon:"🥦", prices:{coop:3.89,morrisons:0,ms:0,waitrose:3.89,iceland:0,alliance:4.35}, upd:"2 Nov", upds:{coop:"29 Oct",alliance:"15 Oct",waitrose:"2 Nov"}}, // Waitrose St Helier receipt 24 Oct: MCCAIN FRENCH FRIES 3.89 (size not printed; same price as Co-op 900g) | Co-op Millennium Park receipt 29 Oct: matches | Waitrose St Saviour receipt 2 Nov (price check): MCCAIN FRENCH FRIES 3.89 (matches)
   {id:3816, name:"McCain Crispy Hash Browns 625g", cat:"🧊 Frozen", icon:"🥦", prices:{coop:3.39,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:3.8}, upd:"15 Oct", upds:{coop:"10 Oct",alliance:"15 Oct"}},
   {id:3817, name:"McCain Lightly Spiced Wedges 650g", cat:"🧊 Frozen", icon:"🥦", prices:{coop:3.4,morrisons:0,ms:0,waitrose:0,iceland:3.7,alliance:0}, upd:"29 Oct", upds:{iceland:"10 Oct",coop:"29 Oct"}}, // merged duplicate rows 8128 | Co-op Millennium Park receipt 24 Oct matches | Co-op Millennium Park receipt 29 Oct: matches
   {id:3818, name:"McCain Smiles 454g", cat:"🧊 Frozen", icon:"🥦", prices:{coop:3.39,morrisons:0,ms:0,waitrose:0,iceland:3.35,alliance:0}, upd:"10 Oct"},
@@ -8129,7 +8131,7 @@ const BASE_PRODUCTS = [
   /* ── RECEIPT IMPORT — 3 Sep 2026 ──────────────────────────────── */
   {id:8118, name:"Waitrose Essential Garlic", cat:"🥦 Fruit & Veg", icon:"🧄", prices:{coop:0,morrisons:0,ms:0,waitrose:1.10,iceland:0,alliance:0}, upd:"26 Aug"},
   {id:8119, name:"Gordon's Premium Pink Gin 5cl", cat:"🍷 Wine & Beer", icon:"🥃", prices:{coop:0,morrisons:0,ms:0,waitrose:2.68,iceland:0,alliance:0}, upd:"26 Aug"},
-  {id:8120, name:"Sula Mint Humbugs", cat:"🍝 Pantry", icon:"🍬", prices:{coop:0,morrisons:0,ms:0,waitrose:1.79,iceland:0,alliance:0}, upd:"20 Oct"}, // Waitrose St Saviour receipt 20 Oct confirms 1.79
+  {id:8120, name:"Sula Mint Humbugs", cat:"🍝 Pantry", icon:"🍬", prices:{coop:0,morrisons:0,ms:0,waitrose:1.79,iceland:0,alliance:0}, upd:"2 Nov"}, // Waitrose St Saviour receipt 20 Oct confirms 1.79 | Waitrose St Saviour receipt 2 Nov (price check): SULA MINT HUMBUGS 1.79 x2 (matches)
   {id:8121, name:"Robinsons Double Concentrate Orange 1L", cat:"🥤 Drinks", icon:"🍊", prices:{coop:0,morrisons:0,ms:0,waitrose:1.75,iceland:0,alliance:0}, upd:"26 Aug"},
   {id:8122, name:"Duchy Organic English Breakfast Tea", cat:"🍝 Pantry", icon:"🍵", prices:{coop:0,morrisons:0,ms:0,waitrose:2.41,iceland:0,alliance:0}, upd:"1 Sep"},
   {id:8123, name:"Waitrose Essential Cheese Slices", cat:"🥛 Dairy & Eggs", icon:"🧀", prices:{coop:0,morrisons:0,ms:0,waitrose:1.79,iceland:0,alliance:0}, upd:"1 Sep"},
