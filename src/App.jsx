@@ -760,6 +760,17 @@ const BASE_PRODUCTS = [
   {id:15866, name:"M&S Scottish Amber Carrots", cat:"🥦 Fruit & Veg", icon:"🥕", prices:{coop:0,morrisons:0,ms:2.1,waitrose:0,iceland:0,alliance:0}, upd:"1 Nov"}, // M&S branch: School Road, St Clement, receipt 1 Nov: SCOT AMB CARR 2.10 (pack size not confirmed)
   {id:15867, name:"Waitrose Brie & Bacon Sandwich", cat:"🥗 Deli & Salads", icon:"🥪", prices:{coop:0,morrisons:0,ms:0,waitrose:4.64,iceland:0,alliance:0}, upd:"2 Nov"}, // Waitrose St Saviour receipt 2 Nov (price check): WR BRIE BACON SWICH 4.64 (size not printed)
   {id:15868, name:"Waitrose Lavender Scented Vanity Bin Liners 10L", cat:"🧹 Household", icon:"🛍️", prices:{coop:0,morrisons:0,ms:0,waitrose:1.99,iceland:0,alliance:0}, upd:"2 Nov"}, // Waitrose St Saviour receipt 2 Nov (price check): 10L LAVEND BIN LINER 1.99 (pack count not printed; Waitrose site lists 25 per pack)
+  {id:15869, name:"Tims Dairy Greek Style Honey Yogurt (single pot)", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:0,morrisons:0,ms:0,waitrose:1.05,iceland:0,alliance:0}, upd:"31 Oct"}, // Waitrose St Saviour shopper receipt 31 Oct: TIMS DAIRY YOG HONEY 1.05 (pot size not confirmed)
+  {id:15870, name:"Tims Dairy Greek Style Blackcurrant Yogurt (single pot)", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:0,morrisons:0,ms:0,waitrose:1.05,iceland:0,alliance:0}, upd:"31 Oct"}, // Waitrose St Saviour shopper receipt 31 Oct: TIMS DAIRY BLACKCRNT 1.05 (pot size not confirmed)
+  {id:15871, name:"Tims Dairy Greek Style Raspberry Yogurt (single pot)", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:0,morrisons:0,ms:0,waitrose:1.05,iceland:0,alliance:0}, upd:"31 Oct"}, // Waitrose St Saviour shopper receipt 31 Oct: TIMS DAIRY RASPBERRY 1.05 (pot size not confirmed)
+  {id:15872, name:"Waitrose Cheese & Ham Tortelloni", cat:"🥗 Deli & Salads", icon:"🥘", prices:{coop:0,morrisons:0,ms:0,waitrose:2.56,iceland:0,alliance:0}, upd:"31 Oct"}, // Waitrose St Saviour shopper receipt 31 Oct: WR CHSE & HAM TORTEL 2.56 (x2; size not confirmed, Essential version is 300g)
+  {id:15873, name:"Duchy Organic Tomato, Red Pepper & Lentil Soup 600g", cat:"🥗 Deli & Salads", icon:"🍲", prices:{coop:0,morrisons:0,ms:0,waitrose:3.68,iceland:0,alliance:0}, upd:"31 Oct"}, // Waitrose St Saviour shopper receipt 31 Oct: DUCHY TOM LENTL SOUP 3.68 (x2; size from waitrose.com)
+  {id:15874, name:"McCain Air Fryer Hash Brown Bites 600g", cat:"🧊 Frozen", icon:"🧊", prices:{coop:0,morrisons:0,ms:0,waitrose:3.25,iceland:0,alliance:0}, upd:"31 Oct"}, // Waitrose St Saviour shopper receipt 31 Oct: MCCAIN A/FRY HASH BR 3.25 (size from waitrose.com)
+  {id:15875, name:"Albert Bartlett Potato Croquettes 500g", cat:"🧊 Frozen", icon:"🍟", prices:{coop:0,morrisons:0,ms:0,waitrose:2.9,iceland:0,alliance:0}, upd:"31 Oct"}, // Waitrose St Saviour shopper receipt 31 Oct: ALBERT B CROQUETTES 2.90 (size from waitrose.com)
+  {id:15876, name:"Waitrose All Butter Gruyere & Poppy Seed Twists 125g", cat:"🥨 Snacks & Treats", icon:"🥨", prices:{coop:0,morrisons:0,ms:0,waitrose:3.11,iceland:0,alliance:0}, upd:"31 Oct"}, // Waitrose St Saviour shopper receipt 31 Oct: WR GRUYEYE TWISTS 3.11 (125g per listings)
+  {id:15877, name:"Cadbury Celebrations Chocolate Pouch", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:0,morrisons:0,ms:0,waitrose:3.98,iceland:0,alliance:0}, upd:"31 Oct"}, // Waitrose St Saviour shopper receipt 31 Oct: CELEBRATIONS POUCH 3.98 (size not confirmed)
+  {id:15878, name:"Cadbury Heroes Chocolate Pouch", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:0,morrisons:0,ms:0,waitrose:4.97,iceland:0,alliance:0}, upd:"31 Oct"}, // Waitrose St Saviour shopper receipt 31 Oct: CADBURY HEROES POUCH 4.97 (size not confirmed, 270g or 300g)
+  {id:15879, name:"Badedas Revitalising Shower Gel, Shampoo & Conditioner 200ml", cat:"💊 Health & Beauty", icon:"🧴", prices:{coop:0,morrisons:0,ms:0,waitrose:2.64,iceland:0,alliance:0}, upd:"31 Oct"}, // Waitrose St Saviour shopper receipt 31 Oct: BADEDAS REVITALISING 2.64 (size from retailer listings)
   {id:456,name:"Tortilla Wraps Large (8pk)",          cat:"🍞 Bread & Bakery",icon:"🌯",prices:sp(1.80,[0,0,0,-0.35,0])},
   {id:555,name:"White Toastie Loaf",                  cat:"🍞 Bread & Bakery",icon:"🍞",prices:sp(1.25,[0,-1.25,-1.25,-1.25,-1.25])},
   {id:556, name:"Cheese Baps (4pk)", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:1.89,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:1.89}, upd:"24 Oct", upds:{alliance:"20 Aug",coop:"24 Oct"}}, // Co-op Millennium Park receipt 24 Oct matches
@@ -995,10 +1006,10 @@ const BASE_PRODUCTS = [
   {id:2590,name:"Essential British Chicken Wings",     cat:"🥩 Meat & Fish",  icon:"🍗",prices:sp(2.32,[-2.32,-2.32,-2.32,0,-2.32,-2.32])},
   {id:2591,name:"WR Slow Cooked Sweet & Sticky Pork Ribs",cat:"🥩 Meat & Fish",icon:"🍖",prices:sp(7.88,[-7.88,-7.88,-7.88,0,-7.88,-7.88])},
   {id:2592,name:"Essential Garlic Kyivs",              cat:"🧊 Frozen",       icon:"🍗",prices:sp(4.06,[-4.06,-4.06,-4.06,0,-4.06,-4.06])},
-  {id:2593,name:"WR Stonebaked Pepperoni Pizza",       cat:"🧊 Frozen",       icon:"🍕",prices:sp(6.33,[-6.33,-6.33,-6.33,0,-6.33,-6.33])},
+  {id:2593, name:"WR Stonebaked Pepperoni Pizza", cat:"🧊 Frozen", icon:"🍕", prices:{coop:0,morrisons:0,ms:0,waitrose:4.71,iceland:0,alliance:0}, upd:"31 Oct"}, // Waitrose St Saviour shopper receipt 31 Oct: WR SB PEP PIZZA 4.71 (replaces old legacy 6.33; waitrose.com lists 413g)
   {id:2594,name:"WR Garlic Breadsticks",               cat:"🍞 Bread & Bakery",icon:"🥖",prices:sp(3.17,[-3.17,-3.17,-3.17,0,-3.17,-3.17])},
   {id:2595,name:"WR Stonebaked Ham & Pineapple Pizza", cat:"🧊 Frozen",       icon:"🍕",prices:sp(6.33,[-6.33,-6.33,-6.33,0,-6.33,-6.33])},
-  {id:2596,name:"WR Charlotte Potato Salad",            cat:"🥗 Deli & Salads",icon:"🥔",prices:sp(2.73,[-2.73,-2.73,-2.73,0,-2.73,-2.73])},
+  {id:2596, name:"WR Charlotte Potato Salad", cat:"🥗 Deli & Salads", icon:"🥔", prices:{coop:0,morrisons:0,ms:0,waitrose:2.79,iceland:0,alliance:0}, upd:"31 Oct"}, // Waitrose St Saviour shopper receipt 31 Oct: WR CHRLTE POT SALAD 2.79 (was 2.73; 270g on waitrose.com)
   {id:2597,name:"Betty Crocker Vanilla Cake Mix",       cat:"🍝 Pantry",       icon:"🧁",prices:sp(3.89,[-3.89,-3.89,-3.89,0,-3.89,-3.89])},
   {id:2598,name:"Betty Crocker Lemon Icing",            cat:"🍝 Pantry",       icon:"🍋",prices:sp(1.38,[-1.38,-1.38,-1.38,0,-1.38,-1.38])},
   {id:2599,name:"WR Essential Strawberry Jam",          cat:"🍝 Pantry",       icon:"🍓",prices:sp(1.38,[-1.38,-1.38,-1.38,0,-1.38,-1.38]), upd:"10 Aug"},
@@ -3510,7 +3521,7 @@ const BASE_PRODUCTS = [
   {id:3414, name:"Co-op Chicken Katsu Curry 485g", cat:"🥗 Deli & Salads", icon:"🥘", prices:{coop:6.35,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:3415, name:"The Coconut Collab Gut Health 350g", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:2.9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:3416, name:"Cadbury Dairy Milk Creamy Milk Chocolate Dessert Pots 2 x 60g (120g) 2X60G", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:1.6,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
-  {id:3417, name:"Müller Rice Original 170g", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:1.05,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:1.35}, upd:"15 Oct", upds:{coop:"10 Oct",alliance:"15 Oct"}},
+  {id:3417, name:"Müller Rice Original 170g", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:1.05,morrisons:0,ms:0,waitrose:1.11,iceland:0,alliance:1.35}, upd:"31 Oct", upds:{coop:"10 Oct",alliance:"15 Oct",waitrose:"31 Oct"}}, // Waitrose St Saviour shopper receipt 31 Oct: MULLER RICE ORIGINAL 1.11 x2 (size from row)
   {id:3418, name:"Co-op 2 Sausage Rolls 110g", cat:"🥗 Deli & Salads", icon:"🥧", prices:{coop:1.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:3419, name:"Co-op Pork Cocktail Sausages 250g", cat:"🥗 Deli & Salads", icon:"🥧", prices:{coop:2.7,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:3420, name:"Co-op 2 Scotch Eggs 226g", cat:"🥗 Deli & Salads", icon:"🥧", prices:{coop:2.35,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -7954,7 +7965,7 @@ const BASE_PRODUCTS = [
   {id:7935, name:"Waitrose 10 Bean Salad in Water 400g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:0,morrisons:0,ms:0,waitrose:1.10,iceland:0,alliance:0}, upd:"2 Aug"},
   {id:7936, name:"Waitrose 20m Extra Strong Kitchen Foil 1Each", cat:"🍝 Pantry", icon:"🍝", prices:{coop:0,morrisons:0,ms:0,waitrose:3.95,iceland:0,alliance:0}, upd:"2 Aug"},
   {id:7937, name:"Waitrose 40m x 350mm NON PVC Cling Film 1 Each", cat:"🍝 Pantry", icon:"🍝", prices:{coop:0,morrisons:0,ms:0,waitrose:2.40,iceland:0,alliance:0}, upd:"2 Aug"},
-  {id:7938, name:"Waitrose All Butter Cheddar Cheese Twists 125g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:0,morrisons:0,ms:0,waitrose:1.50,iceland:0,alliance:0}, upd:"2 Aug"},
+  {id:7938, name:"Waitrose All Butter Cheddar Cheese Twists 125g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:0,morrisons:0,ms:0,waitrose:2.19,iceland:0,alliance:0}, upd:"31 Oct"}, // Waitrose St Saviour shopper receipt 31 Oct: WR CHEDDAR TWISTS 2.19 (was 1.50)
   {id:7939, name:"Waitrose All Butter Mini Cheddar Cheese Twists 125g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:0,morrisons:0,ms:0,waitrose:1.50,iceland:0,alliance:0}, upd:"2 Aug"},
   {id:7940, name:"Waitrose Balsamic Glaze 215ml", cat:"🍝 Pantry", icon:"🍝", prices:{coop:0,morrisons:0,ms:0,waitrose:2.25,iceland:0,alliance:0}, upd:"2 Aug"},
   {id:7941, name:"Waitrose Berry Granola 1Kg", cat:"🍝 Pantry", icon:"🍝", prices:{coop:0,morrisons:0,ms:0,waitrose:3.00,iceland:0,alliance:4.15}, upd:"15 Oct", upds:{waitrose:"2 Aug",alliance:"15 Oct"}},
@@ -8669,7 +8680,7 @@ const BASE_PRODUCTS = [
   {id:8653, name:"Fox's Classic Vanilla Cream Flavour 5 x 25g (125g)", cat:"🥨 Snacks & Treats", icon:"🍪", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:1.35,alliance:0}, upd:"10 Oct"},
   {id:8654, name:"Forno Choco Chip Teeny 12 x 18g (216g)", cat:"🥨 Snacks & Treats", icon:"🍪", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:1.35,alliance:0}, upd:"21 Sep"},
   {id:8655, name:"McVitie's Hobnobs Vanilla Flavour Oaty Snaps 167g", cat:"🥨 Snacks & Treats", icon:"🍪", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:1.35,alliance:0}, upd:"10 Oct"},
-  {id:8656, name:"The Snack Organisation Sweet Chilli Rice Crackers 100g", cat:"🥨 Snacks & Treats", icon:"🍪", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:1.35,alliance:1.85}, upd:"15 Oct", upds:{iceland:"10 Oct",alliance:"15 Oct"}, oos:["iceland"]},
+  {id:8656, name:"The Snack Organisation Sweet Chilli Rice Crackers 100g", cat:"🥨 Snacks & Treats", icon:"🍪", prices:{coop:0,morrisons:0,ms:0,waitrose:1.15,iceland:1.35,alliance:1.85}, upd:"31 Oct", upds:{iceland:"10 Oct",alliance:"15 Oct",waitrose:"31 Oct"}, oos:["iceland"]}, // Waitrose St Saviour shopper receipt 31 Oct: TSOP SC RCE CRACKERS 1.15 (The Snack Organisation, 100g)
   {id:8657, name:"Schär Gluten-Free Curvies Original 170g", cat:"🥨 Snacks & Treats", icon:"🍪", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:2.9,alliance:4.25}, upd:"15 Oct", upds:{iceland:"21 Sep",alliance:"15 Oct"}, oos:["iceland","alliance"]},
   {id:8658, name:"Tago Wafer Rolls with Cocoa Cream 260g", cat:"🥨 Snacks & Treats", icon:"🍪", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:2,alliance:0}, upd:"21 Sep", oos:["iceland"]},
   {id:8659, name:"Dolce Gusto Latte Macchiato 8 x 17.4g + 8 x 5.5g (183.2g)", cat:"🥤 Drinks", icon:"☕", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:6.65,alliance:0}, upd:"10 Oct"},
@@ -9034,7 +9045,7 @@ const BASE_PRODUCTS = [
   {id:9019, name:"Birds Eye 8 Crispy Batter Fish Fingers 224g", cat:"🧊 Frozen", icon:"🐟", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:2.5,alliance:2.6}, upd:"15 Oct", upds:{iceland:"10 Oct",alliance:"15 Oct"}},
   {id:9020, name:"Young's Gastro Signature Breaded 2 Lemon & Pepper Fish Fillets 270g", cat:"🧊 Frozen", icon:"🐟", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:6.75,alliance:0}, upd:"10 Oct"},
   {id:9021, name:"Young's Gastro Tempura Battered 2 Light & Crispy Fish Fillets 270g", cat:"🧊 Frozen", icon:"🐟", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:6.6,alliance:0}, upd:"10 Oct"},
-  {id:9022, name:"Young's Golden Scampi in Our Crispy Breadcrumb 220g", cat:"🧊 Frozen", icon:"🍤", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:5.95,alliance:6.35}, upd:"15 Oct", upds:{iceland:"10 Oct",alliance:"15 Oct"}},
+  {id:9022, name:"Young's Golden Scampi in Our Crispy Breadcrumb 220g", cat:"🧊 Frozen", icon:"🍤", prices:{coop:0,morrisons:0,ms:0,waitrose:3.45,iceland:5.95,alliance:6.35}, upd:"31 Oct", upds:{iceland:"10 Oct",alliance:"15 Oct",waitrose:"31 Oct"}}, // Waitrose St Saviour shopper receipt 31 Oct: YOUNGS SCAMPI 3.45 (Young's Formed Golden Scampi 220g inferred)
   {id:9023, name:"Young's Chip Shop 4 Cod Fillets 400g", cat:"🧊 Frozen", icon:"🐟", prices:{coop:7.2,morrisons:0,ms:0,waitrose:0,iceland:8.7,alliance:0}, upd:"10 Oct"}, // special offer £5.70 until 27/10/26
   {id:9024, name:"Iceland Made with 100% Fish Fillet Strips Salt & Vinegar 400g", cat:"🧊 Frozen", icon:"🐟", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:5.25,alliance:0}, upd:"10 Oct"},
   {id:9025, name:"Iceland Made With 100% Fish Fillet Strips Crispy 400g", cat:"🧊 Frozen", icon:"🐟", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:5.25,alliance:0}, upd:"10 Oct"},
@@ -12026,7 +12037,7 @@ const BASE_PRODUCTS = [
   {id:12041, name:"CRF Simpl Wafers & Vanilla Fil 175g", cat:"🍝 Pantry", icon:"🥫", prices:{coop:1.35,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:12042, name:"Heinz Baked Beans Barbecue 390g", cat:"🍝 Pantry", icon:"🥫", prices:{coop:1.9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:12043, name:"Tims Greek Family Vanilla Kefir 450g", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:2.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
-  {id:12044, name:"Tims Honey Greek Style Yogurt 450g", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:2.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
+  {id:12044, name:"Tims Honey Greek Style Yogurt 450g", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:2.75,morrisons:0,ms:0,waitrose:2.3,iceland:0,alliance:0}, upd:"31 Oct", upds:{coop:"10 Oct",waitrose:"31 Oct"}}, // Waitrose St Saviour shopper receipt 31 Oct: TIMS DAIRY HONEY 2.30 x2 (450g assumed from row)
   {id:12045, name:"Tims Vanilla Greek Family Yogurt 450g", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:2.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:12046, name:"Tims Blackcurrant Greek Family Yogurt 450g", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:2.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:12047, name:"Tims Raspberry Greek Family Yogurt 450g", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:2.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
