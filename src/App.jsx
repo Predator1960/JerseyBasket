@@ -12775,7 +12775,7 @@ const BASE_PRODUCTS = [
   {id:12776, name:"Aquaroma Forest Fruits", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:1.8,alliance:0}, upd:"10 Oct"},
   {id:12777, name:"Aquaroma Lemon & Lime", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:1.8,alliance:0}, upd:"10 Oct"},
   {id:12778, name:"Innocent Pure Coconut Water 500ml", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:2.5,alliance:2.6}, upd:"15 Oct", upds:{iceland:"10 Oct",alliance:"15 Oct"}},
-  {id:12779, name:"Buxton Still Natural Mineral Water 750ml", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:1.35,alliance:1.4}, upd:"15 Oct", upds:{iceland:"10 Oct",alliance:"15 Oct"}},
+  {id:12779, name:"Buxton Still Natural Mineral Water 750ml", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:1.35,alliance:1.4}, upd:"3 Nov", upds:{iceland:"3 Nov",alliance:"15 Oct"}}, // Iceland 1.35 re-dated 3 Nov via Snappy Shopper (unverified by receipt)
   {id:12780, name:"Celtic Spring Still Natural Spring Water 5L", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:1.85,alliance:0}, upd:"10 Oct"},
   {id:12781, name:"Christaline Spring Water", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:1.7,alliance:0}, upd:"10 Oct"},
   {id:12782, name:"Elm Spring Sparkling Water 2L", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:1.1,alliance:0}, upd:"10 Oct"},
