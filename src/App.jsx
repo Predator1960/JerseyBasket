@@ -1238,7 +1238,7 @@ const BASE_PRODUCTS = [
   {id:922, name:"Co-op White Potatoes (1.5kg)", cat:"🥦 Fruit & Veg", icon:"🥔", prices:{coop:1.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"29 Oct"}, // Co-op Millennium Park receipt 29 Oct: matches
   {id:923,name:"Lucozade Energy Cherry (500ml)",            cat:"🥤 Drinks",              icon:"🍒",prices:sp(1.35,[0,-1.35,-1.35,-1.35,-1.35,-1.35])}, 
   {id:924,name:"Co-op Sorbet Coconut Ice Cream",            cat:"❄️ Frozen",             icon:"🍦",prices:sp(3.15,[0,-3.15,-3.15,-3.15,-3.15,-3.15])}, 
-  {id:925,name:"Werthers Original Soft Box (42g)",          cat:"🍫 Confectionery",       icon:"🍬",prices:sp(1.05,[0,-1.05,-1.05,-1.05,-1.05,-1.05]), upd:"20 Aug"}, 
+  {id:925, name:"Werthers Original Soft Box (42g)", cat:"🍫 Confectionery", icon:"🍬", prices:{coop:1.05,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"2 Nov"}, // Co-op Millennium Park receipt 2 Nov: Werthers Orig Sf Box 1.05
   {id:926, name:"Wotsits Giants Spicy (130g)", cat:"🍿 Snacks", icon:"🍿", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"29 Oct"}, // Co-op Millennium Park receipt 29 Oct: matches
 
   {id:928,name:"Co-op English Black Pudding (per kg)",      cat:"🥩 Meat & Fish",         icon:"🖤",prices:sp(4.80,[0,-4.80,-4.80,-4.80,-4.80,-4.80])}, 
@@ -1395,7 +1395,7 @@ const BASE_PRODUCTS = [
   {id:1085,name:"Crispy French Fries Crisps",                   cat:"🍿 Snacks",              icon:"🍟", prices:sp(1.85,[0,-1.85,-1.85,-1.85,-1.85,-1.85])},
   {id:1088,name:"CP Iceberg Lettuce",                           cat:"🥦 Fruit & Veg",         icon:"🥬", prices:sp(1.60,[0,-1.60,-1.60,-1.60,-1.60,-1.60])},
   {id:1090, name:"CP Deli Chicken Stuffing Sandwich", cat:"🥪 Food To Go", icon:"🥪", prices:{coop:3.6,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"31 Oct"}, // Co-op St Brelade receipt 31 Oct: CP D/F CHK STFNG SW 3.60 (same item as row 8102, per shopper)
-  {id:1091,name:"Buxton Sports Water (500ml)",                  cat:"🥤 Drinks",              icon:"💧", prices:sp(1.50,[0,-1.50,-1.50,-1.50,-1.50,-1.50])},
+  {id:1091, name:"Buxton Sports Water (500ml)", cat:"🥤 Drinks", icon:"💧", prices:{coop:1.05,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"2 Nov"}, // Co-op Millennium Park receipt 2 Nov: Bxtn Stil Sport Sngl 1.05 (was 1.50; small bottle, exact size not confirmed)
   {id:1092,name:"Fairy Original Power Dishwasher Tablets",     cat:"🧹 Household & Cleaning", icon:"🍽️", prices:sp(4.20,[0,-4.20,-4.20,-4.20,-4.20,-4.20])},
   {id:1094, name:"Warburtons White/Wholemeal Loaf", cat:"🍞 Bakery", icon:"🍞", prices:{coop:1.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"29 Oct"}, // Co-op Millennium Park receipt 29 Oct: matches
   {id:1095, name:"CP Chilli Chicken Pizza", cat:"🍝 Pantry", icon:"🍕", prices:{coop:1.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"29 Oct"}, // Co-op Millennium Park receipt 29 Oct: matches
@@ -9644,7 +9644,7 @@ const BASE_PRODUCTS = [
   /* ── Co-op receipt, Millennium Park, 25 Sep 2026 ── */
   {id:9609, name:"Mackie's Ice Cream", cat:"🧊 Frozen", icon:"🍨", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"25 Sep"},
   {id:9610, name:"Häagen-Dazs Salted Caramel Ice Cream 460ml", cat:"🧊 Frozen", icon:"🍨", prices:{coop:3.95,morrisons:5.48,ms:0,waitrose:5.96,iceland:0,alliance:0}, upd:"23 Oct", upds:{coop:"1 Oct",waitrose:"1 Oct",morrisons:"23 Oct"}}, // note: possible duplicate of id8025 "Häagen-Dazs Salted Caramel Ice Cream" (unsized, coop 3.17) — worth merging later | Morrisons Haute Croix receipt 23 Oct: HAAGEN DAZS SALTED CARAMEL 5.48 (More Card price 4.25; size not printed, 460ml assumed)
-  {id:9612, name:"Co-op Biodegradable Face Wipes", cat:"💊 Health & Beauty", icon:"🧻", prices:{coop:1.20,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"25 Sep"},
+  {id:9612, name:"Co-op Biodegradable Face Wipes", cat:"💊 Health & Beauty", icon:"🧻", prices:{coop:1.2,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"2 Nov"}, // Co-op Millennium Park receipt 2 Nov: Cp Biogrde Face Wipe 1.20
   {id:9614, name:"Vienna Seeded Rolls", cat:"🍞 Bread & Bakery", icon:"🥖", prices:{coop:2.35,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"25 Sep"},
   {id:9615, name:"Co-op Mince Pies", cat:"🍰 Cakes & Desserts", icon:"🥧", prices:{coop:1.60,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"25 Sep"},
   /* ── Waitrose receipt, St Helier, 25 Sep 2026 — first shopper-submitted receipt via Facebook ── */
