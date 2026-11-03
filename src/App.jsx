@@ -1395,7 +1395,7 @@ const BASE_PRODUCTS = [
   {id:1085,name:"Crispy French Fries Crisps",                   cat:"🍿 Snacks",              icon:"🍟", prices:sp(1.85,[0,-1.85,-1.85,-1.85,-1.85,-1.85])},
   {id:1088,name:"CP Iceberg Lettuce",                           cat:"🥦 Fruit & Veg",         icon:"🥬", prices:sp(1.60,[0,-1.60,-1.60,-1.60,-1.60,-1.60])},
   {id:1090, name:"CP Deli Chicken Stuffing Sandwich", cat:"🥪 Food To Go", icon:"🥪", prices:{coop:3.6,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"31 Oct"}, // Co-op St Brelade receipt 31 Oct: CP D/F CHK STFNG SW 3.60 (same item as row 8102, per shopper)
-  {id:1091,name:"Buxton Sports Water (500ml)",                  cat:"🥤 Drinks",              icon:"💧", prices:sp(1.50,[0,-1.50,-1.50,-1.50,-1.50,-1.50])},
+  {id:1091, name:"Buxton Sports Water (500ml)", cat:"🥤 Drinks", icon:"💧", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}}, // Co-op price 1.50 removed 3 Nov: legacy figure, implausible next to Buxton 1.5L at 1.29; awaiting a receipt or shelf price
   {id:1092,name:"Fairy Original Power Dishwasher Tablets",     cat:"🧹 Household & Cleaning", icon:"🍽️", prices:sp(4.20,[0,-4.20,-4.20,-4.20,-4.20,-4.20])},
   {id:1094, name:"Warburtons White/Wholemeal Loaf", cat:"🍞 Bakery", icon:"🍞", prices:{coop:1.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"29 Oct"}, // Co-op Millennium Park receipt 29 Oct: matches
   {id:1095, name:"CP Chilli Chicken Pizza", cat:"🍝 Pantry", icon:"🍕", prices:{coop:1.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"29 Oct"}, // Co-op Millennium Park receipt 29 Oct: matches
