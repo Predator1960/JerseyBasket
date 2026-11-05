@@ -690,7 +690,7 @@ const BASE_PRODUCTS = [
 
   /* ── NEW — verified Co-op Millennium Park receipt 28 May 2026 ─── */
   {id:423,name:"Jersey Dairy Fresh Milk 1% (500ml)", cat:"🥔 Local Jersey", icon:"🥛",prices:sp(0.87,[0,0.01,0,0,0]), upd:"21 Oct", upds:{coop:"21 Oct"}},
-  {id:430, name:"Jersey Dairy Fresh Milk 1% (1L)", cat:"🥔 Local Jersey", icon:"🥛", prices:{coop:1.64,morrisons:0,ms:0,waitrose:1.65,iceland:0,alliance:1.65}, upd:"31 Oct", upds:{coop:"21 Oct",waitrose:"31 Oct"}}, // Waitrose St Saviour shopper receipt 31 Oct: JD 1% FAT MILK 1.65 x2 (matches)
+  {id:430, name:"Jersey Dairy Fresh Milk 1% (1L)", cat:"🥔 Local Jersey", icon:"🥛", prices:{coop:1.64,morrisons:0,ms:0,waitrose:1.65,iceland:0,alliance:1.65}, upd:"5 Nov", upds:{coop:"21 Oct",waitrose:"5 Nov"}}, // Waitrose St Saviour shopper receipt 31 Oct: JD 1% FAT MILK 1.65 x2 (matches) | Waitrose St Helier shopper receipt 5 Nov: JD 1% FAT MILK 1.65 x2 (matches)
 
   /* ── NEW — verified Waitrose Red Houses receipt 31 May 2026 ─────────── */
   {id:431,name:"Lurpak Salted Spread",               cat:"🥛 Dairy & Eggs", icon:"🧈",prices:sp(3.50,[-3.50,-3.50,-3.50,0,0.07,-3.50])},
@@ -781,6 +781,7 @@ const BASE_PRODUCTS = [
   {id:15887, name:"M&S Sugar Free Clear Mint Drops 42g", cat:"🍫 Confectionery", icon:"🍬", prices:{coop:0,morrisons:0,ms:2,waitrose:0,iceland:0,alliance:0}, upd:"3 Nov"}, // M&S branch: St John (receipt 3 Nov "S/F CLEAR MIN" 2.00, product code 00539494, price confirmed by shopper)
   {id:15888, name:"M&S Strawberry Conserve 340g", cat:"🍝 Pantry", icon:"🍓", prices:{coop:0,morrisons:0,ms:3.35,waitrose:0,iceland:0,alliance:0}, upd:"3 Nov"}, // M&S branch: St John (receipt 3 Nov "STRAWBERRY CO" 3.35, product code 00819626)
   {id:15889, name:"M&S Microwave Green Speckled Lentils 250g", cat:"🍝 Pantry", icon:"🥫", prices:{coop:0,morrisons:0,ms:2.3,waitrose:0,iceland:0,alliance:0}, upd:"3 Nov"}, // M&S branch: St John (receipt 3 Nov "MICRO GRN LEN" 2.30, product code 29053759)
+  {id:15890, name:"Waitrose Extra Large Whole Chicken", cat:"🥩 Meat & Fish", icon:"🍗", prices:{coop:0,morrisons:0,ms:0,waitrose:8.85,iceland:0,alliance:0}, upd:"5 Nov"}, // Waitrose St Helier shopper receipt 5 Nov: WR XL WHOLE CHICKEN 8.85 (sold by weight, price is for this bird; size not confirmed, typically about 2.3kg)
   {id:456,name:"Tortilla Wraps Large (8pk)",          cat:"🍞 Bread & Bakery",icon:"🌯",prices:sp(1.80,[0,0,0,-0.35,0])},
   {id:555,name:"White Toastie Loaf",                  cat:"🍞 Bread & Bakery",icon:"🍞",prices:sp(1.25,[0,-1.25,-1.25,-1.25,-1.25])},
   {id:556, name:"Cheese Baps (4pk)", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:1.89,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:1.89}, upd:"24 Oct", upds:{alliance:"20 Aug",coop:"24 Oct"}}, // Co-op Millennium Park receipt 24 Oct matches
@@ -4022,9 +4023,9 @@ const BASE_PRODUCTS = [
   {id:7082, name:"Waitrose Ciabatta Rolls 4S", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:0,morrisons:0,ms:0,waitrose:1.80,iceland:0,alliance:2.15}, upd:"15 Oct", upds:{waitrose:"30 Jul",alliance:"15 Oct"}},
   {id:7083, name:"Hovis Granary Wholemeal Sliced Bread 800g", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:0,morrisons:0,ms:0,waitrose:2.00,iceland:0,alliance:0}, upd:"30 Jul"},
   {id:7084, name:"Waitrose Lemon Drizzle Cake", cat:"🍞 Bread & Bakery", icon:"🍰", prices:{coop:0,morrisons:0,ms:0,waitrose:3.20,iceland:0,alliance:0}, upd:"30 Jul"},
-  {id:7086, name:"Jason's Every Day White Bread Rolls with Sourdough 4S", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:0,morrisons:0,ms:0,waitrose:1.40,iceland:0,alliance:0}, upd:"30 Jul"},
+  {id:7086, name:"Jason's Every Day White Bread Rolls with Sourdough 4S", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:0,morrisons:0,ms:0,waitrose:2.03,iceland:0,alliance:0}, upd:"5 Nov"}, // Waitrose St Helier shopper receipt 5 Nov: JASONS WHITE ROLLS 2.03
   {id:7087, name:"Waitrose 6 Wholemeal Pittas 6S", cat:"🍞 Bread & Bakery", icon:"🫓", prices:{coop:0,morrisons:0,ms:0,waitrose:0.65,iceland:0,alliance:0}, upd:"30 Jul"},
-  {id:7088, name:"St Pierre 4 Burger Buns Pre-Sliced 4S", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:0,morrisons:0,ms:0,waitrose:2.50,iceland:0,alliance:0}, upd:"30 Jul"},
+  {id:7088, name:"St Pierre 4 Burger Buns Pre-Sliced 4S", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:0,morrisons:0,ms:0,waitrose:2.9,iceland:0,alliance:0}, upd:"5 Nov"}, // Waitrose St Helier shopper receipt 5 Nov: ST PIERRE 4 BRG BUNS 2.90
   {id:7089, name:"Jacksons Multigrain Brown Bloomer 800g", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:0,morrisons:0,ms:0,waitrose:1.95,iceland:0,alliance:0}, upd:"30 Jul"},
   {id:7090, name:"Wildfarmed Sourdough 640g", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:0,morrisons:0,ms:0,waitrose:2.50,iceland:0,alliance:0}, upd:"30 Jul"},
   {id:7091, name:"Angela Hartnett with Waitrose Rosemary & Sea Salt Focaccia 270g", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:0,morrisons:0,ms:0,waitrose:4.25,iceland:0,alliance:0}, upd:"30 Jul"},
@@ -14128,7 +14129,7 @@ const BASE_PRODUCTS = [
   {id:14140, name:"Waitrose No1 Free Range Cumberland Pork Sausages 400g", cat:"🧊 Frozen", icon:"🥓", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:5}, upd:"15 Oct"},
   {id:14141, name:"Waitrose No1 Antipasto Misto 120g", cat:"🧊 Frozen", icon:"🥓", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:8.1}, upd:"15 Oct"},
   {id:14142, name:"Waitrose  Pork & Herb Chipolatas 12pk", cat:"🧊 Frozen", icon:"🥓", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:5.25}, upd:"15 Oct"},
-  {id:14143, name:"Waitrose British Honey Roast Ham 115g", cat:"🧊 Frozen", icon:"🥓", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:4.7}, upd:"15 Oct"},
+  {id:14143, name:"Waitrose British Honey Roast Ham 115g", cat:"🧊 Frozen", icon:"🥓", prices:{coop:0,morrisons:0,ms:0,waitrose:3.89,iceland:0,alliance:4.7}, upd:"5 Nov", upds:{alliance:"15 Oct",waitrose:"5 Nov"}}, // Waitrose St Helier shopper receipt 5 Nov: WR BRIT HNY RST HAM 3.89 (Deli Meats 2 for £5 offer applied, regular price stored)
   {id:14144, name:"Waitrose Cumberland Pork Sausages 400g", cat:"🧊 Frozen", icon:"🥓", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:5.25}, upd:"15 Oct"},
   {id:14145, name:"Waitrose Unsmoked Back Bacon 8s 250g", cat:"🧊 Frozen", icon:"🥓", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:5.45}, upd:"15 Oct"},
   {id:14146, name:"Denhay British Smoked Streaky Bacon 200g", cat:"🧊 Frozen", icon:"🥓", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:5.15}, upd:"15 Oct"},
@@ -14148,7 +14149,7 @@ const BASE_PRODUCTS = [
   {id:14160, name:"Waitrose Partners Slower Reared Flamegrilled Chicken Pieces 160g", cat:"🥗 Deli & Salads", icon:"🥗", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:5.45}, upd:"15 Oct"},
   {id:14161, name:"Waitrose British Roast Ham 6 Slices 115g", cat:"🥗 Deli & Salads", icon:"🥗", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:4.4}, upd:"15 Oct"},
   {id:14162, name:"Waitrose British Smoked Ham 6 Slices 115g", cat:"🥗 Deli & Salads", icon:"🥗", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:4.4}, upd:"15 Oct"},
-  {id:14163, name:"Waitrose Breaded Ham 115g", cat:"🥗 Deli & Salads", icon:"🥗", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:4.3}, upd:"15 Oct"},
+  {id:14163, name:"Waitrose Breaded Ham 115g", cat:"🥗 Deli & Salads", icon:"🥗", prices:{coop:0,morrisons:0,ms:0,waitrose:3.89,iceland:0,alliance:4.3}, upd:"5 Nov", upds:{alliance:"15 Oct",waitrose:"5 Nov"}}, // Waitrose St Helier shopper receipt 5 Nov: WR BRIT BREADED HAM 3.89 (Deli Meats 2 for £5 offer applied, regular price stored)
   {id:14164, name:"Unearthed Oven Roasted Ham 120g", cat:"🥗 Deli & Salads", icon:"🥗", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:4.6}, upd:"15 Oct"},
   {id:14165, name:"Unearthed French Torchon Ham 160g", cat:"🥗 Deli & Salads", icon:"🥗", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:5.5}, upd:"15 Oct"},
   {id:14166, name:"Waitrose Wiltshire Honey Roast Ham 130g", cat:"🥗 Deli & Salads", icon:"🥗", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:5.1}, upd:"15 Oct"},
@@ -14243,7 +14244,7 @@ const BASE_PRODUCTS = [
   {id:14255, name:"Waitrose & Partners Chicken Breast Grills 280g", cat:"🧊 Frozen", icon:"🥩", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:6.55}, upd:"15 Oct", oos:["alliance"]},
   {id:14256, name:"Waitrose Partners Slower Reared British Sweet Chilli Chicken Mini Fillets 165g", cat:"🧊 Frozen", icon:"🥩", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:5.5}, upd:"15 Oct", oos:["alliance"]},
   {id:14257, name:"Waitrose Partners 6 Slower Reared British Roast Chicken Breast Slices 130g", cat:"🧊 Frozen", icon:"🥩", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:5.1}, upd:"15 Oct", oos:["alliance"]},
-  {id:14258, name:"Essential Waitrose & Partners 4 British Beef Burgers 454g", cat:"🧊 Frozen", icon:"🥩", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:5.8}, upd:"15 Oct", oos:["alliance"]},
+  {id:14258, name:"Essential Waitrose & Partners 4 British Beef Burgers 454g", cat:"🧊 Frozen", icon:"🥩", prices:{coop:0,morrisons:0,ms:0,waitrose:4.64,iceland:0,alliance:5.8}, upd:"5 Nov", upds:{alliance:"15 Oct",waitrose:"5 Nov"}, oos:["alliance"]}, // Waitrose St Helier shopper receipt 5 Nov: WR ESS BEEF BURGERS 4.64
   {id:14259, name:"Waitrose Chicken Mushroom Risotto 400g", cat:"🧊 Frozen", icon:"🥩", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:5.35}, upd:"15 Oct", oos:["alliance"]},
   {id:14260, name:"Waitrose Essential Unsmoked Gammon Joint 750g", cat:"🧊 Frozen", icon:"🥩", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:9.85}, upd:"15 Oct", oos:["alliance"]},
   {id:14261, name:"Waitrose Essential Garlic Kyivs 250g", cat:"🧊 Frozen", icon:"🥩", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:4.55}, upd:"15 Oct", oos:["alliance"]},
