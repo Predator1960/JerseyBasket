@@ -4,7 +4,7 @@
   "entries": [
     {
       "name": "Katrina B",
-      "points": 30
+      "points": 26
     },
     {
       "name": "Jason L",
@@ -18,7 +18,7 @@
   "stores": {
     "morrisons": {
       "goal": 100,
-      "prices": 15
+      "prices": 13
     },
     "waitrose": {
       "goal": 100,
