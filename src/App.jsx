@@ -19134,6 +19134,7 @@ const COMP_RULES = [
     "The photo must clearly show the store name, clear readable items with their prices, and the date. You may cover or fold over your card number or any loyalty-card number before photographing; we do not need them.",
     "Each receipt can only be entered once, and it must be a genuine receipt from a Jersey shop. Photos of shelf price labels are welcome if they show the store, the date and the price clearly.",
     "Only grocery and everyday household items count. Receipts for gifts, decorations, wrapping paper, clothing or other non-grocery goods cannot be scored.",
+    "Tip: if your receipt has gifts, decorations or other non-grocery items on it, put an X next to them (in the margin, so every line stays readable) before you take the photo. It helps us score your receipt faster.",
     "You may send as many different receipts as you like.",
   ]],
   ["5. How scores work", [
