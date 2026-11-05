@@ -3,6 +3,10 @@
   "updated": "5 Nov",
   "entries": [
     {
+      "name": "Katrina B",
+      "points": 26
+    },
+    {
       "name": "Jason L",
       "points": 16
     },
@@ -14,7 +18,7 @@
   "stores": {
     "morrisons": {
       "goal": 100,
-      "prices": 0
+      "prices": 13
     },
     "waitrose": {
       "goal": 100,
