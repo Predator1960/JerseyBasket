@@ -19120,6 +19120,7 @@ const COMP_RULES = [
     "You must give a name or alias and a mobile number or email address so we can contact you if you win.",
     "The photo must clearly show the store name, clear readable items with their prices, and the date. You may cover or fold over your card number or any loyalty-card number before photographing; we do not need them.",
     "Each receipt can only be entered once, and it must be a genuine receipt from a Jersey shop. Photos of shelf price labels are welcome if they show the store, the date and the price clearly.",
+    "Only grocery and everyday household items count. Receipts for gifts, decorations, wrapping paper, clothing or other non-grocery goods cannot be scored.",
     "You may send as many different receipts as you like.",
   ]],
   ["5. How scores work", [
@@ -19311,6 +19312,7 @@ function CompetitionModal({ onClose, onEnter, data=null, phase="live" }) {
             • Free to enter. No purchase necessary: a receipt from any shop you were already in counts.<br/>
             • Open to Jersey residents aged 18 or over. The organiser and their family cannot win.<br/>
             • <b>Only receipts dated 1 to 30 November 2026 count.</b> The photo must clearly show the store name, readable items and the date. Each receipt counts once.<br/>
+            • Only grocery and everyday household items count (not gifts, decorations, wrapping paper or clothing).<br/>
             • We check every receipt by hand. 1 point for each correct price, 2 points at Morrisons, Waitrose and M&S.<br/>
             • {COMP_DRAW ? "1st and 2nd prizes go to the highest scores. 3rd prize is a random draw among all other entrants with at least one checked receipt." : "The three prizes go to the three highest scores."}<br/>
             • To win you must give a name or alias and a mobile number or email so we can contact you. Details are used only to run the competition and are deleted afterwards.<br/>
