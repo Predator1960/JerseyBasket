@@ -3,16 +3,16 @@
   "updated": "5 Nov",
   "entries": [
     {
+      "name": "Mary C",
+      "points": 44
+    },
+    {
       "name": "Katrina B",
       "points": 26
     },
     {
       "name": "Jason L",
       "points": 16
-    },
-    {
-      "name": "Mary",
-      "points": 12
     }
   ],
   "stores": {
@@ -26,7 +26,7 @@
     },
     "ms": {
       "goal": 100,
-      "prices": 6
+      "prices": 22
     }
   },
   "winners": {
