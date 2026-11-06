@@ -2,15 +2,38 @@
 
 Usage:  python marketing-tools/make_leaderboard_image.py [out.png]
 Default output: C:/Users/eamon/Downloads/JerseyBasket Leaderboard <updated>.png
+A "where points came from" line is added automatically for anyone with points from stores other than
+Morrisons / Waitrose / M&S (e.g. Co-op = 1 point per price), read from the competition entries.csv.
+Override with --note "your text" (or --note "" for none).
 Run update_leaderboard.js first so leaderboard.json is current.
 """
-import json, os, sys
+import csv, json, os, sys
 from PIL import Image, ImageDraw, ImageFont
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 DATA = os.path.join(HERE, "..", "public", "leaderboard.json")
 with open(DATA, encoding="utf8") as fh:
     lb = json.load(fh)
+
+ENTRIES = "C:/Users/eamon/OneDrive/Desktop/JerseyBasket Competition/entries.csv"
+DOUBLE = {"morrisons", "waitrose", "m&s", "ms"}
+args = sys.argv[1:]
+note = None
+if "--note" in args:
+    i = args.index("--note"); note = args[i + 1]; del args[i:i + 2]
+if note is None:
+    other = {}
+    try:
+        with open(ENTRIES, encoding="utf8", newline="") as fh:
+            for r in csv.DictReader(fh):
+                s = (r.get("store") or "").strip()
+                if s and s.lower() not in DOUBLE:
+                    other.setdefault(r["alias"].strip(), set()).add(s)
+    except OSError:
+        pass
+    shown = {e.get("name") for e in lb.get("entries", [])}
+    parts = [f"{a}'s points include {' and '.join(sorted(s))} prices" for a, s in other.items() if a in shown]
+    note = ("  ·  ".join(parts) + " (1 point each)") if parts else ""
 
 W, H = 1080, 1350
 F = "C:/Windows/Fonts"
@@ -86,10 +109,12 @@ y += 152
 # Footer
 d.text((70, y + 22), "Double points at Morrisons, Waitrose and M&S  \u00b7  +5 per referral", font=font("segoeuib.ttf", 24), fill="white", anchor="lm")
 d.text((70, y + 58), "Results Tue 1 Dec  \u00b7  Draw Thu 17 Dec  \u00b7  Send your receipts in the app", font=font("segoeui.ttf", 24), fill=(220, 235, 228), anchor="lm")
+if note:
+    d.text((70, H - 122), note, font=font("segoeuib.ttf", 23), fill=(255, 214, 80), anchor="lm")
 d.line([70, H - 90, W - 70, H - 90], fill=(255, 255, 255, 50), width=2)
 d.text((70, H - 55), "JerseyBasket is not connected to the Channel Islands Lottery", font=font("segoeui.ttf", 22), fill=(220, 235, 228), anchor="lm")
 d.text((W - 70, H - 55), "jerseybasket.je", font=font("segoeuib.ttf", 24), fill="white", anchor="rm")
 
-out = sys.argv[1] if len(sys.argv) > 1 else f"C:/Users/eamon/Downloads/JerseyBasket Leaderboard {lb.get('updated', 'latest')}.png"
+out = args[0] if args else f"C:/Users/eamon/Downloads/JerseyBasket Leaderboard {lb.get('updated', 'latest')}.png"
 img.save(out)
 print("saved", out)
