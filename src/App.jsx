@@ -382,7 +382,7 @@ const BASE_PRODUCTS = [
   {id:148,name:"Orange Juice (1L)",            cat:"🥤 Drinks",       icon:"🍊", prices:sp(1.65,[0.9,0.1,0.5,0.55,0.05,0]), upd:"10 Oct", upds:{coop:"10 Oct"}}, // coop re-checked vs Co-op Smooth Orange Juice 1L
   {id:149,name:"Apple Juice (1L)",             cat:"🥤 Drinks",       icon:"🍏", prices:sp(3.65,[-1.10,0.1,0.5,0.64,0.05])},
   {id:544,name:"Apple Elderflower Cordial",    cat:"🥤 Drinks",       icon:"🌸", prices:sp(2.19,[-2.19,-2.19,-2.19,0,-2.19])},
-  {id:545,name:"Orange & Mango Juice (1L)",    cat:"🥤 Drinks",       icon:"🥭", prices:sp(2.19,[-2.19,-2.19,-2.19,0,-2.19])},
+  {id:545, name:"Orange & Mango Juice (1L)", cat:"🥤 Drinks", icon:"🥭", prices:{coop:0,morrisons:0,ms:0,waitrose:2.39,iceland:0,alliance:2.19}, upd:"6 Nov", upds:{waitrose:"6 Nov"}}, // Waitrose St Helier shopper receipt 6 Nov (Katrina B, staff card, pre-discount prices): WR ORNGE MANGO JUICE 2.39 (size not confirmed)
   {id:546,name:"Innocent Energise Smoothie",   cat:"🥤 Drinks",       icon:"🥤", prices:sp(4.72,[-4.72,-4.72,-4.72,0,-4.72])},
   {id:547,name:"Actimel Blueberry (8pk)",      cat:"🥤 Drinks",       icon:"🫐", prices:sp(2.90,[-2.90,-2.90,-2.90,0,-2.90])},
   {id:150,name:"Cranberry Juice (1L)",         cat:"🥤 Drinks",       icon:"🍷", prices:sp(1.80,[0.75,0.18,0.7,0.54,0.09])},
@@ -730,7 +730,7 @@ const BASE_PRODUCTS = [
 
   // ── Added 6 June 2026 from receipts ──
   {id:454, name:"Jersey Full Fat Milk (1ltr)", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:1.64,morrisons:1.64,ms:1.65,waitrose:1.65,iceland:1.64,alliance:1.64}, upd:"5 Nov", upds:{ms:"5 Nov"}}, // M&S branch: School Road, St Clement (receipt 5 Nov "JE Whole Milk" 1.65, matches)
-  {id:455, name:"Jersey Salted Butter (250g)", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:2.35,morrisons:2.35,ms:1.90,waitrose:2.58,iceland:2.5,alliance:2.6}, upd:"22 Oct", upds:{coop:"21 Oct",waitrose:"22 Oct",iceland:"10 Oct",alliance:"15 Oct"}}, // merged duplicate rows 1202 | Waitrose St Saviour receipt 22 Oct: JDAIRY SALTED BUTTER 2.58 (was an estimate 1.90)
+  {id:455, name:"Jersey Salted Butter (250g)", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:2.35,morrisons:2.35,ms:1.9,waitrose:2.58,iceland:2.5,alliance:2.6}, upd:"6 Nov", upds:{coop:"21 Oct",waitrose:"6 Nov",iceland:"10 Oct",alliance:"15 Oct"}}, // merged duplicate rows 1202 | Waitrose St Saviour receipt 22 Oct: JDAIRY SALTED BUTTER 2.58 (was an estimate 1.90) | Waitrose St Helier shopper receipt 6 Nov (Katrina B, staff card, pre-discount prices): J/D BUTTER V/L SALT 2.58 x2
   {id:15840, name:"Jersey Unsalted Butter 250g", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:2.35,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"21 Oct"},
   {id:15841, name:"M&S Fairtrade Cocoa Powder 225g", cat:"🍝 Pantry", icon:"🍫", prices:{coop:0,morrisons:0,ms:4.65,waitrose:0,iceland:0,alliance:0}, upd:"21 Oct"}, // M&S branch: St John (receipt 21 Oct "FT COCOA POWD" 4.65, 225g confirmed by shopper)
   {id:15842, name:"Co-op Apple Flapjack Crumble", cat:"🍰 Cakes & Desserts", icon:"🥧", prices:{coop:1.05,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"22 Oct"}, // Co-op Five Oaks receipt 22 Oct: Apple Crumble 1.05 (apple flapjack crumble per shopper; size not printed)
@@ -781,7 +781,7 @@ const BASE_PRODUCTS = [
   {id:15887, name:"M&S Sugar Free Clear Mint Drops 42g", cat:"🍫 Confectionery", icon:"🍬", prices:{coop:0,morrisons:0,ms:2,waitrose:0,iceland:0,alliance:0}, upd:"3 Nov"}, // M&S branch: St John (receipt 3 Nov "S/F CLEAR MIN" 2.00, product code 00539494, price confirmed by shopper)
   {id:15888, name:"M&S Strawberry Conserve 340g", cat:"🍝 Pantry", icon:"🍓", prices:{coop:0,morrisons:0,ms:3.35,waitrose:0,iceland:0,alliance:0}, upd:"3 Nov"}, // M&S branch: St John (receipt 3 Nov "STRAWBERRY CO" 3.35, product code 00819626)
   {id:15889, name:"M&S Microwave Green Speckled Lentils 250g", cat:"🍝 Pantry", icon:"🥫", prices:{coop:0,morrisons:0,ms:2.3,waitrose:0,iceland:0,alliance:0}, upd:"3 Nov"}, // M&S branch: St John (receipt 3 Nov "MICRO GRN LEN" 2.30, product code 29053759)
-  {id:15890, name:"Waitrose Extra Large Whole Chicken", cat:"🥩 Meat & Fish", icon:"🍗", prices:{coop:0,morrisons:0,ms:0,waitrose:8.85,iceland:0,alliance:0}, upd:"5 Nov"}, // Waitrose St Helier shopper receipt 5 Nov: WR XL WHOLE CHICKEN 8.85 (sold by weight, price is for this bird; size not confirmed, typically about 2.3kg)
+  {id:15890, name:"Waitrose Extra Large Whole Chicken", cat:"🥩 Meat & Fish", icon:"🍗", prices:{coop:0,morrisons:0,ms:0,waitrose:8.85,iceland:0,alliance:0}, upd:"5 Nov"}, // Waitrose St Helier shopper receipt 5 Nov: WR XL WHOLE CHICKEN 8.85 (sold by weight, price is for this bird; size not confirmed, typically about 2.3kg) | Waitrose St Helier shopper receipt 6 Nov (Katrina B, staff card, pre-discount prices): WR XL WHOLE CHICKEN 7.97 (by weight, price differs per bird, stored price left unchanged)
   {id:15891, name:"Milkybar Buttons", cat:"🍫 Confectionery", icon:"🍬", prices:{coop:0,morrisons:1.9,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"5 Nov"}, // Morrisons Daily St Ouen shopper receipt 5 Nov: MILKYBAR BUTTONS 1.90 (bought twice; size not confirmed)
   {id:15892, name:"Haribo Goldbears", cat:"🍫 Confectionery", icon:"🍬", prices:{coop:0,morrisons:1.55,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"5 Nov"}, // Morrisons Daily St Ouen shopper receipt 5 Nov: HARIBO GOLDBEARS 1.55 (bought twice; size not confirmed)
   {id:15893, name:"Morrisons Raisins", cat:"🍝 Pantry", icon:"🍇", prices:{coop:0,morrisons:3.3,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"5 Nov"}, // Morrisons Daily St Ouen shopper receipt 5 Nov: MORRISONS RAISINS 3.30 (size not confirmed)
@@ -812,6 +812,21 @@ const BASE_PRODUCTS = [
   {id:15918, name:"Morrisons Baby Leaf Salad", cat:"🥦 Fruit & Veg", icon:"🥬", prices:{coop:0,morrisons:1.45,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"5 Nov"}, // Morrisons Daily St Ouen shopper receipt 5 Nov (staff-discount transaction, shelf prices printed before discount): MORRISONS BABY LEAF SALAD 1.45 (size not confirmed)
   {id:15919, name:"Morrisons Little Gem Lettuce 2 Pack", cat:"🥦 Fruit & Veg", icon:"🥬", prices:{coop:0,morrisons:1.2,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"5 Nov"}, // Morrisons Daily St Ouen shopper receipt 5 Nov (staff-discount transaction, shelf prices printed before discount): MORRISONS LITTLE GEM LETTUCE 1.20 (2 pack from the Morrisons listing)
   {id:15920, name:"Morrisons Salad Tomatoes 6 Pack", cat:"🥦 Fruit & Veg", icon:"🍅", prices:{coop:0,morrisons:1.35,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"5 Nov"}, // Morrisons Daily St Ouen shopper receipt 5 Nov (staff-discount transaction, shelf prices printed before discount): MORRISONS SALAD TOMATOES 1.35 (bought twice; 6 pack inferred)
+  {id:15921, name:"Lurpak Light Spread", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:0,morrisons:0,ms:0,waitrose:4.35,iceland:0,alliance:0}, upd:"6 Nov"}, // Waitrose St Helier shopper receipt 6 Nov (Katrina B, staff card, pre-discount prices): LURPAK LIGHT SPREAD 4.35 (size not confirmed)
+  {id:15922, name:"Waitrose Loose Carrots", cat:"🥦 Fruit & Veg", icon:"🥕", prices:{coop:0,morrisons:0,ms:0,waitrose:0.37,iceland:0,alliance:0}, upd:"6 Nov"}, // Waitrose St Helier shopper receipt 6 Nov (Katrina B, staff card, pre-discount prices): WR LOOSE CARROTS 0.37 (by weight)
+  {id:15923, name:"Waitrose Onions Loose", cat:"🥦 Fruit & Veg", icon:"🧅", prices:{coop:0,morrisons:0,ms:0,waitrose:0.35,iceland:0,alliance:0}, upd:"6 Nov"}, // Waitrose St Helier shopper receipt 6 Nov (Katrina B, staff card, pre-discount prices): WR ONIONS 0.35 (by weight, size not confirmed)
+  {id:15924, name:"Taste 12 Mini Satay", cat:"🥗 Deli & Salads", icon:"🍢", prices:{coop:0,morrisons:0,ms:0,waitrose:3.83,iceland:0,alliance:0}, upd:"6 Nov"}, // Waitrose St Helier shopper receipt 6 Nov (Katrina B, staff card, pre-discount prices): TASTE 12 MINI SATAY 3.83 (size not confirmed)
+  {id:15925, name:"Waitrose ETC Green Veg Steamer", cat:"🥦 Fruit & Veg", icon:"🥦", prices:{coop:0,morrisons:0,ms:0,waitrose:2.9,iceland:0,alliance:0}, upd:"6 Nov"}, // Waitrose St Helier shopper receipt 6 Nov (Katrina B, staff card, pre-discount prices): WR ETC GRN VEG STMR 2.90 (ETC = Easy To Cook range, assumed; size not confirmed; Ready To Cook £10 offer applied)
+  {id:15926, name:"Waitrose ETC Hasselback Potatoes", cat:"🥦 Fruit & Veg", icon:"🥔", prices:{coop:0,morrisons:0,ms:0,waitrose:3.48,iceland:0,alliance:0}, upd:"6 Nov"}, // Waitrose St Helier shopper receipt 6 Nov (Katrina B, staff card, pre-discount prices): WR ETC HSLL POTS 3.48 (HSLL = Hasselback, assumed; size not confirmed; Ready To Cook £10 offer applied)
+  {id:15927, name:"Waitrose Slow Cooked Sweet & Sour Pork Ribs", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:0,morrisons:0,ms:0,waitrose:8.05,iceland:0,alliance:0}, upd:"6 Nov"}, // Waitrose St Helier shopper receipt 6 Nov (Katrina B, staff card, pre-discount prices): WR SC S&S PORK RIBS 8.05 (size not confirmed)
+  {id:15928, name:"Waitrose No1 Cherrywood Smoked Salmon", cat:"🥩 Meat & Fish", icon:"🐟", prices:{coop:0,morrisons:0,ms:0,waitrose:5.6,iceland:0,alliance:0}, upd:"6 Nov"}, // Waitrose St Helier shopper receipt 6 Nov (Katrina B, staff card, pre-discount prices): NO1 CWOOD SMK SALMON 5.60 (size not confirmed)
+  {id:15929, name:"YP Thai Chicken Soup", cat:"🥗 Deli & Salads", icon:"🍲", prices:{coop:0,morrisons:0,ms:0,waitrose:4.32,iceland:0,alliance:0}, upd:"6 Nov"}, // Waitrose St Helier shopper receipt 6 Nov (Katrina B, staff card, pre-discount prices): YP THAI CHICKEN SOUP 4.32 (size not confirmed)
+  {id:15930, name:"Waitrose Lime Each", cat:"🥦 Fruit & Veg", icon:"🍋", prices:{coop:0,morrisons:0,ms:0,waitrose:0.35,iceland:0,alliance:0}, upd:"6 Nov"}, // Waitrose St Helier shopper receipt 6 Nov (Katrina B, staff card, pre-discount prices): WR LIME 0.35
+  {id:15931, name:"Waitrose Christmas Chocolate Knots", cat:"🍞 Bread & Bakery", icon:"🍫", prices:{coop:0,morrisons:0,ms:0,waitrose:2.44,iceland:0,alliance:0}, upd:"6 Nov"}, // Waitrose St Helier shopper receipt 6 Nov (Katrina B, staff card, pre-discount prices): WR XMAS CHOC KNOTS 2.44 (seasonal, size not confirmed)
+  {id:15932, name:"Waitrose Christmas Cinnamon Knots", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:0,morrisons:0,ms:0,waitrose:2.44,iceland:0,alliance:0}, upd:"6 Nov"}, // Waitrose St Helier shopper receipt 6 Nov (Katrina B, staff card, pre-discount prices): WR XMAS CINNA KNOTS 2.44 (seasonal, size not confirmed)
+  {id:15933, name:"Waitrose Essential Still Water", cat:"🥤 Drinks", icon:"💧", prices:{coop:0,morrisons:0,ms:0,waitrose:2.09,iceland:0,alliance:0}, upd:"6 Nov"}, // Waitrose St Helier shopper receipt 6 Nov (Katrina B, staff card, pre-discount prices): WR ESS STILL WATER 2.09 (size not confirmed)
+  {id:15934, name:"J20 Apple & Raspberry Cans", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0,morrisons:0,ms:0,waitrose:2.73,iceland:0,alliance:0}, upd:"6 Nov"}, // Waitrose St Helier shopper receipt 6 Nov (Katrina B, staff card, pre-discount prices): J20 APPLE & RASP CAN 2.73 (pack size not confirmed)
+  {id:15935, name:"Pledge Multi-Surface", cat:"🧹 Household", icon:"🧹", prices:{coop:0,morrisons:0,ms:0,waitrose:2,iceland:0,alliance:0}, upd:"6 Nov"}, // Waitrose St Helier shopper receipt 6 Nov (Katrina B, staff card, pre-discount prices): PLEDGE M-SURFACE JAS 2.00 (size not confirmed)
   {id:456,name:"Tortilla Wraps Large (8pk)",          cat:"🍞 Bread & Bakery",icon:"🌯",prices:sp(1.80,[0,0,0,-0.35,0])},
   {id:555,name:"White Toastie Loaf",                  cat:"🍞 Bread & Bakery",icon:"🍞",prices:sp(1.25,[0,-1.25,-1.25,-1.25,-1.25])},
   {id:556, name:"Cheese Baps (4pk)", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:1.89,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:1.89}, upd:"24 Oct", upds:{alliance:"20 Aug",coop:"24 Oct"}}, // Co-op Millennium Park receipt 24 Oct matches
@@ -1113,7 +1128,7 @@ const BASE_PRODUCTS = [
   {id:734,name:"Iceland Whole Chicken (1.5kg)",    cat:"🥩 Meat & Fish",  icon:"🍗",prices:sp(10.50,[-10.50,-10.50,-10.50,-10.50,-10.50,0])},
   /* ── Kate receipts 17 Jun 2026 — 7 new items ── */
   {id:735,name:"WR Choc Chip Brioche",             cat:"🍞 Bread & Bakery",icon:"🥐",prices:sp(1.74,[-1.74,-1.74,-1.74,0,-1.74,-1.74])},
-  {id:736,name:"WR Sweet Potato Fries",            cat:"🧊 Frozen",        icon:"🍟",prices:sp(3.48,[-3.48,-3.48,-3.48,0,-3.48,-3.48])},
+  {id:736, name:"WR Sweet Potato Fries", cat:"🧊 Frozen", icon:"🍟", prices:{coop:0,morrisons:0,ms:0,waitrose:3.48,iceland:0,alliance:0}, upd:"6 Nov"}, // Waitrose St Helier shopper receipt 6 Nov (Katrina B, staff card, pre-discount prices): WR SWEET/P FRIES 3.48
   {id:737,name:"Old El Paso Taco Shells",          cat:"🍝 Pantry",        icon:"🌮",prices:sp(2.61,[-2.61,-2.61,-2.61,0,-2.61,-2.61])},
   {id:738,name:"Bear Fruit Mango",                 cat:"🥨 Snacks & Treats",icon:"🥭",prices:sp(3.48,[-3.48,-3.48,-3.48,0,-3.48,-3.48])},
   {id:739,name:"Della Almonds Orange",             cat:"🥨 Snacks & Treats",icon:"🌰",prices:sp(3.84,[-3.84,-3.84,-3.84,0,-3.84,-3.84])},
@@ -1336,7 +1351,7 @@ const BASE_PRODUCTS = [
   {id:984, name:"Utterly Butterly (500g)", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:2.2,morrisons:0,ms:0,waitrose:0,iceland:2.15,alliance:0}, upd:"10 Oct"}, // members £1.30 until 27/10/26
   {id:985, name:"British Butter Salted (250g)",                cat:"🥛 Dairy & Eggs",        icon:"🧈", prices:sp(2.83,[-2.83,-2.83,-2.83,-2.83,0,-2.83])},
   {id:986, name:"Anchor Butter Block (250g)",                  cat:"🥛 Dairy & Eggs",        icon:"🧈", prices:sp(3.25,[-3.25,-3.25,-3.25,-3.25,0,-3.25])},
-  {id:987, name:"Jus-Rol Puff Pastry Sheet",                   cat:"🥛 Dairy & Eggs",        icon:"🥐", prices:sp(2.55,[-2.55,-2.55,-2.55,0.55,0,-2.55])},
+  {id:987, name:"Jus-Rol Puff Pastry Sheet", cat:"🥛 Dairy & Eggs", icon:"🥐", prices:{coop:0,morrisons:0,ms:0,waitrose:2.32,iceland:2.55,alliance:0}, upd:"6 Nov", upds:{waitrose:"6 Nov"}}, // Waitrose St Helier shopper receipt 6 Nov (Katrina B, staff card, pre-discount prices): JUS-ROL PUFF SHEET 2.32 (size not confirmed)
   {id:988, name:"Cif Bathroom Limescale Spray",                cat:"🧹 Household & Cleaning",icon:"🧴", prices:sp(3.91,[-3.91,-3.91,-3.91,-3.91,0,-3.91])},
   {id:989, name:"Flash Apple Blossom Spray (800ml)",           cat:"🧹 Household & Cleaning",icon:"🧴", prices:sp(2.89,[-2.89,-2.89,-2.89,-2.89,0,-2.89])},
   {id:990, name:"Flash Lemon XXL Spray",                       cat:"🧹 Household & Cleaning",icon:"🧴", prices:sp(4.30,[-4.30,-4.30,-4.30,-4.30,0,-4.30])},
@@ -2787,7 +2802,7 @@ const BASE_PRODUCTS = [
   {id:2637, name:"Jersey Whole Milk 500ML", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:0.87,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:2638, name:"Jersey Dairy 2.5% Fat Reduced 500ML", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:0.87,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:2640, name:"Pukka All Steak Pie 209G", cat:"🥗 Deli & Salads", icon:"🥧", prices:{coop:2.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:2.75}, upd:"15 Oct", upds:{coop:"11 Jul",alliance:"15 Oct"}},
-  {id:2641, name:"Jersey Dairy 2.5% Fat Reduced Milk 1L", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:1.64,morrisons:1.64,ms:0,waitrose:1.65,iceland:0,alliance:0}, upd:"5 Nov", upds:{coop:"29 Oct",waitrose:"27 Oct",morrisons:"5 Nov"}}, // Waitrose St Saviour receipt 22 Oct: JDAIRY FAT RED MILK 1.65 (merged from row 700) | Co-op Millennium Park receipt 24 Oct: Jersey Green Fat R 2 @ 1.64 | Waitrose St Saviour receipt 27 Oct: JDAIRY FAT RED MILK 1.65 matches | Co-op Millennium Park receipt 29 Oct: matches | Morrisons Daily St Ouen shopper receipt 5 Nov: JERSEY DAIRY 2.5% FAT MILK 1.64 (was 1.54, an undated legacy figure)
+  {id:2641, name:"Jersey Dairy 2.5% Fat Reduced Milk 1L", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:1.64,morrisons:1.64,ms:0,waitrose:1.65,iceland:0,alliance:0}, upd:"6 Nov", upds:{coop:"29 Oct",waitrose:"6 Nov",morrisons:"5 Nov"}}, // Waitrose St Saviour receipt 22 Oct: JDAIRY FAT RED MILK 1.65 (merged from row 700) | Co-op Millennium Park receipt 24 Oct: Jersey Green Fat R 2 @ 1.64 | Waitrose St Saviour receipt 27 Oct: JDAIRY FAT RED MILK 1.65 matches | Co-op Millennium Park receipt 29 Oct: matches | Morrisons Daily St Ouen shopper receipt 5 Nov: JERSEY DAIRY 2.5% FAT MILK 1.64 (was 1.54, an undated legacy figure) | Waitrose St Helier shopper receipt 6 Nov (Katrina B, staff card, pre-discount prices): JDAIRY FAT RED MILK 1.65
   {id:2642, name:"Pukka Chicken & Mushroom Pie 212G", cat:"🥗 Deli & Salads", icon:"🥧", prices:{coop:2.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:2643, name:"Jersey Dairy 1% Fat Milk Blue LTR", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:1.64,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
   {id:2644, name:"Jersey Skimmed Milk Orange 500 500ML", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:0.87,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"10 Oct"},
@@ -4078,7 +4093,7 @@ const BASE_PRODUCTS = [
   {id:7108, name:"Waitrose Multi-Seeded Farmhouse Bread 800g", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:0,morrisons:0,ms:0,waitrose:1.70,iceland:0,alliance:0}, upd:"30 Jul"},
   {id:7109, name:"Jacksons Tiger Bloomer 700g", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:0,morrisons:0,ms:0,waitrose:1.56,iceland:0,alliance:0}, upd:"30 Jul"},
   {id:7110, name:"No.1 2 Brioche Rolls 2S", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:0,morrisons:0,ms:0,waitrose:1.60,iceland:0,alliance:0}, upd:"30 Jul"},
-  {id:7111, name:"Warburtons Crumpets 6S", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:0,morrisons:0,ms:0,waitrose:0.75,iceland:0,alliance:0}, upd:"30 Jul"},
+  {id:7111, name:"Warburtons Crumpets 6S", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:0,morrisons:0,ms:0,waitrose:1.28,iceland:0,alliance:0}, upd:"6 Nov"}, // Waitrose St Helier shopper receipt 6 Nov (Katrina B, staff card, pre-discount prices): WARBURTONS CRUMPETS 1.28 (size not confirmed)
   {id:7112, name:"Jason's White Sourdough 580g", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:0,morrisons:0,ms:0,waitrose:2.35,iceland:0,alliance:0}, upd:"30 Jul"},
   {id:7113, name:"Jason's Sourdough The Great White 450g", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:0,morrisons:0,ms:0,waitrose:2.35,iceland:0,alliance:0}, upd:"30 Jul"},
   {id:7114, name:"No.1 2 Butter Croissants 2S", cat:"🍞 Bread & Bakery", icon:"🥐", prices:{coop:0,morrisons:0,ms:0,waitrose:2.50,iceland:0,alliance:0}, upd:"30 Jul"},
@@ -4227,7 +4242,7 @@ const BASE_PRODUCTS = [
   {id:7257, name:"Irwin's Together 4 Potato Slims 4S", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:0,morrisons:0,ms:0,waitrose:2.20,iceland:0,alliance:0}, upd:"30 Jul"},
   {id:7258, name:"Waitrose Lemon Loaf Cake", cat:"🍞 Bread & Bakery", icon:"🍰", prices:{coop:0,morrisons:0,ms:0,waitrose:3.00,iceland:0,alliance:0}, upd:"30 Jul"},
   {id:7259, name:"Waitrose Coffee & Walnut Cake", cat:"🍞 Bread & Bakery", icon:"🍰", prices:{coop:0,morrisons:0,ms:0,waitrose:3.20,iceland:0,alliance:0}, upd:"30 Jul"},
-  {id:7260, name:"Brown San Francisco Style Boule 400g", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:0,morrisons:0,ms:0,waitrose:2.35,iceland:0,alliance:0}, upd:"30 Jul"},
+  {id:7260, name:"Brown San Francisco Style Boule 400g", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:0,morrisons:0,ms:0,waitrose:2.32,iceland:0,alliance:0}, upd:"6 Nov"}, // Waitrose St Helier shopper receipt 6 Nov (Katrina B, staff card, pre-discount prices): BROWN SF BOULE 2.32
   {id:7261, name:"No.1 Victoria Sponge", cat:"🍞 Bread & Bakery", icon:"🍰", prices:{coop:0,morrisons:0,ms:0,waitrose:6.50,iceland:0,alliance:0}, upd:"30 Jul"},
   {id:7262, name:"Genius Gluten Free Brioche Burger Buns 2x70g", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:0,morrisons:0,ms:0,waitrose:1.45,iceland:0,alliance:0}, upd:"30 Jul"},
   {id:7263, name:"Waitrose Country Style Fruit Cake", cat:"🍞 Bread & Bakery", icon:"🍰", prices:{coop:0,morrisons:0,ms:0,waitrose:3.20,iceland:0,alliance:0}, upd:"30 Jul"},
@@ -7747,7 +7762,7 @@ const BASE_PRODUCTS = [
   {id:7672, name:"McVitie's Dark Chocolate Digestives", cat:"🍝 Pantry", icon:"🍪", prices:{coop:2.89,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"15 Aug"},
   {id:7673, name:"Jersey Green Low Fat Spread", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:1.64,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"31 Jul"},
   {id:7674, name:"Tyrrells Lightly Sea Salted Crisps 150g", cat:"🍝 Pantry", icon:"🥨", prices:{coop:0,morrisons:0,ms:0,waitrose:2.75,iceland:0,alliance:0}, upd:"31 Jul"},
-  {id:7675, name:"Essential Free Range White Eggs 6S", cat:"🥛 Dairy & Eggs", icon:"🥚", prices:{coop:0,morrisons:0,ms:0,waitrose:1.30,iceland:0,alliance:0}, upd:"31 Jul"},
+  {id:7675, name:"Essential Free Range White Eggs 6S", cat:"🥛 Dairy & Eggs", icon:"🥚", prices:{coop:0,morrisons:0,ms:0,waitrose:1.63,iceland:0,alliance:0}, upd:"6 Nov"}, // Waitrose St Helier shopper receipt 6 Nov (Katrina B, staff card, pre-discount prices): ESS FR WHITE EGGS 1.63 x2 (size not confirmed)
   {id:7676, name:"FUEL 10K Chocolate Granola 400g", cat:"🍝 Pantry", icon:"🥣", prices:{coop:0,morrisons:0,ms:0,waitrose:3.00,iceland:0,alliance:0}, upd:"31 Jul"},
   {id:7677, name:"Essential Baked Beans in Tomato Sauce 420g", cat:"🍝 Pantry", icon:"🫘", prices:{coop:0,morrisons:0,ms:0,waitrose:0.55,iceland:0,alliance:0}, upd:"31 Jul"},
   {id:7678, name:"Essential Chickpeas in Water 240g", cat:"🍝 Pantry", icon:"🫘", prices:{coop:0,morrisons:0,ms:0,waitrose:0.55,iceland:0,alliance:0}, upd:"31 Jul"},
@@ -7930,7 +7945,7 @@ const BASE_PRODUCTS = [
   {id:7859, name:"Kallo Veggie Cakes Beetroot 122g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:0,morrisons:0,ms:0,waitrose:2.00,iceland:3.1,alliance:0}, upd:"21 Sep", oos:["iceland"]},
   {id:7860, name:"Kellogg's Bran Flakes Breakfast Cereal Large Pack 750g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:0,morrisons:0,ms:0,waitrose:3.20,iceland:0,alliance:0}, upd:"2 Aug"},
   {id:7861, name:"Kellogg's Cereal Variety 8 Pack Breakfast Cereal 196g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:0,morrisons:0,ms:0,waitrose:3.25,iceland:0,alliance:0}, upd:"2 Aug"},
-  {id:7862, name:"Kellogg's Corn Flakes Breakfast Cereal Large Pack 670g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:0,morrisons:0,ms:0,waitrose:2.85,iceland:0,alliance:0}, upd:"2 Aug"},
+  {id:7862, name:"Kellogg's Corn Flakes Breakfast Cereal Large Pack 670g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:0,morrisons:0,ms:0,waitrose:3.3,iceland:0,alliance:0}, upd:"6 Nov"}, // Waitrose St Helier shopper receipt 6 Nov (Katrina B, staff card, pre-discount prices): KLGS CORNFLAKES 670G 3.30
   {id:7863, name:"Kellogg's Crunchy Nut Breakfast Cereal Large Pack 840g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:0,morrisons:0,ms:0,waitrose:4.50,iceland:0,alliance:0}, upd:"2 Aug"},
   {id:7864, name:"Kellogg's Fruit n Fibre Breakfast Cereal Large Pack 700g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:0,morrisons:0,ms:0,waitrose:3.75,iceland:0,alliance:0}, upd:"2 Aug"},
   {id:7865, name:"Kellogg's Special K Original Breakfast Cereal Large Pack 750g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:0,morrisons:0,ms:0,waitrose:4.50,iceland:0,alliance:0}, upd:"2 Aug"},
@@ -9685,7 +9700,7 @@ const BASE_PRODUCTS = [
   /* ── Waitrose receipt, St Helier, 25 Sep 2026 — first shopper-submitted receipt via Facebook ── */
   {id:9616, name:"Waitrose Halloween Munchkin Pumpkin", cat:"🥦 Fruit & Veg", icon:"🎃", prices:{coop:0,morrisons:0,ms:0,waitrose:1.30,iceland:0,alliance:0}, upd:"25 Sep"},
   {id:9617, name:"Waitrose Perfectly Ripe Avocados (2pk)", cat:"🥦 Fruit & Veg", icon:"🥑", prices:{coop:0,morrisons:0,ms:0,waitrose:1.86,iceland:0,alliance:0}, upd:"25 Sep"},
-  {id:9618, name:"Waitrose Fairtrade Bananas", cat:"🥦 Fruit & Veg", icon:"🍌", prices:{coop:0,morrisons:0,ms:0,waitrose:0.81,iceland:0,alliance:0}, upd:"25 Sep"},
+  {id:9618, name:"Waitrose Fairtrade Bananas", cat:"🥦 Fruit & Veg", icon:"🍌", prices:{coop:0,morrisons:0,ms:0,waitrose:0.84,iceland:0,alliance:0}, upd:"6 Nov"}, // Waitrose St Helier shopper receipt 6 Nov (Katrina B, staff card, pre-discount prices): FAIRTRADE BANANAS 0.84
   {id:9619, name:"Waitrose Swede", cat:"🥦 Fruit & Veg", icon:"🥦", prices:{coop:0,morrisons:0,ms:0,waitrose:0.76,iceland:0,alliance:0}, upd:"25 Sep"},
   {id:9620, name:"Waitrose Chicken & Vegetable Hotpot", cat:"🥗 Deli & Salads", icon:"🍲", prices:{coop:0,morrisons:0,ms:0,waitrose:4.88,iceland:0,alliance:0}, upd:"25 Sep"},
   {id:9621, name:"Waitrose Roasted Vegetable Lasagne", cat:"🥗 Deli & Salads", icon:"🍝", prices:{coop:0,morrisons:0,ms:0,waitrose:4.88,iceland:0,alliance:0}, upd:"25 Sep"},
@@ -14370,7 +14385,7 @@ const BASE_PRODUCTS = [
   {id:14352, name:"Waitrose Essential Garlic Baguette 2 420g", cat:"🧊 Frozen", icon:"🧊", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:2.85}, upd:"15 Oct"},
   {id:14353, name:"Waitrose Chorizo & Chargrilled Pepper Pizza 449g", cat:"🧊 Frozen", icon:"🧊", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:7.65}, upd:"15 Oct", oos:["alliance"]},
   {id:14354, name:"Wholecreations Dairy And Gluten Free Garlic Bread Baguette 190g", cat:"🧊 Frozen", icon:"🧊", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:3.1}, upd:"15 Oct", oos:["alliance"]},
-  {id:14355, name:"Waitrose Garlic Flatbread 240g", cat:"🧊 Frozen", icon:"🧊", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:4.15}, upd:"15 Oct", oos:["alliance"]},
+  {id:14355, name:"Waitrose Garlic Flatbread 240g", cat:"🧊 Frozen", icon:"🧊", prices:{coop:0,morrisons:0,ms:0,waitrose:2.99,iceland:0,alliance:4.15}, upd:"6 Nov", upds:{alliance:"15 Oct",waitrose:"6 Nov"}, oos:["alliance"]}, // Waitrose St Helier shopper receipt 6 Nov (Katrina B, staff card, pre-discount prices): WR FLATBREAD GARLIC 2.99 (matched by name, size not confirmed)
   {id:14356, name:"Tanpopo Spicy Tofu Sushi", cat:"🥗 Deli & Salads", icon:"🥗", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:4}, upd:"15 Oct"},
   {id:14357, name:"Waitrose Seafood Cocktail Sandwich", cat:"🥗 Deli & Salads", icon:"🥗", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:5.45}, upd:"15 Oct"},
   {id:14358, name:"Waitrose Salt Beef Mustard Each", cat:"🥗 Deli & Salads", icon:"🥗", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:5.9}, upd:"15 Oct"},
@@ -14778,7 +14793,7 @@ const BASE_PRODUCTS = [
   {id:14760, name:"Waitrose Camomile Infusion Tea 20s 30g", cat:"🥤 Drinks", icon:"☕", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:1.6}, upd:"15 Oct"},
   {id:14761, name:"L'or Espresso 10 Ultimo Aluminium Capsules 52g", cat:"🥤 Drinks", icon:"☕", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:5.9}, upd:"15 Oct"},
   {id:14762, name:"Tick Tock The Original Rooibos Tea 40 Biodegradable Bags 90g", cat:"🥤 Drinks", icon:"☕", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:3.55}, upd:"15 Oct", oos:["alliance"]},
-  {id:14763, name:"Cadbury Instant Hot Chocolate Drink Jar 300g", cat:"🥤 Drinks", icon:"☕", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:5.75}, upd:"15 Oct", oos:["alliance"]},
+  {id:14763, name:"Cadbury Instant Hot Chocolate Drink Jar 300g", cat:"🥤 Drinks", icon:"☕", prices:{coop:0,morrisons:0,ms:0,waitrose:5.05,iceland:0,alliance:5.75}, upd:"6 Nov", upds:{alliance:"15 Oct",waitrose:"6 Nov"}, oos:["alliance"]}, // Waitrose St Helier shopper receipt 6 Nov (Katrina B, staff card, pre-discount prices): CADBURY HOT CHOC JAR 5.05
   {id:14764, name:"Galaxy Instant Hot Chocolate 370g", cat:"🥤 Drinks", icon:"☕", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:5.35}, upd:"15 Oct", oos:["alliance"]},
   {id:14765, name:"Waitrose No1 Org Ft Sumatra Ground 227g", cat:"🥤 Drinks", icon:"☕", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:6.25}, upd:"15 Oct", oos:["alliance"]},
   {id:14766, name:"Waitrose No1 Org Ft Peru Decaf Ground 227g", cat:"🥤 Drinks", icon:"☕", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:6.25}, upd:"15 Oct", oos:["alliance"]},
@@ -15532,7 +15547,7 @@ const BASE_PRODUCTS = [
   {id:15516, name:"Waitrose Essential Super Absorbent Cloths 3s", cat:"🧹 Household", icon:"🧹", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:1.5}, upd:"15 Oct"},
   {id:15517, name:"Waitrose Essential Stain Remover Spray 500ml", cat:"🧹 Household", icon:"🧹", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:2.1}, upd:"15 Oct"},
   {id:15518, name:"Waitrose Essential Sink & Drain Unblocker 500ml", cat:"🧹 Household", icon:"🧹", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:2.75}, upd:"15 Oct"},
-  {id:15519, name:"Waitrose Essential Rinse Aid 500ml", cat:"🧹 Household", icon:"🧹", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:3.5}, upd:"15 Oct"},
+  {id:15519, name:"Waitrose Essential Rinse Aid 500ml", cat:"🧹 Household", icon:"🧹", prices:{coop:0,morrisons:0,ms:0,waitrose:2.88,iceland:0,alliance:3.5}, upd:"6 Nov", upds:{alliance:"15 Oct",waitrose:"6 Nov"}}, // Waitrose St Helier shopper receipt 6 Nov (Katrina B, staff card, pre-discount prices): WR ESS RINSE AID 2.88
   {id:15520, name:"Waitrose Essential Pine Disinfectant 1ltr", cat:"🧹 Household", icon:"🧹", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:1.95}, upd:"15 Oct"},
   {id:15521, name:"Waitrose Essential Original Thick Bleach 750ml", cat:"🧹 Household", icon:"🧹", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:1.1}, upd:"15 Oct"},
   {id:15522, name:"Waitrose Essential Multi Surface Wipes 72pk", cat:"🧹 Household", icon:"🧹", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:2.4}, upd:"15 Oct"},
@@ -15806,7 +15821,7 @@ const BASE_PRODUCTS = [
   {id:15804, name:"John West Tuna Chunks in Spring Water 125g", cat:"🧊 Frozen", icon:"🥩", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:2.9}, upd:"15 Oct"},
   {id:15805, name:"Waitrose No1 Anchovy Fillets Ev Olive Oil 100g", cat:"🧊 Frozen", icon:"🥩", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:4.25}, upd:"15 Oct"},
   {id:15806, name:"Waitrose Ess Wild Pink Salmon 213g", cat:"🧊 Frozen", icon:"🥩", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:3.25}, upd:"15 Oct"},
-  {id:15807, name:"Waitrose Msc Prawn Cocktail 170g", cat:"🧊 Frozen", icon:"🥩", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:5.1}, upd:"15 Oct"},
+  {id:15807, name:"Waitrose Msc Prawn Cocktail 170g", cat:"🧊 Frozen", icon:"🥩", prices:{coop:0,morrisons:0,ms:0,waitrose:4.6,iceland:0,alliance:5.1}, upd:"6 Nov", upds:{alliance:"15 Oct",waitrose:"6 Nov"}}, // Waitrose St Helier shopper receipt 6 Nov (Katrina B, staff card, pre-discount prices): WR PRAWN COCKTAIL 4.60 x2 (2 for £5.50 offer applied, regular price stored)
   {id:15808, name:"Waitrose & Partners King Prawn/Mussels/Squid 200g", cat:"🧊 Frozen", icon:"🥩", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:6.1}, upd:"15 Oct"},
   {id:15809, name:"Essential Waitrose Partners Sardines In Olive Oil 120g", cat:"🧊 Frozen", icon:"🥩", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:1.85}, upd:"15 Oct"},
   {id:15810, name:"Essential Waitrose & Partners Sardines In Sunflower Oil 120g", cat:"🧊 Frozen", icon:"🥩", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:1.85}, upd:"15 Oct"},
