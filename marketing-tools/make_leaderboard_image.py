@@ -76,11 +76,12 @@ for k in ("morrisons", "waitrose", "ms"):
 
 # Prize card
 y += 20
-card((60, y, W - 60, y + 100), (200, 160, 40, 45), (200, 160, 40, 120), r=22)
-d.text((100, y + 50), "🏆", font=emoji(46), embedded_color=True, anchor="mm")
-d.text((150, y + 32), "PRIZES: CHARITY CHRISTMAS DRAW TICKETS", font=font("segoeuib.ttf", 21), fill=(255, 214, 80), anchor="lm")
-d.text((150, y + 68), "1st: 7 tickets  ·  2nd: 5  ·  3rd: 3", font=font("segoeuib.ttf", 30), fill="white", anchor="lm")
-y += 120
+card((60, y, W - 60, y + 132), (200, 160, 40, 45), (200, 160, 40, 120), r=22)
+d.text((100, y + 66), "🏆", font=emoji(46), embedded_color=True, anchor="mm")
+d.text((150, y + 30), "PRIZES: CHANNEL ISLANDS CHARITY CHRISTMAS DRAW TICKETS", font=font("segoeuib.ttf", 20), fill=(255, 214, 80), anchor="lm")
+d.text((150, y + 66), "1st: 7 tickets  ·  2nd: 5  ·  3rd: 3", font=font("segoeuib.ttf", 30), fill="white", anchor="lm")
+d.text((150, y + 102), "Draw top prize £300,000+", font=font("segoeui.ttf", 24), fill=(220, 235, 228), anchor="lm")
+y += 152
 
 # Footer
 d.text((70, y + 22), "Double points at Morrisons, Waitrose and M&S  \u00b7  +5 per referral", font=font("segoeuib.ttf", 24), fill="white", anchor="lm")
