@@ -85,7 +85,12 @@ bm = Image.new("L", (bw, bh), 0)
 ImageDraw.Draw(bm).rounded_rectangle([0, 0, bw - 1, bh - 1], radius=20, fill=255)
 b.putalpha(bm)
 ImageDraw.Draw(b).rounded_rectangle([0, 0, bw - 1, bh - 1], radius=20, outline=(255, 255, 255, 150), width=3)
-b = b.rotate(1.0, resample=Image.BICUBIC, expand=True)       # slight tilt so it feels like a physical sign
+# gloss on the upper half + dark bottom edge, same raised look as the cards (no tilt)
+gl = Image.new("L", (bw, bh), 0)
+ImageDraw.Draw(gl).rounded_rectangle([4, 4, bw - 5, bh // 2 - 4], radius=16, fill=34)
+gl = gl.filter(ImageFilter.GaussianBlur(5))
+b.paste(Image.new("RGBA", (bw, bh), (255, 255, 255, 255)), (0, 0), Image.composite(gl, Image.new("L", (bw, bh), 0), bm))
+ImageDraw.Draw(b).line([20, bh - 2, bw - 20, bh - 2], fill=(0, 0, 0, 110), width=3)
 bx, byy = 70 - (b.width - bw) // 2, by - (b.height - bh) // 2
 full = Image.new("L", (W, H), 0)
 full.paste(b.split()[3], (bx, byy))
