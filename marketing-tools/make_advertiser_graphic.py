@@ -33,11 +33,17 @@ d.text((70, 360), "Your banner in Jersey's grocery price comparison app, used by
        font=font("segoeui.ttf", 26), fill=(220, 235, 228), anchor="lm")
 
 # Banner mock-up (looks like the strip at the bottom of the app)
-card((70, 410, W - 70, 530), (0, 0, 0, 70), (255, 255, 255, 70), r=22)
-d.text((105, 450), "YOUR LOGO", font=font("segoeuib.ttf", 22), fill=(255, 214, 80), anchor="lm")
-d.text((105, 490), "Your headline and offer here", font=font("segoeuib.ttf", 34), fill="white", anchor="lm")
-d.ellipse([W - 190, 440, W - 110, 520], fill=(255, 205, 40))
-d.text((W - 150, 480), "\u203A", font=font("segoeuib.ttf", 60), fill=(60, 45, 0), anchor="mm")
+# Real screenshot of a banner slide from the app (marketing-tools/banner_screenshot.png)
+import os
+shot = Image.open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "banner_screenshot.png")).convert("RGB")
+bw = W - 140
+bh = round(shot.height * bw / shot.width)
+shot = shot.resize((bw, bh), Image.LANCZOS)
+mask = Image.new("L", (bw, bh), 0)
+ImageDraw.Draw(mask).rounded_rectangle([0, 0, bw - 1, bh - 1], radius=20, fill=255)
+by = 405
+img.paste(shot, (70, by), mask)
+d.rounded_rectangle([70, by, 70 + bw - 1, by + bh - 1], radius=20, outline=(255, 255, 255, 110), width=2)
 d.text((W / 2, 558), "One tap takes shoppers to your website or phone number", font=font("segoeui.ttf", 22),
        fill=(220, 235, 228), anchor="mm")
 
