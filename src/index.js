@@ -1,8 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
+import DisplayMode from './DisplayMode';
+// jerseybasket.je/?display → hands-off rotating screen for screensavers / shop TVs
+const isDisplay = new URLSearchParams(window.location.search).has('display');
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<App />);
+root.render(isDisplay ? <DisplayMode /> : <App />);
 
 // ── Block iOS Safari's native horizontal "rubber-band" swipe/bounce at the
 // document level. CSS alone (overscroll-behavior-x / touch-action on
