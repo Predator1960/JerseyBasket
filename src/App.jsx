@@ -18102,16 +18102,6 @@ const AD_SLIDES = [
       { label:"Facebook", href:"https://www.facebook.com/RichLinkAutomotive/", bg:"#1a1a1a", color:"#f5f5f5", border:"rgba(255,255,255,0.25)" },
     ],
   },
-  {
-    id:17, group:3, slot:16, link:ENQUIRY_TRIGGER,
-    startDate:"2026-10-01",
-    bg:"linear-gradient(135deg,#be185d 0%,#500724 100%)",
-    eyebrow:{ text:"BONUS SLOT — AUTOMOTIVE & GARAGES", color:"#fbcfe8" },
-    headline:{ before:"Your Business ", highlight:"Here", highlightColor:"#f9a8d4", after:" — Jersey's Shoppers", headlineColor:"#ffffff" },
-    sub:{ text:"Platinum exclusivity — lock out every competitor in your category", color:"#f472b6" },
-    cta:{ label:"Claim this slot", labelColor:"#fbcfe8", url:"jerseybasket.je", urlColor:"#ffffff", arrowBg:"#be185d", arrowColor:"white", boxBg:"rgba(190,24,93,0.3)", boxBorder:"rgba(251,207,232,0.5)" },
-    stats:[{ val:"16/15", label:"slot" },{ val:"£999", label:"per month" }], statColor:"#fbcfe8",
-  },
 ];
 /* ═══════════════════════════════════════════════════════════════════════════
    INSTALL STEPS — reusable install instructions component
