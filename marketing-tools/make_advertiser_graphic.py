@@ -102,8 +102,13 @@ d.text((W / 2, 574), "One tap takes shoppers to your website or phone number", f
        fill=(220, 235, 228), anchor="mm")
 
 # Three stat cards
+VARIANT = "price"
+if "--variant" in sys.argv:
+    i = sys.argv.index("--variant"); VARIANT = sys.argv[i + 1]; del sys.argv[i:i + 2]
+MIDDLE = {"price": ("\u00a33.25", "a day", "just \u00a399 a month"),
+          "enquiry": ("Interested?", "", "Contact us NOW|to get a quote")}[VARIANT]
 cards = (("1,440", "times a day", "your banner comes round|once a minute, on any|screen with the app open"),
-         ("\u00a33.25", "a day", "just \u00a399 a month"),
+         MIDDLE,
          ("No contract", "", "month by month,|stop whenever|you like"))
 x0, gap, cw = 70, 20, (W - 140 - 40) // 3
 for i, (big, unit, sub) in enumerate(cards):
