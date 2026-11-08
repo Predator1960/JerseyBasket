@@ -49,7 +49,15 @@ const entries = [...people.values()].filter(p => !excluded.has(p.name.toLowerCas
 const jsonPath = path.join(ROOT, 'public', 'leaderboard.json');
 const old = fs.existsSync(jsonPath) ? JSON.parse(fs.readFileSync(jsonPath, 'utf8')) : {};
 const stores = { ...(old.stores || {}) };
-['morrisons', 'waitrose', 'ms'].forEach(id => { stores[id] = { goal: (stores[id] && stores[id].goal) || 100, prices: storeTotals[id] || 0 }; });
+// A store bar that reaches its goal gets the goal raised by 100 automatically (100 -> 200 -> 300 ...), and a note is printed so it can be announced.
+['morrisons', 'waitrose', 'ms'].forEach(id => {
+  const prices = storeTotals[id] || 0;
+  let goal = (stores[id] && stores[id].goal) || 100;
+  const before = goal;
+  while (prices >= goal) goal += 100;
+  if (goal !== before) console.log(`GOAL RAISED: ${id} reached ${before} checked prices (now ${prices}), goal is now ${goal}. Good post moment.`);
+  stores[id] = { goal, prices };
+});
 const out = { competition: 'nov2026', updated: new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'short' }), entries, stores, winners: old.winners || { first: '', second: '', third: '' } };
 fs.writeFileSync(jsonPath, JSON.stringify(out, null, 2) + '\n', 'utf8');
 console.log(`leaderboard.json written: ${entries.length} on the board, ${skipped} rows skipped, store totals`, storeTotals);
