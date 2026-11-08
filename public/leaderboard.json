@@ -1,6 +1,6 @@
 {
   "competition": "nov2026",
-  "updated": "7 Nov",
+  "updated": "8 Nov",
   "entries": [
     {
       "name": "Katrina B",
@@ -9,6 +9,10 @@
     {
       "name": "Mary C",
       "points": 56
+    },
+    {
+      "name": "Claire E",
+      "points": 52
     },
     {
       "name": "Jason L",
@@ -26,7 +30,7 @@
     },
     "waitrose": {
       "goal": 100,
-      "prices": 55
+      "prices": 81
     },
     "ms": {
       "goal": 100,
