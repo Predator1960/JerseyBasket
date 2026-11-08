@@ -39,7 +39,8 @@ function buildGapPool() {
     .map(o => o.x);
 }
 
-const SCENES = ["intro", "gaps", "gaps", "hunt", "gaps", "gaps", "qr"];
+const SCENES = ["intro", "gaps", "gaps", "hunt", "gaps", "fb", "gaps", "qr"];
+const FB_PAGE = "https://www.facebook.com/profile.php?id=61590238925449";
 
 export default function DisplayMode() {
   const pool = useMemo(buildGapPool, []);
@@ -115,6 +116,7 @@ export default function DisplayMode() {
         {scene === "intro" && <Intro />}
         {scene === "gaps" && <Gaps items={gapItems} />}
         {scene === "hunt" && <Hunt board={board} />}
+        {scene === "fb" && <Facebook />}
         {scene === "qr" && <QR />}
       </div>
 
@@ -237,6 +239,28 @@ function Hunt({ board }) {
             })}
           </div>
         )}
+      </div>
+    </div>
+  );
+}
+
+// Facebook's Page Plugin won't show posts for this page to logged-out viewers
+// (new-style profile.php pages), so only its live header is used: name, logo,
+// follower count, Follow button. The QR opens the page on a phone.
+function Facebook() {
+  const W = 500, H = 130; // plugin max width; header-only height (no posts load)
+  const scale = Math.min(1.8, Math.max(0.6, (window.innerWidth * 0.42) / W));
+  const src = `https://www.facebook.com/plugins/page.php?href=${encodeURIComponent(FB_PAGE)}&tabs=&width=${W}&height=${H}&small_header=false&adapt_container_width=false&hide_cover=false&show_facepile=true`;
+  return (
+    <div style={{ display: "flex", alignItems: "center", gap: "5vw", flexWrap: "wrap", justifyContent: "center" }}>
+      <img src="/qr-facebook.png" alt="QR code for JerseyBasket on Facebook" style={{ width: "min(32vh,30vw)", height: "min(32vh,30vw)", background: "#fff", padding: "1.5vh", borderRadius: 20 }} />
+      <div>
+        <h2 style={{ ...H1, textAlign: "left", fontSize: "clamp(26px,4.4vw,74px)" }}>Follow us on<br /><span style={{ color: "#1877f2" }}>Facebook</span></h2>
+        <div style={{ ...SUB, textAlign: "left" }}>Price gaps, Price Hunt news and the best deals, first.</div>
+        <div style={{ marginTop: "3vh", width: W * scale, height: H * scale, borderRadius: 14, overflow: "hidden", background: "#fff" }}>
+          <iframe title="JerseyBasket on Facebook" src={src} width={W} height={H} scrolling="no" frameBorder="0"
+            style={{ border: "none", overflow: "hidden", transform: `scale(${scale})`, transformOrigin: "top left" }} />
+        </div>
       </div>
     </div>
   );
