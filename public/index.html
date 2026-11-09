@@ -14,6 +14,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="JerseyBasket" />
+  <script>
+    // Display mode (?display): point "Add to Home Screen" at a manifest whose
+    // start_url is /?display, so the saved icon opens the rotating screen,
+    // not the normal app (manifest.json's start_url is "/").
+    if (/[?&]display\b/.test(location.search)) {
+      document.querySelector('link[rel="manifest"]').href = '/manifest-display.json';
+      document.querySelector('meta[name="apple-mobile-web-app-title"]').content = 'JB Screen';
+    }
+  </script>
   <link rel="apple-touch-icon" href="/icons/icon-192.png" />
   <link rel="apple-touch-icon" sizes="152x152" href="/icons/icon-192.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-192.png" />

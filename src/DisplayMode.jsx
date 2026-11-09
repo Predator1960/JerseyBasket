@@ -48,6 +48,13 @@ export default function DisplayMode() {
   const [now, setNow] = useState(new Date());
   const [board, setBoard] = useState(null);
   const [cursorHidden, setCursorHidden] = useState(false);
+  // Phones: one price card per screen, and Hunt/Facebook trimmed to fit
+  const [narrow, setNarrow] = useState(() => window.innerWidth < 700);
+  useEffect(() => {
+    const r = () => setNarrow(window.innerWidth < 700);
+    window.addEventListener("resize", r);
+    return () => window.removeEventListener("resize", r);
+  }, []);
 
   useEffect(() => {
     const t = setInterval(() => setStep(s => s + 1), SCENE_MS);
@@ -77,16 +84,17 @@ export default function DisplayMode() {
   const hasHunt = !!board?.entries?.length;
   const order = hasHunt ? SCENES : SCENES.filter(s => s !== "hunt");
   const scene = order[step % order.length];
-  // Each "gaps" scene takes the next 3 products from the pool
+  // Each "gaps" scene takes the next 3 products (1 on phones) from the pool
+  const per = narrow ? 1 : 3;
   const gapIndex = Math.floor(step / order.length) * order.filter(s => s === "gaps").length
     + order.slice(0, step % order.length).filter(s => s === "gaps").length;
   const gapItems = pool.length
-    ? [0, 1, 2].map(i => pool[(gapIndex * 3 + i) % pool.length])
+    ? Array.from({ length: per }, (_, i) => pool[(gapIndex * per + i) % pool.length])
     : [];
 
   return (
-    <div style={{
-      height: "100vh", display: "flex", flexDirection: "column", overflow: "hidden",
+    <div className="jbd-root" style={{
+      display: "flex", flexDirection: "column", overflow: "hidden",
       background: "linear-gradient(160deg,#050d1a 0%,#0b1c35 55%,#061220 100%)",
       fontFamily: "'Georgia',serif", color: "#f0f4f8", cursor: cursorHidden ? "none" : "default",
     }}>
@@ -94,6 +102,7 @@ export default function DisplayMode() {
         @keyframes jbdFade { from { opacity:0; transform:translateY(1.5vh); } to { opacity:1; transform:none; } }
         .jbd-scene { animation: jbdFade .8s ease-out both; }
         .jbd-bar { transition: width 1.2s ease-out; }
+        .jbd-root { height: 100vh; height: 100dvh; }
       `}</style>
 
       {/* header */}
@@ -112,11 +121,11 @@ export default function DisplayMode() {
       </div>
 
       {/* scene */}
-      <div key={step} className="jbd-scene" style={{ flex: 1, minHeight: 0, display: "flex", alignItems: "center", justifyContent: "center", padding: "2vh 4vw" }}>
+      <div key={step} className="jbd-scene" style={{ flex: 1, minHeight: 0, overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center", padding: "2vh 4vw" }}>
         {scene === "intro" && <Intro />}
         {scene === "gaps" && <Gaps items={gapItems} />}
-        {scene === "hunt" && <Hunt board={board} />}
-        {scene === "fb" && <Facebook />}
+        {scene === "hunt" && <Hunt board={board} narrow={narrow} />}
+        {scene === "fb" && <Facebook narrow={narrow} />}
         {scene === "qr" && <QR />}
       </div>
 
@@ -202,9 +211,9 @@ function Gaps({ items }) {
   );
 }
 
-function Hunt({ board }) {
-  const top = (board.entries || []).slice(0, 5);
-  const stores = Object.entries(board.stores || {});
+function Hunt({ board, narrow }) {
+  const top = (board.entries || []).slice(0, narrow ? 4 : 5);
+  const stores = narrow ? [] : Object.entries(board.stores || {});
   const medal = ["🥇", "🥈", "🥉", "4", "5"];
   return (
     <div style={{ width: "100%", maxWidth: 1500 }}>
@@ -247,9 +256,11 @@ function Hunt({ board }) {
 // Facebook's Page Plugin won't show posts for this page to logged-out viewers
 // (new-style profile.php pages), so only its live header is used: name, logo,
 // follower count, Follow button. The QR opens the page on a phone.
-function Facebook() {
+function Facebook({ narrow }) {
   const W = 500, H = 130; // plugin max width; header-only height (no posts load)
-  const scale = Math.min(1.8, Math.max(0.6, (window.innerWidth * 0.42) / W));
+  const scale = narrow
+    ? Math.min(1, (window.innerWidth - 48) / W)
+    : Math.min(1.8, Math.max(0.6, (window.innerWidth * 0.42) / W));
   const src = `https://www.facebook.com/plugins/page.php?href=${encodeURIComponent(FB_PAGE)}&tabs=&width=${W}&height=${H}&small_header=false&adapt_container_width=false&hide_cover=false&show_facepile=true`;
   return (
     <div style={{ display: "flex", alignItems: "center", gap: "5vw", flexWrap: "wrap", justifyContent: "center" }}>
