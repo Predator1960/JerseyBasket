@@ -23,6 +23,10 @@
       "points": 52
     },
     {
+      "name": "Lucy D",
+      "points": 44
+    },
+    {
       "name": "Yasmin T",
       "points": 34
     }
@@ -30,11 +34,11 @@
   "stores": {
     "morrisons": {
       "goal": 100,
-      "prices": 36
+      "prices": 39
     },
     "waitrose": {
       "goal": 200,
-      "prices": 151
+      "prices": 170
     },
     "ms": {
       "goal": 100,
