@@ -99,18 +99,17 @@ for k in ("morrisons", "waitrose", "ms"):
 
 # Prize card
 y += 20
-card((60, y, W - 60, y + 132), (200, 160, 40, 45), (200, 160, 40, 120), r=22)
+card((60, y, W - 60, y + 100), (200, 160, 40, 45), (200, 160, 40, 120), r=22)
 d.text((100, y + 66), "🏆", font=emoji(46), embedded_color=True, anchor="mm")
 d.text((150, y + 30), "PRIZES: CHANNEL ISLANDS CHARITY CHRISTMAS DRAW TICKETS", font=font("segoeuib.ttf", 20), fill=(255, 214, 80), anchor="lm")
 d.text((150, y + 66), "1st: 7 tickets  ·  2nd: 5  ·  3rd: 3", font=font("segoeuib.ttf", 30), fill="white", anchor="lm")
-d.text((150, y + 102), "Draw top prize £300,000+", font=font("segoeui.ttf", 24), fill=(220, 235, 228), anchor="lm")
-y += 152
+y += 120
 
 # Footer
 d.text((70, y + 22), "Double points at Morrisons, Waitrose and M&S  \u00b7  +5 per referral", font=font("segoeuib.ttf", 24), fill="white", anchor="lm")
 d.text((70, y + 58), "Results Tue 1 Dec  \u00b7  Draw Thu 17 Dec  \u00b7  Send your receipts in the app", font=font("segoeui.ttf", 24), fill=(220, 235, 228), anchor="lm")
 if note:
-    d.text((70, H - 122), note, font=font("segoeuib.ttf", 23), fill=(255, 214, 80), anchor="lm")
+    d.text((70, y + 94), note, font=font("segoeuib.ttf", 23), fill=(255, 214, 80), anchor="lm")
 d.line([70, H - 90, W - 70, H - 90], fill=(255, 255, 255, 50), width=2)
 d.text((70, H - 55), "JerseyBasket is not connected to the Channel Islands Lottery", font=font("segoeui.ttf", 22), fill=(220, 235, 228), anchor="lm")
 d.text((W - 70, H - 55), "jerseybasket.je", font=font("segoeuib.ttf", 24), fill="white", anchor="rm")
