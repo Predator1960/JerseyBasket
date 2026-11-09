@@ -102,7 +102,12 @@ export default function DisplayMode() {
         @keyframes jbdFade { from { opacity:0; transform:translateY(1.5vh); } to { opacity:1; transform:none; } }
         .jbd-scene { animation: jbdFade .8s ease-out both; }
         .jbd-bar { transition: width 1.2s ease-out; }
-        .jbd-root { height: 100vh; height: 100dvh; }
+        /* Pinned to the screen so it can't be pulled/scrolled, and padded by
+           the iPhone safe areas: a home-screen icon runs full screen under the
+           status bar (black-translucent), which hid the header and clock. */
+        .jbd-root { position: fixed; inset: 0; box-sizing: border-box;
+          padding-top: env(safe-area-inset-top); padding-bottom: env(safe-area-inset-bottom);
+          padding-left: env(safe-area-inset-left); padding-right: env(safe-area-inset-right); }
       `}</style>
 
       {/* header */}
