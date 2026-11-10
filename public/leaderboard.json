@@ -3,12 +3,12 @@
   "updated": "10 Nov",
   "entries": [
     {
-      "name": "Katrina B",
-      "points": 147
+      "name": "Jason L",
+      "points": 175
     },
     {
-      "name": "Jason L",
-      "points": 103
+      "name": "Katrina B",
+      "points": 147
     },
     {
       "name": "Mary C",
@@ -37,8 +37,8 @@
       "prices": 44
     },
     "waitrose": {
-      "goal": 200,
-      "prices": 170
+      "goal": 300,
+      "prices": 206
     },
     "ms": {
       "goal": 100,
