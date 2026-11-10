@@ -18,6 +18,9 @@ with open(DATA, encoding="utf8") as fh:
 ENTRIES = "C:/Users/eamon/OneDrive/Desktop/JerseyBasket Competition/entries.csv"
 DOUBLE = {"morrisons", "waitrose", "m&s", "ms"}
 args = sys.argv[1:]
+TOP = 5   # the 4:5 image fits five rows with the footer; override with --top N
+if "--top" in args:
+    i = args.index("--top"); TOP = int(args[i + 1]); del args[i:i + 2]
 note = None
 if "--note" in args:
     i = args.index("--note"); note = args[i + 1]; del args[i:i + 2]
@@ -58,8 +61,8 @@ d.text((295, 140), "NOVEMBER PRICE HUNT \u00b7 LEADERBOARD", font=font("segoeuib
 d.text((70, 215), "Who's winning?", font=font("georgiab.ttf", 62), fill="white", anchor="lm")
 d.text((70, 268), f"Updated {lb.get('updated', '')}", font=font("segoeui.ttf", 26), fill=(255, 214, 80), anchor="lm")
 
-# Entries (top 10, same rule as the app)
-entries = sorted(lb.get("entries", []), key=lambda e: e.get("points", 0), reverse=True)[:10]
+# Entries (top 5 by default so the footer fits; the app itself shows the top 10)
+entries = sorted(lb.get("entries", []), key=lambda e: e.get("points", 0), reverse=True)[:TOP]
 medals = ["\U0001F947", "\U0001F948", "\U0001F949"]
 n_rows = max(len(entries), 1)
 row_h, y0 = (86 if n_rows <= 5 else 74 if n_rows <= 7 else 62), 310
