@@ -16521,7 +16521,9 @@ const FORMSPREE_ID = "mvzyrgqj";
 // anyone who looks. It stops casual discovery/abuse of the endpoint, not a
 // determined one. See RECEIPT_WEBAPP_URL's own Apps Script for the other
 // half of this check. ──────────────────────────────────────────────────────
-const RECEIPT_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbwf8Jwd-dnlmf29O4LLgkCKjd1xz0LVNMXoDsVLRdjMH2hIViFIDJ4IGwtEg-WXzogo/exec";
+// Since 10 Nov 2026 the receipt script runs under the jerseybasket.receipts account so notifications arrive unread.
+// Previous (personal account) script: .../macros/s/AKfycbwf8Jwd-dnlmf29O4LLgkCKjd1xz0LVNMXoDsVLRdjMH2hIViFIDJ4IGwtEg-WXzogo/exec
+const RECEIPT_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbxc5KqEc5FckBfmrL3Ae5Z0bHKAzbvpev5gAcVPI6hbPFlVTIcyMkvs1qMivnx6e3E-yQ/exec";
 const RECEIPT_SHARED_SECRET = "2bf2c87b3d5bd1bd57bcc8dee5818ab8f75f238d509471b1";
 
 /* ═══════════════════════════════════════════════════════════════════════════
