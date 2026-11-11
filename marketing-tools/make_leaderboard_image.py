@@ -112,8 +112,8 @@ y += 126
 # Footer
 d.text((70, y), "Double points at Morrisons, Waitrose and M&S  \u00b7  +5 per referral", font=font("segoeuib.ttf", 24), fill="white", anchor="lm")
 d.text((70, y + 34), "Results Tue 1 Dec  \u00b7  Draw Thu 17 Dec", font=font("segoeui.ttf", 24), fill=(220, 235, 228), anchor="lm")
-d.text((70, y + 68), "Send your receipt in the app: tap “Spotted a price we're missing?”", font=font("segoeuib.ttf", 24), fill=(255, 226, 110), anchor="lm")
-d.text((70, y + 100), "or tap the Price Hunt banner · or email hello@jerseybasket.je", font=font("segoeuib.ttf", 24), fill=(255, 226, 110), anchor="lm")
+d.text((70, y + 68), "In the app: tap the Price Hunt banner or “Spotted a price we're missing?”", font=font("segoeuib.ttf", 24), fill=(255, 226, 110), anchor="lm")
+d.text((70, y + 100), "or email hello@jerseybasket.je · Long receipt? Send 2 or 3 photos", font=font("segoeuib.ttf", 24), fill=(255, 226, 110), anchor="lm")
 if note:
     d.text((70, y + 134), note, font=font("segoeui.ttf", 21), fill=(255, 214, 80), anchor="lm")
 d.line([70, H - 70, W - 70, H - 70], fill=(255, 255, 255, 50), width=2)
