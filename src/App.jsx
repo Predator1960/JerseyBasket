@@ -21400,6 +21400,18 @@ function SettingsModal({ disabledStores, onToggleStore, onClose, lightMode=false
           </div>
         )}
 
+        {/* TV / screensaver mode: the hands-off rotating screen at /?display */}
+        <a href="/?display" target="_blank" rel="noopener"
+          style={{ display:"flex",alignItems:"center",gap:12,padding:"13px 16px",marginBottom:16,borderRadius:12,textDecoration:"none",
+            background:lightMode?"rgba(22,163,74,.08)":"rgba(74,222,128,.07)",border:lightMode?"1px solid rgba(22,163,74,.3)":"1px solid rgba(74,222,128,.25)" }}>
+          <span style={{ fontSize:22 }}>📺</span>
+          <div style={{ flex:1 }}>
+            <div style={{ fontSize:13,fontWeight:700,color:lightMode?"#14532d":"#f0f4f8" }}>TV / screensaver mode</div>
+            <div style={{ fontSize:10.5,color:lightMode?"#166534":"#94a3b8",marginTop:2,lineHeight:1.5 }}>Show live price gaps on a spare screen, shop TV or as your PC screensaver</div>
+          </div>
+          <span style={{ fontSize:16,color:lightMode?"#166534":"#86efac" }}>↗</span>
+        </a>
+
         <button onClick={onClose} style={{ width:"100%",padding:"13px",background:"linear-gradient(180deg,#4ade80 0%,#15803d 100%)",boxShadow:"0 3px 10px rgba(34,197,94,.5),inset 0 1px 0 rgba(255,255,255,.3)",border:"none",borderRadius:12,color:"#fff",cursor:"pointer",fontSize:14,fontWeight:700 }}>
           Done
         </button>
