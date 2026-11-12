@@ -28,13 +28,13 @@
     },
     {
       "name": "Yasmin T",
-      "points": 34
+      "points": 40
     }
   ],
   "stores": {
     "morrisons": {
-      "goal": 100,
-      "prices": 98
+      "goal": 200,
+      "prices": 101
     },
     "waitrose": {
       "goal": 300,
