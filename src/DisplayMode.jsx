@@ -70,11 +70,11 @@ export default function DisplayMode() {
     return () => clearInterval(t);
   }, []);
 
-  // Reload every 3 hours so a screen left on for days picks up new prices
+  // Reload every hour so a screen left on for days picks up new prices
   // (and reshuffles its comparisons). Skips the reload while offline, so a
   // dropped connection never leaves the screen blank.
   useEffect(() => {
-    const t = setInterval(() => { if (navigator.onLine) window.location.reload(); }, 3 * 60 * 60 * 1000);
+    const t = setInterval(() => { if (navigator.onLine) window.location.reload(); }, 60 * 60 * 1000);
     return () => clearInterval(t);
   }, []);
 
