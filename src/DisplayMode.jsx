@@ -40,7 +40,7 @@ function buildGapPool() {
 }
 
 const SCENES = ["intro", "gaps", "gaps", "hunt", "gaps", "fb", "gaps", "qr"];
-const FB_PAGE = "https://www.facebook.com/profile.php?id=61590238925449";
+// Facebook page (what /qr-facebook.png links to): https://www.facebook.com/profile.php?id=61590238925449
 
 export default function DisplayMode() {
   const pool = useMemo(buildGapPool, []);
@@ -270,20 +270,27 @@ function Hunt({ board, narrow }) {
 // (new-style profile.php pages), so only its live header is used: name, logo,
 // follower count, Follow button. The QR opens the page on a phone.
 function Facebook({ narrow }) {
-  const W = 500, H = 130; // plugin max width; header-only height (no posts load)
-  const scale = narrow
-    ? Math.min(1, (window.innerWidth - 48) / W)
-    : Math.min(1.8, Math.max(0.6, (window.innerWidth * 0.42) / W));
-  const src = `https://www.facebook.com/plugins/page.php?href=${encodeURIComponent(FB_PAGE)}&tabs=&width=${W}&height=${H}&small_header=false&adapt_container_width=false&hide_cover=false&show_facepile=true`;
+  // Our own card rather than Facebook's Page Plugin: the plugin overlaps its
+  // follower line with the Follow bar and can't be styled from outside.
   return (
     <div style={{ display: "flex", alignItems: "center", gap: "5vw", flexWrap: "wrap", justifyContent: "center" }}>
       <img src="/qr-facebook.png" alt="QR code for JerseyBasket on Facebook" style={{ width: "min(32vh,30vw)", height: "min(32vh,30vw)", background: "#fff", padding: "1.5vh", borderRadius: 20 }} />
       <div>
         <h2 style={{ ...H1, textAlign: "left", fontSize: "clamp(26px,4.4vw,74px)" }}>Follow us on<br /><span style={{ color: "#1877f2" }}>Facebook</span></h2>
         <div style={{ ...SUB, textAlign: "left" }}>Price gaps, Price Hunt news and the best deals, first.</div>
-        <div style={{ marginTop: "3vh", width: W * scale, height: H * scale, borderRadius: 14, overflow: "hidden", background: "#fff" }}>
-          <iframe title="JerseyBasket on Facebook" src={src} width={W} height={H} scrolling="no" frameBorder="0"
-            style={{ border: "none", overflow: "hidden", transform: `scale(${scale})`, transformOrigin: "top left" }} />
+        <div style={{ marginTop: "3vh", display: "inline-flex", alignItems: "center", gap: narrow ? 12 : "1.4vw",
+          padding: narrow ? "12px 16px" : "1.6vh 1.6vw", borderRadius: 16,
+          background: "linear-gradient(180deg,rgba(24,119,242,.22) 0%,rgba(24,119,242,.1) 100%)",
+          border: "1px solid rgba(24,119,242,.55)", boxShadow: "0 6px 24px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.12)" }}>
+          <div style={{ width: narrow ? 44 : "clamp(44px,5vw,90px)", height: narrow ? 44 : "clamp(44px,5vw,90px)", borderRadius: "50%", flexShrink: 0,
+            background: "#1877f2", display: "flex", alignItems: "center", justifyContent: "center",
+            color: "#fff", fontFamily: "Arial,Helvetica,sans-serif", fontWeight: 900, fontSize: narrow ? 30 : "clamp(30px,3.4vw,62px)" }}>f</div>
+          <div>
+            <div style={{ fontSize: narrow ? 18 : "clamp(18px,2.2vw,40px)", fontWeight: 700 }}>
+              Jersey<span style={{ color: "#22c55e" }}>Basket</span>
+            </div>
+            <div style={{ fontSize: narrow ? 13 : "clamp(13px,1.4vw,26px)", color: "#93c5fd", marginTop: 2 }}>Scan the code to follow us</div>
+          </div>
         </div>
       </div>
     </div>
