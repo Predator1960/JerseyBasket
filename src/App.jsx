@@ -1554,7 +1554,7 @@ const BASE_PRODUCTS = [
   {id:923,name:"Lucozade Energy Cherry (500ml)",            cat:"🥤 Drinks",              icon:"🍒",prices:sp(1.35,[0,-1.35,-1.35,-1.35,-1.35,-1.35])}, 
   {id:924,name:"Co-op Sorbet Coconut Ice Cream",            cat:"❄️ Frozen",             icon:"🍦",prices:sp(3.15,[0,-3.15,-3.15,-3.15,-3.15,-3.15])}, 
   {id:925, name:"Werthers Original Soft Box (42g)", cat:"🍫 Confectionery", icon:"🍬", prices:{coop:1.05,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"7 Nov"}, // Co-op Millennium Park receipt 2 Nov: Werthers Orig Sf Box 1.05 | Co-op Millennium Park Laura receipt 6 Nov: Werthers Orig Sf Box 1.05 | Co-op Millennium Park Laura receipt 7 Nov: Werthers Orig Sf Box 1.05
-  {id:926, name:"Wotsits Giants Spicy (130g)", cat:"🍿 Snacks", icon:"🍿", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"29 Oct"}, // Co-op Millennium Park receipt 29 Oct: matches
+  {id:926, name:"Wotsits Giants Spicy (130g)", cat:"🍿 Snacks", icon:"🍿", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"14 Nov"}, // Co-op Millennium Park receipt 29 Oct: matches | Co-op branch: St Peter's Village (Laura receipt 14 Nov): Wotsits Giants Spicy 2.65
 
   {id:928,name:"Co-op English Black Pudding (per kg)",      cat:"🥩 Meat & Fish",         icon:"🖤",prices:sp(4.80,[0,-4.80,-4.80,-4.80,-4.80,-4.80])}, 
   {id:929,name:"Heinz Sweet & Sour Chicken (400g)",         cat:"🥫 Tins & Jars",         icon:"🍗",prices:sp(2.50,[0,-2.50,-2.50,-2.50,-2.50,-2.50])}, 
@@ -3112,7 +3112,7 @@ const BASE_PRODUCTS = [
   {id:2683, name:"Co-op Lighter Mozzarella 210g 125G", cat:"🥛 Dairy & Eggs", icon:"🧀", prices:{coop:1.29,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Nov"},
   {id:2684, name:"Co-op Seedless Sweet Candy Grapes 400g", cat:"🥦 Fruit & Veg", icon:"🍏", prices:{coop:3.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Nov", oos:["coop"]},
   {id:2685, name:"Co-op Spanish Sliced Chorizo 32 Slices 150g", cat:"🥩 Meat & Fish", icon:"🍖", prices:{coop:2.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Nov"},
-  {id:2686, name:"Co-op Soft Cheese 200g", cat:"🥛 Dairy & Eggs", icon:"🧀", prices:{coop:1.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Nov"},
+  {id:2686, name:"Co-op Soft Cheese 200g", cat:"🥛 Dairy & Eggs", icon:"🧀", prices:{coop:1.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"14 Nov"}, // Co-op branch: St Brelade (Laura receipt 14 Nov): Cp Nt F/F Sft/Ch 1.95 (Co-op natural full-fat soft cheese, 200g assumed)
   {id:2687, name:"Alpro Vanilla Dairy Free Soya Yoghurt Alternative 500g", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:2.89,morrisons:0,ms:0,waitrose:0,iceland:3.4,alliance:3.5}, upd:"11 Nov", upds:{coop:"10 Oct",iceland:"11 Nov",alliance:"11 Nov"}, oos:["iceland"]},
   {id:2688, name:"Alpro Soya No Sugar Chilled Dairy Free Drink 1L 1LTR", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:2.7,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:3.1}, upd:"11 Nov", upds:{coop:"10 Oct",alliance:"11 Nov"}},
   {id:2689, name:"Alpro Blueberry Cherry Dairy Free Yoghurt Alternative 4x125g", cat:"🥛 Dairy & Eggs", icon:"🥛", prices:{coop:2.89,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Nov"}, // special offer £2.10 until 17/11/26
@@ -5181,7 +5181,7 @@ const BASE_PRODUCTS = [
   {id:4201, name:"Napolina Olive Oil 500ml", cat:"🍝 Pantry", icon:"🍝", prices:{coop:6.6,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Nov"},
   {id:4202, name:"Co-op Pickled Cornichons in Sweet Vinegar 340g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.5,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Nov"},
   {id:4203, name:"Co-op Pickled Sliced Beetroot 340g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:1.29,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Nov"},
-  {id:4204, name:"HP Brown Sauce 450g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.75,morrisons:0,ms:0,waitrose:3.50,iceland:0,alliance:0}, upd:"11 Nov", upds:{coop:"10 Oct"}, oos:["coop"]},
+  {id:4204, name:"HP Brown Sauce 450g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:3.75,morrisons:0,ms:0,waitrose:3.5,iceland:0,alliance:0}, upd:"14 Nov", upds:{coop:"14 Nov"}, oos:["coop"]}, // Co-op branch: St Brelade (Laura receipt 14 Nov): Hp Sauce 3.75 (size assumed 450g)
   {id:4205, name:"HP Brown Sauce 600g", cat:"🍝 Pantry", icon:"🍝", prices:{coop:4.39,morrisons:0,ms:0,waitrose:0,iceland:5,alliance:0}, upd:"11 Nov", upds:{coop:"10 Oct"}},
   {id:4206, name:"Co-op Vegetable Oil 1 Litre 1LTR", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Nov"}, // members £1.95 until 03/01/27
   {id:4207, name:"Co-op Sunflower Oil 1 Litre 1LTR", cat:"🍝 Pantry", icon:"🍝", prices:{coop:2.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Nov"}, // members £1.95 until 03/01/27
@@ -8396,7 +8396,7 @@ const BASE_PRODUCTS = [
   {id:8047, name:"Onion Rings", cat:"🥗 Deli & Salads", icon:"🧅", prices:{coop:0,morrisons:0,ms:3.70,waitrose:0,iceland:0,alliance:0}, upd:"7 Aug"},
   {id:8048, name:"Lucozade Sport Strawberry", cat:"🥤 Drinks", icon:"🥤", prices:{coop:0,morrisons:0,ms:2.40,waitrose:0,iceland:0,alliance:0}, upd:"7 Aug"},
   {id:8049, name:"Caramel Chocolate", cat:"🥨 Snacks & Treats", icon:"🍫", prices:{coop:0,morrisons:0,ms:1.75,waitrose:0,iceland:0,alliance:0}, upd:"7 Aug"},
-  {id:8050, name:"Lotus Biscoff Ice Cream", cat:"🧊 Frozen", icon:"🍦", prices:{coop:2.35,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"29 Oct"}, // Co-op Millennium Park receipt 29 Oct: Lotus Bisco Ice Cr (was 2.65)
+  {id:8050, name:"Lotus Biscoff Ice Cream", cat:"🧊 Frozen", icon:"🍦", prices:{coop:2.35,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"14 Nov"}, // Co-op Millennium Park receipt 29 Oct: Lotus Bisco Ice Cr (was 2.65) | Co-op branch: St Peter's Village (Laura receipt 14 Nov): Lotus Bisco Ice Cr 2.35
   {id:8051, name:"Häagen-Dazs Sticky Toffee 460ml", cat:"🧊 Frozen", icon:"🧊", prices:{coop:3.17,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"7 Aug"},
   {id:8052, name:"Co-op All Purpose Cloths", cat:"🧹 Household", icon:"🧽", prices:{coop:1.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"7 Aug"},
   {id:8053, name:"Bakers Whirls Bacon & Cheese", cat:"🥨 Snacks & Treats", icon:"🥐", prices:{coop:1.25,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"17 Aug"},
