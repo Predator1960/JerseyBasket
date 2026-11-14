@@ -161,7 +161,7 @@ function Intro() {
   const stats = [
     [`${fmt(Math.floor(BASE_PRODUCTS.length / 500) * 500)}+`, "products"],
     [`${STORES.length}`, "supermarkets"],
-    ["2,800+", "Jersey shoppers"],
+    ["3,000+", "Jersey shoppers"],
     ["Free", "no sign-up"],
   ];
   return (
