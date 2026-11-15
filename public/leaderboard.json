@@ -11,6 +11,10 @@
       "points": 301
     },
     {
+      "name": "Lucy D",
+      "points": 142
+    },
+    {
       "name": "Mary C",
       "points": 110
     },
@@ -21,10 +25,6 @@
     {
       "name": "Sandra B",
       "points": 81
-    },
-    {
-      "name": "Lucy D",
-      "points": 49
     },
     {
       "name": "Yasmin T",
@@ -38,11 +38,11 @@
     },
     "waitrose": {
       "goal": 400,
-      "prices": 327
+      "prices": 367
     },
     "ms": {
       "goal": 100,
-      "prices": 66
+      "prices": 70
     }
   },
   "winners": {
