@@ -1,6 +1,6 @@
-"""Milestone graphic (4:5, Facebook / Instagram / LinkedIn): 17,000+ products and 2,900+ shoppers.
+"""Milestone graphic (4:5, Facebook / Instagram / LinkedIn): 17,000+ products and 3,000+ shoppers.
 Usage: python marketing-tools/make_milestone_graphic.py [out.png]   (edit PRODUCTS / SHOPPERS below when numbers change)
-Default output: C:/Users/eamon/Downloads/JerseyBasket Milestone 17000 products 2900 shoppers.png
+Default output: C:/Users/eamon/Downloads/JerseyBasket Milestone 17000 products 3000 shoppers.png
 """
 import os
 import sys
@@ -9,7 +9,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import glossy as g
 
 PRODUCTS = "17,000+"
-SHOPPERS = "2,900+"
+SHOPPERS = "3,000+"
 
 g.init()
 g.sparkles(seed=11, n=9, area=(470, 20, 1060, 200))
@@ -57,6 +57,6 @@ d.text((540, 1195), "Join them:  jerseybasket.je", font=font("segoeuib.ttf", 44)
 # Footer
 d.text((540, 1305), "Jersey's free grocery price comparison app", font=font("segoeui.ttf", 24), fill=(215, 232, 224), anchor="mm")
 
-out = sys.argv[1] if len(sys.argv) > 1 else "C:/Users/eamon/Downloads/JerseyBasket Milestone 17000 products 2900 shoppers.png"
+out = sys.argv[1] if len(sys.argv) > 1 else "C:/Users/eamon/Downloads/JerseyBasket Milestone 17000 products 3000 shoppers.png"
 g.img.save(out)
 print("saved", out)
