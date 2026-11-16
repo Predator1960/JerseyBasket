@@ -21886,7 +21886,7 @@ function SubmitPriceModal({ onClose, onOpenCompetition, lightMode=false }) {
   const [preparing, setPreparing] = useState(false);
   const [sentCount, setSentCount] = useState(0);
   const todayLocal = () => new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().slice(0, 10);
-  const [store, setStore] = useState("");           // which store the photo is from (optional)
+  const [store, setStore] = useState("");           // which store the photo is from (required since 16 Nov 2026: one shop per send)
   const [taken, setTaken] = useState(todayLocal()); // date the photo was taken (defaults to today)
   const fileRef = useRef(null);
   // November Price Hunt: a pre-ticked entry box while the competition is live
@@ -21994,11 +21994,12 @@ function SubmitPriceModal({ onClose, onOpenCompetition, lightMode=false }) {
     setStatus(ok === photos.length ? "sent" : "error");
   };
 
-  const sendAnother = () => { setPhotos([]); setStatus("idle"); setSentCount(0); setPhotoError(""); };
+  const sendAnother = () => { setPhotos([]); setStatus("idle"); setSentCount(0); setPhotoError(""); setStore(""); };
 
   const sending  = status === "sending";
   const needsContact = entered && (!form.name.trim() || (!form.mobile.trim() && !form.email.trim()));
-  const disabled = !photos.length || sending || preparing || needsContact;
+  const needsStore = !store;
+  const disabled = !photos.length || sending || preparing || needsContact || needsStore;
   const muted = lightMode ? "#475569" : "#94a3b8";
   const label = lightMode ? "#7c2d12" : "#9a3412";
   const inputStyle = { width:"100%",padding:"9px 12px",background:lightMode?"rgba(0,0,0,.05)":"rgba(255,255,255,.07)",border:lightMode?"1px solid rgba(0,0,0,.15)":"1px solid rgba(255,255,255,.11)",borderRadius:9,color:lightMode?"#0f172a":"#fff",fontSize:16,outline:"none",boxSizing:"border-box",fontFamily:"inherit" };
@@ -22073,15 +22074,16 @@ function SubmitPriceModal({ onClose, onOpenCompetition, lightMode=false }) {
               )}
               {photos.length > 0 && (
                 <div style={{ marginTop:12 }}>
-                  <div style={{ fontSize:10,color:label,fontWeight:700,letterSpacing:".5px",marginBottom:6 }}>WHICH STORE? <span style={{ color:muted,fontWeight:400 }}>(optional, but it helps a lot)</span></div>
+                  <div style={{ fontSize:10,color:label,fontWeight:700,letterSpacing:".5px",marginBottom:6 }}>WHICH STORE? <span style={{ color:"#f43f5e" }}>*</span> <span style={{ color:muted,fontWeight:400 }}>(one shop per send)</span></div>
                   <div style={{ display:"flex",flexWrap:"wrap",gap:6 }}>
-                    {STORES.map(s => (
-                      <button key={s.id} onClick={()=>setStore(store===s.name ? "" : s.name)}
+                    {[...STORES.map(s => ({ key:s.id, name:s.name, text:`${s.emoji} ${s.short || s.name}` })), { key:"other", name:"Other", text:"🏪 Other shop" }].map(s => (
+                      <button key={s.key} onClick={()=>setStore(store===s.name ? "" : s.name)}
                         style={{ padding:"7px 11px",borderRadius:20,border:`1px solid ${store===s.name ? "#fb923c" : (lightMode?"rgba(0,0,0,.18)":"rgba(255,255,255,.18)")}`,background:store===s.name ? "rgba(251,146,60,.25)" : "transparent",color:store===s.name ? (lightMode?"#7c2d12":"#fed7aa") : muted,cursor:"pointer",fontSize:12,fontWeight:store===s.name?700:500 }}>
-                        {s.emoji} {s.short || s.name}
+                        {s.text}
                       </button>
                     ))}
                   </div>
+                  {needsStore && <div style={{ fontSize:11,color:"#fbbf24",marginTop:6,lineHeight:1.5 }}>Tap the shop this receipt is from to send it. Shopped in more than one store? Send each receipt separately.</div>}
                   <div style={{ display:"flex",alignItems:"center",gap:8,marginTop:10 }}>
                     <div style={{ fontSize:10,color:label,fontWeight:700,letterSpacing:".5px" }}>DATE TAKEN</div>
                     <input type="date" value={taken} max={todayLocal()} onChange={e=>setTaken(e.target.value || todayLocal())}
@@ -22132,7 +22134,7 @@ function SubmitPriceModal({ onClose, onOpenCompetition, lightMode=false }) {
 
               <button onClick={handleSubmit} disabled={disabled}
                 style={{ width:"100%",marginTop:14,padding:"14px",background:orangeBtn,border:"none",borderRadius:12,color:"#fff",cursor:disabled?"not-allowed":"pointer",opacity:disabled?0.5:1,fontSize:15,fontWeight:700,boxShadow:disabled?"none":"0 3px 12px rgba(194,65,12,.6),inset 0 1px 0 rgba(255,255,255,.25)" }}>
-                {sending ? `Sending ${photos.length > 1 ? photos.length + " photos" : "your receipt"}… a few seconds` : preparing ? "Getting your photo ready…" : photos.length > 1 ? `Send ${photos.length} photos →` : "Send receipt →"}
+                {sending ? `Sending ${photos.length > 1 ? photos.length + " photos" : "your receipt"}… a few seconds` : preparing ? "Getting your photo ready…" : (photos.length && needsStore) ? "Pick the store above first" : photos.length > 1 ? `Send ${photos.length} photos →` : "Send receipt →"}
               </button>
 
               {/* optional details, tucked away so they don't get in the way */}
