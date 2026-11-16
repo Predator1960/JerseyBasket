@@ -2,6 +2,13 @@
 
 Paste this into a fresh Claude session to continue without the long history. It contains no passwords or keys.
 
+## 0. WHERE THINGS LIVE NOW (moved out of OneDrive on 16 Nov 2026)
+
+- **Project (git root):** `C:\JerseyBasket\JERSEYBASKET`. **Competition files** (entries.csv, receipt log, captions and replies): `C:\JerseyBasket\Competition`. Both are NOT synced by OneDrive any more (OneDrive kept putting older copies back and fighting `.git`). The old OneDrive folders were renamed "... OLD do not use".
+- **Snapshots:** `marketing-tools\backup_local.ps1`, run by the Windows scheduled task "JerseyBasket Local Backup" (daily 21:00 and at logon), writes dated snapshots to `C:\JerseyBasket-Backups` and `H:\JerseyBasket-Backups` (H: is an external USB disk, skipped if unplugged). Keeps the newest 14. It raises an ALERT.txt if entries.csv, the glossary or the receipt log shrink.
+- **Before editing entries.csv:** compare its line count with the newest snapshot (44 lines on 16 Nov).
+- The OneDrive copy `OneDrive\Backups\JerseyBasket-Claude` is refreshed each session as an extra, one-way.
+
 ## 1. What JerseyBasket is
 
 A free grocery price comparison web app for Jersey (jerseybasket.je): about 17,946 products across six stores
@@ -39,7 +46,7 @@ Tools: per-receipt scripts `marketing-tools/apply_*.js` (latest `apply_waitrose_
 
 Winners announced **Tue 1 Dec**, draw **Thu 17 Dec**. Prizes: Channel Islands Charity Christmas Draw tickets (7/5/3). Always add: "JerseyBasket is not connected to the Channel Islands Lottery".
 Points: double at Morrisons, Waitrose, M&S; single at Co-op, Iceland, Alliance; +5 per referral. Every readable grocery line counts. Any card or payer is fine if the receipt is in date and readable; only a burst of about 5 to 10 same-day receipts from one entrant is suspect. Receipts dated before 1 Nov are catalogue-only.
-Entries: `Desktop\JerseyBasket Competition\entries.csv` (alias,store,verified_prices,referred_by). Update the board: `node marketing-tools/update_leaderboard.js "<entries.csv>"` (auto-raises a store bar by 100 when full). Image: `python marketing-tools/make_leaderboard_image.py [--note "text"]`.
+Entries: `C:\JerseyBasket\Competition\entries.csv` (alias,store,verified_prices,referred_by). Update the board: `node marketing-tools/update_leaderboard.js "<entries.csv>"` (auto-raises a store bar by 100 when full). Image: `python marketing-tools/make_leaderboard_image.py [--note "text"]`.
 **Standings 15 Nov (evening):** Katrina B 353, Jason L 301, Lucy D 142, Mary C 138, Claire E 104, Sandra B 81, Yasmin T 40. Bars: Morrisons 101/200, Waitrose 367/400, M&S 70/100, Morrisons 115/200. **Jason L's undated Waitrose St Saviour receipt is FINAL catalogue-only** (original binned, no date can be shown; the 28 points are not counted). Laura is Eamonn's wife: her receipts are catalogue-only, never draft her a reply. Competition receipt log: DesktopJerseyBasket CompetitionNov-Receipt-Log-v4.xlsx; receipt photos in Shopping ReceiptsNOVEMBER 2026.
 **Every reply to an entrant says:** in the app tap the yellow Price Hunt banner or "Spotted a price we're missing?", or email hello@jerseybasket.je; long receipt = 2 or 3 photos of different parts (matched as one); +5 per referred friend; results and draw dates. Plain sign-off, no signature, never name other entrants.
 Receipt notifications arrive at hello@jerseybasket.je from jerseybasket.receipts@gmail.com (Apps Script runs under that account; the .gs files are in this backup folder). Still to do: tick "Skip the Inbox" on the Receipts Gmail filter; delete TEST-delete-me rows/photos from the Sheet and Drive.

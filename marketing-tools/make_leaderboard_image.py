@@ -21,7 +21,7 @@ DATA = os.path.join(HERE, "..", "public", "leaderboard.json")
 with open(DATA, encoding="utf8") as fh:
     lb = json.load(fh)
 
-ENTRIES = "C:/Users/eamon/OneDrive/Desktop/JerseyBasket Competition/entries.csv"
+ENTRIES = "C:/JerseyBasket/Competition/entries.csv"
 DOUBLE = {"morrisons", "waitrose", "m&s", "ms"}
 args = sys.argv[1:]
 TOP = 5   # the 4:5 image fits five rows with the footer; override with --top N (more than 5 will not fit)
