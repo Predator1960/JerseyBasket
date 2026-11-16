@@ -3,16 +3,20 @@
   "updated": "16 Nov",
   "entries": [
     {
+      "name": "Jason L",
+      "points": 385
+    },
+    {
       "name": "Katrina B",
       "points": 353
     },
     {
-      "name": "Jason L",
-      "points": 301
-    },
-    {
       "name": "Sandra B",
       "points": 249
+    },
+    {
+      "name": "Claire E",
+      "points": 164
     },
     {
       "name": "Lucy D",
@@ -20,11 +24,7 @@
     },
     {
       "name": "Mary C",
-      "points": 138
-    },
-    {
-      "name": "Claire E",
-      "points": 104
+      "points": 144
     },
     {
       "name": "Yasmin T",
@@ -38,11 +38,11 @@
     },
     "waitrose": {
       "goal": 500,
-      "prices": 443
+      "prices": 488
     },
     "ms": {
       "goal": 100,
-      "prices": 70
+      "prices": 95
     }
   },
   "winners": {
