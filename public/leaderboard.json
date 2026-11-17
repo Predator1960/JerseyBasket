@@ -16,7 +16,7 @@
     },
     {
       "name": "Claire E",
-      "points": 164
+      "points": 176
     },
     {
       "name": "Lucy D",
@@ -34,7 +34,7 @@
   "stores": {
     "morrisons": {
       "goal": 200,
-      "prices": 115
+      "prices": 121
     },
     "waitrose": {
       "goal": 600,
