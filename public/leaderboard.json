@@ -1,14 +1,14 @@
 {
   "competition": "nov2026",
-  "updated": "16 Nov",
+  "updated": "17 Nov",
   "entries": [
+    {
+      "name": "Katrina B",
+      "points": 429
+    },
     {
       "name": "Jason L",
       "points": 385
-    },
-    {
-      "name": "Katrina B",
-      "points": 353
     },
     {
       "name": "Sandra B",
@@ -37,8 +37,8 @@
       "prices": 115
     },
     "waitrose": {
-      "goal": 500,
-      "prices": 488
+      "goal": 600,
+      "prices": 526
     },
     "ms": {
       "goal": 100,
