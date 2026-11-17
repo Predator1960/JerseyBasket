@@ -40,9 +40,8 @@ if note is None:
                     other.setdefault(r["alias"].strip(), set()).add(s)
     except OSError:
         pass
-    shown = {e.get("name") for e in lb.get("entries", [])}
-    parts = [f"{a}'s points include {' and '.join(sorted(s))} prices" for a, s in other.items() if a in shown]
-    note = ("  \u00b7  ".join(parts) + " (1 point each)") if parts else ""
+    # One general line (naming each entrant overflowed the width once several qualified)
+    note = "Co-op, Iceland and Alliance receipts count too, at 1 point per line"
 
 g.init()
 g.sparkles(seed=21, n=7, area=(560, 20, 1060, 215))
@@ -115,7 +114,10 @@ d.text((70, y + 34), "Results Tue 1 Dec  \u00b7  Draw Thu 17 Dec", font=font("se
 d.text((70, y + 68), "In the app: tap the Price Hunt banner or “Spotted a price we're missing?”", font=font("segoeuib.ttf", 24), fill=(255, 226, 110), anchor="lm")
 d.text((70, y + 100), "Can't use the app? Email hello@jerseybasket.je · Long receipt? 2-3 photos", font=font("segoeuib.ttf", 24), fill=(255, 226, 110), anchor="lm")
 if note:
-    d.text((70, y + 134), note, font=font("segoeui.ttf", 21), fill=(255, 214, 80), anchor="lm")
+    size = 22
+    while size > 14 and d.textlength(note, font=font("segoeui.ttf", size)) > W - 140:
+        size -= 1
+    d.text((70, y + 134), note, font=font("segoeui.ttf", size), fill=(255, 214, 80), anchor="lm")
 d.line([70, H - 70, W - 70, H - 70], fill=(255, 255, 255, 50), width=2)
 d.text((70, H - 38), "JerseyBasket is not connected to the Channel Islands Lottery", font=font("segoeui.ttf", 22), fill=(220, 235, 228), anchor="lm")
 d.text((W - 70, H - 38), "jerseybasket.je", font=font("segoeuib.ttf", 24), fill="white", anchor="rm")
