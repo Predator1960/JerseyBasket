@@ -19351,6 +19351,13 @@ export default function JerseyGroceryApp() {
 
   if (easyMode) return <EasyView products={allProducts} basket={basket} setBasket={setBasket} onExit={()=>setEasy(false)} />;
 
+  // "Easy view" bar shown at the top of the Shop page and above Your Basket
+  const easyBar = (margin) => (
+    <button onClick={()=>setEasy(true)} style={{ WebkitAppearance:"none",appearance:"none",display:"flex",alignItems:"center",justifyContent:"center",gap:8,width:"100%",margin,padding:"11px 14px",background:"#ffffff",border:"2px solid #1d4ed8",borderRadius:12,color:"#1d4ed8",cursor:"pointer",fontSize:15,fontWeight:700,fontFamily:"Arial, Helvetica, sans-serif" }}>
+      <span style={{ fontSize:18 }}>👓</span> Easy view: bigger text, simpler screen
+    </button>
+  );
+
   return (
     <div className={`jb-app-root${lightMode?" jb-light":""}`} style={{ height:"var(--app-height, 100vh)", display:"flex", flexDirection:"column", overflow:"hidden", background: lightMode ? "linear-gradient(160deg,#e8edf2 0%,#dde4eb 55%,#e2e8f0 100%)" : "linear-gradient(160deg,#050d1a 0%,#0b1c35 55%,#061220 100%)", fontFamily:"'Georgia',serif", color: lightMode ? "#0f172a" : "#f0f4f8" }}>
 
@@ -19466,10 +19473,7 @@ export default function JerseyGroceryApp() {
         {/* ══════════════════════════ SHOP ══════════════════════════ */}
         {view==="shop" && (
           <div>
-            {/* ── EASY VIEW: big-text simple screen ── */}
-            <button onClick={()=>setEasy(true)} style={{ WebkitAppearance:"none",appearance:"none",display:"flex",alignItems:"center",justifyContent:"center",gap:8,width:"100%",margin:"14px 0 0",padding:"11px 14px",background:"#ffffff",border:"2px solid #1d4ed8",borderRadius:12,color:"#1d4ed8",cursor:"pointer",fontSize:15,fontWeight:700,fontFamily:"Arial, Helvetica, sans-serif" }}>
-              <span style={{ fontSize:18 }}>👓</span> Easy view: bigger text, simpler screen
-            </button>
+            {easyBar("14px 0 0")}
             {/* ── PRICE DISCLAIMER BANNER ── */}
             <div style={{ margin:"14px 0 10px",background: lightMode ? "rgba(180,120,0,.1)" : "rgba(245,158,11,.08)",border: lightMode ? "1px solid rgba(180,120,0,.35)" : "1px solid rgba(245,158,11,.28)",borderRadius:11,padding:"10px 14px",display:"flex",gap:10,alignItems:"flex-start" }}>
               <span style={{ fontSize:18,flexShrink:0,marginTop:1 }}>⚠️</span>
@@ -19739,6 +19743,7 @@ export default function JerseyGroceryApp() {
         {/* ═════════════════════════ BASKET ═════════════════════════ */}
         {view==="basket" && (
           <div style={{ marginTop:18 }}>
+            {easyBar("0 0 16px")}
             <div style={{ display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:14 }}>
               <h2 style={{ fontSize:18,fontWeight:700,margin:0,color:lightMode?"#0f172a":"#f0f4f8" }}>🧺 Your Basket</h2>
               {basketItems.length>0&&(
