@@ -10,6 +10,9 @@
 //     in columns F to J, to the right of the original five (nothing existing moves);
 //   * the notification email includes the same fields;
 //   * addNewColumnHeaders() writes the five new header cells once.
+// 18 Nov 2026: mobile check. Column K "Mobile check" flags an email / bad number / missing mobile on
+//   entries (old app versions can still send them), the mobile cell turns orange and the email subject
+//   starts with a warning sign. Receipts are never rejected. Run addMobileCheckHeader() once after deploying.
 // The real FOLDER_ID, SHEET_ID, secret and email are in receipts-original-PRIVATE.gs (not in git).
 // To deploy: paste this over the script, put the four real values back at the top,
 //   then Deploy > Manage deployments > Edit > Version: New version > Deploy.
@@ -40,6 +43,10 @@ function doPost(e) {
       fileUrl = file.getUrl();
     }
 
+    // Mobile check (18 Nov 2026): phones running an old copy of the app can still send an email
+    // in the mobile box. Never reject the receipt; flag it in column K, colour the cell, mark the email.
+    const mobileFlag = mobileProblem(data.mobile, !!data.competition);
+
     if (SHEET_ID) {
       const sheet = SpreadsheetApp.openById(SHEET_ID).getActiveSheet();
       sheet.appendRow([
@@ -53,20 +60,33 @@ function doPost(e) {
         data.photoName || '',
         data.competition || '',
         data.referredBy || '',
+        mobileFlag,
       ]);
+      if (mobileFlag) sheet.getRange(sheet.getLastRow(), 3).setBackground('#fed7aa');
     }
 
     // Notify by email the moment a new receipt comes in
     MailApp.sendEmail({
       to: NOTIFY_EMAIL,
-      subject: `[JerseyBasket] New receipt from ${data.name || 'unknown'}${data.competition ? ' (Price Hunt entry)' : ''}`,
-      body: `New receipt submission:\n\nName: ${data.name || ''}\nMobile: ${data.mobile || ''}\nEmail: ${data.email || ''}\nStore: ${data.store || ''}\nDate taken: ${data.dateTaken || ''}\nCompetition: ${data.competition || 'no'}\nWho told them: ${data.referredBy || ''}\nPhoto: ${fileUrl || 'No photo attached'}`,
+      subject: `${mobileFlag ? '⚠ ' : ''}[JerseyBasket] New receipt from ${data.name || 'unknown'}${data.competition ? ' (Price Hunt entry)' : ''}`,
+      body: `New receipt submission:\n\nName: ${data.name || ''}\nMobile: ${data.mobile || ''}${mobileFlag ? '  (' + mobileFlag + ')' : ''}\nEmail: ${data.email || ''}\nStore: ${data.store || ''}\nDate taken: ${data.dateTaken || ''}\nCompetition: ${data.competition || 'no'}\nWho told them: ${data.referredBy || ''}\nPhoto: ${fileUrl || 'No photo attached'}`,
     });
 
     return jsonResponse({ ok: true });
   } catch (err) {
     return jsonResponse({ ok: false, error: String(err) });
   }
+}
+
+// '' when fine, otherwise a short warning. A real mobile is 11 digits starting 07, or +44 7... / 0044 7...
+// Competition entries must have one; other submissions are only flagged if something odd was typed.
+function mobileProblem(mobile, isEntry) {
+  const m = String(mobile || '').trim();
+  if (!m) return isEntry ? '⚠ no mobile' : '';
+  const digits = m.replace(/\D/g, '');
+  const ok = /^07\d{9}$/.test(digits) || /^447\d{9}$/.test(digits) || /^00447\d{9}$/.test(digits);
+  if (ok) return '';
+  return /@/.test(m) ? '⚠ email in mobile box' : '⚠ mobile not valid';
 }
 
 function jsonResponse(obj) {
@@ -78,6 +98,11 @@ function jsonResponse(obj) {
 function addNewColumnHeaders() {
   const sheet = SpreadsheetApp.openById(SHEET_ID).getActiveSheet();
   sheet.getRange(1, 6, 1, 5).setValues([['Store', 'Date taken', 'Photo name', 'Competition', 'Referred by']]);
+}
+
+// Run once by hand after deploying the 18 Nov 2026 version: header for the new column K.
+function addMobileCheckHeader() {
+  SpreadsheetApp.openById(SHEET_ID).getActiveSheet().getRange(1, 11).setValue('Mobile check');
 }
 
 function testAuth() {
