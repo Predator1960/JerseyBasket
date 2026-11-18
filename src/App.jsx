@@ -22286,7 +22286,10 @@ function SubmitPriceModal({ onClose, onOpenCompetition, lightMode=false }) {
   const sendAnother = () => { setPhotos([]); setStatus("idle"); setSentCount(0); setPhotoError(""); setStore(""); };
 
   const sending  = status === "sending";
-  const needsContact = entered && (!form.name.trim() || (!form.mobile.trim() && !form.email.trim()));
+  // Competition entries need a real mobile: 11 digits starting 07 (spaces/dashes fine) or +44 7...
+  const mobileDigits = form.mobile.replace(/\D/g, "");
+  const validMobile = /^07\d{9}$/.test(mobileDigits) || /^447\d{9}$/.test(mobileDigits) || /^00447\d{9}$/.test(mobileDigits);
+  const needsContact = entered && (!form.name.trim() || !validMobile);
   const needsStore = !store;
   const disabled = !photos.length || sending || preparing || needsContact || needsStore;
   const muted = lightMode ? "#475569" : "#94a3b8";
@@ -22403,11 +22406,11 @@ function SubmitPriceModal({ onClose, onOpenCompetition, lightMode=false }) {
                         <input value={form.name} onChange={e=>setForm(p=>({...p,name:e.target.value}))} placeholder="e.g. IslandShopper (shown on the leaderboard)" style={inputStyle} />
                       </div>
                       <div style={{ marginBottom:10 }}>
-                        <div style={{ fontSize:10,color:label,fontWeight:700,letterSpacing:".5px",marginBottom:5 }}>MOBILE NUMBER <span style={{ color:muted,fontWeight:400 }}>(or email below)</span></div>
-                        <input value={form.mobile} onChange={e=>setForm(p=>({...p,mobile:e.target.value}))} inputMode="tel" placeholder="e.g. 07797 123456" style={inputStyle} />
+                        <div style={{ fontSize:10,color:label,fontWeight:700,letterSpacing:".5px",marginBottom:5 }}>MOBILE NUMBER <span style={{ color:"#f43f5e" }}>*</span></div>
+                        <input value={form.mobile} onChange={e=>setForm(p=>({...p,mobile:e.target.value.replace(/[^\d+\s()-]/g,"")}))} inputMode="tel" placeholder="e.g. 07797 123456" style={inputStyle} />
                       </div>
                       <div style={{ marginBottom:10 }}>
-                        <div style={{ fontSize:10,color:label,fontWeight:700,letterSpacing:".5px",marginBottom:5 }}>EMAIL <span style={{ color:muted,fontWeight:400 }}>(or mobile above)</span></div>
+                        <div style={{ fontSize:10,color:label,fontWeight:700,letterSpacing:".5px",marginBottom:5 }}>EMAIL <span style={{ color:muted,fontWeight:400 }}>(optional)</span></div>
                         <input value={form.email} onChange={e=>setForm(p=>({...p,email:e.target.value}))} inputMode="email" placeholder="e.g. yourname@email.com" style={inputStyle} />
                       </div>
                       <div style={{ marginBottom:4 }}>
@@ -22415,7 +22418,7 @@ function SubmitPriceModal({ onClose, onOpenCompetition, lightMode=false }) {
                         <input value={referrer} onChange={e=>setReferrer(e.target.value)} placeholder="their name or alias" style={inputStyle} />
                       </div>
                       <div style={{ fontSize:10,color:muted,marginTop:6,lineHeight:1.6 }}>We need a way to reach you if you win. Details are never shared or sold, are used only to run the competition, and are deleted afterwards. We'll remember them on this phone for next time.</div>
-                      {needsContact && <div style={{ fontSize:11,color:"#fbbf24",marginTop:6 }}>Add your name and a mobile or email to enter, or untick the box to send without entering.</div>}
+                      {needsContact && <div style={{ fontSize:11,color:"#fbbf24",marginTop:6 }}>{form.name.trim() && form.mobile.trim() && !validMobile ? "Please check your mobile number: it should be 11 digits, like 07797 123456." : "Add your name and your mobile number to enter, or untick the box to send without entering."}</div>}
                     </div>
                   )}
                 </div>
@@ -22438,7 +22441,7 @@ function SubmitPriceModal({ onClose, onOpenCompetition, lightMode=false }) {
                   </div>
                   <div style={{ marginBottom:10 }}>
                     <div style={{ fontSize:10,color:label,fontWeight:700,letterSpacing:".5px",marginBottom:5 }}>MOBILE NUMBER</div>
-                    <input value={form.mobile} onChange={e=>setForm(p=>({...p,mobile:e.target.value}))} inputMode="tel" placeholder="e.g. 07797 123456" style={inputStyle} />
+                    <input value={form.mobile} onChange={e=>setForm(p=>({...p,mobile:e.target.value.replace(/[^\d+\s()-]/g,"")}))} inputMode="tel" placeholder="e.g. 07797 123456" style={inputStyle} />
                   </div>
                   <div style={{ marginBottom:4 }}>
                     <div style={{ fontSize:10,color:label,fontWeight:700,letterSpacing:".5px",marginBottom:5 }}>EMAIL</div>
