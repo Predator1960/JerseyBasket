@@ -19055,6 +19055,26 @@ export default function JerseyGroceryApp() {
   const [lightMode, setLightMode] = useState(()=>{ try{ return localStorage.getItem("jb_lightmode")==="true"; }catch{ return false; } });
   const toggleLight = () => setLightMode(m=>{ try{ localStorage.setItem("jb_lightmode",String(!m)); }catch{} return !m; });
 
+  // Easy view (big-text simple screen): ?easy in the link turns it on and it's remembered on this phone
+  const [easyMode, setEasyMode] = useState(()=>{
+    try {
+      if (new URLSearchParams(window.location.search).has("easy")) { localStorage.setItem("jb_easy","1"); return true; }
+      return localStorage.getItem("jb_easy")==="1";
+    } catch { return false; }
+  });
+  const setEasy = (on) => {
+    setEasyMode(on);
+    setShowWelcome(false);
+    try { localStorage.setItem("jb_easy", on ? "1" : "0"); } catch {}
+    if (!on) {
+      try {
+        const u = new URL(window.location.href);
+        if (u.searchParams.has("easy")) { u.searchParams.delete("easy"); window.history.replaceState(null, "", u.pathname + u.search + u.hash); }
+      } catch {}
+    }
+    try { window.scrollTo(0,0); } catch {}
+  };
+
   const [showPwaRefreshNotice, setShowPwaRefreshNotice] = useState(false);
   const dismissWelcome = () => {
     setShowWelcome(false);
@@ -19329,6 +19349,8 @@ export default function JerseyGroceryApp() {
     </div>
   );
 
+  if (easyMode) return <EasyView products={allProducts} basket={basket} setBasket={setBasket} onExit={()=>setEasy(false)} />;
+
   return (
     <div className={`jb-app-root${lightMode?" jb-light":""}`} style={{ height:"var(--app-height, 100vh)", display:"flex", flexDirection:"column", overflow:"hidden", background: lightMode ? "linear-gradient(160deg,#e8edf2 0%,#dde4eb 55%,#e2e8f0 100%)" : "linear-gradient(160deg,#050d1a 0%,#0b1c35 55%,#061220 100%)", fontFamily:"'Georgia',serif", color: lightMode ? "#0f172a" : "#f0f4f8" }}>
 
@@ -19444,6 +19466,10 @@ export default function JerseyGroceryApp() {
         {/* ══════════════════════════ SHOP ══════════════════════════ */}
         {view==="shop" && (
           <div>
+            {/* ── EASY VIEW: big-text simple screen ── */}
+            <button onClick={()=>setEasy(true)} style={{ WebkitAppearance:"none",appearance:"none",display:"flex",alignItems:"center",justifyContent:"center",gap:8,width:"100%",margin:"14px 0 0",padding:"11px 14px",background:"#ffffff",border:"2px solid #1d4ed8",borderRadius:12,color:"#1d4ed8",cursor:"pointer",fontSize:15,fontWeight:700,fontFamily:"Arial, Helvetica, sans-serif" }}>
+              <span style={{ fontSize:18 }}>👓</span> Easy view: bigger text, simpler screen
+            </button>
             {/* ── PRICE DISCLAIMER BANNER ── */}
             <div style={{ margin:"14px 0 10px",background: lightMode ? "rgba(180,120,0,.1)" : "rgba(245,158,11,.08)",border: lightMode ? "1px solid rgba(180,120,0,.35)" : "1px solid rgba(245,158,11,.28)",borderRadius:11,padding:"10px 14px",display:"flex",gap:10,alignItems:"flex-start" }}>
               <span style={{ fontSize:18,flexShrink:0,marginTop:1 }}>⚠️</span>
@@ -20359,7 +20385,7 @@ export default function JerseyGroceryApp() {
       )}
 
       {/* ── WELCOME SCREEN — first visit only ── */}
-      {showWelcome && <WelcomeModal onDismiss={dismissWelcome} lightMode={lightMode} />}
+      {showWelcome && <WelcomeModal onDismiss={dismissWelcome} onEasy={()=>setEasy(true)} lightMode={lightMode} />}
 
       {/* ── PWA REFRESH NOTICE — one-time, standalone-only ── */}
       {showPwaRefreshNotice && <PwaRefreshNotice onClose={dismissPwaRefreshNotice} lightMode={lightMode} />}
@@ -20603,6 +20629,229 @@ const AD_SLIDES = [
   },
 ];
 /* ═══════════════════════════════════════════════════════════════════════════
+   EASY VIEW — a separate, much simpler screen for older or less confident
+   users (big text, high contrast, one search box, plain-English answers).
+   Opened from the header "Easy view" button, the welcome screen, or the
+   link jerseybasket.je/?easy (remembered on that phone). Shares the same
+   shopping list as the normal view (basket keys are `${productId}-${storeId}`;
+   Easy view always adds at the cheapest shop).
+═══════════════════════════════════════════════════════════════════════════ */
+const EASY_C = { bg:"#ffffff", ink:"#111827", soft:"#374151", line:"#d1d5db", green:"#15803d", greenDark:"#14532d", greenBg:"#ecfdf5", blue:"#1d4ed8", red:"#b91c1c" };
+const easyBtn = (bg, color, extra={}) => ({ WebkitAppearance:"none", appearance:"none", background:bg, color, border:"none", borderRadius:14, padding:"14px 18px", fontSize:20, fontWeight:700, cursor:"pointer", minHeight:56, fontFamily:"inherit", ...extra });
+const easyStore = (id) => STORES.find(s=>s.id===id)?.short || id;
+const easyPrices = (p) => STORES.filter(s=>p.prices[s.id]>0).map(s=>({ id:s.id, price:p.prices[s.id] })).sort((a,b)=>a.price-b.price);
+
+function EasyView({ products, basket, setBasket, onExit }) {
+  const [tab, setTab]       = useState("find");     // find | list
+  const [query, setQuery]   = useState("");
+  const [shown, setShown]   = useState(12);
+  const [confirmClear, setConfirmClear] = useState(false);
+  useEffect(()=>{ setShown(12); }, [query]);
+  useEffect(()=>{ try { window.gtag && window.gtag("event","easy_view_open"); } catch {} }, []);
+
+  const byId = useMemo(()=>new Map(products.map(p=>[p.id,p])), [products]);
+
+  // Search: every word must appear; rank names that START with the first word,
+  // then everyday essentials, then shorter (simpler) names.
+  const results = useMemo(()=>{
+    const terms = normalizeSearch(query).split(" ").filter(Boolean);
+    if (!terms.length) return [];
+    const out = [];
+    for (const p of products) {
+      const n = normalizeSearch(p.name);
+      if (!terms.every(t=>n.includes(t))) continue;
+      if (!STORES.some(s=>p.prices[s.id]>0)) continue;
+      const words = " " + n + " ";
+      // the "head" word of a product name is usually its last real word ("Semi Skimmed MILK 2L"),
+      // so "milk" should rank real milk above "Milk Choc Digestives"
+      const head = normalizeSearch(p.name.replace(/\([^)]*\)/g," ")).split(" ").filter(w=>!/\d/.test(w)).pop() || "";
+      const last = terms[terms.length-1];
+      let score = 0;
+      if (head === last || head === last + "s" || head + "s" === last) score += 6;
+      if (n.startsWith(terms[0])) score += 1;
+      terms.forEach(t=>{ if (words.includes(" " + t + " ")) score += 3; else if (words.includes(" " + t)) score += 1; });
+      if (ESSENTIALS_IDS.has(p.id)) score += 8;
+      score -= n.length / 15;
+      out.push({ p, score });
+    }
+    return out.sort((a,b)=>b.score-a.score).map(x=>x.p);
+  }, [query, products]);
+
+  // Shopping list, grouped by product (the same product may sit at more than one shop key)
+  const listItems = useMemo(()=>{
+    const m = new Map();
+    Object.entries(basket).forEach(([key,qty])=>{
+      const [pId] = key.split("-");
+      const p = byId.get(parseInt(pId));
+      if (!p) return;
+      const e = m.get(p.id) || { p, qty:0, keys:[] };
+      e.qty += qty; e.keys.push(key);
+      m.set(p.id, e);
+    });
+    return [...m.values()].sort((a,b)=>a.p.name.localeCompare(b.p.name));
+  }, [basket, byId]);
+  const listCount = listItems.reduce((s,i)=>s+i.qty,0);
+  const qtyOf = (pid) => listItems.find(i=>i.p.id===pid)?.qty || 0;
+
+  const add = (p) => {
+    const best = easyPrices(p)[0];
+    if (!best) return;
+    const k = `${p.id}-${best.id}`;
+    setBasket(b=>({ ...b, [k]:(b[k]||0)+1 }));
+  };
+  const remove = (p) => setBasket(b=>{
+    const k = Object.keys(b).find(key=>key.split("-")[0]===String(p.id));
+    if (!k) return b;
+    const n = { ...b };
+    n[k] > 1 ? n[k]-- : delete n[k];
+    return n;
+  });
+
+  // Whole-list answers
+  const shopTotals = STORES.map(s=>{
+    let total = 0, has = 0;
+    listItems.forEach(i=>{ const pr = i.p.prices[s.id]; if (pr>0) { total += pr*i.qty; has++; } });
+    return { id:s.id, total, all: listItems.length>0 && has===listItems.length };
+  }).filter(t=>t.all).sort((a,b)=>a.total-b.total);
+  const eachCheapest = listItems.reduce((s,i)=>s+(easyPrices(i.p)[0]?.price||0)*i.qty, 0);
+  const eachShops = [...new Set(listItems.map(i=>easyPrices(i.p)[0]?.id).filter(Boolean))];
+
+  const Qty = ({ p }) => {
+    const q = qtyOf(p.id);
+    if (!q) return <button onClick={()=>add(p)} style={easyBtn(EASY_C.green,"#fff",{ width:"100%" })}>+ Add to my list</button>;
+    return (
+      <div style={{ display:"flex", alignItems:"center", gap:10 }}>
+        <button onClick={()=>remove(p)} aria-label="One less" style={easyBtn("#e5e7eb",EASY_C.ink,{ width:64, fontSize:28, padding:"8px 0" })}>−</button>
+        <div style={{ flex:1, textAlign:"center", fontSize:20, fontWeight:700, color:EASY_C.greenDark }}>✓ {q} on my list</div>
+        <button onClick={()=>add(p)} aria-label="One more" style={easyBtn(EASY_C.green,"#fff",{ width:64, fontSize:28, padding:"8px 0" })}>+</button>
+      </div>
+    );
+  };
+
+  const PriceCard = ({ p, inList }) => {
+    const ps = easyPrices(p);
+    const best = ps[0];
+    const tied = ps.filter(x=>Math.abs(x.price-best.price)<0.005).map(x=>easyStore(x.id));
+    const others = ps.filter(x=>Math.abs(x.price-best.price)>=0.005);
+    const tiedText = tied.length>1 ? tied.slice(0,-1).join(", ") + " and " + tied[tied.length-1] : tied[0];
+    return (
+      <div style={{ border:`2px solid ${EASY_C.line}`, borderRadius:16, padding:16, marginBottom:14, background:"#fff" }}>
+        <div style={{ fontSize:21, fontWeight:700, color:EASY_C.ink, lineHeight:1.3, marginBottom:8 }}>{p.name}</div>
+        <div style={{ fontSize:22, color:EASY_C.greenDark, background:EASY_C.greenBg, borderRadius:10, padding:"8px 12px", marginBottom:8 }}>
+          {ps.length===1 ? "Only at" : "Cheapest at"} <b>{tiedText}</b>: <b>£{best.price.toFixed(2)}</b>{inList && inList>1 ? <span style={{ fontSize:18 }}> each</span> : null}
+        </div>
+        {others.length>0 && (
+          <div style={{ fontSize:17, color:EASY_C.soft, marginBottom:12, lineHeight:1.5 }}>
+            Dearer at: {others.slice(0,3).map(x=>`${easyStore(x.id)} £${x.price.toFixed(2)}`).join(" · ")}
+          </div>
+        )}
+        <Qty p={p} />
+      </div>
+    );
+  };
+
+  return (
+    <div style={{ minHeight:"100vh", background:EASY_C.bg, color:EASY_C.ink, fontFamily:"Arial, Helvetica, sans-serif", fontSize:18 }}>
+      <div style={{ maxWidth:640, margin:"0 auto", padding:"16px 16px 40px" }}>
+        {/* Top bar */}
+        <div style={{ display:"flex", alignItems:"center", justifyContent:"space-between", gap:10, marginBottom:16 }}>
+          <div>
+            <div style={{ fontSize:24, fontWeight:700 }}>Jersey<span style={{ color:EASY_C.green }}>Basket</span></div>
+            <div style={{ fontSize:16, color:EASY_C.soft }}>Easy view</div>
+          </div>
+          <button onClick={onExit} style={easyBtn("#e5e7eb",EASY_C.ink,{ fontSize:17, padding:"10px 14px", minHeight:48 })}>Normal view</button>
+        </div>
+
+        {/* Two big tabs */}
+        <div style={{ display:"flex", gap:10, marginBottom:18 }}>
+          {[["find","🔍 Find a price"],["list",`📝 My list${listCount?` (${listCount})`:""}`]].map(([k,l])=>(
+            <button key={k} onClick={()=>setTab(k)} style={easyBtn(tab===k?EASY_C.blue:"#fff", tab===k?"#fff":EASY_C.blue, { flex:1, border:`2px solid ${EASY_C.blue}`, fontSize:19, padding:"12px 8px" })}>{l}</button>
+          ))}
+        </div>
+
+        {tab==="find" && (
+          <div>
+            <label htmlFor="easy-search" style={{ display:"block", fontSize:20, fontWeight:700, marginBottom:8 }}>What are you looking for?</label>
+            <div style={{ display:"flex", gap:8, marginBottom:18 }}>
+              <input id="easy-search" value={query} onChange={e=>setQuery(e.target.value)} placeholder="For example: milk" autoComplete="off" enterKeyHint="search"
+                style={{ flex:1, minWidth:0, fontSize:22, padding:"14px 14px", border:`3px solid ${EASY_C.ink}`, borderRadius:14, color:EASY_C.ink, background:"#fff", fontFamily:"inherit" }} />
+              {query && <button onClick={()=>setQuery("")} aria-label="Clear" style={easyBtn("#e5e7eb",EASY_C.ink,{ fontSize:18, padding:"10px 14px" })}>Clear</button>}
+            </div>
+            {!query && (
+              <div style={{ fontSize:19, color:EASY_C.soft, lineHeight:1.6 }}>
+                Type the name of something you buy, like <b>bread</b>, <b>eggs</b> or <b>tea bags</b>.
+                We'll show you which shop has it cheapest.
+                <div style={{ display:"flex", flexWrap:"wrap", gap:10, marginTop:16 }}>
+                  {["Milk","Bread","Eggs","Butter","Tea bags","Bananas"].map(w=>(
+                    <button key={w} onClick={()=>setQuery(w)} style={easyBtn("#fff",EASY_C.blue,{ border:`2px solid ${EASY_C.blue}`, fontSize:18, padding:"10px 16px", minHeight:48 })}>{w}</button>
+                  ))}
+                </div>
+              </div>
+            )}
+            {query && !results.length && (
+              <div style={{ fontSize:19, color:EASY_C.soft, lineHeight:1.6 }}>Sorry, we couldn't find "<b>{query}</b>". Try a shorter word, like <b>{normalizeSearch(query).split(" ")[0] || "milk"}</b>.</div>
+            )}
+            {query && results.length>0 && (
+              <>
+                <div style={{ fontSize:17, color:EASY_C.soft, marginBottom:12 }}>{results.length===1 ? "1 item found" : `${results.length} items found`}</div>
+                {results.slice(0,shown).map(p=><PriceCard key={p.id} p={p} />)}
+                {results.length>shown && (
+                  <button onClick={()=>setShown(s=>s+12)} style={easyBtn("#fff",EASY_C.blue,{ width:"100%", border:`2px solid ${EASY_C.blue}` })}>Show more</button>
+                )}
+              </>
+            )}
+          </div>
+        )}
+
+        {tab==="list" && (
+          <div>
+            {!listItems.length && (
+              <div style={{ fontSize:19, color:EASY_C.soft, lineHeight:1.6 }}>
+                Your list is empty.
+                <button onClick={()=>setTab("find")} style={easyBtn(EASY_C.green,"#fff",{ width:"100%", marginTop:16 })}>🔍 Find something to add</button>
+              </div>
+            )}
+            {listItems.length>0 && (
+              <>
+                <div style={{ border:`3px solid ${EASY_C.green}`, background:EASY_C.greenBg, borderRadius:16, padding:16, marginBottom:18, fontSize:20, lineHeight:1.5 }}>
+                  {shopTotals.length ? (
+                    <>Your whole list is cheapest at <b>{easyStore(shopTotals[0].id)}</b>: <b style={{ fontSize:26 }}>£{shopTotals[0].total.toFixed(2)}</b></>
+                  ) : (
+                    <>No single shop has everything on your list. Below, each item shows where it's cheapest.</>
+                  )}
+                  {eachShops.length>1 && (shopTotals.length===0 || eachCheapest < shopTotals[0].total - 0.005) && (
+                    <div style={{ fontSize:17, color:EASY_C.soft, marginTop:8 }}>
+                      Buying each item where it's cheapest costs £{eachCheapest.toFixed(2)}, but means visiting {eachShops.map(easyStore).join(", ")}.
+                    </div>
+                  )}
+                </div>
+                {listItems.map(i=><PriceCard key={i.p.id} p={i.p} inList={i.qty} />)}
+                {!confirmClear ? (
+                  <button onClick={()=>setConfirmClear(true)} style={easyBtn("#fff",EASY_C.red,{ width:"100%", border:`2px solid ${EASY_C.red}`, fontSize:18 })}>Clear my list</button>
+                ) : (
+                  <div style={{ border:`2px solid ${EASY_C.red}`, borderRadius:14, padding:14 }}>
+                    <div style={{ fontSize:19, marginBottom:12 }}>Remove everything from your list?</div>
+                    <div style={{ display:"flex", gap:10 }}>
+                      <button onClick={()=>{ setBasket({}); setConfirmClear(false); }} style={easyBtn(EASY_C.red,"#fff",{ flex:1 })}>Yes, clear it</button>
+                      <button onClick={()=>setConfirmClear(false)} style={easyBtn("#e5e7eb",EASY_C.ink,{ flex:1 })}>No, keep it</button>
+                    </div>
+                  </div>
+                )}
+              </>
+            )}
+          </div>
+        )}
+
+        <div style={{ fontSize:15, color:EASY_C.soft, marginTop:28, lineHeight:1.6, borderTop:`1px solid ${EASY_C.line}`, paddingTop:14 }}>
+          Prices are a guide from shoppers' receipts and store websites. Please check in store.
+          <br/>Questions? Email <a href="mailto:hello@jerseybasket.je" style={{ color:EASY_C.blue }}>hello@jerseybasket.je</a>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
    INSTALL STEPS — reusable install instructions component
 ═══════════════════════════════════════════════════════════════════════════ */
 function InstallSteps({ accent = "#22c55e", compact = false }) {
@@ -20732,7 +20981,7 @@ function InstallSteps({ accent = "#22c55e", compact = false }) {
 /* ═══════════════════════════════════════════════════════════════════════════
    WELCOME SCREEN — shown once to first-time visitors
 ═══════════════════════════════════════════════════════════════════════════ */
-function WelcomeModal({ onDismiss, lightMode=false }) {
+function WelcomeModal({ onDismiss, onEasy, lightMode=false }) {
   const [step, setStep] = useState(0);
   const [surveyAnswers, setSurveyAnswers] = useState({ q1: "", q2: "", q3: "", q4: "", q5: "" });
   const [surveySubmitted, setSurveySubmitted] = useState(false);
@@ -20980,6 +21229,13 @@ function WelcomeModal({ onDismiss, lightMode=false }) {
               {isLast ? "🛒 Start Saving Now →" : "Next →"}
             </button>
           </div>
+
+          {/* Easy view: big-text simple screen */}
+          {onEasy && (
+            <button onClick={onEasy} style={{ WebkitAppearance:"none",appearance:"none",width:"100%",padding:"12px",background:"#ffffff",border:"none",borderRadius:12,color:"#1d4ed8",cursor:"pointer",fontSize:15,fontWeight:700 }}>
+              Prefer bigger text and a simpler screen? Use Easy view
+            </button>
+          )}
 
           {/* jersey flag note */}
           <div style={{ textAlign:"center",fontSize:10,color:"rgba(255,255,255,0.7)" }}>
