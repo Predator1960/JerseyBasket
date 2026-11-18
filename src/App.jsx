@@ -20764,7 +20764,16 @@ function EasyView({ products, basket, setBasket, onExit }) {
             <div style={{ fontSize:24, fontWeight:700 }}>Jersey<span style={{ color:EASY_C.green }}>Basket</span></div>
             <div style={{ fontSize:16, color:EASY_C.soft }}>Easy view</div>
           </div>
-          <button onClick={onExit} style={easyBtn("#e5e7eb",EASY_C.ink,{ fontSize:17, padding:"10px 14px", minHeight:48 })}>Normal view</button>
+          <style>{`
+            .jb-normal-btn{position:relative;overflow:hidden}
+            .jb-normal-btn::after{content:"";position:absolute;top:0;bottom:0;left:-60%;width:45%;background:linear-gradient(100deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.55) 50%,rgba(255,255,255,0) 100%);transform:skewX(-20deg);animation:jbShimmer 2.8s ease-in-out infinite;pointer-events:none}
+            @keyframes jbShimmer{0%{left:-60%}55%,100%{left:130%}}
+            @media (prefers-reduced-motion: reduce){.jb-normal-btn::after{animation:none;display:none}}
+          `}</style>
+          <button onClick={onExit} className="jb-normal-btn" style={easyBtn("linear-gradient(180deg,#4ade80 0%,#15803d 100%)","#052e16",{ fontSize:17, padding:"10px 16px", minHeight:48, border:"1px solid rgba(74,222,128,.6)", boxShadow:"0 4px 12px rgba(34,197,94,.45), 0 2px 0 #14532d, inset 0 1px 0 rgba(255,255,255,.35)" })}>
+            <span style={{ position:"absolute",top:0,left:0,right:0,height:"52%",background:"linear-gradient(180deg,rgba(255,255,255,.32) 0%,rgba(255,255,255,.05) 100%)",borderRadius:"14px 14px 0 0",pointerEvents:"none" }}/>
+            <span style={{ position:"relative" }}>Normal view</span>
+          </button>
         </div>
 
         {/* Two big tabs */}
