@@ -20756,8 +20756,11 @@ function EasyView({ products, basket, setBasket, onExit }) {
   };
 
   return (
-    <div style={{ minHeight:"100vh", background:EASY_C.bg, color:EASY_C.ink, fontFamily:"Arial, Helvetica, sans-serif", fontSize:18 }}>
-      <div style={{ maxWidth:640, margin:"0 auto", padding:"16px 16px 40px" }}>
+    <div style={{ minHeight:"100vh", background:EASY_C.bg, color:EASY_C.ink, fontFamily:"Arial, Helvetica, sans-serif", fontSize:18, paddingTop:"env(safe-area-inset-top, 0px)", paddingBottom:"env(safe-area-inset-bottom, 0px)" }}>
+      {/* The app draws under the phone's status bar (black-translucent), whose clock/battery are white:
+          keep a dark strip behind them so they stay readable, and push content below it */}
+      <div style={{ position:"fixed", top:0, left:0, right:0, height:"env(safe-area-inset-top, 0px)", background:EASY_C.greenDark, zIndex:50 }} />
+      <div style={{ maxWidth:640, margin:"0 auto", padding:"20px 16px 40px" }}>
         {/* Top bar */}
         <div style={{ display:"flex", alignItems:"center", justifyContent:"space-between", gap:10, marginBottom:16 }}>
           <div>
