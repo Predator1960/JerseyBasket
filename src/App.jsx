@@ -22153,7 +22153,7 @@ function CompetitionModal({ onClose, onEnter, data=null, phase="live" }) {
               <div style={{ display:"flex",flexDirection:"column",gap:5 }}>
                 {entries.map((e,i)=>(
                   <div key={i} style={{ display:"flex",alignItems:"center",gap:10,padding:"8px 12px",borderRadius:9,background:i<2?"rgba(20,83,45,.18)":"rgba(255,255,255,.6)" }}>
-                    <div style={{ width:24,textAlign:"center",fontSize:i<3?16:13,fontWeight:900,color:GREEN }}>{["🥇","🥈","🥉"][i] || (i+1)}</div>
+                    <div style={{ width:24,textAlign:"center",fontSize:i<(COMP_DRAW?2:3)?16:13,fontWeight:900,color:GREEN }}>{(COMP_DRAW ? ["🥇","🥈"] : ["🥇","🥈","🥉"])[i] || (i+1)}</div>
                     <div style={{ flex:1,minWidth:0,fontSize:13.5,fontWeight:900,color:INK,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap" }}>{e.name}</div>
                     <div style={{ fontSize:13,fontWeight:900,color:GREEN }}>{e.points} pts</div>
                   </div>

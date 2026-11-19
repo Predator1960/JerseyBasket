@@ -41,7 +41,7 @@ if note is None:
     except OSError:
         pass
     # One general line (naming each entrant overflowed the width once several qualified)
-    note = "Co-op, Iceland and Alliance receipts count too, at 1 point per line"
+    note = "Prize draw: 3 tickets drawn at random from everyone outside the top two with a checked receipt"
 
 g.init()
 g.sparkles(seed=21, n=7, area=(560, 20, 1060, 215))
@@ -64,23 +64,25 @@ styles = [
     (((240, 244, 250), (150, 164, 186)), (28, 40, 66), (50, 62, 90)),  # 2nd
     (((246, 184, 122), (186, 98, 38)), (60, 28, 6), (95, 48, 12)),    # 3rd
 ]
+# Medals only for the top two: 3rd prize is a random draw (COMP.drawThird), not 3rd place
+MEDALS = 2
 green_style = (((46, 164, 124), (12, 76, 58)), (255, 255, 255), (255, 214, 80))
 row_h, gap, y0 = 70, 13, 326
 if not entries:
     d.text((W / 2, y0 + 40), "Be the first on the board!", font=font("segoeuib.ttf", 36), fill="white", anchor="mm")
 for i, e in enumerate(entries):
     top = y0 + i * (row_h + gap)
-    (c1, c2), ink, pts_ink = styles[i] if i < 3 else green_style
+    (c1, c2), ink, pts_ink = styles[i] if i < MEDALS else green_style
     g.card3d((70, top, 1010, top + row_h), c1, c2, r=35, lift=1.3 if i == 0 else 0.8,
              glow=(255, 200, 40) if i == 0 else None)
     cy = top + row_h / 2
-    if i < 3:
+    if i < MEDALS:
         d.text((126, cy + 3), medals[i], font=emoji(38), embedded_color=True, anchor="mm")
     else:
         d.text((126, cy), str(i + 1), font=font("segoeuib.ttf", 30), fill=ink, anchor="mm")
     d.text((180, cy - 1), e.get("name", ""), font=font("segoeuib.ttf", 34), fill=ink, anchor="lm")
-    d.text((920, cy - 2), f"{e.get('points', 0)}", font=font("georgiab.ttf", 40), fill=pts_ink if i > 2 else ink, anchor="rm")
-    d.text((972, cy + 3), "pts", font=font("segoeui.ttf", 24), fill=ink if i < 3 else (225, 240, 232), anchor="rm")
+    d.text((920, cy - 2), f"{e.get('points', 0)}", font=font("georgiab.ttf", 40), fill=pts_ink if i >= MEDALS else ink, anchor="rm")
+    d.text((972, cy + 3), "pts", font=font("segoeui.ttf", 24), fill=ink if i < MEDALS else (225, 240, 232), anchor="rm")
 
 # Store progress: glossy bars
 y = y0 + max(len(entries), 1) * (row_h + gap) + 22
@@ -105,7 +107,7 @@ y += 14
 g.card3d((70, y, 1010, y + 96), (60, 160, 120), (16, 84, 62), r=30, lift=0.9)
 d.text((125, y + 50), "\U0001F3C6", font=emoji(50), embedded_color=True, anchor="mm")
 d.text((175, y + 30), "PRIZES: CHANNEL ISLANDS CHARITY CHRISTMAS DRAW TICKETS", font=font("segoeuib.ttf", 20), fill=(255, 214, 80), anchor="lm")
-d.text((175, y + 67), "1st: 7 tickets  \u00b7  2nd: 5  \u00b7  3rd: 3", font=font("segoeuib.ttf", 30), fill="white", anchor="lm")
+d.text((175, y + 67), "1st: 7 tickets  \u00b7  2nd: 5  \u00b7  Prize draw: 3", font=font("segoeuib.ttf", 30), fill="white", anchor="lm")
 y += 126
 
 # Footer
