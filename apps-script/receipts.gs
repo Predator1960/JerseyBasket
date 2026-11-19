@@ -13,6 +13,8 @@
 // 18 Nov 2026: mobile check. Column K "Mobile check" flags an email / bad number / missing mobile on
 //   entries (old app versions can still send them), the mobile cell turns orange and the email subject
 //   starts with a warning sign. Receipts are never rejected. Run addMobileCheckHeader() once after deploying.
+// 19 Nov 2026: a script lock around the sheet write, so photos sent together can't overwrite each
+//   other's row (Mary's IMG_3109 was lost that way), and mobiles are written as text so the 0 stays.
 // The real FOLDER_ID, SHEET_ID, secret and email are in receipts-original-PRIVATE.gs (not in git).
 // To deploy: paste this over the script, put the four real values back at the top,
 //   then Deploy > Manage deployments > Edit > Version: New version > Deploy.
@@ -48,11 +50,16 @@ function doPost(e) {
     const mobileFlag = mobileProblem(data.mobile, !!data.competition);
 
     if (SHEET_ID) {
+      // 19 Nov 2026: the app sends every photo of a receipt at the same moment; without a lock two
+      // appendRow calls can land on the same row and one is overwritten (its email still goes out).
+      const lock = LockService.getScriptLock();
+      lock.waitLock(30000);
+      try {
       const sheet = SpreadsheetApp.openById(SHEET_ID).getActiveSheet();
       sheet.appendRow([
         new Date(),
         data.name || '',
-        data.mobile || '',
+        data.mobile ? "'" + data.mobile : '',   // leading apostrophe keeps the 0 (Sheets turns 0779... into a number)
         data.email || '',
         fileUrl || 'No photo attached',
         data.store || '',
@@ -63,6 +70,10 @@ function doPost(e) {
         mobileFlag,
       ]);
       if (mobileFlag) sheet.getRange(sheet.getLastRow(), 3).setBackground('#fed7aa');
+      SpreadsheetApp.flush();
+      } finally {
+        lock.releaseLock();
+      }
     }
 
     // Notify by email the moment a new receipt comes in
