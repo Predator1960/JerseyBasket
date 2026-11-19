@@ -1,5 +1,14 @@
 # Receipt receiver (Google Apps Script)
 
+> **WHICH SCRIPT IS LIVE (19 Nov 2026):** since 10 Nov the app posts to **"JerseyBasket Receipts"** in the
+> **jerseybasket.receipts** Google account (deployment ID `AKfycbxc5KqEc5...`, matches `RECEIPT_WEBAPP_URL`).
+> "JerseyBasketReceiptReceiver" in the personal account (`AKfycbwf8Jwd...`) is the OLD one and receives nothing.
+> To update the live one: sign in to script.google.com as jerseybasket.receipts, open JerseyBasket Receipts,
+> replace everything from `function doPost(e) {` to the end with the same part of `receipts.gs` (keeps its own
+> folder / sheet / secret / email settings), save, then Deploy > Manage deployments > Edit > New version.
+> The `-PRIVATE.gs` files hold the OLD script's values. Extensions > Apps Script on the sheet makes a NEW empty
+> project, not this one. Version 3 (19 Nov 15:55): mobile check (column K), script lock, mobile kept as text.
+
 The app (`RECEIPT_WEBAPP_URL` in `src/App.jsx`) posts each receipt photo to a Google Apps Script web app. The script saves the photo to a Drive folder, adds a row to a Google Sheet, and emails a notification.
 
 | File | What it is | In git? |
