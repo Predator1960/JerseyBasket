@@ -16676,7 +16676,7 @@ const BASE_PRODUCTS = [
   {id:16461, name:"CK Chicken Biryani (1) 275g", cat:"🥗 Deli & Salads", icon:"🍽️", prices:{coop:6.8,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Nov"},
   {id:16462, name:"CK Chicken Pad Thai (1) 350g", cat:"🥗 Deli & Salads", icon:"🍽️", prices:{coop:6.8,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Nov"},
   {id:16463, name:"Vanilla Wafers 250g", cat:"🥨 Snacks & Treats", icon:"🥨", prices:{coop:2.99,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Nov"},
-  {id:16464, name:"Co-op 4 Mini Pork Pies 200g", cat:"🥗 Deli & Salads", icon:"🥗", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"21 Nov"}, // special offer £2.10 until 17/11/26 | Co-op branch: Millennium Park (Laura receipt 21 Nov 10:13): Cp 4 Min Crsp Prkps. 2.65 (as printed; taken as the 4 mini pork pies, price matches)
+  {id:16464, name:"Co-op 4 Mini Pork Pies 200g", cat:"🥗 Deli & Salads", icon:"🥗", prices:{coop:2.65,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"21 Nov"}, // special offer £2.10 until 17/11/26 | Co-op branch: Millennium Park (Laura receipt 21 Nov 10:13): Cp 4 Min Crsp Prkps. 2.65 (4 mini pork pies, confirmed)
   {id:16465, name:"Chocolate Wafers 250g", cat:"🥨 Snacks & Treats", icon:"🥨", prices:{coop:2.99,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Nov"},
   {id:16466, name:"CK Sweet & Sour Veg Cashews (1 300g", cat:"🥗 Deli & Salads", icon:"🍽️", prices:{coop:6.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Nov"},
   {id:16467, name:"Wagon Wheels Jammie 6pk", cat:"🥨 Snacks & Treats", icon:"🥨", prices:{coop:1.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Nov"}, // special offer £1.42 until 01/12/26
