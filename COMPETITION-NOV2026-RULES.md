@@ -24,7 +24,7 @@ This is the same wording as the in-app "Read the full rules" screen (`COMP_RULES
 ## 4. How to enter
 
 - Open the JerseyBasket app, tap "Send a receipt", take a photo of your receipt (or of a shelf price label), choose the store and the date, and leave the box "Enter me in the November Price Hunt" ticked.
-- You must give a name or alias and a mobile number or email address so we can contact you if you win.
+- You must give a name or alias and a mobile number so we can contact you if you win. An email address is optional. (From 19 November 2026 a mobile number is needed. Entries made before then with only an email address still count.)
 - The photo must clearly show the store name, the date and the prices. You may cover or fold over your card number or any loyalty-card number before photographing; we do not need them.
 - Each receipt can only be entered once, and it must be a genuine receipt from a Jersey shop. Photos of shelf price labels are welcome if they show the store, the date and the price clearly.
 - You may send as many different receipts as you like.
@@ -53,10 +53,16 @@ This is the same wording as the in-app "Read the full rules" screen (`COMP_RULES
 
 ## 8. Your data
 
-- We collect your name or alias, mobile number and/or email address, and the receipt photos you send. We use your contact details only to run the competition and contact winners, and we do not share or sell them.
-- Receipt photos are also used to check and update prices in the JerseyBasket catalogue, and are kept only as long as we need them for that.
-- Contact details are deleted within 30 days after the prizes have been handed over.
-- We handle your data in line with the Data Protection (Jersey) Law 2018. You can ask us to see, correct or delete your data, or withdraw from the competition, by emailing hello@jerseybasket.je.
+- **Who is responsible.** JerseyBasket.je (Eamonn O'Shea, sole trader; contact details in section 1) decides how your data is used. We are registered with the Jersey Office of the Information Commissioner, registration number 104262.
+- **What we collect.** Your name or alias, your mobile number, your email address if you give one, the receipt or shelf-label photos you send, the store and date you choose, and the name or alias of anyone you put in the "who told you" box.
+- **What your receipt photos can show.** As well as prices, a receipt can show the store, date, time, what you bought and part of your payment card or loyalty-card number. Please cover card and loyalty numbers before taking the photo; we don't need them and we never use them.
+- **Why we use it.** To run the competition you have entered: checking receipts, scoring, the leaderboard, the prize draw, and contacting and announcing winners. To check and update prices in the JerseyBasket catalogue: we have a legitimate interest in keeping prices accurate for everyone who uses the app. The "who told you" name is used only to give the bonus points.
+- **What is made public.** The leaderboard and any social media posts show names or aliases and points only. Winners are announced by name or alias only, and only if they agree. We never publish phone numbers, email addresses or receipt photos.
+- **Where it is kept.** Entries go to a Google account used only for JerseyBasket receipts (Google Drive and Google Sheets), and a notification is sent to our email. Our email runs through Cloudflare and Google (Gmail). We also keep working copies on our own computer, with backups on Microsoft OneDrive and an external disk. Google, Cloudflare and Microsoft may store or handle data outside Jersey, including in the EU and the USA; we rely on their standard data protection terms for this. We do not share or sell your details to anyone else.
+- **On your own phone.** After you enter, the app remembers your name, mobile and email on your phone so you don't have to type them again. This stays on your phone and is not sent to us. To remove it, tap "Forget my details" under the contact boxes in the receipt form.
+- **How long we keep it.** Contact details (mobile, email, and the "who told you" name) are deleted within 30 days after the prizes have been handed over, and by 31 January 2027 at the latest, from every place listed above, including backups. Receipt photos are kept until we have taken the prices from them, and deleted by 31 March 2027 at the latest. Prices we take from receipts are not personal data and stay in the catalogue. Your alias and points may stay in the published final results.
+- **Your rights.** You can ask to see the data we hold about you, have it corrected or deleted, object to how we use it, or withdraw from the competition. Email hello@jerseybasket.je and we will reply within four weeks. If you're unhappy with how we handle your data, you can complain to the Jersey Office of the Information Commissioner (jerseyoic.org, +44 (0)1534 716530).
+- **Changes.** We updated this section on 21 November 2026 to give more detail. The way we use your data has not changed.
 
 ## 9. General
 

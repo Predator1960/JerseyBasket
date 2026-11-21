@@ -21975,7 +21975,7 @@ function CompSoonModal({ onClose, onPractise }) {
 // It goes live only once JerseyBasket is registered with JOIC: put the registration number in joicReg
 // and the go-live date in updated (e.g. "24 November 2026"), then copy the same wording into
 // COMPETITION-NOV2026-RULES.md (sections 4 and 8) in the same commit.
-const DATA_NOTICE = { joicReg: "", updated: "" };
+const DATA_NOTICE = { joicReg: "104262", updated: "21 November 2026" };
 const DATA_NOTICE_LIVE = !!DATA_NOTICE.joicReg;
 const DATA_SECTION_NEW = [
   `Who is responsible. JerseyBasket.je (Eamonn O'Shea, sole trader; contact details in section 1) decides how your data is used. We are registered with the Jersey Office of the Information Commissioner, registration number ${DATA_NOTICE.joicReg}.`,
