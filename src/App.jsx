@@ -21971,6 +21971,24 @@ function CompSoonModal({ onClose, onPractise }) {
 /* ═════════════════════════════════════════════════════════════════════
    COMPETITION FULL RULES (also kept in COMPETITION-NOV2026-RULES.md): edit both together
 ══════════════════════════════════════════════════════════════════════ */
+// Redrafted "Your data" wording (C:\Compliance\Nov-rules-Your-data-redraft.md, 21 Nov 2026).
+// It goes live only once JerseyBasket is registered with JOIC: put the registration number in joicReg
+// and the go-live date in updated (e.g. "24 November 2026"), then copy the same wording into
+// COMPETITION-NOV2026-RULES.md (sections 4 and 8) in the same commit.
+const DATA_NOTICE = { joicReg: "", updated: "" };
+const DATA_NOTICE_LIVE = !!DATA_NOTICE.joicReg;
+const DATA_SECTION_NEW = [
+  `Who is responsible. JerseyBasket.je (Eamonn O'Shea, sole trader; contact details in section 1) decides how your data is used. We are registered with the Jersey Office of the Information Commissioner, registration number ${DATA_NOTICE.joicReg}.`,
+  "What we collect. Your name or alias, your mobile number, your email address if you give one, the receipt or shelf-label photos you send, the store and date you choose, and the name or alias of anyone you put in the \"who told you\" box.",
+  "What your receipt photos can show. As well as prices, a receipt can show the store, date, time, what you bought and part of your payment card or loyalty-card number. Please cover card and loyalty numbers before taking the photo; we don't need them and we never use them.",
+  "Why we use it. To run the competition you have entered: checking receipts, scoring, the leaderboard, the prize draw, and contacting and announcing winners. To check and update prices in the JerseyBasket catalogue: we have a legitimate interest in keeping prices accurate for everyone who uses the app. The \"who told you\" name is used only to give the bonus points.",
+  "What is made public. The leaderboard and any social media posts show names or aliases and points only. Winners are announced by name or alias only, and only if they agree. We never publish phone numbers, email addresses or receipt photos.",
+  "Where it is kept. Entries go to a Google account used only for JerseyBasket receipts (Google Drive and Google Sheets), and a notification is sent to our email. Our email runs through Cloudflare and Google (Gmail). We also keep working copies on our own computer, with backups on Microsoft OneDrive and an external disk. Google, Cloudflare and Microsoft may store or handle data outside Jersey, including in the EU and the USA; we rely on their standard data protection terms for this. We do not share or sell your details to anyone else.",
+  "On your own phone. After you enter, the app remembers your name, mobile and email on your phone so you don't have to type them again. This stays on your phone and is not sent to us. To remove it, tap \"Forget my details\" under the contact boxes in the receipt form.",
+  "How long we keep it. Contact details (mobile, email, and the \"who told you\" name) are deleted within 30 days after the prizes have been handed over, and by 31 January 2027 at the latest, from every place listed above, including backups. Receipt photos are kept until we have taken the prices from them, and deleted by 31 March 2027 at the latest. Prices we take from receipts are not personal data and stay in the catalogue. Your alias and points may stay in the published final results.",
+  "Your rights. You can ask to see the data we hold about you, have it corrected or deleted, object to how we use it, or withdraw from the competition. Email hello@jerseybasket.je and we will reply within four weeks. If you're unhappy with how we handle your data, you can complain to the Jersey Office of the Information Commissioner (jerseyoic.org, +44 (0)1534 716530).",
+  `Changes. We updated this section on ${DATA_NOTICE.updated} to give more detail. The way we use your data has not changed.`,
+];
 const COMP_RULES = [
   ["1. Who is running it", [
     "The November Price Hunt (\"the competition\") is run by JerseyBasket.je (\"we\", \"us\"), a sole-trader business operated by Eamonn O'Shea, The Mews, Hauteville, La Rue Coutanche, Trinity, Jersey JE3 5DW.",
@@ -21988,7 +22006,9 @@ const COMP_RULES = [
   ]],
   ["4. How to enter", [
     "Open the JerseyBasket app, tap \"Send a receipt\", take a photo of your receipt (or of a shelf price label), choose the store and the date, and leave the box \"Enter me in the November Price Hunt\" ticked.",
-    "You must give a name or alias and a mobile number or email address so we can contact you if you win.",
+    DATA_NOTICE_LIVE
+      ? "You must give a name or alias and a mobile number so we can contact you if you win. An email address is optional. (From 19 November 2026 a mobile number is needed. Entries made before then with only an email address still count.)"
+      : "You must give a name or alias and a mobile number or email address so we can contact you if you win.",
     "The photo must clearly show the store name, clear readable items with their prices, and the date. You may cover or fold over your card number or any loyalty-card number before photographing; we do not need them.",
     "Each receipt can only be entered once, and it must be a genuine receipt from a Jersey shop. Photos of shelf price labels are welcome if they show the store, the date and the price clearly.",
     "Only grocery and everyday household items count. Receipts for gifts, decorations, wrapping paper, clothing or other non-grocery goods cannot be scored.",
@@ -22024,7 +22044,7 @@ const COMP_RULES = [
       ? "Tickets will be handed over in person or by recorded delivery. We record the ticket numbers beforehand and ask winners to confirm receipt."
       : "Vouchers will be handed over in person, by recorded delivery or by email, and we ask winners to confirm receipt.",
   ].filter(Boolean)],
-  ["8. Your data", [
+  ["8. Your data", DATA_NOTICE_LIVE ? DATA_SECTION_NEW : [
     "We collect your name or alias, mobile number and/or email address, and the receipt photos you send. We use your contact details only to run the competition and contact winners, and we do not share or sell them.",
     "Receipt photos are also used to check and update prices in the JerseyBasket catalogue, and are kept only as long as we need them for that.",
     "Contact details are deleted within 30 days after the prizes have been handed over.",
@@ -22229,12 +22249,19 @@ function SubmitPriceModal({ onClose, onOpenCompetition, lightMode=false }) {
   const [referrer, setReferrer] = useState("");
   const entered = compLive && enter;
   // remember an entrant's details on this phone so repeat entries take seconds
+  const [savedDetails, setSavedDetails] = useState(false);
   useEffect(() => {
     try {
       const s = JSON.parse(localStorage.getItem("jb_entrant") || "null");
-      if (s) setForm(p => ({ name: s.name || p.name, mobile: s.mobile || p.mobile, email: s.email || p.email }));
+      if (s) { setForm(p => ({ name: s.name || p.name, mobile: s.mobile || p.mobile, email: s.email || p.email })); setSavedDetails(true); }
     } catch {}
   }, []);
+  // "Forget my details": wipes the remembered entrant details from this phone (promised in the rules, section 8)
+  const forgetDetails = () => {
+    try { localStorage.removeItem("jb_entrant"); } catch {}
+    setForm(p => ({ ...p, name: "", mobile: "", email: "" }));
+    setSavedDetails(false);
+  };
   const shareHunt = () => {
     const alias = form.name.trim();
     const text = `I'm in the JerseyBasket November Price Hunt: send a receipt, win ${PRIZE.name}. ${alias ? `Put "${alias}" in "who told you" when you enter. ` : ""}https://jerseybasket.je`;
@@ -22323,7 +22350,7 @@ function SubmitPriceModal({ onClose, onOpenCompetition, lightMode=false }) {
       }));
       ok = results.filter(Boolean).length;
     } catch {}
-    if (ok && entered) { try { localStorage.setItem("jb_entrant", JSON.stringify({ name: form.name, mobile: form.mobile, email: form.email })); } catch {} }
+    if (ok && entered) { try { localStorage.setItem("jb_entrant", JSON.stringify({ name: form.name, mobile: form.mobile, email: form.email })); setSavedDetails(true); } catch {} }
     setSentCount(ok);
     setStatus(ok === photos.length ? "sent" : "error");
   };
@@ -22462,7 +22489,7 @@ function SubmitPriceModal({ onClose, onOpenCompetition, lightMode=false }) {
                         <div style={{ fontSize:10,color:label,fontWeight:700,letterSpacing:".5px",marginBottom:5 }}>WHO TOLD YOU ABOUT IT? <span style={{ color:muted,fontWeight:400 }}>(optional: their alias gets +5 points)</span></div>
                         <input value={referrer} onChange={e=>setReferrer(e.target.value)} placeholder="their name or alias" style={inputStyle} />
                       </div>
-                      <div style={{ fontSize:10,color:muted,marginTop:6,lineHeight:1.6 }}>We need a way to reach you if you win. Details are never shared or sold, are used only to run the competition, and are deleted afterwards. We'll remember them on this phone for next time.</div>
+                      <div style={{ fontSize:10,color:muted,marginTop:6,lineHeight:1.6 }}>We need a way to reach you if you win. Details are never shared or sold, are used only to run the competition, and are deleted afterwards. We'll remember them on this phone for next time.{savedDetails && <> <button type="button" onClick={forgetDetails} style={{ background:"none",border:"none",padding:0,color:lightMode?"#1d4ed8":"#93c5fd",textDecoration:"underline",fontSize:10,cursor:"pointer",fontFamily:"inherit" }}>Forget my details</button></>}</div>
                       {needsContact && <div style={{ fontSize:11,color:"#fbbf24",marginTop:6 }}>{form.name.trim() && form.mobile.trim() && !validMobile ? "Please check your mobile number: it should be 11 digits, like 07797 123456." : "Add your name and your mobile number to enter, or untick the box to send without entering."}</div>}
                     </div>
                   )}
