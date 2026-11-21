@@ -8855,7 +8855,7 @@ const BASE_PRODUCTS = [
   {id:8268, name:"Walkers French Fries Flavour Crispy Potato Snacks 6 x 18g", cat:"🥨 Snacks & Treats", icon:"🥔", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:2.8,alliance:3}, upd:"11 Nov", upds:{iceland:"11 Nov",alliance:"11 Nov"}},
   {id:8269, name:"Walkers Quavers Cheese Multipack Snacks Crisps 12x16g", cat:"🥨 Snacks & Treats", icon:"🥔", prices:{coop:2.99,morrisons:0,ms:0,waitrose:0,iceland:4.25,alliance:4.5}, upd:"11 Nov", upds:{coop:"10 Oct",iceland:"11 Nov",alliance:"11 Nov"}},
   {id:8270, name:"Walkers Squares Salt & Vinegar Multipack Snacks Crisps 6x22g", cat:"🥨 Snacks & Treats", icon:"🥔", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:3.1,alliance:3.25}, upd:"11 Nov", upds:{iceland:"11 Nov",alliance:"11 Nov"}},
-  {id:8271, name:"Big Night In Sweet Popcorn 250g", cat:"🥨 Snacks & Treats", icon:"🍿", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:3.7,alliance:0}, upd:"11 Nov"},
+  {id:8271, name:"Big Night In Sweet Popcorn 250g", cat:"🥨 Snacks & Treats", icon:"🍿", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:3.7,alliance:3.5}, upd:"21 Nov", upds:{iceland:"11 Nov",alliance:"21 Nov"}}, // Alliance branch: St Ouen (Katrina receipt 21 Nov 08:58): BIG NIGHT IN SWEET P 3.50 (bought twice)
   /* ── ICELAND SNAPPY SHOPPER IMPORT #4 (chilled: meat, meals, yoghurts, deli) + out-of-stock items — 19 Sep 2026 ── */
   {id:8272, name:"Iceland Apple & Toffee Dip 100g", cat:"🥗 Deli & Salads", icon:"🥗", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:2.3,alliance:0}, upd:"11 Nov", oos:["iceland"]},
   {id:8273, name:"Iceland Thick Cut Unsmoked Bac 500g", cat:"🥩 Meat & Fish", icon:"🌭", prices:{coop:0,morrisons:0,ms:0,waitrose:0,iceland:5.2,alliance:0}, upd:"11 Nov"},
