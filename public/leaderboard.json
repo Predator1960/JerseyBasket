@@ -1,26 +1,26 @@
 {
   "competition": "nov2026",
-  "updated": "20 Nov",
+  "updated": "21 Nov",
   "entries": [
     {
       "name": "Jason L",
-      "points": 473
+      "points": 531
     },
     {
       "name": "Katrina B",
-      "points": 455
+      "points": 499
+    },
+    {
+      "name": "Lucy D",
+      "points": 299
     },
     {
       "name": "Mary C",
-      "points": 255
+      "points": 275
     },
     {
       "name": "Sandra B",
       "points": 249
-    },
-    {
-      "name": "Lucy D",
-      "points": 189
     },
     {
       "name": "Claire E",
@@ -37,12 +37,12 @@
       "prices": 129
     },
     "waitrose": {
-      "goal": 700,
-      "prices": 649
+      "goal": 800,
+      "prices": 749
     },
     "ms": {
-      "goal": 100,
-      "prices": 97
+      "goal": 200,
+      "prices": 110
     }
   },
   "winners": {
