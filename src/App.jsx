@@ -22019,7 +22019,7 @@ function CompSoonModal({ onClose, onPractise }) {
 // It goes live only once JerseyBasket is registered with JOIC: put the registration number in joicReg
 // and the go-live date in updated (e.g. "24 November 2026"), then copy the same wording into
 // COMPETITION-NOV2026-RULES.md (sections 4 and 8) in the same commit.
-const DATA_NOTICE = { joicReg: "104262", updated: "21 November 2026" };
+const DATA_NOTICE = { joicReg: "104262", updated: "22 November 2026" };
 const DATA_NOTICE_LIVE = !!DATA_NOTICE.joicReg;
 const DATA_SECTION_NEW = [
   `Who is responsible. JerseyBasket.je (Eamonn O'Shea, sole trader; contact details in section 1) decides how your data is used. We are registered with the Jersey Office of the Information Commissioner, registration number ${DATA_NOTICE.joicReg}.`,
@@ -22029,7 +22029,7 @@ const DATA_SECTION_NEW = [
   "What is made public. The leaderboard and any social media posts show names or aliases and points only. Winners are announced by name or alias only, and only if they agree. We never publish phone numbers, email addresses or receipt photos.",
   "Where it is kept. Entries go to a Google account used only for JerseyBasket receipts (Google Drive and Google Sheets), and a notification is sent to our email. Our email runs through Cloudflare and Google (Gmail). We also keep working copies on our own computer, with backups on Microsoft OneDrive and an external disk. Google, Cloudflare and Microsoft may store or handle data outside Jersey, including in the EU and the USA; we rely on their standard data protection terms for this. We do not share or sell your details to anyone else.",
   "On your own phone. After you enter, the app remembers your name, mobile and email on your phone so you don't have to type them again. This stays on your phone and is not sent to us. To remove it, tap \"Forget my details\" under the contact boxes in the receipt form.",
-  "How long we keep it. Contact details (mobile, email, and the \"who told you\" name) are deleted within 30 days after the prizes have been handed over, and by 31 January 2027 at the latest, from every place listed above, including backups. Receipt photos are kept until we have taken the prices from them, and deleted by 31 March 2027 at the latest. Prices we take from receipts are not personal data and stay in the catalogue. Your alias and points may stay in the published final results.",
+  "How long we keep it. Contact details (mobile, email, and the \"who told you\" name) are deleted within 30 days after the prizes have been handed over, and by 31 January 2027 at the latest, from every place listed above, including backups. Receipt photos are kept until we have taken the prices from them, and deleted by 28 February 2027 at the latest. Prices we take from receipts are not personal data and stay in the catalogue. Your alias and points may stay in the published final results.",
   "Your rights. You can ask to see the data we hold about you, have it corrected or deleted, object to how we use it, or withdraw from the competition. Email hello@jerseybasket.je and we will reply within four weeks. If you're unhappy with how we handle your data, you can complain to the Jersey Office of the Information Commissioner (jerseyoic.org, +44 (0)1534 716530).",
   `Changes. We updated this section on ${DATA_NOTICE.updated} to give more detail. The way we use your data has not changed.`,
 ];
