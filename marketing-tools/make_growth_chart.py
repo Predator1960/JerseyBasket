@@ -22,6 +22,7 @@ pts = [
     (D(2026, 10, 2), 2441), (D(2026, 10, 4), 2447), (D(2026, 10, 5), 2460), (D(2026, 10, 8), 2474), (D(2026, 10, 9), 2479),
     (D(2026, 10, 10), 2498), (D(2026, 10, 11), 2510), (D(2026, 10, 12), 2536), (D(2026, 10, 13), 2545), (D(2026, 10, 14), 2549),
     (D(2026, 10, 16), 2556), (D(2026, 10, 18), 2572), (D(2026, 10, 19), 2638), (D(2026, 10, 20), 2667), (D(2026, 10, 22), 2690), (D(2026, 10, 23), 2704), (D(2026, 10, 24), 2722), (D(2026, 10, 25), 2728), (D(2026, 10, 26), 2746), (D(2026, 10, 27), 2753), (D(2026, 10, 28), 2759), (D(2026, 10, 29), 2766), (D(2026, 10, 30), 2769), (D(2026, 11, 1), 2782), (D(2026, 11, 3), 2808), (D(2026, 11, 4), 2831), (D(2026, 11, 5), 2843), (D(2026, 11, 6), 2855), (D(2026, 11, 7), 2861), (D(2026, 11, 8), 2874), (D(2026, 11, 10), 2897), (D(2026, 11, 11), 2920), (D(2026, 11, 12), 2939), (D(2026, 11, 13), 2971), (D(2026, 11, 14), 3001), (D(2026, 11, 15), 3010), (D(2026, 11, 16), 3031),
+    (D(2026, 11, 17), 3048), (D(2026, 11, 18), 3077), (D(2026, 11, 19), 3095), (D(2026, 11, 20), 3120), (D(2026, 11, 21), 3140), (D(2026, 11, 22), 3159), (D(2026, 11, 23), 3176),
 ]
 launch = pts[0][0]
 today = pts[-1][0]
@@ -52,10 +53,10 @@ ax.scatter([p[0] for p in pts if p[0] in marks], [p[1] for p in pts if p[0] in m
 ax.axhline(2500, color=GOLD, linewidth=1.0, linestyle=(0, (4, 3)))
 ax.text(launch + dt.timedelta(days=1), 2520, "2,500 milestone passed", fontsize=7.5, color=GOLD, va="bottom")
 ax.axhline(3000, color="#2e9d5b", linewidth=1.0, linestyle=(0, (4, 3)))
-ax.text(launch + dt.timedelta(days=1), 3020, "3,000 target", fontsize=7.5, color="#2e9d5b", va="bottom")
-ax.set_ylim(0, 3200)
+ax.text(launch + dt.timedelta(days=1), 3020, "3,000 passed", fontsize=7.5, color="#2e9d5b", va="bottom")
+ax.set_ylim(0, 3400)
 ax.set_xlim(launch - dt.timedelta(days=2), today + dt.timedelta(days=4))
-ax.set_yticks(range(0, 3201, 400))
+ax.set_yticks(range(0, 3401, 400))
 ax.yaxis.set_major_formatter(matplotlib.ticker.FuncFormatter(lambda v, _: f"{int(v):,}"))
 ax.xaxis.set_major_locator(mdates.MonthLocator())
 ax.xaxis.set_major_formatter(mdates.DateFormatter("%b"))
