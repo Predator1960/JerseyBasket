@@ -1,0 +1,21 @@
+// Lucy D (app 23 Nov 19:31): M&S St Helier King Street 20 Nov 12:3x (2 x same line, counted once)
+const fs = require('fs');
+const f = require('path').resolve(__dirname, '..') + '/src/App.jsx';
+const text = fs.readFileSync(f, 'utf8');
+const spDef = text.match(/const sp = \(base,\[c,m,ms2,w,i,a=0\]\) => \(\{[\s\S]*?\}\);/)[0];
+const lines = text.split('\n');
+const S = ['coop', 'morrisons', 'ms', 'waitrose', 'iceland', 'alliance'];
+const MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+const dval = d => { const m = String(d || '').match(/^(\d+)\s+(\w+)/); return m ? MON.indexOf(m[2].slice(0, 3)) * 40 + +m[1] : -1; };
+const find = id => lines.findIndex(l => new RegExp('^\\s*\\{id:' + id + '[,\\s]').test(l));
+const evalRow = l => new Function(spDef + '\nreturn ' + l.replace(/^\s*/, '').replace(/\}\s*,?\s*(\/\/.*)?$/, '}') + ';')();
+const ser = v => Array.isArray(v) ? '[' + v.map(ser).join(',') + ']' : (v && typeof v === 'object') ? '{' + Object.keys(v).map(k => k + ':' + ser(v[k])).join(',') + '}' : JSON.stringify(v);
+const rowText = o => '  {' + Object.keys(o).map(k => k + ':' + (k === 'prices' ? '{' + S.map(s => s + ':' + (+(o.prices[s] || 0).toFixed(2))).join(',') + '}' : ser(o[k]))).join(', ') + '}';
+const commentOf = l => { const m = l.match(/\}\s*,?\s*(\/\/.*)$/); return m ? m[1] : ''; };
+const M = 'M&S branch: St Helier King Street (Lucy D receipt 20 Nov 12:3x)';
+const ids = lines.map(l => (l.match(/^\s*\{id:(\d+)/) || [])[1]).filter(Boolean).map(Number);
+let nid = Math.max(...ids) + 1, at = find(Math.max(...ids));
+lines.splice(++at, 0, '  {id:' + nid + ', name:"M&S British Fillet Steak (as printed BRTS FILT STE, size not confirmed)", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:0,morrisons:0,ms:13.25,waitrose:0,iceland:0,alliance:0}, upd:"20 Nov"}, // ' + M + ': BRTS FILT STE 13.25 x2 (code 29375691)');
+console.log(nid);
+fs.writeFileSync(f, lines.join('\n'), 'utf8');
+console.log('done');
