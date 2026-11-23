@@ -19034,6 +19034,8 @@ const COMP = {
 // Prize wording follows the two settings above. The URL switches only work together with the private preview link.
 const _q = (() => { try { return typeof window !== "undefined" ? new URLSearchParams(window.location.search) : null; } catch { return null; } })();
 const _pv = !!_q && ["preview", "soon"].includes(_q.get("comp"));
+// Share link for socials: jerseybasket.je/?hunt (or ?leaderboard) opens the Price Hunt leaderboard straight away
+const HUNT_LINK = !!_q && (_q.has("hunt") || _q.has("leaderboard"));
 const COMP_TICKETS = !(_pv && _q.get("prizes") === "vouchers" ? true : COMP.prizeMode === "vouchers");
 const COMP_DRAW = _pv && _q.get("draw") === "no" ? false : COMP.drawThird;
 const COMP_PRIZES = {
@@ -19112,7 +19114,7 @@ export default function JerseyGroceryApp() {
   const [showSettings,   setShowSettings]   = useState(false);
   const [disabledStores, setDisabledStores] = useState(new Set());
   const [showSubmitPrice,  setShowSubmitPrice]  = useState(false);
-  const [showCompetition, setShowCompetition] = useState(false);
+  const [showCompetition, setShowCompetition] = useState(() => HUNT_LINK && compPhase() !== "off");
   const compPh   = compPhase();
   const compData = useCompData(compPh !== "off");
   // "Estimated price" pop-out on a product card asks for a receipt via this event
@@ -19168,7 +19170,7 @@ export default function JerseyGroceryApp() {
 
 
   // Show welcome screen every time the app loads
-  const [showWelcome, setShowWelcome] = useState(true);
+  const [showWelcome, setShowWelcome] = useState(() => !(HUNT_LINK && compPhase() !== "off"));   // the ?hunt share link skips the welcome screen
   const [lightMode, setLightMode] = useState(()=>{ try{ return localStorage.getItem("jb_lightmode")==="true"; }catch{ return false; } });
   const toggleLight = () => setLightMode(m=>{ try{ localStorage.setItem("jb_lightmode",String(!m)); }catch{} return !m; });
 
@@ -19176,6 +19178,7 @@ export default function JerseyGroceryApp() {
   const [easyMode, setEasyMode] = useState(()=>{
     try {
       if (new URLSearchParams(window.location.search).has("easy")) { localStorage.setItem("jb_easy","1"); return true; }
+      if (HUNT_LINK && compPhase() !== "off") return false;   // show the leaderboard on this visit; the saved Easy view setting is kept
       return localStorage.getItem("jb_easy")==="1";
     } catch { return false; }
   });
@@ -20539,7 +20542,7 @@ export default function JerseyGroceryApp() {
 
       {/* ── NOVEMBER PRICE HUNT MODAL ── */}
       {showCompetition && compPh === "soon" && <CompSoonModal onClose={()=>setShowCompetition(false)} onPractise={()=>{ setShowCompetition(false); setShowSubmitPrice(true); }} />}
-      {showCompetition && compPh !== "soon" && <CompetitionModal onClose={()=>setShowCompetition(false)} onEnter={()=>{ setShowCompetition(false); setShowSubmitPrice(true); }} data={compData} phase={compPh === "off" ? "live" : compPh} />}
+      {showCompetition && compPh !== "soon" && <CompetitionModal onClose={()=>setShowCompetition(false)} onEnter={()=>{ setShowCompetition(false); setShowSubmitPrice(true); }} data={compData} phase={compPh === "off" ? "live" : compPh} jumpToBoard={HUNT_LINK} />}
 
     </div>
   );
@@ -22162,8 +22165,15 @@ function CompRulesModal({ onClose }) {
 /* ═════════════════════════════════════════════════════════════════════
    COMPETITION MODAL — November Price Hunt: prizes, how it works, store progress, leaderboard, rules
 ══════════════════════════════════════════════════════════════════════ */
-function CompetitionModal({ onClose, onEnter, data=null, phase="live" }) {
+function CompetitionModal({ onClose, onEnter, data=null, phase="live", jumpToBoard=false }) {
   const [showRules, setShowRules] = useState(false);
+  // The ?hunt share link scrolls straight to the leaderboard once the standings have loaded
+  const boardRef = useRef(null), jumped = useRef(false);
+  useEffect(() => {
+    if (!jumpToBoard || jumped.current || !data || !boardRef.current) return;
+    jumped.current = true;
+    try { boardRef.current.scrollIntoView({ block:"start" }); } catch {}
+  }, [jumpToBoard, data]);
   const GREEN = "#14532d", INK = "#0b1f12", YEL = "#FFE74C";
   const card  = { background:"rgba(255,255,255,.55)", border:"1px solid rgba(20,83,45,.35)", borderRadius:12, padding:"14px 16px", marginBottom:14 };
   const head  = { fontSize:11, color:GREEN, fontWeight:900, letterSpacing:".08em", textTransform:"uppercase", marginBottom:10 };
@@ -22255,7 +22265,7 @@ function CompetitionModal({ onClose, onEnter, data=null, phase="live" }) {
           </div>
 
           {/* leaderboard */}
-          <div style={card}>
+          <div ref={boardRef} style={card}>
             <div style={head}>🏆 Leaderboard{data && data.updated ? ` · updated ${data.updated}` : ""}</div>
             {entries.length > 0 ? (
               <div style={{ display:"flex",flexDirection:"column",gap:5 }}>
