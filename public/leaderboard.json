@@ -23,6 +23,10 @@
       "points": 291
     },
     {
+      "name": "Tina S",
+      "points": 207
+    },
+    {
       "name": "Claire E",
       "points": 188
     },
@@ -42,11 +46,11 @@
     },
     "waitrose": {
       "goal": 1000,
-      "prices": 943
+      "prices": 973
     },
     "ms": {
-      "goal": 200,
-      "prices": 151
+      "goal": 300,
+      "prices": 223
     }
   },
   "winners": {
