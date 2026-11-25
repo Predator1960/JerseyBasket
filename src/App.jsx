@@ -20910,13 +20910,22 @@ const easyStore = (id) => STORES.find(s=>s.id===id)?.short || id;
 const easyPrices = (p) => STORES.filter(s=>p.prices[s.id]>0).map(s=>({ id:s.id, price:p.prices[s.id] })).sort((a,b)=>a.price-b.price);
 
 /* ── Send my list: one tap sends the shopping list to a saved person ──────────
-   by WhatsApp, text message or email. The message opens ready-written and
-   addressed; the person taps Send in their own app (a website can't send by itself).
-   Names and numbers are kept only on this phone (localStorage), never sent to us. */
+   Save up to 3 people once (name, mobile, email). Each then gets their own
+   WhatsApp / Text / Email buttons; one tap opens the message ready-written and
+   addressed, and the person taps Send in their own app (a website can't send by itself).
+   People are kept only on this phone (localStorage), never sent to us. */
 const SEND_KEY = "jb_send_to";
 const SEND_MAX = 3;
-const SEND_VIA = { whatsapp:"WhatsApp", sms:"text message", email:"email" };
-const loadSendTo = () => { try { const a = JSON.parse(localStorage.getItem(SEND_KEY) || "[]"); return Array.isArray(a) ? a.slice(0, SEND_MAX) : []; } catch { return []; } };
+// stored as { name, mobile, email }; the first version stored { name, via, to }, converted here
+const loadSendTo = () => {
+  try {
+    const a = JSON.parse(localStorage.getItem(SEND_KEY) || "[]");
+    if (!Array.isArray(a)) return [];
+    return a.slice(0, SEND_MAX).map(p => p && "via" in p
+      ? { name:p.name || "", mobile:p.via === "email" ? "" : (p.to || ""), email:p.via === "email" ? (p.to || "") : "" }
+      : { name:p?.name || "", mobile:p?.mobile || "", email:p?.email || "" }).filter(p => p.name);
+  } catch { return []; }
+};
 const saveSendTo = (a) => { try { localStorage.setItem(SEND_KEY, JSON.stringify(a)); } catch {} };
 // Jersey/UK mobile to international digits for WhatsApp: 07797 123456 -> 447797123456
 const waNumber = (raw) => {
@@ -20927,11 +20936,11 @@ const waNumber = (raw) => {
   return d.replace(/\D/g, "");
 };
 const onIOS = () => typeof navigator !== "undefined" && (/iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1));
-const sendListUrl = (c, text) => {
+const sendListUrl = (via, person, text) => {
   const t = encodeURIComponent(text);
-  if (c.via === "whatsapp") return c.to ? `https://wa.me/${waNumber(c.to)}?text=${t}` : `https://wa.me/?text=${t}`;
-  if (c.via === "email") return `mailto:${String(c.to || "").replace(/\s/g, "")}?subject=${encodeURIComponent("Shopping list")}&body=${t}`;
-  return `sms:${String(c.to || "").replace(/[^\d+]/g, "")}${onIOS() ? "&" : "?"}body=${t}`;
+  if (via === "whatsapp") return `https://wa.me/${waNumber(person.mobile)}?text=${t}`;
+  if (via === "email") return `mailto:${String(person.email || "").replace(/\s/g, "")}?subject=${encodeURIComponent("Shopping list")}&body=${t}`;
+  return `sms:${String(person.mobile || "").replace(/[^\d+]/g, "")}${onIOS() ? "&" : "?"}body=${t}`;
 };
 // Plain-text list grouped by the shop each item is set to (basket keys are "productId-storeId")
 const listMessage = (basket, byId) => {
@@ -20959,28 +20968,33 @@ const listMessage = (basket, byId) => {
 };
 
 function SendListPanel({ basket, products, easy = false, lightMode = false }) {
+  const BLANK = { name:"", mobile:"", email:"" };
   const [people, setPeople] = useState(loadSendTo);
-  const [adding, setAdding] = useState(false);
+  const [formAt, setFormAt] = useState(null);   // null = closed, -1 = adding, n = changing person n
   const [editing, setEditing] = useState(false);
-  const [form, setForm] = useState({ name:"", via:"whatsapp", to:"" });
+  const [form, setForm] = useState(BLANK);
   const byId = useMemo(() => new Map(products.map(p => [p.id, p])), [products]);
   const hasItems = Object.values(basket).some(q => q > 0);
   if (!hasItems) return null;
 
   const C = easy
-    ? { card:"#fff", line:EASY_C.line, ink:EASY_C.ink, soft:EASY_C.soft, input:"#fff", inputLine:EASY_C.ink, blue:EASY_C.blue, red:EASY_C.red }
+    ? { card:"#fff", line:EASY_C.line, ink:EASY_C.ink, soft:EASY_C.soft, input:"#fff", inputLine:EASY_C.ink, blue:EASY_C.blue, red:EASY_C.red, person:"#f9fafb" }
     : lightMode
-      ? { card:"rgba(0,0,0,.03)", line:"rgba(0,0,0,.1)", ink:"#0f172a", soft:"#475569", input:"#fff", inputLine:"rgba(0,0,0,.25)", blue:"#1d4ed8", red:"#b91c1c" }
-      : { card:"rgba(255,255,255,.04)", line:"rgba(255,255,255,.1)", ink:"#f0f4f8", soft:"#94a3b8", input:"rgba(255,255,255,.06)", inputLine:"rgba(255,255,255,.25)", blue:"#60a5fa", red:"#f87171" };
+      ? { card:"rgba(0,0,0,.03)", line:"rgba(0,0,0,.1)", ink:"#0f172a", soft:"#475569", input:"#fff", inputLine:"rgba(0,0,0,.25)", blue:"#1d4ed8", red:"#b91c1c", person:"rgba(0,0,0,.03)" }
+      : { card:"rgba(255,255,255,.04)", line:"rgba(255,255,255,.1)", ink:"#f0f4f8", soft:"#94a3b8", input:"rgba(255,255,255,.06)", inputLine:"rgba(255,255,255,.25)", blue:"#60a5fa", red:"#f87171", person:"rgba(255,255,255,.03)" };
   const btn = (bg, color, extra = {}) => easy ? easyBtn(bg, color, extra)
     : easyBtn(bg, color, { fontSize:14, minHeight:40, padding:"9px 14px", borderRadius:10, ...extra });
   const fs = (n) => easy ? n : Math.round(n * 0.72);
-  const GREEN = "linear-gradient(180deg,#22c55e 0%,#15803d 100%)";
+  const VIA = [
+    ["whatsapp", "WhatsApp", "linear-gradient(180deg,#22c55e 0%,#15803d 100%)", p => p.mobile],
+    ["sms",      "Text",     "linear-gradient(180deg,#3b82f6 0%,#1d4ed8 100%)", p => p.mobile],
+    ["email",    "Email",    "linear-gradient(180deg,#64748b 0%,#334155 100%)", p => p.email],
+  ];
 
-  const send = (c) => {
-    const url = sendListUrl(c, listMessage(basket, byId));
-    try { window.gtag && window.gtag("event", "list_send", { method:c.via, easy_view:easy }); } catch {}
-    if (c.via === "whatsapp") { const w = window.open(url, "_blank"); if (!w) window.location.href = url; }
+  const send = (via, person) => {
+    const url = sendListUrl(via, person, listMessage(basket, byId));
+    try { window.gtag && window.gtag("event", "list_send", { method:via, easy_view:easy }); } catch {}
+    if (via === "whatsapp") { const w = window.open(url, "_blank"); if (!w) window.location.href = url; }
     else window.location.href = url;
   };
   const shareOther = () => {
@@ -20989,13 +21003,13 @@ function SendListPanel({ basket, products, easy = false, lightMode = false }) {
     if (navigator.share) navigator.share({ text }).catch(() => {});
     else if (navigator.clipboard) navigator.clipboard.writeText(text).then(() => alert("List copied. Paste it into a message.")).catch(() => {});
   };
-  const saveAndSend = () => {
-    const c = { name:form.name.trim().slice(0, 30), via:form.via, to:form.to.trim().slice(0, 60) };
-    if (!c.name) return;
-    const next = [...people, c].slice(0, SEND_MAX);
-    setPeople(next); saveSendTo(next);
-    setAdding(false); setForm({ name:"", via:"whatsapp", to:"" });
-    send(c);
+  const clean = { name:form.name.trim().slice(0, 30), mobile:form.mobile.trim().slice(0, 30), email:form.email.trim().slice(0, 80) };
+  const canSave = clean.name && (clean.mobile || clean.email);
+  const closeForm = () => { setFormAt(null); setForm(BLANK); };
+  const savePerson = () => {
+    if (!canSave) return;
+    const next = formAt >= 0 ? people.map((p, j) => j === formAt ? clean : p) : [...people, clean].slice(0, SEND_MAX);
+    setPeople(next); saveSendTo(next); closeForm(); setEditing(false);
   };
   const removePerson = (i) => {
     const next = people.filter((_, j) => j !== i);
@@ -21003,55 +21017,61 @@ function SendListPanel({ basket, products, easy = false, lightMode = false }) {
     if (!next.length) setEditing(false);
   };
   const inputStyle = { width:"100%", boxSizing:"border-box", fontSize:fs(20), padding:easy ? "12px 14px" : "9px 11px", border:`2px solid ${C.inputLine}`, borderRadius:easy ? 12 : 9, color:C.ink, background:C.input, fontFamily:"inherit", marginBottom:easy ? 12 : 9 };
-  const toLabel = form.via === "email" ? "Their email (optional)" : "Their mobile number (optional)";
+  const label = (t) => <label style={{ display:"block", fontSize:fs(18), fontWeight:700, color:C.ink, marginBottom:6 }}>{t}</label>;
 
   return (
     <div style={{ border:`2px solid ${C.line}`, background:C.card, borderRadius:easy ? 16 : 13, padding:easy ? 16 : 14, margin:easy ? "4px 0 18px" : "14px 0 0" }}>
       <div style={{ display:"flex", alignItems:"center", justifyContent:"space-between", gap:8, marginBottom:easy ? 10 : 8 }}>
         <div style={{ fontSize:fs(22), fontWeight:700, color:C.ink }}>📤 Send my list</div>
-        {people.length > 0 && !adding && (
+        {people.length > 0 && formAt === null && (
           <button onClick={() => setEditing(e => !e)} style={{ background:"none", border:"none", color:C.blue, fontSize:fs(18), fontWeight:600, cursor:"pointer", padding:4, fontFamily:"inherit" }}>{editing ? "Done" : "Edit"}</button>
         )}
       </div>
-      {!people.length && !adding && (
-        <div style={{ fontSize:fs(18), color:C.soft, lineHeight:1.5, marginBottom:easy ? 12 : 10 }}>Save someone once, then send them your list with one tap.</div>
+      {!people.length && formAt === null && (
+        <div style={{ fontSize:fs(18), color:C.soft, lineHeight:1.5, marginBottom:easy ? 12 : 10 }}>Save someone once (up to 3 people), then send them your list by WhatsApp, text or email with one tap.</div>
       )}
 
-      {people.map((c, i) => (
-        <div key={i} style={{ display:"flex", gap:8, marginBottom:easy ? 10 : 8 }}>
-          <button onClick={() => send(c)} style={btn(GREEN, "#fff", { flex:1, textAlign:"left", lineHeight:1.25 })}>
-            Send list to {c.name}
-            <div style={{ fontSize:fs(16), fontWeight:400, opacity:.9 }}>by {SEND_VIA[c.via] || "message"}</div>
-          </button>
-          {editing && <button onClick={() => removePerson(i)} aria-label={`Remove ${c.name}`} style={btn("transparent", C.red, { border:`2px solid ${C.red}` })}>Remove</button>}
-        </div>
-      ))}
-
-      {adding ? (
-        <div style={{ marginTop:4 }}>
-          <label style={{ display:"block", fontSize:fs(18), fontWeight:700, color:C.ink, marginBottom:6 }}>Their name</label>
-          <input value={form.name} onChange={e => setForm(f => ({ ...f, name:e.target.value }))} placeholder="For example: Mum" autoComplete="off" style={inputStyle} />
-          <div style={{ fontSize:fs(18), fontWeight:700, color:C.ink, marginBottom:6 }}>Send by</div>
-          <div style={{ display:"flex", gap:8, marginBottom:easy ? 12 : 9, flexWrap:"wrap" }}>
-            {[["whatsapp", "WhatsApp"], ["sms", "Text"], ["email", "Email"]].map(([k, l]) => (
-              <button key={k} onClick={() => setForm(f => ({ ...f, via:k }))} aria-pressed={form.via === k}
-                style={btn(form.via === k ? C.blue : "transparent", form.via === k ? "#fff" : C.blue, { flex:1, border:`2px solid ${C.blue}`, padding:easy ? "12px 4px" : "9px 4px", fontSize:fs(19) })}>{l}</button>
-            ))}
+      {formAt === null && people.map((p, i) => {
+        const ways = VIA.filter(v => v[3](p));
+        return (
+          <div key={i} style={{ border:`1px solid ${C.line}`, background:C.person, borderRadius:easy ? 14 : 10, padding:easy ? 12 : 10, marginBottom:easy ? 10 : 8 }}>
+            <div style={{ fontSize:fs(20), fontWeight:700, color:C.ink, marginBottom:easy ? 8 : 6 }}>Send to {p.name}</div>
+            {editing ? (
+              <div style={{ display:"flex", gap:8 }}>
+                <button onClick={() => { setForm(p); setFormAt(i); }} style={btn("transparent", C.blue, { flex:1, border:`2px solid ${C.blue}` })}>Change</button>
+                <button onClick={() => removePerson(i)} aria-label={`Remove ${p.name}`} style={btn("transparent", C.red, { flex:1, border:`2px solid ${C.red}` })}>Remove</button>
+              </div>
+            ) : (
+              <div style={{ display:"flex", gap:8 }}>
+                {ways.map(([via, l, bg]) => (
+                  <button key={via} onClick={() => send(via, p)} aria-label={`Send list to ${p.name} by ${l}`}
+                    style={btn(bg, "#fff", { flex:1, padding:easy ? "12px 4px" : "9px 4px", fontSize:fs(19) })}>{l}</button>
+                ))}
+              </div>
+            )}
           </div>
-          <label style={{ display:"block", fontSize:fs(18), fontWeight:700, color:C.ink, marginBottom:6 }}>{toLabel}</label>
-          <input value={form.to} onChange={e => setForm(f => ({ ...f, to:e.target.value }))} placeholder={form.via === "email" ? "name@example.com" : "07797 123456"}
-            inputMode={form.via === "email" ? "email" : "tel"} autoComplete="off" style={inputStyle} />
-          <div style={{ fontSize:fs(16), color:C.soft, lineHeight:1.5, marginBottom:easy ? 12 : 9 }}>Leave it blank to choose the person each time. Names and numbers are saved on this phone only.</div>
+        );
+      })}
+
+      {formAt !== null ? (
+        <div style={{ marginTop:4 }}>
+          {label("Name")}
+          <input value={form.name} onChange={e => setForm(f => ({ ...f, name:e.target.value }))} placeholder="For example: Dad" autoComplete="off" style={inputStyle} />
+          {label("Mobile number (for WhatsApp and text)")}
+          <input value={form.mobile} onChange={e => setForm(f => ({ ...f, mobile:e.target.value }))} placeholder="07797 123456" inputMode="tel" autoComplete="off" style={inputStyle} />
+          {label("Email")}
+          <input value={form.email} onChange={e => setForm(f => ({ ...f, email:e.target.value }))} placeholder="name@example.com" inputMode="email" autoComplete="off" style={inputStyle} />
+          <div style={{ fontSize:fs(16), color:C.soft, lineHeight:1.5, marginBottom:easy ? 12 : 9 }}>Fill in the mobile, the email or both. These are saved on this phone only.</div>
           <div style={{ display:"flex", gap:8 }}>
-            <button onClick={saveAndSend} disabled={!form.name.trim()} style={btn(GREEN, "#fff", { flex:2, opacity:form.name.trim() ? 1 : .5 })}>Save and send</button>
-            <button onClick={() => { setAdding(false); setForm({ name:"", via:"whatsapp", to:"" }); }} style={btn("transparent", C.ink, { flex:1, border:`2px solid ${C.line}` })}>Cancel</button>
+            <button onClick={savePerson} disabled={!canSave} style={btn("linear-gradient(180deg,#22c55e 0%,#15803d 100%)", "#fff", { flex:2, opacity:canSave ? 1 : .5 })}>Save</button>
+            <button onClick={closeForm} style={btn("transparent", C.ink, { flex:1, border:`2px solid ${C.line}` })}>Cancel</button>
           </div>
         </div>
       ) : (
         <div style={{ display:"flex", gap:8, flexWrap:"wrap" }}>
           {people.length < SEND_MAX && (
-            <button onClick={() => { setAdding(true); setEditing(false); }} style={btn("transparent", C.blue, { flex:1, border:`2px solid ${C.blue}`, whiteSpace:"nowrap" })}>
-              {people.length ? "+ Add someone" : "+ Choose who to send to"}
+            <button onClick={() => { setForm(BLANK); setFormAt(-1); setEditing(false); }} style={btn("transparent", C.blue, { flex:1, border:`2px solid ${C.blue}`, whiteSpace:"nowrap" })}>
+              {people.length ? "+ Add someone" : "+ Add someone to send to"}
             </button>
           )}
           <button onClick={shareOther} style={btn("transparent", C.blue, { flex:1, border:`2px solid ${C.blue}`, whiteSpace:"nowrap" })}>Other ways…</button>
