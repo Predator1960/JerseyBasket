@@ -1463,6 +1463,8 @@ const BASE_PRODUCTS = [
   {id:18664, name:"Tony's Chocolonely Dark Chocolate (as printed TONY'S DARK CHOC, size not confirmed)", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:0,morrisons:0,ms:0,waitrose:3.98,iceland:0,alliance:0}, upd:"24 Nov"}, // Waitrose branch: St Saviour 332 (Jason L receipt 24 Nov 16:05, scan & go): TONY'S DARK CHOC 3.98
   {id:18665, name:"Tony's Chocolonely Milk Chocolate (as printed TONY'S MILK CHOCO, size not confirmed)", cat:"🍫 Confectionery", icon:"🍫", prices:{coop:0,morrisons:0,ms:0,waitrose:3.98,iceland:0,alliance:0}, upd:"24 Nov"}, // Waitrose branch: St Saviour 332 (Jason L receipt 24 Nov 16:05, scan & go): TONY'S MILK CHOCO 3.98
   {id:18666, name:"Strawberry Pencils (as printed STRAWB PENCILS, brand, size not confirmed)", cat:"🍫 Confectionery", icon:"🍬", prices:{coop:0,morrisons:0,ms:0,waitrose:0.7,iceland:0,alliance:0}, upd:"24 Nov"}, // Waitrose branch: St Saviour 332 (Jason L receipt 24 Nov 16:05, scan & go): STRAWB PENCILS 0.70 x5
+  {id:18667, name:"Co-op Irresistible Maple Streaky Bacon (as printed Cp I Mpl Strky Bcn, size not confirmed)", cat:"🥩 Meat & Fish", icon:"🥓", prices:{coop:2.62,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"24 Nov"}, // Co-op branch: St Peter's Village (Sandra B receipt 24 Nov 09:04): Cp I Mpl Strky Bcn 2 @ 2.62
+  {id:18668, name:"Twinings Tea, 20 bags 40g (as printed Tw Sb M Tb 20S40g, variety not confirmed)", cat:"🥤 Drinks", icon:"🍵", prices:{coop:3.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"24 Nov"}, // Co-op branch: St Peter's Village (Sandra B receipt 24 Nov 09:04): Tw Sb M Tb 20S40g 3.15
   {id:456,name:"Tortilla Wraps Large (8pk)",          cat:"🍞 Bread & Bakery",icon:"🌯",prices:sp(1.80,[0,0,0,-0.35,0])},
   {id:555, name:"White Toastie Loaf", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:1.25,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:1.25}, upd:"6 Nov", upds:{coop:"6 Nov"}}, // Co-op Millennium Park shopper receipt 6 Nov (Jason L): Cp Wht Tstie Loaf 1.25 // members £0.99 as Coop Loaves 800G (seen 6 Nov, expiry date unknown)
   {id:556, name:"Cheese Baps (4pk)", cat:"🍞 Bread & Bakery", icon:"🍞", prices:{coop:1.89,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:1.89}, upd:"21 Nov", upds:{alliance:"20 Aug",coop:"21 Nov"}}, // Co-op Millennium Park receipt 24 Oct matches | Co-op Millennium Park Laura receipt 6 Nov: Cp Cheese Baps 4S 1.89 | Co-op Millennium Park Laura receipt 7 Nov: Cp Cheese Baps 4S 1.89 | Co-op branch: Millennium Park (Laura receipt 21 Nov 10:13): Cp Cheese Baps 4S 1.89
@@ -1675,7 +1677,7 @@ const BASE_PRODUCTS = [
   {id:695,name:"Wotsits Crunch Hot",               cat:"🥨 Snacks & Treats",icon:"🧡",prices:sp(2.71,[-2.71,-2.71,-2.71,0,-2.71,-2.71])},
   {id:698,name:"Co-op Wholemeal Farmhouse Loaf",    cat:"🍞 Bread & Bakery",icon:"🍞",prices:sp(1.25,[0,-1.25,-1.25,-1.25,-1.25,-1.25])},
   {id:699,name:"Coca-Cola Zero Sugar (1.75L)",      cat:"🥤 Drinks",       icon:"🥤",prices:sp(2.30,[0.35,-2.30,-2.30,-2.30,-2.30,-2.30]), upd:"5 Oct"},
-  {id:2569,name:"Co-op Extra Thick Foil",           cat:"🧹 Household",    icon:"✨",prices:sp(2.45,[0,-2.45,-2.45,-2.45,-2.45,-2.45]), upd:"17 Aug"},
+  {id:2569, name:"Co-op Extra Thick Foil", cat:"🧹 Household", icon:"✨", prices:{coop:2.45,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"24 Nov"}, // Co-op branch: St Peter's Village (Sandra B receipt 24 Nov 09:04): Cp Extra Thick Foil 2.45
   {id:2570,name:"Cadbury Daim Bar",                 cat:"🍫 Confectionery",icon:"🍫",prices:sp(1.58,[0,-1.58,-1.58,-1.58,-1.58,-1.58])},
   {id:2571, name:"Co-op Garlic & Coriander Naan", cat:"🍞 Bread & Bakery", icon:"🫓", prices:{coop:1.2,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"12 Nov"}, // Co-op branch: Millennium Park (Laura receipt 12 Nov 12:06): Cp Grlc Criandr Naan (price matched)
   {id:2572,name:"Co-op Sausage & Bean Slice",       cat:"🥩 Meat & Fish",  icon:"🌭",prices:sp(1.60,[0,-1.60,-1.60,-1.60,-1.60,-1.60])},
@@ -3669,7 +3671,7 @@ const BASE_PRODUCTS = [
   {id:2869, name:"Arctic Coffee Café Latte 1 Litre 1LTR", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:2.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Nov"},
   {id:2870, name:"Co-op Lemon Dessert Pots 140g (2 x 70g) 2X70G", cat:"🥨 Snacks & Treats", icon:"🍰", prices:{coop:2.1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Nov"},
   {id:2871, name:"itsu Restaurant'Ramen Original Noodles 200g", cat:"🥦 Fruit & Veg", icon:"🥗", prices:{coop:1.73,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"16 Nov"}, // Co-op branch: Don Street (Mary C receipt 16 Nov 13:44): Itsu Ramen Noodles 1.73 (size assumed 200g Original)
-  {id:2872, name:"Co-op Hand Picked Blackberries 150g", cat:"🥦 Fruit & Veg", icon:"🍏", prices:{coop:3.25,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"15 Nov"}, // Co-op branch: St Peter's Village (Sandra B receipt 15 Nov 11:22): Cp Blackberries 3.25
+  {id:2872, name:"Co-op Hand Picked Blackberries 150g", cat:"🥦 Fruit & Veg", icon:"🍏", prices:{coop:3.25,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"24 Nov"}, // Co-op branch: St Peter's Village (Sandra B receipt 15 Nov 11:22): Cp Blackberries 3.25 | Co-op branch: St Peter's Village (Sandra B receipt 24 Nov 09:04): Cp Blackberries 3.25
   {id:2873, name:"Co-op Shortcrust Pastry 320g", cat:"🥛 Dairy & Eggs", icon:"🧈", prices:{coop:1.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Nov"},
   {id:2874, name:"Co-op 4 Best of British Apples Fruits 4PACK", cat:"🥦 Fruit & Veg", icon:"🍏", prices:{coop:2.1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Nov"},
   {id:2875, name:"itsu Restaurant'Ramen Flat Noodles 200g", cat:"🥦 Fruit & Veg", icon:"🥗", prices:{coop:1.85,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
@@ -4020,7 +4022,7 @@ const BASE_PRODUCTS = [
   {id:3220, name:"Co-op New York Style Classic Cheese 340g", cat:"🥗 Deli & Salads", icon:"🍕", prices:{coop:5.6,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Nov"},
   {id:3221, name:"Co-op New York Style Pepperoni & Sausage 377g", cat:"🥗 Deli & Salads", icon:"🍕", prices:{coop:5.6,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Nov", oos:["coop"]},
   {id:3222, name:"Co-op Hot and Spicy Cheddar Wedge 200G", cat:"🥛 Dairy & Eggs", icon:"🧀", prices:{coop:3.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
-  {id:3223, name:"Co-op 2 Salmon Fillets Skin-on and Boneless 220g", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:5.9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Nov"},
+  {id:3223, name:"Co-op 2 Salmon Fillets Skin-on and Boneless 220g", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:5.9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"24 Nov"}, // Co-op branch: St Peter's Village (Sandra B receipt 24 Nov 09:04): Cp Salmon Fillets 5.90 (reduced to clear -1.95 on the day)
   {id:3224, name:"Ginsters 2 Sausage Rolls 200g 2X100G", cat:"🥗 Deli & Salads", icon:"🥧", prices:{coop:2.69,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:3225, name:"Co-op Limited Edition Stonebaked Chinese Style Salt & Pepper Chicken 350g 365G", cat:"🥗 Deli & Salads", icon:"🍕", prices:{coop:4.45,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Jul"},
   {id:3226, name:"Quorn Picnic Eggs 140g", cat:"🥗 Deli & Salads", icon:"🥧", prices:{coop:2.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:3.15}, upd:"11 Nov", upds:{coop:"10 Oct",alliance:"11 Nov"}},
@@ -4182,7 +4184,7 @@ const BASE_PRODUCTS = [
   {id:3382, name:"The Happy Egg Co. Free Range 10 Mixed Sizes 497g 10S", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:3.8,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:4.25}, upd:"11 Nov", upds:{coop:"10 Oct",alliance:"11 Nov"}},
   {id:3383, name:"Purely Organic 6 Mixed Size Organic Eggs 328g 6S", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:3.55,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Nov"},
   {id:3384, name:"The Happy Egg Co. Free Range 6 Large 6S", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:3.1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:2.7}, upd:"11 Nov", upds:{coop:"10 Oct",alliance:"11 Nov"}},
-  {id:3385, name:"Co-op Space To Thrive British Chicken Breast Fillets 850g", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:8,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Nov"}, // members £6.50 until 17/11/26
+  {id:3385, name:"Co-op Space To Thrive British Chicken Breast Fillets 850g", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:8,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"24 Nov"}, // members £6.50 until 17/11/26 | Co-op branch: St Peter's Village (Sandra B receipt 24 Nov 09:04): Cp B Chl 6 F 850G 8.00 (reduced to clear on the day)
   {id:3386, name:"Co-op 6 British Large Free Range Eggs 6S", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:2.2,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"15 Nov"}, // Co-op Millennium Park receipt 24 Oct matches | Co-op Millennium Park receipt 29 Oct: matches | Co-op Millennium Park Laura receipt 7 Nov: Cp F/Rnge Eggs 2.20 | Co-op branch: Millennium Park (Laura receipt 12 Nov 12:06): Cp F/Rnge Eggs (price matched) | Co-op branch: St Peter's Village (Sandra B receipt 15 Nov 11:22): Cp F/Rnge Eggs 2.20
   {id:3387, name:"Co-op 6 Free Range British Medium Eggs 6S", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:2.1,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Nov"}, // members £1.60 until 03/01/27
   {id:3388, name:"Co-op British 12 Medium Free Range Eggs 12S", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:3.3,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Nov"},
@@ -4402,7 +4404,7 @@ const BASE_PRODUCTS = [
   {id:3603, name:"Co-op Outdoor Bred British 6 Pork Loin Steaks 600g", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:6,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Nov"}, // Co-op Millennium Park shopper receipt 6 Nov (Jason L): Cp Pork Loin Steaks 6.00 // members £5.00 (seen 6 Nov, expiry date unknown) | members £5.00 until 17/11/26
   {id:3604, name:"Co-op Outdoor Bred 2 British Pork Chops 350g", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:3.69,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Nov"},
   {id:3605, name:"Co-op Diced Beef Casserole Steak 400g", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:7,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Nov"}, // Co-op Millennium Park receipt 24 Oct: Cp Diced Cssrle Stk 7.00 (was 6.75)
-  {id:3606, name:"Co-op 2 Battered Haddock 270g", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:5.6,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Nov"},
+  {id:3606, name:"Co-op 2 Battered Haddock 270g", cat:"🥩 Meat & Fish", icon:"🥩", prices:{coop:5.6,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"24 Nov"}, // Co-op branch: St Peter's Village (Sandra B receipt 24 Nov 09:04): Cp 2 Battered Hdck 5.60 (reduced to clear -1.85 on the day)
   {id:3607, name:"Co-op Alfresco Salad 320g", cat:"🥦 Fruit & Veg", icon:"🥗", prices:{coop:2.9,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Nov"}, // members £2.50 until 17/11/26
   {id:3608, name:"Co-op Watermelon Chunks 300g", cat:"🥦 Fruit & Veg", icon:"🥗", prices:{coop:3.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Nov"},
   {id:3609, name:"Co-op Melon Chunks 300g", cat:"🥦 Fruit & Veg", icon:"🥗", prices:{coop:3.4,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Nov"},
@@ -6680,7 +6682,7 @@ const BASE_PRODUCTS = [
   {id:5343, name:"Co-op 30 Tie Handle Pedal Bin Liners Bags", cat:"🧹 Household", icon:"🛍️", prices:{coop:2.35,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Nov"},
   {id:5344, name:"Co-op Grease Proof Baking Paper", cat:"🧹 Household", icon:"🏠", prices:{coop:1.7,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Nov"},
   {id:5345, name:"Co-op 40 Medium Tie Handle Food & Freezer Bags", cat:"🧹 Household", icon:"🛍️", prices:{coop:1.75,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Nov"},
-  {id:5346, name:"Co-op Non PVC Cling Film", cat:"🧹 Household", icon:"🛍️", prices:{coop:2.45,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Nov"},
+  {id:5346, name:"Co-op Non PVC Cling Film", cat:"🧹 Household", icon:"🛍️", prices:{coop:2.45,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"24 Nov"}, // Co-op branch: St Peter's Village (Sandra B receipt 24 Nov 09:04): Co-op Cling Film 2.45
   {id:5347, name:"Co-op 20 Medium Zip Seal Food & Freezer Bags", cat:"🧹 Household", icon:"🛍️", prices:{coop:2.25,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Nov"},
   {id:5348, name:"Poppell 3 Flint Lighters", cat:"🧹 Household", icon:"🏠", prices:{coop:1.69,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Nov"},
   {id:5349, name:"Table Fun Paper Bowl 12 Pack", cat:"🧹 Household", icon:"🍽️", prices:{coop:2.8,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Nov"},
@@ -16581,7 +16583,7 @@ const BASE_PRODUCTS = [
   {id:16204, name:"Potts' Beef & Red Wine Gravy 350g", cat:"🍝 Pantry", icon:"🥫", prices:{coop:3.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Nov"},
   {id:16205, name:"Coca-Cola Original Taste Soft Drink 8 x 330ml Cans", cat:"🥤 Drinks", icon:"🥤", prices:{coop:5.95,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Nov"},
   {id:16206, name:"Herb Coriander 50g", cat:"🥦 Fruit & Veg", icon:"🥦", prices:{coop:1.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Nov"},
-  {id:16207, name:"Co-op Raspberries 150g", cat:"🥦 Fruit & Veg", icon:"🥦", prices:{coop:3.2,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Nov"},
+  {id:16207, name:"Co-op Raspberries 150g", cat:"🥦 Fruit & Veg", icon:"🥦", prices:{coop:3.2,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"24 Nov"}, // Co-op branch: St Peter's Village (Sandra B receipt 24 Nov 09:04): Cp Raspberries 3.20
   {id:16208, name:"Mateus The Original Rosé 750ml", cat:"🍷 Wine & Beer", icon:"🍷", prices:{coop:7,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Nov"},
   {id:16209, name:"Potts' Chicken, Thyme & White Wine Gravy 350g", cat:"🍝 Pantry", icon:"🥫", prices:{coop:3.15,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Nov"},
   {id:16210, name:"Pak Choi Twin Pack PP ea", cat:"🥦 Fruit & Veg", icon:"🥦", prices:{coop:1.89,morrisons:0,ms:0,waitrose:0,iceland:0,alliance:0}, upd:"11 Nov"},
