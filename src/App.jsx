@@ -20179,6 +20179,9 @@ export default function JerseyGroceryApp() {
                   )}
                 </div>
 
+                {/* send my list to a saved person */}
+                <SendListPanel basket={basket} products={allProducts} lightMode={lightMode} />
+
                 {/* invite a friend */}
                 <div style={{ marginTop:14,background:"linear-gradient(135deg,rgba(34,197,94,.14) 0%,rgba(13,148,136,.10) 100%)",border:"1px solid rgba(34,197,94,.28)",borderRadius:13,padding:"14px 16px",display:"flex",alignItems:"center",gap:12 }}>
                   <span style={{ fontSize:26,flexShrink:0 }}>📣</span>
@@ -20906,6 +20909,158 @@ const easyBtn = (bg, color, extra={}) => ({ WebkitAppearance:"none", appearance:
 const easyStore = (id) => STORES.find(s=>s.id===id)?.short || id;
 const easyPrices = (p) => STORES.filter(s=>p.prices[s.id]>0).map(s=>({ id:s.id, price:p.prices[s.id] })).sort((a,b)=>a.price-b.price);
 
+/* ── Send my list: one tap sends the shopping list to a saved person ──────────
+   by WhatsApp, text message or email. The message opens ready-written and
+   addressed; the person taps Send in their own app (a website can't send by itself).
+   Names and numbers are kept only on this phone (localStorage), never sent to us. */
+const SEND_KEY = "jb_send_to";
+const SEND_MAX = 3;
+const SEND_VIA = { whatsapp:"WhatsApp", sms:"text message", email:"email" };
+const loadSendTo = () => { try { const a = JSON.parse(localStorage.getItem(SEND_KEY) || "[]"); return Array.isArray(a) ? a.slice(0, SEND_MAX) : []; } catch { return []; } };
+const saveSendTo = (a) => { try { localStorage.setItem(SEND_KEY, JSON.stringify(a)); } catch {} };
+// Jersey/UK mobile to international digits for WhatsApp: 07797 123456 -> 447797123456
+const waNumber = (raw) => {
+  let d = String(raw || "").replace(/[^\d+]/g, "");
+  if (d.startsWith("+")) d = d.slice(1);
+  else if (d.startsWith("00")) d = d.slice(2);
+  else if (d.startsWith("0")) d = "44" + d.slice(1);
+  return d.replace(/\D/g, "");
+};
+const onIOS = () => typeof navigator !== "undefined" && (/iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1));
+const sendListUrl = (c, text) => {
+  const t = encodeURIComponent(text);
+  if (c.via === "whatsapp") return c.to ? `https://wa.me/${waNumber(c.to)}?text=${t}` : `https://wa.me/?text=${t}`;
+  if (c.via === "email") return `mailto:${String(c.to || "").replace(/\s/g, "")}?subject=${encodeURIComponent("Shopping list")}&body=${t}`;
+  return `sms:${String(c.to || "").replace(/[^\d+]/g, "")}${onIOS() ? "&" : "?"}body=${t}`;
+};
+// Plain-text list grouped by the shop each item is set to (basket keys are "productId-storeId")
+const listMessage = (basket, byId) => {
+  const byStore = {};
+  let total = 0, count = 0;
+  Object.entries(basket).forEach(([key, qty]) => {
+    const [pId, sId] = key.split("-");
+    const p = byId.get(parseInt(pId));
+    if (!p || !qty) return;
+    const name = STORES.find(s => s.id === sId)?.short || "Other";
+    const price = p.prices[sId] || 0;
+    (byStore[name] = byStore[name] || []).push({ p, qty, price });
+    total += price * qty; count += qty;
+  });
+  const out = ["🛒 Shopping list"];
+  Object.keys(byStore).sort().forEach(n => {
+    out.push("", n.toUpperCase() + ":");
+    byStore[n].sort((a, b) => a.p.name.localeCompare(b.p.name)).forEach(i => {
+      const price = i.price > 0 ? (i.qty > 1 ? ` (£${i.price.toFixed(2)} each)` : ` £${i.price.toFixed(2)}`) : "";
+      out.push(`• ${i.qty > 1 ? i.qty + " x " : ""}${i.p.name}${price}`);
+    });
+  });
+  out.push("", `${count} item${count !== 1 ? "s" : ""}, about £${total.toFixed(2)}`, "Made with jerseybasket.je");
+  return out.join("\n");
+};
+
+function SendListPanel({ basket, products, easy = false, lightMode = false }) {
+  const [people, setPeople] = useState(loadSendTo);
+  const [adding, setAdding] = useState(false);
+  const [editing, setEditing] = useState(false);
+  const [form, setForm] = useState({ name:"", via:"whatsapp", to:"" });
+  const byId = useMemo(() => new Map(products.map(p => [p.id, p])), [products]);
+  const hasItems = Object.values(basket).some(q => q > 0);
+  if (!hasItems) return null;
+
+  const C = easy
+    ? { card:"#fff", line:EASY_C.line, ink:EASY_C.ink, soft:EASY_C.soft, input:"#fff", inputLine:EASY_C.ink, blue:EASY_C.blue, red:EASY_C.red }
+    : lightMode
+      ? { card:"rgba(0,0,0,.03)", line:"rgba(0,0,0,.1)", ink:"#0f172a", soft:"#475569", input:"#fff", inputLine:"rgba(0,0,0,.25)", blue:"#1d4ed8", red:"#b91c1c" }
+      : { card:"rgba(255,255,255,.04)", line:"rgba(255,255,255,.1)", ink:"#f0f4f8", soft:"#94a3b8", input:"rgba(255,255,255,.06)", inputLine:"rgba(255,255,255,.25)", blue:"#60a5fa", red:"#f87171" };
+  const btn = (bg, color, extra = {}) => easy ? easyBtn(bg, color, extra)
+    : easyBtn(bg, color, { fontSize:14, minHeight:40, padding:"9px 14px", borderRadius:10, ...extra });
+  const fs = (n) => easy ? n : Math.round(n * 0.72);
+  const GREEN = "linear-gradient(180deg,#22c55e 0%,#15803d 100%)";
+
+  const send = (c) => {
+    const url = sendListUrl(c, listMessage(basket, byId));
+    try { window.gtag && window.gtag("event", "list_send", { method:c.via, easy_view:easy }); } catch {}
+    if (c.via === "whatsapp") { const w = window.open(url, "_blank"); if (!w) window.location.href = url; }
+    else window.location.href = url;
+  };
+  const shareOther = () => {
+    const text = listMessage(basket, byId);
+    try { window.gtag && window.gtag("event", "list_send", { method:"share", easy_view:easy }); } catch {}
+    if (navigator.share) navigator.share({ text }).catch(() => {});
+    else if (navigator.clipboard) navigator.clipboard.writeText(text).then(() => alert("List copied. Paste it into a message.")).catch(() => {});
+  };
+  const saveAndSend = () => {
+    const c = { name:form.name.trim().slice(0, 30), via:form.via, to:form.to.trim().slice(0, 60) };
+    if (!c.name) return;
+    const next = [...people, c].slice(0, SEND_MAX);
+    setPeople(next); saveSendTo(next);
+    setAdding(false); setForm({ name:"", via:"whatsapp", to:"" });
+    send(c);
+  };
+  const removePerson = (i) => {
+    const next = people.filter((_, j) => j !== i);
+    setPeople(next); saveSendTo(next);
+    if (!next.length) setEditing(false);
+  };
+  const inputStyle = { width:"100%", boxSizing:"border-box", fontSize:fs(20), padding:easy ? "12px 14px" : "9px 11px", border:`2px solid ${C.inputLine}`, borderRadius:easy ? 12 : 9, color:C.ink, background:C.input, fontFamily:"inherit", marginBottom:easy ? 12 : 9 };
+  const toLabel = form.via === "email" ? "Their email (optional)" : "Their mobile number (optional)";
+
+  return (
+    <div style={{ border:`2px solid ${C.line}`, background:C.card, borderRadius:easy ? 16 : 13, padding:easy ? 16 : 14, margin:easy ? "4px 0 18px" : "14px 0 0" }}>
+      <div style={{ display:"flex", alignItems:"center", justifyContent:"space-between", gap:8, marginBottom:easy ? 10 : 8 }}>
+        <div style={{ fontSize:fs(22), fontWeight:700, color:C.ink }}>📤 Send my list</div>
+        {people.length > 0 && !adding && (
+          <button onClick={() => setEditing(e => !e)} style={{ background:"none", border:"none", color:C.blue, fontSize:fs(18), fontWeight:600, cursor:"pointer", padding:4, fontFamily:"inherit" }}>{editing ? "Done" : "Edit"}</button>
+        )}
+      </div>
+      {!people.length && !adding && (
+        <div style={{ fontSize:fs(18), color:C.soft, lineHeight:1.5, marginBottom:easy ? 12 : 10 }}>Save someone once, then send them your list with one tap.</div>
+      )}
+
+      {people.map((c, i) => (
+        <div key={i} style={{ display:"flex", gap:8, marginBottom:easy ? 10 : 8 }}>
+          <button onClick={() => send(c)} style={btn(GREEN, "#fff", { flex:1, textAlign:"left", lineHeight:1.25 })}>
+            Send list to {c.name}
+            <div style={{ fontSize:fs(16), fontWeight:400, opacity:.9 }}>by {SEND_VIA[c.via] || "message"}</div>
+          </button>
+          {editing && <button onClick={() => removePerson(i)} aria-label={`Remove ${c.name}`} style={btn("transparent", C.red, { border:`2px solid ${C.red}` })}>Remove</button>}
+        </div>
+      ))}
+
+      {adding ? (
+        <div style={{ marginTop:4 }}>
+          <label style={{ display:"block", fontSize:fs(18), fontWeight:700, color:C.ink, marginBottom:6 }}>Their name</label>
+          <input value={form.name} onChange={e => setForm(f => ({ ...f, name:e.target.value }))} placeholder="For example: Mum" autoComplete="off" style={inputStyle} />
+          <div style={{ fontSize:fs(18), fontWeight:700, color:C.ink, marginBottom:6 }}>Send by</div>
+          <div style={{ display:"flex", gap:8, marginBottom:easy ? 12 : 9, flexWrap:"wrap" }}>
+            {[["whatsapp", "WhatsApp"], ["sms", "Text"], ["email", "Email"]].map(([k, l]) => (
+              <button key={k} onClick={() => setForm(f => ({ ...f, via:k }))} aria-pressed={form.via === k}
+                style={btn(form.via === k ? C.blue : "transparent", form.via === k ? "#fff" : C.blue, { flex:1, border:`2px solid ${C.blue}`, padding:easy ? "12px 4px" : "9px 4px", fontSize:fs(19) })}>{l}</button>
+            ))}
+          </div>
+          <label style={{ display:"block", fontSize:fs(18), fontWeight:700, color:C.ink, marginBottom:6 }}>{toLabel}</label>
+          <input value={form.to} onChange={e => setForm(f => ({ ...f, to:e.target.value }))} placeholder={form.via === "email" ? "name@example.com" : "07797 123456"}
+            inputMode={form.via === "email" ? "email" : "tel"} autoComplete="off" style={inputStyle} />
+          <div style={{ fontSize:fs(16), color:C.soft, lineHeight:1.5, marginBottom:easy ? 12 : 9 }}>Leave it blank to choose the person each time. Names and numbers are saved on this phone only.</div>
+          <div style={{ display:"flex", gap:8 }}>
+            <button onClick={saveAndSend} disabled={!form.name.trim()} style={btn(GREEN, "#fff", { flex:2, opacity:form.name.trim() ? 1 : .5 })}>Save and send</button>
+            <button onClick={() => { setAdding(false); setForm({ name:"", via:"whatsapp", to:"" }); }} style={btn("transparent", C.ink, { flex:1, border:`2px solid ${C.line}` })}>Cancel</button>
+          </div>
+        </div>
+      ) : (
+        <div style={{ display:"flex", gap:8, flexWrap:"wrap" }}>
+          {people.length < SEND_MAX && (
+            <button onClick={() => { setAdding(true); setEditing(false); }} style={btn("transparent", C.blue, { flex:1, border:`2px solid ${C.blue}`, whiteSpace:"nowrap" })}>
+              {people.length ? "+ Add someone" : "+ Choose who to send to"}
+            </button>
+          )}
+          <button onClick={shareOther} style={btn("transparent", C.blue, { flex:1, border:`2px solid ${C.blue}`, whiteSpace:"nowrap" })}>Other ways…</button>
+        </div>
+      )}
+    </div>
+  );
+}
+
 function EasyView({ products, basket, setBasket, onExit }) {
   const [tab, setTab]       = useState("find");     // find | list
   const [query, setQuery]   = useState("");
@@ -21102,6 +21257,7 @@ function EasyView({ products, basket, setBasket, onExit }) {
                     </div>
                   )}
                 </div>
+                <SendListPanel basket={basket} products={products} easy />
                 {listItems.map(i=><PriceCard key={i.p.id} p={i.p} inList={i.qty} />)}
                 {!confirmClear ? (
                   <button onClick={()=>setConfirmClear(true)} style={easyBtn("#fff",EASY_C.red,{ width:"100%", border:`2px solid ${EASY_C.red}`, fontSize:18 })}>Clear my list</button>
