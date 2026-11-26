@@ -4,11 +4,11 @@
   "entries": [
     {
       "name": "Jason L",
-      "points": 771
+      "points": 779
     },
     {
       "name": "Katrina B",
-      "points": 652
+      "points": 662
     },
     {
       "name": "Sandra B",
@@ -16,7 +16,7 @@
     },
     {
       "name": "Lucy D",
-      "points": 325
+      "points": 326
     },
     {
       "name": "Mary C",
@@ -46,11 +46,11 @@
   "stores": {
     "morrisons": {
       "goal": 200,
-      "prices": 191
+      "prices": 196
     },
     "waitrose": {
       "goal": 1100,
-      "prices": 1039
+      "prices": 1043
     },
     "ms": {
       "goal": 300,
