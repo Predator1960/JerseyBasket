@@ -1,6 +1,6 @@
 {
   "competition": "nov2026",
-  "updated": "25 Nov",
+  "updated": "26 Nov",
   "entries": [
     {
       "name": "Jason L",
@@ -8,7 +8,7 @@
     },
     {
       "name": "Katrina B",
-      "points": 542
+      "points": 580
     },
     {
       "name": "Sandra B",
@@ -46,7 +46,7 @@
   "stores": {
     "morrisons": {
       "goal": 200,
-      "prices": 136
+      "prices": 155
     },
     "waitrose": {
       "goal": 1100,
