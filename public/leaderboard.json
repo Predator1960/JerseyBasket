@@ -4,7 +4,7 @@
   "entries": [
     {
       "name": "Jason L",
-      "points": 779
+      "points": 807
     },
     {
       "name": "Katrina B",
@@ -45,16 +45,16 @@
   ],
   "stores": {
     "morrisons": {
-      "goal": 200,
-      "prices": 196
+      "goal": 300,
+      "prices": 200
     },
     "waitrose": {
       "goal": 1100,
-      "prices": 1071
+      "prices": 1077
     },
     "ms": {
       "goal": 300,
-      "prices": 253
+      "prices": 257
     }
   },
   "winners": {
