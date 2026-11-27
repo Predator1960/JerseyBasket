@@ -159,9 +159,9 @@ const SUB = { fontSize: "clamp(14px,1.8vw,30px)", color: "#94a3b8", textAlign: "
 
 function Intro() {
   const stats = [
-    [`${fmt(Math.floor(BASE_PRODUCTS.length / 500) * 500)}+`, "products"],
+    [`${fmt(Math.floor(BASE_PRODUCTS.length / 100) * 100)}+`, "products"],
     [`${STORES.length}`, "supermarkets"],
-    ["3,000+", "Jersey shoppers"],
+    ["3,250+", "local users"],
     ["Free", "no sign-up"],
   ];
   return (
