@@ -11,12 +11,12 @@
       "points": 722
     },
     {
-      "name": "Sandra B",
-      "points": 343
+      "name": "Lucy D",
+      "points": 395
     },
     {
-      "name": "Lucy D",
-      "points": 332
+      "name": "Sandra B",
+      "points": 343
     },
     {
       "name": "Mary C",
@@ -50,11 +50,11 @@
     },
     "waitrose": {
       "goal": 1200,
-      "prices": 1155
+      "prices": 1180
     },
     "ms": {
       "goal": 300,
-      "prices": 285
+      "prices": 290
     }
   },
   "winners": {
