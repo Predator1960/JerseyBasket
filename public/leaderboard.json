@@ -4,7 +4,7 @@
   "entries": [
     {
       "name": "Jason L",
-      "points": 883
+      "points": 935
     },
     {
       "name": "Katrina B",
@@ -23,6 +23,10 @@
       "points": 321
     },
     {
+      "name": "Michelle B",
+      "points": 229
+    },
+    {
       "name": "Tina S",
       "points": 207
     },
@@ -33,10 +37,6 @@
     {
       "name": "Frankie D",
       "points": 152
-    },
-    {
-      "name": "Michelle B",
-      "points": 138
     },
     {
       "name": "Yasmin T",
@@ -50,11 +50,11 @@
     },
     "waitrose": {
       "goal": 1200,
-      "prices": 1117
+      "prices": 1155
     },
     "ms": {
       "goal": 300,
-      "prices": 257
+      "prices": 285
     }
   },
   "winners": {
