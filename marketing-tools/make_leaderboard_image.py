@@ -27,6 +27,9 @@ args = sys.argv[1:]
 TOP = 5   # the 4:5 image fits five rows with the footer; override with --top N (more than 5 will not fit)
 if "--top" in args:
     i = args.index("--top"); TOP = int(args[i + 1]); del args[i:i + 2]
+badge = None   # --badge "2 DAYS LEFT": big gold countdown badge top right
+if "--badge" in args:
+    i = args.index("--badge"); badge = args[i + 1]; del args[i:i + 2]
 note = None
 if "--note" in args:
     i = args.index("--note"); note = args[i + 1]; del args[i:i + 2]
@@ -44,7 +47,7 @@ if note is None:
     note = "Prize draw: 3 tickets drawn at random from everyone outside the top two with a checked receipt"
 
 g.init()
-g.sparkles(seed=21, n=7, area=(560, 20, 1060, 215))
+if not badge: g.sparkles(seed=21, n=7, area=(560, 20, 1060, 215))
 g.sparkles(seed=22, n=6, area=(1024, 300, 1068, 1100))
 g.sparkles(seed=23, n=6, area=(8, 330, 50, 1100))
 d, W, H = g.d, g.W, g.H
@@ -55,6 +58,12 @@ d.text((70, 70), "JerseyBasket.je", font=font("georgiab.ttf", 44), fill="white",
 g.pill((70, 116, 560, 164), "NOVEMBER PRICE HUNT \u00b7 LEADERBOARD", *g.GOLD, ink=g.INK_GOLD, size=21, lift=0.7, glow=(255, 200, 40))
 d.text((70, 232), "Who's winning?", font=font("georgiab.ttf", 64), fill="white", anchor="lm")
 d.text((70, 286), f"Updated {lb.get('updated', '')}", font=font("segoeui.ttf", 26), fill=(255, 214, 80), anchor="lm")
+if badge:
+    parts = badge.split(" ", 1)
+    g.card3d((640, 62, 1010, 300), *g.GOLD, r=36, lift=1.2, glow=(255, 200, 40))
+    d.text((825, 150), parts[0], font=font("georgiab.ttf", 120), fill=g.INK_GOLD, anchor="mm")
+    if len(parts) > 1:
+        d.text((825, 252), parts[1], font=font("segoeuib.ttf", 46), fill=g.INK_GOLD, anchor="mm")
 
 # Entries: raised cards, 1st gold / 2nd silver / 3rd bronze / others green
 entries = sorted(lb.get("entries", []), key=lambda e: e.get("points", 0), reverse=True)[:TOP]
