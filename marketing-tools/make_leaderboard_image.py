@@ -105,9 +105,9 @@ for k in ("morrisons", "waitrose", "ms"):
     goal, n = st.get("goal", 100), st.get("prices", 0)
     pct = min(1.0, n / goal)
     d.text((70, y + 22), labels[k], font=font("segoeuib.ttf", 28), fill="white", anchor="lm")
-    d.rounded_rectangle([250, y + 7, 880, y + 37], radius=15, fill=(0, 30, 20, 120), outline=(255, 255, 255, 45), width=2)
+    d.rounded_rectangle([225, y + 7, 820, y + 37], radius=15, fill=(0, 30, 20, 120), outline=(255, 255, 255, 45), width=2)
     if pct > 0:
-        g.card3d((252, y + 8, 252 + max(30, int(626 * pct)), y + 36), (255, 226, 110), (226, 156, 18), r=14, lift=0.3)
+        g.card3d((227, y + 8, 227 + max(30, int(591 * pct)), y + 36), (255, 226, 110), (226, 156, 18), r=14, lift=0.3)
     d.text((W - 70, y + 22), f"{n} / {goal}", font=font("segoeuib.ttf", 28), fill="white", anchor="rm")
     y += 54
 
