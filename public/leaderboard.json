@@ -4,11 +4,11 @@
   "entries": [
     {
       "name": "Jason L",
-      "points": 807
+      "points": 883
     },
     {
       "name": "Katrina B",
-      "points": 718
+      "points": 722
     },
     {
       "name": "Sandra B",
@@ -49,8 +49,8 @@
       "prices": 200
     },
     "waitrose": {
-      "goal": 1100,
-      "prices": 1077
+      "goal": 1200,
+      "prices": 1117
     },
     "ms": {
       "goal": 300,
